@@ -126,3 +126,23 @@ a { color: var(--accent); text-decoration-thickness: .08em; }
     transition: none !important;
   }
 }
+
+/* Sections & layout */
+.section { padding: 2.5rem 0; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.span-12 { grid-column: span 12; }
+.span-6 { grid-column: span 6; }
+@media (max-width: 900px) {
+  .span-6 { grid-column: span 12; }
+}
+
+/* Cards & KPIs */
+.card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+.card.surface { background: var(--surface); }
+.kpis { display: flex; gap: 24px; flex-wrap: wrap; }
+.kpi { min-width: 220px; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: #fff; }
+.kpi .num { font-weight: 700; font-size: 1.5rem; }
+.badge { display: inline-block; background: var(--brand-pill-bg); color: var(--brand-pill-text); border-radius: 999px; padding: .25rem .5rem; font-size: .85rem; }
+
+/* Simple list */
+.checks { list-style: disc; margin: 0 0 1.25rem 1.25rem; }

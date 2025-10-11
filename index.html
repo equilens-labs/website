@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Equilens FL‑BSA — Fair‑Lending Bias‑Simulation Appliance</title>
-  <meta name="description" content="Deterministic bias simulation and compliance evidence — self‑hosted, no data leaves your VPC.">
+  <title>Equilens — Fair-Lending Bias-Simulation Appliance (FL-BSA)</title>
+  <meta name="description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
   <link rel="canonical" href="https://equilens.io/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -15,15 +15,15 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://equilens.io/">
-  <meta property="og:title" content="Equilens FL‑BSA — Fair‑Lending Bias‑Simulation Appliance">
-  <meta property="og:description" content="Deterministic bias simulation and compliance evidence — self‑hosted, no data leaves your VPC.">
+  <meta property="og:title" content="Equilens — Fair-Lending Bias-Simulation Appliance">
+  <meta property="og:description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
   <meta property="og:image" content="https://equilens.io/assets/brand/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://equilens.io/">
-  <meta name="twitter:title" content="Equilens FL‑BSA — Fair‑Lending Bias‑Simulation Appliance">
-  <meta name="twitter:description" content="Deterministic bias simulation and compliance evidence — self‑hosted, no data leaves your VPC.">
+  <meta name="twitter:title" content="Equilens — Fair-Lending Bias-Simulation Appliance">
+  <meta name="twitter:description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
   <meta name="twitter:image" content="https://equilens.io/assets/brand/og-default.png">
   <link rel="stylesheet" href="./assets/base.css">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -36,33 +36,82 @@
       <a class="brand" href="./">
         <img class="brand-logo" src="./assets/brand/logo-mark.svg" srcset="./assets/brand/logo-mark.png 1x, ./assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="Equilens logo">
         <span class="brand-name">Equilens</span>
-        <span class="brand-pill" aria-label="product line">FL‑BSA</span>
+        <span class="brand-pill" aria-label="product line">FL-BSA</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
+        <a href="./product/">Product</a>
+        <a href="./trust-center/">Trust Center</a>
+        <a href="./pricing/">Pricing</a>
         <a href="./contact/">Contact</a>
         <a href="./legal/">Legal</a>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="wrap">
-    <section class="hero">
-      <h1>Fair‑Lending Bias‑Simulation Appliance</h1>
-      <p class="tagline">Deterministic bias simulation &amp; compliance evidence — self‑hosted, no data leaves your VPC.</p>
-      <ul class="features">
-        <li>Dual‑branch testing: Historical bias vs achievable fairness with clear “X% → Y%” deltas.</li>
-        <li>Regulator‑ready outputs: 30‑page PDF + signed manifest &amp; certificates (ECOA, EU AI Act, FCA).</li>
-        <li>Sealed appliance: AWS Marketplace AMI or docker‑compose; zero outbound calls by default.</li>
-      </ul>
-      <p>
-        <a class="cta" href="mailto:equilens@equilens.io">Contact us</a>
-      </p>
-    </section>
+  <main id="main" class="wrap hero section">
+    <h1>Fair-Lending Bias-Simulation Appliance</h1>
+    <p class="tagline">Deterministic bias simulation &amp; <strong>regulator-ready evidence</strong> — self-hosted, no data leaves your VPC.</p>
+    <ul class="checks">
+      <li><strong>Dual-branch testing</strong>: Historical bias vs achievable fairness, with clear “X% → Y%” deltas.</li>
+      <li><strong>Evidence bundle</strong>: 30-page PDF, signed manifest, quality &amp; compliance certificates.</li>
+      <li><strong>Sealed appliance</strong>: AWS Marketplace AMI or docker-compose; zero outbound calls by default.</li>
+    </ul>
+    <p><a class="cta" href="./contact/">Contact</a></p>
   </main>
+
+  <section class="wrap section">
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="card span-6">
+        <h3>1) Calibrate</h3>
+        <p>Upload data (or summary stats). A dual-branch CTGAN engine calibrates:</p>
+        <ul class="checks">
+          <li>Amplification branch (features + historic decisions)</li>
+          <li>Intrinsic branch (features only)</li>
+        </ul>
+      </div>
+      <div class="card span-6">
+        <h3>2) Simulate &amp; Measure</h3>
+        <p>Generate synthetic borrowers with embedded decisions; compute AIF360 &amp; Fairlearn metrics (DI ratio, EO, etc.).</p>
+      </div>
+      <div class="card span-6">
+        <h3>3) Evidence Bundle</h3>
+        <p>Receive a signed manifest, regulator-ready PDF, certificates (data quality, model fidelity, training convergence, synthetic quality, regulatory alignment).</p>
+      </div>
+      <div class="card span-6">
+        <h3>4) Audit-Trail</h3>
+        <p>Artifacts retrievable by Task ID; hashes chain data → model → output, ensuring defensible lineage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2>Designed for regulators</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="num">PDF + Manifest</div><div>30-page report + signed JSON</div></div>
+      <div class="kpi"><div class="num">CFPB • EU AI Act • FCA</div><div>Evidence mapped to framework clauses</div></div>
+      <div class="kpi"><div class="num">Self-hosted</div><div>No data leaves your boundary</div></div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2>Why teams choose Equilens</h2>
+    <div class="grid">
+      <div class="card span-6"><h3>Sealed appliance</h3><p>Runs entirely in your VPC. Optional usage metrics only.</p></div>
+      <div class="card span-6"><h3>Deterministic</h3><p>Reproducible runs with pinned versions; CPU-only profiles supported.</p></div>
+      <div class="card span-6"><h3>Performance</h3><p>Validated at scale; 10k–1M rows in minutes; daily monitoring in ≤5 min.</p></div>
+      <div class="card span-6"><h3>Observability</h3><p><code>/metrics</code> endpoint (Prometheus format); optional Grafana dashboard JSON.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2>Next steps</h2>
+    <p>See the <a href="./product/">product</a> details, review the <a href="./trust-center/">Trust Center</a>, or check <a href="./pricing/">pricing</a>.</p>
+  </section>
 
   <footer class="site-footer">
     <div class="wrap">
-      <small>&copy; <span id="year">2025</span> Equilens Labs. All rights reserved.</small>
+      <small>&copy; <span id="year">2025</span> Equilens. All rights reserved.</small>
     </div>
   </footer>
   <script>
