@@ -3,6 +3,7 @@
 Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 - Content: HTML/CSS only, root directory
+- Brand assets: source files live under `docs/brand/`; runtime copies under `assets/brand/`
 - Custom domain: set via `CNAME`
 - Workflow: `.github/workflows/pages.yml`
 
