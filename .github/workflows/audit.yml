@@ -1,0 +1,50 @@
+name: Site audits (links, a11y, Lighthouse)
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python server
+        run: |
+          python3 -m pip install --upgrade pip
+          nohup python3 -m http.server 8080 >/dev/null 2>&1 &
+          sleep 1
+
+      - name: Link check (Lychee pinned)
+        uses: lycheeverse/lychee-action@v1.10.0
+        with:
+          args: --config ops/lychee.toml .
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.1'
+
+      - name: Install a11y & Lighthouse CLIs
+        run: |
+          npm i -g pa11y-ci@3.1.0 @lhci/cli@0.13.0
+
+      - name: Accessibility (Pa11y CI)
+        run: pa11y-ci --config ops/pa11yci.json
+
+      - name: Lighthouse CI (3 URLs)
+        run: lhci autorun --config=ops/lighthouserc.json || true
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-audits
+          path: |
+            ./*.report.json
+            ./.lighthouseci/**/*
+            ./lychee/results.md

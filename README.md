@@ -7,9 +7,10 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
   - Includes `wordmark.svg`, `wordmark_text.svg`, `wordmark_outlined.svg`, `tokens.json`, and `press-kit.json`
   - Social preview art: `assets/brand/og-default.svg` and generated `assets/brand/og-default.png`
 - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
+- Icon generation: `scripts/icons/generate.py` produces Apple/PWA icons in `assets/brand/`
 - Additional hardening: `404.html`, `.well-known/security.txt`
 - Custom domain: set via `CNAME`
-- Workflow: `.github/workflows/pages.yml`
+- Workflows: `.github/workflows/pages.yml` (deploy) and `.github/workflows/audit.yml` (links/a11y/Lighthouse reports)
 - Evidence: `output/ops/BRAND-IMPL-001/` and `output/ops/BRAND-IMPL-002/` store hash manifests for brand rollout phases
 
 Local preview: `python3 -m http.server` and open http://localhost:8000
