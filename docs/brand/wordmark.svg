@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="160" viewBox="0 0 720 160" role="img" aria-labelledby="title desc" data-placeholder="true">
+  <title id="title">Equilens wordmark (placeholder)</title>
+  <desc id="desc">Temporary text-only wordmark set in a system UI font. Replace with outlined official design when available.</desc>
+  <rect width="100%" height="100%" fill="none"/>
+  <g fill="#0B0B0C">
+    <text x="0" y="110" font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif"
+          font-size="96" font-weight="700" letter-spacing="0.5">Equilens</text>
+  </g>
+</svg>
