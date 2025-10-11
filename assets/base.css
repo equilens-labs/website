@@ -127,6 +127,13 @@ a { color: var(--accent); text-decoration-thickness: .08em; }
   }
 }
 
+/* FAQ & Press helpers */
+.faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: #fff; margin-bottom: 1rem; }
+.faq-item summary { cursor: pointer; font-weight: 700; }
+.faq-item[open] { background: var(--surface); }
+.asset-list { list-style: disc; margin: 0 0 1.25rem 1.25rem; }
+.note { color: var(--muted); font-size: .95rem; }
+
 /* Sections & layout */
 .section { padding: 2.5rem 0; }
 .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
