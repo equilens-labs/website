@@ -1,0 +1,22 @@
+{
+  "brand": "Equilens",
+  "product": "FL-BSA",
+  "legal_entity": {
+    "name": "Valfox Ltd",
+    "jurisdiction": "United Kingdom",
+    "registered_office": "840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL",
+    "source": "https://find-and-update.company-information.service.gov.uk/company/14469638"
+  },
+  "trading_location_note": "Trading headquarters communicated as London, United Kingdom.",
+  "generated_at_utc": "2025-10-11T10:54:32Z",
+  "artifacts": [
+    {
+      "path": "output/ops/BRAND-IMPL-001/hashes.sha256",
+      "description": "SHA-256 checksums for runtime brand assets and themed pages"
+    },
+    {
+      "path": "output/ops/BRAND-IMPL-001/source_hashes.sha256",
+      "description": "SHA-256 checksums for source-brand asset pack files"
+    }
+  ]
+}

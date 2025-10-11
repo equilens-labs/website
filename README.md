@@ -6,6 +6,7 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 - Brand assets: source files live under `docs/brand/`; runtime copies under `assets/brand/`
 - Custom domain: set via `CNAME`
 - Workflow: `.github/workflows/pages.yml`
+- Evidence: `output/ops/BRAND-IMPL-001/` stores hash manifests for brand theme rollout
 
 Local preview: `python3 -m http.server` and open http://localhost:8000
 
