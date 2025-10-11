@@ -4,10 +4,11 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 - Content: HTML/CSS only, root directory
 - Brand assets: source files live under `docs/brand/`; runtime copies under `assets/brand/`
-  - Includes `wordmark.svg`, `tokens.json`, and `press-kit.json` as SSOT references
+  - Includes `wordmark.svg`, `wordmark_text.svg`, `wordmark_outlined.svg`, `tokens.json`, and `press-kit.json`
+  - Social preview art: `assets/brand/og-default.svg` (export PNG before launch)
 - Custom domain: set via `CNAME`
 - Workflow: `.github/workflows/pages.yml`
-- Evidence: `output/ops/BRAND-IMPL-001/` stores hash manifests for brand theme rollout
+- Evidence: `output/ops/BRAND-IMPL-001/` and `output/ops/BRAND-IMPL-002/` store hash manifests for brand rollout phases
 
 Local preview: `python3 -m http.server` and open http://localhost:8000
 

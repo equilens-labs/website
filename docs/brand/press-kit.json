@@ -2,9 +2,13 @@
   "name": "Equilens",
   "version": "v1.1",
   "assets": {
-    "logo_mark_svg": "docs/brand/equilens_logo_mark_pack_v1_1/favicon.svg",
+    "logo_mark_svg": "docs/brand/logo-mark.svg",
+    "logo_mark_pack": "docs/brand/equilens_logo_mark_pack_v1_1/",
     "wordmark_svg": "docs/brand/wordmark.svg",
-    "tokens": "docs/brand/tokens.json"
+    "wordmark_text_svg": "docs/brand/wordmark_text.svg",
+    "wordmark_outlined_svg": "docs/brand/wordmark_outlined.svg",
+    "tokens": "docs/brand/tokens.json",
+    "og_artwork": "assets/brand/og-default.svg"
   },
   "palette": {
     "slate": "#1E293B",
