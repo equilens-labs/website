@@ -6,11 +6,19 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 - Brand assets: source files live under `docs/brand/`; runtime copies under `assets/brand/`
   - Includes `wordmark.svg`, `wordmark_text.svg`, `wordmark_outlined.svg`, `tokens.json`, and `press-kit.json`
   - Social preview art: `assets/brand/og-default.svg` and generated `assets/brand/og-default.png`
+- Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
+- Additional hardening: `404.html`, `.well-known/security.txt`
 - Custom domain: set via `CNAME`
 - Workflow: `.github/workflows/pages.yml`
 - Evidence: `output/ops/BRAND-IMPL-001/` and `output/ops/BRAND-IMPL-002/` store hash manifests for brand rollout phases
 
 Local preview: `python3 -m http.server` and open http://localhost:8000
+
+## Deployment automation
+
+- Pushes to `main` keep the site private (`noindex` / `Disallow: /`).
+- Trigger `Deploy website to GitHub Pages` manually with `visibility=public` once you are ready to open indexing; rerun with `visibility=private` to revert.
+- Each deployment run renders the OG PNG and writes evidence snapshots under `output/ops/SITE-DEPLOY-<timestamp>/`.
 
 ## VS Code remote setup
 

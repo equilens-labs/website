@@ -6,6 +6,13 @@ on:
     paths:
       - '**'
   workflow_dispatch:
+    inputs:
+      visibility:
+        description: 'Site visibility (private keeps noindex & Disallow; public adds sitemap & allows indexing)'
+        required: true
+        default: 'private'
+        type: choice
+        options: [ 'private', 'public' ]
 
 permissions:
   contents: read
@@ -16,16 +23,51 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  SITE_VISIBILITY: ${{ github.event_name == 'workflow_dispatch' && inputs.visibility || 'private' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Python for tooling
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install OG renderer
+        run: |
+          python -m pip install --upgrade pip
+          pip install cairosvg
+
+      - name: Ensure script permissions
+        run: |
+          chmod +x scripts/seo/toggle-robots.sh scripts/og/render.sh scripts/evidence/snapshot.sh || true
+
+      - name: Set site visibility (private/public)
+        run: |
+          echo "SITE_VISIBILITY=${SITE_VISIBILITY}"
+          python3 scripts/seo/set-indexing.py "${SITE_VISIBILITY}"
+          scripts/seo/toggle-robots.sh "${SITE_VISIBILITY}"
+
+      - name: Generate sitemap (public only)
+        if: env.SITE_VISIBILITY == 'public'
+        run: python3 scripts/seo/gen-sitemap.py
+
+      - name: Render OpenGraph PNG from SVG
+        run: scripts/og/render.sh
+
+      - name: Evidence snapshot
+        run: scripts/evidence/snapshot.sh "SITE-DEPLOY"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
