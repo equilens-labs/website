@@ -127,6 +127,43 @@ a { color: var(--accent); text-decoration-thickness: .08em; }
   }
 }
 
+/* ----- Block‑9: polish additions (append) ----- */
+
+/* Spacing & type rhythm */
+:root {
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+}
+
+.wrap p { max-width: 72ch; line-height: 1.6; margin: .75rem 0; }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--muted); margin: .5rem 0 1rem; }
+
+/* Headings scale */
+h1 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); line-height: 1.15; margin: .25rem 0 .5rem; }
+h2 { font-size: clamp(1.25rem, 2.4vw, 1.75rem); margin: .75rem 0 .5rem; }
+h3 { font-size: clamp(1.1rem, 1.9vw, 1.25rem); margin: .5rem 0 .25rem; }
+
+/* Section contrast */
+.section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* Nav & header polish */
+header.wrap { gap: var(--space-3); }
+header.wrap nav a { margin-left: var(--space-3); text-decoration: none; }
+header.wrap nav a:hover,
+header.wrap nav a:focus-visible { text-decoration: underline; }
+.brand-logo { vertical-align: middle; margin-right: 8px; }
+
+/* Breathing space */
+.card + .card { margin-top: var(--space-3); }
+.kpis .kpi .num { letter-spacing: .2px; }
+
+/* Lists */
+.checks { margin: .25rem 0 1rem 1.25rem; }
+
 /* FAQ & Press helpers */
 .faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: #fff; margin-bottom: 1rem; }
 .faq-item summary { cursor: pointer; font-weight: 700; }

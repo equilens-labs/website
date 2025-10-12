@@ -1,4 +1,5 @@
 {
+  "_checksums.json": "9f4ac9111b47ef2571b472f2d2d6ad559e2d135018ff9501d03fbb21f2c231ce",
   "accessibility_present.txt": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87",
   "cookie_no_analytics.txt": "928ca77f2d3468a631dfd434278a45dedd4abb7877fcacbfe180f08ff585c725",
   "dpa_position_present.txt": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87",
@@ -19,6 +20,6 @@
   "security.txt.copy": "b6807cba5338ae43bb0f4df09dcbe7072b97873c8b9919123ea27d9822246d51",
   "security_contact.txt": "d3a10e37e01e5e7740fa128eaf590e58536a50f059e73ba7b373fc7c2b115eae",
   "security_expires.txt": "acf5c6fbd89e1f041b7a16594c6ef12f3073014c07e40879b0eefe20ede65165",
-  "tos_has_governing_law.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tos_has_governing_law.txt": "e29709d971427ee735583cee21c1bdd85518d32dfbc27bbd5b8bc526b9eff5ea",
   "trust_center_present.txt": "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
 }
