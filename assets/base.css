@@ -127,6 +127,14 @@ a { color: var(--accent); text-decoration-thickness: .08em; }
   }
 }
 
+@media print {
+  body { color: #000; background: #fff; }
+  header, nav, footer { border: none; }
+  a::after { content: " (" attr(href) ")"; font-size: .8rem; }
+  .cta { border: 1px solid #000; color: #000 !important; background: transparent !important; }
+  .card { background: #fff; border: 1px solid #bbb; box-shadow: none; }
+}
+
 /* ----- Block‑9: polish additions (append) ----- */
 
 /* Spacing & type rhythm */

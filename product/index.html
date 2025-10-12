@@ -1,27 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>FL-BSA — Product Overview</title>
-  <meta name="description" content="FL-BSA: Dual-branch calibration, synthetic generation, bias metrics, and signed evidence for fair-lending compliance.">
-  <link rel="canonical" href="https://equilens.io/product/">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#1E293B">
-  <link rel="preload" href="../assets/base.css" as="style">
-  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://equilens.io/product/">
-  <meta property="og:title" content="Equilens FL-BSA — Product">
-  <meta property="og:image" content="https://equilens.io/assets/brand/og-default.png">
-  <link rel="stylesheet" href="../assets/base.css">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="../favicon.ico" sizes="any">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="noindex, nofollow" name="robots"/>
+  <title>
+   FL-BSA &mdash; Product Overview
+  </title>
+  <meta content="FL-BSA: Dual-branch calibration, synthetic generation, bias metrics, and signed evidence for fair-lending compliance." name="description"/>
+  <link href="https://equilens.io/product/" rel="canonical"/>
+  <meta content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" http-equiv="Content-Security-Policy"/>
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#1E293B" name="theme-color"/>
+  <link as="style" href="../assets/base.css" rel="preload"/>
+  <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/site.webmanifest" rel="manifest"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://equilens.io/product/" property="og:url"/>
+  <meta content="Equilens FL-BSA &mdash; Product" property="og:title"/>
+  <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
+  <link href="../assets/base.css" rel="stylesheet"/>
+  <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="../favicon.ico" rel="alternate icon" sizes="any"/>
   <script type="application/ld+json">
-  {
+   {
     "@context":"https://schema.org",
     "@graph":[
       {
@@ -55,105 +57,194 @@
     ]
   }
   </script>
-</head>
-<body>
-  <a class="skip-to-content" href="#main">Skip to content</a>
+ </head>
+ <body>
+  <a class="skip-to-content" href="#main">
+   Skip to content
+  </a>
   <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="../">
-        <img class="brand-logo" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="Equilens logo">
-        <span class="brand-name">Equilens</span>
-        <span class="brand-pill" aria-label="product line">FL-BSA</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../">Home</a>
-        <a href="../trust-center/">Trust Center</a>
-        <a href="../pricing/">Pricing</a>
-        <a href="../contact/">Contact</a>
-        <a href="../legal/">Legal</a>
-      </nav>
-    </div>
+   <div class="wrap">
+    <a class="brand" href="../">
+     <img alt="Equilens logo" class="brand-logo" height="32" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32"/>
+     <span class="brand-name">
+      Equilens
+     </span>
+     <span aria-label="product line" class="brand-pill">
+      FL-BSA
+     </span>
+    </a>
+    <nav aria-label="Primary" class="site-nav">
+     <a href="../">
+      Home
+     </a>
+     <a href="../trust-center/">
+      Trust Center
+     </a>
+     <a href="../pricing/">
+      Pricing
+     </a>
+     <a href="../contact/">
+      Contact
+     </a>
+     <a href="../legal/">
+      Legal
+     </a>
+    </nav>
+   </div>
   </header>
-
-  <main id="main" class="wrap section">
-    <h1>Fair-Lending Bias-Simulation Appliance (FL-BSA)</h1>
-    <p class="tagline">Self-hosted appliance for bias simulation, signed evidence, and reporting across lending workflows.</p>
-
+  <main class="wrap section" id="main">
+   <h1>
+    Fair-Lending Bias-Simulation Appliance (FL-BSA)
+   </h1>
+   <p class="tagline">
+    Self-hosted appliance for bias simulation, signed evidence, and reporting across lending workflows.
+   </p>
+   <div class="grid">
+    <div class="card span-6">
+     <h2>
+      Architecture
+     </h2>
+     <ul class="checks">
+      <li>
+       Multi-container via docker-compose (API, Worker, Redis). Single-tenant AMI via AWS Marketplace.
+      </li>
+      <li>
+       Optional Prometheus;
+       <code>
+        /metrics
+       </code>
+       exposed for customer monitoring.
+      </li>
+      <li>
+       CPU-only &amp; GPU-preferred profiles; deterministic configs.
+      </li>
+     </ul>
+    </div>
+    <div class="card span-6">
+     <h2>
+      Dual-branch calibration
+     </h2>
+     <ul class="checks">
+      <li>
+       <strong>
+        Amplification branch
+       </strong>
+       : train on features + historic decisions.
+      </li>
+      <li>
+       <strong>
+        Intrinsic branch
+       </strong>
+       : train on features only to estimate achievable fairness.
+      </li>
+      <li>
+       Displays &ldquo;Historical bias: X% &rarr; Achievable: Y%&rdquo;.
+      </li>
+     </ul>
+    </div>
+    <div class="card span-6">
+     <h2>
+      Synthetic generation
+     </h2>
+     <p>
+      Produce 100k&ndash;3M borrower rows matching the joint distribution; can over-sample sparse protected groups.
+     </p>
+    </div>
+    <div class="card span-6">
+     <h2>
+      Bias-audit pipeline
+     </h2>
+     <p>
+      Metrics via AIF360 &amp; Fairlearn (Statistical Parity, Demographic Parity, Equalized Odds, etc.); renders LaTeX&rarr;PDF; signs manifest.
+     </p>
+    </div>
+    <div class="card span-6">
+     <h2>
+      Evidence bundle
+     </h2>
+     <p>
+      Regulator-ready PDF, signed manifest (dataset hash, RNG seed, software version), and certificates (Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, Regulatory Alignment).
+     </p>
+    </div>
+    <div class="card span-6">
+     <h2>
+      Monitoring &amp; observability
+     </h2>
+     <ul class="checks">
+      <li>
+       Prometheus metrics: CTGAN training, hardware utilization, bias deltas
+      </li>
+      <li>
+       Optional Grafana dashboard JSON
+      </li>
+      <li>
+       Health checks for Redis &amp; Celery
+      </li>
+     </ul>
+    </div>
+   </div>
+   <section class="section">
+    <h2>
+     Input scenarios
+    </h2>
     <div class="grid">
-      <div class="card span-6">
-        <h2>Architecture</h2>
-        <ul class="checks">
-          <li>Multi-container via docker-compose (API, Worker, Redis). Single-tenant AMI via AWS Marketplace.</li>
-          <li>Optional Prometheus; <code>/metrics</code> exposed for customer monitoring.</li>
-          <li>CPU-only &amp; GPU-preferred profiles; deterministic configs.</li>
-        </ul>
-      </div>
-      <div class="card span-6">
-        <h2>Dual-branch calibration</h2>
-        <ul class="checks">
-          <li><strong>Amplification branch</strong>: train on features + historic decisions.</li>
-          <li><strong>Intrinsic branch</strong>: train on features only to estimate achievable fairness.</li>
-          <li>Displays “Historical bias: X% → Achievable: Y%”.</li>
-        </ul>
-      </div>
-      <div class="card span-6">
-        <h2>Synthetic generation</h2>
-        <p>Produce 100k–3M borrower rows matching the joint distribution; can over-sample sparse protected groups.</p>
-      </div>
-      <div class="card span-6">
-        <h2>Bias-audit pipeline</h2>
-        <p>Metrics via AIF360 &amp; Fairlearn (Statistical Parity, Demographic Parity, Equalized Odds, etc.); renders LaTeX→PDF; signs manifest.</p>
-      </div>
-      <div class="card span-6">
-      <h2>Evidence bundle</h2>
-      <p>Regulator-ready PDF, signed manifest (dataset hash, RNG seed, software version), and certificates (Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, Regulatory Alignment).</p>
-      </div>
-      <div class="card span-6">
-        <h2>Monitoring &amp; observability</h2>
-        <ul class="checks">
-          <li>Prometheus metrics: CTGAN training, hardware utilization, bias deltas</li>
-          <li>Optional Grafana dashboard JSON</li>
-          <li>Health checks for Redis &amp; Celery</li>
-        </ul>
-      </div>
+     <div class="card span-6">
+      <h3>
+       Full-row mode
+      </h3>
+      <p>
+       &ge;10k anonymized applications incl. decision + one protected class. Trains CTGAN; saves SHA-256 of CSV.
+      </p>
+     </div>
+     <div class="card span-6">
+      <h3>
+       Summary-stats mode
+      </h3>
+      <p>
+       YAML counts (approval rate by gender, FICO share, product mix). IPF warp of FCA synthetic template.
+      </p>
+     </div>
     </div>
-
-    <section class="section">
-      <h2>Input scenarios</h2>
-      <div class="grid">
-        <div class="card span-6">
-          <h3>Full-row mode</h3>
-          <p>≥10k anonymized applications incl. decision + one protected class. Trains CTGAN; saves SHA-256 of CSV.</p>
-        </div>
-        <div class="card span-6">
-          <h3>Summary-stats mode</h3>
-          <p>YAML counts (approval rate by gender, FICO share, product mix). IPF warp of FCA synthetic template.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Who it’s for</h2>
-      <p>Risk, Model Risk, Compliance, Internal Audit; engineers supporting governance &amp; reporting.</p>
-    </section>
-
-    <section class="section">
-      <a class="cta" href="../contact/">Request details</a>
-    </section>
+   </section>
+   <section class="section">
+    <h2>
+     Who it&rsquo;s for
+    </h2>
+    <p>
+     Risk, Model Risk, Compliance, Internal Audit; engineers supporting governance &amp; reporting.
+    </p>
+   </section>
+   <section class="section">
+    <a class="cta" href="../contact/">
+     Request details
+    </a>
+   </section>
   </main>
-
   <footer class="site-footer">
-    <div class="wrap">
-      <small>&copy; <span id="year">2025</span> Equilens. All rights reserved.</small>
-    </div>
+   <div class="wrap">
+    <small>
+     &copy; &lt;span id='year'&gt;2025&lt;/span&gt; Equilens &middot;
+     <a href="../docs/">
+      Docs
+     </a>
+     &middot;
+     <a href="../faq/">
+      FAQ
+     </a>
+     &middot;
+     <a href="../press/">
+      Press
+     </a>
+    </small>
+   </div>
   </footer>
   <script>
-    (function () {
+   (function () {
       try {
         var y = document.getElementById('year');
         if (y) { y.textContent = new Date().getFullYear(); }
       } catch (e) {}
     }());
   </script>
-</body>
+ </body>
 </html>
