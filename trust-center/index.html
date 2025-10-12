@@ -53,6 +53,7 @@
           <li>SBOM + SLSA provenance (image)</li>
           <li>Cosign-signed OCI images (keyless with GitHub OIDC)</li>
           <li>Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT</li>
+          <li><code>security.txt</code> published per RFC 9116</li>
         </ul>
       </div>
       <div class="card span-6">
@@ -77,10 +78,9 @@
         <p>Report a security issue via <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.<br>Security.txt is available at <code>/.well-known/security.txt</code>.</p>
       </div>
     </div>
-
     <section class="section">
-      <h2>Evidence chain</h2>
-      <p>Every run emits a signed manifest (SHA-256) linking input hash → model parameters → outputs (PDF, metrics, generators). Evidence is retrievable by Task ID.</p>
+      <h2>Evidence chain &amp; open source</h2>
+      <p>Every run emits a signed manifest (SHA-256) linking input hash → model parameters → outputs (PDF, metrics, generators). Evidence is retrievable by Task ID. Where a component’s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
     </section>
   </main>
 

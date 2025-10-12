@@ -1,0 +1,6 @@
+legal/cookie-policy.html
+legal/export.html
+legal/imprint.html
+legal/index.html
+legal/privacy.html
+legal/tos.html

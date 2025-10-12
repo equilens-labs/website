@@ -1,0 +1,2 @@
+8:  <meta name="description" content="Company information and trading disclosures for Equilens (Valfox Ltd).">
+48:        <li><strong>Legal name:</strong> Valfox Ltd (trading as “Equilens”).</li>

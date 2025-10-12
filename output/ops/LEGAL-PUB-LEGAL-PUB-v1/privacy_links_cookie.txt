@@ -1,0 +1,2 @@
+90:      <h2>Cookies &amp; similar technologies</h2>
+91:      <p>We do not use analytics, advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
