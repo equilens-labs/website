@@ -24,6 +24,15 @@ rg -n "Cookie" legal/privacy.html >"$BASE/privacy_links_cookie.txt"
 
 rg -n "We do <strong>not</strong> use analytics" legal/cookie-policy.html >"$BASE/cookie_no_analytics.txt"
 
+[ -f legal/open-source.html ] && echo OK > "$BASE/open_source_present.txt" || echo MISSING > "$BASE/open_source_present.txt"
+[ -f legal/accessibility.html ] && echo OK > "$BASE/accessibility_present.txt" || echo MISSING > "$BASE/accessibility_present.txt"
+[ -f legal/dpa-position.html ] && echo OK > "$BASE/dpa_position_present.txt" || echo MISSING > "$BASE/dpa_position_present.txt"
+[ -f legal/responsible-use.html ] && echo OK > "$BASE/responsible_use_present.txt" || echo MISSING > "$BASE/responsible_use_present.txt"
+[ -f trust-center/index.html ] && echo OK > "$BASE/trust_center_present.txt" || echo MISSING > "$BASE/trust_center_present.txt"
+
+rg -n "Governing law" legal/tos.html > "$BASE/tos_has_governing_law.txt" || true
+rg -n "retained" legal/privacy.html > "$BASE/privacy_has_retention.txt" || true
+
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
 rg -n "<script[^>]+src=\"https?://" legal || echo "OK: no external script src on legal/" >"$BASE/no_external_scripts_ok.txt"
 

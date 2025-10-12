@@ -1,0 +1,2 @@
+78:        <li>Email correspondence: retained as needed for support and communications, then deleted when no longer required.</li>
+79:        <li>Server/CDN logs: rotated automatically and retained for approximately 30 days for diagnostics and security.</li>
