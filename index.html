@@ -10,8 +10,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#1E293B">
-  <link rel="preload" href="./assets/base.css" as="style">
-  <link rel="preload" href="./assets/elegant.css" as="style">
+  <link rel="preload" href="./assets/base.css" rel="stylesheet">
+  <link rel="preload" href="./assets/elegant.css" rel="stylesheet">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
@@ -26,8 +26,7 @@
   <meta name="twitter:title" content="Equilens — Fair-Lending Bias-Simulation Appliance">
   <meta name="twitter:description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
   <meta name="twitter:image" content="https://equilens.io/assets/brand/og-default.png">
-  <link rel="stylesheet" href="./assets/base.css">
-  <link rel="stylesheet" href="./assets/elegant.css">
+  <link rel="stylesheet" href="./assets/product.css">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="./favicon.ico" sizes="any">
   <script type="application/ld+json">
@@ -68,8 +67,10 @@
   <div class="wrap">
     <a class="brand" href="./">
       <img class="brand-logo" src="./assets/brand/logo-mark.svg" srcset="./assets/brand/logo-mark.png 1x, ./assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="">
-      <span class="brand-name">Equilens</span>
-      <span class="brand-pill" aria-label="product line">FL-BSA</span>
+      <div class="brand-text">
+        <span class="brand-name">Equilens</span>
+        <span class="brand-tagline">Algorithmic Compliance</span>
+      </div>
     </a>
     <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -90,7 +91,8 @@
 </header>
 
   <main id="main" class="wrap hero section">
-    <h1>Fair-Lending Bias-Simulation Appliance</h1>
+    <h1>Algorithmic Compliance Platform</h1>
+    <p class="hero-subtitle">Enterprise solutions for regulatory compliance in algorithmic decision-making</p>
     <div class="hero-diagram">
       <svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture: Your data flows to Equilens appliance, which produces evidence bundle">
         <defs>
@@ -108,13 +110,8 @@
         <text x="480" y="55" text-anchor="middle" font-size="14" fill="#0B0B0C">Evidence Bundle</text>
       </svg>
     </div>
-    <p class="lead">Deterministic bias simulation &amp; <strong>regulator-ready evidence</strong> — self-hosted; no data leaves your VPC.</p>
-    <ul class="checks">
-      <li><strong>Dual-branch testing</strong>: historical bias vs. achievable fairness (clear “X% → Y%” deltas).</li>
-      <li><strong>Evidence bundle</strong>: 30-page PDF, signed manifest, and certificates.</li>
-      <li><strong>Sealed appliance</strong>: AWS Marketplace AMI or docker-compose; zero outbound calls by default.</li>
-    </ul>
-    <p><a class="cta" href="./fl-bsa/">Explore FL-BSA</a><a class="cta-secondary" href="./contact/">or contact us</a></p>
+    <p class="lead">Ensure your algorithms meet regulatory standards with enterprise-grade compliance tools.</p>
+    <p><a class="cta" href="./contact/">Get Started</a><a class="cta-secondary" href="#products">view our products</a></p>
 </main>
 
   <section class="wrap section trust-section">
@@ -127,8 +124,23 @@
     </div>
   </section>
 
+  <section class="wrap section" id="products">
+    <h2>Our Products</h2>
+    <div class="product-feature">
+      <h3>FL-BSA: Fair-Lending Bias-Simulation Appliance</h3>
+      <p class="product-description">Purpose-built for financial institutions to demonstrate fair lending compliance</p>
+      <ul class="product-highlights">
+        <li><strong>Dual-branch testing</strong>: Historical bias vs. achievable fairness (clear "X% → Y%" deltas)</li>
+        <li><strong>Evidence bundle</strong>: 30-page PDF, signed manifest, and certificates</li>
+        <li><strong>Sealed appliance</strong>: AWS Marketplace AMI or docker-compose; zero outbound calls</li>
+        <li><strong>Self-hosted</strong>: No data leaves your VPC</li>
+      </ul>
+      <a class="cta-product" href="./fl-bsa/">Learn about FL-BSA →</a>
+    </div>
+  </section>
+
   <section class="wrap section alt">
-    <h2>How it works</h2>
+    <h2>How FL-BSA Works</h2>
     <div class="grid">
       <div class="card span-6">
         <h3><span class="card-icon" aria-hidden="true">📊</span> 1) Calibrate</h3>

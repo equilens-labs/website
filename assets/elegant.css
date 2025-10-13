@@ -125,25 +125,26 @@ body {
 
 .brand-name {
   font-weight: 800;
+  font-size: 1.25rem;
   letter-spacing: var(--tracking-tight);
-  background: linear-gradient(135deg, var(--slate) 0%, var(--slate-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--slate);
+  line-height: 1;
 }
 
-.brand-pill {
-  background: var(--accent-gradient);
-  color: white;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-spring);
-  font-weight: 700;
-  letter-spacing: var(--tracking-wide);
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
 }
 
-.brand:hover .brand-pill {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
+.brand-tagline {
+  font-size: 0.625rem;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
 /* Navigation - Elegant Underline Effect */
@@ -189,6 +190,15 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.hero-subtitle {
+  font-size: var(--text-xl);
+  color: var(--muted);
+  margin: -0.5rem auto 2rem;
+  max-width: 600px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .hero::before {
