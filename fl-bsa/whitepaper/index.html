@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="noindex, nofollow" name="robots"/>
+  <title>FL-BSA Whitepaper (Outline)</title>
+  <meta content="Structure of the Equilens FL-BSA whitepaper: methodology, controls, deployment, and evidence delivery." name="description"/>
+  <link href="https://equilens.io/fl-bsa/whitepaper/" rel="canonical"/>
+  <meta content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" http-equiv="Content-Security-Policy"/>
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#1E293B" name="theme-color"/>
+  <link as="style" href="../../assets/base.css" rel="preload"/>
+  <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/site.webmanifest" rel="manifest"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://equilens.io/fl-bsa/whitepaper/" property="og:url"/>
+  <meta content="FL-BSA Whitepaper outline" property="og:title"/>
+  <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
+  <link href="../../assets/base.css" rel="stylesheet"/>
+  <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="../../favicon.ico" rel="alternate icon" sizes="any"/>
+ </head>
+ <body>
+  <a class="skip-to-content" href="#main">
+   Skip to content
+  </a>
+  <header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">
+      <img class="brand-logo" src="../../assets/brand/logo-mark.svg" srcset="../../assets/brand/logo-mark.png 1x, ../../assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="">
+      <span class="brand-name">Equilens</span>
+      <span class="brand-pill" aria-label="product line">FL-BSA</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary" id="primary-nav">
+      <a href="../../">Home</a>
+      <a href="../../fl-bsa/" aria-current="page">FL-BSA</a>
+      <a href="../../trust-center/">Trust Center</a>
+      <a href="../../pricing/">Pricing</a>
+      <a href="../../contact/">Contact</a>
+      <a href="../../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
+  <main class="wrap section" id="main">
+   <article class="paper">
+    <header>
+     <h1>FL-BSA Whitepaper (Outline)</h1>
+     <p class="lead">Structure for the forthcoming whitepaper covering methodology, controls, deployment, and evidence artefacts.</p>
+     <p class="note">PDF placeholder: <code>Equilens_FL-BSA_Whitepaper_v1.pdf</code> (request access before distribution).</p>
+    </header>
+    <section>
+     <h2>1. Executive summary</h2>
+     <ul class="checks">
+      <li>Purpose: deterministic bias simulation for regulated lenders.</li>
+      <li>Scope: FL-BSA appliance; no outbound connectivity by default.</li>
+      <li>Audience: Compliance, Model Risk, Internal Audit, Supervisors.</li>
+     </ul>
+    </section>
+    <section>
+     <h2>2. Data pipeline &amp; modelling</h2>
+     <p>The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.</p>
+    </section>
+    <section>
+     <h2>3. Controls &amp; assurance</h2>
+     <ul class="checks">
+      <li>Data boundary: runs in-customer VPC; no default telemetry.</li>
+      <li>Hash chain: dataset → calibration artefacts → generated outputs.</li>
+      <li>Evidence: PDF, signed manifest, certificate appendix.</li>
+      <li>Governance tie-ins: FCA, EU AI Act, ECOA references.</li>
+     </ul>
+    </section>
+    <section>
+     <h2>4. Deployment patterns</h2>
+     <p>Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.</p>
+    </section>
+    <section>
+     <h2>5. Appendices</h2>
+     <ul class="checks">
+      <li>Glossary and metric definitions (DI, EO, TPR/TNR deltas).</li>
+      <li>Sample manifest excerpt with SHA-256 hashes.</li>
+      <li>Contact and procurement steps (<a href="../../procurement/">/procurement/</a>).</li>
+     </ul>
+    </section>
+    <footer>
+     <p class="note">To request the latest PDF, email <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>. Provide intended use, jurisdiction, and any confidentiality requirements.</p>
+    </footer>
+   </article>
+  </main>
+  <footer class="site-footer">
+   <div class="wrap">
+    <small>&copy; <span id="year">2025</span> Equilens &middot; <a href="../../docs/">Docs</a> &middot; <a href="../../faq/">FAQ</a> &middot; <a href="../../press/">Press</a> &middot; <a href="../../procurement/">Procurement</a></small>
+   </div>
+  </footer>
+  <script>
+    (function () {
+      try {
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.site-header').forEach(function (header) {
+          var toggle = header.querySelector('.menu-toggle');
+          var nav = header.querySelector('.site-nav');
+          if (!toggle || !nav) { return; }
+
+          var closeMenu = function () {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            nav.classList.toggle('is-open');
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+              closeMenu();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+              closeMenu();
+              toggle.focus();
+            }
+          });
+        });
+      } catch (e) {}
+    }());
+  </script>
+</body>
+</html>

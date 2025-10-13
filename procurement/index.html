@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="noindex, nofollow" name="robots"/>
+  <title>Procurement &amp; Deployment — Equilens FL-BSA</title>
+  <meta content="How regulated teams subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance." name="description"/>
+  <link href="https://equilens.io/procurement/" rel="canonical"/>
+  <meta content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" http-equiv="Content-Security-Policy"/>
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#1E293B" name="theme-color"/>
+  <link as="style" href="../assets/base.css" rel="preload"/>
+  <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/site.webmanifest" rel="manifest"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://equilens.io/procurement/" property="og:url"/>
+  <meta content="Procurement &amp; Deployment — Equilens FL-BSA" property="og:title"/>
+  <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
+  <link href="../assets/base.css" rel="stylesheet"/>
+  <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="../favicon.ico" rel="alternate icon" sizes="any"/>
+  <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2025-10-12 for Valfox Ltd registered office. -->
+  <script type="application/ld+json">
+   {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Buy and deploy FL-BSA",
+    "description": "How regulated teams subscribe via AWS Marketplace and deploy the self-hosted appliance.",
+    "totalTime": "PT15M",
+    "step": [
+      {"@type": "HowToStep", "name": "Subscribe", "text": "Open the AWS Marketplace listing and click Subscribe. Review and accept the standard terms."},
+      {"@type": "HowToStep", "name": "Launch", "text": "Launch the AMI in your AWS account. Choose instance type and network placement per policy."},
+      {"@type": "HowToStep", "name": "Start services", "text": "On boot, systemd runs docker-compose; the appliance is available on port 8080 (adjustable)."},
+      {"@type": "HowToStep", "name": "Run a test", "text": "Upload sample data or the FCA sandbox dataset. Generate the signed manifest and PDF."},
+      {"@type": "HowToStep", "name": "Move to Pilot-Plus", "text": "Activate the paid Pilot-Plus tier or request a Private Offer once procurement approves."}
+    ]
+   }
+  </script>
+ </head>
+ <body>
+  <a class="skip-to-content" href="#main">Skip to content</a>
+  <header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <img class="brand-logo" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="">
+      <span class="brand-name">Equilens</span>
+      <span class="brand-pill" aria-label="product line">FL-BSA</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary" id="primary-nav">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
+  <main class="wrap section" id="main">
+   <h1>Procurement &amp; Deployment</h1>
+   <p class="lead">Buy through AWS Marketplace and deploy inside your boundary. Billing flows through AWS; confirm with your procurement policy.</p>
+   <p class="note">Vendor of record: Valfox Ltd (Company No. 14469638), 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL.</p>
+   <section class="section">
+    <h2>How to buy (AWS Marketplace)</h2>
+    <div class="steps">
+     <div class="step">
+      <header>Subscribe</header>
+      <p>Open the AWS Marketplace listing and click <em>Subscribe</em>. Review and accept the standard terms.</p>
+     </div>
+     <div class="step">
+      <header>Launch</header>
+      <p>Launch the AMI in your account. Select instance type, region, VPC, and subnet per your change controls.</p>
+     </div>
+     <div class="step">
+      <header>Start services</header>
+      <p>Boot runs <code>docker-compose</code> via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.</p>
+     </div>
+     <div class="step">
+      <header>Run a test</header>
+      <p>Upload sample data or the FCA sandbox dataset. Produce the PDF report, signed manifest, and checksum log.</p>
+     </div>
+     <div class="step">
+      <header>Move to Pilot-Plus</header>
+      <p>Activate the paid Pilot-Plus tier or request a Private Offer for enterprise terms once procurement approves.</p>
+     </div>
+    </div>
+   </section>
+   <section class="section alt">
+    <h2>Procurement package</h2>
+    <div class="grid">
+     <div class="card span-6">
+      <h3>Evidence bundle</h3>
+      <ul class="checks">
+       <li>Signed manifest (JSON) and PDF report with embedded hashes.</li>
+       <li>Infrastructure BOM and network diagram (request access).</li>
+       <li>Security attestations aligned to FCA, EU AI Act, and ECOA checkpoints.</li>
+      </ul>
+     </div>
+     <div class="card span-6">
+      <h3>Commercials</h3>
+      <ul class="checks">
+       <li>AWS Marketplace listing with hourly and annual pricing.</li>
+       <li>Pilot-Plus tier (3-month) for regulated sandbox evaluations.</li>
+       <li>Private Offer support for custom terms or multi-entity rollouts.</li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <h2>Deployment options</h2>
+    <div class="grid">
+     <div class="card span-6">
+      <h3>AWS AMI</h3>
+      <p>Single-tenant AMI with deterministic boot. Delivers API, worker, and reporting services; integrates with customer IAM.</p>
+     </div>
+     <div class="card span-6">
+      <h3>Container (VM)</h3>
+      <p>docker-compose stack (API, Worker, Redis). CPU-only profile available; GPU preferred for faster synthetic generation.</p>
+     </div>
+    </div>
+    <p class="note">Coordinate CSP, HSTS, and CAA updates through your network and DNS teams. We provide implementation runbooks on request.</p>
+   </section>
+   <section class="section">
+    <h2>Need a walkthrough?</h2>
+    <p>Procurement reviews commonly cover control objectives, evidence bundling, and internal audit mapping. We can join vendor risk calls or provide templated responses.</p>
+   </section>
+   <section class="section">
+    <p><a class="cta" href="../contact/">Contact Equilens</a></p>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="wrap">
+    <small>&copy; <span id="year">2025</span> Equilens &middot; <a href="../docs/">Docs</a> &middot; <a href="../faq/">FAQ</a> &middot; <a href="../press/">Press</a> &middot; <a href="../procurement/">Procurement</a></small>
+   </div>
+  </footer>
+  <script>
+    (function () {
+      try {
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.site-header').forEach(function (header) {
+          var toggle = header.querySelector('.menu-toggle');
+          var nav = header.querySelector('.site-nav');
+          if (!toggle || !nav) { return; }
+
+          var closeMenu = function () {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            nav.classList.toggle('is-open');
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+              closeMenu();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+              closeMenu();
+              toggle.focus();
+            }
+          });
+        });
+      } catch (e) {}
+    }());
+  </script>
+</body>
+</html>

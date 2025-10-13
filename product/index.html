@@ -4,10 +4,8 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="noindex, nofollow" name="robots"/>
-  <title>
-   FL-BSA &mdash; Product Overview
-  </title>
-  <meta content="FL-BSA: Dual-branch calibration, synthetic generation, bias metrics, and signed evidence for fair-lending compliance." name="description"/>
+  <title>Products — Equilens</title>
+  <meta content="Equilens products overview. Explore FL-BSA and track forthcoming appliances." name="description"/>
   <link href="https://equilens.io/product/" rel="canonical"/>
   <meta content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" http-equiv="Content-Security-Policy"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
@@ -17,7 +15,7 @@
   <link href="/site.webmanifest" rel="manifest"/>
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/product/" property="og:url"/>
-  <meta content="Equilens FL-BSA &mdash; Product" property="og:title"/>
+  <meta content="Equilens products" property="og:title"/>
   <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
   <link href="../assets/base.css" rel="stylesheet"/>
   <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
@@ -25,37 +23,17 @@
   <script type="application/ld+json">
    {
     "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"SoftwareApplication",
-        "name":"FL-BSA — Fair-Lending Bias-Simulation Appliance",
-        "applicationCategory":"BusinessApplication",
-        "operatingSystem":"Linux, Containerized",
-        "softwareHelp":"https://github.com/equilens-labs/fl-bsa",
-        "publisher":{"@type":"Organization","name":"Equilens"},
-        "inLanguage":"en",
-        "offers":[
-          {"@type":"Offer","name":"Pilot-Plus","priceCurrency":"GBP","price":"10000","category":"license"},
-          {"@type":"Offer","name":"Growth","priceCurrency":"GBP","price":"36000","category":"license"},
-          {"@type":"Offer","name":"Enterprise","priceCurrency":"GBP","price":"120000","category":"license"}
-        ]
-      },
+    "@type":"CollectionPage",
+    "name":"Equilens products",
+    "hasPart":[
       {
         "@type":"Product",
         "name":"FL-BSA",
-        "brand":{"@type":"Brand","name":"Equilens"},
-        "description":"Self-hosted appliance for bias simulation, audit evidence, and reporting in lending workflows.",
-        "url":"https://equilens.io/product/"
-      },
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://equilens.io/"},
-          {"@type":"ListItem","position":2,"name":"Product","item":"https://equilens.io/product/"}
-        ]
+        "url":"https://equilens.io/fl-bsa/",
+        "description":"Self-hosted bias simulation and evidence appliance."
       }
     ]
-  }
+   }
   </script>
  </head>
  <body>
@@ -63,188 +41,102 @@
    Skip to content
   </a>
   <header class="site-header">
-   <div class="wrap">
+  <div class="wrap">
     <a class="brand" href="../">
-     <img alt="Equilens logo" class="brand-logo" height="32" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32"/>
-     <span class="brand-name">
-      Equilens
-     </span>
-     <span aria-label="product line" class="brand-pill">
-      FL-BSA
-     </span>
+      <img class="brand-logo" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="">
+      <span class="brand-name">Equilens</span>
+      <span class="brand-pill" aria-label="product line">FL-BSA</span>
     </a>
-    <nav aria-label="Primary" class="site-nav">
-     <a href="../">
-      Home
-     </a>
-     <a href="../trust-center/">
-      Trust Center
-     </a>
-     <a href="../pricing/">
-      Pricing
-     </a>
-     <a href="../contact/">
-      Contact
-     </a>
-     <a href="../legal/">
-      Legal
-     </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="site-nav" aria-label="Primary" id="primary-nav">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
     </nav>
-   </div>
-  </header>
+  </div>
+</header>
   <main class="wrap section" id="main">
-   <h1>
-    Fair-Lending Bias-Simulation Appliance (FL-BSA)
-   </h1>
-   <p class="tagline">
-    Self-hosted appliance for bias simulation, signed evidence, and reporting across lending workflows.
-   </p>
-   <div class="grid">
-    <div class="card span-6">
-     <h2>
-      Architecture
-     </h2>
-     <ul class="checks">
-      <li>
-       Multi-container via docker-compose (API, Worker, Redis). Single-tenant AMI via AWS Marketplace.
-      </li>
-      <li>
-       Optional Prometheus;
-       <code>
-        /metrics
-       </code>
-       exposed for customer monitoring.
-      </li>
-      <li>
-       CPU-only &amp; GPU-preferred profiles; deterministic configs.
-      </li>
-     </ul>
-    </div>
-    <div class="card span-6">
-     <h2>
-      Dual-branch calibration
-     </h2>
-     <ul class="checks">
-      <li>
-       <strong>
-        Amplification branch
-       </strong>
-       : train on features + historic decisions.
-      </li>
-      <li>
-       <strong>
-        Intrinsic branch
-       </strong>
-       : train on features only to estimate achievable fairness.
-      </li>
-      <li>
-       Displays &ldquo;Historical bias: X% &rarr; Achievable: Y%&rdquo;.
-      </li>
-     </ul>
-    </div>
-    <div class="card span-6">
-     <h2>
-      Synthetic generation
-     </h2>
-     <p>
-      Produce 100k&ndash;3M borrower rows matching the joint distribution; can over-sample sparse protected groups.
-     </p>
-    </div>
-    <div class="card span-6">
-     <h2>
-      Bias-audit pipeline
-     </h2>
-     <p>
-      Metrics via AIF360 &amp; Fairlearn (Statistical Parity, Demographic Parity, Equalized Odds, etc.); renders LaTeX&rarr;PDF; signs manifest.
-     </p>
-    </div>
-    <div class="card span-6">
-     <h2>
-      Evidence bundle
-     </h2>
-     <p>
-      Regulator-ready PDF, signed manifest (dataset hash, RNG seed, software version), and certificates (Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, Regulatory Alignment).
-     </p>
-    </div>
-    <div class="card span-6">
-     <h2>
-      Monitoring &amp; observability
-     </h2>
-     <ul class="checks">
-      <li>
-       Prometheus metrics: CTGAN training, hardware utilization, bias deltas
-      </li>
-      <li>
-       Optional Grafana dashboard JSON
-      </li>
-      <li>
-       Health checks for Redis &amp; Celery
-      </li>
-     </ul>
-    </div>
-   </div>
+   <h1>Equilens products</h1>
+   <p class="lead">Equilens develops deterministic, self-hosted tooling for regulated fair-lending teams. FL-BSA is the first generally available appliance.</p>
    <section class="section">
-    <h2>
-     Input scenarios
-    </h2>
     <div class="grid">
      <div class="card span-6">
-      <h3>
-       Full-row mode
-      </h3>
-      <p>
-       &ge;10k anonymized applications incl. decision + one protected class. Trains CTGAN; saves SHA-256 of CSV.
-      </p>
+      <h2>FL-BSA</h2>
+      <p>Fair-Lending Bias-Simulation Appliance. Dual-branch calibration, signed manifest, and regulator-mapped evidence.</p>
+      <p><a class="cta" href="../fl-bsa/">View FL-BSA</a></p>
      </div>
-     <div class="card span-6">
-      <h3>
-       Summary-stats mode
-      </h3>
-      <p>
-       YAML counts (approval rate by gender, FICO share, product mix). IPF warp of FCA synthetic template.
-      </p>
+     <div class="card span-6 surface">
+      <h2>Roadmap</h2>
+      <p>Additional appliances (e.g., adverse action audit aids) follow after FL-BSA rollout. Request early access via <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
      </div>
     </div>
    </section>
    <section class="section">
-    <h2>
-     Who it&rsquo;s for
-    </h2>
-    <p>
-     Risk, Model Risk, Compliance, Internal Audit; engineers supporting governance &amp; reporting.
-    </p>
-   </section>
-   <section class="section">
-    <a class="cta" href="../contact/">
-     Request details
-    </a>
+    <h2>Why self-hosted?</h2>
+    <ul class="checks">
+     <li>Bank procurement prefers sealed appliances with clear data boundaries.</li>
+     <li>Evidence chains need deterministic manifests (hashes, seeds, configuration).</li>
+     <li>Regulators expect reproducible metrics aligned with ECOA, EU AI Act, FCA guidance.</li>
+    </ul>
+    <p class="note">For procurement steps and deployment packages, visit <a href="../procurement/">/procurement/</a>.</p>
    </section>
   </main>
   <footer class="site-footer">
    <div class="wrap">
-    <small>
-     &copy; &lt;span id='year'&gt;2025&lt;/span&gt; Equilens &middot;
-     <a href="../docs/">
-      Docs
-     </a>
-     &middot;
-     <a href="../faq/">
-      FAQ
-     </a>
-     &middot;
-     <a href="../press/">
-      Press
-     </a>
-    </small>
+    <small>&copy; <span id="year">2025</span> Equilens &middot; <a href="../docs/">Docs</a> &middot; <a href="../faq/">FAQ</a> &middot; <a href="../press/">Press</a> &middot; <a href="../procurement/">Procurement</a></small>
    </div>
   </footer>
   <script>
-   (function () {
+    (function () {
       try {
-        var y = document.getElementById('year');
-        if (y) { y.textContent = new Date().getFullYear(); }
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.site-header').forEach(function (header) {
+          var toggle = header.querySelector('.menu-toggle');
+          var nav = header.querySelector('.site-nav');
+          if (!toggle || !nav) { return; }
+
+          var closeMenu = function () {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            nav.classList.toggle('is-open');
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+              closeMenu();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+              closeMenu();
+              toggle.focus();
+            }
+          });
+        });
       } catch (e) {}
     }());
   </script>
- </body>
+</body>
 </html>
