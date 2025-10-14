@@ -26,6 +26,9 @@ jobs:
       - name: Ensure evidence script permissions
         run: chmod +x scripts/evidence/screenshots.sh || true
 
+      - name: Capture screenshots (evidence)
+        run: scripts/evidence/screenshots.sh "SCREENSHOTS-AUDIT"
+
       - name: Link check (Lychee pinned)
         uses: lycheeverse/lychee-action@v1.10.0
         with:
@@ -46,10 +49,8 @@ jobs:
       - name: Lighthouse CI (3 URLs)
         run: lhci autorun --config=ops/lighthouserc.json || true
 
-      - name: Capture screenshots (evidence)
-        run: scripts/evidence/screenshots.sh "SCREENSHOTS-AUDIT"
-
       - name: Upload audit artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: site-audits
@@ -59,6 +60,7 @@ jobs:
             ./lychee/results.md
 
       - name: Upload screenshots artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: site-screenshots-from-audit
