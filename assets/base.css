@@ -7,9 +7,10 @@
   --muted: #6B7280;
   --line: #E5E7EB;
   --slate: #1E293B;
-  --accent: #8B5CF6;
-  --accent-light: #A78BFA;
-  --accent-link: #6E59F7;
+  /* Darker accent palette to meet WCAG AA on light surfaces */
+  --accent: #4F46E5;         /* indigo-600 */
+  --accent-light: #6366F1;   /* indigo-500 (for pills/bg) */
+  --accent-link: #4338CA;    /* indigo-700 for focus/hover */
 
   /* Semantic aliases */
   --text: var(--ink);
@@ -181,7 +182,13 @@ a { color: var(--accent); text-decoration-thickness: .08em; }
 }
 
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); padding: .75rem 0; }
+/* Footer text is muted, but links use high-contrast color to satisfy WCAG */
 .site-footer small { color: var(--muted); }
+.site-footer small a {
+  color: var(--brand-strong);
+  text-decoration: underline;
+}
+.site-footer small a:hover { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   * {
