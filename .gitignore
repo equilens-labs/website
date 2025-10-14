@@ -1,0 +1,6 @@
+# Ignore heavy screenshot PNG artifacts produced for evidence.
+output/ops/**/*.png
+
+# Ignore local server temp files
+/tmp/website_server.log
+/tmp/website_server.pid
