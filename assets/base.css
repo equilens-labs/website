@@ -17,7 +17,8 @@
   --border: var(--line);
   --brand-strong: var(--slate);
   --accent-contrast: #FFFFFF;
-  --brand-pill-bg: var(--accent-light);
+  /* Header pill: lighten bg so dark text meets AA */
+  --brand-pill-bg: #E0E7FF;   /* indigo-100 */
   --brand-pill-text: var(--slate);
 
   /* Layout */
