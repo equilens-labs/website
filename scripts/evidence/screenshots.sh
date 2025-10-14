@@ -76,16 +76,31 @@ shot() {
     --screenshot="${out_png}" "${url}" >/dev/null 2>&1 || true
 }
 
-# Iterate pages
+# Iterate pages (desktop + mobile)
 for path in "${PAGES[@]}"; do
   # label: strip slashes, map root to 'home'
-  label=$(sed -E 's#^/+##; s#/$##; s#\.#-#g' <<<"$path")
+  label=$(sed -E 's#^/+##; s#/$##; s#\.#-#g; s#/#-#g' <<<"$path")
   [[ -z "$label" ]] && label="home"
   url="${BASE_URL}${path}"
   # Desktop
   shot "$label" "$url" 1440 3200 2
   # Mobile tall viewport to include footers on long pages
   shot "${label}-mobile" "$url" 390 3200 3
+done
+
+# Add mid-breakpoint tablet captures for key routes
+declare -a TABLET_ROUTES=( "/" "/fl-bsa/" "/pricing/" "/trust-center/" "/fl-bsa/whitepaper/" )
+for path in "${TABLET_ROUTES[@]}"; do
+  # only capture if page was discovered (exists in PAGES)
+  if printf '%s\n' "${PAGES[@]}" | rg -x "$path" >/dev/null 2>&1; then
+    label=$(sed -E 's#^/+##; s#/$##; s#\.#-#g; s#/#-#g' <<<"$path")
+    [[ -z "$label" ]] && label="home"
+    url="${BASE_URL}${path}"
+    # 768px tablet portrait @2x
+    shot "${label}-tablet768" "$url" 768 3200 2
+    # 1024px tablet landscape/small desktop @2x
+    shot "${label}-tablet1024" "$url" 1024 3200 2
+  fi
 done
 
 ( cd "$OUT" && sha256sum *.png > SHA256SUMS.txt ) || true
