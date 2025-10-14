@@ -16,6 +16,14 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 Local preview: `python3 -m http.server` and open http://localhost:8000
 
+## Evidence screenshots
+
+- Standardized captures: run `scripts/evidence/screenshots.sh`
+  - Starts a local server on `:8000` if needed
+  - Produces desktop (1440x3200 @2x) and mobile (390x3200 @3x) PNGs
+  - Artifacts, hashes, and a manifest are written under `output/ops/SCREENSHOTS-<timestamp>/`
+  - CI workflow runs on PRs, pushes to `main`, and nightly at 02:00 UTC; artifacts are uploaded and a rolling GitHub Release `screenshots-nightly` gets the latest `site-screenshots.tar.gz` asset
+
 ## Deployment automation
 
 - Pushes to `main` keep the site private (`noindex` / `Disallow: /`).

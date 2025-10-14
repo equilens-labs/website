@@ -20,6 +20,15 @@ jobs:
           nohup python3 -m http.server 8080 >/dev/null 2>&1 &
           sleep 1
 
+      - name: Install Chrome (for screenshots)
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Ensure evidence script permissions
+        run: chmod +x scripts/evidence/screenshots.sh || true
+
+      - name: Capture screenshots (evidence)
+        run: scripts/evidence/screenshots.sh "SCREENSHOTS-AUDIT"
+
       - name: Link check (Lychee pinned)
         uses: lycheeverse/lychee-action@v1.10.0
         with:
@@ -41,6 +50,7 @@ jobs:
         run: lhci autorun --config=ops/lighthouserc.json || true
 
       - name: Upload audit artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: site-audits
@@ -48,3 +58,10 @@ jobs:
             ./*.report.json
             ./.lighthouseci/**/*
             ./lychee/results.md
+
+      - name: Upload screenshots artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-screenshots-from-audit
+          path: output/ops/SCREENSHOTS-*/
