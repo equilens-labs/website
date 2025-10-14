@@ -1,4 +1,5 @@
-# Ignore heavy screenshot PNG artifacts produced for evidence.
+# Ignore all generated evidence and artifacts
+/output/
 output/ops/**/*.png
 
 # Ignore local server temp files
