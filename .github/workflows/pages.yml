@@ -60,6 +60,18 @@ jobs:
       - name: Render OpenGraph PNG from SVG
         run: scripts/og/render.sh
 
+      - name: Install Chrome (for PDF render)
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Render Whitepaper PDF (deploy artifact)
+        run: |
+          HTML="${{ github.workspace }}/fl-bsa/whitepaper/index.html"
+          OUT="${{ github.workspace }}/fl-bsa/whitepaper/Equilens_FL-BSA_Whitepaper_v1.pdf"
+          echo "Rendering $HTML -> $OUT"
+          google-chrome --headless=new --no-sandbox --disable-gpu \
+            --print-to-pdf="$OUT" "file://$HTML"
+          ls -lh "$OUT"
+
       - name: Evidence snapshot
         run: scripts/evidence/snapshot.sh "SITE-DEPLOY"
 
