@@ -15,7 +15,7 @@ HEADER = """
       <span class="font-semibold">Equilens</span>
       <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
     </a>
-    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
       <a href="{D}">Home</a>
       <a href="{D}fl-bsa/">FL-BSA</a>
       <a href="{D}trust-center/">Trust Center</a>
@@ -49,4 +49,3 @@ for html in root.rglob('*.html'):
         print('[shell] updated', html)
 
 print('Done.')
-
