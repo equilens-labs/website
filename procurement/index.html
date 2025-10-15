@@ -7,7 +7,7 @@
   <title>Procurement &amp; Deployment — Equilens FL-BSA</title>
   <meta content="How regulated teams subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance." name="description"/>
   <link href="https://equilens.io/procurement/" rel="canonical"/>
-  <meta content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" http-equiv="Content-Security-Policy"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
   <meta content="#1E293B" name="theme-color"/>
   <link as="style" href="../assets/base.css" rel="preload"/>
@@ -37,24 +37,20 @@
     ]
    }
   </script>
- </head>
+ <link rel="preload" href="../themes/appline/style.css" as="style">
+<link rel="stylesheet" href="../themes/appline/style.css">
+<link rel="stylesheet" href="../assets/brand/overrides.css">
+</head>
  <body>
   <a class="skip-to-content" href="#main">Skip to content</a>
-  <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../">
-      <img class="brand-logo" src="../assets/brand/logo-mark.svg" srcset="../assets/brand/logo-mark.png 1x, ../assets/brand/logo-mark@128.png 4x" width="32" height="32" alt="">
-      <span class="brand-name">Equilens</span>
-      <span class="brand-pill" aria-label="product line">FL-BSA</span>
+  <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
-    <nav class="site-nav" aria-label="Primary" id="primary-nav">
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
       <a href="../">Home</a>
       <a href="../fl-bsa/">FL-BSA</a>
       <a href="../trust-center/">Trust Center</a>
@@ -72,23 +68,103 @@
     <h2>How to buy (AWS Marketplace)</h2>
     <div class="steps">
      <div class="step">
-      <header>Subscribe</header>
+      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
       <p>Open the AWS Marketplace listing and click <em>Subscribe</em>. Review and accept the standard terms.</p>
      </div>
      <div class="step">
-      <header>Launch</header>
+      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
       <p>Launch the AMI in your account. Select instance type, region, VPC, and subnet per your change controls.</p>
      </div>
      <div class="step">
-      <header>Start services</header>
+      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
       <p>Boot runs <code>docker-compose</code> via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.</p>
      </div>
      <div class="step">
-      <header>Run a test</header>
+      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
       <p>Upload sample data or the FCA sandbox dataset. Produce the PDF report, signed manifest, and checksum log.</p>
      </div>
      <div class="step">
-      <header>Move to Pilot-Plus</header>
+      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
+      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
+      <span class="font-semibold">Equilens</span>
+      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../fl-bsa/">FL-BSA</a>
+      <a href="../trust-center/">Trust Center</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../contact/">Contact</a>
+      <a href="../legal/">Legal</a>
+    </nav>
+  </div>
+</header>
       <p>Activate the paid Pilot-Plus tier or request a Private Offer for enterprise terms once procurement approves.</p>
      </div>
     </div>
@@ -136,11 +212,15 @@
     <p><a class="cta" href="../contact/">Contact Equilens</a></p>
    </section>
   </main>
-  <footer class="site-footer">
-   <div class="wrap">
-    <small>&copy; <span id="year">2025</span> Equilens &middot; <a href="../docs/">Docs</a> &middot; <a href="../faq/">FAQ</a> &middot; <a href="../press/">Press</a> &middot; <a href="../procurement/">Procurement</a></small>
-   </div>
-  </footer>
+  <footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-6 text-sm text-slate-600 flex flex-wrap gap-x-6 gap-y-2">
+    <span>© 2025 Equilens</span>
+    <a href="../docs/">Docs</a>
+    <a href="../faq/">FAQ</a>
+    <a href="../press/">Press</a>
+    <a href="../procurement/">Procurement</a>
+  </div>
+</footer>
   <script>
     (function () {
       try {

@@ -1,0 +1,8 @@
+/* Equilens brand accent + system fonts, overriding Appline indigo utilities */
+:root { --equilens-accent: #6D28D9; }
+.text-indigo-600, .hover\:text-indigo-600:hover { color: var(--equilens-accent) !important; }
+.bg-indigo-600, .hover\:bg-indigo-600:hover { background-color: var(--equilens-accent) !important; }
+.border-indigo-600 { border-color: var(--equilens-accent) !important; }
+.ring-indigo-600, .focus\:ring-indigo-600:focus { --tw-ring-color: var(--equilens-accent) !important; }
+/* System UI font stack for privacy/determinism */
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
