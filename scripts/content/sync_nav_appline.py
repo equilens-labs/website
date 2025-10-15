@@ -13,7 +13,7 @@ HEADER = """
     <a class="flex items-center gap-2 text-slate-900 no-underline" href="{D}">
       <img class="h-8 w-8" src="{D}assets/brand/logo-mark.svg" width="32" height="32" alt="">
       <span class="font-semibold">Equilens</span>
-      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
+      {PILL}
     </a>
     <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
       <a href="{D}">Home</a>
@@ -39,10 +39,15 @@ FOOTER = """
 </footer>
 """.strip()
 
+def pill_for(html: pathlib.Path) -> str:
+    parts = html.relative_to(root).parts
+    return '<span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>' if 'fl-bsa' in parts else ''
+
 for html in root.rglob('*.html'):
     s = html.read_text(encoding='utf-8')
     D = depth_prefix(html)
-    new = re.sub(r"<header[\s\S]*?</header>", HEADER.replace('{D}', D), s, flags=re.I)
+    H = HEADER.replace('{D}', D).replace('{PILL}', pill_for(html))
+    new = re.sub(r"<header[\s\S]*?</header>", H, s, flags=re.I)
     new = re.sub(r"<footer[\s\S]*?</footer>", FOOTER.replace('{D}', D), new, flags=re.I)
     if new != s:
         html.write_text(new, encoding='utf-8')
