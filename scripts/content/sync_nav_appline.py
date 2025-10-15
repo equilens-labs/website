@@ -47,8 +47,9 @@ for html in root.rglob('*.html'):
     s = html.read_text(encoding='utf-8')
     D = depth_prefix(html)
     H = HEADER.replace('{D}', D).replace('{PILL}', pill_for(html))
-    new = re.sub(r"<header[\s\S]*?</header>", H, s, flags=re.I)
-    new = re.sub(r"<footer[\s\S]*?</footer>", FOOTER.replace('{D}', D), new, flags=re.I)
+    # Replace only the first top-level header/footer to avoid touching content <header> blocks
+    new = re.sub(r"<header[\s\S]*?</header>", H, s, count=1, flags=re.I)
+    new = re.sub(r"<footer[\s\S]*?</footer>", FOOTER.replace('{D}', D), new, count=1, flags=re.I)
     if new != s:
         html.write_text(new, encoding='utf-8')
         print('[shell] updated', html)

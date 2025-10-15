@@ -83,8 +83,8 @@
   </div>
 </header>
 
-  <main id="main" class="wrap hero section">
-    <h1>Fair-Lending Bias-Simulation Appliance</h1>
+  <main id="main" class="wrap hero section mx-auto max-w-7xl px-6 py-16">
+    <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">Fair-Lending Bias-Simulation Appliance</h1>
     <div class="hero-diagram">
       <svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture: Your data flows to Equilens appliance, which produces evidence bundle">
         <defs>
@@ -102,16 +102,16 @@
         <text x="480" y="55" text-anchor="middle" font-size="14" fill="#0B0B0C">Evidence Bundle</text>
       </svg>
     </div>
-    <p class="lead">Deterministic bias simulation &amp; <strong>regulator-ready evidence</strong> — self-hosted; no data leaves your VPC.</p>
+    <p class="lead mt-4 max-w-2xl text-slate-600">Deterministic bias simulation &amp; <strong>regulator-ready evidence</strong> — self-hosted; no data leaves your VPC.</p>
     <ul class="checks">
       <li><strong>Dual-branch testing</strong>: historical bias vs. achievable fairness (clear “X% → Y%” deltas).</li>
       <li><strong>Evidence bundle</strong>: 30-page PDF, signed manifest, and certificates.</li>
       <li><strong>Sealed appliance</strong>: AWS Marketplace AMI or docker-compose; zero outbound calls by default.</li>
     </ul>
-    <p><a class="cta" href="./fl-bsa/">Explore FL-BSA</a><a class="cta-secondary" href="./contact/">or contact us</a></p>
+    <p class="mt-6 flex flex-wrap gap-3"><a class="cta inline-flex items-center px-5 py-3 rounded-md text-white bg-indigo-600" href="./fl-bsa/">Explore FL-BSA</a><a class="cta-secondary inline-flex items-center px-5 py-3 rounded-md border border-slate-300 text-slate-700" href="./contact/">or contact us</a></p>
 </main>
 
-  <section class="wrap section trust-section">
+  <section class="wrap section trust-section mx-auto max-w-7xl px-6 py-12">
     <h2 class="sr-only">Trust badges</h2>
     <div class="trust-badges">
       <span class="trust-badge">SOC 2 Type II</span>
@@ -121,10 +121,10 @@
     </div>
   </section>
 
-  <section class="wrap section alt">
+  <section class="wrap section alt mx-auto max-w-7xl px-6 py-12">
     <h2>How it works</h2>
-    <div class="grid">
-      <div class="card span-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
         <h3><span class="card-icon" aria-hidden="true">📊</span> 1) Calibrate</h3>
         <p>Upload data (or summary stats). A dual-branch CTGAN engine calibrates:</p>
         <ul class="checks">
@@ -132,22 +132,22 @@
           <li>Intrinsic branch (features only)</li>
         </ul>
       </div>
-      <div class="card span-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
         <h3><span class="card-icon" aria-hidden="true">📈</span> 2) Simulate &amp; Measure</h3>
         <p>Generate synthetic borrowers with embedded decisions; compute AIF360 &amp; Fairlearn metrics (DI ratio, EO, etc.).</p>
       </div>
-      <div class="card span-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
         <h3><span class="card-icon" aria-hidden="true">📄</span> 3) Evidence Bundle</h3>
         <p>Receive a signed manifest, regulator-ready PDF, certificates (data quality, model fidelity, training convergence, synthetic quality, regulatory alignment).</p>
       </div>
-      <div class="card span-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
         <h3><span class="card-icon" aria-hidden="true">🔗</span> 4) Audit-Trail</h3>
         <p>Artifacts retrievable by Task ID; hashes chain data → model → output, ensuring defensible lineage.</p>
       </div>
     </div>
   </section>
 
-  <section class="wrap section">
+  <section class="wrap section mx-auto max-w-7xl px-6 py-12">
     <h2>Designed for regulators</h2>
     <div class="kpis">
       <div class="kpi"><div class="num">PDF + Manifest</div><div>30-page report + signed JSON</div></div>
@@ -156,25 +156,25 @@
     </div>
   </section>
 
-  <section class="wrap section alt">
+  <section class="wrap section alt mx-auto max-w-7xl px-6 py-12">
     <h2>Who it's for</h2>
-    <div class="grid">
-      <div class="card span-6"><h3>Compliance &amp; Risk</h3><p>Evidence your fair-lending posture with regulator-ready PDFs, certificate trails, and clear decision logs.</p></div>
-      <div class="card span-6"><h3>Model Risk &amp; Data</h3><p>Run synthetic scenarios safely; compare historical vs. achievable fairness with auditable manifests.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Compliance &amp; Risk</h3><p>Evidence your fair-lending posture with regulator-ready PDFs, certificate trails, and clear decision logs.</p></div>
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Model Risk &amp; Data</h3><p>Run synthetic scenarios safely; compare historical vs. achievable fairness with auditable manifests.</p></div>
     </div>
   </section>
 
-  <section class="wrap section">
+  <section class="wrap section mx-auto max-w-7xl px-6 py-12">
     <h2>Why teams choose Equilens</h2>
-    <div class="grid">
-      <div class="card span-6"><h3>Sealed appliance</h3><p>Runs entirely in your VPC. Optional usage metrics only.</p></div>
-      <div class="card span-6"><h3>Deterministic</h3><p>Reproducible runs with pinned versions; CPU-only profiles supported.</p></div>
-      <div class="card span-6"><h3>Performance</h3><p>Validated at scale; 10k–1M rows in minutes; daily monitoring in ≤5 min.</p></div>
-      <div class="card span-6"><h3>Observability</h3><p><code>/metrics</code> endpoint (Prometheus format); optional Grafana dashboard JSON.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Sealed appliance</h3><p>Runs entirely in your VPC. Optional usage metrics only.</p></div>
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Deterministic</h3><p>Reproducible runs with pinned versions; CPU-only profiles supported.</p></div>
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Performance</h3><p>Validated at scale; 10k–1M rows in minutes; daily monitoring in ≤5 min.</p></div>
+      <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6"><h3>Observability</h3><p><code>/metrics</code> endpoint (Prometheus format); optional Grafana dashboard JSON.</p></div>
     </div>
   </section>
 
-  <section class="wrap section">
+  <section class="wrap section mx-auto max-w-7xl px-6 py-12">
     <h2>Next steps</h2>
     <p>Review the <a href="./fl-bsa/">FL-BSA appliance</a>, explore the <a href="./trust-center/">Trust Center</a>, or check <a href="./pricing/">pricing</a>.</p>
   </section>

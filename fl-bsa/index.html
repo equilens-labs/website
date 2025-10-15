@@ -66,15 +66,15 @@
     </nav>
   </div>
 </header>
-  <main class="wrap section" id="main">
+  <main class="wrap section mx-auto max-w-7xl px-6 py-16" id="main">
    <h1>
     FL-BSA — Fair-Lending Bias-Simulation Appliance
    </h1>
    <p class="lead">
     Self-hosted appliance for deterministic bias simulation, regulator-ready evidence, and lending model reviews.
    </p>
-   <div class="grid">
-    <div class="card span-6">
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
      <h2>
       Architecture
      </h2>
@@ -84,7 +84,7 @@
       <li>Optional Prometheus; <code>/metrics</code> endpoint exposed for monitoring.</li>
      </ul>
     </div>
-    <div class="card span-6">
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
      <h2>
       Dual-branch calibration
      </h2>
@@ -94,7 +94,7 @@
       <li>Outputs show the delta — e.g., historical DI vs. achievable DI.</li>
      </ul>
     </div>
-    <div class="card span-6">
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
      <h2>
       Evidence bundle
      </h2>
@@ -102,7 +102,7 @@
       30-page PDF with methodology, signed manifest (dataset hash, RNG seed, software version), and certificate pack covering data quality, model fidelity, and regulatory mapping.
      </p>
     </div>
-    <div class="card span-6">
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
      <h2>
       Deployment boundary
      </h2>
@@ -111,121 +111,57 @@
      </p>
     </div>
    </div>
-   <section class="section">
+   <section class="section mx-auto max-w-7xl px-6 py-12">
     <h2>
      Workflow
     </h2>
     <div class="steps">
      <div class="step">
-      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
-      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
-      <span class="font-semibold">Equilens</span>
-      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
-    </a>
-    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
-      <a href="../">Home</a>
-      <a href="../fl-bsa/">FL-BSA</a>
-      <a href="../trust-center/">Trust Center</a>
-      <a href="../pricing/">Pricing</a>
-      <a href="../contact/">Contact</a>
-      <a href="../legal/">Legal</a>
-    </nav>
-  </div>
-</header>
+      <header class="font-semibold mb-1">1) Calibrate</header>
       <p>Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.</p>
      </div>
      <div class="step">
-      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
-      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
-      <span class="font-semibold">Equilens</span>
-      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
-    </a>
-    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
-      <a href="../">Home</a>
-      <a href="../fl-bsa/">FL-BSA</a>
-      <a href="../trust-center/">Trust Center</a>
-      <a href="../pricing/">Pricing</a>
-      <a href="../contact/">Contact</a>
-      <a href="../legal/">Legal</a>
-    </nav>
-  </div>
-</header>
+      <header class="font-semibold mb-1">2) Simulate &amp; Measure</header>
       <p>Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).</p>
      </div>
      <div class="step">
-      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
-      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
-      <span class="font-semibold">Equilens</span>
-      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
-    </a>
-    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
-      <a href="../">Home</a>
-      <a href="../fl-bsa/">FL-BSA</a>
-      <a href="../trust-center/">Trust Center</a>
-      <a href="../pricing/">Pricing</a>
-      <a href="../contact/">Contact</a>
-      <a href="../legal/">Legal</a>
-    </nav>
-  </div>
-</header>
+      <header class="font-semibold mb-1">3) Evidence</header>
       <p>Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.</p>
      </div>
      <div class="step">
-      <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
-      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
-      <span class="font-semibold">Equilens</span>
-      <span class="ml-1 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold text-indigo-700">FL-BSA</span>
-    </a>
-    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
-      <a href="../">Home</a>
-      <a href="../fl-bsa/">FL-BSA</a>
-      <a href="../trust-center/">Trust Center</a>
-      <a href="../pricing/">Pricing</a>
-      <a href="../contact/">Contact</a>
-      <a href="../legal/">Legal</a>
-    </nav>
-  </div>
-</header>
+      <header class="font-semibold mb-1">4) Review</header>
       <p>Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.</p>
      </div>
     </div>
    </section>
-  <section class="section alt">
+  <section class="section alt mx-auto max-w-7xl px-6 py-12">
     <h2>
      Deployment options
     </h2>
-    <div class="grid">
-     <div class="card span-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+     <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
       <h3>AWS AMI</h3>
       <p>Single-tenant AMI. Boots deterministic services via systemd and exposes API on 8080 (configurable).</p>
      </div>
-     <div class="card span-6">
+     <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
       <h3>Container package</h3>
       <p>docker-compose stack (API, Worker, Redis). CPU-only and GPU-preferred profiles validated at scale.</p>
      </div>
     </div>
     <p class="note">Procurement path and deployment checklist live at <a href="../procurement/">/procurement/</a>.</p>
   </section>
-  <section class="section">
+  <section class="section mx-auto max-w-7xl px-6 py-12">
    <h2>In practice</h2>
    <div class="card">
     <p><strong>Example:</strong> A bank ingests 250k historic applications including credit decisions. FL-BSA reports a historical disparate impact (DI) of 0.68 and an achievable DI of 0.83 after isolating decision leakage—documented with certificate chain and signed manifest.</p>
     <p class="note">Illustrative scenario only; not a customer claim.</p>
    </div>
   </section>
-  <section class="section">
+  <section class="section mx-auto max-w-7xl px-6 py-12">
    <h2>Need more detail?</h2>
    <p>Review the <a href="./whitepaper/">FL-BSA whitepaper</a> draft outline or contact us for procurement evidence.</p>
   </section>
-   <section class="section">
+   <section class="section mx-auto max-w-7xl px-6 py-12">
     <p>
      <a class="cta" href="../contact/">Contact Equilens</a>
      <a class="cta-secondary" href="../pricing/">View pricing</a>
