@@ -9,19 +9,17 @@ def depth_prefix(p: pathlib.Path) -> str:
 
 HEADER = """
 <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+  <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
     <a class="flex items-center gap-2 text-slate-900 no-underline" href="{D}">
       <img class="h-8 w-8" src="{D}assets/brand/logo-mark.svg" width="32" height="32" alt="">
       <span class="font-semibold">Equilens</span>
       {PILL}
     </a>
-    <nav class="flex items-center gap-6 flex-wrap" aria-label="Primary">
+    <nav class="flex items-center gap-4 text-sm flex-wrap" aria-label="Primary">
       <a href="{D}">Home</a>
       <a href="{D}fl-bsa/">FL-BSA</a>
-      <a href="{D}trust-center/">Trust Center</a>
       <a href="{D}pricing/">Pricing</a>
       <a href="{D}contact/">Contact</a>
-      <a href="{D}legal/">Legal</a>
     </nav>
   </div>
 </header>
@@ -29,12 +27,14 @@ HEADER = """
 
 FOOTER = """
 <footer class="border-t border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-6 text-sm text-slate-600 flex flex-wrap gap-x-6 gap-y-2">
+  <div class="mx-auto max-w-7xl px-6 py-5 text-sm text-slate-600 flex flex-wrap items-center gap-x-4 gap-y-2">
     <span>© 2025 Equilens</span>
     <a href="{D}docs/">Docs</a>
     <a href="{D}faq/">FAQ</a>
     <a href="{D}press/">Press</a>
     <a href="{D}procurement/">Procurement</a>
+    <a href="{D}trust-center/">Trust Center</a>
+    <a href="{D}legal/">Legal</a>
   </div>
 </footer>
 """.strip()
