@@ -110,8 +110,12 @@ jobs:
 
       - name: Guard: no vendor demo pages
         run: |
-          if grep -R -nE --include=*.html "(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)" dist; then
-            echo "::error file=dist::Vendor HTML detected in deploy artifact" && exit 1
+          set -e
+          MAP=$(find dist -type f -name '*.html' -print0 | xargs -0 -I{} sh -c "grep -nE '(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)' '{}' || true")
+          if [ -n "$MAP" ]; then
+            echo "::error file=dist::Vendor HTML detected in deploy artifact"
+            echo "$MAP"
+            exit 1
           fi
 
       - name: Evidence snapshot
