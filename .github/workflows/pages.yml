@@ -33,6 +33,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: CI context debug (early)
+        continue-on-error: true
+        run: |
+          mkdir -p ci-debug
+          echo "GITHUB_REF=$GITHUB_REF" > ci-debug/context.txt
+          echo "GITHUB_SHA=$GITHUB_SHA" >> ci-debug/context.txt
+          echo "GITHUB_EVENT_NAME=$GITHUB_EVENT_NAME" >> ci-debug/context.txt
+          echo "Actor=$GITHUB_ACTOR" >> ci-debug/context.txt
+          echo "Runner OS=$RUNNER_OS" >> ci-debug/context.txt
+          echo "Repo=$GITHUB_REPOSITORY" >> ci-debug/context.txt
+      - name: Upload CI debug (early)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-debug-early
+          path: ci-debug
+
       - name: Setup Python for tooling
         uses: actions/setup-python@v5
         with:
