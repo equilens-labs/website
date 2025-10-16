@@ -77,6 +77,12 @@ jobs:
           chmod +x scripts/deploy/prepare.sh
           scripts/deploy/prepare.sh
 
+      - name: Guard: no vendor demo pages
+        run: |
+          if rg -n "(^|/)(themes/appline/.*\.html|template/appline-.*\.html)" dist; then
+            echo "::error file=dist::Vendor HTML detected in deploy artifact" && exit 1
+          fi
+
       - name: Evidence snapshot
         run: scripts/evidence/snapshot.sh "SITE-DEPLOY"
 
