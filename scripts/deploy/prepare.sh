@@ -18,11 +18,10 @@ rsync -a \
   . dist/
 
 # Guard: no vendor demo HTML should ship
-if rg -n --hidden '/themes/appline/.*\.html|/template/appline.*\.html' dist >/dev/null 2>&1; then
+if grep -R -nE --include=*.html "(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)" dist >/dev/null 2>&1; then
   echo 'ERROR: vendor demo HTML detected in dist/' >&2
-  rg -n --hidden '/themes/appline/.*\.html|/template/appline.*\.html' dist || true
+  grep -R -nE --include=*.html "(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)" dist || true
   exit 1
 fi
 
 echo '[OK] dist prepared'
-

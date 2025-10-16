@@ -79,7 +79,7 @@ jobs:
 
       - name: Guard: no vendor demo pages
         run: |
-          if rg -n "(^|/)(themes/appline/.*\.html|template/appline-.*\.html)" dist; then
+          if grep -R -nE --include=*.html "(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)" dist; then
             echo "::error file=dist::Vendor HTML detected in deploy artifact" && exit 1
           fi
 
