@@ -64,6 +64,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Render Whitepaper PDF (deploy artifact)
+        continue-on-error: true
         run: |
           HTML="${{ github.workspace }}/fl-bsa/whitepaper/index.html"
           OUT="${{ github.workspace }}/fl-bsa/whitepaper/Equilens_FL-BSA_Whitepaper_v1.pdf"
