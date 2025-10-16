@@ -78,6 +78,13 @@ jobs:
           chmod +x scripts/deploy/prepare.sh
           scripts/deploy/prepare.sh
 
+      - name: Debug dist tree
+        run: |
+          echo "Working dir: $(pwd)"
+          du -sh dist || true
+          echo "Sample dist file list:" && find dist -maxdepth 3 -type f | sort | sed -n '1,200p'
+          echo "Whitepaper PDF (if present):" && ls -lh dist/fl-bsa/whitepaper/*.pdf 2>/dev/null || true
+
       - name: Guard: no vendor demo pages
         run: |
           if grep -R -nE --include=*.html "(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)" dist; then
