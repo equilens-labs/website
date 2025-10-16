@@ -1,0 +1,18 @@
+{
+  "columns": [
+    {"title": "Company", "links": [
+      {"label": "Press", "href": "/press/"},
+      {"label": "Procurement", "href": "/procurement/"},
+      {"label": "Trust Center", "href": "/trust-center/"}]},
+    {"title": "Legal", "links": [
+      {"label": "Privacy", "href": "/legal/privacy.html"},
+      {"label": "Cookie Policy", "href": "/legal/cookie-policy.html"},
+      {"label": "Terms of Service", "href": "/legal/tos.html"},
+      {"label": "Imprint", "href": "/legal/imprint.html"}]},
+    {"title": "Resources", "links": [
+      {"label": "Open Source", "href": "/legal/open-source.html"},
+      {"label": "Accessibility", "href": "/legal/accessibility.html"}]}
+  ],
+  "note": "© Equilens. All rights reserved."
+}
+

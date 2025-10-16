@@ -25,25 +25,26 @@
 <link rel="stylesheet" href="../assets/brand/overrides.css">
 <link rel="stylesheet" href="../assets/base.css">
 </head>
- <body>
+ <body class="eql">
   <a class="skip-to-content" href="#main">
    Skip to content
   </a>
-  <header class="relative z-50 w-full border-b border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
-    <a class="flex items-center gap-2 text-slate-900 no-underline" href="../">
-      <img class="h-8 w-8" src="../assets/brand/logo-mark.svg" width="32" height="32" alt="">
-      <span class="font-semibold">Equilens</span>
-      
+  <header class="site-header" data-sync="nav">
+  <div class="container">
+    <a class="brand" href="../">
+      <img src="../assets/brand/wordmark.svg" alt="Equilens" width="168" height="52">
     </a>
-    <nav class="flex items-center gap-4 text-sm flex-wrap" aria-label="Primary">
-      <a href="../">Home</a>
-      <a href="../fl-bsa/">FL-BSA</a>
-      <a href="../pricing/">Pricing</a>
-      <a href="../contact/">Contact</a>
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" hidden>
+      <ul><li><a href="../product/">Product</a></li><li><a href="../fl-bsa/">FL‑BSA</a></li><li><a href="../pricing/">Pricing</a></li><li><a href="../trust-center/">Trust Center</a></li><li><a href="../docs/">Docs</a></li><li><a href="../faq/">FAQ</a></li><li><a href="../contact/">Contact</a></li></ul>
     </nav>
   </div>
+  <script src="../assets/js/nav.js" defer></script>
 </header>
+
+
   <main class="wrap section hero--appline mx-auto max-w-7xl px-6 py-16" id="main">
    <h1>
     Contact
@@ -64,17 +65,18 @@
    </p>
    </div>
   </main>
-  <footer class="border-t border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-5 text-sm text-slate-600 flex flex-wrap items-center gap-x-4 gap-y-2">
-    <span>© 2025 Equilens</span>
-    <a href="../docs/">Docs</a>
-    <a href="../faq/">FAQ</a>
-    <a href="../press/">Press</a>
-    <a href="../procurement/">Procurement</a>
-    <a href="../trust-center/">Trust Center</a>
-    <a href="../legal/">Legal</a>
+  <footer class="site-footer" data-sync="footer">
+  <div class="container grid">
+<section><h3>Company</h3><ul><li><a href="../press/">Press</a></li><li><a href="../procurement/">Procurement</a></li><li><a href="../trust-center/">Trust Center</a></li></ul></section>
+<section><h3>Legal</h3><ul><li><a href="../legal/privacy.html">Privacy</a></li><li><a href="../legal/cookie-policy.html">Cookie Policy</a></li><li><a href="../legal/tos.html">Terms of Service</a></li><li><a href="../legal/imprint.html">Imprint</a></li></ul></section>
+<section><h3>Resources</h3><ul><li><a href="../legal/open-source.html">Open Source</a></li><li><a href="../legal/accessibility.html">Accessibility</a></li></ul></section>
+</div>
+  <div class="container">
+    <small>© Equilens. All rights reserved.</small>
   </div>
 </footer>
+
+
   <script>
     (function () {
       try {
