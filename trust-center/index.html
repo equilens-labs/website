@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="noindex, nofollow" name="robots"/>
+  <title>
+   Trust Center &mdash; Security &amp; Compliance
+  </title>
+  <meta content="Bank-grade security &amp; compliance posture for Equilens FL-BSA." name="description"/>
+  <link href="https://equilens.io/trust-center/" rel="canonical"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#1E293B" name="theme-color"/>
+    <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/site.webmanifest" rel="manifest"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://equilens.io/trust-center/" property="og:url"/>
+  <meta content="Equilens &mdash; Trust Center" property="og:title"/>
+  <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
+    <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="../favicon.ico" rel="alternate icon" sizes="any"/>
+ <link rel="preload" href="../themes/appline/style.css" as="style">
+<link rel="stylesheet" href="../themes/appline/style.css">
+<link rel="stylesheet" href="../assets/brand/overrides.css">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+ <body class="eql">
+  <a class="skip-to-content" href="#main">
+   Skip to content
+  </a>
+  <header class="site-header" data-sync="nav">
+  <div class="container">
+    <a class="brand" href="../">
+      <img src="../assets/brand/wordmark.svg" alt="Equilens" width="168" height="52">
+    </a>
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" hidden>
+      <ul><li><a href="../product/">Product</a></li><li><a href="../fl-bsa/">FL‑BSA</a></li><li><a href="../pricing/">Pricing</a></li><li><a href="../trust-center/">Trust Center</a></li><li><a href="../docs/">Docs</a></li><li><a href="../faq/">FAQ</a></li><li><a href="../contact/">Contact</a></li></ul>
+    </nav>
+  </div>
+  <script src="../assets/js/nav.js" defer></script>
+</header>
+
+
+  <main class="wrap section hero--appline mx-auto max-w-7xl px-6 py-16" id="main">
+   <h1>
+    Trust Center
+   </h1>
+  <p class="tagline">
+   Privacy-first, self-hosted deployment with transparent evidence and clear responsibilities.
+  </p>
+   <p class="note">This Trust Center covers Equilens (company) controls. Product-level summary lives at <a href="../fl-bsa/legal/">/fl-bsa/legal/</a>.</p>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+     <h2>
+      Security &amp; compliance artefacts
+     </h2>
+     <ul class="checks">
+      <li>
+       Cosign-signed images (keyless via GitHub OIDC)
+      </li>
+      <li>
+       SBOM + SLSA provenance
+      </li>
+      <li>
+       SOC 2 Type II report (annual)
+      </li>
+      <li>
+       Annual penetration-test letter
+      </li>
+      <li>
+       Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT
+      </li>
+      <li>
+       <code>
+        security.txt
+       </code>
+       published per RFC 9116
+      </li>
+     </ul>
+    </div>
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+     <h2>
+      Operational controls
+     </h2>
+     <ul class="checks">
+      <li>
+       Hardened containers (seccomp, non-root UID, read-only FS)
+      </li>
+      <li>
+       Secrets via KMS/Secrets Manager; rotation guidance
+      </li>
+      <li>
+       Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical
+      </li>
+      <li>
+       Semgrep &amp; CodeQL static analysis in CI
+      </li>
+     </ul>
+    </div>
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+     <h2>
+      Networking &amp; data
+     </h2>
+     <ul class="checks">
+      <li>
+       Runs in your VPC/VM; no data leaves by default
+      </li>
+      <li>
+       Optional AWS usage metrics;
+       <strong>
+        off by default
+       </strong>
+      </li>
+      <li>
+       HTTPS recommended with HSTS, CSP, Referrer-Policy
+      </li>
+     </ul>
+    </div>
+    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+     <h2>
+      Contact
+     </h2>
+     <p>
+      Report a security issue via
+      <a href="mailto:equilens@equilens.io">
+       equilens@equilens.io
+      </a>
+      .
+      <br/>
+      Security.txt is available at
+      <code>
+       /.well-known/security.txt
+      </code>
+      .
+     </p>
+    </div>
+   </div>
+   <section class="section mx-auto max-w-7xl px-6 py-12">
+    <h2>
+     Evidence chain &amp; open source
+    </h2>
+    <p>
+     Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID. Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.
+    </p>
+   </section>
+  </main>
+  <footer class="site-footer" data-sync="footer">
+  <div class="container grid">
+<section><h3>Company</h3><ul><li><a href="../press/">Press</a></li><li><a href="../procurement/">Procurement</a></li><li><a href="../trust-center/">Trust Center</a></li></ul></section>
+<section><h3>Legal</h3><ul><li><a href="../legal/privacy.html">Privacy</a></li><li><a href="../legal/cookie-policy.html">Cookie Policy</a></li><li><a href="../legal/tos.html">Terms of Service</a></li><li><a href="../legal/imprint.html">Imprint</a></li></ul></section>
+<section><h3>Resources</h3><ul><li><a href="../legal/open-source.html">Open Source</a></li><li><a href="../legal/accessibility.html">Accessibility</a></li></ul></section>
+</div>
+  <div class="container">
+    <small>© Equilens. All rights reserved.</small>
+  </div>
+</footer>
+
+
+  <script>
+    (function () {
+      try {
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.site-header').forEach(function (header) {
+          var toggle = header.querySelector('.menu-toggle');
+          var nav = header.querySelector('.site-nav');
+          if (!toggle || !nav) { return; }
+
+          var closeMenu = function () {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            nav.classList.toggle('is-open');
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+              closeMenu();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+              closeMenu();
+              toggle.focus();
+            }
+          });
+        });
+      } catch (e) {}
+    }());
+  </script>
+</body>
+</html>

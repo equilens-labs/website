@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="noindex, nofollow" name="robots"/>
+  <title>FL-BSA Whitepaper (Outline)</title>
+  <meta content="Structure of the Equilens FL-BSA whitepaper: methodology, controls, deployment, and evidence delivery." name="description"/>
+  <link href="https://equilens.io/fl-bsa/whitepaper/" rel="canonical"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#1E293B" name="theme-color"/>
+    <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/site.webmanifest" rel="manifest"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://equilens.io/fl-bsa/whitepaper/" property="og:url"/>
+  <meta content="FL-BSA Whitepaper outline" property="og:title"/>
+  <meta content="https://equilens.io/assets/brand/og-default.png" property="og:image"/>
+    <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="../../favicon.ico" rel="alternate icon" sizes="any"/>
+ <link rel="preload" href="../../themes/appline/style.css" as="style">
+<link rel="stylesheet" href="../../themes/appline/style.css">
+<link rel="stylesheet" href="../../assets/brand/overrides.css">
+<link rel="stylesheet" href="../../assets/base.css">
+</head>
+ <body class="eql">
+  <a class="skip-to-content" href="#main">
+   Skip to content
+  </a>
+  <header class="site-header" data-sync="nav">
+  <div class="container">
+    <a class="brand" href="../../">
+      <img src="../../assets/brand/wordmark.svg" alt="Equilens" width="168" height="52">
+    </a>
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" hidden>
+      <ul><li><a href="../../product/">Product</a></li><li><a href="../../fl-bsa/">FL‑BSA</a></li><li><a href="../../pricing/">Pricing</a></li><li><a href="../../trust-center/">Trust Center</a></li><li><a href="../../docs/">Docs</a></li><li><a href="../../faq/">FAQ</a></li><li><a href="../../contact/">Contact</a></li></ul>
+    </nav>
+  </div>
+  <script src="../../assets/js/nav.js" defer></script>
+</header>
+
+
+  <main class="wrap section hero--appline mx-auto max-w-3xl px-6 py-16" id="main">
+   <article class="paper">
+    <header>
+      <h1>FL-BSA Whitepaper (Outline)</h1>
+      <p class="lead">Structure for the forthcoming whitepaper covering methodology, controls, deployment, and evidence artefacts.</p>
+    </header>
+    <section>
+     <p>
+       <a class="cta" href="../">Back to FL‑BSA</a>
+       <a style="margin-left:.75rem" href="./Equilens_FL-BSA_Whitepaper_v1.pdf">Download PDF</a>
+       <a style="margin-left:.75rem" href="mailto:equilens@equilens.io?subject=Whitepaper%20request%20(FL‑BSA)">Request PDF</a>
+     </p>
+    </section>
+    <section>
+     <h2>1. Executive summary</h2>
+     <ul class="checks">
+      <li>Purpose: deterministic bias simulation for regulated lenders.</li>
+      <li>Scope: FL-BSA appliance; no outbound connectivity by default.</li>
+      <li>Audience: Compliance, Model Risk, Internal Audit, Supervisors.</li>
+     </ul>
+    </section>
+    <section>
+     <h2>2. Data pipeline &amp; modelling</h2>
+     <p>The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.</p>
+    </section>
+    <section>
+     <h2>3. Controls &amp; assurance</h2>
+     <ul class="checks">
+      <li>Data boundary: runs in-customer VPC; no default telemetry.</li>
+      <li>Hash chain: dataset → calibration artefacts → generated outputs.</li>
+      <li>Evidence: PDF, signed manifest, certificate appendix.</li>
+      <li>Governance tie-ins: FCA, EU AI Act, ECOA references.</li>
+     </ul>
+    </section>
+    <section>
+     <h2>4. Deployment patterns</h2>
+     <p>Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.</p>
+    </section>
+    <section>
+     <h2>5. Appendices</h2>
+     <ul class="checks">
+      <li>Glossary and metric definitions (DI, EO, TPR/TNR deltas).</li>
+      <li>Sample manifest excerpt with SHA-256 hashes.</li>
+      <li>Contact and procurement steps (<a href="../../procurement/">/procurement/</a>).</li>
+     </ul>
+    </section>
+   </article>
+  </main>
+  <footer class="site-footer" data-sync="footer">
+  <div class="container grid">
+<section><h3>Company</h3><ul><li><a href="../../press/">Press</a></li><li><a href="../../procurement/">Procurement</a></li><li><a href="../../trust-center/">Trust Center</a></li></ul></section>
+<section><h3>Legal</h3><ul><li><a href="../../legal/privacy.html">Privacy</a></li><li><a href="../../legal/cookie-policy.html">Cookie Policy</a></li><li><a href="../../legal/tos.html">Terms of Service</a></li><li><a href="../../legal/imprint.html">Imprint</a></li></ul></section>
+<section><h3>Resources</h3><ul><li><a href="../../legal/open-source.html">Open Source</a></li><li><a href="../../legal/accessibility.html">Accessibility</a></li></ul></section>
+</div>
+  <div class="container">
+    <small>© Equilens. All rights reserved.</small>
+  </div>
+</footer>
+
+
+  <script>
+    (function () {
+      try {
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.site-header').forEach(function (header) {
+          var toggle = header.querySelector('.menu-toggle');
+          var nav = header.querySelector('.site-nav');
+          if (!toggle || !nav) { return; }
+
+          var closeMenu = function () {
+            nav.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            nav.classList.toggle('is-open');
+          });
+
+          nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+              closeMenu();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+              closeMenu();
+              toggle.focus();
+            }
+          });
+        });
+      } catch (e) {}
+    }());
+  </script>
+</body>
+</html>

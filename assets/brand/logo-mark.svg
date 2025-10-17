@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="title desc">
+  <title id="title">Equilens mark</title>
+  <desc id="desc">Dual-ring lens icon with crosshair representing precision bias simulation.</desc>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+  <line x1="32" y1="8" x2="32" y2="14" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="50" x2="32" y2="56" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+  <line x1="8" y1="32" x2="14" y2="32" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="32" x2="56" y2="32" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="4" fill="#8B5CF6"/>
+</svg>
