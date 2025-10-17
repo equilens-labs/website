@@ -29,6 +29,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.pages_mode.outputs.mode }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,6 +51,27 @@ jobs:
         with:
           name: ci-debug-early
           path: ci-debug
+
+      - name: Detect Pages mode (Actions vs branch)
+        id: pages_mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          mkdir -p ci-debug
+          RESP=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" || true)
+          printf "%s" "$RESP" > ci-debug/pages.json || true
+          MODE="unknown"
+          if echo "$RESP" | grep -q '"source"'; then
+            if echo "$RESP" | grep -q '"branch"[[:space:]]*:[[:space:]]*"gh-pages"'; then
+              MODE="branch"
+            else
+              MODE="actions"
+            fi
+          fi
+          echo "Detected Pages mode: $MODE"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
 
       - name: Setup Python for tooling
         uses: actions/setup-python@v5
