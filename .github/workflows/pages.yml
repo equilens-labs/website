@@ -145,16 +145,19 @@ jobs:
         run: scripts/evidence/snapshot.sh "SITE-DEPLOY"
 
       - name: Configure Pages
+        if: steps.pages_mode.outputs.mode != 'branch'
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
       - name: Upload artifact
+        if: steps.pages_mode.outputs.mode != 'branch'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
+    if: needs.build.outputs.mode != 'branch'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

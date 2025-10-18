@@ -59,38 +59,39 @@
     ]
   }
   </script>
-<link rel="preload" href="themes/appline/style.css" as="style">
-<link rel="stylesheet" href="themes/appline/style.css">
 <link rel="stylesheet" href="assets/brand/overrides.css">
 <link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="/assets/eql/site-dark.css">
 </head>
 <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
-  <header class="site-header" data-sync="nav">
-  <div class="container">
-    <a class="brand" href="">
-      <img src="assets/brand/wordmark.svg" alt="Equilens" width="168" height="52">
-    </a>
-    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
-      <span class="sr-only">Menu</span>
-    </button>
-    <nav id="site-nav" class="nav" hidden>
-      <ul><li><a href="product/">Product</a></li><li><a href="fl-bsa/">FL‑BSA</a></li><li><a href="pricing/">Pricing</a></li><li><a href="trust-center/">Trust Center</a></li><li><a href="docs/">Docs</a></li><li><a href="faq/">FAQ</a></li><li><a href="contact/">Contact</a></li></ul>
-    </nav>
-  </div>
-  <script src="assets/js/nav.js" defer></script>
-</header>
+  <nav class="navbar" role="navigation" aria-label="Primary">
+    <div class="navbar-content">
+      <a href="/" class="logo">
+        <div class="logo-dot" aria-hidden="true"></div><span class="logo-text">Equilens</span>
+      </a>
+      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+      <div id="nav-links" class="nav-links" data-open="false">
+        <a href="/fl-bsa/" class="nav-link">FL‑BSA</a>
+        <a href="/pricing/" class="nav-link">Pricing</a>
+        <a href="/trust-center/" class="nav-link">Trust Center</a>
+        <a href="/docs/" class="nav-link">Docs</a>
+        <a href="/faq/" class="nav-link">FAQ</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
 
 
 
-  <main id="main" class="wrap hero section hero--appline mx-auto max-w-7xl px-6 py-16">
-    <section class="section hero--plain">
-      <div class="container">
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
         <h1>Algorithmic compliance that stands up to regulators</h1>
-        <p class="lead">Equilens helps banks evidence fair‑lending compliance with synthetic‑data audits and regulator‑ready reports.</p>
-        <div style="margin-top:18px;">
-          <a class="btn btn-primary" href="/contact/">Request a pilot</a>
-          <a class="btn btn-ghost" href="/fl-bsa/">Explore FL‑BSA</a>
+        <p class="description">Equilens helps banks evidence fair‑lending compliance with synthetic‑data audits and regulator‑ready reports.</p>
+        <div>
+          <a class="btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
+          <a class="btn-secondary" href="/pricing/" style="margin-left:12px">Pricing</a>
         </div>
       </div>
     </section>
@@ -99,10 +100,10 @@
   <section class="wrap section trust-section mx-auto max-w-7xl px-6 py-12">
     <h2 class="sr-only">Trust badges</h2>
     <div class="trust-badges">
-      <span class="trust-badge">SOC 2 Type II</span>
+      <!-- Removed unverified certification claim per legal hygiene -->
       <span class="trust-badge">ISO 27001</span>
       <span class="trust-badge">AWS Partner</span>
-      <span class="trust-badge">GDPR Compliant</span>
+      <span class="trust-badge">Privacy by design</span>
     </div>
   </section>
 
@@ -219,5 +220,6 @@
       } catch (e) {}
     }());
   </script>
+  <script src="/assets/eql/nav.js" defer></script>
 </body>
 </html>
