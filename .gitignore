@@ -2,6 +2,9 @@
 /output/
 output/ops/**/*.png
 
+# Ignore build output
+dist/
+
 # Ignore local server temp files
 /tmp/website_server.log
 /tmp/website_server.pid
