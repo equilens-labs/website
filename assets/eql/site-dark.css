@@ -1,35 +1,26 @@
-/* Equilens Home — dark slate + violet/indigo */
+/* Equilens Home — dark slate + violet/indigo (scoped) */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #e2e8f0; background: #0f172a; overflow-x: hidden; }
+body.home { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #e2e8f0; background: #0f172a; overflow-x: hidden; }
 
 /* Skip link */
 .skip-to-content { position: absolute; left: -9999px; top: 0; background: #111827; color: #fff; padding: 8px 12px; border-radius: 6px; z-index: 1100; }
 .skip-to-content:focus { left: 16px; top: 16px; outline: 2px solid #8b5cf6; }
 
-/* Header / Nav */
-.navbar { position: fixed; top: 0; width: 100%; background: rgba(15,23,42,.95); backdrop-filter: blur(10px); padding: 16px 24px; z-index: 1000; border-bottom: 1px solid #1e293b; }
-.navbar-content { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-dot { width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%; }
-.logo-text { font-size: 18px; font-weight: 600; color: #e2e8f0; letter-spacing: -.01em; }
-.nav-links { display: flex; gap: 28px; }
-.nav-link { color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s ease; }
-.nav-link:hover { color: #8b5cf6; }
-.nav-toggle { display: none; color: #e2e8f0; background: transparent; border: 1px solid #334155; border-radius: 8px; padding: 8px 10px; }
+/* Header/Nav styles moved to assets/brand/overrides.css for site-wide consistency */
 
-/* Hero */
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); position: relative; padding: 100px 24px 80px; }
-.hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
-.hero h1 { font-size: 56px; font-weight: 300; margin-bottom: 20px; color: #e2e8f0; letter-spacing: -.02em; }
-.hero .tagline { font-size: 20px; font-weight: 400; color: #8b5cf6; margin-bottom: 24px; letter-spacing: .02em; }
-.hero .description { font-size: 18px; font-weight: 300; color: #94a3b8; margin-bottom: 36px; line-height: 1.7; }
+/* Hero (home only) */
+body.home .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); position: relative; padding: 100px 24px 80px; }
+body.home .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
+body.home .hero h1 { font-size: 56px; font-weight: 300; margin-bottom: 20px; color: #e2e8f0; letter-spacing: -.02em; }
+body.home .hero .tagline { font-size: 20px; font-weight: 400; color: #8b5cf6; margin-bottom: 24px; letter-spacing: .02em; }
+body.home .hero .description { font-size: 18px; font-weight: 300; color: #94a3b8; margin-bottom: 36px; line-height: 1.7; }
 
-/* Sections */
-section { scroll-margin-top: 96px; }
-.section { padding: 80px 24px; max-width: 1400px; margin: 0 auto; }
-.section-title { font-size: 32px; font-weight: 600; color: #e2e8f0; margin-bottom: 32px; }
+/* Sections (home only) */
+body.home section { scroll-margin-top: 96px; }
+body.home .section { padding: 80px 24px; max-width: 1400px; margin: 0 auto; }
+body.home .section-title { font-size: 32px; font-weight: 600; color: #e2e8f0; margin-bottom: 32px; }
 
 /* Buttons */
 .btn-primary, .btn-secondary { display: inline-block; text-decoration: none; font-weight: 600; border-radius: 10px; padding: 12px 18px; transition: transform .06s ease, background .2s ease, color .2s ease; }
@@ -42,22 +33,13 @@ section { scroll-margin-top: 96px; }
 footer a { color: #94a3b8; }
 footer a:hover { color: #8b5cf6; }
 
-/* Product sub‑nav (optional, /fl-bsa/ only) */
-.product-subnav { position: sticky; top: 68px; z-index: 900; background: rgba(2,6,23,.85); backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; }
-.subnav-inner { max-width: 1400px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 20px; overflow: auto; }
-.subnav-link { color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; }
-.subnav-link:hover { color: #8b5cf6; }
+/* Product sub‑nav lives in assets/brand/overrides.css to apply across pages */
 
 /* Focus rings */
 a:focus, button:focus { outline: 2px solid #8b5cf6; outline-offset: 2px; }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 40px; }
-  .section { padding: 64px 16px; }
-  .navbar { padding: 14px 16px; }
-  .nav-toggle { display: inline-block; }
-  .nav-links { display: none; flex-direction: column; gap: 16px; padding-top: 12px; }
-  .nav-links[data-open="true"] { display: flex; }
+  body.home .hero h1 { font-size: 40px; }
+  body.home .section { padding: 64px 16px; }
 }
-
