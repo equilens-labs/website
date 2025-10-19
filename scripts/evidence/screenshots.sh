@@ -27,17 +27,26 @@ fi
 CHROME_VER="$($CHROME_BIN --version || true)"
 echo "$CHROME_VER" > "$OUT/chrome_version.txt"
 
-# Ensure local server is running on :8000
+# Determine base URL: prefer localhost; fall back to live site if unreachable
 PORT=8000
-if [[ -f /tmp/website_server.pid ]] && ps -p "$(cat /tmp/website_server.pid)" >/dev/null 2>&1; then
-  : # already running
-else
-  python3 -m http.server "$PORT" >/tmp/website_server.log 2>&1 &
-  echo $! > /tmp/website_server.pid
-  sleep 0.5
-fi
-
 BASE_URL="http://localhost:${PORT}"
+
+# Allow override via env
+if [[ -n "${EQL_BASE_URL:-}" ]]; then
+  BASE_URL="$EQL_BASE_URL"
+else
+  if [[ -f /tmp/website_server.pid ]] && ps -p "$(cat /tmp/website_server.pid)" >/dev/null 2>&1; then
+    : # already running
+  else
+    python3 -m http.server "$PORT" >/tmp/website_server.log 2>&1 &
+    echo $! > /tmp/website_server.pid
+    sleep 0.5
+  fi
+  # Probe localhost; if it fails, use production
+  if ! curl -Is --max-time 2 "http://localhost:${PORT}/" >/dev/null 2>&1; then
+    BASE_URL="http://equilens.io"
+  fi
+fi
 
 # Discover pages: root plus all reachable *.html in site content.
 # Skip VCS, CI, scripts, and prior outputs to avoid noise.
