@@ -27,20 +27,23 @@
   <a class="skip-to-content" href="#main">
    Skip to content
   </a>
-  <header class="site-header" data-sync="nav">
-  <div class="container">
-    <a class="brand" href="../../">
-      <img src="../../assets/brand/wordmark.svg" alt="Equilens" width="168" height="52">
+  <nav class="navbar" role="navigation" aria-label="Primary">
+  <div class="navbar-content">
+    <a href="/" class="logo">
+      <div class="logo-dot" aria-hidden="true"></div><span class="logo-text">Equilens</span>
     </a>
-    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
-      <span class="sr-only">Menu</span>
-    </button>
-    <nav id="site-nav" class="nav" hidden>
-      <ul><li><a href="../../fl-bsa/">FL‑BSA</a></li><li><a href="../../pricing/">Pricing</a></li><li><a href="../../trust-center/">Trust Center</a></li><li><a href="../../docs/">Docs</a></li><li><a href="../../faq/">FAQ</a></li><li><a href="../../contact/">Contact</a></li></ul>
-    </nav>
+    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="../../fl-bsa/" class="nav-link">FL‑BSA</a><a href="../../pricing/" class="nav-link">Pricing</a><a href="../../trust-center/" class="nav-link">Trust Center</a><a href="../../docs/" class="nav-link">Docs</a><a href="../../faq/" class="nav-link">FAQ</a><a href="../../contact/" class="nav-link">Contact</a>
+    </div>
   </div>
-  <script src="../../assets/js/nav.js" defer></script>
-</header>
+</nav>
+<script src="/assets/eql/nav.js" defer></script>
+
+
+
+
+
 
 
 
