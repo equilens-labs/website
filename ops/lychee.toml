@@ -1,4 +1,4 @@
-verbose = true
+verbosity = "info"
 max_concurrency = 8
 timeout = 20
 retry_wait_time = 2
