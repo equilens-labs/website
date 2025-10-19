@@ -1,0 +1,13 @@
+{
+  "brand": {"href": "/", "img": "/assets/brand/wordmark.svg", "alt": "Equilens"},
+  "links": [
+    {"label": "Product", "href": "/product/"},
+    {"label": "FL‑BSA", "href": "/fl-bsa/"},
+    {"label": "Pricing", "href": "/pricing/"},
+    {"label": "Trust Center", "href": "/trust-center/"},
+    {"label": "Docs", "href": "/docs/"},
+    {"label": "FAQ", "href": "/faq/"},
+    {"label": "Contact", "href": "/contact/"}
+  ]
+}
+
