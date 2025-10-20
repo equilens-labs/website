@@ -2,7 +2,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
 /* Dark tokens override (applies to base.css + Block‑17 tokens) */
 body {
   /* Base (light) -> Dark remap */
