@@ -76,7 +76,7 @@ readarray -t PAGES < <(printf '%s\n' "${PAGES[@]}" | awk '!seen[$0]++')
 shot() {
   local label="$1" url="$2" width="$3" height="$4" scale="$5"
   local out_png="$OUT/${label}-${width}x${height}-${scale}x.png"
-  "$CHROME_BIN" --headless=new --disable-gpu \
+  "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu \
     --window-size="${width},${height}" \
     --force-device-scale-factor="${scale}" \
     --hide-scrollbars \
