@@ -150,7 +150,7 @@ h1{ font-size:var(--eql-h1); font-weight:700; letter-spacing:-.01em; }
 h2{ font-size:var(--eql-h2); font-weight:700; letter-spacing:-.01em; }
 h3{ font-size:var(--eql-h3); font-weight:600; }
 .card{ border:1px solid var(--eql-border); border-radius:var(--eql-radius); box-shadow:var(--eql-shadow); background:#fff; padding:24px; }
-.btn{ display:inline-block; padding:.7rem 1.1rem; border-radius:10px; font-weight:600 }
+.btn{ display:inline-flex; align-items:center; justify-content:center; padding:.75rem 1.25rem; min-height:44px; min-width:44px; border-radius:10px; font-weight:600; text-decoration:none }
 .btn-primary{ background:var(--eql-accent); color:#fff }
 .btn-primary:hover{ filter:brightness(.92) }
 .btn-ghost{ background:#fff; border:1px solid var(--eql-border); color:var(--eql-text) }
@@ -198,10 +198,14 @@ h3{ font-size:var(--eql-h3); font-weight:600; }
 }
 
 .cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--brand-strong);
   color: var(--accent-contrast);
-  padding: .625rem 1rem;
+  padding: .75rem 1.25rem;
+  min-height: 44px;
+  min-width: 44px;
   border-radius: .5rem;
   font-weight: 600;
   text-decoration: none;

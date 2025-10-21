@@ -1,6 +1,6 @@
 /* Equilens — dark slate + violet/indigo (site‑wide) */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 /* Dark tokens override (applies to base.css + Block‑17 tokens) */
 body {
@@ -8,13 +8,13 @@ body {
   --bg: #0f172a;            /* page background */
   --surface: #0b1020;       /* header/mobile menus/surfaces */
   --text: #e2e8f0;          /* primary text */
-  --muted: #94a3b8;         /* secondary text */
+  --muted: #a3b3c5;         /* secondary text (lightened for WCAG AA compliance) */
   --line: #1f2937;          /* borders */
   /* Equilens tokens used by sections/cards */
   --eql-bg: #0f172a;
   --eql-bg-alt: #0b1220;
   --eql-text: #e2e8f0;
-  --eql-muted: #94a3b8;
+  --eql-muted: #a3b3c5;     /* lightened from #94a3b8 for 4.5:1+ contrast */
   --eql-border: #1f2937;
 }
 
@@ -27,19 +27,19 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 /* Header/Nav styles moved to assets/brand/overrides.css for site-wide consistency */
 
 /* Hero */
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); position: relative; padding: 100px 24px 80px; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); position: relative; padding: clamp(80px, 12vh, 100px) 24px clamp(60px, 10vh, 80px); }
 .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
-.hero h1 { font-size: 56px; font-weight: 300; margin-bottom: 20px; color: #e2e8f0; letter-spacing: -.02em; }
-.hero .tagline { font-size: 20px; font-weight: 400; color: #8b5cf6; margin-bottom: 24px; letter-spacing: .02em; }
-.hero .description { font-size: 18px; font-weight: 300; color: #94a3b8; margin-bottom: 36px; line-height: 1.7; }
+.hero h1 { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 300; margin-bottom: 20px; color: #e2e8f0; letter-spacing: -.02em; }
+.hero .tagline { font-size: clamp(1.125rem, 2vw, 1.25rem); font-weight: 400; color: #8b5cf6; margin-bottom: 24px; letter-spacing: .02em; }
+.hero .description { font-size: clamp(1rem, 1.8vw, 1.125rem); font-weight: 300; color: #a3b3c5; margin-bottom: 36px; line-height: 1.7; }
 
 /* Sections */
-section { scroll-margin-top: 96px; }
-.section { padding: 80px 24px; max-width: 1400px; margin: 0 auto; }
-.section-title { font-size: 32px; font-weight: 600; color: #e2e8f0; margin-bottom: 32px; }
+section { scroll-margin-top: 80px; }
+.section { padding: 72px 24px; max-width: 1400px; margin: 0 auto; }
+.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: #e2e8f0; margin-bottom: 32px; }
 
-/* Buttons */
-.btn-primary, .btn-secondary { display: inline-block; text-decoration: none; font-weight: 600; border-radius: 10px; padding: 12px 18px; transition: transform .06s ease, background .2s ease, color .2s ease; }
+/* Buttons (WCAG 2.1 SC 2.5.5: 44×44px touch targets) */
+.btn-primary, .btn-secondary { display: inline-block; text-decoration: none; font-weight: 600; border-radius: 10px; padding: 14px 20px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; transition: transform .06s ease, background .2s ease, color .2s ease; }
 .btn-primary { background: #8b5cf6; color: #0b1020; }
 .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
 .btn-secondary { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
@@ -50,11 +50,11 @@ footer { background: var(--eql-bg); }
 footer a { color: var(--eql-muted); }
 footer a:hover { color: #8b5cf6; }
 
-/* Cards and surfaces */
-.card { background: #0b1020 !important; border-color: var(--eql-border) !important; color: var(--eql-text); }
-.btn-ghost { background: transparent !important; border: 1px solid var(--eql-border) !important; color: var(--eql-text) !important; }
-.btn-ghost:hover { background: #0b1220 !important; }
-.section--alt { background: var(--eql-bg-alt) !important; }
+/* Cards and surfaces (dark theme overrides) */
+body.eql .card { background: #0b1020; border-color: var(--eql-border); color: var(--eql-text); }
+body.eql .btn-ghost { background: transparent; border: 1px solid var(--eql-border); color: var(--eql-text); }
+body.eql .btn-ghost:hover { background: #0b1220; }
+body.eql .section--alt { background: var(--eql-bg-alt); }
 
 /* Product sub‑nav lives in assets/brand/overrides.css to apply across pages */
 

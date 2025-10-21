@@ -10,8 +10,11 @@ def depth(p: pathlib.Path) -> str:
     return '' if len(parts) <= 1 else '../' * (len(parts)-1)
 
 def make_href(href: str, d: str) -> str:
-    # Convert absolute hrefs ("/foo/") to depth-aware paths
-    return href if href.startswith('http') else (d + href.lstrip('/'))
+    if href.startswith('http'):
+        return href
+    if href.startswith('/'):
+        return href
+    return d + href
 
 def render(d: str) -> str:
     html = partial
@@ -23,6 +26,8 @@ def render(d: str) -> str:
 HEADER_BLOCKS = {}
 for page in ROOT.rglob('*.html'):
     if any(seg in page.parts for seg in ('vendor','template')):
+        continue
+    if page.name in {'header.html', 'footer.html'} and 'partials' in page.parts:
         continue
     d = depth(page)
     HEADER_BLOCKS[page] = render(d)
