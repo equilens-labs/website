@@ -40,10 +40,14 @@ section { scroll-margin-top: 80px; }
 
 /* Buttons (WCAG 2.1 SC 2.5.5: 44×44px touch targets) */
 .btn-primary, .btn-secondary { display: inline-block; text-decoration: none; font-weight: 600; border-radius: 10px; padding: 14px 20px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; transition: transform .06s ease, background .2s ease, color .2s ease; }
-.btn-primary { background: #8b5cf6; color: #0b1020; }
+.btn-primary { background: #8b5cf6; color: #000; }
 .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
 .btn-secondary { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
 .btn-secondary:hover { color: #8b5cf6; border-color: #475569; transform: translateY(-1px); }
+
+/* Links (improved contrast for WCAG AA) */
+a { color: #a78bfa; }
+a:hover { color: #c4b5fd; }
 
 /* Footer */
 footer { background: var(--eql-bg); }
@@ -52,6 +56,7 @@ footer a:hover { color: #8b5cf6; }
 
 /* Cards and surfaces (dark theme overrides) */
 body.eql .card { background: #0b1020; border-color: var(--eql-border); color: var(--eql-text); }
+body.eql .kpi { background: #0b1020; border-color: var(--eql-border); color: var(--eql-text); }
 body.eql .btn-ghost { background: transparent; border: 1px solid var(--eql-border); color: var(--eql-text); }
 body.eql .btn-ghost:hover { background: #0b1220; }
 body.eql .section--alt { background: var(--eql-bg-alt); }
