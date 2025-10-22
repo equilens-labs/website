@@ -79,7 +79,7 @@
   </nav>
 
 
-  <main class="wrap section hero--appline mx-auto max-w-7xl px-6 py-16" id="main">
+  <main class="wrap section hero--appline" id="main">
    <section class="section hero--plain">
      <div class="container">
        <h1>FL‑BSA — Algorithmic compliance that stands up to regulators</h1>
@@ -90,8 +90,8 @@
        </div>
      </div>
    </section>
-   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+   <div class="grid">
+    <div class="card">
      <h2>
       Architecture
      </h2>
@@ -101,7 +101,7 @@
       <li>Optional Prometheus; <code>/metrics</code> endpoint exposed for monitoring.</li>
      </ul>
     </div>
-    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+    <div class="card">
      <h2>
       Dual-branch calibration
      </h2>
@@ -111,7 +111,7 @@
       <li>Outputs show the delta — e.g., historical DI vs. achievable DI.</li>
      </ul>
     </div>
-    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+    <div class="card">
      <h2>
       Evidence bundle
      </h2>
@@ -119,7 +119,7 @@
       30-page PDF with methodology, signed manifest (dataset hash, RNG seed, software version), and certificate pack covering data quality, model fidelity, and regulatory mapping.
      </p>
     </div>
-    <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+    <div class="card">
      <h2>
       Deployment boundary
      </h2>
@@ -128,57 +128,57 @@
      </p>
     </div>
    </div>
-   <section class="section mx-auto max-w-7xl px-6 py-12">
+   <section class="section">
     <h2>
      Workflow
     </h2>
     <div class="steps">
      <div class="step">
-      <header class="font-semibold mb-1">1) Upload Data</header>
+      <header >1) Upload Data</header>
       <p>Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.</p>
      </div>
      <div class="step">
-      <header class="font-semibold mb-1">2) Simulate & Measure</header>
+      <header >2) Simulate & Measure</header>
       <p>Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).</p>
      </div>
      <div class="step">
-      <header class="font-semibold mb-1">3) Evidence</header>
+      <header >3) Evidence</header>
       <p>Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.</p>
      </div>
      <div class="step">
-      <header class="font-semibold mb-1">4) Review</header>
+      <header >4) Review</header>
       <p>Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.</p>
      </div>
     </div>
    </section>
-  <section class="section alt mx-auto max-w-7xl px-6 py-12">
+  <section class="section alt">
     <h2>
      Deployment options
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-     <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+    <div class="grid">
+     <div class="card">
       <h3>AWS AMI</h3>
       <p>Single-tenant AMI. Boots deterministic services via systemd and exposes API on 8080 (configurable).</p>
      </div>
-     <div class="card span-6 bg-white border border-slate-200 rounded-lg p-6">
+     <div class="card">
       <h3>Container package</h3>
       <p>docker-compose stack (API, Worker, Redis). CPU-only and GPU-preferred profiles validated at scale.</p>
      </div>
     </div>
     <p class="note">Procurement path and deployment checklist live at <a href="../procurement/">/procurement/</a>.</p>
   </section>
-  <section class="section mx-auto max-w-7xl px-6 py-12">
+  <section class="section">
    <h2>In practice</h2>
    <div class="card">
     <p><strong>Example:</strong> A bank ingests 250k historic applications including credit decisions. FL-BSA reports a historical disparate impact (DI) of 0.68 and an achievable DI of 0.83 after isolating decision leakage—documented with certificate chain and signed manifest.</p>
     <p class="note">Illustrative scenario only; not a customer claim.</p>
    </div>
   </section>
-  <section class="section mx-auto max-w-7xl px-6 py-12">
+  <section class="section">
    <h2>Need more detail?</h2>
    <p>Review the <a href="./whitepaper/">FL-BSA whitepaper</a> draft outline or contact us for procurement evidence.</p>
   </section>
-   <section class="section mx-auto max-w-7xl px-6 py-12">
+   <section class="section">
     <p>
      <a class="cta" href="../contact/">Contact Equilens</a>
      <a class="cta-secondary" href="../pricing/">View pricing</a>
