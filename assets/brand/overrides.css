@@ -25,10 +25,46 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, H
 .hero--appline{ padding-top: clamp(24px, 6vh, 56px); }
 
 /* Product sub‑nav (FL‑BSA pages only) */
-.product-subnav{position:sticky;top:68px;z-index:900;background:rgba(2,6,23,.85);backdrop-filter:blur(6px);border-bottom:1px solid #1e293b}
-.subnav-inner{max-width:1400px;margin:0 auto;padding:10px 24px;display:flex;gap:20px;overflow:auto}
-.subnav-link{color:#94a3b8;text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
-.subnav-link:hover{color:#8b5cf6}
+.product-subnav {
+  position: sticky;
+  top: 68px;
+  z-index: 900;
+  background: rgba(11, 16, 32, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e2942;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.subnav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  align-items: center;
+}
+.subnav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.subnav-link:hover {
+  color: #e2e8f0;
+  background: rgba(139, 92, 246, 0.1);
+}
+.subnav-link[aria-current="page"] {
+  color: #e2e8f0;
+  background: rgba(139, 92, 246, 0.15);
+  font-weight: 600;
+}
 
 /* Global navbar (brand-first) */
 .navbar { position: fixed; top: 0; width: 100%; background: rgba(15,23,42,.95); backdrop-filter: blur(10px); padding: 16px 24px; z-index: 1000; border-bottom: 1px solid #1e293b; }
