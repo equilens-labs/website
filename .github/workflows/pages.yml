@@ -85,7 +85,7 @@ jobs:
 
       - name: Ensure script permissions
         run: |
-          chmod +x scripts/seo/toggle-robots.sh scripts/og/render.sh scripts/evidence/snapshot.sh || true
+          chmod +x scripts/seo/toggle-robots.sh scripts/og/render.sh scripts/evidence/snapshot.sh scripts/ops/guard_dns_ssl.sh || true
 
       - name: Set site visibility (private/public)
         run: |
@@ -139,6 +139,16 @@ jobs:
             echo "::error file=dist::Vendor HTML detected in deploy artifact"
             echo "$MAP"
             exit 1
+          fi
+
+      - name: Guard DNS/TLS for custom domain
+        run: |
+          if [ -f CNAME ]; then
+            DOMAIN=$(cat CNAME | tr -d '\n' | tr -d '\r')
+            echo "Checking DNS/TLS for $DOMAIN and www.$DOMAIN"
+            scripts/ops/guard_dns_ssl.sh "$DOMAIN" "www.$DOMAIN"
+          else
+            echo "No CNAME present; skipping DNS/TLS guard"
           fi
 
       - name: Evidence snapshot

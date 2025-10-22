@@ -1,0 +1,50 @@
+name: DNS/TLS Guard for Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'CNAME'
+      - '.github/workflows/dns-ssl-guard.yml'
+      - 'scripts/ops/guard_dns_ssl.sh'
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure script permissions
+        run: chmod +x scripts/ops/guard_dns_ssl.sh
+
+      - name: Run DNS/TLS guard
+        id: guard
+        run: |
+          if [ -f CNAME ]; then
+            DOMAIN=$(cat CNAME | tr -d '\n' | tr -d '\r')
+          else
+            echo "::error ::CNAME file not found at repo root"
+            exit 1
+          fi
+          set +e
+          scripts/ops/guard_dns_ssl.sh "$DOMAIN" "www.$DOMAIN"
+          STATUS=$?
+          LASTDIR=$(ls -dt output/ops/DNS-SSL-GUARD-* | head -n1)
+          echo "lastdir=$LASTDIR" >> "$GITHUB_OUTPUT"
+          exit $STATUS
+
+      - name: Upload guard evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dns-ssl-guard-evidence
+          path: ${{ steps.guard.outputs.lastdir }}
+          if-no-files-found: warn
+
