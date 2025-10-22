@@ -131,7 +131,7 @@ jobs:
           name: dist-debug
           path: dist
 
-      - name: Guard: no vendor demo pages
+      - name: Guard no vendor demo pages
         run: |
           set -e
           MAP=$(find dist -type f -name '*.html' -print0 | xargs -0 -I{} sh -c "grep -nE '(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)' '{}' || true")
