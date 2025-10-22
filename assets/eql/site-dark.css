@@ -3,19 +3,28 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 /* Dark tokens override (applies to base.css + Block‑17 tokens) */
-body {
+:root, body {
   /* Base (light) -> Dark remap */
-  --bg: #0f172a;            /* page background */
-  --surface: #0b1020;       /* header/mobile menus/surfaces */
-  --text: #e2e8f0;          /* primary text */
-  --muted: #a3b3c5;         /* secondary text (lightened for WCAG AA compliance) */
-  --line: #1f2937;          /* borders */
+  --bg: #0f172a !important;            /* page background */
+  --surface: #0b1020 !important;       /* header/mobile menus/surfaces */
+  --text: #e2e8f0 !important;          /* primary text */
+  --muted: #a3b3c5 !important;         /* secondary text (lightened for WCAG AA compliance) */
+  --line: #1f2937 !important;          /* borders */
   /* Equilens tokens used by sections/cards */
-  --eql-bg: #0f172a;
-  --eql-bg-alt: #0b1220;
-  --eql-text: #e2e8f0;
-  --eql-muted: #a3b3c5;     /* lightened from #94a3b8 for 4.5:1+ contrast */
-  --eql-border: #1f2937;
+  --eql-bg: #0f172a !important;
+  --eql-bg-alt: #0b1220 !important;
+  --eql-text: #e2e8f0 !important;
+  --eql-muted: #a3b3c5 !important;     /* lightened from #94a3b8 for 4.5:1+ contrast */
+  --eql-border: #1f2937 !important;
+  /* Override base.css light theme */
+  --ink: #e2e8f0 !important;
+  --bg: #0f172a !important;
+  --surface: #0b1020 !important;
+  --border: #1f2937 !important;
+  --accent: #8b5cf6 !important;
+  --accent-light: #a78bfa !important;
+  --accent-link: #c4b5fd !important;
+  --brand-strong: #e2e8f0 !important;
 }
 
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--eql-text); background: var(--eql-bg); overflow-x: hidden; }
@@ -141,19 +150,19 @@ footer.site-footer small {
 }
 
 /* Cards and surfaces (dark theme overrides) */
-body.eql .card {
-  background: #0f1726;
-  border: 1px solid #1e2942;
+.card, body.eql .card {
+  background: #0f1726 !important;
+  border: 1px solid #1e2942 !important;
   border-radius: 12px;
   padding: 2rem;
   color: var(--eql-text);
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15) !important;
 }
-body.eql .card:hover {
-  border-color: #8b5cf6;
+.card:hover, body.eql .card:hover {
+  border-color: #8b5cf6 !important;
   transform: translateY(-4px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.4), 0 12px 24px rgba(139,92,246,0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4), 0 12px 24px rgba(139,92,246,0.2) !important;
 }
 body.eql .card h3 {
   font-size: 1.25rem;
@@ -179,19 +188,27 @@ body.eql .card h3[data-number]::before {
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(139,92,246,0.4);
 }
-body.eql .kpi {
-  background: linear-gradient(135deg, #0f1726 0%, #1a1f35 100%);
-  border: 1px solid #1e2942;
+/* KPIs container */
+body.eql .kpis, .kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.kpi, body.eql .kpi {
+  background: linear-gradient(135deg, #0f1726 0%, #1a1f35 100%) !important;
+  border: 1px solid #1e2942 !important;
   border-radius: 12px;
   padding: 2rem;
   color: var(--eql-text);
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15) !important;
 }
-body.eql .kpi:hover {
-  border-color: #8b5cf6;
+.kpi:hover, body.eql .kpi:hover {
+  border-color: #8b5cf6 !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.4), 0 8px 20px rgba(139,92,246,0.15);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4), 0 8px 20px rgba(139,92,246,0.15) !important;
 }
 body.eql .kpi .num {
   font-size: 1.75rem;
@@ -227,25 +244,25 @@ body.eql .btn-ghost:hover { background: #0b1220; }
 body.eql .section--alt { background: var(--eql-bg-alt); }
 
 /* Trust badges */
-.trust-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+body.eql .trust-badges, .trust-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
 .trust-badge {
   display: inline-flex;
   align-items: center;
   padding: 0.625rem 1.25rem;
-  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(109,40,217,0.05) 100%);
-  border: 1px solid rgba(139,92,246,0.3);
+  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(109,40,217,0.05) 100%) !important;
+  border: 1px solid rgba(139,92,246,0.3) !important;
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #a78bfa;
-  box-shadow: 0 2px 8px rgba(139,92,246,0.15);
+  color: #a78bfa !important;
+  box-shadow: 0 2px 8px rgba(139,92,246,0.15) !important;
   transition: all 0.2s ease;
 }
 .trust-badge:hover {
-  background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.1) 100%);
-  border-color: rgba(139,92,246,0.5);
+  background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(109,40,217,0.1) 100%) !important;
+  border-color: rgba(139,92,246,0.5) !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139,92,246,0.25);
+  box-shadow: 0 4px 12px rgba(139,92,246,0.25) !important;
 }
 
 /* CTA Section */
