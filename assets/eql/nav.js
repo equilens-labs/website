@@ -1,12 +1,26 @@
-// Guarded smooth scroll (hash links only)
+// Guarded smooth scroll (hash links only) - respects scroll-padding-top
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   const h = a.getAttribute('href');
   if (!h || h === '#') return;
   a.addEventListener('click', e => {
     const t = document.querySelector(h);
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (t) {
+      e.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
+
+// Set active nav link based on current page
+(function setActiveNavLink() {
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const linkPath = new URL(link.href, window.location.origin).pathname;
+    if (linkPath === currentPath || (currentPath !== '/' && linkPath !== '/' && currentPath.startsWith(linkPath))) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+})();
 
 // Mobile nav toggle (accessible)
 const toggle = document.querySelector('.nav-toggle');
