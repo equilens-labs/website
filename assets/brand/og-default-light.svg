@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">Equilens — Algorithmic Compliance</title>
+  <desc id="desc">Open Graph artwork for Equilens, featuring lens mark and tagline.</desc>
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <g transform="translate(120, 225)">
+    <circle cx="80" cy="80" r="75" fill="none" stroke="#111827" stroke-width="4" opacity="0.2"/>
+    <circle cx="80" cy="80" r="50" fill="none" stroke="#4f46e5" stroke-width="4"/>
+    <line x1="80" y1="5" x2="80" y2="20" stroke="#111827" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+    <line x1="80" y1="140" x2="80" y2="155" stroke="#111827" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+    <line x1="5" y1="80" x2="20" y2="80" stroke="#111827" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+    <line x1="140" y1="80" x2="155" y2="80" stroke="#111827" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+    <circle cx="80" cy="80" r="10" fill="#4f46e5"/>
+  </g>
+  <text x="340" y="300" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="72" font-weight="300" letter-spacing="-0.02em" fill="#111827">Equilens</text>
+  <text x="340" y="360" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="26" font-weight="400" fill="#4b5563">Algorithmic Compliance — self-hosted bias simulation appliance</text>
+</svg>
