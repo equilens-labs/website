@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Equilens — Fair-Lending Bias-Simulation Appliance (FL-BSA)</title>
-  <meta name="description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
+  <title>Equilens — Algorithmic Compliance</title>
+  <meta name="description" content="Equilens provides fair-lending compliance solutions. FL-BSA is our self-hosted bias-simulation appliance that generates synthetic borrower cohorts to measure disparate impact and produce regulator-ready evidence.">
   <link rel="canonical" href="https://equilens.io/">
+  <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#1E293B">
+  <meta name="theme-color" content="#ffffff">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://equilens.io/">
-  <meta property="og:title" content="Equilens — Fair-Lending Bias-Simulation Appliance">
-  <meta property="og:description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
-  <meta property="og:image" content="https://equilens.io/assets/brand/og-default.png">
+  <meta property="og:title" content="Equilens — Algorithmic Compliance">
+  <meta property="og:description" content="Fair-lending compliance solutions. Self-hosted bias simulation that generates regulator-ready evidence.">
+  <meta property="og:image" content="https://equilens.io/assets/brand/og-default-light.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://equilens.io/">
-  <meta name="twitter:title" content="Equilens — Fair-Lending Bias-Simulation Appliance">
-  <meta name="twitter:description" content="Deterministic bias simulation & compliance evidence — self-hosted, no data leaves your VPC.">
-  <meta name="twitter:image" content="https://equilens.io/assets/brand/og-default.png">
+  <meta name="twitter:title" content="Equilens — Algorithmic Compliance">
+  <meta name="twitter:description" content="Fair-lending compliance solutions. Self-hosted bias simulation that generates regulator-ready evidence.">
+  <meta name="twitter:image" content="https://equilens.io/assets/brand/og-default-light.png">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="./favicon.ico" sizes="any">
   <script type="application/ld+json">
@@ -36,6 +36,7 @@
         "url":"https://equilens.io/",
         "logo":"https://equilens.io/assets/brand/icon-512.png",
         "contactPoint":[{
+          "@type":"ContactPoint",
           "@type":"ContactPoint",
           "contactType":"sales",
           "email":"equilens@equilens.io",
@@ -57,12 +58,11 @@
     ]
   }
   </script>
-<link rel="stylesheet" href="/assets/base.css">
-<link rel="stylesheet" href="/assets/brand/overrides.css">
-<link rel="stylesheet" href="/assets/eql/site-dark.css">
+  <link rel="stylesheet" href="/assets/eql/site-light.css">
 </head>
-<body class="eql home">
+<body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
+
   <nav class="navbar" role="navigation" aria-label="Primary">
   <div class="navbar-content">
     <a href="/" class="logo">
@@ -70,149 +70,49 @@
     </a>
     <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
-      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/docs/" class="nav-link">Docs</a><a href="/faq/" class="nav-link">FAQ</a><a href="/contact/" class="nav-link">Contact</a>
+      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/press/" class="nav-link">Press</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
   </div>
 </nav>
 <script src="/assets/eql/nav.js" defer></script>
 
-<script src="/assets/eql/nav.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <main id="main">
-    <section class="hero">
+    <section class="hero" aria-label="Equilens overview">
       <div class="hero-content">
-        <h1>Algorithmic compliance that stands up to regulators</h1>
-        <p class="description">Equilens helps banks evidence fair‑lending compliance with synthetic‑data audits and regulator‑ready reports.</p>
-        <div>
-          <a class="btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
-          <a class="btn-secondary" href="/pricing/">Pricing</a>
-        </div>
+        <div class="eyebrow">Introducing</div>
+        <h1>Equilens</h1>
+        <div class="tagline">Algorithmic Compliance</div>
+        <p class="summary">
+          <strong>FL‑BSA</strong> is our self‑hosted fair‑lending bias‑simulation appliance.
+          It generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and
+          produce regulator‑ready evidence — without any customer data leaving your VPC.
+        </p>
+        <a class="cta" href="/fl-bsa/">Explore FL‑BSA</a>
       </div>
     </section>
   </main>
 
-  <section class="section trust-section">
-    <h2 class="sr-only">Trust badges</h2>
-    <div class="trust-badges">
-      <!-- Removed unverified certification claim per legal hygiene -->
-      <span class="trust-badge">ISO 27001</span>
-      <span class="trust-badge">AWS Partner</span>
-      <span class="trust-badge">Privacy by design</span>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <h2>How it works</h2>
-    <div class="grid">
-      <div class="card">
-        <h3 data-number="1">Calibrate</h3>
-        <p>Upload data (or summary stats). A dual-branch CTGAN engine calibrates:</p>
-        <ul class="checks">
-          <li>Amplification branch (features + historic decisions)</li>
-          <li>Intrinsic branch (features only)</li>
-        </ul>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/trust-center/">Trust Center</a>
+        <a href="/procurement/">Procurement</a>
+        <a href="/press/">Press</a>
+        <a href="/legal/">Legal</a>
+        <a href="/contact/">Contact</a>
       </div>
-      <div class="card">
-        <h3 data-number="2">Simulate &amp; Measure</h3>
-        <p>Generate synthetic borrowers with embedded decisions; compute AIF360 &amp; Fairlearn metrics (DI ratio, EO, etc.).</p>
-      </div>
-      <div class="card">
-        <h3 data-number="3">Evidence Bundle</h3>
-        <p>Receive a signed manifest, regulator-ready PDF, certificates (data quality, model fidelity, training convergence, synthetic quality, regulatory alignment).</p>
-      </div>
-      <div class="card">
-        <h3 data-number="4">Audit Trail</h3>
-        <p>Artifacts retrievable by Task ID; hashes chain data → model → output, ensuring defensible lineage.</p>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p><a href="mailto:equilens@equilens.io">equilens@equilens.io</a></p>
       </div>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>Designed for regulators</h2>
-    <div class="kpis">
-      <div class="kpi"><div class="num">PDF + Manifest</div><div>30-page report + signed JSON</div></div>
-      <div class="kpi"><div class="num">CFPB • EU AI Act • FCA</div><div>Evidence mapped to framework clauses</div></div>
-      <div class="kpi"><div class="num">Self-hosted</div><div>No data leaves your boundary</div></div>
+    <div class="footer-bottom">
+      <p>© 2025 Equilens Ltd. All rights reserved.</p>
     </div>
-  </section>
+  </footer>
 
-  <section class="section alt">
-    <h2>Who it's for</h2>
-    <div class="grid">
-      <div class="card card-accent"><h3>Compliance &amp; Risk</h3><p>Evidence your fair-lending posture with regulator-ready PDFs, certificate trails, and clear decision logs.</p></div>
-      <div class="card card-accent"><h3>Model Risk &amp; Data</h3><p>Run synthetic scenarios safely; compare historical vs. achievable fairness with auditable manifests.</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Why teams choose Equilens</h2>
-    <div class="grid">
-      <div class="card card-feature"><h3>🔒 Sealed appliance</h3><p>Runs entirely in your VPC. Optional usage metrics only.</p></div>
-      <div class="card card-feature"><h3>🎯 Deterministic</h3><p>Reproducible runs with pinned versions; CPU-only profiles supported.</p></div>
-      <div class="card card-feature"><h3>⚡ Performance</h3><p>Validated at scale; 10k–1M rows in minutes; daily monitoring in ≤5 min.</p></div>
-      <div class="card card-feature"><h3>📊 Observability</h3><p><code>/metrics</code> endpoint (Prometheus format); optional Grafana dashboard JSON.</p></div>
-    </div>
-  </section>
-
-  <section class="section cta-section">
-    <h2>Ready to get started?</h2>
-    <div class="cta-grid">
-      <div class="cta-card">
-        <h3>Explore FL-BSA</h3>
-        <p>Discover our bias simulation appliance and regulator-ready evidence generation</p>
-        <a href="/fl-bsa/" class="btn-primary">View Details →</a>
-      </div>
-      <div class="cta-card">
-        <h3>View Pricing</h3>
-        <p>Simple, transparent pricing with self-hosted deployment options</p>
-        <a href="/pricing/" class="btn-primary">See Plans →</a>
-      </div>
-      <div class="cta-card">
-        <h3>Trust Center</h3>
-        <p>Review our security, compliance, and privacy documentation</p>
-        <a href="/trust-center/" class="btn-secondary">Learn More →</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer" data-sync="footer">
-  <div class="container grid">
-<section><h3>Company</h3><ul><li><a href="press/">Press</a></li><li><a href="procurement/">Procurement</a></li><li><a href="trust-center/">Trust Center</a></li></ul></section>
-<section><h3>Legal</h3><ul><li><a href="legal/privacy.html">Privacy</a></li><li><a href="legal/cookie-policy.html">Cookie Policy</a></li><li><a href="legal/tos.html">Terms of Service</a></li><li><a href="legal/imprint.html">Imprint</a></li></ul></section>
-<section><h3>Resources</h3><ul><li><a href="legal/open-source.html">Open Source</a></li><li><a href="legal/accessibility.html">Accessibility</a></li></ul></section>
-</div>
-  <div class="container">
-    <small>© Equilens. All rights reserved.</small>
-  </div>
-</footer>
-
-
-
-
-
-
-
-  
+  <script src="/assets/eql/nav.js" defer></script>
 </body>
 </html>
