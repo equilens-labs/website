@@ -47,6 +47,8 @@ if (toggle && links) {
   const path = window.location.pathname;
   const hash = window.location.hash;
 
+  let anyActive = false;
+
   links.forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
@@ -78,8 +80,13 @@ if (toggle && links) {
 
     if (active) {
       link.setAttribute('aria-current', 'true');
+      anyActive = true;
     } else {
       link.removeAttribute('aria-current');
     }
   });
+
+  if (!anyActive && links[0]) {
+    links[0].setAttribute('aria-current', 'true');
+  }
 })();
