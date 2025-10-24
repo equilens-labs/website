@@ -39,3 +39,47 @@ if (toggle && links) {
     }
   });
 }
+
+// Product sub-nav active state
+(function setProductSubnav() {
+  const links = document.querySelectorAll('.product-subnav .subnav-link');
+  if (!links.length) return;
+  const path = window.location.pathname;
+  const hash = window.location.hash;
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const url = new URL(href, window.location.origin);
+    let active = false;
+
+    const samePath = url.pathname === path;
+
+    if (samePath) {
+      if (!url.hash) {
+        active = true;
+      } else if (url.hash && url.hash === hash) {
+        active = true;
+      }
+    }
+
+    if (!active && url.hash === '#deployment' && path.startsWith('/fl-bsa/pricing')) {
+      active = true;
+    }
+    if (!active && url.pathname === '/fl-bsa/legal/' && path.startsWith('/fl-bsa/legal')) {
+      active = true;
+    }
+    if (!active && url.pathname === '/fl-bsa/whitepaper/' && path.startsWith('/fl-bsa/whitepaper')) {
+      active = true;
+    }
+    if (!active && url.pathname === '/fl-bsa/' && path === '/fl-bsa/') {
+      active = true;
+    }
+
+    if (active) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+})();
