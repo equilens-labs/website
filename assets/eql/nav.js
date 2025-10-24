@@ -41,10 +41,10 @@ if (toggle && links) {
 }
 
 // Product sub-nav active state
-(function setProductSubnav() {
+function setProductSubnav() {
   const links = document.querySelectorAll('.product-subnav .subnav-link');
   if (!links.length) return;
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/?$/, '/');
   const hash = window.location.hash;
 
   let anyActive = false;
@@ -53,28 +53,25 @@ if (toggle && links) {
     const href = link.getAttribute('href');
     if (!href) return;
     const url = new URL(href, window.location.origin);
+    const targetPath = url.pathname.replace(/\/?$/, '/');
+    const targetHash = url.hash;
     let active = false;
 
-    const samePath = url.pathname === path;
-
-    if (samePath) {
-      if (!url.hash) {
+    if (targetPath === path) {
+      if (!targetHash) {
         active = true;
-      } else if (url.hash && url.hash === hash) {
+      } else if (targetHash === hash) {
         active = true;
       }
     }
 
-    if (!active && url.hash === '#deployment' && path.startsWith('/fl-bsa/pricing')) {
+    if (!active && targetHash && targetPath === '/fl-bsa/' && hash === targetHash) {
       active = true;
     }
-    if (!active && url.pathname === '/fl-bsa/legal/' && path.startsWith('/fl-bsa/legal')) {
+    if (!active && targetHash === '#deployment' && path.startsWith('/fl-bsa/pricing/')) {
       active = true;
     }
-    if (!active && url.pathname === '/fl-bsa/whitepaper/' && path.startsWith('/fl-bsa/whitepaper')) {
-      active = true;
-    }
-    if (!active && url.pathname === '/fl-bsa/' && path === '/fl-bsa/') {
+    if (!active && path.startsWith(targetPath) && !targetHash && targetPath !== '/fl-bsa/') {
       active = true;
     }
 
@@ -89,4 +86,7 @@ if (toggle && links) {
   if (!anyActive && links[0]) {
     links[0].setAttribute('aria-current', 'true');
   }
-})();
+}
+
+setProductSubnav();
+window.addEventListener('hashchange', setProductSubnav);
