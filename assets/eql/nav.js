@@ -39,13 +39,3 @@ if (toggle && links) {
     }
   });
 }
-
-// Header opacity on scroll
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
-  navbar.style.background = (window.scrollY > 100)
-    ? 'rgba(15, 23, 42, 0.98)'
-    : 'rgba(15, 23, 42, 0.95)';
-});
-

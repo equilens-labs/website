@@ -63,7 +63,7 @@
 <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
 
-    <nav class="navbar" role="navigation" aria-label="Primary">
+    <nav class="navbar site-nav" role="navigation" aria-label="Primary">
     <div class="navbar-content">
       <a href="/" class="logo" aria-label="Equilens home">
         <span class="logo-dot"></span><span class="logo-text">Equilens</span>
@@ -82,70 +82,37 @@
   <script src="/assets/eql/nav.js" defer></script>
 
 <main id="main">
-    <section class="hero" aria-label="Equilens overview">
+    <section class="hero" aria-label="FL-BSA overview">
       <div class="hero-content">
-        <div class="eyebrow">Introducing</div>
-        <h1>Equilens</h1>
-        <div class="tagline">Algorithmic Compliance</div>
-        <p class="summary">
-          <strong>FL‑BSA</strong> is our self‑hosted fair‑lending bias‑simulation appliance.
-          It generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and
-          produce regulator‑ready evidence — without any customer data leaving your VPC.
+        <h2 class="eyebrow">Introducing</h2>
+        <h1 class="brand-title">FL‑BSA</h1>
+        <p class="lead">
+          Our self‑hosted fair‑lending bias‑simulation appliance. Generates synthetic borrower cohorts (with loan decisions)
+          to measure disparate impact and produce regulator‑ready evidence — with <strong>no customer data leaving your VPC</strong>.
         </p>
-        <a class="cta" href="/fl-bsa/">Explore FL‑BSA</a>
+        <p class="cta-row">
+          <a class="btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-  <nav class="f-wrap" aria-label="Footer">
-    <section class="f-col">
-      <h2 class="f-h">Company</h2>
-      <ul class="f-ul">
-        <li><a href="/trust-center/">Trust Center</a></li>
-        <li><a href="/procurement/">Procurement</a></li>
-        <li><a href="/press/">Press</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </section>
-
-    <section class="f-col">
-      <h2 class="f-h">FL‑BSA</h2>
-      <ul class="f-ul">
-        <li><a href="/fl-bsa/">Overview</a></li>
-        <li><a href="/fl-bsa/#how-it-works">How it Works</a></li>
-        <li><a href="/fl-bsa/legal/">Compliance</a></li>
-        <li><a href="/fl-bsa/#deployment">Pricing</a></li>
-        <li><a href="/fl-bsa/whitepaper/">Whitepaper</a></li>
-      </ul>
-    </section>
-
-    <section class="f-col">
-      <h2 class="f-h">Legal</h2>
-      <ul class="f-ul">
-        <li><a href="/legal/">Legal Hub</a></li>
-        <li><a href="/legal/privacy.html">Privacy</a></li>
-        <li><a href="/legal/cookie-policy.html">Cookie Policy</a></li>
-        <li><a href="/legal/tos.html">Terms of Service</a></li>
-        <li><a href="/legal/imprint.html">Imprint</a></li>
-        <li><a href="/legal/open-source.html">Open Source</a></li>
-        <li><a href="/legal/accessibility.html">Accessibility</a></li>
-      </ul>
-    </section>
-
-    <section class="f-col">
-      <h2 class="f-h">Contact</h2>
-      <address class="f-address">
-        <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>
-      </address>
-    </section>
-  </nav>
-
-  <div class="f-bottom">
-    <p>© <span id="year"></span> Valfox Ltd. Equilens<sup>&reg;</sup> is a registered mark of Valfox Ltd.</p>
+  <footer class="micro-footer" role="contentinfo">
+  <div class="mf-wrap">
+    <nav class="mf-links" aria-label="Footer">
+      <a href="/trust-center/">Trust Center</a>
+      <a href="/procurement/">Procurement</a>
+      <a href="/press/">Press</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="/legal/">Legal Hub</a>
+      <a href="/legal/privacy.html">Privacy</a>
+      <a href="/legal/cookie-policy.html">Cookies</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="mf-legal">© <span id="y"></span> Valfox Ltd. Equilens<sup>&reg;</sup> is a registered mark of Valfox Ltd.</p>
   </div>
 </footer>
-<script>(function(){var el=document.getElementById('year');if(el){el.textContent=new Date().getFullYear();}})();</script>
+<script>(function(){var el=document.getElementById('y');if(el){el.textContent=new Date().getFullYear();}})();</script>
 
 </body>
 </html>
