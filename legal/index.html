@@ -148,15 +148,10 @@
   </nav>
 
   <div class="f-bottom">
-    <span>© 2025 Equilens Ltd. All rights reserved.</span>
+    <p>© <span id="year"></span> Valfox Ltd. Equilens<sup>&reg;</sup> is a registered mark of Valfox Ltd.</p>
   </div>
 </footer>
-
-
-
-
-
-
+<script>(function(){var el=document.getElementById('year');if(el){el.textContent=new Date().getFullYear();}})();</script>
 
 </body>
 </html>
