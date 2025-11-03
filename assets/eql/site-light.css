@@ -24,7 +24,15 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden
 }
-a{text-decoration:none;color:inherit}
+a{text-decoration:none;color:inherit;transition:color .2s ease}
+/* Inline content links */
+p a:not(.btn):not(.btn-primary):not(.btn-secondary):not(.cta),
+li a:not(.btn):not(.btn-primary):not(.btn-secondary):not(.cta),
+.card a:not(.btn):not(.btn-primary):not(.btn-secondary):not(.cta){
+  text-decoration:underline;text-underline-offset:2px;color:var(--accent)
+}
+p a:hover,li a:hover{color:var(--accent-hover)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 
 /* Header / Nav (brand-only) */
 .navbar{
@@ -148,6 +156,10 @@ a{text-decoration:none;color:inherit}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Utility spacing */
+/* Typography */
+p{margin:0.75rem 0;line-height:1.6;max-width:72ch}
+ul,ol{margin:0.75rem 0 1rem 1.25rem;line-height:1.6}
+
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
