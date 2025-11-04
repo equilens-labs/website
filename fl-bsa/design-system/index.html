@@ -7,149 +7,14 @@
   <title>FL-BSA Design System &mdash; Equilens</title>
   <meta content="Comprehensive design system documentation for FL-BSA product pages." name="description"/>
   <link href="https://equilens.io/fl-bsa/design-system/" rel="canonical"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
   <meta content="#4f46e5" name="theme-color"/>
   <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
   <link rel="manifest" href="/manifest.webmanifest" type="application/manifest+json">
-  <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="../../favicon.ico" rel="alternate icon" sizes="any"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/favicon.ico" rel="alternate icon" sizes="any"/>
   <link rel="stylesheet" href="/assets/eql/fl-bsa.css">
-  <style>
-    /* Style guide specific styles */
-    .design-system-nav {
-      position: sticky;
-      top: 64px;
-      background: var(--bg-main);
-      border-bottom: 1px solid var(--border-default);
-      padding: var(--space-4) 0;
-      margin-bottom: var(--space-8);
-      z-index: 100;
-    }
-
-    .design-system-nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-      margin: 0;
-      padding: 0;
-    }
-
-    .design-system-nav a {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      text-decoration: none;
-      padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-md);
-      transition: all var(--transition-base);
-    }
-
-    .design-system-nav a:hover {
-      background: var(--bg-subtle);
-      color: var(--color-primary);
-    }
-
-    .swatch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: var(--space-4);
-      margin: var(--space-6) 0;
-    }
-
-    .swatch {
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .swatch-color {
-      height: 80px;
-      width: 100%;
-    }
-
-    .swatch-info {
-      padding: var(--space-3);
-      background: var(--bg-main);
-    }
-
-    .swatch-name {
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-1);
-    }
-
-    .swatch-value {
-      font-size: var(--text-xs);
-      color: var(--text-muted);
-      font-family: 'Monaco', monospace;
-    }
-
-    .component-example {
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      margin: var(--space-6) 0;
-      background: var(--bg-subtle);
-    }
-
-    .code-block {
-      background: var(--color-gray-900);
-      color: var(--color-gray-100);
-      padding: var(--space-4);
-      border-radius: var(--radius-md);
-      overflow-x: auto;
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: var(--text-sm);
-      margin: var(--space-4) 0;
-    }
-
-    .typography-example {
-      margin: var(--space-4) 0;
-      padding: var(--space-4);
-      border-left: 3px solid var(--color-primary);
-      background: var(--bg-subtle);
-    }
-
-    .spacing-example {
-      display: inline-block;
-      background: var(--color-primary);
-      opacity: 0.2;
-    }
-
-    .section-header {
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: var(--space-3);
-      margin-top: var(--space-12);
-      margin-bottom: var(--space-6);
-    }
-
-    .grid-demo {
-      background: var(--bg-subtle);
-      border: 2px dashed var(--border-medium);
-      padding: var(--space-4);
-      text-align: center;
-      border-radius: var(--radius-md);
-    }
-
-    .token-table {
-      width: 100%;
-      margin: var(--space-6) 0;
-    }
-
-    .token-table th {
-      background: var(--color-primary);
-      color: var(--color-white);
-    }
-
-    .token-table code {
-      background: var(--color-gray-100);
-      padding: 0.2em 0.5em;
-      border-radius: var(--radius-sm);
-      font-size: 0.9em;
-    }
-  </style>
 </head>
 <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
@@ -209,7 +74,7 @@
       <h3>Primary Palette</h3>
       <div class="swatch-grid">
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #4f46e5;"></div>
+          <div class="swatch-color swatch-color--primary"></div>
           <div class="swatch-info">
             <div class="swatch-name">Primary</div>
             <div class="swatch-value">#4f46e5</div>
@@ -217,7 +82,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #4338ca;"></div>
+          <div class="swatch-color swatch-color--primary-hover"></div>
           <div class="swatch-info">
             <div class="swatch-name">Primary Hover</div>
             <div class="swatch-value">#4338ca</div>
@@ -225,7 +90,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #6366f1;"></div>
+          <div class="swatch-color swatch-color--primary-light"></div>
           <div class="swatch-info">
             <div class="swatch-name">Primary Light</div>
             <div class="swatch-value">#6366f1</div>
@@ -233,7 +98,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #3730a3;"></div>
+          <div class="swatch-color swatch-color--primary-dark"></div>
           <div class="swatch-info">
             <div class="swatch-name">Primary Dark</div>
             <div class="swatch-value">#3730a3</div>
@@ -245,7 +110,7 @@
       <h3>Neutral Palette</h3>
       <div class="swatch-grid">
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #ffffff; border: 1px solid #e5e7eb;"></div>
+          <div class="swatch-color swatch-color--white"></div>
           <div class="swatch-info">
             <div class="swatch-name">White</div>
             <div class="swatch-value">#ffffff</div>
@@ -253,7 +118,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #f9fafb;"></div>
+          <div class="swatch-color swatch-color--gray-50"></div>
           <div class="swatch-info">
             <div class="swatch-name">Gray 50</div>
             <div class="swatch-value">#f9fafb</div>
@@ -261,7 +126,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #e5e7eb;"></div>
+          <div class="swatch-color swatch-color--gray-200"></div>
           <div class="swatch-info">
             <div class="swatch-name">Gray 200</div>
             <div class="swatch-value">#e5e7eb</div>
@@ -269,7 +134,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #6b7280;"></div>
+          <div class="swatch-color swatch-color--gray-500"></div>
           <div class="swatch-info">
             <div class="swatch-name">Gray 500</div>
             <div class="swatch-value">#6b7280</div>
@@ -277,7 +142,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #111827;"></div>
+          <div class="swatch-color swatch-color--gray-900"></div>
           <div class="swatch-info">
             <div class="swatch-name">Gray 900</div>
             <div class="swatch-value">#111827</div>
@@ -289,7 +154,7 @@
       <h3>Semantic Colors</h3>
       <div class="swatch-grid">
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #10b981;"></div>
+          <div class="swatch-color swatch-color--success"></div>
           <div class="swatch-info">
             <div class="swatch-name">Success</div>
             <div class="swatch-value">#10b981</div>
@@ -297,7 +162,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #f59e0b;"></div>
+          <div class="swatch-color swatch-color--warning"></div>
           <div class="swatch-info">
             <div class="swatch-name">Warning</div>
             <div class="swatch-value">#f59e0b</div>
@@ -305,7 +170,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #ef4444;"></div>
+          <div class="swatch-color swatch-color--error"></div>
           <div class="swatch-info">
             <div class="swatch-name">Error</div>
             <div class="swatch-value">#ef4444</div>
@@ -313,7 +178,7 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background-color: #3b82f6;"></div>
+          <div class="swatch-color swatch-color--info"></div>
           <div class="swatch-info">
             <div class="swatch-name">Info</div>
             <div class="swatch-value">#3b82f6</div>
@@ -433,43 +298,43 @@
             <td><code>--space-1</code></td>
             <td>0.25rem</td>
             <td>4px</td>
-            <td><span class="spacing-example" style="width:4px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--1"></span></td>
           </tr>
           <tr>
             <td><code>--space-2</code></td>
             <td>0.5rem</td>
             <td>8px</td>
-            <td><span class="spacing-example" style="width:8px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--2"></span></td>
           </tr>
           <tr>
             <td><code>--space-4</code></td>
             <td>1rem</td>
             <td>16px</td>
-            <td><span class="spacing-example" style="width:16px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--4"></span></td>
           </tr>
           <tr>
             <td><code>--space-6</code></td>
             <td>1.5rem</td>
             <td>24px</td>
-            <td><span class="spacing-example" style="width:24px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--6"></span></td>
           </tr>
           <tr>
             <td><code>--space-8</code></td>
             <td>2rem</td>
             <td>32px</td>
-            <td><span class="spacing-example" style="width:32px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--8"></span></td>
           </tr>
           <tr>
             <td><code>--space-12</code></td>
             <td>3rem</td>
             <td>48px</td>
-            <td><span class="spacing-example" style="width:48px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--12"></span></td>
           </tr>
           <tr>
             <td><code>--space-16</code></td>
             <td>4rem</td>
             <td>64px</td>
-            <td><span class="spacing-example" style="width:64px;height:16px;"></span></td>
+            <td><span class="spacing-example spacing-example--16"></span></td>
           </tr>
         </tbody>
       </table>
@@ -525,7 +390,7 @@
       <h3>Grid System</h3>
       <p>Responsive grid with mobile-first approach.</p>
       <div class="component-example">
-        <div class="grid cols-2" style="gap: 1rem;">
+        <div class="grid cols-2 gap-md">
           <div class="grid-demo">Column 1</div>
           <div class="grid-demo">Column 2</div>
         </div>
@@ -551,7 +416,7 @@
 
       <h3>Button Variants</h3>
       <div class="component-example">
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div class="ds-flex-group">
           <a href="#" class="btn btn-primary">Primary Button</a>
           <a href="#" class="btn btn-secondary">Secondary Button</a>
           <a href="#" class="btn btn-ghost">Ghost Button</a>
@@ -581,7 +446,7 @@
 
       <h3>Basic Card</h3>
       <div class="component-example">
-        <div class="card" style="max-width: 400px;">
+        <div class="card card--narrow">
           <h3>Card Title</h3>
           <p>Card content goes here. Cards have consistent padding, borders, and subtle shadows that enhance on hover.</p>
         </div>
@@ -589,7 +454,7 @@
 
       <h3>Card with Structure</h3>
       <div class="component-example">
-        <div class="card" style="max-width: 400px;">
+        <div class="card card--narrow">
           <div class="card-header">
             <h3>Card Header</h3>
           </div>
@@ -621,21 +486,21 @@
 
       <h3>Form Inputs</h3>
       <div class="component-example">
-        <div style="max-width: 400px;">
+        <div class="ds-form-wrap">
           <label for="demo-text">Text Input</label>
           <input type="text" id="demo-text" placeholder="Enter text...">
 
-          <label for="demo-email" style="margin-top: 1rem;">Email Input</label>
+          <label for="demo-email" class="mt-4">Email Input</label>
           <input type="email" id="demo-email" placeholder="you@example.com">
 
-          <label for="demo-select" style="margin-top: 1rem;">Select</label>
+          <label for="demo-select" class="mt-4">Select</label>
           <select id="demo-select">
             <option>Option 1</option>
             <option>Option 2</option>
             <option>Option 3</option>
           </select>
 
-          <label for="demo-textarea" style="margin-top: 1rem;">Textarea</label>
+          <label for="demo-textarea" class="mt-4">Textarea</label>
           <textarea id="demo-textarea" rows="4" placeholder="Enter your message..."></textarea>
         </div>
       </div>
@@ -755,12 +620,12 @@
 
       <h3>Border Radius</h3>
       <div class="component-example">
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <div class="rounded-sm" style="width: 80px; height: 80px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">sm (4px)</div>
-          <div class="rounded-md" style="width: 80px; height: 80px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">md (8px)</div>
-          <div class="rounded-lg" style="width: 80px; height: 80px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">lg (12px)</div>
-          <div class="rounded-xl" style="width: 80px; height: 80px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">xl (16px)</div>
-          <div class="rounded-full" style="width: 80px; height: 80px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">full</div>
+        <div class="ds-flex-group">
+          <div class="rounded-demo rounded-sm">sm (4px)</div>
+          <div class="rounded-demo rounded-md">md (8px)</div>
+          <div class="rounded-demo rounded-lg">lg (12px)</div>
+          <div class="rounded-demo rounded-xl">xl (16px)</div>
+          <div class="rounded-demo rounded-full">full</div>
         </div>
       </div>
     </section>
@@ -839,7 +704,7 @@
         </div>
       </div>
 
-      <div class="card" style="margin-top: 2rem; background: var(--bg-subtle);">
+      <div class="card card--muted mt-8">
         <h3>Questions or Feedback?</h3>
         <p>For questions about implementation or suggestions for improvements, contact the Equilens team at <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
       </div>
@@ -862,7 +727,7 @@
       <p class="mf-legal">© <span id="y"></span> Valfox Ltd. Equilens<sup>®</sup> is a registered mark of Valfox Ltd.</p>
     </div>
   </footer>
-  <script>(function(){var el=document.getElementById('y');if(el){el.textContent=new Date().getFullYear();}})();</script>
+  
 
 </body>
 </html>

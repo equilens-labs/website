@@ -1,0 +1,535 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/fl-bsa/design-system/');
+```
+
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/design-system/
+- Page Title: FL-BSA Design System — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "FL-BSA Design System" [level=1] [ref=e10]
+      - paragraph [ref=e11]: Comprehensive documentation for the FL-BSA design system, including colors, typography, spacing, components, and usage guidelines.
+      - paragraph [ref=e12]:
+        - text: "Last updated: November 3, 2025 | Version 1.0 |"
+        - link "View CSS" [ref=e13] [cursor=pointer]:
+          - /url: /assets/eql/fl-bsa.css
+    - navigation [ref=e14]:
+      - list [ref=e16]:
+        - listitem [ref=e17]:
+          - link "Colors" [ref=e18] [cursor=pointer]:
+            - /url: "#colors"
+        - listitem [ref=e19]:
+          - link "Typography" [ref=e20] [cursor=pointer]:
+            - /url: "#typography"
+        - listitem [ref=e21]:
+          - link "Spacing" [ref=e22] [cursor=pointer]:
+            - /url: "#spacing"
+        - listitem [ref=e23]:
+          - link "Layout" [ref=e24] [cursor=pointer]:
+            - /url: "#layout"
+        - listitem [ref=e25]:
+          - link "Buttons" [ref=e26] [cursor=pointer]:
+            - /url: "#buttons"
+        - listitem [ref=e27]:
+          - link "Cards" [ref=e28] [cursor=pointer]:
+            - /url: "#cards"
+        - listitem [ref=e29]:
+          - link "Forms" [ref=e30] [cursor=pointer]:
+            - /url: "#forms"
+        - listitem [ref=e31]:
+          - link "Lists" [ref=e32] [cursor=pointer]:
+            - /url: "#lists"
+        - listitem [ref=e33]:
+          - link "FAQ" [ref=e34] [cursor=pointer]:
+            - /url: "#faq"
+        - listitem [ref=e35]:
+          - link "Utilities" [ref=e36] [cursor=pointer]:
+            - /url: "#utilities"
+        - listitem [ref=e37]:
+          - link "Accessibility" [ref=e38] [cursor=pointer]:
+            - /url: "#accessibility"
+    - generic [ref=e39]:
+      - heading "Color System" [level=2] [ref=e40]
+      - paragraph [ref=e41]: The FL-BSA color system uses Indigo as the primary brand color, with a comprehensive neutral palette for text and surfaces.
+      - heading "Primary Palette" [level=3] [ref=e42]
+      - generic [ref=e43]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: Primary
+          - generic [ref=e48]: "#4f46e5"
+          - generic [ref=e49]: "--color-primary"
+        - generic [ref=e52]:
+          - generic [ref=e53]: Primary Hover
+          - generic [ref=e54]: "#4338ca"
+          - generic [ref=e55]: "--color-primary-hover"
+        - generic [ref=e58]:
+          - generic [ref=e59]: Primary Light
+          - generic [ref=e60]: "#6366f1"
+          - generic [ref=e61]: "--color-primary-light"
+        - generic [ref=e64]:
+          - generic [ref=e65]: Primary Dark
+          - generic [ref=e66]: "#3730a3"
+          - generic [ref=e67]: "--color-primary-dark"
+      - heading "Neutral Palette" [level=3] [ref=e68]
+      - generic [ref=e69]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: White
+          - generic [ref=e74]: "#ffffff"
+          - generic [ref=e75]: "--color-white"
+        - generic [ref=e78]:
+          - generic [ref=e79]: Gray 50
+          - generic [ref=e80]: "#f9fafb"
+          - generic [ref=e81]: "--color-gray-50"
+        - generic [ref=e84]:
+          - generic [ref=e85]: Gray 200
+          - generic [ref=e86]: "#e5e7eb"
+          - generic [ref=e87]: "--color-gray-200"
+        - generic [ref=e90]:
+          - generic [ref=e91]: Gray 500
+          - generic [ref=e92]: "#6b7280"
+          - generic [ref=e93]: "--color-gray-500"
+        - generic [ref=e96]:
+          - generic [ref=e97]: Gray 900
+          - generic [ref=e98]: "#111827"
+          - generic [ref=e99]: "--color-gray-900"
+      - heading "Semantic Colors" [level=3] [ref=e100]
+      - generic [ref=e101]:
+        - generic [ref=e104]:
+          - generic [ref=e105]: Success
+          - generic [ref=e106]: "#10b981"
+          - generic [ref=e107]: "--color-success"
+        - generic [ref=e110]:
+          - generic [ref=e111]: Warning
+          - generic [ref=e112]: "#f59e0b"
+          - generic [ref=e113]: "--color-warning"
+        - generic [ref=e116]:
+          - generic [ref=e117]: Error
+          - generic [ref=e118]: "#ef4444"
+          - generic [ref=e119]: "--color-error"
+        - generic [ref=e122]:
+          - generic [ref=e123]: Info
+          - generic [ref=e124]: "#3b82f6"
+          - generic [ref=e125]: "--color-info"
+      - heading "CSS Variables" [level=3] [ref=e126]
+      - generic [ref=e127]: ":root { /* Primary */ --color-primary: #4f46e5; --color-primary-hover: #4338ca; /* Text */ --text-primary: #111827; --text-secondary: #374151; --text-muted: #4b5563; /* Backgrounds */ --bg-main: #ffffff; --bg-subtle: #f8fafc; /* Borders */ --border-default: #e5e7eb; }"
+    - generic [ref=e128]:
+      - heading "Typography" [level=2] [ref=e129]
+      - paragraph [ref=e130]: The FL-BSA design system uses system fonts for optimal performance and readability.
+      - heading "Font Stack" [level=3] [ref=e131]
+      - generic [ref=e132]: "font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;"
+      - heading "Type Scale" [level=3] [ref=e133]
+      - heading "Heading 1 — clamp(2rem, 5vw, 3rem)" [level=1] [ref=e135]
+      - heading "Heading 2 — clamp(1.5rem, 3vw, 2rem)" [level=2] [ref=e137]
+      - heading "Heading 3 — clamp(1.25rem, 2vw, 1.5rem)" [level=3] [ref=e139]
+      - heading "Heading 4 — 1.25rem (20px)" [level=4] [ref=e141]
+      - paragraph [ref=e143]: Body text — 1rem (16px) with 1.5 line height for optimal readability in long-form content.
+      - paragraph [ref=e145]: Lead text — clamp(16px, 1.6vw, 18px)
+      - paragraph [ref=e147]: Note text — 0.95rem, italic, muted color
+      - heading "Text Utilities" [level=3] [ref=e148]
+      - table [ref=e149]:
+        - rowgroup [ref=e150]:
+          - row "Class Size Usage" [ref=e151]:
+            - cell "Class" [ref=e152]
+            - cell "Size" [ref=e153]
+            - cell "Usage" [ref=e154]
+        - rowgroup [ref=e155]:
+          - row ".text-xs 0.75rem (12px) Fine print, legal text" [ref=e156]:
+            - cell ".text-xs" [ref=e157]:
+              - code [ref=e158]: .text-xs
+            - cell "0.75rem (12px)" [ref=e159]
+            - cell "Fine print, legal text" [ref=e160]
+          - row ".text-sm 0.875rem (14px) Secondary information" [ref=e161]:
+            - cell ".text-sm" [ref=e162]:
+              - code [ref=e163]: .text-sm
+            - cell "0.875rem (14px)" [ref=e164]
+            - cell "Secondary information" [ref=e165]
+          - row ".text-base 1rem (16px) Body text (default)" [ref=e166]:
+            - cell ".text-base" [ref=e167]:
+              - code [ref=e168]: .text-base
+            - cell "1rem (16px)" [ref=e169]
+            - cell "Body text (default)" [ref=e170]
+          - row ".text-lg 1.125rem (18px) Emphasized content" [ref=e171]:
+            - cell ".text-lg" [ref=e172]:
+              - code [ref=e173]: .text-lg
+            - cell "1.125rem (18px)" [ref=e174]
+            - cell "Emphasized content" [ref=e175]
+          - row ".text-xl 1.25rem (20px) Section subheadings" [ref=e176]:
+            - cell ".text-xl" [ref=e177]:
+              - code [ref=e178]: .text-xl
+            - cell "1.25rem (20px)" [ref=e179]
+            - cell "Section subheadings" [ref=e180]
+    - generic [ref=e181]:
+      - heading "Spacing System" [level=2] [ref=e182]
+      - paragraph [ref=e183]: Consistent spacing using a scale based on 4px increments.
+      - heading "Spacing Scale" [level=3] [ref=e184]
+      - table [ref=e185]:
+        - rowgroup [ref=e186]:
+          - row "Token Value Pixels Example" [ref=e187]:
+            - cell "Token" [ref=e188]
+            - cell "Value" [ref=e189]
+            - cell "Pixels" [ref=e190]
+            - cell "Example" [ref=e191]
+        - rowgroup [ref=e192]:
+          - row "--space-1 0.25rem 4px" [ref=e193]:
+            - cell "--space-1" [ref=e194]:
+              - code [ref=e195]: "--space-1"
+            - cell "0.25rem" [ref=e196]
+            - cell "4px" [ref=e197]
+            - cell [ref=e198]
+          - row "--space-2 0.5rem 8px" [ref=e200]:
+            - cell "--space-2" [ref=e201]:
+              - code [ref=e202]: "--space-2"
+            - cell "0.5rem" [ref=e203]
+            - cell "8px" [ref=e204]
+            - cell [ref=e205]
+          - row "--space-4 1rem 16px" [ref=e207]:
+            - cell "--space-4" [ref=e208]:
+              - code [ref=e209]: "--space-4"
+            - cell "1rem" [ref=e210]
+            - cell "16px" [ref=e211]
+            - cell [ref=e212]
+          - row "--space-6 1.5rem 24px" [ref=e214]:
+            - cell "--space-6" [ref=e215]:
+              - code [ref=e216]: "--space-6"
+            - cell "1.5rem" [ref=e217]
+            - cell "24px" [ref=e218]
+            - cell [ref=e219]
+          - row "--space-8 2rem 32px" [ref=e221]:
+            - cell "--space-8" [ref=e222]:
+              - code [ref=e223]: "--space-8"
+            - cell "2rem" [ref=e224]
+            - cell "32px" [ref=e225]
+            - cell [ref=e226]
+          - row "--space-12 3rem 48px" [ref=e228]:
+            - cell "--space-12" [ref=e229]:
+              - code [ref=e230]: "--space-12"
+            - cell "3rem" [ref=e231]
+            - cell "48px" [ref=e232]
+            - cell [ref=e233]
+          - row "--space-16 4rem 64px" [ref=e235]:
+            - cell "--space-16" [ref=e236]:
+              - code [ref=e237]: "--space-16"
+            - cell "4rem" [ref=e238]
+            - cell "64px" [ref=e239]
+            - cell [ref=e240]
+      - heading "Spacing Utilities" [level=3] [ref=e242]
+      - generic [ref=e243]: "/* Padding */ .p-4 { padding: 1rem; } .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; } .py-8 { padding-top: 2rem; padding-bottom: 2rem; } /* Margin */ .mx-auto { margin-left: auto; margin-right: auto; } .m-0 { margin: 0; }"
+    - generic [ref=e244]:
+      - heading "Layout System" [level=2] [ref=e245]
+      - heading "Containers" [level=3] [ref=e246]
+      - table [ref=e247]:
+        - rowgroup [ref=e248]:
+          - row "Class Max Width Usage" [ref=e249]:
+            - cell "Class" [ref=e250]
+            - cell "Max Width" [ref=e251]
+            - cell "Usage" [ref=e252]
+        - rowgroup [ref=e253]:
+          - row ".max-w-3xl 56rem (896px) Text-heavy pages, whitepapers" [ref=e254]:
+            - cell ".max-w-3xl" [ref=e255]:
+              - code [ref=e256]: .max-w-3xl
+            - cell "56rem (896px)" [ref=e257]
+            - cell "Text-heavy pages, whitepapers" [ref=e258]
+          - row ".max-w-5xl 70rem (1120px) Default content width" [ref=e259]:
+            - cell ".max-w-5xl" [ref=e260]:
+              - code [ref=e261]: .max-w-5xl
+            - cell "70rem (1120px)" [ref=e262]
+            - cell "Default content width" [ref=e263]
+          - row ".max-w-7xl 80rem (1280px) Wide layouts, legal pages" [ref=e264]:
+            - cell ".max-w-7xl" [ref=e265]:
+              - code [ref=e266]: .max-w-7xl
+            - cell "80rem (1280px)" [ref=e267]
+            - cell "Wide layouts, legal pages" [ref=e268]
+          - row ".wrap 70rem (1120px) Standard wrapper with padding" [ref=e269]:
+            - cell ".wrap" [ref=e270]:
+              - code [ref=e271]: .wrap
+            - cell "70rem (1120px)" [ref=e272]
+            - cell "Standard wrapper with padding" [ref=e273]
+      - heading "Grid System" [level=3] [ref=e274]
+      - paragraph [ref=e275]: Responsive grid with mobile-first approach.
+      - generic [ref=e277]:
+        - generic [ref=e278]: Column 1
+        - generic [ref=e279]: Column 2
+      - generic [ref=e280]: <div class="grid cols-2"> <div>Column 1</div> <div>Column 2</div> </div>
+      - heading "Grid Variants" [level=3] [ref=e281]
+      - list [ref=e282]:
+        - listitem [ref=e283]:
+          - text: ✓
+          - code [ref=e284]: .grid
+          - text: — Default 1 column mobile, 2 columns desktop
+        - listitem [ref=e285]:
+          - text: ✓
+          - code [ref=e286]: .grid.cols-2
+          - text: — 2 column grid (auto-responsive)
+        - listitem [ref=e287]:
+          - text: ✓
+          - code [ref=e288]: .grid.cols-3
+          - text: — 3 column grid
+        - listitem [ref=e289]:
+          - text: ✓
+          - code [ref=e290]: .grid.cols-4
+          - text: — 4 column grid
+    - generic [ref=e291]:
+      - heading "Buttons" [level=2] [ref=e292]
+      - paragraph [ref=e293]: All button variants meet WCAG AA contrast requirements and have 44px minimum touch targets.
+      - heading "Button Variants" [level=3] [ref=e294]
+      - generic [ref=e296]:
+        - link "Primary Button" [ref=e297] [cursor=pointer]:
+          - /url: "#"
+        - link "Secondary Button" [ref=e298] [cursor=pointer]:
+          - /url: "#"
+        - link "Ghost Button" [ref=e299] [cursor=pointer]:
+          - /url: "#"
+        - button "Disabled Button" [disabled]
+      - heading "Button Code" [level=3] [ref=e300]
+      - generic [ref=e301]: <a href="#" class="btn btn-primary">Primary Button</a> <a href="#" class="btn btn-secondary">Secondary Button</a> <a href="#" class="btn btn-ghost">Ghost Button</a>
+      - heading "Button States" [level=3] [ref=e302]
+      - list [ref=e303]:
+        - listitem [ref=e304]:
+          - text: ✓
+          - strong [ref=e305]: "Default:"
+          - text: Clear, high-contrast colors
+        - listitem [ref=e306]:
+          - text: ✓
+          - strong [ref=e307]: "Hover:"
+          - text: Subtle translateY(-1px) with enhanced shadow
+        - listitem [ref=e308]:
+          - text: ✓
+          - strong [ref=e309]: "Active:"
+          - text: Returns to baseline position
+        - listitem [ref=e310]:
+          - text: ✓
+          - strong [ref=e311]: "Focus:"
+          - text: 2px outline with 2px offset for keyboard navigation
+        - listitem [ref=e312]:
+          - text: ✓
+          - strong [ref=e313]: "Disabled:"
+          - text: 60% opacity, no pointer events
+    - generic [ref=e314]:
+      - heading "Cards" [level=2] [ref=e315]
+      - paragraph [ref=e316]: Card components for grouping related content with hover effects.
+      - heading "Basic Card" [level=3] [ref=e317]
+      - generic [ref=e319]:
+        - heading "Card Title" [level=3] [ref=e320]
+        - paragraph [ref=e321]: Card content goes here. Cards have consistent padding, borders, and subtle shadows that enhance on hover.
+      - heading "Card with Structure" [level=3] [ref=e322]
+      - generic [ref=e324]:
+        - heading "Card Header" [level=3] [ref=e326]
+        - paragraph [ref=e328]: Main card content with proper semantic structure.
+        - link "Action" [ref=e330] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e331]: <div class="card"> <div class="card-header"> <h3>Card Header</h3> </div> <div class="card-body"> <p>Card content</p> </div> <div class="card-footer"> <a href="#" class="btn btn-primary">Action</a> </div> </div>
+    - generic [ref=e332]:
+      - heading "Forms" [level=2] [ref=e333]
+      - heading "Form Inputs" [level=3] [ref=e334]
+      - generic [ref=e336]:
+        - generic [ref=e337]: Text Input
+        - textbox "Text Input" [ref=e338]:
+          - /placeholder: Enter text...
+        - generic [ref=e339]: Email Input
+        - textbox "Email Input" [ref=e340]:
+          - /placeholder: you@example.com
+        - generic [ref=e341]: Select
+        - combobox "Select" [ref=e342]:
+          - option "Option 1" [selected]
+          - option "Option 2"
+          - option "Option 3"
+        - generic [ref=e343]: Textarea
+        - textbox "Textarea" [ref=e344]:
+          - /placeholder: Enter your message...
+      - heading "Form Guidelines" [level=3] [ref=e345]
+      - list [ref=e346]:
+        - listitem [ref=e347]:
+          - text: ✓ All inputs have
+          - code [ref=e348]: 1px
+          - text: border that changes to primary color on focus
+        - listitem [ref=e349]:
+          - text: ✓ Focus states include a
+          - code [ref=e350]: 3px
+          - text: shadow ring for clear indication
+        - listitem [ref=e351]: ✓ Labels use semibold font weight for clarity
+        - listitem [ref=e352]: ✓ Hover states provide immediate visual feedback
+    - generic [ref=e353]:
+      - heading "Lists" [level=2] [ref=e354]
+      - heading "Checkmark List" [level=3] [ref=e355]
+      - list [ref=e357]:
+        - listitem [ref=e358]: ✓ First item with checkmark icon
+        - listitem [ref=e359]: ✓ Second item demonstrating consistent spacing
+        - listitem [ref=e360]: ✓ Third item showing success color accent
+        - listitem [ref=e361]: ✓ Fourth item with longer text to demonstrate line wrapping and spacing consistency across multiple lines
+      - generic [ref=e362]: <ul class="checks"> <li>First item with checkmark icon</li> <li>Second item</li> </ul>
+      - heading "Asset List" [level=3] [ref=e363]
+      - list [ref=e365]:
+        - listitem [ref=e366]:
+          - link "Documentation Link" [ref=e367] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e368]:
+          - link "GitHub Repository" [ref=e369] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e370]:
+          - link "Technical Whitepaper" [ref=e371] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e372]: <ul class="asset-list"> <li><a href="#">Documentation Link</a></li> <li><a href="#">GitHub Repository</a></li> </ul>
+    - generic [ref=e373]:
+      - heading "FAQ / Accordion" [level=2] [ref=e374]
+      - paragraph [ref=e375]: Custom-styled disclosure widgets with expand/collapse icons.
+      - generic [ref=e376]:
+        - group [ref=e377]:
+          - generic "What is the FL-BSA design system? +" [ref=e378] [cursor=pointer]
+        - group [ref=e379]:
+          - generic "How do I use these components? +" [ref=e380] [cursor=pointer]
+        - group [ref=e381]:
+          - generic "This one is open by default −" [ref=e382] [cursor=pointer]
+          - paragraph [ref=e384]:
+            - text: Add the
+            - code [ref=e385]: open
+            - text: attribute to a details element to have it expanded by default.
+      - generic [ref=e386]: <details class="faq-item"> <summary>Question text goes here</summary> <div class="faq-content"> <p>Answer content goes here.</p> </div> </details>
+      - heading "Features" [level=3] [ref=e387]
+      - list [ref=e388]:
+        - listitem [ref=e389]: ✓ Custom expand/collapse icon (+ becomes − when open)
+        - listitem [ref=e390]: ✓ Smooth transitions and hover states
+        - listitem [ref=e391]: ✓ Background color change when open
+        - listitem [ref=e392]: ✓ Border color change to primary when active
+        - listitem [ref=e393]: ✓ Fully keyboard accessible
+    - generic [ref=e394]:
+      - heading "Utility Classes" [level=2] [ref=e395]
+      - heading "Width Utilities" [level=3] [ref=e396]
+      - table [ref=e397]:
+        - rowgroup [ref=e398]:
+          - row "Class Value" [ref=e399]:
+            - cell "Class" [ref=e400]
+            - cell "Value" [ref=e401]
+        - rowgroup [ref=e402]:
+          - row ".max-w-xs 20rem (320px)" [ref=e403]:
+            - cell ".max-w-xs" [ref=e404]:
+              - code [ref=e405]: .max-w-xs
+            - cell "20rem (320px)" [ref=e406]
+          - row ".max-w-sm 24rem (384px)" [ref=e407]:
+            - cell ".max-w-sm" [ref=e408]:
+              - code [ref=e409]: .max-w-sm
+            - cell "24rem (384px)" [ref=e410]
+          - row ".max-w-md 28rem (448px)" [ref=e411]:
+            - cell ".max-w-md" [ref=e412]:
+              - code [ref=e413]: .max-w-md
+            - cell "28rem (448px)" [ref=e414]
+          - row ".max-w-lg 32rem (512px)" [ref=e415]:
+            - cell ".max-w-lg" [ref=e416]:
+              - code [ref=e417]: .max-w-lg
+            - cell "32rem (512px)" [ref=e418]
+          - row ".max-w-xl 36rem (576px)" [ref=e419]:
+            - cell ".max-w-xl" [ref=e420]:
+              - code [ref=e421]: .max-w-xl
+            - cell "36rem (576px)" [ref=e422]
+          - row ".max-w-2xl 42rem (672px)" [ref=e423]:
+            - cell ".max-w-2xl" [ref=e424]:
+              - code [ref=e425]: .max-w-2xl
+            - cell "42rem (672px)" [ref=e426]
+          - row ".max-w-3xl 56rem (896px)" [ref=e427]:
+            - cell ".max-w-3xl" [ref=e428]:
+              - code [ref=e429]: .max-w-3xl
+            - cell "56rem (896px)" [ref=e430]
+          - row ".max-w-5xl 70rem (1120px)" [ref=e431]:
+            - cell ".max-w-5xl" [ref=e432]:
+              - code [ref=e433]: .max-w-5xl
+            - cell "70rem (1120px)" [ref=e434]
+          - row ".max-w-7xl 80rem (1280px)" [ref=e435]:
+            - cell ".max-w-7xl" [ref=e436]:
+              - code [ref=e437]: .max-w-7xl
+            - cell "80rem (1280px)" [ref=e438]
+      - heading "Border Radius" [level=3] [ref=e439]
+      - generic [ref=e441]:
+        - generic [ref=e442]: sm (4px)
+        - generic [ref=e443]: md (8px)
+        - generic [ref=e444]: lg (12px)
+        - generic [ref=e445]: xl (16px)
+        - generic [ref=e446]: full
+    - generic [ref=e447]:
+      - heading "Accessibility" [level=2] [ref=e448]
+      - heading "Focus States" [level=3] [ref=e449]
+      - paragraph [ref=e450]: "All interactive elements have visible focus indicators:"
+      - list [ref=e451]:
+        - listitem [ref=e452]:
+          - text: ✓ 2px outline with 2px offset using
+          - code [ref=e453]: :focus-visible
+        - listitem [ref=e454]: ✓ Primary color outline for consistency
+        - listitem [ref=e455]:
+          - text: ✓ Respects user's
+          - code [ref=e456]: prefers-reduced-motion
+          - text: preference
+      - heading "Color Contrast" [level=3] [ref=e457]
+      - paragraph [ref=e458]: "All text/background combinations meet WCAG AA standards:"
+      - list [ref=e459]:
+        - listitem [ref=e460]: "✓ Body text: 4.5:1 minimum contrast ratio"
+        - listitem [ref=e461]: "✓ Large text (18px+): 3:1 minimum contrast ratio"
+        - listitem [ref=e462]: "✓ Interactive elements: Clear visual differentiation"
+        - listitem [ref=e463]: "✓ Hover/focus states: Enhanced visibility"
+      - heading "Keyboard Navigation" [level=3] [ref=e464]
+      - list [ref=e465]:
+        - listitem [ref=e466]: ✓ Skip-to-content link for quick navigation
+        - listitem [ref=e467]: ✓ Logical tab order throughout
+        - listitem [ref=e468]: ✓ All interactive elements keyboard accessible
+        - listitem [ref=e469]: ✓ ARIA labels where appropriate
+      - heading "Screen Readers" [level=3] [ref=e470]
+      - generic [ref=e471]: <!-- Screen reader only text --> <span class="sr-only">Accessible description</span> <!-- Skip to content link --> <a class="skip-to-content" href="#main"> Skip to content </a>
+      - heading "Reduced Motion" [level=3] [ref=e472]
+      - paragraph [ref=e473]: "The design system respects the user's motion preferences:"
+      - generic [ref=e474]: "@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }"
+      - heading "Touch Targets" [level=3] [ref=e475]
+      - list [ref=e476]:
+        - listitem [ref=e477]: "✓ All interactive elements: minimum 44×44px"
+        - listitem [ref=e478]: "✓ Mobile navigation: optimized for thumb reach"
+        - listitem [ref=e479]: ✓ Adequate spacing between clickable elements
+    - generic [ref=e480]:
+      - heading "Resources" [level=2] [ref=e481]
+      - generic [ref=e482]:
+        - generic [ref=e483]:
+          - heading "Implementation" [level=3] [ref=e484]
+          - paragraph [ref=e485]: "View the complete CSS implementation:"
+          - link "View fl-bsa.css" [ref=e486] [cursor=pointer]:
+            - /url: /assets/eql/fl-bsa.css
+        - generic [ref=e487]:
+          - heading "FL-BSA Product" [level=3] [ref=e488]
+          - paragraph [ref=e489]: "Return to the main FL-BSA overview:"
+          - link "Go to FL-BSA" [ref=e490] [cursor=pointer]:
+            - /url: /fl-bsa/
+      - generic [ref=e491]:
+        - heading "Questions or Feedback?" [level=3] [ref=e492]
+        - paragraph [ref=e493]:
+          - text: For questions about implementation or suggestions for improvements, contact the Equilens team at
+          - link "equilens@equilens.io" [ref=e494] [cursor=pointer]:
+            - /url: mailto:equilens@equilens.io
+          - text: .
+  - contentinfo [ref=e495]:
+    - generic [ref=e496]:
+      - navigation "Footer" [ref=e497]:
+        - link "Trust Center" [ref=e498] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e499] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e500] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e501]: •
+        - link "Legal Hub" [ref=e502] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e503] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e504] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e505] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e506]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e507]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

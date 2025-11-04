@@ -90,3 +90,16 @@ function setProductSubnav() {
 
 setProductSubnav();
 window.addEventListener('hashchange', setProductSubnav);
+
+function setFooterYear() {
+  const yearTarget = document.getElementById('y');
+  if (!yearTarget) return;
+  const currentYear = new Date().getFullYear();
+  yearTarget.textContent = String(currentYear);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setFooterYear);
+} else {
+  setFooterYear();
+}

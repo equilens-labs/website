@@ -1,0 +1,47 @@
+### Page state
+- Page URL: http://localhost:8000/contact/
+- Page Title: Contact — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Contact" [level=1] [ref=e9]
+    - generic [ref=e10]:
+      - paragraph [ref=e11]:
+        - text: Email
+        - link "equilens@equilens.io" [ref=e12] [cursor=pointer]:
+          - /url: mailto:equilens@equilens.io
+        - text: .
+      - paragraph [ref=e13]: "Privacy: This site has no forms or analytics. Email only; include what you choose to share."
+      - paragraph [ref=e14]: "Please include: your role, bank/firm, region, preferred tier, and whether data can leave your network (default: no)."
+  - contentinfo [ref=e15]:
+    - generic [ref=e16]:
+      - navigation "Footer" [ref=e17]:
+        - link "Trust Center" [ref=e18] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e19] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e20] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e21]: •
+        - link "Legal Hub" [ref=e22] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e23] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e24] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e25] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e26]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e27]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

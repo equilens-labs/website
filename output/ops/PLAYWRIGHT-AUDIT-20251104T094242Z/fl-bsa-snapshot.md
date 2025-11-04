@@ -1,0 +1,146 @@
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/
+- Page Title: FL-BSA — Fair-Lending Bias-Simulation Appliance
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - navigation "FL‑BSA" [ref=e8]:
+    - generic [ref=e9]:
+      - link "Overview" [ref=e10] [cursor=pointer]:
+        - /url: /fl-bsa/
+      - link "How it Works" [ref=e11] [cursor=pointer]:
+        - /url: /fl-bsa/#how-it-works
+      - link "Deployment" [ref=e12] [cursor=pointer]:
+        - /url: /fl-bsa/#deployment
+      - link "Pricing" [ref=e13] [cursor=pointer]:
+        - /url: /fl-bsa/pricing/
+      - link "Compliance" [ref=e14] [cursor=pointer]:
+        - /url: /fl-bsa/legal/
+      - link "Whitepaper" [ref=e15] [cursor=pointer]:
+        - /url: /fl-bsa/whitepaper/
+      - link "Docs" [ref=e16] [cursor=pointer]:
+        - /url: /fl-bsa/docs/
+      - link "FAQ" [ref=e17] [cursor=pointer]:
+        - /url: /fl-bsa/faq/
+  - main [ref=e18]:
+    - generic [ref=e20]:
+      - heading "FL‑BSA — Algorithmic compliance that stands up to regulators" [level=1] [ref=e21]
+      - paragraph [ref=e22]: Self‑hosted bias simulation with signed evidence and regulator‑ready reports.
+      - generic [ref=e23]:
+        - link "Request a pilot" [ref=e24] [cursor=pointer]:
+          - /url: /contact/
+        - link "View pricing" [ref=e25] [cursor=pointer]:
+          - /url: /fl-bsa/pricing/
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "Architecture" [level=2] [ref=e28]
+        - list [ref=e29]:
+          - listitem [ref=e30]: ✓ Multi-container via docker-compose (API, Worker, Redis).
+          - listitem [ref=e31]: ✓ Single-tenant AMI via AWS Marketplace.
+          - listitem [ref=e32]:
+            - text: ✓ Optional Prometheus;
+            - code [ref=e33]: /metrics
+            - text: endpoint exposed for monitoring.
+      - generic [ref=e34]:
+        - heading "Dual-branch calibration" [level=2] [ref=e35]
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - text: ✓
+            - strong [ref=e38]: Amplification branch
+            - text: ": trained on features + historic decisions."
+          - listitem [ref=e39]:
+            - text: ✓
+            - strong [ref=e40]: Intrinsic branch
+            - text: ": trained on features only to surface achievable fairness."
+          - listitem [ref=e41]: ✓ Outputs show the delta — e.g., historical DI vs. achievable DI.
+      - generic [ref=e42]:
+        - heading "Evidence bundle" [level=2] [ref=e43]
+        - paragraph [ref=e44]: 30-page PDF with methodology, signed manifest (dataset hash, RNG seed, software version), and certificate pack covering data quality, model fidelity, and regulatory mapping.
+      - generic [ref=e45]:
+        - heading "Deployment boundary" [level=2] [ref=e46]
+        - paragraph [ref=e47]: Runs inside your VPC. Default configuration has zero outbound calls. Optional usage metrics and Prometheus endpoints are opt-in per customer policy.
+    - generic [ref=e48]:
+      - heading "How it Works" [level=2] [ref=e49]
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: 1) Data ingestion
+          - paragraph [ref=e53]: Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.
+        - generic [ref=e54]:
+          - generic [ref=e55]: 2) Simulation
+          - paragraph [ref=e56]: Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).
+        - generic [ref=e57]:
+          - generic [ref=e58]: 3) Evidence
+          - paragraph [ref=e59]: Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.
+        - generic [ref=e60]:
+          - generic [ref=e61]: 4) Review
+          - paragraph [ref=e62]: Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.
+    - generic [ref=e63]:
+      - heading "Deployment options" [level=2] [ref=e64]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "AWS AMI" [level=3] [ref=e67]
+          - paragraph [ref=e68]: Single-tenant AMI. Boots deterministic services via systemd and exposes API on 8080 (configurable).
+        - generic [ref=e69]:
+          - heading "Container package" [level=3] [ref=e70]
+          - paragraph [ref=e71]: docker-compose stack (API, Worker, Redis). CPU-only and GPU-preferred profiles validated at scale.
+      - paragraph [ref=e72]:
+        - text: Procurement path and deployment checklist live at
+        - link /procurement/ [ref=e73] [cursor=pointer]:
+          - /url: ../procurement/
+        - text: .
+    - generic [ref=e74]:
+      - heading "In practice" [level=2] [ref=e75]
+      - generic [ref=e76]:
+        - paragraph [ref=e77]:
+          - strong [ref=e78]: "Example:"
+          - text: A bank ingests 250k historic applications including credit decisions. FL-BSA reports a historical disparate impact (DI) of 0.68 and an achievable DI of 0.83 after isolating decision leakage—documented with certificate chain and signed manifest.
+        - paragraph [ref=e79]: Illustrative scenario only; not a customer claim.
+    - generic [ref=e80]:
+      - heading "Need more detail?" [level=2] [ref=e81]
+      - paragraph [ref=e82]:
+        - text: Review the
+        - link "FL-BSA whitepaper" [ref=e83] [cursor=pointer]:
+          - /url: ./whitepaper/
+        - text: draft outline, browse the
+        - link "documentation index" [ref=e84] [cursor=pointer]:
+          - /url: ./docs/
+        - text: ", read the"
+        - link "FAQ" [ref=e85] [cursor=pointer]:
+          - /url: ./faq/
+        - text: ", or contact us for procurement evidence."
+    - generic [ref=e87]:
+      - link "Contact Equilens" [ref=e88] [cursor=pointer]:
+        - /url: ../contact/
+      - link "View pricing" [ref=e89] [cursor=pointer]:
+        - /url: ../fl-bsa/pricing/
+  - contentinfo [ref=e90]:
+    - generic [ref=e91]:
+      - navigation "Footer" [ref=e92]:
+        - link "Trust Center" [ref=e93] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e94] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e95] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e96]: •
+        - link "Legal Hub" [ref=e97] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e98] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e99] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e100] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e101]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e102]: ®
+        - text: is a registered mark of Valfox Ltd.
+```
