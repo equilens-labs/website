@@ -2,8 +2,13 @@
 import json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-nav = json.loads((ROOT/"config/web/nav.json").read_text())
-partial = (ROOT/"templates/header.html").read_text()
+NAV_SSOT = ROOT / "config/web/nav.json"
+PARTIAL_PATH = ROOT / "templates/header.html"
+TEMPLATE_DIR = ROOT / "templates"
+BRAND_DIR = ROOT / "brand"
+
+nav = json.loads(NAV_SSOT.read_text())
+partial = PARTIAL_PATH.read_text()
 
 def depth(p: pathlib.Path) -> str:
     parts = p.relative_to(ROOT).parts
@@ -25,7 +30,9 @@ def render(d: str) -> str:
 
 HEADER_BLOCKS = {}
 for page in ROOT.rglob('*.html'):
-    if any(seg in page.parts for seg in ('vendor','template')):
+    if page.is_relative_to(TEMPLATE_DIR) or page.is_relative_to(BRAND_DIR):
+        continue
+    if any(seg in page.parts for seg in ('vendor',)):
         continue
     if page.name in {'header.html', 'footer.html'} and 'partials' in page.parts:
         continue

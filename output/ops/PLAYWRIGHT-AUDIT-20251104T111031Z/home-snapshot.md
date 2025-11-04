@@ -1,0 +1,66 @@
+### Page state
+- Page URL: http://localhost:8000/
+- Page Title: Equilens — Algorithmic Compliance
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - region "FL-BSA overview" [ref=e9]:
+      - generic [ref=e10]:
+        - heading "Introducing" [level=2] [ref=e11]
+        - heading "FL‑BSA" [level=1] [ref=e12]
+        - paragraph [ref=e13]:
+          - text: Self‑hosted fair‑lending bias‑simulation. Generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and produce regulator‑ready evidence — with
+          - strong [ref=e14]: no customer data leaving your VPC
+          - text: .
+        - paragraph [ref=e15]:
+          - link "Explore FL‑BSA" [ref=e16] [cursor=pointer]:
+            - /url: /fl-bsa/
+  - contentinfo [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - heading "Company" [level=3] [ref=e20]
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - link "Press" [ref=e23] [cursor=pointer]:
+              - /url: /press/
+          - listitem [ref=e24]:
+            - link "Procurement" [ref=e25] [cursor=pointer]:
+              - /url: /procurement/
+          - listitem [ref=e26]:
+            - link "Trust Center" [ref=e27] [cursor=pointer]:
+              - /url: /trust-center/
+      - generic [ref=e28]:
+        - heading "Legal" [level=3] [ref=e29]
+        - list [ref=e30]:
+          - listitem [ref=e31]:
+            - link "Privacy" [ref=e32] [cursor=pointer]:
+              - /url: /legal/privacy.html
+          - listitem [ref=e33]:
+            - link "Cookie Policy" [ref=e34] [cursor=pointer]:
+              - /url: /legal/cookie-policy.html
+          - listitem [ref=e35]:
+            - link "Terms of Service" [ref=e36] [cursor=pointer]:
+              - /url: /legal/tos.html
+          - listitem [ref=e37]:
+            - link "Imprint" [ref=e38] [cursor=pointer]:
+              - /url: /legal/imprint.html
+      - generic [ref=e39]:
+        - heading "Resources" [level=3] [ref=e40]
+        - list [ref=e41]:
+          - listitem [ref=e42]:
+            - link "Open Source" [ref=e43] [cursor=pointer]:
+              - /url: /legal/open-source.html
+          - listitem [ref=e44]:
+            - link "Accessibility" [ref=e45] [cursor=pointer]:
+              - /url: /legal/accessibility.html
+    - generic [ref=e46]: © Equilens. All rights reserved.
+```
