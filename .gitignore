@@ -5,6 +5,9 @@ output/ops/**/*.png
 # Ignore build output
 dist/
 
+# Node tooling
+node_modules/
+
 # Ignore local server temp files
 /tmp/website_server.log
 /tmp/website_server.pid

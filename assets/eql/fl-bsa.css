@@ -1271,10 +1271,30 @@ pre code {
 }
 
 .step header {
-  font-weight: var(--font-semibold);
-  margin-bottom: var(--space-2);
-  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.step header h3 {
+  margin: 0;
   font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
 }
 
 .step p {
@@ -1772,67 +1792,7 @@ label {
 }
 
 /* ============================================================================
-   13. ANIMATIONS & TRANSITIONS
-   ============================================================================ */
-
-/* Fade In Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Slide Up Animation */
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Slide Down Animation */
-@keyframes slideDown {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Utility classes for animations */
-.animate-fade-in {
-  animation: fadeIn var(--transition-slow) ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp var(--transition-slow) ease-out;
-}
-
-.animate-slide-down {
-  animation: slideDown var(--transition-slow) ease-out;
-}
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in,
-  .animate-slide-up,
-  .animate-slide-down {
-    animation: none;
-  }
-}
-
-/* ============================================================================
-   14. DARK MODE PREPARATION (Future Enhancement)
+   13. DARK MODE PREPARATION (Future Enhancement)
    ============================================================================ */
 
 /*

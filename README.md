@@ -40,6 +40,10 @@ Local preview: `python3 -m http.server` and open http://localhost:8000
   - Produces desktop (1440x3200 @2x) and mobile (390x3200 @3x) PNGs
   - Artifacts, hashes, and a manifest are written under `output/ops/SCREENSHOTS-<timestamp>/`
   - CI workflow runs on PRs, pushes to `main`, and nightly at 02:00 UTC; artifacts are uploaded and a rolling GitHub Release `screenshots-nightly` gets the latest `site-screenshots.tar.gz` asset
+- Playwright regression audit: run `scripts/ops/run_playwright_audit.sh`
+  - Uses the flows defined in `config/tests/playwright-pages.json`
+  - Stores JSON report, screenshots, hashes, and manifest under `output/ops/PLAYWRIGHT-AUDIT-<timestamp>/`
+  - Honors `EQL_BASE_URL` if you need to target a deployed environment instead of the local server
 
 ## Deployment automation
 

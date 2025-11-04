@@ -44,62 +44,53 @@ if (toggle && links) {
 function setProductSubnav() {
   const links = document.querySelectorAll('.product-subnav .subnav-link');
   if (!links.length) return;
+
   const path = window.location.pathname.replace(/\/?$/, '/');
   const hash = window.location.hash;
 
-  let anyActive = false;
+  let bestLink = null;
+  let bestScore = -1;
 
   links.forEach(link => {
+    link.removeAttribute('aria-current');
     const href = link.getAttribute('href');
     if (!href) return;
+
     const url = new URL(href, window.location.origin);
     const targetPath = url.pathname.replace(/\/?$/, '/');
     const targetHash = url.hash;
-    let active = false;
 
-    if (targetPath === path) {
-      if (!targetHash) {
-        active = true;
-      } else if (targetHash === hash) {
-        active = true;
+    let score = 0;
+
+    if (path === targetPath) {
+      score += 100;
+    } else if (targetPath !== '/' && path.startsWith(targetPath)) {
+      score += 50;
+    }
+
+    if (targetHash) {
+      if (hash === targetHash) {
+        score += 40;
       }
+      if (path === targetPath && hash === targetHash) {
+        score += 25;
+      }
+    } else if (path === targetPath) {
+      score += 20;
     }
 
-    if (!active && targetHash && targetPath === '/fl-bsa/' && hash === targetHash) {
-      active = true;
-    }
-    if (!active && targetHash === '#deployment' && path.startsWith('/fl-bsa/pricing/')) {
-      active = true;
-    }
-    if (!active && path.startsWith(targetPath) && !targetHash && targetPath !== '/fl-bsa/') {
-      active = true;
-    }
-
-    if (active) {
-      link.setAttribute('aria-current', 'true');
-      anyActive = true;
-    } else {
-      link.removeAttribute('aria-current');
+    if (score > bestScore) {
+      bestScore = score;
+      bestLink = link;
     }
   });
 
-  if (!anyActive && links[0]) {
+  if (bestLink) {
+    bestLink.setAttribute('aria-current', 'true');
+  } else if (links[0]) {
     links[0].setAttribute('aria-current', 'true');
   }
 }
 
 setProductSubnav();
 window.addEventListener('hashchange', setProductSubnav);
-
-function setFooterYear() {
-  const yearTarget = document.getElementById('y');
-  if (!yearTarget) return;
-  const currentYear = new Date().getFullYear();
-  yearTarget.textContent = String(currentYear);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setFooterYear);
-} else {
-  setFooterYear();
-}
