@@ -1476,10 +1476,10 @@ label {
    ============================================================================ */
 
 .site-footer {
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
   border-top: 1px solid var(--border-default);
   background: var(--color-white);
-  padding: var(--space-12) 0;
+  padding: var(--space-10) 0;
 }
 
 .site-footer .container {
@@ -1490,14 +1490,18 @@ label {
 
 .site-footer .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-6);
-  margin-bottom: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+  gap: var(--space-4);
+  justify-content: center;
+  text-align: center;
+  margin-bottom: var(--space-6);
 }
 
 .site-footer section h3 {
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
 }
@@ -1528,6 +1532,10 @@ label {
   text-align: center;
   color: var(--text-muted);
   font-size: var(--text-xs);
+}
+
+.site-footer .container:last-of-type {
+  max-width: var(--max-width-md);
 }
 
 /* ============================================================================
