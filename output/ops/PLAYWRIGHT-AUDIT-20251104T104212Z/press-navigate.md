@@ -1,0 +1,83 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/press/');
+```
+
+### Page state
+- Page URL: http://localhost:8000/press/
+- Page Title: Press Kit — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Press Kit" [level=1] [ref=e9]
+    - generic [ref=e10]:
+      - paragraph [ref=e11]: For media use. Please keep clear space around the logo and do not alter colors or proportions.
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "Wordmark (SVG)" [ref=e14] [cursor=pointer]:
+            - /url: /assets/brand/wordmark.svg
+        - listitem [ref=e15]:
+          - link "Icon / Favicon (SVG)" [ref=e16] [cursor=pointer]:
+            - /url: /assets/brand/favicon.svg
+        - listitem [ref=e17]:
+          - link "OG image (SVG 1200×630)" [ref=e18] [cursor=pointer]:
+            - /url: /assets/brand/og-default-light.svg
+        - listitem [ref=e19]:
+          - link "Web app manifest" [ref=e20] [cursor=pointer]:
+            - /url: /manifest.webmanifest
+        - listitem [ref=e21]:
+          - link "Design tokens (JSON)" [ref=e22] [cursor=pointer]:
+            - /url: /brand/equilens_logo_mark_pack_v2_indigo/meta/tokens.json
+      - paragraph [ref=e23]:
+        - text: "Questions:"
+        - link "equilens@equilens.io" [ref=e24] [cursor=pointer]:
+          - /url: mailto:equilens@equilens.io
+  - contentinfo [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "Company" [level=3] [ref=e28]
+        - list [ref=e29]:
+          - listitem [ref=e30]:
+            - link "Press" [ref=e31] [cursor=pointer]:
+              - /url: ../press/
+          - listitem [ref=e32]:
+            - link "Procurement" [ref=e33] [cursor=pointer]:
+              - /url: ../procurement/
+          - listitem [ref=e34]:
+            - link "Trust Center" [ref=e35] [cursor=pointer]:
+              - /url: ../trust-center/
+      - generic [ref=e36]:
+        - heading "Legal" [level=3] [ref=e37]
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Privacy" [ref=e40] [cursor=pointer]:
+              - /url: ../legal/privacy.html
+          - listitem [ref=e41]:
+            - link "Cookie Policy" [ref=e42] [cursor=pointer]:
+              - /url: ../legal/cookie-policy.html
+          - listitem [ref=e43]:
+            - link "Terms of Service" [ref=e44] [cursor=pointer]:
+              - /url: ../legal/tos.html
+          - listitem [ref=e45]:
+            - link "Imprint" [ref=e46] [cursor=pointer]:
+              - /url: ../legal/imprint.html
+      - generic [ref=e47]:
+        - heading "Resources" [level=3] [ref=e48]
+        - list [ref=e49]:
+          - listitem [ref=e50]:
+            - link "Open Source" [ref=e51] [cursor=pointer]:
+              - /url: ../legal/open-source.html
+          - listitem [ref=e52]:
+            - link "Accessibility" [ref=e53] [cursor=pointer]:
+              - /url: ../legal/accessibility.html
+    - generic [ref=e54]: © Equilens. All rights reserved.
+```

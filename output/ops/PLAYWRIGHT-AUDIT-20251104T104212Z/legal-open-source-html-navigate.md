@@ -1,0 +1,71 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/legal/open-source.html');
+```
+
+### Page state
+- Page URL: http://localhost:8000/legal/open-source.html
+- Page Title: Open-Source Notices — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Open-Source Notices" [level=1] [ref=e9]
+    - generic [ref=e10]:
+      - paragraph [ref=e11]: This site and the Equilens appliance use open-source software. Licences and attributions are recorded in our SBOM.
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "SBOM & licence list (GitHub)" [ref=e14] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/blob/main/docs/SBOM.md
+        - listitem [ref=e15]:
+          - link "NOTICE (if required by component licences)" [ref=e16] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/blob/main/NOTICE
+      - paragraph [ref=e17]: Where a licence requires reproduction of a NOTICE file (for example, Apache-2.0 §4), the relevant text is available in the NOTICE link above.
+  - contentinfo [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - heading "Company" [level=3] [ref=e21]
+        - list [ref=e22]:
+          - listitem [ref=e23]:
+            - link "Press" [ref=e24] [cursor=pointer]:
+              - /url: ../press/
+          - listitem [ref=e25]:
+            - link "Procurement" [ref=e26] [cursor=pointer]:
+              - /url: ../procurement/
+          - listitem [ref=e27]:
+            - link "Trust Center" [ref=e28] [cursor=pointer]:
+              - /url: ../trust-center/
+      - generic [ref=e29]:
+        - heading "Legal" [level=3] [ref=e30]
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - link "Privacy" [ref=e33] [cursor=pointer]:
+              - /url: ../legal/privacy.html
+          - listitem [ref=e34]:
+            - link "Cookie Policy" [ref=e35] [cursor=pointer]:
+              - /url: ../legal/cookie-policy.html
+          - listitem [ref=e36]:
+            - link "Terms of Service" [ref=e37] [cursor=pointer]:
+              - /url: ../legal/tos.html
+          - listitem [ref=e38]:
+            - link "Imprint" [ref=e39] [cursor=pointer]:
+              - /url: ../legal/imprint.html
+      - generic [ref=e40]:
+        - heading "Resources" [level=3] [ref=e41]
+        - list [ref=e42]:
+          - listitem [ref=e43]:
+            - link "Open Source" [ref=e44] [cursor=pointer]:
+              - /url: ../legal/open-source.html
+          - listitem [ref=e45]:
+            - link "Accessibility" [ref=e46] [cursor=pointer]:
+              - /url: ../legal/accessibility.html
+    - generic [ref=e47]: © Equilens. All rights reserved.
+```

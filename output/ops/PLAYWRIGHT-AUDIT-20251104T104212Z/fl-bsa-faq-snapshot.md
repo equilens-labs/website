@@ -1,0 +1,84 @@
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/faq/
+- Page Title: FAQ — Equilens FL-BSA
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - navigation "FL‑BSA" [ref=e8]:
+    - generic [ref=e9]:
+      - link "Overview" [ref=e10] [cursor=pointer]:
+        - /url: /fl-bsa/
+      - link "How it Works" [ref=e11] [cursor=pointer]:
+        - /url: /fl-bsa/#how-it-works
+      - link "Deployment" [ref=e12] [cursor=pointer]:
+        - /url: /fl-bsa/#deployment
+      - link "Pricing" [ref=e13] [cursor=pointer]:
+        - /url: /fl-bsa/pricing/
+      - link "Compliance" [ref=e14] [cursor=pointer]:
+        - /url: /fl-bsa/legal/
+      - link "Whitepaper" [ref=e15] [cursor=pointer]:
+        - /url: /fl-bsa/whitepaper/
+      - link "Docs" [ref=e16] [cursor=pointer]:
+        - /url: /fl-bsa/docs/
+      - link "FAQ" [ref=e17] [cursor=pointer]:
+        - /url: /fl-bsa/faq/
+  - main [ref=e18]:
+    - heading "Frequently Asked Questions" [level=1] [ref=e19]
+    - group [ref=e20]:
+      - generic "Do we send any data to Equilens? +" [ref=e21] [cursor=pointer]
+    - group [ref=e22]:
+      - generic "How long does a typical run take? +" [ref=e23] [cursor=pointer]
+    - group [ref=e24]:
+      - generic "What regulatory frameworks are covered? +" [ref=e25] [cursor=pointer]
+    - group [ref=e26]:
+      - generic "What are the deployment options? +" [ref=e27] [cursor=pointer]
+    - group [ref=e28]:
+      - generic "What’s in the evidence bundle? +" [ref=e29] [cursor=pointer]
+  - contentinfo [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - heading "Company" [level=3] [ref=e33]
+        - list [ref=e34]:
+          - listitem [ref=e35]:
+            - link "Press" [ref=e36] [cursor=pointer]:
+              - /url: ../../press/
+          - listitem [ref=e37]:
+            - link "Procurement" [ref=e38] [cursor=pointer]:
+              - /url: ../../procurement/
+          - listitem [ref=e39]:
+            - link "Trust Center" [ref=e40] [cursor=pointer]:
+              - /url: ../../trust-center/
+      - generic [ref=e41]:
+        - heading "Legal" [level=3] [ref=e42]
+        - list [ref=e43]:
+          - listitem [ref=e44]:
+            - link "Privacy" [ref=e45] [cursor=pointer]:
+              - /url: ../../legal/privacy.html
+          - listitem [ref=e46]:
+            - link "Cookie Policy" [ref=e47] [cursor=pointer]:
+              - /url: ../../legal/cookie-policy.html
+          - listitem [ref=e48]:
+            - link "Terms of Service" [ref=e49] [cursor=pointer]:
+              - /url: ../../legal/tos.html
+          - listitem [ref=e50]:
+            - link "Imprint" [ref=e51] [cursor=pointer]:
+              - /url: ../../legal/imprint.html
+      - generic [ref=e52]:
+        - heading "Resources" [level=3] [ref=e53]
+        - list [ref=e54]:
+          - listitem [ref=e55]:
+            - link "Open Source" [ref=e56] [cursor=pointer]:
+              - /url: ../../legal/open-source.html
+          - listitem [ref=e57]:
+            - link "Accessibility" [ref=e58] [cursor=pointer]:
+              - /url: ../../legal/accessibility.html
+    - generic [ref=e59]: © Equilens. All rights reserved.
+```

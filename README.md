@@ -5,7 +5,7 @@
 Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 - Content: HTML/CSS only, root directory
-- Brand assets: source files live under `docs/brand/`; runtime copies under `assets/brand/`
+- Brand assets: source files live under `brand/`; runtime copies under `assets/brand/`
   - Includes `wordmark.svg`, `wordmark_text.svg`, `wordmark_outlined.svg`, `tokens.json`, and `press-kit.json`
   - Social preview art: `assets/brand/og-default.svg` and generated `assets/brand/og-default.png`
 - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
@@ -21,8 +21,8 @@ Local preview: `python3 -m http.server` and open http://localhost:8000
 ## Content management
 
 - Primary navigation and micro-footer are synchronised from JSON “single source of truth” files:
-  - Navigation links: `docs/web/nav.json`
-  - Footer links: `docs/web/footer.json`
+  - Navigation links: `config/web/nav.json`
+  - Footer links: `config/web/footer.json`
 - After updating either file, run the sync scripts to fan out the change across every HTML page:
 
   ```bash
@@ -31,6 +31,7 @@ Local preview: `python3 -m http.server` and open http://localhost:8000
   ```
 
 - Archived helpers used for previous theming experiments now live under `scripts/archive/legacy-sync/`. They are kept for reference only; do not run them on the current codebase.
+- The HTML partials injected by the scripts live under `templates/` (`header.html`, `footer.html`).
 
 ## Evidence screenshots
 

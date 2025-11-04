@@ -2,8 +2,8 @@
 import json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-footer = json.loads((ROOT/"docs/web/footer.json").read_text())
-partial = (ROOT/"docs/web/partials/footer.html").read_text()
+footer = json.loads((ROOT/"config/web/footer.json").read_text())
+partial = (ROOT/"templates/footer.html").read_text()
 
 def depth(p: pathlib.Path) -> str:
     parts = p.relative_to(ROOT).parts
@@ -35,4 +35,3 @@ for page in ROOT.rglob('*.html'):
     print('[footer] synced', page)
 
 print('Footer synced.')
-

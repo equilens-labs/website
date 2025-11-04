@@ -4,7 +4,7 @@ from pathlib import Path
 
 from PIL import Image
 
-SRC = Path("docs/brand/equilens_logo_mark_pack_v1_1/equilens_logo_mark_v1_1_white_1024.png")
+SRC = Path("brand/equilens_logo_mark_pack_v1_1/equilens_logo_mark_v1_1_white_1024.png")
 DEST = Path("assets/brand")
 SIZES = {
     "apple-touch-icon.png": 180,

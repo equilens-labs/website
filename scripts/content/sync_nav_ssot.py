@@ -2,8 +2,8 @@
 import json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-nav = json.loads((ROOT/"docs/web/nav.json").read_text())
-partial = (ROOT/"docs/web/partials/header.html").read_text()
+nav = json.loads((ROOT/"config/web/nav.json").read_text())
+partial = (ROOT/"templates/header.html").read_text()
 
 def depth(p: pathlib.Path) -> str:
     parts = p.relative_to(ROOT).parts

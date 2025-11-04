@@ -1,0 +1,84 @@
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/docs/
+- Page Title: Documentation — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - navigation "FL‑BSA" [ref=e8]:
+    - generic [ref=e9]:
+      - link "Overview" [ref=e10] [cursor=pointer]:
+        - /url: /fl-bsa/
+      - link "How it Works" [ref=e11] [cursor=pointer]:
+        - /url: /fl-bsa/#how-it-works
+      - link "Deployment" [ref=e12] [cursor=pointer]:
+        - /url: /fl-bsa/#deployment
+      - link "Pricing" [ref=e13] [cursor=pointer]:
+        - /url: /fl-bsa/pricing/
+      - link "Compliance" [ref=e14] [cursor=pointer]:
+        - /url: /fl-bsa/legal/
+      - link "Whitepaper" [ref=e15] [cursor=pointer]:
+        - /url: /fl-bsa/whitepaper/
+      - link "Docs" [ref=e16] [cursor=pointer]:
+        - /url: /fl-bsa/docs/
+      - link "FAQ" [ref=e17] [cursor=pointer]:
+        - /url: /fl-bsa/faq/
+  - main [ref=e18]:
+    - heading "Documentation" [level=1] [ref=e19]
+    - generic [ref=e20]:
+      - paragraph [ref=e21]: FL-BSA documentation lives in the product repository.
+      - list [ref=e22]:
+        - listitem [ref=e23]:
+          - link "Docs Index (GitHub)" [ref=e24] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/blob/main/docs/_INDEX.md
+        - listitem [ref=e25]:
+          - link "Production-ready components" [ref=e26] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/tree/main/docs/gold
+      - paragraph [ref=e27]: External links open GitHub; no data is collected on this site.
+  - contentinfo [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - heading "Company" [level=3] [ref=e31]
+        - list [ref=e32]:
+          - listitem [ref=e33]:
+            - link "Press" [ref=e34] [cursor=pointer]:
+              - /url: ../../press/
+          - listitem [ref=e35]:
+            - link "Procurement" [ref=e36] [cursor=pointer]:
+              - /url: ../../procurement/
+          - listitem [ref=e37]:
+            - link "Trust Center" [ref=e38] [cursor=pointer]:
+              - /url: ../../trust-center/
+      - generic [ref=e39]:
+        - heading "Legal" [level=3] [ref=e40]
+        - list [ref=e41]:
+          - listitem [ref=e42]:
+            - link "Privacy" [ref=e43] [cursor=pointer]:
+              - /url: ../../legal/privacy.html
+          - listitem [ref=e44]:
+            - link "Cookie Policy" [ref=e45] [cursor=pointer]:
+              - /url: ../../legal/cookie-policy.html
+          - listitem [ref=e46]:
+            - link "Terms of Service" [ref=e47] [cursor=pointer]:
+              - /url: ../../legal/tos.html
+          - listitem [ref=e48]:
+            - link "Imprint" [ref=e49] [cursor=pointer]:
+              - /url: ../../legal/imprint.html
+      - generic [ref=e50]:
+        - heading "Resources" [level=3] [ref=e51]
+        - list [ref=e52]:
+          - listitem [ref=e53]:
+            - link "Open Source" [ref=e54] [cursor=pointer]:
+              - /url: ../../legal/open-source.html
+          - listitem [ref=e55]:
+            - link "Accessibility" [ref=e56] [cursor=pointer]:
+              - /url: ../../legal/accessibility.html
+    - generic [ref=e57]: © Equilens. All rights reserved.
+```

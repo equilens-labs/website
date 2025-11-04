@@ -17,8 +17,8 @@ FILES=(
   "assets/brand/logo-mark.svg"
   "assets/brand/og-default.svg"
   "assets/brand/og-default.png"
-  "docs/brand/tokens.json"
-  "docs/brand/press-kit.json"
+  "brand/tokens.json"
+  "brand/press-kit.json"
 )
 
 existing=()

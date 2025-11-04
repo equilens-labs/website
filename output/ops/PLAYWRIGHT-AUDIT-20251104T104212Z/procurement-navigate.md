@@ -1,0 +1,126 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/procurement/');
+```
+
+### New console messages
+- Identifier 'toggle' has already been declared
+
+### Page state
+- Page URL: http://localhost:8000/procurement/
+- Page Title: Procurement & Deployment — Equilens FL-BSA
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Procurement & Deployment" [level=1] [ref=e9]
+    - paragraph [ref=e10]: Buy through AWS Marketplace and deploy inside your boundary. Billing flows through AWS; confirm with your procurement policy.
+    - paragraph [ref=e11]: "Vendor of record: Valfox Ltd (Company No. 14469638), 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL."
+    - generic [ref=e12]:
+      - heading "How to buy (AWS Marketplace)" [level=2] [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - navigation "Primary" [ref=e16]:
+            - generic [ref=e17]:
+              - link "Equilens" [ref=e18] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e19]: Equilens
+              - button "Menu" [ref=e20] [cursor=pointer]
+          - paragraph [ref=e21]:
+            - text: Open the AWS Marketplace listing and click
+            - emphasis [ref=e22]: Subscribe
+            - text: . Review and accept the standard terms.
+        - generic [ref=e23]:
+          - generic [ref=e24]: 2) Launch AMI
+          - paragraph [ref=e25]: Launch the AMI in your account. Select instance type, region, VPC, and subnet per your change controls.
+        - generic [ref=e26]:
+          - generic [ref=e27]: 3) Start services
+          - paragraph [ref=e28]:
+            - text: Boot runs
+            - code [ref=e29]: docker-compose
+            - text: via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.
+        - generic [ref=e30]:
+          - generic [ref=e31]: 4) Run a test
+          - paragraph [ref=e32]: Upload sample data or the FCA sandbox dataset. Produce the PDF report, signed manifest, and checksum log.
+        - generic [ref=e33]:
+          - generic [ref=e34]: 5) Move to Pilot-Plus
+          - paragraph [ref=e35]: Activate the paid Pilot-Plus tier or request a Private Offer for enterprise terms once procurement approves.
+    - generic [ref=e36]:
+      - heading "Procurement package" [level=2] [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Evidence bundle" [level=3] [ref=e40]
+          - list [ref=e41]:
+            - listitem [ref=e42]: Signed manifest (JSON) and PDF report with embedded hashes.
+            - listitem [ref=e43]: Infrastructure BOM and network diagram (request access).
+            - listitem [ref=e44]: Security attestations aligned to FCA, EU AI Act, and ECOA checkpoints.
+        - generic [ref=e45]:
+          - heading "Commercials" [level=3] [ref=e46]
+          - list [ref=e47]:
+            - listitem [ref=e48]: AWS Marketplace listing with hourly and annual pricing.
+            - listitem [ref=e49]: Pilot-Plus tier (3-month) for regulated sandbox evaluations.
+            - listitem [ref=e50]: Private Offer support for custom terms or multi-entity rollouts.
+    - generic [ref=e51]:
+      - heading "Deployment options" [level=2] [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - heading "AWS AMI" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Single-tenant AMI with deterministic boot. Delivers API, worker, and reporting services; integrates with customer IAM.
+        - generic [ref=e57]:
+          - heading "Container (VM)" [level=3] [ref=e58]
+          - paragraph [ref=e59]: docker-compose stack (API, Worker, Redis). CPU-only profile available; GPU preferred for faster synthetic generation.
+      - paragraph [ref=e60]: Coordinate CSP, HSTS, and CAA updates through your network and DNS teams. We provide implementation runbooks on request.
+    - generic [ref=e61]:
+      - heading "Need a walkthrough?" [level=2] [ref=e62]
+      - paragraph [ref=e63]: Procurement reviews commonly cover control objectives, evidence bundling, and internal audit mapping. We can join vendor risk calls or provide templated responses.
+    - paragraph [ref=e65]:
+      - link "Contact Equilens" [ref=e66] [cursor=pointer]:
+        - /url: ../contact/
+  - contentinfo [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - heading "Company" [level=3] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "Press" [ref=e73] [cursor=pointer]:
+              - /url: ../press/
+          - listitem [ref=e74]:
+            - link "Procurement" [ref=e75] [cursor=pointer]:
+              - /url: ../procurement/
+          - listitem [ref=e76]:
+            - link "Trust Center" [ref=e77] [cursor=pointer]:
+              - /url: ../trust-center/
+      - generic [ref=e78]:
+        - heading "Legal" [level=3] [ref=e79]
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - link "Privacy" [ref=e82] [cursor=pointer]:
+              - /url: ../legal/privacy.html
+          - listitem [ref=e83]:
+            - link "Cookie Policy" [ref=e84] [cursor=pointer]:
+              - /url: ../legal/cookie-policy.html
+          - listitem [ref=e85]:
+            - link "Terms of Service" [ref=e86] [cursor=pointer]:
+              - /url: ../legal/tos.html
+          - listitem [ref=e87]:
+            - link "Imprint" [ref=e88] [cursor=pointer]:
+              - /url: ../legal/imprint.html
+      - generic [ref=e89]:
+        - heading "Resources" [level=3] [ref=e90]
+        - list [ref=e91]:
+          - listitem [ref=e92]:
+            - link "Open Source" [ref=e93] [cursor=pointer]:
+              - /url: ../legal/open-source.html
+          - listitem [ref=e94]:
+            - link "Accessibility" [ref=e95] [cursor=pointer]:
+              - /url: ../legal/accessibility.html
+    - generic [ref=e96]: © Equilens. All rights reserved.
+```

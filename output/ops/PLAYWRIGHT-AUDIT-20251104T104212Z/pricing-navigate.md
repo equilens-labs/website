@@ -1,0 +1,117 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/pricing/');
+```
+
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/pricing/
+- Page Title: Pricing — Equilens FL-BSA
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - navigation "FL‑BSA" [ref=e8]:
+    - generic [ref=e9]:
+      - link "Overview" [ref=e10] [cursor=pointer]:
+        - /url: /fl-bsa/
+      - link "How it Works" [ref=e11] [cursor=pointer]:
+        - /url: /fl-bsa/#how-it-works
+      - link "Deployment" [ref=e12] [cursor=pointer]:
+        - /url: /fl-bsa/#deployment
+      - link "Pricing" [ref=e13] [cursor=pointer]:
+        - /url: /fl-bsa/pricing/
+      - link "Compliance" [ref=e14] [cursor=pointer]:
+        - /url: /fl-bsa/legal/
+      - link "Whitepaper" [ref=e15] [cursor=pointer]:
+        - /url: /fl-bsa/whitepaper/
+      - link "Docs" [ref=e16] [cursor=pointer]:
+        - /url: /fl-bsa/docs/
+      - link "FAQ" [ref=e17] [cursor=pointer]:
+        - /url: /fl-bsa/faq/
+  - main [ref=e18]:
+    - heading "Pricing — FL-BSA" [level=1] [ref=e19]
+    - paragraph [ref=e20]: Subject to contract; bank procurement rules may apply.
+    - paragraph [ref=e21]: This pricing applies to the FL-BSA product. All tiers remain subject to contract; procurement requirements may apply.
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "Sandbox" [level=2] [ref=e24]
+        - paragraph [ref=e25]:
+          - strong [ref=e26]: Free
+          - text: · up to 50k rows · demo only
+        - list [ref=e27]:
+          - listitem [ref=e28]: ✓ Pre-bundled FCA sandbox dataset
+          - listitem [ref=e29]: ✓ Evidence bundle (demo watermark)
+      - generic [ref=e30]:
+        - heading "Pilot-Plus" [level=2] [ref=e31]
+        - paragraph [ref=e32]:
+          - strong [ref=e33]: £10k
+          - text: · 3 months · up to 100k rows
+        - list [ref=e34]:
+          - listitem [ref=e35]: ✓ Full evidence bundle
+          - listitem [ref=e36]: ✓ Email support
+        - paragraph [ref=e37]: Auto-expires unless upgraded; includes email support.
+      - generic [ref=e38]:
+        - heading "Growth" [level=2] [ref=e39]
+        - paragraph [ref=e40]:
+          - strong [ref=e41]: £36k/yr
+        - list [ref=e42]:
+          - listitem [ref=e43]: ✓ Annual subscription
+          - listitem [ref=e44]: ✓ Evidence bundle + monitoring
+      - generic [ref=e45]:
+        - heading "Enterprise" [level=2] [ref=e46]
+        - paragraph [ref=e47]:
+          - strong [ref=e48]: £120k/yr
+        - list [ref=e49]:
+          - listitem [ref=e50]: ✓ CLI & unlimited rows (contractual)
+          - listitem [ref=e51]: ✓ Priority support & onboarding
+        - paragraph [ref=e52]: Includes CLI; unlimited rows per contract. Priority support.
+    - paragraph [ref=e54]:
+      - link "Discuss a tier" [ref=e55] [cursor=pointer]:
+        - /url: ../contact/
+  - contentinfo [ref=e56]:
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - heading "Company" [level=3] [ref=e59]
+        - list [ref=e60]:
+          - listitem [ref=e61]:
+            - link "Press" [ref=e62] [cursor=pointer]:
+              - /url: ../../press/
+          - listitem [ref=e63]:
+            - link "Procurement" [ref=e64] [cursor=pointer]:
+              - /url: ../../procurement/
+          - listitem [ref=e65]:
+            - link "Trust Center" [ref=e66] [cursor=pointer]:
+              - /url: ../../trust-center/
+      - generic [ref=e67]:
+        - heading "Legal" [level=3] [ref=e68]
+        - list [ref=e69]:
+          - listitem [ref=e70]:
+            - link "Privacy" [ref=e71] [cursor=pointer]:
+              - /url: ../../legal/privacy.html
+          - listitem [ref=e72]:
+            - link "Cookie Policy" [ref=e73] [cursor=pointer]:
+              - /url: ../../legal/cookie-policy.html
+          - listitem [ref=e74]:
+            - link "Terms of Service" [ref=e75] [cursor=pointer]:
+              - /url: ../../legal/tos.html
+          - listitem [ref=e76]:
+            - link "Imprint" [ref=e77] [cursor=pointer]:
+              - /url: ../../legal/imprint.html
+      - generic [ref=e78]:
+        - heading "Resources" [level=3] [ref=e79]
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - link "Open Source" [ref=e82] [cursor=pointer]:
+              - /url: ../../legal/open-source.html
+          - listitem [ref=e83]:
+            - link "Accessibility" [ref=e84] [cursor=pointer]:
+              - /url: ../../legal/accessibility.html
+    - generic [ref=e85]: © Equilens. All rights reserved.
+```

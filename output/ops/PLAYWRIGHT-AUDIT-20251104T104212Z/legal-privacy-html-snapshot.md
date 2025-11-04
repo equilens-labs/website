@@ -1,0 +1,124 @@
+### Page state
+- Page URL: http://localhost:8000/legal/privacy.html
+- Page Title: Privacy Notice — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Privacy Notice (Website)" [level=1] [ref=e9]
+    - paragraph [ref=e10]:
+      - strong [ref=e11]: "Controller:"
+      - text: "Valfox Ltd (trading as “Equilens”), registered in England & Wales (Company number 14469638). Registered office: 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL. Contact:"
+      - link "equilens@equilens.io" [ref=e12] [cursor=pointer]:
+        - /url: mailto:equilens@equilens.io
+      - text: .
+    - paragraph [ref=e13]:
+      - strong [ref=e14]: "Scope:"
+      - text: This notice covers the public website
+      - code [ref=e15]: equilens.io
+      - text: . The Equilens FL-BSA appliance runs entirely in customers’ environments and is not covered here.
+    - generic [ref=e16]:
+      - heading "What we collect" [level=2] [ref=e17]
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - strong [ref=e20]: Emails you send us
+          - text: at
+          - link "equilens@equilens.io" [ref=e21] [cursor=pointer]:
+            - /url: mailto:equilens@equilens.io
+          - text: .
+        - listitem [ref=e22]:
+          - strong [ref=e23]: Minimal server/CDN logs
+          - text: (IP address, user agent, timestamp, requested URL) required to deliver the site and investigate security issues.
+    - generic [ref=e24]:
+      - heading "Purposes & legal bases" [level=2] [ref=e25]
+      - paragraph [ref=e26]:
+        - text: We process this limited data to respond to inquiries and operate a reliable, secure website. The legal basis is our
+        - emphasis [ref=e27]: legitimate interests
+        - text: (UK GDPR Art. 6(1)(f)).
+    - generic [ref=e28]:
+      - heading "Recipients" [level=2] [ref=e29]
+      - paragraph [ref=e30]: "Personal data may be processed by our service providers strictly for the purposes above, including:"
+      - list [ref=e31]:
+        - listitem [ref=e32]: Email provider (Google Workspace).
+        - listitem [ref=e33]: Static hosting/CDN provider (GitHub Pages / GitHub, Inc.).
+    - generic [ref=e34]:
+      - heading "International transfers" [level=2] [ref=e35]
+      - paragraph [ref=e36]: Where these providers process data outside the UK/EEA (e.g., United States), we rely on appropriate safeguards such as UK adequacy decisions or standard contractual clauses. Details are available on request.
+    - generic [ref=e37]:
+      - heading "Retention" [level=2] [ref=e38]
+      - list [ref=e39]:
+        - listitem [ref=e40]: "Email correspondence: retained as needed for support and communications, then deleted when no longer required."
+        - listitem [ref=e41]: "Server/CDN logs: rotated automatically and retained for approximately 30 days for diagnostics and security."
+    - generic [ref=e42]:
+      - heading "Your rights" [level=2] [ref=e43]
+      - paragraph [ref=e44]:
+        - text: You have UK/EU data protection rights (access, rectification, erasure, restriction, objection, portability where applicable). To exercise these rights, email
+        - link "equilens@equilens.io" [ref=e45] [cursor=pointer]:
+          - /url: mailto:equilens@equilens.io
+        - text: .
+      - paragraph [ref=e46]:
+        - text: You may lodge a complaint with the UK Information Commissioner’s Office (
+        - link "ico.org.uk" [ref=e47] [cursor=pointer]:
+          - /url: https://ico.org.uk
+        - text: ).
+    - generic [ref=e48]:
+      - heading "Cookies & similar technologies" [level=2] [ref=e49]
+      - paragraph [ref=e50]:
+        - text: We do not use analytics, advertising or social media cookies. See our
+        - link "Cookie Policy" [ref=e51] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - text: for details.
+    - paragraph [ref=e52]:
+      - strong [ref=e53]: "Updates:"
+      - text: We may update this notice; the effective date will change accordingly.
+    - paragraph [ref=e54]:
+      - emphasis [ref=e55]: "Effective date:"
+      - text: 2025-10-11
+  - contentinfo [ref=e56]:
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - heading "Company" [level=3] [ref=e59]
+        - list [ref=e60]:
+          - listitem [ref=e61]:
+            - link "Press" [ref=e62] [cursor=pointer]:
+              - /url: ../press/
+          - listitem [ref=e63]:
+            - link "Procurement" [ref=e64] [cursor=pointer]:
+              - /url: ../procurement/
+          - listitem [ref=e65]:
+            - link "Trust Center" [ref=e66] [cursor=pointer]:
+              - /url: ../trust-center/
+      - generic [ref=e67]:
+        - heading "Legal" [level=3] [ref=e68]
+        - list [ref=e69]:
+          - listitem [ref=e70]:
+            - link "Privacy" [ref=e71] [cursor=pointer]:
+              - /url: ../legal/privacy.html
+          - listitem [ref=e72]:
+            - link "Cookie Policy" [ref=e73] [cursor=pointer]:
+              - /url: ../legal/cookie-policy.html
+          - listitem [ref=e74]:
+            - link "Terms of Service" [ref=e75] [cursor=pointer]:
+              - /url: ../legal/tos.html
+          - listitem [ref=e76]:
+            - link "Imprint" [ref=e77] [cursor=pointer]:
+              - /url: ../legal/imprint.html
+      - generic [ref=e78]:
+        - heading "Resources" [level=3] [ref=e79]
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - link "Open Source" [ref=e82] [cursor=pointer]:
+              - /url: ../legal/open-source.html
+          - listitem [ref=e83]:
+            - link "Accessibility" [ref=e84] [cursor=pointer]:
+              - /url: ../legal/accessibility.html
+    - generic [ref=e85]: © Equilens. All rights reserved.
+```
