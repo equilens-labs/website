@@ -1,0 +1,23 @@
+{
+  "pages": [
+    { "path": "/", "slug": "home" },
+    { "path": "/fl-bsa/", "slug": "fl-bsa-overview" },
+    { "path": "/fl-bsa/pricing/", "slug": "fl-bsa-pricing" },
+    { "path": "/fl-bsa/legal/", "slug": "fl-bsa-compliance" },
+    { "path": "/fl-bsa/faq/", "slug": "fl-bsa-faq" },
+    { "path": "/fl-bsa/whitepaper/", "slug": "fl-bsa-whitepaper" },
+    { "path": "/product/", "slug": "product" },
+    { "path": "/pricing/", "slug": "pricing" },
+    { "path": "/procurement/", "slug": "procurement" },
+    { "path": "/press/", "slug": "press" },
+    { "path": "/contact/", "slug": "contact" },
+    { "path": "/trust-center/", "slug": "trust-center" },
+    { "path": "/legal/index.html", "slug": "legal-index" },
+    { "path": "/legal/privacy.html", "slug": "legal-privacy" },
+    { "path": "/legal/tos.html", "slug": "legal-tos" }
+  ],
+  "anchors": [
+    { "url": "/fl-bsa/#how-it-works", "slug": "fl-bsa-how-it-works" },
+    { "url": "/fl-bsa/#deployment", "slug": "fl-bsa-deployment" }
+  ]
+}

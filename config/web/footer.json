@@ -13,6 +13,5 @@
       {"label": "Open Source", "href": "/legal/open-source.html"},
       {"label": "Accessibility", "href": "/legal/accessibility.html"}]}
   ],
-  "note": "© Equilens. All rights reserved."
+  "note": "© {year} Equilens. All rights reserved. Last deploy {deploy_date} (commit {commit})."
 }
-

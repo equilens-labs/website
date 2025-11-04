@@ -1,0 +1,12 @@
+{
+  "name": "equilens-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "playwright:audit": "scripts/ops/run_playwright_audit.sh",
+    "test": "npm run playwright:audit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
