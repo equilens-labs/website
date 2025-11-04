@@ -1,0 +1,70 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/product/');
+```
+
+### Page state
+- Page URL: http://localhost:8000/product/
+- Page Title: Products — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Equilens products" [level=1] [ref=e9]
+    - paragraph [ref=e10]: Equilens develops deterministic, self-hosted tooling for regulated fair-lending teams. FL-BSA is the first generally available appliance.
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "FL-BSA" [level=2] [ref=e14]
+        - paragraph [ref=e15]: Fair-Lending Bias-Simulation Appliance. Dual-branch calibration, signed manifest, and regulator-mapped evidence.
+        - paragraph [ref=e16]:
+          - link "View FL-BSA" [ref=e17] [cursor=pointer]:
+            - /url: ../fl-bsa/
+      - generic [ref=e18]:
+        - heading "Roadmap" [level=2] [ref=e19]
+        - paragraph [ref=e20]:
+          - text: Additional appliances (e.g., adverse action audit aids) follow after FL-BSA rollout. Request early access via
+          - link "equilens@equilens.io" [ref=e21] [cursor=pointer]:
+            - /url: mailto:equilens@equilens.io
+          - text: .
+    - generic [ref=e22]:
+      - heading "Why self-hosted?" [level=2] [ref=e23]
+      - list [ref=e24]:
+        - listitem [ref=e25]: Bank procurement prefers sealed appliances with clear data boundaries.
+        - listitem [ref=e26]: Evidence chains need deterministic manifests (hashes, seeds, configuration).
+        - listitem [ref=e27]: Regulators expect reproducible metrics aligned with ECOA, EU AI Act, FCA guidance.
+      - paragraph [ref=e28]:
+        - text: For procurement steps and deployment packages, visit
+        - link /procurement/ [ref=e29] [cursor=pointer]:
+          - /url: ../procurement/
+        - text: .
+  - contentinfo [ref=e30]:
+    - generic [ref=e31]:
+      - navigation "Footer" [ref=e32]:
+        - link "Trust Center" [ref=e33] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e34] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e35] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e36]: •
+        - link "Legal Hub" [ref=e37] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e38] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e39] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e40] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e41]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e42]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

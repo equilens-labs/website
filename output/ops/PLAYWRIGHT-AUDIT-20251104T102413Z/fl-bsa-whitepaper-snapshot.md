@@ -1,0 +1,95 @@
+### Page state
+- Page URL: http://localhost:8000/fl-bsa/whitepaper/
+- Page Title: FL-BSA Whitepaper (Outline)
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - navigation "FL‑BSA" [ref=e8]:
+    - generic [ref=e9]:
+      - link "Overview" [ref=e10] [cursor=pointer]:
+        - /url: /fl-bsa/
+      - link "How it Works" [ref=e11] [cursor=pointer]:
+        - /url: /fl-bsa/#how-it-works
+      - link "Deployment" [ref=e12] [cursor=pointer]:
+        - /url: /fl-bsa/#deployment
+      - link "Pricing" [ref=e13] [cursor=pointer]:
+        - /url: /fl-bsa/pricing/
+      - link "Compliance" [ref=e14] [cursor=pointer]:
+        - /url: /fl-bsa/legal/
+      - link "Whitepaper" [ref=e15] [cursor=pointer]:
+        - /url: /fl-bsa/whitepaper/
+      - link "Docs" [ref=e16] [cursor=pointer]:
+        - /url: /fl-bsa/docs/
+      - link "FAQ" [ref=e17] [cursor=pointer]:
+        - /url: /fl-bsa/faq/
+  - main [ref=e18]:
+    - article [ref=e19]:
+      - generic [ref=e20]:
+        - paragraph [ref=e21]:
+          - link "Back to FL‑BSA" [ref=e22] [cursor=pointer]:
+            - /url: ../
+        - paragraph [ref=e23]:
+          - text: Need a different format? Email
+          - link "equilens@equilens.io" [ref=e24] [cursor=pointer]:
+            - /url: mailto:equilens@equilens.io?subject=Whitepaper%20request%20(FL‑BSA)
+          - text: .
+      - generic [ref=e25]:
+        - heading "1. Executive summary" [level=2] [ref=e26]
+        - list [ref=e27]:
+          - listitem [ref=e28]: "✓ Purpose: deterministic bias simulation for regulated lenders."
+          - listitem [ref=e29]: "✓ Scope: FL-BSA appliance; no outbound connectivity by default."
+          - listitem [ref=e30]: "✓ Audience: Compliance, Model Risk, Internal Audit, Supervisors."
+      - generic [ref=e31]:
+        - heading "2. Data pipeline & modelling" [level=2] [ref=e32]
+        - paragraph [ref=e33]: The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.
+      - generic [ref=e34]:
+        - heading "3. Controls & assurance" [level=2] [ref=e35]
+        - list [ref=e36]:
+          - listitem [ref=e37]: "✓ Data boundary: runs in-customer VPC; no default telemetry."
+          - listitem [ref=e38]: "✓ Hash chain: dataset → calibration artefacts → generated outputs."
+          - listitem [ref=e39]: "✓ Evidence: PDF, signed manifest, certificate appendix."
+          - listitem [ref=e40]: "✓ Governance tie-ins: FCA, EU AI Act, ECOA references."
+      - generic [ref=e41]:
+        - heading "4. Deployment patterns" [level=2] [ref=e42]
+        - paragraph [ref=e43]: Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.
+      - generic [ref=e44]:
+        - heading "5. Appendices" [level=2] [ref=e45]
+        - list [ref=e46]:
+          - listitem [ref=e47]: ✓ Glossary and metric definitions (DI, EO, TPR/TNR deltas).
+          - listitem [ref=e48]: ✓ Sample manifest excerpt with SHA-256 hashes.
+          - listitem [ref=e49]:
+            - text: ✓ Contact and procurement steps (
+            - link /procurement/ [ref=e50] [cursor=pointer]:
+              - /url: ../../procurement/
+            - text: ).
+  - contentinfo [ref=e51]:
+    - generic [ref=e52]:
+      - navigation "Footer" [ref=e53]:
+        - link "Trust Center" [ref=e54] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e55] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e56] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e57]: •
+        - link "Legal Hub" [ref=e58] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e59] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e60] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e61] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e62]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e63]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

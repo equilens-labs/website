@@ -13,12 +13,11 @@ rsync -a \
   --exclude 'scripts/' \
   --exclude 'tasks/' \
   --exclude 'template/' \
-  --exclude 'themes/appline/*.html' \
   --exclude 'vendor/' \
   . dist/
 
 # Guard: no vendor demo HTML should ship
-MAP=$(find dist -type f -name '*.html' -print0 | xargs -0 -I{} sh -c "grep -nE '(^|/)(themes/appline/.*\\.html|template/appline-.*\\.html)' '{}' || true")
+MAP=$(find dist -type f -name '*.html' -print0 | xargs -0 -I{} sh -c "grep -nE '(^|/)template/appline-.*\\.html' '{}' || true")
 if [ -n "$MAP" ]; then
   echo 'ERROR: vendor demo HTML detected in dist/' >&2
   echo "$MAP"

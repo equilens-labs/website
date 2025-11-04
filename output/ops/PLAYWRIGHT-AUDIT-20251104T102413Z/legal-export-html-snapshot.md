@@ -1,0 +1,45 @@
+### Page state
+- Page URL: http://localhost:8000/legal/export.html
+- Page Title: Export & Sanctions Notice — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Export & Sanctions Notice" [level=1] [ref=e9]
+    - paragraph [ref=e10]: Use of our software and documentation is subject to applicable UK/EU export control and sanctions laws. You agree to comply with those laws and not to export, re-export, or transfer to restricted jurisdictions, users, or end-uses.
+    - paragraph [ref=e11]:
+      - text: For general guidance see the UK Strategic Export Controls resources on
+      - link "GOV.UK" [ref=e12] [cursor=pointer]:
+        - /url: https://www.gov.uk/guidance/strategic-export-controls
+      - text: . Contact us if you require additional information.
+  - contentinfo [ref=e13]:
+    - generic [ref=e14]:
+      - navigation "Footer" [ref=e15]:
+        - link "Trust Center" [ref=e16] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e17] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e18] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e19]: •
+        - link "Legal Hub" [ref=e20] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e21] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e22] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e23] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e24]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e25]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

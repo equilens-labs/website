@@ -1,0 +1,54 @@
+### Ran Playwright code
+```js
+await page.goto('http://localhost:8000/legal/open-source.html');
+```
+
+### Page state
+- Page URL: http://localhost:8000/legal/open-source.html
+- Page Title: Open-Source Notices — Equilens
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Equilens home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Equilens
+      - button "Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - heading "Open-Source Notices" [level=1] [ref=e9]
+    - generic [ref=e10]:
+      - paragraph [ref=e11]: This site and the Equilens appliance use open-source software. Licences and attributions are recorded in our SBOM.
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "SBOM & licence list (GitHub)" [ref=e14] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/blob/main/docs/SBOM.md
+        - listitem [ref=e15]:
+          - link "NOTICE (if required by component licences)" [ref=e16] [cursor=pointer]:
+            - /url: https://github.com/equilens-labs/fl-bsa/blob/main/NOTICE
+      - paragraph [ref=e17]: Where a licence requires reproduction of a NOTICE file (for example, Apache-2.0 §4), the relevant text is available in the NOTICE link above.
+  - contentinfo [ref=e18]:
+    - generic [ref=e19]:
+      - navigation "Footer" [ref=e20]:
+        - link "Trust Center" [ref=e21] [cursor=pointer]:
+          - /url: /trust-center/
+        - link "Procurement" [ref=e22] [cursor=pointer]:
+          - /url: /procurement/
+        - link "Press" [ref=e23] [cursor=pointer]:
+          - /url: /press/
+        - generic [ref=e24]: •
+        - link "Legal Hub" [ref=e25] [cursor=pointer]:
+          - /url: /legal/
+        - link "Privacy" [ref=e26] [cursor=pointer]:
+          - /url: /legal/privacy.html
+        - link "Cookies" [ref=e27] [cursor=pointer]:
+          - /url: /legal/cookie-policy.html
+        - link "Contact" [ref=e28] [cursor=pointer]:
+          - /url: /contact/
+      - paragraph [ref=e29]:
+        - text: © 2025 Valfox Ltd. Equilens
+        - superscript [ref=e30]: ®
+        - text: is a registered mark of Valfox Ltd.
+```

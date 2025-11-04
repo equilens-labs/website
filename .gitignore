@@ -8,3 +8,9 @@ dist/
 # Ignore local server temp files
 /tmp/website_server.log
 /tmp/website_server.pid
+
+# macOS system files
+.DS_Store
+
+# Local Playwright MCP artifacts
+.playwright-mcp/
