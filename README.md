@@ -5,7 +5,7 @@
 Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 - Content: HTML/CSS only, root directory
-- Brand assets: source files live under `brand/`; runtime copies under `assets/brand/`
+- Brand assets: source files live under `brand/` (~0.4 MB); runtime copies under `assets/brand/`
   - Includes `wordmark.svg`, `wordmark_text.svg`, `wordmark_outlined.svg`, `tokens.json`, and `press-kit.json`
   - Social preview art: `assets/brand/og-default.svg` and generated `assets/brand/og-default.png`
 - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
