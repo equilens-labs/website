@@ -86,9 +86,9 @@ function setProductSubnav() {
   });
 
   if (bestLink) {
-    bestLink.setAttribute('aria-current', 'true');
+    bestLink.setAttribute('aria-current', 'page');
   } else if (links[0]) {
-    links[0].setAttribute('aria-current', 'true');
+    links[0].setAttribute('aria-current', 'page');
   }
 }
 
