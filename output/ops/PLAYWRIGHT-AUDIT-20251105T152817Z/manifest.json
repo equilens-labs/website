@@ -1,0 +1,104 @@
+{
+  "tag": "PLAYWRIGHT-AUDIT",
+  "stamp": "20251105T152817Z",
+  "base_url": "http://localhost:8000",
+  "commit": "3d0bad7",
+  "pages": [
+    {
+      "path": "/",
+      "slug": "home"
+    },
+    {
+      "path": "/fl-bsa/",
+      "slug": "fl-bsa-overview"
+    },
+    {
+      "path": "/fl-bsa/pricing/",
+      "slug": "fl-bsa-pricing"
+    },
+    {
+      "path": "/fl-bsa/legal/",
+      "slug": "fl-bsa-compliance"
+    },
+    {
+      "path": "/fl-bsa/faq/",
+      "slug": "fl-bsa-faq"
+    },
+    {
+      "path": "/fl-bsa/whitepaper/",
+      "slug": "fl-bsa-whitepaper"
+    },
+    {
+      "path": "/product/",
+      "slug": "product"
+    },
+    {
+      "path": "/pricing/",
+      "slug": "pricing"
+    },
+    {
+      "path": "/procurement/",
+      "slug": "procurement"
+    },
+    {
+      "path": "/press/",
+      "slug": "press"
+    },
+    {
+      "path": "/contact/",
+      "slug": "contact"
+    },
+    {
+      "path": "/trust-center/",
+      "slug": "trust-center"
+    },
+    {
+      "path": "/legal/index.html",
+      "slug": "legal-index"
+    },
+    {
+      "path": "/legal/privacy.html",
+      "slug": "legal-privacy"
+    },
+    {
+      "path": "/legal/tos.html",
+      "slug": "legal-tos"
+    }
+  ],
+  "anchors": [
+    {
+      "url": "/fl-bsa/#how-it-works",
+      "slug": "fl-bsa-how-it-works"
+    },
+    {
+      "url": "/fl-bsa/#deployment",
+      "slug": "fl-bsa-deployment"
+    },
+    {
+      "url": "/fl-bsa/#pricing",
+      "slug": "fl-bsa-pricing-section"
+    },
+    {
+      "url": "/fl-bsa/#compliance",
+      "slug": "fl-bsa-compliance-section"
+    },
+    {
+      "url": "/fl-bsa/#whitepaper",
+      "slug": "fl-bsa-whitepaper-section"
+    },
+    {
+      "url": "/fl-bsa/#design",
+      "slug": "fl-bsa-design-section"
+    },
+    {
+      "url": "/fl-bsa/#docs",
+      "slug": "fl-bsa-docs-section"
+    },
+    {
+      "url": "/fl-bsa/#faq",
+      "slug": "fl-bsa-faq-section"
+    }
+  ],
+  "artifacts": [],
+  "report": "report.json"
+}

@@ -1,0 +1,3623 @@
+{
+  "config": {
+    "configFile": "/Users/daimakaimura/Projects/website/playwright.config.ts",
+    "rootDir": "/Users/daimakaimura/Projects/website/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium-desktop",
+        "name": "chromium-desktop",
+        "testDir": "/Users/daimakaimura/Projects/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium-mobile",
+        "name": "chromium-mobile",
+        "testDir": "/Users/daimakaimura/Projects/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium-tablet-768",
+        "name": "chromium-tablet-768",
+        "testDir": "/Users/daimakaimura/Projects/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium-tablet-1024",
+        "name": "chromium-tablet-1024",
+        "testDir": "/Users/daimakaimura/Projects/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "site.spec.ts",
+      "file": "site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Equilens site surfaces",
+          "file": "site.spec.ts",
+          "line": 18,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1163,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:19.360Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-desktop/home-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1f2d4f37f7472c741667",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1626,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:19.359Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-desktop/fl-bsa-overview-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-79e0757a96dfa063e371",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:19.360Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-desktop/fl-bsa-pricing-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-727fb327fb64a1c9f124",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:19.364Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-desktop/fl-bsa-compliance-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-725ea2d7c5622d2ba487",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1694,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:19.360Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-desktop/fl-bsa-faq-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0ca4aaea760538b9f466",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 850,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.082Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-desktop/fl-bsa-whitepaper-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-e546544dc8085d807aeb",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/product/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 706,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.458Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "product-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-product-renders-nav-and-footer-chromium-desktop/product-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-808b3a845222cc50a4e6",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1113,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.533Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-desktop/pricing-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6de3308c9cbc918b8e33",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.556Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-desktop/procurement-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-47777fb0a37536f71cbb",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 703,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.590Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-desktop/press-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-8d136851095adaba9beb",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 654,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:21.940Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-desktop/contact-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3bbc413c26ee8748715e",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 749,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.171Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-desktop/trust-center-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ade649d881c6bd88a2a1",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 696,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.299Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-desktop/legal-index-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c50b160e6ab7a05d9624",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 762,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.391Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-desktop/legal-privacy-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b21b422a1b45b46f5b06",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 768,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.601Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-desktop/legal-tos-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b20cdfabd3a206dfdae4",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 679,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.655Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d42a3b0fa626429766ac",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 668,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:22.927Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d76ed8acd1bfb71cad36",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 689,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.002Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6f316f5bba07f00e8f40",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.159Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-10a7e04ec98857f20eda",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 678,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.343Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b4f5f9ac45647b394221",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#design is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 692,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.377Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ac76d7ce382217a75410",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 674,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.604Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4aa1d9b0954c3fa94ae8",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:23.698Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-034e7af1046cad8168ea",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 842,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:24.300Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-mobile/home-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3541fdacebc24d64580f",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2482,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:24.471Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-mobile/fl-bsa-overview-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4813f1090d1021395cdd",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2402,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:24.516Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-mobile/fl-bsa-pricing-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5b004b5c48b52822fa81",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:24.747Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-mobile/fl-bsa-compliance-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-77a7153486b38294e2d4",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2390,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:24.887Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-mobile/fl-bsa-faq-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-06b5a9f93a58a08ae397",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1384,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:25.275Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-mobile/fl-bsa-whitepaper-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3d84c9e47a45baf32ef9",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/product/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 849,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:26.668Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "product-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-product-renders-nav-and-footer-chromium-mobile/product-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-491c1e442a5a17be6140",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1821,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.030Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-mobile/pricing-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-e8ca53c082a305cb34be",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1059,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.072Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-mobile/procurement-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-25f219d761aae198029a",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 790,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.162Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-mobile/press-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1a7c83ea3cc01fede12c",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 784,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.376Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-mobile/contact-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-69b0a21ca014f3a84a8e",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 917,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.524Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-mobile/trust-center-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5313dc2587086c74a01d",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 793,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:27.959Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-mobile/legal-index-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-30e7189ec5b8b959ca23",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1016,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:28.142Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-mobile/legal-privacy-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-eb4b4cf8cac8a71fdb6f",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 950,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:28.170Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-mobile/legal-tos-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-8324e34440cd3f75a499",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:28.446Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-cacb38870f67259001ed",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 713,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:28.759Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3ca2aaf8c1e83fd2775e",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:28.861Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6f74c0eaa3d9d7874719",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:29.129Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0947eacf542c35248f89",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 703,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:29.164Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9490cdc6f8e031958c7e",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#design is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 709,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:29.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c3dda235034f276c1c07",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 701,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:29.478Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9f4917693edd01397c63",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 687,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:29.578Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-db5e5e7ffda4b23cc12e",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 796,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:30.282Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-tablet-768/home-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9afd86c1a7f1042a82a8",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 989,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:30.335Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-tablet-768/fl-bsa-overview-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b44a6a287c658ea2d85c",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1010,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:30.337Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-tablet-768/fl-bsa-pricing-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f8cc282c54e11d888410",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 968,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:30.702Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-tablet-768/fl-bsa-compliance-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ecb018522217b84d8276",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 965,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:30.780Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-tablet-768/fl-bsa-faq-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-270d43c2ec728c07eba7",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 718,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.225Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-tablet-768/fl-bsa-whitepaper-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f722aaf25c958d2e6a19",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/product/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 721,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.453Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "product-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-product-renders-nav-and-footer-chromium-tablet-768/product-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0219f29172618184365b",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.469Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-tablet-768/pricing-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0377bfd870787a48db3c",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 741,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.783Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-tablet-768/procurement-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f32acb7057698747b823",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.894Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-tablet-768/press-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-da4470e11d51b31fa98e",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 669,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:31.950Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-tablet-768/contact-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-30c899d0fd6edd236945",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 698,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.180Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-tablet-768/trust-center-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-2ad9982d1dbda1a7df5e",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 672,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.413Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-tablet-768/legal-index-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-74a7a457b48d4bdaab18",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 716,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.530Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-tablet-768/legal-privacy-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-54f46b7864f324cac66b",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 717,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.574Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-tablet-768/legal-tos-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-87d5c536ba3326c306d5",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 632,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.627Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4187cf90f7b3ad6e1119",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 643,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:32.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-bd3dcda0916425d286a0",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 651,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.091Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-2397517fa6dd010016c6",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 658,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.253Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1635e260fbfc7ebbe461",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 645,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.266Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c14b54ca4c977fa94945",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#design is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 662,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.297Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-31b7f33abb6224988bf1",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 673,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.532Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b86745f00d9956c26210",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 642,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:33.747Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1d76004fc236cfb15c31",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 819,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:34.342Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-tablet-1024/home-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-97b9b17ddc4febaeebbc",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1097,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:34.339Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-overview-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ed57abc53079ac314acb",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1107,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:34.413Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-pricing-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ff98ca62dc5b54fa3222",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1026,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:34.707Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-compliance-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-cdd1df02eaad4ae36c33",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1043,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:34.911Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-faq-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-af7de9e898bd23ff0a48",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 733,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:35.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-whitepaper-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c5f0c5f9b3f2a0909820",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/product/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 716,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:35.569Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "product-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-product-renders-nav-and-footer-chromium-tablet-1024/product-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-40d27b6423dc25e55087",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1017,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:35.650Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-tablet-1024/pricing-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4ecc2623abd145063577",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 772,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:35.835Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-tablet-1024/procurement-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-26254d94be7ba3704e60",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 701,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.032Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-tablet-1024/press-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c12ab8caa9b0c5b86e4d",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 676,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.054Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-tablet-1024/contact-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5db5fcaf67003b0ce1c0",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 746,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.291Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-tablet-1024/trust-center-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d193494770158b241a3f",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 686,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.614Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-tablet-1024/legal-index-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-af48088f663005442e1e",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 770,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.676Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-tablet-1024/legal-privacy-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6d1d9b600816674799c8",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 788,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.738Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/Users/daimakaimura/Projects/website/output/ops/PLAYWRIGHT-AUDIT-20251105T152817Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-tablet-1024/legal-tos-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6088ff9f3e4f9493e772",
+              "file": "site.spec.ts",
+              "line": 20,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 731,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:36.739Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-fb9dd3cb0d11dd8d68cf",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.043Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-39eaacbb6549c3358dcf",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 671,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.306Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9c3b8e49c121b098ec3e",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 743,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.455Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-7aa25bb96a8c094c20e2",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 728,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.479Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-401d18dd4ce0da3bf9f0",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#design is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 741,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-499b051dfd79ab91850d",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 752,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.717Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-900977ddabd243147232",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 682,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-05T15:28:37.983Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-527b781a92ff1761f628",
+              "file": "site.spec.ts",
+              "line": 47,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-05T15:28:18.913Z",
+    "duration": 19863.693,
+    "expected": 92,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
