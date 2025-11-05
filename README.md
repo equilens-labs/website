@@ -28,6 +28,7 @@ Local preview: `python3 -m http.server` and open http://localhost:8000
   ```bash
   python3 scripts/content/sync_nav_ssot.py
   python3 scripts/content/sync_footer_ssot.py
+  python3 scripts/content/sync_flbsa_subnav.py  # FL-BSA sub-navigation
   ```
 
 - Archived helpers used for previous theming experiments now live under `scripts/archive/legacy-sync/`. They are kept for reference only; do not run them on the current codebase.
