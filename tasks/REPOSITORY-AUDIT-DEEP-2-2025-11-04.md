@@ -145,6 +145,7 @@ b3b5c2c Fix CSP compliance and add audit evidence
    - Global nav active state now underline-only (no layout shift)
    - FL-BSA sub-nav spacing increased; visual weight lighter than primary nav
    - `aria-current` semantics aligned to `aria-current="page"` for both tiers
+   - FL-BSA sub-nav generated from `config/web/flbsa_subnav.json` via `scripts/content/sync_flbsa_subnav.py`
 
 5. **Testing Infrastructure**
    - Playwright-based regression audit
@@ -159,8 +160,7 @@ b3b5c2c Fix CSP compliance and add audit evidence
 
 ### ❌ What Was NOT Fixed
 
-1. **Missing CSP on 404.html** (NEW DISCOVERY)
-2. **Hardcoded FL-BSA subnav** (not config-driven like main nav)
+1. **CSP automation for error pages** (consider scripting the CSP injection to avoid regressions)
 
 ---
 

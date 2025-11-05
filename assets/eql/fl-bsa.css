@@ -1031,11 +1031,11 @@ pre code {
   background: rgba(79, 70, 229, 0.32);
 }
 
-.subnav-link[aria-current="true"] {
+.subnav-link[aria-current="page"] {
   color: var(--text-primary);
 }
 
-.subnav-link[aria-current="true"]::after {
+.subnav-link[aria-current="page"]::after {
   background: var(--color-primary);
 }
 
