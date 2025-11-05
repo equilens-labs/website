@@ -4,27 +4,26 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="noindex, nofollow" name="robots"/>
-  <title>FL-BSA Whitepaper (Outline)</title>
-  <meta content="Structure of the Equilens FL-BSA whitepaper: methodology, controls, deployment, and evidence delivery." name="description"/>
+  <title>FL-BSA Whitepaper Outline</title>
+  <meta content="Structure of the Equilens FL-BSA whitepaper covering methodology, controls, deployment, and evidence delivery." name="description"/>
   <link href="https://equilens.io/fl-bsa/whitepaper/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
   <meta content="#1E293B" name="theme-color"/>
-    <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
   <link rel="manifest" href="/manifest.webmanifest" type="application/manifest+json">
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/fl-bsa/whitepaper/" property="og:url"/>
   <meta content="FL-BSA Whitepaper outline" property="og:title"/>
   <meta content="https://equilens.io/assets/brand/og-default-light.png" property="og:image"/>
-    <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/favicon.ico" rel="alternate icon" sizes="any"/>
-<link rel="stylesheet" href="/assets/eql/fl-bsa.css">
-</head>
+  <link rel="stylesheet" href="/assets/eql/fl-bsa.css">
+ </head>
  <body class="eql">
-  <a class="skip-to-content" href="#main">
-   Skip to content
-  </a>
-    <nav class="navbar site-nav" role="navigation" aria-label="Primary">
+  <a class="skip-to-content" href="#whitepaper">Skip to content</a>
+
+  <nav class="navbar site-nav" role="navigation" aria-label="Primary">
     <div class="navbar-content">
       <a href="/" class="logo" aria-label="Equilens home">
         <span class="logo-dot"></span><span class="logo-text">Equilens</span>
@@ -42,64 +41,64 @@
   </nav>
   <script src="/assets/eql/nav.js" defer></script>
 
-<nav class="product-subnav" aria-label="FL‑BSA">
+  <nav class="product-subnav" aria-label="FL‑BSA">
   <div class="subnav-inner">
           <a class="subnav-link" href="/fl-bsa/">Overview</a>
       <a class="subnav-link" href="/fl-bsa/#how-it-works">How it Works</a>
       <a class="subnav-link" href="/fl-bsa/#deployment">Deployment</a>
-      <a class="subnav-link" href="/fl-bsa/pricing/">Pricing</a>
-      <a class="subnav-link" href="/fl-bsa/legal/">Compliance</a>
-      <a class="subnav-link" href="/fl-bsa/whitepaper/" aria-current="page">Whitepaper</a>
-      <a class="subnav-link" href="/fl-bsa/design-system/">Design</a>
-      <a class="subnav-link" href="/fl-bsa/docs/">Docs</a>
-      <a class="subnav-link" href="/fl-bsa/faq/">FAQ</a>
+      <a class="subnav-link" href="/fl-bsa/#pricing">Pricing</a>
+      <a class="subnav-link" href="/fl-bsa/#compliance">Compliance</a>
+      <a class="subnav-link" href="/fl-bsa/#whitepaper">Whitepaper</a>
+      <a class="subnav-link" href="/fl-bsa/#design">Design</a>
+      <a class="subnav-link" href="/fl-bsa/#docs">Docs</a>
+      <a class="subnav-link" href="/fl-bsa/#faq">FAQ</a>
   </div>
 </nav>
 
-<main class="wrap section max-w-3xl mx-auto px-6 py-16" id="main">
-   <article class="paper">
-
-    <section>
-     <p>
-       <a class="btn btn-primary" href="../">Back to FL‑BSA</a>
-     </p>
-     <p class="note">Need a different format? Email <a href="mailto:equilens@equilens.io?subject=Whitepaper%20request%20(FL‑BSA)">equilens@equilens.io</a>.</p>
-    </section>
-    <section>
-     <h2>1. Executive summary</h2>
-     <ul class="checks">
-      <li>Purpose: deterministic bias simulation for regulated lenders.</li>
-      <li>Scope: FL-BSA appliance; no outbound connectivity by default.</li>
-      <li>Audience: Compliance, Model Risk, Internal Audit, Supervisors.</li>
-     </ul>
-    </section>
-    <section>
-     <h2>2. Data pipeline &amp; modelling</h2>
-     <p>The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.</p>
-    </section>
-    <section>
-     <h2>3. Controls &amp; assurance</h2>
-     <ul class="checks">
-      <li>Data boundary: runs in-customer VPC; no default telemetry.</li>
-      <li>Hash chain: dataset → calibration artefacts → generated outputs.</li>
-      <li>Evidence: PDF, signed manifest, certificate appendix.</li>
-      <li>Governance tie-ins: FCA, EU AI Act, ECOA references.</li>
-     </ul>
-    </section>
-    <section>
-     <h2>4. Deployment patterns</h2>
-     <p>Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.</p>
-    </section>
-    <section>
-     <h2>5. Appendices</h2>
-     <ul class="checks">
-      <li>Glossary and metric definitions (DI, EO, TPR/TNR deltas).</li>
-      <li>Sample manifest excerpt with SHA-256 hashes.</li>
-      <li>Contact and procurement steps (<a href="../../procurement/">/procurement/</a>).</li>
-     </ul>
-    </section>
-   </article>
+<main class="wrap section" id="main">
+   <section class="section" id="whitepaper">
+    <h1>Whitepaper outline</h1>
+    <p class="lead">Structure of the FL-BSA methodology paper covering science, controls, and deployment.</p>
+    <div class="grid">
+     <div class="card">
+      <h2>1. Executive summary</h2>
+      <ul class="checks">
+       <li>Purpose: deterministic bias simulation for regulated lenders.</li>
+       <li>Scope: FL-BSA appliance; no outbound connectivity by default.</li>
+       <li>Audience: Compliance, Model Risk, Internal Audit, Supervisors.</li>
+      </ul>
+     </div>
+     <div class="card">
+      <h2>2. Data pipeline &amp; modelling</h2>
+      <p>The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.</p>
+     </div>
+     <div class="card">
+      <h2>3. Controls &amp; assurance</h2>
+      <ul class="checks">
+       <li>Data boundary: runs in-customer VPC; no default telemetry.</li>
+       <li>Hash chain: dataset → calibration artefacts → generated outputs.</li>
+       <li>Evidence: PDF, signed manifest, certificate appendix.</li>
+       <li>Governance tie-ins: FCA, EU AI Act, ECOA references.</li>
+      </ul>
+     </div>
+     <div class="card">
+      <h2>4. Deployment patterns</h2>
+      <p>Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.</p>
+     </div>
+     <div class="card">
+      <h2>5. Appendices</h2>
+      <ul class="checks">
+       <li>Glossary and metric definitions (DI, EO, TPR/TNR deltas).</li>
+       <li>Sample manifest excerpt with SHA-256 hashes.</li>
+       <li>Contact and procurement steps at <a href="/procurement/">/procurement/</a>.</li>
+      </ul>
+     </div>
+    </div>
+    <p class="note">Need a different format? Email <a href="mailto:equilens@equilens.io?subject=Whitepaper%20request%20(FL‑BSA)">equilens@equilens.io</a>.</p>
+    <p><a class="btn btn-secondary" href="/fl-bsa/#whitepaper">View consolidated page</a></p>
+   </section>
   </main>
+
   <footer class="site-footer" data-sync="footer">
   <div class="container grid">
         <section><h3>Company</h3><ul>
@@ -122,8 +121,6 @@
     <small>© 2025 Equilens. All rights reserved. Last deploy 2025-11-04 (commit 76b0efd).</small>
   </div>
 </footer>
-
-
 
 
 

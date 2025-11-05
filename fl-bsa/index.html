@@ -19,7 +19,7 @@
     <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/favicon.ico" rel="alternate icon" sizes="any"/>
   <script type="application/ld+json">
-   {
+  {
     "@context":"https://schema.org",
     "@graph":[
       {
@@ -36,6 +36,19 @@
         "brand":{"@type":"Brand","name":"Equilens"},
         "url":"https://equilens.io/fl-bsa/"
       }
+    ]
+   }
+  </script>
+  <script type="application/ld+json">
+   {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do we send any data to Equilens?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default."}},
+      {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"From minutes for 10k rows to approximately 12 minutes for around 1M rows on validated hardware profiles; daily monitoring runs reuse the generator and complete in ≤5 minutes."}},
+      {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
+      {"@type":"Question","name":"What are the deployment options?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace AMI or containerized via docker-compose. CPU-only and GPU-preferred profiles supported."}},
+      {"@type":"Question","name":"What’s in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, a signed manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are chained for auditability and can be retrieved by Task ID."}}
     ]
    }
   </script>
@@ -66,14 +79,14 @@
 <nav class="product-subnav" aria-label="FL‑BSA">
   <div class="subnav-inner">
           <a class="subnav-link" href="/fl-bsa/" aria-current="page">Overview</a>
-      <a class="subnav-link" href="/fl-bsa/#how-it-works" aria-current="page">How it Works</a>
-      <a class="subnav-link" href="/fl-bsa/#deployment" aria-current="page">Deployment</a>
-      <a class="subnav-link" href="/fl-bsa/pricing/">Pricing</a>
-      <a class="subnav-link" href="/fl-bsa/legal/">Compliance</a>
-      <a class="subnav-link" href="/fl-bsa/whitepaper/">Whitepaper</a>
-      <a class="subnav-link" href="/fl-bsa/design-system/">Design</a>
-      <a class="subnav-link" href="/fl-bsa/docs/">Docs</a>
-      <a class="subnav-link" href="/fl-bsa/faq/">FAQ</a>
+      <a class="subnav-link" href="/fl-bsa/#how-it-works">How it Works</a>
+      <a class="subnav-link" href="/fl-bsa/#deployment">Deployment</a>
+      <a class="subnav-link" href="/fl-bsa/#pricing">Pricing</a>
+      <a class="subnav-link" href="/fl-bsa/#compliance">Compliance</a>
+      <a class="subnav-link" href="/fl-bsa/#whitepaper">Whitepaper</a>
+      <a class="subnav-link" href="/fl-bsa/#design">Design</a>
+      <a class="subnav-link" href="/fl-bsa/#docs">Docs</a>
+      <a class="subnav-link" href="/fl-bsa/#faq">FAQ</a>
   </div>
 </nav>
 
@@ -84,7 +97,7 @@
        <p class="lead">Self‑hosted bias simulation with signed evidence and regulator‑ready reports.</p>
       <div class="cta-group">
         <a class="btn btn-primary" href="/contact/">Request a pilot</a>
-        <a class="btn btn-ghost" href="/fl-bsa/pricing/">View pricing</a>
+        <a class="btn btn-ghost" href="#pricing">View pricing</a>
       </div>
      </div>
    </section>
@@ -184,16 +197,188 @@
     <p class="note">Illustrative scenario only; not a customer claim.</p>
    </div>
   </section>
-  <section class="section">
-   <h2>Need more detail?</h2>
-   <p>Review the <a href="./whitepaper/">FL-BSA whitepaper</a> draft outline, browse the <a href="./docs/">documentation index</a>, read the <a href="./faq/">FAQ</a>, or contact us for procurement evidence.</p>
-  </section>
-   <section class="section">
-    <div class="cta-row">
-     <a class="btn btn-primary" href="../contact/">Contact Equilens</a>
-     <a class="btn btn-secondary" href="../fl-bsa/pricing/">View pricing</a>
+
+  <section class="section alt" id="pricing">
+   <h2>Pricing tiers</h2>
+   <p class="lead">Subject to contract; bank procurement rules may apply.</p>
+   <div class="grid">
+    <div class="card">
+     <h3>Sandbox</h3>
+     <p><strong>Free</strong> · up to 50k rows · demo only</p>
+     <ul class="checks">
+      <li>Pre-bundled FCA sandbox dataset.</li>
+      <li>Evidence bundle (demo watermark).</li>
+     </ul>
     </div>
-   </section>
+    <div class="card">
+     <h3>Pilot-Plus</h3>
+     <p><strong>£10k</strong> · 3 months · up to 100k rows</p>
+     <ul class="checks">
+      <li>Full evidence bundle.</li>
+      <li>Email support.</li>
+     </ul>
+     <p class="note">Auto-expires unless upgraded; includes email support.</p>
+    </div>
+    <div class="card">
+     <h3>Growth</h3>
+     <p><strong>£36k/yr</strong></p>
+     <ul class="checks">
+      <li>Annual subscription.</li>
+      <li>Evidence bundle + monitoring.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3>Enterprise</h3>
+     <p><strong>£120k/yr</strong></p>
+     <ul class="checks">
+      <li>CLI &amp; unlimited rows (contractual).</li>
+      <li>Priority support &amp; onboarding.</li>
+     </ul>
+     <p class="note">Includes CLI; unlimited rows per contract. Priority support.</p>
+    </div>
+   </div>
+   <p class="note">This pricing applies to the FL-BSA product. All tiers remain subject to contract; procurement requirements may apply.</p>
+   <p><a class="btn btn-secondary" href="/contact/">Discuss a tier</a></p>
+  </section>
+
+  <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2025-10-12 for Valfox Ltd registered office. -->
+  <section class="section" id="compliance">
+   <h2>Compliance snapshot</h2>
+   <p class="lead">Product-level responsibilities, licensing, and evidence controls for FL-BSA. Company-wide policies remain at <a href="/legal/">/legal/</a>.</p>
+   <div class="grid">
+    <div class="card">
+     <h3>Vendor identity</h3>
+     <p>FL-BSA is supplied by Valfox Ltd (trading as “Equilens”). Company number 14469638. Registered office: 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL.</p>
+     <p class="note">For corporate policies (privacy, terms, accessibility, export), see the Equilens legal hub.</p>
+    </div>
+    <div class="card">
+     <h3>Product scope</h3>
+     <ul class="checks">
+      <li>Self-hosted appliance delivered as AWS Marketplace AMI or docker-compose bundle.</li>
+      <li>No personal data is transmitted to Equilens by default; customers control telemetry.</li>
+      <li>Evidence bundle: PDF report, signed manifest (SHA-256), certificate appendix.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3>Licensing &amp; usage</h3>
+     <p>Usage terms are provided via AWS Marketplace subscription or Private Offer. Custom SLAs and professional services statements of work are executed separately.</p>
+     <p class="note">Open-source components and notices are catalogued at <a href="/legal/open-source.html">/legal/open-source.html</a>. SBOM and NOTICE excerpts are available on request.</p>
+    </div>
+    <div class="card">
+     <h3>Controls &amp; attestations</h3>
+     <ul class="checks">
+      <li>Control mapping: FCA, EU AI Act, ECOA touchpoints documented in the evidence bundle.</li>
+      <li>Security posture: hardened images, optional Prometheus metrics; no unsolicited network egress.</li>
+      <li>Change management: versioned releases; manifest includes software build identifiers.</li>
+     </ul>
+    </div>
+   </div>
+   <p class="note">Start with the <a href="/procurement/">procurement path</a> to review AWS Marketplace terms, deployment prerequisites, and evidence packages. For data processing agreements or custom clauses, email <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
+  </section>
+
+  <section class="section alt" id="whitepaper">
+   <h2>Whitepaper outline</h2>
+   <p class="lead">Structure of the FL-BSA methodology paper covering science, controls, and deployment.</p>
+   <div class="grid">
+    <div class="card">
+     <h3>1. Executive summary</h3>
+     <ul class="checks">
+      <li>Purpose: deterministic bias simulation for regulated lenders.</li>
+      <li>Scope: FL-BSA appliance; no outbound connectivity by default.</li>
+      <li>Audience: Compliance, Model Risk, Internal Audit, Supervisors.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3>2. Data pipeline &amp; modelling</h3>
+     <p>The pipeline ingests structured lending data or summary statistics, applies dual-branch CTGAN calibration, and records model artefacts with reproducible seeds. Sections document preprocessing, protected characteristic handling, disparate impact metrics, and reproducibility checkpoints.</p>
+    </div>
+    <div class="card">
+     <h3>3. Controls &amp; assurance</h3>
+     <ul class="checks">
+      <li>Data boundary: runs in-customer VPC; no default telemetry.</li>
+      <li>Hash chain: dataset → calibration artefacts → generated outputs.</li>
+      <li>Evidence: PDF, signed manifest, certificate appendix.</li>
+      <li>Governance tie-ins: FCA, EU AI Act, ECOA references.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3>4. Deployment patterns</h3>
+     <p>Outlines AWS Marketplace AMI and docker-compose options, including hardened baseline, IAM integration, and optional Prometheus endpoints. Includes change-control checklist and incident response escalation paths.</p>
+    </div>
+    <div class="card">
+     <h3>5. Appendices</h3>
+     <ul class="checks">
+      <li>Glossary and metric definitions (DI, EO, TPR/TNR deltas).</li>
+      <li>Sample manifest excerpt with SHA-256 hashes.</li>
+      <li>Contact and procurement steps at <a href="/procurement/">/procurement/</a>.</li>
+     </ul>
+    </div>
+   </div>
+   <p class="note">Need a different format? Email <a href="mailto:equilens@equilens.io?subject=Whitepaper%20request%20(FL‑BSA)">equilens@equilens.io</a>.</p>
+  </section>
+
+  <section class="section" id="design">
+   <h2>Design system</h2>
+   <p class="lead">Component, token, and accessibility guidance for FL-BSA surfaces.</p>
+   <div class="grid">
+    <div class="card">
+     <h3>Tokens &amp; theming</h3>
+     <p>Brand palette anchored on indigo with extended neutrals, spacing variables, and typography scale defined in <code>assets/eql/fl-bsa.css</code>.</p>
+    </div>
+    <div class="card">
+     <h3>Components</h3>
+     <p>Buttons, cards, accordions, and evidence callouts ship as reusable classes with high-contrast defaults and responsive behaviour.</p>
+    </div>
+    <div class="card">
+     <h3>Usage guidelines</h3>
+     <p>Sections cover layout breakpoints, focus states, motion preferences, and content patterns for regulatory artefacts.</p>
+    </div>
+   </div>
+   <p class="note">For the full catalogue, review the <a href="/fl-bsa/design-system/">Design System reference</a>.</p>
+  </section>
+
+  <section class="section alt" id="docs">
+   <h2>Documentation</h2>
+   <p class="lead">Entry point to deeper product documentation and technical resources.</p>
+   <div class="card">
+    <ul class="asset-list">
+     <li><a href="https://github.com/equilens-labs/fl-bsa/blob/main/docs/_INDEX.md" target="_blank" rel="noopener noreferrer">Docs index (GitHub)</a></li>
+     <li><a href="https://github.com/equilens-labs/fl-bsa/tree/main/docs/gold" target="_blank" rel="noopener noreferrer">Production-ready components</a></li>
+    </ul>
+    <p class="note">External links open GitHub; no data is collected on this site.</p>
+   </div>
+  </section>
+
+  <section class="section" id="faq">
+   <h2>FAQ</h2>
+   <details class="faq-item">
+    <summary>Do we send any data to Equilens?</summary>
+    <p>No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default.</p>
+   </details>
+   <details class="faq-item">
+    <summary>How long does a typical run take?</summary>
+    <p>From minutes for 10k rows to approximately 12 minutes for around 1M rows on validated hardware profiles; daily monitoring runs reuse the generator and complete in ≤5 minutes.</p>
+   </details>
+   <details class="faq-item">
+    <summary>What regulatory frameworks are covered?</summary>
+    <p>Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment.</p>
+   </details>
+   <details class="faq-item">
+    <summary>What are the deployment options?</summary>
+    <p>AWS Marketplace AMI or containerized via docker-compose. CPU-only and GPU-preferred profiles supported.</p>
+   </details>
+   <details class="faq-item">
+    <summary>What’s in the evidence bundle?</summary>
+    <p>A 30-page PDF report, a signed manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are chained for auditability and can be retrieved by Task ID.</p>
+   </details>
+  </section>
+
+  <section class="section">
+   <div class="cta-row">
+    <a class="btn btn-primary" href="/contact/">Contact Equilens</a>
+    <a class="btn btn-secondary" href="#pricing">Explore pricing</a>
+   </div>
+  </section>
   </main>
   <footer class="site-footer" data-sync="footer">
   <div class="container grid">
