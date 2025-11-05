@@ -31,8 +31,9 @@ def build_subnav_html(links, current_url: str) -> str:
     for link in links:
         href = link["href"]
         attrs = ['class="subnav-link"', f'href="{href}"']
-        normalized = href.split("#")[0] or href
-        if normalized and normalized.endswith("/") and current_url == normalized:
+        has_hash = "#" in href
+        normalized = href.split("#")[0] if has_hash else href
+        if not has_hash and normalized and normalized.endswith("/") and current_url == normalized:
             attrs.append('aria-current="page"')
         link_markup.append(f'      <a {" ".join(attrs)}>{link["label"]}</a>')
     block = "\n".join(link_markup)
@@ -58,7 +59,11 @@ def main():
             continue
         html = page.read_text(encoding="utf-8")
         block = build_subnav_html(links, page_url(page))
-        updated = replace_subnav(html, block)
+        try:
+            updated = replace_subnav(html, block)
+        except ValueError:
+            print("[flbsa_subnav] skipped", page)
+            continue
         page.write_text(updated, encoding="utf-8")
         print("[flbsa_subnav] synced", page)
 

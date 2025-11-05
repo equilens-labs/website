@@ -18,6 +18,12 @@
   ],
   "anchors": [
     { "url": "/fl-bsa/#how-it-works", "slug": "fl-bsa-how-it-works" },
-    { "url": "/fl-bsa/#deployment", "slug": "fl-bsa-deployment" }
+    { "url": "/fl-bsa/#deployment", "slug": "fl-bsa-deployment" },
+    { "url": "/fl-bsa/#pricing", "slug": "fl-bsa-pricing-section" },
+    { "url": "/fl-bsa/#compliance", "slug": "fl-bsa-compliance-section" },
+    { "url": "/fl-bsa/#whitepaper", "slug": "fl-bsa-whitepaper-section" },
+    { "url": "/fl-bsa/#design", "slug": "fl-bsa-design-section" },
+    { "url": "/fl-bsa/#docs", "slug": "fl-bsa-docs-section" },
+    { "url": "/fl-bsa/#faq", "slug": "fl-bsa-faq-section" }
   ]
 }

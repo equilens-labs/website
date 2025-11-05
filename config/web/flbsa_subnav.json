@@ -3,11 +3,11 @@
     { "label": "Overview", "href": "/fl-bsa/" },
     { "label": "How it Works", "href": "/fl-bsa/#how-it-works" },
     { "label": "Deployment", "href": "/fl-bsa/#deployment" },
-    { "label": "Pricing", "href": "/fl-bsa/pricing/" },
-    { "label": "Compliance", "href": "/fl-bsa/legal/" },
-    { "label": "Whitepaper", "href": "/fl-bsa/whitepaper/" },
-    { "label": "Design", "href": "/fl-bsa/design-system/" },
-    { "label": "Docs", "href": "/fl-bsa/docs/" },
-    { "label": "FAQ", "href": "/fl-bsa/faq/" }
+    { "label": "Pricing", "href": "/fl-bsa/#pricing" },
+    { "label": "Compliance", "href": "/fl-bsa/#compliance" },
+    { "label": "Whitepaper", "href": "/fl-bsa/#whitepaper" },
+    { "label": "Design", "href": "/fl-bsa/#design" },
+    { "label": "Docs", "href": "/fl-bsa/#docs" },
+    { "label": "FAQ", "href": "/fl-bsa/#faq" }
   ]
 }
