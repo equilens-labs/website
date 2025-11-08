@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="robots" content="noindex, nofollow">
   <title>Page not found — Equilens</title>
   <meta name="description" content="The page you requested could not be found.">
@@ -13,30 +13,27 @@
 <link rel="stylesheet" href="/assets/eql/site-light.css">
 </head>
 <body class="eql">
+  <a class="skip-to-content" href="#main">Skip to content</a>
     <nav class="navbar site-nav" role="navigation" aria-label="Primary">
-    <div class="navbar-content">
-      <a href="/" class="logo" aria-label="Equilens home">
-        <span class="logo-dot"></span><span class="logo-text">Equilens</span>
-      </a>
-      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
-      <div id="nav-links" class="nav-links" data-open="false">
-        <a href="/fl-bsa/" class="nav-link">FL‑BSA</a>
-        <a href="/trust-center/" class="nav-link">Trust Center</a>
-        <a href="/procurement/" class="nav-link">Procurement</a>
-        <a href="/press/" class="nav-link">Press</a>
-        <a href="/legal/" class="nav-link">Legal</a>
-        <a href="/contact/" class="nav-link">Contact</a>
-      </div>
+  <div class="navbar-content">
+    <a href="/" class="logo" aria-label="Equilens home">
+      <span class="logo-dot"></span><span class="logo-text">Equilens</span>
+    </a>
+    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/press/" class="nav-link">Press</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
-  </nav>
-  <script src="/assets/eql/nav.js" defer></script>
+  </div>
+</nav>
+<script src="/assets/eql/nav.js" defer></script>
 
-<main class="wrap section mx-auto max-w-7xl px-6 py-16">
+
+<main class="wrap section mx-auto max-w-7xl px-6 py-16" id="main">
     <h1>Page not found</h1>
     <p>The page you’re looking for doesn’t exist. Return to the <a href="./">home page</a>.</p>
   </main>
 
-  <footer class="site-footer" data-sync="footer">
+  <footer class="site-footer" data-sync="footer" role="contentinfo">
   <div class="container grid">
         <section><h3>Company</h3><ul>
       <li><a href="/press/">Press</a></li>
@@ -55,9 +52,10 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Equilens. All rights reserved. Last deploy 2025-11-04 (commit 76b0efd).</small>
+    <small>© 2025 Equilens. All rights reserved. Last deploy 2025-11-05 (commit 44e3869).</small>
   </div>
 </footer>
+
 
 
 
