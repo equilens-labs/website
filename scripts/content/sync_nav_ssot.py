@@ -44,10 +44,18 @@ for page, block in HEADER_BLOCKS.items():
     # Ensure body has class="eql"
     s = re.sub(r'<body(?![^>]*\bclass=)', '<body class="eql"', s, count=1)
     s = re.sub(r'<body([^>]*class=\")([^\"]*)\"', lambda m: f"<body{m.group(1)}{'eql ' if 'eql' not in m.group(2) else ''}{m.group(2)}\"", s, count=1)
-    # Replace existing navbar block; fallback to legacy header tag only if no nav found
-    if re.search(r"<nav class=\"navbar\"[\s\S]*?</nav>", s):
-        s = re.sub(r"<nav class=\"navbar\"[\s\S]*?</nav>", block, s, count=1)
+    # Replace existing navbar blocks robustly (allow extra classes) and ensure only one remains
+    nav_pattern = re.compile(r"<nav class=\"[^\"]*\bnavbar\b[^\"]*\"[\s\S]*?</nav>\s*(?:<script[^>]*nav\.js[^>]*></script>)?", re.I)
+    matches = list(nav_pattern.finditer(s))
+    if matches:
+        # Build new content: keep everything before first match, insert block, then append tail after last removed match
+        first = matches[0]
+        last = matches[-1]
+        before = s[:first.start()]
+        after = s[last.end():]
+        s = before + block + after
     else:
+        # Fallback: replace a legacy <header> container if present
         s = re.sub(r"<header[\s\S]*?</header>", block, s, count=1, flags=re.I)
     page.write_text(s, encoding='utf-8')
     print('[nav] synced', page)

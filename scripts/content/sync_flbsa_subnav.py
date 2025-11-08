@@ -30,11 +30,8 @@ def build_subnav_html(links, current_url: str) -> str:
     link_markup = []
     for link in links:
         href = link["href"]
+        # Do not set aria-current in static markup; JS will manage state
         attrs = ['class="subnav-link"', f'href="{href}"']
-        has_hash = "#" in href
-        normalized = href.split("#")[0] if has_hash else href
-        if not has_hash and normalized and normalized.endswith("/") and current_url == normalized:
-            attrs.append('aria-current="page"')
         link_markup.append(f'      <a {" ".join(attrs)}>{link["label"]}</a>')
     block = "\n".join(link_markup)
     return template.replace("<!--FLBSA_LINKS-->", block)
