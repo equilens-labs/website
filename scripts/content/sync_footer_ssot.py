@@ -64,7 +64,8 @@ def render(d: str) -> str:
 for page in ROOT.rglob('*.html'):
     if page.is_relative_to(TEMPLATE_DIR) or page.is_relative_to(BRAND_DIR):
         continue
-    if any(seg in page.parts for seg in ('vendor',)):
+    # Skip third-party or tool HTML trees
+    if any(seg in page.parts for seg in ('vendor', 'node_modules')):
         continue
     d = depth(page)
     block = render(d)
