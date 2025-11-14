@@ -1,0 +1,12 @@
+{
+  "name": "Equilens",
+  "short_name": "Equilens",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#4F46E5",
+  "icons": [
+    { "src": "/brand/icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/brand/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

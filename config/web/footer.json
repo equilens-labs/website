@@ -13,5 +13,5 @@
       {"label": "Open Source", "href": "/legal/open-source.html"},
       {"label": "Accessibility", "href": "/legal/accessibility.html"}]}
   ],
-  "note": "© {year} Equilens. All rights reserved. Last deploy {deploy_date} (commit {commit})."
+  "note": "© {year} Equilens® (a Valfox Ltd company). All rights reserved. Equilens is a registered trademark of Valfox Ltd. Last deploy {deploy_date} (commit {commit})."
 }

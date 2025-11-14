@@ -9,15 +9,15 @@
   <link href="https://equilens.io/procurement/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
-  <meta content="#1E293B" name="theme-color"/>
-    <link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
-  <link rel="manifest" href="/manifest.webmanifest" type="application/manifest+json">
+  <meta content="#4f46e5" name="theme-color"/>
+    <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="/brand/icons/site.webmanifest">
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/procurement/" property="og:url"/>
   <meta content="Procurement &amp; Deployment — Equilens FL-BSA" property="og:title"/>
-  <meta content="https://equilens.io/assets/brand/og-default-light.png" property="og:image"/>
-    <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="/favicon.ico" rel="alternate icon" sizes="any"/>
+  <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
+    <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2025-10-12 for Valfox Ltd registered office. -->
   <script type="application/ld+json">
    {
@@ -35,14 +35,14 @@
     ]
    }
   </script>
-<link rel="stylesheet" href="/assets/eql/site-light.css">
+<link rel="stylesheet" href="/assets/eql/base.css">
 </head>
  <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
     <nav class="navbar site-nav" role="navigation" aria-label="Primary">
   <div class="navbar-content">
     <a href="/" class="logo" aria-label="Equilens home">
-      <span class="logo-dot"></span><span class="logo-text">Equilens</span>
+      <img src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="168" height="36">
     </a>
     <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
@@ -52,7 +52,17 @@
 </nav>
 <script src="/assets/eql/nav.js" defer></script>
 
-
+<main class="wrap section" id="main">
+   <h1>Procurement &amp; Deployment</h1>
+   <p class="lead">Subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance in your VPC.</p>
+   <section>
+    <h2>Deployment steps</h2>
+    <div class="steps">
+     <div class="step">
+      <header>
+       <span class="step-number">1</span>
+       <h3 class="step-title">Subscribe on AWS Marketplace</h3>
+      </header>
       <p>Open the AWS Marketplace listing and click <em>Subscribe</em>. Review and accept the standard terms.</p>
      </div>
      <div class="step">
@@ -147,9 +157,11 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Equilens. All rights reserved. Last deploy 2025-11-05 (commit 44e3869).</small>
+    <small>© 2025 Valfox Ltd. All rights reserved. Equilens® is a brand and registered trademark of Valfox Ltd. Last deploy 2025-11-12 (commit 20d750a).</small>
   </div>
 </footer>
+
+
 
 
 
