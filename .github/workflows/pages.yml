@@ -105,13 +105,14 @@ jobs:
 
       - name: Render Whitepaper PDF (deploy artifact)
         continue-on-error: true
+        timeout-minutes: 2
         run: |
           HTML="${{ github.workspace }}/fl-bsa/whitepaper/index.html"
           OUT="${{ github.workspace }}/fl-bsa/whitepaper/Equilens_FL-BSA_Whitepaper_v1.pdf"
           echo "Rendering $HTML -> $OUT"
-          google-chrome --headless=new --no-sandbox --disable-gpu \
-            --print-to-pdf="$OUT" "file://$HTML"
-          ls -lh "$OUT"
+          timeout 90s google-chrome --headless=new --no-sandbox --disable-gpu \
+            --print-to-pdf="$OUT" "file://$HTML" || echo "PDF render timed out or failed"
+          ls -lh "$OUT" || echo "PDF not generated"
 
       - name: Prepare deploy artifact
         run: |
