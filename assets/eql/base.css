@@ -427,6 +427,7 @@ ul, ol {
   align-items: center;
   position: relative;
   padding: 0 6px;
+  white-space: nowrap;
 }
 
 .nav-link::after {
