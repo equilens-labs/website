@@ -6,7 +6,6 @@
     { "path": "/fl-bsa/legal/", "slug": "fl-bsa-compliance" },
     { "path": "/fl-bsa/faq/", "slug": "fl-bsa-faq" },
     { "path": "/fl-bsa/whitepaper/", "slug": "fl-bsa-whitepaper" },
-    { "path": "/product/", "slug": "product" },
     { "path": "/pricing/", "slug": "pricing" },
     { "path": "/procurement/", "slug": "procurement" },
     { "path": "/press/", "slug": "press" },

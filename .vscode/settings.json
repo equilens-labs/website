@@ -1,6 +1,6 @@
 {
   "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 500,
+  "files.autoSaveDelay": 300,
   "editor.formatOnSave": true,
   "editor.wordWrap": "on",
   "git.enableSmartCommit": true,
@@ -12,5 +12,21 @@
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Live Preview (Microsoft) — serve from workspace root on port 3000
+  "livePreview.port": 3000,
+  "livePreview.openPreviewTarget": "Embedded Preview",
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "livePreview.serverRoot": "${workspaceFolder}",
+  "livePreview.defaultPreviewPath": "/index.html",
+  // Live Server (Ritwick) — fallback if used
+  "liveServer.settings.port": 3000,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.fullReload": true,
+  "liveServer.settings.wait": 100,
+  // Auto-refresh on change
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true
   }
 }

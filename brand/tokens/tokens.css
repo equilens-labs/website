@@ -1,0 +1,63 @@
+/* Equilens Design Tokens v1 */
+
+:root[data-theme="light"] {
+  /* Brand colors */
+  --brand-500: #4F46E5;    /* primary */
+  --brand-700: #4338CA;    /* hover on light */
+
+  /* Text colors */
+  --ink-900: #111827;      /* primary text on light */
+  --ink-700: #374151;      /* headings/dense UI */
+  --muted-500: #6B7280;    /* secondary text */
+
+  /* Background colors */
+  --bg: #FFFFFF;
+  --surface: #F9FAFB;
+
+  /* State colors */
+  --success-600: #16A34A;
+  --warning-600: #D97706;
+  --danger-600: #DC2626;
+
+  /* Border radius */
+  --radius-1: 6px;
+  --radius-2: 12px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --dur-fast: 150ms;
+  --dur-med: 250ms;
+}
+
+:root[data-theme="dark"] {
+  /* Brand colors - tuned for AA+ against dark */
+  --brand-400: #A5B4FC;
+  --brand-500: #A5B4FC;
+
+  /* Text colors */
+  --ink-900: #FFFFFF;      /* reversed text */
+  --ink-700: #E5E7EB;
+  --muted-500: #9CA3AF;
+
+  /* Background colors */
+  --bg: #111827;
+  --surface: #1F2937;
+
+  /* State colors */
+  --success-500: #22C55E;
+  --warning-500: #F59E0B;
+  --danger-500: #EF4444;
+
+  /* Border radius */
+  --radius-1: 6px;
+  --radius-2: 12px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --dur-fast: 150ms;
+  --dur-med: 250ms;
+}
+
+/* Example logo embedding */
+.logo { color: var(--ink-900); }
+.logo--brand { color: var(--brand-500); }
