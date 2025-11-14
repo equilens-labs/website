@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SVG="assets/brand/og-default.svg"
-OUT="assets/brand/og-default.png"
+SVG="brand/social/og-1200x630.svg"
+OUT="brand/social/og-1200x630.png"
 
 if [[ ! -f "$SVG" ]]; then
   echo "error: ${SVG} not found" >&2
