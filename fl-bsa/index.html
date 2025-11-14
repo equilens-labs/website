@@ -71,94 +71,84 @@
 </nav>
 <script src="/assets/eql/nav.js" defer></script>
 
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <h2 class="eyebrow">Product</h2>
+        <h1 class="brand-title">FL‑BSA</h1>
+        <p class="lead">Fair‑Lending Bias‑Simulation Appliance. Self‑hosted bias simulation that generates synthetic borrower cohorts to measure disparate impact and produce regulator‑ready evidence.</p>
+        <p class="cta-row">
+          <a class="btn btn-primary" href="#how-it-works">How it Works</a>
+          <a class="btn btn-secondary" href="#pricing">Pricing</a>
+        </p>
+      </div>
+    </section>
 
-      <p>Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">2</span>
-       <h3 class="step-title">Calibrate branches</h3>
-      </header>
-      <p>Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">3</span>
-       <h3 class="step-title">Produce evidence</h3>
-      </header>
-      <p>Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">4</span>
-       <h3 class="step-title">Review and share</h3>
-      </header>
-      <p>Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.</p>
-     </div>
-    </div>
-   </section>
   <section class="section alt" id="deployment">
-    <h2>
-     Deployment options
-    </h2>
-    <div class="grid">
-     <div class="card">
-      <h3>AWS AMI</h3>
-      <p>Single-tenant AMI. Boots deterministic services via systemd and exposes API on 8080 (configurable).</p>
-     </div>
-     <div class="card">
-      <h3>Container package</h3>
-      <p>docker-compose stack (API, Worker, Redis). CPU-only and GPU-preferred profiles validated at scale.</p>
-     </div>
+    <div class="container">
+      <h2>Deployment options</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AWS AMI</h3>
+          <p>Single-tenant AMI. Boots deterministic services via systemd and exposes API on 8080 (configurable).</p>
+        </div>
+        <div class="card">
+          <h3>Container package</h3>
+          <p>docker-compose stack (API, Worker, Redis). CPU-only and GPU-preferred profiles validated at scale.</p>
+        </div>
+      </div>
+      <p class="note">Procurement path and deployment checklist live at <a href="../procurement/">/procurement/</a>.</p>
     </div>
-    <p class="note">Procurement path and deployment checklist live at <a href="../procurement/">/procurement/</a>.</p>
   </section>
   <section class="section">
-   <h2>In practice</h2>
-   <div class="card">
-    <p><strong>Example:</strong> A bank ingests 250k historic applications including credit decisions. FL-BSA reports a historical disparate impact (DI) of 0.68 and an achievable DI of 0.83 after isolating decision leakage—documented with certificate chain and signed manifest.</p>
-    <p class="note">Illustrative scenario only; not a customer claim.</p>
-   </div>
+    <div class="container">
+      <h2>In practice</h2>
+      <div class="card">
+        <p><strong>Example:</strong> A bank ingests 250k historic applications including credit decisions. FL-BSA reports a historical disparate impact (DI) of 0.68 and an achievable DI of 0.83 after isolating decision leakage—documented with certificate chain and signed manifest.</p>
+        <p class="note">Illustrative scenario only; not a customer claim.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="section" id="how-it-works">
-   <h2>
-    How it Works
-   </h2>
-   <div class="steps">
-    <div class="step">
-     <header>
-      <span class="step-number">1</span>
-      <h3 class="step-title">Upload data</h3>
-     </header>
-     <p>Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.</p>
+  <section class="section alt" id="how-it-works">
+    <div class="container">
+      <h2>How it Works</h2>
+      <div class="steps">
+        <div class="step">
+          <header>
+            <span class="step-number">1</span>
+            <h3 class="step-title">Upload data</h3>
+          </header>
+          <p>Upload structured data or summary statistics. FL-BSA establishes amplification vs. intrinsic baselines.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">2</span>
+            <h3 class="step-title">Calibrate branches</h3>
+          </header>
+          <p>Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">3</span>
+            <h3 class="step-title">Produce evidence</h3>
+          </header>
+          <p>Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">4</span>
+            <h3 class="step-title">Review and share</h3>
+          </header>
+          <p>Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.</p>
+        </div>
+      </div>
     </div>
-    <div class="step">
-     <header>
-      <span class="step-number">2</span>
-      <h3 class="step-title">Calibrate branches</h3>
-     </header>
-     <p>Synthesize borrower records with embedded decisions. Evaluate AIF360/Fairlearn metrics (DI, EO, TPR gaps).</p>
-    </div>
-    <div class="step">
-     <header>
-      <span class="step-number">3</span>
-      <h3 class="step-title">Produce evidence</h3>
-     </header>
-     <p>Export the signed manifest, PDF, and certificates. Artifacts chain task ID → model seeds → outputs for auditability.</p>
-    </div>
-    <div class="step">
-     <header>
-      <span class="step-number">4</span>
-      <h3 class="step-title">Review and share</h3>
-     </header>
-     <p>Share the evidence bundle with Compliance, Model Risk, and Internal Audit. Optional advisory runbooks available.</p>
-    </div>
-   </div>
   </section>
 
   <section class="section alt" id="pricing">
-   <h2>Pricing tiers</h2>
+    <div class="container">
+      <h2>Pricing tiers</h2>
    <p class="lead">Subject to contract; bank procurement rules may apply.</p>
    <div class="grid">
     <div class="card">
@@ -202,7 +192,8 @@
 
   <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2025-10-12 for Valfox Ltd registered office. -->
   <section class="section" id="compliance">
-   <h2>Compliance snapshot</h2>
+    <div class="container">
+      <h2>Compliance snapshot</h2>
    <p class="lead">Product-level responsibilities, licensing, and evidence controls for FL-BSA. Company-wide policies remain at <a href="/legal/">/legal/</a>.</p>
    <div class="grid">
     <div class="card">
@@ -236,7 +227,8 @@
   </section>
 
   <section class="section alt" id="whitepaper">
-   <h2>Whitepaper outline</h2>
+    <div class="container">
+      <h2>Whitepaper outline</h2>
    <p class="lead">Structure of the FL-BSA methodology paper covering science, controls, and deployment.</p>
    <div class="grid">
     <div class="card">
@@ -277,7 +269,8 @@
   </section>
 
   <section class="section" id="design">
-   <h2>Design system</h2>
+    <div class="container">
+      <h2>Design system</h2>
    <p class="lead">Component, token, and accessibility guidance for FL-BSA surfaces.</p>
    <div class="grid">
     <div class="card">
@@ -297,7 +290,8 @@
   </section>
 
   <section class="section alt" id="docs">
-   <h2>Documentation</h2>
+    <div class="container">
+      <h2>Documentation</h2>
    <p class="lead">Entry point to deeper product documentation and technical resources.</p>
    <div class="card">
     <ul class="asset-list">
@@ -309,7 +303,8 @@
   </section>
 
   <section class="section" id="faq">
-   <h2>FAQ</h2>
+    <div class="container">
+      <h2>FAQ</h2>
    <details class="faq-item">
     <summary>Do we send any data to Equilens?</summary>
     <p>No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default.</p>
