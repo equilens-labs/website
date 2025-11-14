@@ -557,6 +557,26 @@ ul, ol {
   background: var(--bg-muted);
 }
 
+/* Page Header (for product/content pages, not homepage) */
+.page-header {
+  padding: clamp(80px, 12vw, 140px) 0 clamp(48px, 8vw, 80px);
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-header h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--font-bold);
+  line-height: 1.1;
+  margin-bottom: var(--space-5);
+  color: var(--text-primary);
+}
+
+.page-header .lead {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 [id] {
   scroll-margin-top: 96px;
 }
