@@ -587,6 +587,7 @@ ul, ol {
   display: flex;
   justify-content: center;
   gap: var(--space-4);
+  max-width: none;
 }
 
 /* Grid */
