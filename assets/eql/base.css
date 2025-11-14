@@ -584,6 +584,9 @@ ul, ol {
 
 .cta-row {
   margin-top: var(--space-2);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
 }
 
 /* Grid */
