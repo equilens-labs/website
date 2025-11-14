@@ -40,15 +40,18 @@
 <script src="/assets/eql/nav.js" defer></script>
 
 
-<main class="wrap section" id="main">
-   <h1>
-    Trust Center
-   </h1>
-  <p class="tagline">
-   Privacy-first, self-hosted deployment with transparent evidence and clear responsibilities.
-  </p>
-   <p class="note">This Trust Center covers Equilens (company) controls. Product-level summary lives at <a href="../fl-bsa/legal/">/fl-bsa/legal/</a>.</p>
-   <div class="grid">
+<main id="main">
+  <header class="page-header">
+    <div class="container">
+      <h1>Trust Center</h1>
+      <p class="lead">Privacy-first, self-hosted deployment with transparent evidence and clear responsibilities.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <p class="note">This Trust Center covers Equilens (company) controls. Product-level summary lives at <a href="../fl-bsa/legal/">/fl-bsa/legal/</a>.</p>
+      <div class="grid">
     <div class="card">
      <h2>
       Security &amp; compliance artefacts
@@ -134,16 +137,15 @@
       .
      </p>
     </div>
-   </div>
-   <section class="section">
-    <h2>
-     Evidence chain &amp; open source
-    </h2>
-    <p>
-     Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID. Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.
-    </p>
-   </section>
-  </main>
+      </div>
+
+      <section>
+        <h2>Evidence chain &amp; open source</h2>
+        <p>Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID. Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
+      </section>
+    </div>
+  </section>
+</main>
   <footer class="site-footer" data-sync="footer" role="contentinfo">
   <div class="container grid">
         <section><h3>Company</h3><ul>
