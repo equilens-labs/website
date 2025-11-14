@@ -423,11 +423,13 @@ ul, ol {
   font-weight: var(--font-medium);
   transition: color var(--transition-base);
   height: 44px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   position: relative;
   padding: 0 6px;
   white-space: nowrap;
+  will-change: color;
+  transform: translateZ(0);
 }
 
 .nav-link::after {
