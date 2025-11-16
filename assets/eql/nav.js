@@ -129,5 +129,69 @@ function setProductSubnav() {
   }
 }
 
+// Scroll-spy for subnav: highlights active section as user scrolls
+function initScrollSpy() {
+  const subnav = document.querySelector('.toc') || document.querySelector('.section-nav') || document.querySelector('.product-subnav');
+  if (!subnav) return;
+
+  const links = subnav.querySelectorAll('.toc-link[href^="#"], .section-nav-link[href^="#"], .subnav-link[href^="#"]');
+  if (!links.length) return;
+
+  // Get all target sections
+  const sections = [];
+  links.forEach(link => {
+    const targetId = link.getAttribute('href').substring(1);
+    const section = document.getElementById(targetId);
+    if (section) {
+      sections.push({ id: targetId, el: section, link: link });
+    }
+  });
+
+  if (!sections.length) return;
+
+  // Throttled scroll handler
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateActiveSection();
+      ticking = false;
+    });
+  }
+
+  function updateActiveSection() {
+    // Account for sticky nav height (approx 120px for main nav + subnav)
+    const scrollPos = window.scrollY + 140;
+    let activeSection = sections[0];
+
+    // Check if we're at the bottom of the page
+    const atBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 50);
+
+    if (atBottom && sections.length > 0) {
+      // If at bottom, highlight the last section
+      activeSection = sections[sections.length - 1];
+    } else {
+      // Find the section closest to or above the viewport
+      for (const section of sections) {
+        if (section.el.offsetTop <= scrollPos) {
+          activeSection = section;
+        }
+      }
+    }
+
+    // Update aria-current
+    links.forEach(link => link.removeAttribute('aria-current'));
+    if (activeSection) {
+      activeSection.link.setAttribute('aria-current', 'location');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateActiveSection(); // Initial state
+}
+
 setProductSubnav();
 window.addEventListener('hashchange', setProductSubnav);
+initScrollSpy();
+
