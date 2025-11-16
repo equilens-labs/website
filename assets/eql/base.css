@@ -217,6 +217,22 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Sticky footer layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content grows to push footer to bottom */
+main {
+  flex: 1 0 auto;
+}
+
+/* Landing pages center content vertically */
+.landing main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 a {
@@ -543,6 +559,133 @@ ul, ol {
   background: var(--color-primary);
 }
 
+/* Section Navigation (inline with page content) */
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  justify-content: center;
+}
+
+.section-nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.section-nav-link:hover {
+  background: rgba(79, 70, 229, 0.15);
+  border-color: rgba(79, 70, 229, 0.3);
+  color: var(--color-primary-text);
+  transform: translateY(-1px);
+}
+
+.section-nav-link[aria-current="location"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-semibold);
+}
+
+/* Table of Contents (Sidebar) */
+.page-with-toc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.toc {
+  display: none;
+}
+
+.page-content {
+  min-width: 0;
+}
+
+@media (min-width: 1100px) {
+  .page-with-toc {
+    padding-left: 240px;
+  }
+
+  /* Align page header with TOC-offset content */
+  .page-header.page-header--with-toc {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 240px;  /* Match .page-with-toc wrapper offset */
+  }
+
+  .page-header.page-header--with-toc .container {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;  /* Center within offset area, matching section h2s */
+  }
+
+  .toc {
+    display: block;
+    position: fixed;
+    left: var(--space-6);  /* Align with logo (navbar padding) */
+    top: 88px;
+    width: 200px;
+  }
+
+  .toc-inner {
+    padding-top: var(--space-4);  /* Reduced from --space-6 to bring closer to navbar */
+  }
+
+  .toc-label {
+    display: block;
+    font-size: var(--text-sm);  /* Increased from 11px */
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .toc-label:hover {
+    color: var(--color-primary-text);
+  }
+
+  .toc-link {
+    display: block;
+    padding: var(--space-2) 0;
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--border-default);
+    font-size: var(--text-base);  /* Increased from --text-sm */
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    line-height: 1.4;
+  }
+
+  .toc-link:hover {
+    color: var(--color-primary-text);
+    border-left-color: rgba(79, 70, 229, 0.4);
+  }
+
+  .toc-link[aria-current="location"] {
+    color: var(--color-primary-text);
+    border-left-color: var(--color-primary);
+    font-weight: var(--font-medium);
+  }
+}
+
 /* ============================================================================
    5. LAYOUT & CONTAINERS
    ============================================================================ */
@@ -609,11 +752,16 @@ ul, ol {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
+  min-height: auto;  /* Remove full-viewport height requirement */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 140px var(--space-6) 96px;
+  padding: var(--space-6) var(--space-6) var(--space-12);
+}
+
+/* Hero inside page-content gets adjusted padding */
+.page-content .hero {
+  padding: var(--space-12) 0 var(--space-16);
 }
 
 .hero-content {
@@ -626,6 +774,28 @@ ul, ol {
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Section block - hero-like aesthetic for content sections */
+.section-block {
+  background: var(--color-gray-50);
+  padding: var(--space-12) var(--space-10);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-block h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.section-block .lead {
+  text-align: center;
+}
+
+.section-block .note {
+  text-align: center;
 }
 
 .cta-row {
@@ -955,10 +1125,11 @@ ul, ol {
    ============================================================================ */
 
 .site-footer {
-  margin-top: var(--space-16);
+  margin-top: auto;  /* Push to bottom in flex layout */
   border-top: 1px solid var(--border-default);
   background: var(--bg-subtle);
-  padding: var(--space-10) 0 var(--space-6);
+  padding: var(--space-6) 0 var(--space-4);
+  flex-shrink: 0;  /* Don't shrink footer */
 }
 
 .site-footer .container {
@@ -970,10 +1141,10 @@ ul, ol {
 .site-footer .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
   justify-content: center;
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-4);
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -1029,7 +1200,7 @@ ul, ol {
 }
 
 .site-footer .container:last-of-type {
-  padding-top: var(--space-6);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--border-light);
 }
 
