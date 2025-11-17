@@ -1,4 +1,7 @@
 {
+  "brand": {
+    "trademark_status": "tm"
+  },
   "columns": [
     {"title": "Company", "links": [
       {"label": "Press", "href": "/press/"},
@@ -13,5 +16,5 @@
       {"label": "Open Source", "href": "/legal/open-source.html"},
       {"label": "Accessibility", "href": "/legal/accessibility.html"}]}
   ],
-  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy {deploy_date} (commit {commit})."
+  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd. Last deploy {deploy_date} (commit {commit})."
 }
