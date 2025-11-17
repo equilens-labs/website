@@ -53,10 +53,16 @@ def render(d: str) -> str:
         column_html.append(f'    <section><h3>{col["title"]}</h3><ul>\n{links}\n    </ul></section>')
     html = html.replace('<!--FOOTER_COLUMNS-->', '\n'.join(column_html))
     commit, deploy_date = git_info()
+    # Trademark toggle: "tm" or "registered"
+    tm_status = footer.get('brand', {}).get('trademark_status', 'tm')
+    tm_symbol = '™' if tm_status == 'tm' else '®'
+    tm_text = 'trade mark' if tm_status == 'tm' else 'registered trade mark'
     note = footer.get('note', '').format(
         year=datetime.date.today().year,
         commit=commit,
-        deploy_date=deploy_date
+        deploy_date=deploy_date,
+        tm_symbol=tm_symbol,
+        tm_text=tm_text
     )
     html = html.replace('{{note}}', note)
     return html

@@ -14,6 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Content lint (forbidden phrases)
+        run: |
+          echo "Checking for forbidden phrases..."
+          if grep -r --include="*.html" --include="*.md" -n "Equilens Ltd" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks; then
+            echo "ERROR: Found 'Equilens Ltd' - use 'Valfox Ltd, trading as Equilens' instead"
+            exit 1
+          fi
+          if grep -r --include="*.html" -n -E "ensures? compliance|guarantees? compliance|guarantees? regulatory approval|makes you compliant|automatically compliant" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks; then
+            echo "ERROR: Found over-promising compliance language"
+            exit 1
+          fi
+          echo "Content lint passed"
+
       - name: Setup Python server
         run: |
           python3 -m pip install --upgrade pip

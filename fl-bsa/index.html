@@ -46,7 +46,7 @@
     "mainEntity":[
       {"@type":"Question","name":"Do we send any data to Equilens?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default."}},
       {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"From minutes for 10k rows to approximately 12 minutes for around 1M rows on validated hardware profiles; daily monitoring runs reuse the generator and complete in ≤5 minutes."}},
-      {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
+      {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}}<!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->,
       {"@type":"Question","name":"What are the deployment options?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace AMI or containerized via docker-compose. CPU-only and GPU-preferred profiles supported."}},
       {"@type":"Question","name":"What’s in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, a signed manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are chained for auditability and can be retrieved by Task ID."}}
     ]
@@ -81,7 +81,7 @@
             <h2 class="eyebrow">Fair-Lending Bias-Simulation Appliance</h2>
             <h1 class="brand-title">FL‑BSA</h1>
             <p class="lead">
-              Self‑hosted bias simulation that generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and produce regulator‑ready evidence — with <strong>no customer data leaving your VPC</strong>.
+              Self‑hosted bias simulation that generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and produce <!-- LEXPRO_PHRASE: regulator_ready_evidence -->regulator‑ready evidence<!-- /LEXPRO_PHRASE --> — with <strong>no customer data leaving your VPC</strong>.
             </p>
           </div>
         </section>
@@ -231,7 +231,7 @@
       </details>
       <details class="faq-item">
         <summary>What regulatory frameworks are covered?</summary>
-        <p>Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment.</p>
+        <p>Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and <!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->Regulatory Alignment<!-- /LEXPRO_PHRASE -->.</p>
       </details>
       <details class="faq-item">
         <summary>What are the deployment options?</summary>
@@ -272,9 +272,10 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-12 (commit 20d750a).</small>
+    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-16 (commit f8e1b74).</small>
   </div>
 </footer>
+
 
 
 
