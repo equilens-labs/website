@@ -42,99 +42,51 @@
 
   <section class="section">
     <div class="container">
-      <p class="note">This Trust Center covers Equilens (company) controls. Product-level summary lives at <a href="../fl-bsa/legal/">/fl-bsa/legal/</a>.</p>
       <div class="grid">
-    <div class="card">
-     <h3>
-      Security &amp; compliance artefacts
-     </h3>
-     <ul class="checks">
-      <li>
-       Cosign-signed images (keyless via GitHub OIDC)
-      </li>
-      <li>
-       SBOM + SLSA provenance
-      </li>
-      <!-- Do not assert certification unless confirmed; neutral wording -->
-      <li>
-       Security attestations available under NDA
-      </li>
-      <li>
-       Annual penetration-test letter
-      </li>
-      <li>
-       Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT
-      </li>
-      <li>
-       <code>
-        security.txt
-       </code>
-       published per RFC 9116
-      </li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3>
-      Operational controls
-     </h3>
-     <ul class="checks">
-      <li>
-       Hardened containers (seccomp, non-root UID, read-only FS)
-      </li>
-      <li>
-       Secrets via KMS/Secrets Manager; rotation guidance
-      </li>
-      <li>
-       Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical
-      </li>
-      <li>
-       Semgrep &amp; CodeQL static analysis in CI
-      </li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3>
-      Networking &amp; data
-     </h3>
-     <ul class="checks">
-      <li>
-       Runs in your VPC/VM; no data leaves by default
-      </li>
-      <li>
-       Optional AWS usage metrics;
-       <strong>
-        off by default
-       </strong>
-      </li>
-      <li>
-       HTTPS recommended with HSTS, CSP, Referrer-Policy
-      </li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3>
-      Contact
-     </h3>
-     <p>
-      Report a security issue via
-      <a href="mailto:equilens@equilens.io">
-       equilens@equilens.io
-      </a>
-      .
-      <br/>
-      Security.txt is available at
-      <code>
-       /.well-known/security.txt
-      </code>
-      .
-     </p>
-    </div>
+        <div class="card">
+          <h3>Security &amp; compliance artefacts</h3>
+          <ul class="checks">
+            <li>Cosign-signed images (keyless via GitHub OIDC)</li>
+            <li>SBOM + SLSA provenance</li>
+            <li>Security attestations available under NDA</li>
+            <li>Annual penetration-test letter</li>
+            <li>Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT</li>
+            <li><code>security.txt</code> published per RFC 9116</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Operational controls</h3>
+          <ul class="checks">
+            <li>Hardened containers (seccomp, non-root UID, read-only FS)</li>
+            <li>Secrets via KMS/Secrets Manager; rotation guidance</li>
+            <li>Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical</li>
+            <li>Semgrep &amp; CodeQL static analysis in CI</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Networking &amp; data</h3>
+          <ul class="checks">
+            <li>Runs in your VPC/VM; no data leaves by default</li>
+            <li>Optional AWS usage metrics; <strong>off by default</strong></li>
+            <li>HTTPS recommended with HSTS, CSP, Referrer-Policy</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Report a security issue via <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
+          <p>Security.txt is available at <code>/.well-known/security.txt</code>.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <section>
-        <h2>Evidence chain &amp; open source</h2>
-        <p>Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID. Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
-      </section>
+  <section class="section alt">
+    <div class="container">
+      <div class="card">
+        <h3>Evidence chain &amp; open source</h3>
+        <p>Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID.</p>
+        <p>Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -157,9 +109,11 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-16 (commit f8e1b74).</small>
+    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-17 (commit 16f8d01).</small>
   </div>
 </footer>
+
+
 
 
 
