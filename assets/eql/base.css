@@ -413,6 +413,10 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--space-5);
 }
 
 /* Logo */
@@ -425,10 +429,10 @@ ul, ol {
 }
 
 .logo img {
-  width: 240px;
-  height: 52px;
   display: block;
-  margin-top: 6px;
+  height: 36px;
+  width: auto;
+  margin-top: 4px;
 }
 
 /* Nav Links */
@@ -756,7 +760,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-6) var(--space-6) var(--space-12);
+  padding: var(--space-6) 0 var(--space-12);
 }
 
 /* Hero inside page-content gets adjusted padding */
@@ -767,13 +771,13 @@ ul, ol {
 .hero-content {
   text-align: center;
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
+  max-width: var(--max-width-3xl);
   background: var(--color-gray-50);
   padding: var(--space-16) var(--space-12);
-  border-radius: 0;
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 /* Section block - hero-like aesthetic for content sections */
@@ -790,6 +794,10 @@ ul, ol {
   text-align: center;
 }
 
+.section-block p {
+  text-align: left;
+}
+
 .section-block .lead {
   text-align: center;
 }
@@ -803,7 +811,10 @@ ul, ol {
   display: flex;
   justify-content: center;
   gap: var(--space-4);
-  max-width: none;
+  max-width: var(--max-width-xl);
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
 }
 
 /* Grid */
@@ -817,6 +828,16 @@ ul, ol {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-10);
+  }
+
+  .grid.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -861,6 +882,23 @@ ul, ol {
 
 .card--compact {
   padding: var(--space-6);
+}
+
+.card-hero {
+  background: var(--color-gray-50);
+  border: none;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-8);
+  text-align: center;
+  height: 100%;
+}
+
+.card-hero h3,
+.card-hero p {
+  text-align: center;
 }
 
 /* Buttons */

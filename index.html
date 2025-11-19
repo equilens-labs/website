@@ -68,16 +68,79 @@
 
 <main id="main">
     <section class="hero" aria-label="FL-BSA overview">
-      <div class="hero-content">
-        <h2 class="eyebrow">Introducing</h2>
-        <h1 class="brand-title">FL‑BSA</h1>
-        <p class="lead">
-          Self‑hosted fair‑lending bias‑simulation. Generates synthetic borrower cohorts (with loan decisions)
-          to measure disparate impact and produce <!-- LEXPRO_PHRASE: regulator_ready_evidence -->regulator‑ready evidence<!-- /LEXPRO_PHRASE --> — with <strong>no customer data leaving your VPC</strong>.
-        </p>
-        <p class="cta-row">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Introducing</p>
+          <h1 class="brand-title">FL‑BSA</h1>
+          <p class="lead">
+            Self‑hosted fair‑lending bias‑simulation. Generates synthetic borrower cohorts (with loan decisions)
+            to measure disparate impact and produce <!-- LEXPRO_PHRASE: regulator_ready_evidence -->regulator‑ready evidence<!-- /LEXPRO_PHRASE --> — with <strong>no customer data leaving your VPC</strong>.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card card-hero">
+            <h3>Self-hosted</h3>
+            <p>Runs in your AWS VPC or on-premise VM. No data leaves your infrastructure. You control telemetry.</p>
+          </div>
+          <div class="card card-hero">
+            <h3>Evidence bundle</h3>
+            <p>30-page PDF report, signed manifest (SHA-256), and certificates. Artefacts chain task ID → model seeds → outputs for audit trails.</p>
+          </div>
+          <div class="card card-hero">
+            <h3>Repeatable analysis</h3>
+            <p>Systematic fairness testing, not ad-hoc. Daily monitoring runs complete in under 5 minutes. Same methodology every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container section-centered">
+        <h2>Built for model governance teams</h2>
+        <p>FL-BSA is designed for teams that own model risk and fair-lending compliance:</p>
+        <ul class="checks">
+          <li>Model Risk / Model Validation</li>
+          <li>Compliance and Conduct Risk</li>
+          <li>Credit Risk and Portfolio Risk</li>
+          <li>Internal Audit (model governance)</li>
+        </ul>
+        <p class="note">If you explain model behaviour to regulators or audit committees, FL-BSA gives you concrete evidence to plug into your existing processes.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card card-hero">
+            <h3>Vendor</h3>
+            <p>Supplied by Valfox Ltd (trading as Equilens). UK company no. 14469638. Registered in England &amp; Wales.</p>
+          </div>
+          <div class="card card-hero">
+            <h3>Deployment</h3>
+            <p>AWS Marketplace AMI or docker-compose bundle. CPU-only and GPU-preferred profiles. <a href="/procurement/">Procurement path →</a></p>
+          </div>
+          <div class="card card-hero">
+            <h3>Open source</h3>
+            <p>Core components use AIF360, Fairlearn, and other open-source libraries. SBOM and NOTICE available. <a href="/legal/open-source.html">Licences →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="cta-row">
           <a class="btn btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
-        </p>
+          <a class="btn btn-secondary" href="/trust-center/">Trust Center</a>
+        </div>
       </div>
     </section>
   </main>
