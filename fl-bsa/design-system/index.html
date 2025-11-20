@@ -49,7 +49,7 @@
       </p>
     </section>
 
-    <nav class="design-system-nav">
+    <nav>
       <div class="container">
         <ul>
           <li><a href="#colors">Colors</a></li>
@@ -69,127 +69,36 @@
 
     <!-- ========== COLORS ========== -->
     <section id="colors">
-      <h2 class="section-header">Color System</h2>
+      <h2>Color System</h2>
       <p>The FL-BSA color system uses Indigo as the primary brand color, with a comprehensive neutral palette for text and surfaces.</p>
 
       <h3>Primary Palette</h3>
-      <div class="swatch-grid">
-        <div class="swatch">
-          <div class="swatch-color swatch-color--primary"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Primary</div>
-            <div class="swatch-value">#4f46e5</div>
-            <div class="swatch-value">--color-primary</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--primary-hover"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Primary Hover</div>
-            <div class="swatch-value">#4338ca</div>
-            <div class="swatch-value">--color-primary-hover</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--primary-light"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Primary Light</div>
-            <div class="swatch-value">#6366f1</div>
-            <div class="swatch-value">--color-primary-light</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--primary-dark"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Primary Dark</div>
-            <div class="swatch-value">#3730a3</div>
-            <div class="swatch-value">--color-primary-dark</div>
-          </div>
-        </div>
-      </div>
+      <ul class="checks">
+        <li>Primary: <code>--color-primary</code> / <code>#4f46e5</code></li>
+        <li>Primary Hover: <code>--color-primary-hover</code> / <code>#4338ca</code></li>
+        <li>Primary Light: <code>--color-primary-light</code> / <code>#6366f1</code></li>
+        <li>Primary Dark: <code>--color-primary-dark</code> / <code>#3730a3</code></li>
+      </ul>
 
       <h3>Neutral Palette</h3>
-      <div class="swatch-grid">
-        <div class="swatch">
-          <div class="swatch-color swatch-color--white"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">White</div>
-            <div class="swatch-value">#ffffff</div>
-            <div class="swatch-value">--color-white</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--gray-50"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Gray 50</div>
-            <div class="swatch-value">#f9fafb</div>
-            <div class="swatch-value">--color-gray-50</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--gray-200"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Gray 200</div>
-            <div class="swatch-value">#e5e7eb</div>
-            <div class="swatch-value">--color-gray-200</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--gray-500"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Gray 500</div>
-            <div class="swatch-value">#6b7280</div>
-            <div class="swatch-value">--color-gray-500</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--gray-900"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Gray 900</div>
-            <div class="swatch-value">#111827</div>
-            <div class="swatch-value">--color-gray-900</div>
-          </div>
-        </div>
-      </div>
+      <ul class="checks">
+        <li>White: <code>--color-white</code> / <code>#ffffff</code></li>
+        <li>Gray 50: <code>--color-gray-50</code> / <code>#f9fafb</code></li>
+        <li>Gray 200: <code>--color-gray-200</code> / <code>#e5e7eb</code></li>
+        <li>Gray 500: <code>--color-gray-500</code> / <code>#6b7280</code></li>
+        <li>Gray 900: <code>--color-gray-900</code> / <code>#111827</code></li>
+      </ul>
 
       <h3>Semantic Colors</h3>
-      <div class="swatch-grid">
-        <div class="swatch">
-          <div class="swatch-color swatch-color--success"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Success</div>
-            <div class="swatch-value">#10b981</div>
-            <div class="swatch-value">--color-success</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--warning"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Warning</div>
-            <div class="swatch-value">#f59e0b</div>
-            <div class="swatch-value">--color-warning</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--error"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Error</div>
-            <div class="swatch-value">#ef4444</div>
-            <div class="swatch-value">--color-error</div>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color swatch-color--info"></div>
-          <div class="swatch-info">
-            <div class="swatch-name">Info</div>
-            <div class="swatch-value">#3b82f6</div>
-            <div class="swatch-value">--color-info</div>
-          </div>
-        </div>
-      </div>
+      <ul class="checks">
+        <li>Success: <code>--color-success</code> / <code>#10b981</code></li>
+        <li>Warning: <code>--color-warning</code> / <code>#f59e0b</code></li>
+        <li>Error: <code>--color-error</code> / <code>#ef4444</code></li>
+        <li>Info: <code>--color-info</code> / <code>#3b82f6</code></li>
+      </ul>
 
       <h3>CSS Variables</h3>
-      <div class="code-block">:root {
+      <pre><code>:root {
   /* Primary */
   --color-primary: #4f46e5;
   --color-primary-hover: #4338ca;
@@ -205,230 +114,35 @@
 
   /* Borders */
   --border-default: #e5e7eb;
-}</div>
+}</code></pre>
     </section>
 
     <!-- ========== TYPOGRAPHY ========== -->
     <section id="typography">
-      <h2 class="section-header">Typography</h2>
+      <h2>Typography</h2>
       <p>The FL-BSA design system uses system fonts for optimal performance and readability.</p>
 
       <h3>Font Stack</h3>
-      <div class="code-block">font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-             'Helvetica Neue', Arial, sans-serif;</div>
+      <pre><code>font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+             'Helvetica Neue', Arial, sans-serif;</code></pre>
 
       <h3>Type Scale</h3>
-      <div class="typography-example">
-        <h1>Heading 1 — clamp(2rem, 5vw, 3rem)</h1>
-      </div>
-      <div class="typography-example">
-        <h2>Heading 2 — clamp(1.5rem, 3vw, 2rem)</h2>
-      </div>
-      <div class="typography-example">
-        <h3>Heading 3 — clamp(1.25rem, 2vw, 1.5rem)</h3>
-      </div>
-      <div class="typography-example">
-        <h4>Heading 4 — 1.25rem (20px)</h4>
-      </div>
-      <div class="typography-example">
-        <p>Body text — 1rem (16px) with 1.5 line height for optimal readability in long-form content.</p>
-      </div>
-      <div class="typography-example">
-        <p class="lead">Lead text — clamp(16px, 1.6vw, 18px)</p>
-      </div>
-      <div class="typography-example">
-        <p class="note">Note text — 0.95rem, italic, muted color</p>
-      </div>
-
-      <h3>Text Utilities</h3>
-      <table class="token-table">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Size</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>.text-xs</code></td>
-            <td>0.75rem (12px)</td>
-            <td>Fine print, legal text</td>
-          </tr>
-          <tr>
-            <td><code>.text-sm</code></td>
-            <td>0.875rem (14px)</td>
-            <td>Secondary information</td>
-          </tr>
-          <tr>
-            <td><code>.text-base</code></td>
-            <td>1rem (16px)</td>
-            <td>Body text (default)</td>
-          </tr>
-          <tr>
-            <td><code>.text-lg</code></td>
-            <td>1.125rem (18px)</td>
-            <td>Emphasized content</td>
-          </tr>
-          <tr>
-            <td><code>.text-xl</code></td>
-            <td>1.25rem (20px)</td>
-            <td>Section subheadings</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- ========== SPACING ========== -->
-    <section id="spacing">
-      <h2 class="section-header">Spacing System</h2>
-      <p>Consistent spacing using a scale based on 4px increments.</p>
-
-      <h3>Spacing Scale</h3>
-      <table class="token-table">
-        <thead>
-          <tr>
-            <th>Token</th>
-            <th>Value</th>
-            <th>Pixels</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>--space-1</code></td>
-            <td>0.25rem</td>
-            <td>4px</td>
-            <td><span class="spacing-example spacing-example--1"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-2</code></td>
-            <td>0.5rem</td>
-            <td>8px</td>
-            <td><span class="spacing-example spacing-example--2"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-4</code></td>
-            <td>1rem</td>
-            <td>16px</td>
-            <td><span class="spacing-example spacing-example--4"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-6</code></td>
-            <td>1.5rem</td>
-            <td>24px</td>
-            <td><span class="spacing-example spacing-example--6"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-8</code></td>
-            <td>2rem</td>
-            <td>32px</td>
-            <td><span class="spacing-example spacing-example--8"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-12</code></td>
-            <td>3rem</td>
-            <td>48px</td>
-            <td><span class="spacing-example spacing-example--12"></span></td>
-          </tr>
-          <tr>
-            <td><code>--space-16</code></td>
-            <td>4rem</td>
-            <td>64px</td>
-            <td><span class="spacing-example spacing-example--16"></span></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Spacing Utilities</h3>
-      <div class="code-block">/* Padding */
-.p-4 { padding: 1rem; }
-.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-
-/* Margin */
-.mx-auto { margin-left: auto; margin-right: auto; }
-.m-0 { margin: 0; }</div>
-    </section>
-
-    <!-- ========== LAYOUT ========== -->
-    <section id="layout">
-      <h2 class="section-header">Layout System</h2>
-
-      <h3>Containers</h3>
-      <table class="token-table">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Max Width</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>.max-w-3xl</code></td>
-            <td>56rem (896px)</td>
-            <td>Text-heavy pages, whitepapers</td>
-          </tr>
-          <tr>
-            <td><code>.max-w-5xl</code></td>
-            <td>70rem (1120px)</td>
-            <td>Default content width</td>
-          </tr>
-          <tr>
-            <td><code>.max-w-7xl</code></td>
-            <td>80rem (1280px)</td>
-            <td>Wide layouts, legal pages</td>
-          </tr>
-          <tr>
-            <td><code>.wrap</code></td>
-            <td>70rem (1120px)</td>
-            <td>Standard wrapper with padding</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Grid System</h3>
-      <p>Responsive grid with mobile-first approach.</p>
-      <div class="component-example">
-        <div class="grid cols-2 gap-md">
-          <div class="grid-demo">Column 1</div>
-          <div class="grid-demo">Column 2</div>
-        </div>
-      </div>
-      <div class="code-block">&lt;div class="grid cols-2"&gt;
-  &lt;div&gt;Column 1&lt;/div&gt;
-  &lt;div&gt;Column 2&lt;/div&gt;
-&lt;/div&gt;</div>
-
-      <h3>Grid Variants</h3>
-      <ul class="checks">
-        <li><code>.grid</code> — Default 1 column mobile, 2 columns desktop</li>
-        <li><code>.grid.cols-2</code> — 2 column grid (auto-responsive)</li>
-        <li><code>.grid.cols-3</code> — 3 column grid</li>
-        <li><code>.grid.cols-4</code> — 4 column grid</li>
-      </ul>
+      <h1>Heading 1 — clamp(2rem, 5vw, 3rem)</h1>
+      <h2>Heading 2 — clamp(1.5rem, 3vw, 2rem)</h2>
+      <h3>Heading 3 — clamp(1.25rem, 2vw, 1.5rem)</h3>
+      <h4>Heading 4 — 1.25rem (20px)</h4>
+      <p>Body text — 1rem (16px) with 1.5 line height for optimal readability in long-form content.</p>
+      <p class="lead">Lead text — clamp(16px, 1.6vw, 18px)</p>
+      <p class="note">Note text — 0.95rem, italic, muted color</p>
     </section>
 
     <!-- ========== BUTTONS ========== -->
     <section id="buttons">
-      <h2 class="section-header">Buttons</h2>
+      <h2>Buttons</h2>
       <p>All button variants meet WCAG AA contrast requirements and have 44px minimum touch targets.</p>
 
       <h3>Button Variants</h3>
-      <div class="component-example">
-        <div class="ds-flex-group">
-          <a href="#" class="btn btn-primary">Primary Button</a>
-          <a href="#" class="btn btn-secondary">Secondary Button</a>
-          <a href="#" class="btn btn-ghost">Ghost Button</a>
-          <button class="btn btn-primary" disabled>Disabled Button</button>
-        </div>
-      </div>
-
-      <h3>Button Code</h3>
-      <div class="code-block">&lt;a href="#" class="btn btn-primary"&gt;Primary Button&lt;/a&gt;
-&lt;a href="#" class="btn btn-secondary"&gt;Secondary Button&lt;/a&gt;
-&lt;a href="#" class="btn btn-ghost"&gt;Ghost Button&lt;/a&gt;</div>
+      <p>Buttons use the `.btn` base class with `.btn-primary`, `.btn-secondary`, and `.btn-ghost` modifiers.</p>
 
       <h3>Button States</h3>
       <ul class="checks">
@@ -442,69 +156,35 @@
 
     <!-- ========== CARDS ========== -->
     <section id="cards">
-      <h2 class="section-header">Cards</h2>
+      <h2>Cards</h2>
       <p>Card components for grouping related content with hover effects.</p>
 
       <h3>Basic Card</h3>
-      <div class="component-example">
-        <div class="card card--narrow">
-          <h3>Card Title</h3>
-          <p>Card content goes here. Cards have consistent padding, borders, and subtle shadows that enhance on hover.</p>
-        </div>
+      <div class="card">
+        <h3>Card Title</h3>
+        <p>Card content goes here. Cards have consistent padding, borders, and subtle shadows that enhance on hover.</p>
       </div>
 
       <h3>Card with Structure</h3>
-      <div class="component-example">
-        <div class="card card--narrow">
-          <div class="card-header">
-            <h3>Card Header</h3>
-          </div>
-          <div class="card-body">
-            <p>Main card content with proper semantic structure.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Action</a>
-          </div>
+      <div class="card">
+        <div>
+          <h3>Card Header</h3>
+        </div>
+        <div>
+          <p>Main card content with proper semantic structure.</p>
+        </div>
+        <div>
+          <a href="#" class="btn btn-primary">Action</a>
         </div>
       </div>
-
-      <div class="code-block">&lt;div class="card"&gt;
-  &lt;div class="card-header"&gt;
-    &lt;h3&gt;Card Header&lt;/h3&gt;
-  &lt;/div&gt;
-  &lt;div class="card-body"&gt;
-    &lt;p&gt;Card content&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class="card-footer"&gt;
-    &lt;a href="#" class="btn btn-primary"&gt;Action&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</div>
     </section>
 
     <!-- ========== FORMS ========== -->
     <section id="forms">
-      <h2 class="section-header">Forms</h2>
+      <h2>Forms</h2>
 
       <h3>Form Inputs</h3>
-      <div class="component-example">
-        <div class="ds-form-wrap">
-          <label for="demo-text">Text Input</label>
-          <input type="text" id="demo-text" placeholder="Enter text...">
-
-          <label for="demo-email" class="mt-4">Email Input</label>
-          <input type="email" id="demo-email" placeholder="you@example.com">
-
-          <label for="demo-select" class="mt-4">Select</label>
-          <select id="demo-select">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-          </select>
-
-          <label for="demo-textarea" class="mt-4">Textarea</label>
-          <textarea id="demo-textarea" rows="4" placeholder="Enter your message..."></textarea>
-        </div>
-      </div>
+      <p>Form elements follow the base typography and spacing rules defined in <code>base.css</code>. Labels, inputs, selects, and textareas inherit the system font stack and color tokens.</p>
 
       <h3>Form Guidelines</h3>
       <ul class="checks">
@@ -515,74 +195,24 @@
       </ul>
     </section>
 
-    <!-- ========== LISTS ========== -->
-    <section id="lists">
-      <h2 class="section-header">Lists</h2>
-
-      <h3>Checkmark List</h3>
-      <div class="component-example">
-        <ul class="checks">
-          <li>First item with checkmark icon</li>
-          <li>Second item demonstrating consistent spacing</li>
-          <li>Third item showing success color accent</li>
-          <li>Fourth item with longer text to demonstrate line wrapping and spacing consistency across multiple lines</li>
-        </ul>
-      </div>
-
-      <div class="code-block">&lt;ul class="checks"&gt;
-  &lt;li&gt;First item with checkmark icon&lt;/li&gt;
-  &lt;li&gt;Second item&lt;/li&gt;
-&lt;/ul&gt;</div>
-
-      <h3>Asset List</h3>
-      <div class="component-example">
-        <ul class="asset-list">
-          <li><a href="#">Documentation Link</a></li>
-          <li><a href="#">GitHub Repository</a></li>
-          <li><a href="#">Technical Whitepaper</a></li>
-        </ul>
-      </div>
-
-      <div class="code-block">&lt;ul class="asset-list"&gt;
-  &lt;li&gt;&lt;a href="#"&gt;Documentation Link&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;GitHub Repository&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</div>
-    </section>
-
     <!-- ========== FAQ ========== -->
     <section id="faq">
-      <h2 class="section-header">FAQ / Accordion</h2>
+      <h2>FAQ / Accordion</h2>
       <p>Custom-styled disclosure widgets with expand/collapse icons.</p>
 
-      <div class="component-example">
-        <details class="faq-item">
-          <summary>What is the FL-BSA design system?</summary>
-          <div class="faq-content">
-            <p>The FL-BSA design system is a comprehensive collection of design tokens, components, and guidelines that ensure consistency across all FL-BSA product pages.</p>
-          </div>
-        </details>
+      <details class="faq-item">
+        <summary>What is the FL-BSA design system?</summary>
+        <div class="faq-content">
+          <p>The FL-BSA design system is a comprehensive collection of design tokens, components, and guidelines that ensure consistency across all FL-BSA product pages.</p>
+        </div>
+      </details>
 
-        <details class="faq-item">
-          <summary>How do I use these components?</summary>
-          <div class="faq-content">
-            <p>Simply reference the base.css stylesheet and apply the documented class names to your HTML elements. All components are fully responsive and accessible.</p>
-          </div>
-        </details>
-
-        <details class="faq-item" open>
-          <summary>This one is open by default</summary>
-          <div class="faq-content">
-            <p>Add the <code>open</code> attribute to a details element to have it expanded by default.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="code-block">&lt;details class="faq-item"&gt;
-  &lt;summary&gt;Question text goes here&lt;/summary&gt;
-  &lt;div class="faq-content"&gt;
-    &lt;p&gt;Answer content goes here.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/details&gt;</div>
+      <details class="faq-item">
+        <summary>How do I use these components?</summary>
+        <div class="faq-content">
+          <p>Simply reference the base.css stylesheet and apply the documented class names to your HTML elements. All components are fully responsive and accessible.</p>
+        </div>
+      </details>
 
       <h3>Features</h3>
       <ul class="checks">
@@ -594,46 +224,9 @@
       </ul>
     </section>
 
-    <!-- ========== UTILITIES ========== -->
-    <section id="utilities">
-      <h2 class="section-header">Utility Classes</h2>
-
-      <h3>Width Utilities</h3>
-      <table class="token-table">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><code>.max-w-xs</code></td><td>20rem (320px)</td></tr>
-          <tr><td><code>.max-w-sm</code></td><td>24rem (384px)</td></tr>
-          <tr><td><code>.max-w-md</code></td><td>28rem (448px)</td></tr>
-          <tr><td><code>.max-w-lg</code></td><td>32rem (512px)</td></tr>
-          <tr><td><code>.max-w-xl</code></td><td>36rem (576px)</td></tr>
-          <tr><td><code>.max-w-2xl</code></td><td>42rem (672px)</td></tr>
-          <tr><td><code>.max-w-3xl</code></td><td>56rem (896px)</td></tr>
-          <tr><td><code>.max-w-5xl</code></td><td>70rem (1120px)</td></tr>
-          <tr><td><code>.max-w-7xl</code></td><td>80rem (1280px)</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Border Radius</h3>
-      <div class="component-example">
-        <div class="ds-flex-group">
-          <div class="rounded-demo rounded-sm">sm (4px)</div>
-          <div class="rounded-demo rounded-md">md (8px)</div>
-          <div class="rounded-demo rounded-lg">lg (12px)</div>
-          <div class="rounded-demo rounded-xl">xl (16px)</div>
-          <div class="rounded-demo rounded-full">full</div>
-        </div>
-      </div>
-    </section>
-
     <!-- ========== ACCESSIBILITY ========== -->
     <section id="accessibility">
-      <h2 class="section-header">Accessibility</h2>
+      <h2>Accessibility</h2>
 
       <h3>Focus States</h3>
       <p>All interactive elements have visible focus indicators:</p>
@@ -661,17 +254,17 @@
       </ul>
 
       <h3>Screen Readers</h3>
-      <div class="code-block">&lt;!-- Screen reader only text --&gt;
+      <pre><code>&lt;!-- Screen reader only text --&gt;
 &lt;span class="sr-only"&gt;Accessible description&lt;/span&gt;
 
 &lt;!-- Skip to content link --&gt;
 &lt;a class="skip-to-content" href="#main"&gt;
   Skip to content
-&lt;/a&gt;</div>
+&lt;/a&gt;</code></pre>
 
       <h3>Reduced Motion</h3>
       <p>The design system respects the user's motion preferences:</p>
-      <div class="code-block">@media (prefers-reduced-motion: reduce) {
+      <pre><code>@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -679,7 +272,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}</div>
+}</code></pre>
 
       <h3>Touch Targets</h3>
       <ul class="checks">
@@ -691,8 +284,8 @@
 
     <!-- ========== FOOTER ========== -->
     <section class="section">
-      <h2 class="section-header">Resources</h2>
-      <div class="grid cols-2">
+      <h2>Resources</h2>
+      <div class="grid">
         <div class="card">
           <h3>Implementation</h3>
           <p>View the complete CSS implementation:</p>
@@ -705,7 +298,7 @@
         </div>
       </div>
 
-      <div class="card card--muted mt-8">
+      <div class="card">
         <h3>Questions or Feedback?</h3>
         <p>For questions about implementation or suggestions for improvements, contact the Equilens team at <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
       </div>
