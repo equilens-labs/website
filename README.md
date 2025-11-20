@@ -27,16 +27,16 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
   - Navigation links: `config/web/nav.json`
   - FL‑BSA product sub-nav links: `config/web/flbsa_subnav.json`
   - Footer links: `config/web/footer.json`
-- After updating either file, run the sync scripts to fan out the change across every HTML page:
+- Navigation is rendered at runtime into the `#nav-placeholder` container by `/assets/eql/nav.js`, which reads from `config/web/nav.json`. This keeps the nav SSOT in a single JSON file while avoiding extra build tooling.
+- After updating the FL‑BSA sub-nav or footer JSON, run the sync scripts to fan out the change across every HTML page:
 
   ```bash
-  python3 scripts/content/sync_nav_ssot.py
   python3 scripts/content/sync_flbsa_subnav.py  # FL-BSA sub-navigation
   python3 scripts/content/sync_footer_ssot.py
   ```
 
 - Archived helpers used for previous theming experiments now live under `scripts/archive/legacy-sync/`. They are kept for reference only; do not run them on the current codebase.
-- The HTML partials injected by the scripts live under `templates/` (`header.html`, `footer.html`).
+- The HTML partials injected by the sync scripts live under `templates/` (currently `footer.html` and `flbsa_subnav.html`).
 
 ## Evidence screenshots
 
