@@ -15,7 +15,9 @@ import sys
 ALLOWED_MODES = {"private", "public"}
 DEFAULT_MODE = "private"
 META_PRIVATE = '<meta name="robots" content="noindex, nofollow">'
-META_PATTERN = re.compile(r"\s*<meta\s+name=['\"]robots['\"][^>]*>\s*", re.IGNORECASE)
+META_PATTERN = re.compile(
+    r"\s*<meta[^>]*\sname=['\"]robots['\"][^>]*>\s*", re.IGNORECASE
+)
 
 
 def repo_root() -> pathlib.Path:
