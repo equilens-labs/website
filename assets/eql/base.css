@@ -421,7 +421,7 @@ ul, ol {
 /* Nav Links */
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: var(--space-7);
   align-items: center;
 }
 
@@ -497,7 +497,7 @@ ul, ol {
   margin: 0 auto;
   padding: var(--space-4) var(--space-7);
   display: flex;
-  gap: 18px;
+  gap: var(--space-5);
   overflow-x: auto;
   justify-content: center;
 }
@@ -523,7 +523,7 @@ ul, ol {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -10px;
+  bottom: calc(-1 * var(--space-3));
   height: 2px;
   border-radius: var(--radius-full);
   background: transparent;
@@ -765,6 +765,7 @@ ul, ol {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-8);
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
@@ -794,11 +795,16 @@ ul, ol {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
-  transition: all var(--transition-slow);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.card:hover {
+/* Interactive cards get hover effects - apply to cards that are links or contain primary actions */
+a.card:hover,
+.card-interactive:hover {
   border-color: var(--border-medium);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -1194,8 +1200,8 @@ ul, ol {
 
 .skip-to-content:focus {
   position: fixed;
-  left: 24px;
-  top: 24px;
+  left: var(--space-6);
+  top: var(--space-6);
   width: auto;
   height: auto;
   background: var(--color-primary);
@@ -1206,7 +1212,7 @@ ul, ol {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ring);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -1242,8 +1248,8 @@ ul, ol {
   .nav-links {
     display: none;
     flex-direction: column;
-    gap: 14px;
-    padding-top: 10px;
+    gap: var(--space-4);
+    padding-top: var(--space-3);
   }
 
   .nav-links[data-open="true"] {
@@ -1269,12 +1275,12 @@ ul, ol {
 
   .product-subnav {
     top: 64px;
-    margin-top: 10px;
+    margin-top: var(--space-3);
   }
 
   .subnav-inner {
     padding: var(--space-3) var(--space-4);
-    gap: 10px;
+    gap: var(--space-3);
   }
 
   .subnav-link {
