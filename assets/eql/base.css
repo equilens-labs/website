@@ -394,7 +394,7 @@ code {
   -webkit-backdrop-filter: saturate(160%) blur(10px);
   backdrop-filter: saturate(160%) blur(10px);
   border-bottom: 1px solid var(--border-default);
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4) var(--space-3);  /* Reduced horizontal padding to push logo/nav to edges */
   color: var(--text-primary);
 }
 
@@ -782,12 +782,30 @@ code {
   text-align: center;
 }
 
+.section-block h3 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.section-block h3:first-of-type {
+  margin-top: var(--space-6);
+  border-top: none;
+  padding-top: 0;
+}
+
 .section-block p {
   text-align: left;
+  line-height: var(--leading-loose);
+  margin-bottom: var(--space-4);
 }
 
 .section-block .lead {
   text-align: center;
+  line-height: var(--leading-relaxed);
 }
 
 .section-block .note {
@@ -795,6 +813,15 @@ code {
   max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
+}
+
+.section-block .checks {
+  margin: var(--space-4) 0;
+}
+
+.section-block .checks li {
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-loose);
 }
 
 /* Section-block direct paragraphs (outside container) should also be centered */
@@ -887,12 +914,25 @@ a.card:hover,
 
 .card p {
   color: var(--text-secondary);
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-3);
+  line-height: var(--leading-loose);
+  margin-bottom: var(--space-4);
 }
 
 .card p:last-child {
   margin-bottom: 0;
+}
+
+.card h3 + p {
+  margin-top: 0;
+}
+
+.card .checks {
+  margin: var(--space-4) 0;
+}
+
+.card .checks li {
+  line-height: var(--leading-loose);
+  margin-bottom: var(--space-3);
 }
 
 .card--compact {
@@ -1126,6 +1166,102 @@ a[download]::after {
   color: var(--text-muted);
   font-style: italic;
   line-height: var(--leading-relaxed);
+  margin-top: var(--space-4);
+}
+
+/* Contact Form */
+.contact-form-card {
+  max-width: var(--max-width-2xl);
+  margin: 0 auto;
+}
+
+.contact-form-card h2 {
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.contact-form-card .lead {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--color-white);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-a10);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-10);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.contact-form .note {
+  text-align: center;
   margin-top: var(--space-4);
 }
 

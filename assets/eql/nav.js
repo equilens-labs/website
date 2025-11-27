@@ -76,10 +76,16 @@ function initNavFeatures() {
         history.pushState(null, '', h);
         // Update TOC active state immediately after click
         updateTocActiveState(h);
+        // Pause scroll spy to prevent it from overriding the click-based update
+        pauseScrollSpy(800);
       }
     });
   });
 }
+
+// Flag to temporarily pause scroll spy after click
+let scrollSpyPaused = false;
+let scrollSpyPauseTimeout = null;
 
 // Update TOC active state for a specific hash
 function updateTocActiveState(hash) {
@@ -93,6 +99,15 @@ function updateTocActiveState(hash) {
       link.setAttribute('aria-current', 'location');
     }
   });
+}
+
+// Pause scroll spy temporarily (used after click)
+function pauseScrollSpy(duration) {
+  scrollSpyPaused = true;
+  if (scrollSpyPauseTimeout) clearTimeout(scrollSpyPauseTimeout);
+  scrollSpyPauseTimeout = setTimeout(() => {
+    scrollSpyPaused = false;
+  }, duration);
 }
 
 // Product sub-nav active state
@@ -179,6 +194,9 @@ function initScrollSpy() {
   }
 
   function updateActiveSection() {
+    // Skip if scroll spy is paused (e.g., after a click)
+    if (scrollSpyPaused) return;
+
     // Account for sticky nav height (approx 120px for main nav + subnav)
     const scrollPos = window.scrollY + 140;
     let activeSection = sections[0];
