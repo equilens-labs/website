@@ -1,98 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Trust Center &mdash; Security &amp; Compliance
-  </title>
-  <meta content="Bank-grade security &amp; compliance posture for Equilens FL-BSA." name="description"/>
-  <link href="https://equilens.io/trust-center/" rel="canonical"/>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust Center — Security &amp; Compliance</title>
+  <meta name="description" content="Security and compliance posture for Equilens FL-BSA.">
+  <link rel="canonical" href="https://equilens.io/trust-center/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
-  <meta content="strict-origin-when-cross-origin" name="referrer"/>
-  <meta content="#4f46e5" name="theme-color"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#4f46e5">
   <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="/brand/icons/site.webmanifest">
-  <meta content="website" property="og:type"/>
-  <meta content="https://equilens.io/trust-center/" property="og:url"/>
-  <meta content="Equilens &mdash; Trust Center" property="og:title"/>
-  <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://equilens.io/trust-center/">
+  <meta property="og:title" content="Equilens — Trust Center">
+  <meta property="og:image" content="https://equilens.io/brand/social/og-1200x630.png">
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/assets/eql/base.css">
 </head>
- <body class="eql">
-  <a class="skip-to-content" href="#main">
-   Skip to content
-  </a>
-    <div id="nav-placeholder"></div>
+<body class="eql">
+  <a class="skip-to-content" href="#main">Skip to content</a>
+  <div id="nav-placeholder"></div>
   <script src="/assets/eql/nav.js" defer></script>
 
-
-
 <main id="main">
-  <section class="hero">
-    <div class="hero-content">
-      <p class="eyebrow">Security &amp; Compliance</p>
-      <h1 class="brand-title">Trust Center</h1>
-      <p class="lead">Privacy-first, self-hosted deployment with transparent evidence and clear responsibilities.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Security Posture</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Security &amp; compliance artefacts</h3>
-          <ul class="checks">
-            <li>Cosign-signed images (keyless via GitHub OIDC)</li>
-            <li>SBOM + SLSA provenance</li>
-            <li>Security attestations available under NDA</li>
-            <li>Annual penetration-test letter</li>
-            <li>Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT</li>
-            <li><code>security.txt</code> published per RFC 9116</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Operational controls</h3>
-          <ul class="checks">
-            <li>Hardened containers (seccomp, non-root UID, read-only FS)</li>
-            <li>Secrets via KMS/Secrets Manager; rotation guidance</li>
-            <li>Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical</li>
-            <li>Semgrep &amp; CodeQL static analysis in CI</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Networking &amp; data</h3>
-          <ul class="checks">
-            <li>Runs in your VPC/VM; no data leaves by default</li>
-            <li>Optional AWS usage metrics; <strong>off by default</strong></li>
-            <li>HTTPS recommended with HSTS, CSP, Referrer-Policy</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Contact</h3>
-          <p>Report a security issue via <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
-          <p>Security.txt is available at <code>/.well-known/security.txt</code>.</p>
-        </div>
+  <div class="page-with-toc">
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-inner">
+        <a href="#overview" class="toc-label">Trust Center</a>
+        <a href="#security-posture" class="toc-link">Security Posture</a>
+        <a href="#evidence-chain" class="toc-link">Evidence Chain</a>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <section class="section alt">
-    <div class="container">
-      <div class="card section-centered">
-        <h2>Evidence chain &amp; open source</h2>
-        <p>Every run emits a signed manifest (SHA-256) linking input hash &rarr; model parameters &rarr; outputs (PDF, metrics, generators). Evidence is retrievable by Task ID.</p>
-        <p>Where a component&rsquo;s licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
-      </div>
+    <div class="page-content">
+      <section class="hero" id="overview" aria-label="Trust Center overview">
+        <div class="hero-content">
+          <p class="eyebrow">Security &amp; Compliance</p>
+          <h1 class="brand-title">Trust Center</h1>
+          <p class="lead">Privacy-first, self-hosted deployment with transparent evidence and clear responsibilities.</p>
+        </div>
+      </section>
+
+      <section class="section" id="security-posture">
+        <div class="section-block">
+          <h2>Security Posture</h2>
+          <div class="stack">
+            <div class="card">
+              <h3>Security artefacts</h3>
+              <ul class="checks">
+                <li>Cosign-signed images (keyless via GitHub OIDC)</li>
+                <li>SBOM + SLSA provenance</li>
+                <li>Security attestations available under NDA</li>
+                <li>Annual penetration-test letter</li>
+                <li>Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT</li>
+                <li><code>security.txt</code> published per RFC 9116</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Operational controls</h3>
+              <ul class="checks">
+                <li>Hardened containers (seccomp, non-root UID, read-only FS)</li>
+                <li>Secrets via KMS/Secrets Manager; rotation guidance</li>
+                <li>Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical</li>
+                <li>Semgrep &amp; CodeQL static analysis in CI</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Networking &amp; data</h3>
+              <ul class="checks">
+                <li>Runs in your VPC/VM; no data leaves by default</li>
+                <li>Optional AWS usage metrics; <strong>off by default</strong></li>
+                <li>HTTPS recommended with HSTS, CSP, Referrer-Policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="evidence-chain">
+        <div class="section-block section-block--narrow">
+          <h2>Evidence Chain</h2>
+          <p>Every run emits a <strong>signed manifest</strong> (SHA-256) linking input hash → model parameters → outputs (PDF, metrics, generators).</p>
+          <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
+          <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM.</p>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 </main>
-  <footer class="site-footer" data-sync="footer" role="contentinfo">
+
+<footer class="site-footer" data-sync="footer" role="contentinfo">
   <div class="container grid">
-        <section><h3>Company</h3><ul>
+    <section><h3>Company</h3><ul>
       <li><a href="/press/">Press</a></li>
       <li><a href="/procurement/">Procurement</a></li>
       <li><a href="/trust-center/">Trust Center</a></li>
@@ -109,31 +110,8 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-17 (commit 8020bba).</small>
+    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd.</small>
   </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

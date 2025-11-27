@@ -1,55 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Contact &mdash; Equilens
-  </title>
-  <meta content="Get in touch with Equilens about FL-BSA." name="description"/>
-  <link href="https://equilens.io/contact/" rel="canonical"/>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Equilens</title>
+  <meta name="description" content="Get in touch with Equilens about FL-BSA.">
+  <link rel="canonical" href="https://equilens.io/contact/">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
-  <meta content="strict-origin-when-cross-origin" name="referrer"/>
-  <meta content="#4f46e5" name="theme-color"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#4f46e5">
   <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="/brand/icons/site.webmanifest">
-  <meta content="website" property="og:type"/>
-  <meta content="https://equilens.io/contact/" property="og:url"/>
-  <meta content="Contact &mdash; Equilens" property="og:title"/>
-  <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://equilens.io/contact/">
+  <meta property="og:title" content="Contact — Equilens">
+  <meta property="og:image" content="https://equilens.io/brand/social/og-1200x630.png">
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/assets/eql/base.css">
 </head>
- <body class="eql">
-  <a class="skip-to-content" href="#main">
-   Skip to content
-  </a>
-    <div id="nav-placeholder"></div>
+<body class="eql landing">
+  <a class="skip-to-content" href="#main">Skip to content</a>
+  <div id="nav-placeholder"></div>
   <script src="/assets/eql/nav.js" defer></script>
 
-
-
 <main id="main">
-  <section class="hero">
+  <section class="hero" aria-label="Contact information">
     <div class="hero-content">
       <p class="eyebrow">Get in Touch</p>
       <h1 class="brand-title">Contact</h1>
       <p class="lead">Reach out for product information, partnerships, or support.</p>
-      <p>Email <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
-      <p class="note">Privacy: This site has no forms or analytics. Email only; include what you choose to share.</p>
-      <ul class="checks">
-        <li>Your role</li>
-        <li>Your bank/firm and region</li>
-        <li>Preferred tier</li>
-        <li>Whether data can leave your network (default: no)</li>
-      </ul>
+      <p class="email-highlight"><a href="mailto:equilens@equilens.io">equilens@equilens.io</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card contact-form-card">
+        <h2>Send us a message</h2>
+        <p class="lead">Fill in the form below and we'll get back to you.</p>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="organisation">Organisation</label>
+            <input type="text" id="organisation" name="organisation" placeholder="Company or institution">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="role">Role</label>
+              <input type="text" id="role" name="role" placeholder="Your role">
+            </div>
+            <div class="form-group">
+              <label for="region">Region</label>
+              <select id="region" name="region">
+                <option value="">Select region</option>
+                <option value="UK">United Kingdom</option>
+                <option value="EU">European Union</option>
+                <option value="US">United States</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="interest">Interest</label>
+            <select id="interest" name="interest">
+              <option value="">What are you interested in?</option>
+              <option value="Sandbox">Sandbox (free demo)</option>
+              <option value="Pilot-Plus">Pilot-Plus tier</option>
+              <option value="Growth">Growth tier</option>
+              <option value="Enterprise">Enterprise tier</option>
+              <option value="Partnership">Partnership opportunity</option>
+              <option value="Other">Other enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="How can we help?"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Open in email client</button>
+          </div>
+          <p class="note">Opens your email client. No data sent to servers. See <a href="/legal/#privacy">Privacy Notice</a>.</p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
-  <footer class="site-footer" data-sync="footer" role="contentinfo">
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const org = document.getElementById('organisation').value;
+  const role = document.getElementById('role').value;
+  const region = document.getElementById('region').value;
+  const interest = document.getElementById('interest').value;
+  const message = document.getElementById('message').value;
+
+  let body = '';
+  if (name) body += 'Name: ' + name + '\n';
+  if (org) body += 'Organisation: ' + org + '\n';
+  if (role) body += 'Role: ' + role + '\n';
+  if (region) body += 'Region: ' + region + '\n';
+  if (interest) body += 'Interest: ' + interest + '\n';
+  if (message) body += '\n' + message;
+
+  const subject = interest ? 'FL-BSA enquiry: ' + interest : 'FL-BSA enquiry';
+  const mailto = 'mailto:equilens@equilens.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+});
+</script>
+
+<footer class="site-footer" data-sync="footer" role="contentinfo">
   <div class="container grid">
-        <section><h3>Company</h3><ul>
+    <section><h3>Company</h3><ul>
       <li><a href="/press/">Press</a></li>
       <li><a href="/procurement/">Procurement</a></li>
       <li><a href="/trust-center/">Trust Center</a></li>
@@ -66,27 +133,8 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd. Last deploy 2025-11-17 (commit 8020bba).</small>
+    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens™ is a trade mark of Valfox Ltd.</small>
   </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
