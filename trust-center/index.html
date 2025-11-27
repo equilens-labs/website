@@ -31,7 +31,6 @@
         <a href="#overview" class="toc-label">Trust Center</a>
         <a href="#security-posture" class="toc-link">Security Posture</a>
         <a href="#evidence-chain" class="toc-link">Evidence Chain</a>
-        <a href="#contact" class="toc-link">Contact</a>
       </div>
     </nav>
 
@@ -47,7 +46,7 @@
       <section class="section" id="security-posture">
         <div class="section-block">
           <h2>Security Posture</h2>
-          <div class="grid grid-3">
+          <div class="stack">
             <div class="card">
               <h3>Security artefacts</h3>
               <ul class="checks">
@@ -77,6 +76,7 @@
               </ul>
             </div>
           </div>
+          <p class="note">Report security issues to <a href="mailto:security@equilens.io">security@equilens.io</a></p>
         </div>
       </section>
 
@@ -86,16 +86,6 @@
           <div class="container">
             <p>Every run emits a signed manifest (SHA-256) linking input hash → model parameters → outputs (PDF, metrics, generators). Evidence is retrievable by Task ID.</p>
             <p>Where a component's licence (e.g., Apache-2.0) requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM in the docs repository.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-block section-centered">
-          <h2>Security Contact</h2>
-          <p>Report security issues to <a href="mailto:security@equilens.io">security@equilens.io</a>. Our <code>security.txt</code> is at <code>/.well-known/security.txt</code>.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/contact/">Get in Touch</a>
           </div>
         </div>
       </section>

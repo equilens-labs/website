@@ -414,8 +414,6 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: var(--container-width);
-  margin: 0 auto;
   width: 100%;
   padding: 0;
 }
@@ -707,10 +705,8 @@ code {
 
 .section-centered .checks {
   text-align: left;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--space-6);
+  display: table;
+  margin: 0 auto var(--space-6);
 }
 
 .section-centered .note {
@@ -769,24 +765,15 @@ code {
 }
 
 .hero-content .email-highlight {
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .hero-content .email-highlight a {
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--color-primary-text);
+  font-size: var(--text-lg);
+  font-weight: var(--font-normal);
+  color: var(--color-primary);
   text-decoration: none;
-  padding: var(--space-3) var(--space-6);
-  background: var(--color-primary-a10);
-  border-radius: var(--radius-lg);
-  display: inline-block;
-  transition: all var(--transition-base);
-}
-
-.hero-content .email-highlight a:hover {
-  background: var(--color-primary-a15);
-  transform: translateY(-1px);
+  transition: color var(--transition-base);
 }
 
 /* Section block - hero-like aesthetic for content sections */
@@ -886,6 +873,13 @@ code {
 /* CTA row in section-block needs more spacing */
 .section-block .cta-row {
   margin-top: var(--space-8);
+}
+
+/* Stack - single column layout */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
 /* Grid */
