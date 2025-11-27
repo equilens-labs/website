@@ -247,6 +247,14 @@ li a:hover {
   color: var(--color-primary-hover);
 }
 
+/* External link indicator - shows arrow for links opening in new tab */
+a[target="_blank"]:not(.btn):not(.btn-primary):not(.btn-secondary)::after {
+  content: " ↗";
+  font-size: 0.75em;
+  vertical-align: super;
+  opacity: 0.7;
+}
+
 a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
@@ -359,6 +367,16 @@ ul, ol {
 
 .text-subtle {
   color: var(--text-subtle);
+}
+
+/* Inline code styling */
+code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace;
+  font-size: 0.875em;
+  background: var(--color-gray-100);
+  padding: 0.125em 0.375em;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
 }
 
 /* ============================================================================
@@ -919,6 +937,8 @@ a.card:hover,
   -webkit-appearance: none;
   appearance: none;
   padding: var(--space-3) var(--space-5);
+  min-height: 44px;  /* WCAG 2.1 AA touch target */
+  min-width: 44px;   /* WCAG 2.1 AA touch target */
   gap: 6px;
   border: none;
   transition: all var(--transition-fast);
@@ -986,6 +1006,13 @@ a.card:hover,
   .steps {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-10);
+  }
+
+  /* Center odd last item in steps grid */
+  .steps > .step:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - var(--space-5));
+    margin: 0 auto;
   }
 }
 
@@ -1080,6 +1107,13 @@ a.card:hover,
   position: absolute;
   left: 0;
   color: var(--color-primary);
+}
+
+/* Download link indicator */
+a[download]::after {
+  content: " ↓";
+  font-size: 0.85em;
+  opacity: 0.7;
 }
 
 /* Note paragraphs */
