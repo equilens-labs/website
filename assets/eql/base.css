@@ -705,8 +705,8 @@ code {
 
 .section-centered .checks {
   text-align: left;
-  width: fit-content;
-  margin: 0 auto var(--space-6);
+  display: inline-block;
+  margin: 0 0 var(--space-6);
   padding-left: 0;
 }
 
