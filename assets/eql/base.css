@@ -648,6 +648,15 @@ ul, ol {
 
 .section h2 {
   margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+/* Direct children paragraphs in section containers should be centered */
+.section > .container > p:not(.note) {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section .lead {
@@ -723,6 +732,24 @@ ul, ol {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
+/* Hero content paragraphs and lists */
+.hero-content p {
+  max-width: 64ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content .checks {
+  text-align: left;
+  display: inline-block;
+  margin: var(--space-4) auto;
+}
+
+.hero-content .note {
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
 /* Section block - hero-like aesthetic for content sections */
 .section-block {
   background: var(--color-gray-50);
@@ -747,10 +774,26 @@ ul, ol {
 
 .section-block .note {
   text-align: center;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section-block direct paragraphs (outside container) should also be centered */
+.section-block > p {
+  text-align: center;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section-block container max-width */
+.section-block > .container {
+  max-width: var(--content-width);
 }
 
 .cta-row {
-  margin-top: var(--space-2);
+  margin-top: var(--space-6);
   display: flex;
   justify-content: center;
   gap: var(--space-4);
@@ -758,6 +801,11 @@ ul, ol {
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap;
+}
+
+/* CTA row in section-block needs more spacing */
+.section-block .cta-row {
+  margin-top: var(--space-8);
 }
 
 /* Grid */
