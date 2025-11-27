@@ -417,7 +417,7 @@ code {
   max-width: var(--container-width);
   margin: 0 auto;
   width: 100%;
-  padding: 0 var(--space-6);
+  padding: 0;
 }
 
 /* Logo */
@@ -910,10 +910,14 @@ a.card:hover,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+/* Only interactive card-hero elements (links) get hover effects */
+a.card-hero {
   transition: all var(--transition-base);
 }
 
-.card-hero:hover {
+a.card-hero:hover {
   border-color: var(--border-medium);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);

@@ -72,8 +72,26 @@ function initNavFeatures() {
       if (t) {
         e.preventDefault();
         t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Update URL hash and trigger active state update
+        history.pushState(null, '', h);
+        // Update TOC active state immediately after click
+        updateTocActiveState(h);
       }
     });
+  });
+}
+
+// Update TOC active state for a specific hash
+function updateTocActiveState(hash) {
+  const toc = document.querySelector('.toc');
+  if (!toc) return;
+
+  const links = toc.querySelectorAll('.toc-link[href^="#"]');
+  links.forEach(link => {
+    link.removeAttribute('aria-current');
+    if (link.getAttribute('href') === hash) {
+      link.setAttribute('aria-current', 'location');
+    }
   });
 }
 
