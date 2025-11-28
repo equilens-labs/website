@@ -1387,8 +1387,10 @@ a[download]::after {
 }
 
 .site-footer .container {
+  max-width: none;
   width: 100%;
   padding: 0;
+  margin: 0;
 }
 
 .site-footer .grid {
@@ -1698,27 +1700,54 @@ a[download]::after {
 }
 
 /* ============================================================================
-   12. PROCESS DIAGRAM
+   12. DIAGRAMS
    ============================================================================ */
 
-.process-diagram {
+.process-diagram,
+.dual-branch-diagram {
   width: 100%;
   max-width: 800px;
   margin: var(--space-8) auto var(--space-6);
 }
 
-.process-diagram svg {
+.process-diagram svg,
+.dual-branch-diagram svg {
   width: 100%;
   height: auto;
 }
 
 @media (max-width: 768px) {
-  .process-diagram {
+  .process-diagram,
+  .dual-branch-diagram {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  .process-diagram svg {
+  .process-diagram svg,
+  .dual-branch-diagram svg {
     min-width: 600px;
+  }
+}
+
+/* Hero diagram - smaller version for hero sections */
+.hero-diagram {
+  width: 100%;
+  max-width: 700px;
+  margin: var(--space-6) auto 0;
+}
+
+.hero-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-diagram svg {
+    min-width: 500px;
   }
 }
