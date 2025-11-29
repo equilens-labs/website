@@ -1700,54 +1700,453 @@ a[download]::after {
 }
 
 /* ============================================================================
-   12. DIAGRAMS
+   12. FLOW DIAGRAM (CSS-based)
    ============================================================================ */
 
-.process-diagram,
-.dual-branch-diagram {
-  width: 100%;
-  max-width: 800px;
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: var(--space-8) auto var(--space-4);
+  max-width: 100%;
+  overflow-x: auto;
+  padding: var(--space-4) 0;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  min-width: 100px;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.flow-node:hover {
+  transform: translateY(-2px);
+}
+
+/* Input node */
+.flow-node--input {
+  background: var(--color-gray-50);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Engine node (FL-BSA) */
+.flow-node--engine {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-6);
+  min-width: 140px;
+  box-shadow: var(--shadow-accent);
+}
+
+.flow-node--engine:hover {
+  box-shadow: var(--shadow-accent-hover);
+}
+
+.flow-label-main {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+.flow-branches {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.flow-branch {
+  font-size: 10px;
+  font-weight: var(--font-medium);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.flow-branch--amp {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fef3c7;
+}
+
+.flow-branch--int {
+  background: rgba(52, 211, 153, 0.2);
+  color: #d1fae5;
+}
+
+/* Delta node */
+.flow-node--delta {
+  background: #f5f3ff;
+  border: 1px solid #c4b5fd;
+  box-shadow: var(--shadow-sm);
+}
+
+.flow-node--delta .flow-icon {
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+}
+
+.flow-node--delta .flow-label {
+  color: #5b21b6;
+}
+
+/* Output node */
+.flow-node--output {
+  background: var(--color-gray-800);
+  color: var(--color-white);
+  padding: var(--space-4) var(--space-6);
+  min-width: 140px;
+  box-shadow: var(--shadow-md);
+}
+
+.flow-node--output .flow-icon {
+  font-size: var(--text-xl);
+}
+
+.flow-sublabel {
+  font-size: 11px;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+}
+
+/* Icons and labels */
+.flow-icon {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.flow-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+/* Arrow connector */
+.flow-arrow {
+  width: 32px;
+  height: 2px;
+  background: var(--border-medium);
+  position: relative;
+  margin: 0 var(--space-1);
+}
+
+.flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid var(--border-medium);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+/* Hide last arrow */
+.flow-step:last-child .flow-arrow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .flow-diagram {
+    justify-content: flex-start;
+    padding: var(--space-4);
+  }
+
+  .flow-node {
+    min-width: 80px;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .flow-node--engine {
+    min-width: 120px;
+  }
+
+  .flow-label-main {
+    font-size: var(--text-lg);
+  }
+
+  .flow-branch {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .flow-arrow {
+    width: 20px;
+  }
+}
+
+/* ============================================================================
+   13. BRANCH DIAGRAM (detailed CSS version)
+   ============================================================================ */
+
+.branch-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
   margin: var(--space-8) auto var(--space-6);
+  max-width: 720px;
 }
 
-.process-diagram svg,
-.dual-branch-diagram svg {
+.branch-row {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: auto;
+}
+
+.branch-row--split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.branch-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+}
+
+/* Input node */
+.branch-node--input {
+  flex-direction: row;
+  gap: var(--space-4);
+  background: var(--color-gray-50);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4) var(--space-6);
+}
+
+.branch-node--input .branch-icon {
+  font-size: var(--text-2xl);
+}
+
+.branch-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Engine node */
+.branch-node--engine {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-8);
+  box-shadow: var(--shadow-accent);
+  min-width: 220px;
+}
+
+.branch-title-lg {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+.branch-desc-light {
+  font-size: var(--text-sm);
+  opacity: 0.85;
+  margin-top: var(--space-1);
+}
+
+/* Amplification branch */
+.branch-node--amp {
+  background: #fef3c7;
+  border: 1.5px solid #f59e0b;
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4) var(--space-5);
+}
+
+.branch-node--amp .branch-title {
+  color: #92400e;
+}
+
+.branch-node--amp .branch-desc {
+  color: #b45309;
+}
+
+.branch-node--amp .branch-metric {
+  color: #d97706;
+}
+
+/* Intrinsic branch */
+.branch-node--int {
+  background: #d1fae5;
+  border: 1.5px solid #10b981;
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4) var(--space-5);
+}
+
+.branch-node--int .branch-title {
+  color: #065f46;
+}
+
+.branch-node--int .branch-desc {
+  color: #047857;
+}
+
+.branch-node--int .branch-metric {
+  color: #059669;
+}
+
+/* Delta node */
+.branch-node--delta {
+  background: #f5f3ff;
+  border: 1.5px solid #c4b5fd;
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4) var(--space-5);
+  min-width: 140px;
+}
+
+.branch-delta {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.branch-node--delta .branch-title {
+  color: #5b21b6;
+  font-size: var(--text-sm);
+}
+
+.branch-node--delta .branch-desc {
+  color: #7c3aed;
+  font-size: var(--text-xs);
+}
+
+/* Output node */
+.branch-node--output {
+  flex-direction: row;
+  gap: var(--space-4);
+  background: var(--color-gray-800);
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.branch-node--output .branch-icon {
+  font-size: var(--text-2xl);
+}
+
+.branch-node--output .branch-text {
+  color: var(--color-white);
+}
+
+.branch-node--output .branch-title {
+  color: var(--color-white);
+}
+
+.branch-node--output .branch-desc-light {
+  color: var(--color-gray-400);
+  opacity: 1;
+}
+
+/* Branch badges */
+.branch-badge {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.branch-badge--amp {
+  background: #f59e0b;
+}
+
+.branch-badge--int {
+  background: #10b981;
+}
+
+/* Text styles */
+.branch-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.branch-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.branch-metric {
+  font-size: var(--text-xs);
+  margin-top: var(--space-2);
+  font-weight: var(--font-medium);
+}
+
+/* Connectors */
+.branch-connector {
+  width: 2px;
+  background: var(--border-medium);
+  position: relative;
+}
+
+.branch-connector--down {
+  height: 24px;
+}
+
+.branch-connector--down::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--border-medium);
+}
+
+.branch-connector--split {
+  width: 60%;
+  height: 24px;
+  background: transparent;
+  border-left: 2px solid var(--border-medium);
+  border-right: 2px solid var(--border-medium);
+  border-bottom: 2px solid var(--border-medium);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
 @media (max-width: 768px) {
-  .process-diagram,
-  .dual-branch-diagram {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .branch-row--split {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 
-  .process-diagram svg,
-  .dual-branch-diagram svg {
-    min-width: 600px;
-  }
-}
-
-/* Hero diagram - smaller version for hero sections */
-.hero-diagram {
-  width: 100%;
-  max-width: 700px;
-  margin: var(--space-6) auto 0;
-}
-
-.hero-diagram svg {
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .hero-diagram {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .branch-node--delta {
+    order: -1;
   }
 
-  .hero-diagram svg {
-    min-width: 500px;
+  .branch-connector--split {
+    display: none;
+  }
+
+  .branch-node {
+    padding: var(--space-4);
   }
 }

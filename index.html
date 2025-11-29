@@ -73,60 +73,38 @@
         <p class="lead">
           Generate regulatory evidence bundles (ECOA, EU AI Act) inside your own VPC. Self‑hosted bias‑simulation that produces <!-- LEXPRO_PHRASE: regulator_ready_evidence -->regulator‑ready evidence<!-- /LEXPRO_PHRASE --> with <strong>no customer data leaving your infrastructure</strong>.
         </p>
-        <div class="hero-diagram">
-          <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FL-BSA dual-branch analysis">
-            <defs>
-              <linearGradient id="homePrimaryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#6366f1"/>
-                <stop offset="100%" style="stop-color:#4f46e5"/>
-              </linearGradient>
-            </defs>
-
-            <!-- Data Input -->
-            <g>
-              <rect x="0" y="35" width="100" height="50" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-              <text x="50" y="57" text-anchor="middle" font-size="11" font-weight="600" fill="#374151" font-family="system-ui, sans-serif">Data</text>
-              <text x="50" y="72" text-anchor="middle" font-size="9" fill="#9ca3af" font-family="system-ui, sans-serif">Your records</text>
-            </g>
-
-            <!-- Arrow -->
-            <path d="M105 60 L140 60" stroke="#d1d5db" stroke-width="1.5" fill="none"/>
-            <polygon points="145,60 138,56 138,64" fill="#d1d5db"/>
-
-            <!-- FL-BSA Box -->
-            <g>
-              <rect x="150" y="20" width="120" height="80" rx="8" fill="url(#homePrimaryGrad)"/>
-              <text x="210" y="52" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="system-ui, sans-serif">FL-BSA</text>
-
-              <!-- Two branch indicators inside -->
-              <rect x="165" y="62" width="40" height="4" rx="2" fill="#fbbf24"/>
-              <rect x="215" y="62" width="40" height="4" rx="2" fill="#34d399"/>
-              <text x="185" y="82" text-anchor="middle" font-size="7" fill="#c7d2fe" font-family="system-ui, sans-serif">Amplify</text>
-              <text x="235" y="82" text-anchor="middle" font-size="7" fill="#c7d2fe" font-family="system-ui, sans-serif">Intrinsic</text>
-            </g>
-
-            <!-- Arrow -->
-            <path d="M275 60 L310 60" stroke="#d1d5db" stroke-width="1.5" fill="none"/>
-            <polygon points="315,60 308,56 308,64" fill="#d1d5db"/>
-
-            <!-- Delta/Compare -->
-            <g>
-              <rect x="320" y="35" width="80" height="50" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1"/>
-              <text x="360" y="57" text-anchor="middle" font-size="10" font-weight="600" fill="#5b21b6" font-family="system-ui, sans-serif">Compare</text>
-              <text x="360" y="72" text-anchor="middle" font-size="9" fill="#7c3aed" font-family="system-ui, sans-serif">Delta</text>
-            </g>
-
-            <!-- Arrow -->
-            <path d="M405 60 L440 60" stroke="#d1d5db" stroke-width="1.5" fill="none"/>
-            <polygon points="445,60 438,56 438,64" fill="#d1d5db"/>
-
-            <!-- Evidence Output -->
-            <g>
-              <rect x="450" y="25" width="150" height="70" rx="8" fill="#1f2937"/>
-              <text x="525" y="55" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" font-family="system-ui, sans-serif">Evidence Bundle</text>
-              <text x="525" y="72" text-anchor="middle" font-size="9" fill="#9ca3af" font-family="system-ui, sans-serif">PDF + Manifest + Certs</text>
-            </g>
-          </svg>
+        <div class="flow-diagram" role="img" aria-label="FL-BSA process flow">
+          <div class="flow-step">
+            <div class="flow-node flow-node--input">
+              <span class="flow-icon">&#x1F4CA;</span>
+              <span class="flow-label">Your Data</span>
+            </div>
+            <div class="flow-arrow"></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-node flow-node--engine">
+              <span class="flow-label-main">FL-BSA</span>
+              <div class="flow-branches">
+                <span class="flow-branch flow-branch--amp">Amplification</span>
+                <span class="flow-branch flow-branch--int">Intrinsic</span>
+              </div>
+            </div>
+            <div class="flow-arrow"></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-node flow-node--delta">
+              <span class="flow-icon">&#x0394;</span>
+              <span class="flow-label">Compare</span>
+            </div>
+            <div class="flow-arrow"></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-node flow-node--output">
+              <span class="flow-icon">&#x1F4C4;</span>
+              <span class="flow-label">Evidence Bundle</span>
+              <span class="flow-sublabel">PDF + Manifest + Certs</span>
+            </div>
+          </div>
         </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="/fl-bsa/">Explore FL‑BSA</a>
