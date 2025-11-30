@@ -66,7 +66,6 @@
       <nav class="toc" aria-label="Table of contents">
         <div class="toc-inner">
           <a href="#overview" class="toc-label">FL-BSA</a>
-          <a href="#diagram" class="toc-link">Process</a>
           <a href="#how-it-works" class="toc-link">How it Works</a>
           <a href="#pricing" class="toc-link">Pricing</a>
           <a href="#compliance" class="toc-link">Compliance</a>
@@ -83,111 +82,8 @@
             <p class="lead">
               Self‑hosted bias simulation that generates synthetic borrower cohorts (with loan decisions) to measure disparate impact and produce <!-- LEXPRO_PHRASE: regulator_ready_evidence -->regulator‑ready evidence<!-- /LEXPRO_PHRASE --> — with <strong>no customer data leaving your VPC</strong>.
             </p>
-            <div class="flow-diagram" role="img" aria-label="FL-BSA process flow">
-              <div class="flow-step">
-                <div class="flow-node flow-node--input">
-                  <span class="flow-icon">&#x1F4CA;</span>
-                  <span class="flow-label">Your Data</span>
-                </div>
-                <div class="flow-arrow"></div>
-              </div>
-              <div class="flow-step">
-                <div class="flow-node flow-node--engine">
-                  <span class="flow-label-main">FL-BSA</span>
-                  <div class="flow-branches">
-                    <span class="flow-branch flow-branch--amp">Amplification</span>
-                    <span class="flow-branch flow-branch--int">Intrinsic</span>
-                  </div>
-                </div>
-                <div class="flow-arrow"></div>
-              </div>
-              <div class="flow-step">
-                <div class="flow-node flow-node--delta">
-                  <span class="flow-icon">&#x0394;</span>
-                  <span class="flow-label">Compare</span>
-                </div>
-                <div class="flow-arrow"></div>
-              </div>
-              <div class="flow-step">
-                <div class="flow-node flow-node--output">
-                  <span class="flow-icon">&#x1F4C4;</span>
-                  <span class="flow-label">Evidence Bundle</span>
-                  <span class="flow-sublabel">PDF + Manifest + Certs</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
-
-  <section class="section" id="diagram">
-    <div class="section-block">
-      <h2>Dual-Branch Analysis</h2>
-      <p class="lead">FL-BSA separates amplification bias from intrinsic bias to isolate model-induced disparate impact.</p>
-
-      <div class="branch-diagram" role="img" aria-label="FL-BSA dual-branch analysis">
-        <!-- Input -->
-        <div class="branch-row">
-          <div class="branch-node branch-node--input">
-            <span class="branch-icon">&#x1F4CA;</span>
-            <div class="branch-text">
-              <span class="branch-title">Your Lending Data</span>
-              <span class="branch-desc">Historical decisions + outcomes</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="branch-connector branch-connector--down"></div>
-
-        <!-- Engine -->
-        <div class="branch-row">
-          <div class="branch-node branch-node--engine">
-            <span class="branch-title-lg">FL-BSA Engine</span>
-            <span class="branch-desc-light">Bias simulation analysis</span>
-          </div>
-        </div>
-
-        <div class="branch-connector branch-connector--split"></div>
-
-        <!-- Two branches -->
-        <div class="branch-row branch-row--split">
-          <div class="branch-node branch-node--amp">
-            <span class="branch-badge branch-badge--amp"></span>
-            <span class="branch-title">Amplification</span>
-            <span class="branch-desc">Model-induced bias</span>
-            <span class="branch-metric">DI, EO, TPR gaps</span>
-          </div>
-
-          <div class="branch-node branch-node--delta">
-            <span class="branch-delta">&#x0394;</span>
-            <span class="branch-title">Model Impact</span>
-            <span class="branch-desc">Amplification − Intrinsic</span>
-          </div>
-
-          <div class="branch-node branch-node--int">
-            <span class="branch-badge branch-badge--int"></span>
-            <span class="branch-title">Intrinsic</span>
-            <span class="branch-desc">Data-inherent bias</span>
-            <span class="branch-metric">Baseline disparity</span>
-          </div>
-        </div>
-
-        <div class="branch-connector branch-connector--down"></div>
-
-        <!-- Output -->
-        <div class="branch-row">
-          <div class="branch-node branch-node--output">
-            <span class="branch-icon">&#x1F4C4;</span>
-            <div class="branch-text">
-              <span class="branch-title">Regulatory Evidence Bundle</span>
-              <span class="branch-desc-light">PDF Report + Signed Manifest + Certificates</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="note">The delta between branches isolates model-induced bias from pre-existing data patterns.</p>
-    </div>
-  </section>
 
   <section class="section alt" id="how-it-works">
     <div class="section-block">
