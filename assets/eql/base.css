@@ -394,7 +394,7 @@ code {
   -webkit-backdrop-filter: saturate(160%) blur(10px);
   backdrop-filter: saturate(160%) blur(10px);
   border-bottom: 1px solid var(--border-default);
-  padding: var(--space-4) var(--space-6);  /* Match TOC left margin (--space-6 = 24px) */
+  padding: var(--space-4) var(--space-6);
   color: var(--text-primary);
 }
 
@@ -425,13 +425,14 @@ code {
   justify-content: flex-start;
   text-decoration: none;
   min-height: 44px;
+  margin-left: -32px;  /* Align with left margin */
 }
 
 .logo img {
   display: block;
-  height: 36px;
+  height: 54px;
   width: auto;
-  margin-top: 4px;
+  margin-top: 16px;  /* Push logo down */
 }
 
 /* Nav Links */
@@ -442,9 +443,9 @@ code {
 }
 
 .nav-link {
-  color: var(--text-muted);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
   transition: color var(--transition-base);
   min-height: 44px;
   display: inline-flex;
@@ -589,8 +590,8 @@ code {
   .toc {
     display: block;
     position: fixed;
-    left: calc(var(--space-6) + 2px);  /* Align with logo position */
-    top: 88px;
+    left: var(--space-6);
+    top: 96px;
     width: 200px;
   }
 
@@ -1534,8 +1535,8 @@ a[download]::after {
   }
 
   .logo {
-    width: 140px;
-    height: 32px;
+    width: 210px;
+    height: 48px;
   }
 
   .hero {
