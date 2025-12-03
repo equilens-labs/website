@@ -8,13 +8,13 @@
       {"label": "Procurement", "href": "/procurement/"},
       {"label": "Trust Center", "href": "/trust-center/"}]},
     {"title": "Legal", "links": [
-      {"label": "Privacy", "href": "/legal/privacy.html"},
-      {"label": "Cookie Policy", "href": "/legal/cookie-policy.html"},
-      {"label": "Terms of Service", "href": "/legal/tos.html"},
-      {"label": "Imprint", "href": "/legal/imprint.html"}]},
+      {"label": "Privacy", "href": "/legal/#privacy"},
+      {"label": "Cookie Policy", "href": "/legal/#cookie-policy"},
+      {"label": "Terms of Service", "href": "/legal/#terms-of-service"},
+      {"label": "Imprint", "href": "/legal/#imprint"}]},
     {"title": "Resources", "links": [
-      {"label": "Open Source", "href": "/legal/open-source.html"},
-      {"label": "Accessibility", "href": "/legal/accessibility.html"}]}
+      {"label": "Open Source", "href": "/legal/#open-source"},
+      {"label": "Accessibility", "href": "/legal/#accessibility"}]}
   ],
   "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd. Last deploy {deploy_date} (commit {commit})."
 }
