@@ -351,16 +351,29 @@ p {
   text-transform: uppercase;
   color: var(--color-primary);
   line-height: var(--leading-tight);
-  margin-bottom: var(--space-4);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .brand-title {
   font-weight: var(--font-extrabold); /* Matching h1 */
   letter-spacing: var(--tracking-tighter);
   font-size: clamp(3rem, 6vw, 4.5rem);
-  margin: 0 0 var(--space-4);
+  margin: 0; /* Removed bottom margin as eyebrow handles it */
   color: var(--text-primary);
   text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-logo {
+  display: block;
+  height: 110px;
+  width: auto;
+  max-width: 100%;
 }
 
 .lead {
@@ -1015,8 +1028,10 @@ a.card:hover,
 }
 
 .card-hero {
-  background: var(--color-white);
-  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.6); /* Glass effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-xl);
   padding: var(--space-8) var(--space-6);
@@ -1024,6 +1039,7 @@ a.card:hover,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  transition: all var(--transition-base);
 }
 
 /* Only interactive card-hero elements (links) get hover effects */
@@ -1031,10 +1047,12 @@ a.card-hero {
   transition: all var(--transition-base);
 }
 
-a.card-hero:hover {
+a.card-hero:hover,
+.card-hero:hover { /* Allow hover on static cards too for delight */
   border-color: var(--color-primary-a15);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .card-hero h3,
@@ -1470,10 +1488,10 @@ a[download]::after {
 .site-footer small {
   display: block;
   text-align: center;
-  color: var(--text-subtle);
+  color: var(--text-primary);
   font-size: var(--text-xs);
   line-height: var(--leading-relaxed);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .site-footer .container:last-of-type {
@@ -1614,9 +1632,17 @@ a[download]::after {
 .mt-6 { margin-top: var(--space-6); }
 .text-muted { color: var(--text-muted); }
 
-/* ============================================================================
-   11. TIMELINE COMPONENT
-   ============================================================================ */
+.icon-hero {
+  width: 28px; /* Slightly larger for better visibility */
+  height: 28px;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  fill: none;
+  margin-bottom: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .timeline {
   display: flex;
