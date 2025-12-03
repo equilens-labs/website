@@ -46,33 +46,50 @@
       <section class="section" id="security-posture">
         <div class="section-block">
           <h2>Security Posture</h2>
-          <div class="stack">
+          <p class="lead">We employ a defense-in-depth strategy, securing the software supply chain from commit to container.</p>
+          <div class="grid">
             <div class="card">
-              <h3>Security artefacts</h3>
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="stroke: #4f46e5;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                Supply Chain
+              </h3>
               <ul class="checks">
-                <li>Cosign-signed images (keyless via GitHub OIDC)</li>
-                <li>SBOM + SLSA provenance</li>
-                <li>Security attestations available under NDA</li>
-                <li>Annual penetration-test letter</li>
-                <li>Reg-mapping: EU AI Act, FCA PS22/9, ECOA/Reg B, SR 11-7, OSFI B-10, APRA CPS 230, MAS FEAT</li>
-                <li><code>security.txt</code> published per RFC 9116</li>
+                <li>Cosign-signed images (keyless <abbr>OIDC</abbr>).</li>
+                <li><abbr>SBOM</abbr> + <abbr>SLSA</abbr> provenance.</li>
+                <li>Weekly <abbr>CVE</abbr> scans (break-on-critical).</li>
               </ul>
             </div>
             <div class="card">
-              <h3>Operational controls</h3>
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="stroke: #4f46e5;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Runtime Protection
+              </h3>
               <ul class="checks">
-                <li>Hardened containers (seccomp, non-root UID, read-only FS)</li>
-                <li>Secrets via KMS/Secrets Manager; rotation guidance</li>
-                <li>Weekly SBOM diff &amp; CVE scan; break-the-build on High/Critical</li>
-                <li>Semgrep &amp; CodeQL static analysis in CI</li>
+                <li>Hardened containers (non-root, read-only).</li>
+                <li>Seccomp &amp; AppArmor profiles.</li>
+                <li>Secrets via <abbr>KMS</abbr>/Secrets Manager.</li>
               </ul>
             </div>
             <div class="card">
-              <h3>Networking &amp; data</h3>
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="stroke: #4f46e5;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Data Sovereignty
+              </h3>
               <ul class="checks">
-                <li>Runs in your VPC/VM; no data leaves by default</li>
-                <li>Optional AWS usage metrics; <strong>off by default</strong></li>
-                <li>HTTPS recommended with HSTS, CSP, Referrer-Policy</li>
+                <li>Runs entirely in your <abbr>VPC</abbr>/<abbr>VM</abbr>.</li>
+                <li>No data egress by default.</li>
+                <li>Customer-controlled retention.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="stroke: #4f46e5;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Regulatory Mapping
+              </h3>
+              <ul class="checks">
+                <li><abbr>EU AI</abbr> Act &amp; <abbr>FCA</abbr> PS22/9.</li>
+                <li><abbr>ECOA</abbr> / Reg B &amp; <abbr>SR</abbr> 11-7.</li>
+                <li><abbr>OSFI</abbr> B-10 &amp; <abbr>APRA</abbr> <abbr>CPS</abbr> 230.</li>
               </ul>
             </div>
           </div>
@@ -82,6 +99,15 @@
       <section class="section alt" id="evidence-chain">
         <div class="section-block section-block--narrow">
           <h2>Evidence Chain</h2>
+          
+          <div class="chain-visual">
+            <div class="chain-node">Input Data</div>
+            <span class="chain-arrow">&rarr;</span>
+            <div class="chain-node">Simulation</div>
+            <span class="chain-arrow">&rarr;</span>
+            <div class="chain-node">Evidence Pack</div>
+          </div>
+
           <p>Every run emits a <strong>signed manifest</strong> (SHA-256) linking input hash → model parameters → outputs (PDF, metrics, generators).</p>
           <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
           <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the SBOM.</p>
