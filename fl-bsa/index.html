@@ -131,85 +131,90 @@
 
   <section class="section" id="pricing">
     <div class="section-block">
-      <h2>Pricing</h2>
-      <p class="lead">BYOC Model: You control the infrastructure. Licence covers the software appliance.</p>
+      <h2>Licensing</h2>
+      <p class="lead">BYOC Model: You control the infrastructure. We licence the appliance software.</p>
       <div class="grid">
         <div class="card">
           <h3>Sandbox</h3>
-          <p><strong>Free</strong> · up to 50k rows · demo only</p>
+          <p><strong>Free Trial</strong> · Non-production</p>
           <ul class="checks">
             <li>Pre-bundled FCA sandbox dataset.</li>
-            <li>Evidence bundle (demo watermark).</li>
+            <li>Evidence bundle (watermarked).</li>
+            <li>Ideal for technical evaluation.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Pilot-Plus</h3>
-          <p><strong>£10k</strong> · 3 months · up to 100k rows</p>
+          <h3>Pilot</h3>
+          <p><strong>Fixed Term</strong> · Proof of Concept</p>
           <ul class="checks">
-            <li>Full evidence bundle.</li>
-            <li>Email support.</li>
+            <li>Full evidence bundle generation.</li>
+            <li>Standard support (Email).</li>
+            <li>production-ready binary.</li>
           </ul>
-          <p class="note">Auto-expires unless upgraded; includes email support.</p>
+          <p class="note">Designed for a single-model audit or 3-month PoC.</p>
         </div>
         <div class="card">
-          <h3>Growth</h3>
-          <p><strong>£36k/yr</strong></p>
+          <h3>Standard</h3>
+          <p><strong>Annual Licence</strong> · Production</p>
           <ul class="checks">
-            <li>Annual subscription.</li>
-            <li>Evidence bundle + monitoring.</li>
+            <li>Continuous monitoring support.</li>
+            <li>Full commercial use rights.</li>
+            <li>Quarterly software updates.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Enterprise</h3>
-          <p><strong>£120k/yr</strong></p>
+          <p><strong>Volume Licence</strong> · Strategic</p>
           <ul class="checks">
-            <li>CLI &amp; unlimited rows (contractual).</li>
+            <li>Unlimited rows &amp; models.</li>
             <li>Priority support &amp; onboarding.</li>
+            <li>Custom SLA &amp; procurement terms.</li>
           </ul>
-          <p class="note">Includes CLI; unlimited rows per contract. Priority support.</p>
+          <p class="note">For banks deploying across multiple business lines.</p>
         </div>
       </div>
-      <p class="note">This pricing applies to the FL-BSA product. All tiers remain subject to contract; procurement requirements may apply.</p>
       <div class="cta-row">
-        <a class="btn btn-secondary" href="/contact/">Discuss a tier</a>
+        <a class="btn btn-secondary" href="/contact/">Contact Sales</a>
       </div>
     </div>
   </section>
 
-  <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2025-10-12 for Valfox Ltd registered office. -->
   <section class="section" id="compliance">
     <div class="section-block">
-      <h2>Compliance</h2>
-      <p class="lead">Product-level responsibilities, licensing, and evidence controls for FL-BSA. Company-wide policies remain at <a href="/legal/">/legal/</a>.</p>
-      <div class="grid">
-    <div class="card">
-     <h3>Vendor identity</h3>
-     <p>FL-BSA is supplied by Valfox Ltd (trading as “Equilens”). Company number 14469638. Registered office: 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL.</p>
-     <p class="note">For corporate policies (privacy, terms, accessibility, export), see the Equilens legal hub.</p>
-    </div>
-    <div class="card">
-     <h3>Product scope</h3>
-     <ul class="checks">
-      <li>Self-hosted appliance delivered as AWS Marketplace AMI or docker-compose bundle.</li>
-      <li>No personal data is transmitted to Equilens by default; customers control telemetry.</li>
-      <li>Evidence bundle: PDF report, signed manifest (SHA-256), certificate appendix.</li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3>Licensing &amp; usage</h3>
-     <p>Usage terms are provided via AWS Marketplace subscription or Private Offer. Custom SLAs and professional services statements of work are executed separately.</p>
-     <p class="note">Open-source components and notices are catalogued at <a href="/legal/#open-source">/legal/#open-source</a>. SBOM and NOTICE excerpts are available on request.</p>
-    </div>
+      <h2>Regulatory Assurance</h2>
+      <p class="lead">Designed to meet the documentation and control requirements of high-risk AI systems.</p>
+      <div class="grid grid-3">
         <div class="card">
-          <h3>Controls &amp; attestations</h3>
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            Product Scope
+          </h3>
           <ul class="checks">
-            <li>Control mapping: FCA, EU AI Act, ECOA touchpoints documented in the evidence bundle.</li>
-            <li>Security posture: hardened images, optional Prometheus metrics; no unsolicited network egress.</li>
-            <li>Change management: versioned releases; manifest includes software build identifiers.</li>
+            <li>Self-hosted appliance (AMI / Docker).</li>
+            <li>No personal data exfiltration.</li>
+            <li>Evidence bundle: PDF report, signed manifest (SHA-256), certificate appendix.</li>
           </ul>
         </div>
+        <div class="card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Controls &amp; Attestations
+          </h3>
+          <ul class="checks">
+            <li>Control mapping: FCA, EU AI Act, ECOA touchpoints documented.</li>
+            <li>Security posture: hardened images, optional Prometheus metrics.</li>
+            <li>Change management: versioned releases.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Licensing &amp; Usage
+          </h3>
+          <p>Usage terms are provided via AWS Marketplace subscription or Private Offer. Custom SLAs and professional services statements of work are executed separately.</p>
+          <p class="note">Open-source components are catalogued at <a href="/legal/#open-source">/legal/</a>.</p>
+        </div>
       </div>
-      <p class="note">Start with the <a href="/procurement/">procurement path</a> to review AWS Marketplace terms, deployment prerequisites, and evidence packages. For data processing agreements or custom clauses, email <a href="mailto:equilens@equilens.io">equilens@equilens.io</a>.</p>
     </div>
   </section>
 
