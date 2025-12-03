@@ -356,8 +356,8 @@ p {
 }
 
 .brand-title {
-  font-weight: var(--font-extrabold); /* Matching h1 */
-  letter-spacing: var(--tracking-tighter);
+  font-weight: var(--font-semibold); /* Matching h1 */
+  letter-spacing: var(--tracking-tight);
   font-size: clamp(3rem, 6vw, 4.5rem);
   margin: 0; /* Removed bottom margin as eyebrow handles it */
   color: var(--text-primary);
@@ -630,30 +630,30 @@ code {
 
   .toc-label {
     display: block;
-    font-size: var(--text-sm);  /* Increased from 11px */
-    font-weight: var(--font-semibold);
+    font-size: 0.875rem;  /* Increased to text-sm */
+    font-weight: var(--font-bold);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
     margin-bottom: var(--space-4);
     text-decoration: none;
     transition: color var(--transition-base);
   }
 
   .toc-label:hover {
-    color: var(--color-primary-text);
+    color: var(--color-primary);
   }
 
   .toc-link {
     display: block;
-    padding: var(--space-2) 0;
-    padding-left: var(--space-3);
+    padding: 0.5rem 0; /* Increased padding */
+    padding-left: var(--space-4);
     border-left: 2px solid var(--border-default);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    font-size: 1rem;  /* Increased to text-base */
+    color: var(--text-muted);
     text-decoration: none;
     transition: all var(--transition-base);
-    line-height: var(--leading-snug);
+    line-height: var(--leading-normal);
   }
 
   .toc-link:hover {
@@ -662,9 +662,11 @@ code {
   }
 
   .toc-link[aria-current="location"] {
-    color: var(--color-primary-text);
+    color: var(--color-primary);
     border-left-color: var(--color-primary);
+    border-left-width: 3px; /* Thicker active border */
     font-weight: var(--font-medium);
+    background: linear-gradient(to right, var(--color-primary-a08), transparent); /* Subtle highlight */
   }
 }
 
@@ -971,13 +973,13 @@ code {
 /* Cards - Updated for Modern Look */
 .card {
   background: var(--color-white);
-  /* Softer border */
-  border: 1px solid rgba(229, 231, 235, 0.6);
+  /* Softer border but visible */
+  border: 1px solid rgba(229, 231, 235, 1); 
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   transition: all var(--transition-base);
-  /* Clean, modern shadow */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+  /* Deeper shadow for pop */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -985,10 +987,11 @@ code {
 
 /* Interactive cards get hover effects */
 a.card:hover,
-.card-interactive:hover {
+.card-interactive:hover,
+.card:hover { /* Allow subtle lift on all cards for tactile feel */
   border-color: var(--color-primary-a15);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
 
 .card h2,
@@ -998,6 +1001,7 @@ a.card:hover,
   margin-bottom: var(--space-4);
   color: var(--text-primary);
   line-height: var(--leading-tight);
+  text-align: center; /* Center all card titles */
 }
 
 .card p {
@@ -1644,71 +1648,83 @@ a[download]::after {
   margin-right: auto;
 }
 
+.icon-inline {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  fill: none;
+  margin-right: 10px;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+
+/* ============================================================================
+   11. TIMELINE COMPONENT (Process Grid)
+   ============================================================================ */
+
 .timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-  max-width: var(--max-width-3xl);
-  margin: var(--space-8) auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+  padding: var(--space-4); /* Space for shadows */
+  counter-reset: step-counter;
 }
 
 .timeline-item {
   display: flex;
-  gap: var(--space-5);
+  flex-direction: column;
+  height: 100%;
   position: relative;
-  padding-bottom: var(--space-8);
 }
 
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* Vertical line connecting items */
-.timeline-item:not(:last-child) .timeline-marker::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px; /* Thinner line */
-  height: calc(var(--space-8) + var(--space-4));
-  background: var(--border-medium); /* Solid, subtle line */
-}
-
+/* Hide old markers */
 .timeline-marker {
-  position: relative;
-  flex-shrink: 0;
-  padding-top: 4px; /* Align with text visually */
-}
-
-.timeline-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px; /* Smaller */
-  height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--color-white);
-  border: 2px solid var(--color-primary-light); /* Outlined */
-  color: var(--color-primary);
-  font-size: var(--text-sm);
-  font-weight: var(--font-bold);
-  font-family: var(--font-sans);
-  box-shadow: 0 0 0 4px var(--color-white); /* Clear space around marker */
-  z-index: 1;
+  display: none;
 }
 
 .timeline-content {
   flex: 1;
-  padding-top: 0; /* Aligned with marker */
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-a15);
+}
+
+/* Step Number Badge inside Card */
+.timeline-content::before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary-a10);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
 }
 
 .timeline-content h3 {
   font-size: var(--text-lg);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   color: var(--text-primary);
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-3);
 }
 
 .timeline-content p {
@@ -1716,44 +1732,17 @@ a[download]::after {
   line-height: var(--leading-relaxed);
   margin: 0;
   text-align: left;
+  font-size: var(--text-sm);
 }
 
 @media (min-width: 768px) {
   .timeline {
-    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .timeline {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 0;
-  }
-
-  /* Horizontal line connecting items */
-  .timeline-item:not(:last-child) .timeline-marker::after {
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
-    width: calc(100% + var(--space-6));
-    height: 1px; /* Thinner line */
-    background: var(--border-medium);
-  }
-
-  .timeline-marker {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-4);
-    padding-top: 0;
-  }
-
-  .timeline-content {
-    padding-top: 0;
-  }
-
-  .timeline-content p {
-    text-align: center;
-    font-size: var(--text-sm);
   }
 }
