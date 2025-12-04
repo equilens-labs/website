@@ -935,6 +935,11 @@ abbr {
   margin-top: var(--space-8);
 }
 
+/* CTA row left-aligned variant */
+.cta-row--left {
+  justify-content: flex-start;
+}
+
 /* Stack - single column layout */
 .stack {
   display: flex;
@@ -1641,6 +1646,7 @@ a[download]::after {
    10. UTILITIES
    ============================================================================ */
 
+.mt-4 { margin-top: var(--space-4); }
 .mt-6 { margin-top: var(--space-6); }
 .text-muted { color: var(--text-muted); }
 
