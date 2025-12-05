@@ -170,6 +170,16 @@
   --transition-slower: 500ms ease;
 }
 
+/* Superscript for footnotes */
+sup {
+  font-size: 0.6em;
+  top: -0.5em;
+  vertical-align: baseline;
+  position: relative;
+  font-weight: var(--font-bold);
+  color: var(--text-muted);
+}
+
 /* ============================================================================
    2. BASE & RESET
    ============================================================================ */
