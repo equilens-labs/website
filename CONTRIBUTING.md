@@ -18,7 +18,7 @@ scripts/archive/      Historical utilities kept for reference
 
 ### CSS
 
-- `assets/eql/site-light.css` – main site styles (home, contact, legal, etc.)
+- `assets/eql/base.css` – main site styles (home, contact, legal, etc.)
 - `assets/eql/fl-bsa.css` – FL‑BSA product design system (Block‑28 rollout)
 - `assets/eql/nav.js` – shared navigation behaviour (smooth scroll, mobile menu,
   footer year)
