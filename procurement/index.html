@@ -67,7 +67,7 @@
        <span class="step-number">2</span>
        <h3 class="step-title">Launch inside your account</h3>
       </header>
-      <p>Launch the <abbr>AMI</abbr> in your account. Select instance type, region, <abbr>VPC</abbr>, and subnet per your change controls.</p>
+      <p>Launch the container stack (Helm/docker-compose) in your account. Select instance type, region, <abbr>VPC</abbr>, and subnet per your change controls.</p>
      </div>
      <div class="step">
       <header>
@@ -86,9 +86,9 @@
      <div class="step">
       <header>
        <span class="step-number">5</span>
-       <h3 class="step-title">Move to Pilot-Plus</h3>
+       <h3 class="step-title">Move to Pilot</h3>
       </header>
-      <p>Activate the paid Pilot-Plus tier or request a Private Offer for enterprise terms once procurement approves.</p>
+      <p>Activate the paid Pilot tier or request a Private Offer for enterprise terms once procurement approves.</p>
      </div>
     </div>
    </section>
@@ -107,8 +107,8 @@
      <div class="card">
       <h3>Commercials</h3>
       <ul class="checks">
-       <li><abbr>AWS</abbr> Marketplace listing with hourly and annual pricing.</li>
-       <li>Pilot-Plus tier (3-month) for regulated sandbox evaluations.</li>
+       <li><abbr>AWS</abbr> Marketplace listing with Annual and multi-year licensing options.</li>
+       <li>Pilot tier (3-month) for regulated sandbox evaluations.</li>
        <li>Private Offer support for custom terms or multi-entity rollouts.</li>
       </ul>
      </div>
@@ -121,12 +121,12 @@
       <h2>Deployment options</h2>
       <div class="grid">
         <div class="card">
-          <h3><abbr>AWS</abbr> <abbr>AMI</abbr></h3>
-          <p>Single-tenant <abbr>AMI</abbr> with deterministic boot. Delivers <abbr>API</abbr>, worker, and reporting services; integrates with customer <abbr>IAM</abbr>.</p>
-        </div>
-        <div class="card">
           <h3>Container (<abbr>VM</abbr>)</h3>
           <p>docker-compose stack (<abbr>API</abbr>, Worker, Redis). <abbr>CPU</abbr>-only profile available; <abbr>GPU</abbr> preferred for faster synthetic generation.</p>
+        </div>
+        <div class="card">
+          <h3>Alternate: <abbr>AWS</abbr> <abbr>AMI</abbr></h3>
+          <p>Single-tenant <abbr>AMI</abbr> with deterministic boot. Delivers <abbr>API</abbr>, worker, and reporting services; integrates with customer <abbr>IAM</abbr>.</p>
         </div>
       </div>
       <p class="note">Coordinate <abbr>CSP</abbr>, <abbr>HSTS</abbr>, and <abbr>CAA</abbr> updates through your network and <abbr>DNS</abbr> teams. We provide implementation runbooks on request.</p>
