@@ -1,0 +1,14 @@
+{
+  "task": "SSOT-SYNC",
+  "source": {
+    "repo": "git@github.com:equilens-labs/fl-bsa.git",
+    "commit": "1e15897f28aea3c4f24a6418f5b6ed28272e79f0",
+    "path": "SSoT.md"
+  },
+  "artifacts": {
+    "source_txt": "source.txt",
+    "source_ssot": "SSoT.source.md",
+    "website_ssot": "SSoT.website.md",
+    "sha256sums": "SHA256SUMS.txt"
+  }
+}
