@@ -1,0 +1,13 @@
+== robots.txt ==
+User-agent: *
+Disallow: /
+
+== meta robots on / ==
+6:  <meta name="robots" content="noindex, nofollow">
+
+== sitemap status ==
+HTTP/2 404 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+etag: "6990ceed-94a"

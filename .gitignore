@@ -17,3 +17,6 @@ node_modules/
 
 # Local Playwright MCP artifacts
 .playwright-mcp/
+
+# Lighthouse CI local output
+.lighthouseci/

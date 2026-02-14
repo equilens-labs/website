@@ -1,0 +1,14 @@
+{
+  "task": "BACKLOG-INDEXING-AUDITS",
+  "stamp": "20260214T194603Z",
+  "artifacts": {
+    "meta": "meta.txt",
+    "intent": "intent.txt",
+    "diff": "git.diff",
+    "diffstat": "git.diffstat",
+    "pa11y": "pa11y.txt",
+    "lhci": "lhci.txt",
+    "production_checks": "production_checks.txt",
+    "sha256sums": "SHA256SUMS.txt"
+  }
+}

@@ -7,9 +7,9 @@
 
 ## Current Production Snapshot (Facts)
 
-- Live site footer shows last deploy **2025-12-05** (commit `fae4bf7`).
+- Live site footer shows last deploy **2026-02-14** (commit `b3af8e9`).
 - GitHub Pages is configured in **branch mode** (serving from `gh-pages`).
-- `audit.yml` is currently failing (Pa11y) while `pages.yml` deploy succeeded on the same SHA.
+- `audit.yml` succeeded on the same SHA as the latest deploy.
 
 ## P0 (Launch Blockers)
 
@@ -20,8 +20,8 @@
     - `workflow_dispatch visibility=private|public` produces the expected production behavior (robots + meta robots + sitemap).
   - Refs: `.github/workflows/pages.yml`, `scripts/deploy/prepare.sh`, `scripts/seo/*`, `scripts/og/render.sh`.
 
-- [ ] **Indexing posture: decide private vs public, then enforce**
-  - Problem: current production behavior is publicly indexable (robots allow) and does not reflect the README-stated "private-by-default" posture.
+- [x] **Indexing posture: decide private vs public, then enforce**
+  - Problem: production indexing posture previously drifted from the intended "private-by-default" behavior.
   - DoD:
     - Default visibility mode is explicitly chosen and enforced on push-to-main and manual deploys.
     - `robots.txt`, meta-robots tags, and `sitemap.xml` are consistent with the chosen posture.
@@ -34,8 +34,8 @@
     - Prefer stable public-release URLs (see FL-BSA repo guidance) instead of committing large binaries here, unless there is a deliberate reason to host locally.
   - Refs: `fl-bsa/index.html`, FL-BSA repo `docs/development/ci-cd.md` ("Release assets (website-linkable)").
 
-- [ ] **Robots points at missing sitemap**
-  - Problem: `robots.txt` advertises `Sitemap: https://equilens.io/sitemap.xml` but `sitemap.xml` is missing in `gh-pages` (404).
+- [x] **Robots points at missing sitemap**
+  - Problem: production previously advertised a sitemap in `robots.txt` while `sitemap.xml` was missing (404).
   - DoD:
     - Either publish a valid `sitemap.xml` when public OR remove the sitemap line when no sitemap is shipped.
     - `curl -I https://equilens.io/sitemap.xml` matches intended behavior for the chosen visibility mode.
@@ -92,13 +92,13 @@
     - Each claim is backed by shipped configuration/docs, or is softened to "supported / available options" with clear scoping.
   - Refs: `trust-center/index.html`, FL-BSA repo `docs/security/*`, deploy configs.
 
-- [ ] **Fix CSS font loading vs CSP + privacy posture**
+- [x] **Fix CSS font loading vs CSP + privacy posture**
   - Problem: `assets/eql/base.css` imports Google Fonts, but CSP `style-src 'self'` blocks it and it adds third-party requests.
   - DoD:
     - Either self-host fonts (preferred for CSP/privacy) or remove/replace the import and use local/system fonts.
   - Refs: `assets/eql/base.css`.
 
-- [ ] **Expand audits to cover FL-BSA and Trust Center pages**
+- [x] **Expand audits to cover FL-BSA and Trust Center pages**
   - Problem: `ops/pa11yci.json` and `ops/lighthouserc.json` only cover `/`, `/contact/`, `/legal/`.
   - DoD:
     - Add `/fl-bsa/` and `/trust-center/` (at minimum) to a11y/Lighthouse sweeps.
