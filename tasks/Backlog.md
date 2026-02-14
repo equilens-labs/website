@@ -13,7 +13,7 @@
 
 ## P0 (Launch Blockers)
 
-- [ ] **Fix deploy workflow mismatch (branch-mode Pages)**
+- [x] **Fix deploy workflow mismatch (branch-mode Pages)**
   - Problem: `pages.yml` "build" job performs SEO toggles + sitemap + OG + PDF render, but the branch-mode publish job re-checks out and only runs `scripts/deploy/prepare.sh`, so those build steps never ship.
   - DoD:
     - One deploy path produces the final `dist/` (including visibility toggles + sitemap + OG renders + PDFs if intended) and publishes exactly that output to `gh-pages`.
@@ -27,7 +27,7 @@
     - `robots.txt`, meta-robots tags, and `sitemap.xml` are consistent with the chosen posture.
   - Refs: `README.md`, `robots.txt`, `scripts/seo/set-indexing.py`, `scripts/seo/toggle-robots.sh`.
 
-- [ ] **Broken FL-BSA downloads (404): Whitepaper + Example Report**
+- [x] **Broken FL-BSA downloads (404): Whitepaper + Example Report**
   - Problem: `/fl-bsa/` links to PDFs that do not exist in the deployed tree.
   - DoD:
     - Both links resolve (HTTP 200) or the CTAs are removed/disabled until ready.
@@ -41,7 +41,7 @@
     - `curl -I https://equilens.io/sitemap.xml` matches intended behavior for the chosen visibility mode.
   - Refs: `robots.txt`, `scripts/seo/gen-sitemap.py`.
 
-- [ ] **Fix invalid JSON-LD on `/fl-bsa/` (SEO structured data)**
+- [x] **Fix invalid JSON-LD on `/fl-bsa/` (SEO structured data)**
   - Problem: FAQ JSON-LD includes an HTML comment inside the JSON, making it invalid.
   - DoD:
     - JSON-LD blocks are valid JSON (parseable) and pass basic linting.
@@ -53,13 +53,13 @@
     - Replace placeholder with actual representative details OR (if not applicable) adjust the claim and ensure legal counsel is aligned.
   - Refs: `legal/index.html`, `tasks/Legal3.md`, `tasks/Legal4.md`.
 
-- [ ] **Contact page functionality vs CSP**
+- [x] **Contact page functionality vs CSP**
   - Problem: pages set CSP `script-src 'self'`, but `/contact/` relies on an inline `<script>` (likely blocked in modern browsers).
   - DoD:
     - Contact flow works with the deployed CSP (recommended: move inline JS into a same-origin script under `assets/`).
   - Refs: `contact/index.html`.
 
-- [ ] **Fix failing accessibility audit (Pa11y)**
+- [x] **Fix failing accessibility audit (Pa11y)**
   - Problem: home page uses obsolete `<center>` markup; Pa11y CI fails.
   - DoD:
     - `pa11y-ci --config ops/pa11yci.json` passes locally and in `audit.yml`.
