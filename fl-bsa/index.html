@@ -45,12 +45,13 @@
     "mainEntity":[
       {"@type":"Question","name":"Do we send any data to Equilens?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default."}},
       {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"From minutes for 10k rows to approximately 12 minutes for around 1M rows on validated hardware profiles; daily monitoring runs reuse the generator and complete in ≤5 minutes."}},
-      {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}}<!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->,
+      {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
       {"@type":"Question","name":"What are the deployment options?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace AMI or containerized via docker-compose. CPU-only and GPU-preferred profiles supported."}},
       {"@type":"Question","name":"What’s in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, a signed manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are chained for auditability and can be retrieved by Task ID."}}
     ]
    }
   </script>
+  <!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->
   <link rel="stylesheet" href="/assets/eql/base.css">
 </head>
  <body class="eql">
@@ -226,12 +227,12 @@
         <div class="card">
           <h3>Whitepaper</h3>
           <p>Technical overview of FL-BSA's approach to fair-lending bias simulation and evidence generation.</p>
-          <a class="btn btn-secondary" href="/fl-bsa/resources/fl-bsa-whitepaper.pdf" target="_blank">View Whitepaper</a>
+          <a class="btn btn-secondary" href="/contact/">Request Whitepaper</a>
         </div>
         <div class="card">
           <h3>Example Report</h3>
           <p>Sample evidence bundle showing the 30-page <abbr>PDF</abbr> report, certificates, and manifest structure.</p>
-          <a class="btn btn-secondary" href="/fl-bsa/resources/fl-bsa-example-report.pdf" target="_blank">View Example</a>
+          <a class="btn btn-secondary" href="/contact/">Request Example Report</a>
         </div>
       </div>
       <div class="card mt-6">

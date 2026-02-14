@@ -23,6 +23,7 @@
   <a class="skip-to-content" href="#main">Skip to content</a>
   <div id="nav-placeholder"></div>
   <script src="/assets/eql/nav.js" defer></script>
+  <script src="/assets/eql/contact.js" defer></script>
 
 <main id="main">
   <section class="hero" aria-label="Contact information">
@@ -89,30 +90,6 @@
     </div>
   </section>
 </main>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const org = document.getElementById('organisation').value;
-  const role = document.getElementById('role').value;
-  const region = document.getElementById('region').value;
-  const interest = document.getElementById('interest').value;
-  const message = document.getElementById('message').value;
-
-  let body = '';
-  if (name) body += 'Name: ' + name + '\n';
-  if (org) body += 'Organisation: ' + org + '\n';
-  if (role) body += 'Role: ' + role + '\n';
-  if (region) body += 'Region: ' + region + '\n';
-  if (interest) body += 'Interest: ' + interest + '\n';
-  if (message) body += '\n' + message;
-
-  const subject = interest ? 'FL-BSA enquiry: ' + interest : 'FL-BSA enquiry';
-  const mailto = 'mailto:equilens@equilens.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  window.location.href = mailto;
-});
-</script>
 
 <footer class="site-footer" data-sync="footer" role="contentinfo">
   <div class="container grid">

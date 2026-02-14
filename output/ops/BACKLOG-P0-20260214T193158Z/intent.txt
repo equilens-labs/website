@@ -1,0 +1,9 @@
+Backlog P0 fixes:
+- Remove obsolete <center> tag on home page (Pa11y).
+- Make /contact/ work under CSP by moving inline JS to /assets/.
+- Fix invalid JSON-LD on /fl-bsa/ (remove HTML comment inside JSON).
+- Remove/replace broken local PDF links on /fl-bsa/.
+
+Notes:
+- EU GDPR representative placeholder remains (needs business/legal input).
+- Deploy workflow branch-mode mismatch not addressed in this bundle.
