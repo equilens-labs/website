@@ -1,0 +1,3 @@
+08c4947 fix(audits): deterministic fonts, LHCI config, and evidence ignore
+4e5e47d chore(evidence): fix backlog evidence provenance/whitespace
+e0954df fix: align indexing defaults, fonts, and audits

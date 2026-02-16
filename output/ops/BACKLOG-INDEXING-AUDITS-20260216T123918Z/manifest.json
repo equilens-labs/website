@@ -1,13 +1,21 @@
 {
   "task": "BACKLOG-INDEXING-AUDITS",
-  "stamp": "20260216T113946Z",
+  "stamp_utc": "20260216T123918Z",
+  "subject": {
+    "branch": "backlog/indexing-fonts-audits",
+    "head": "08c494742f4b9070231e66028a671411569e654c",
+    "merge_base_main": "b3af8e97285f590417821e1827eaea356d1812d9",
+    "compare": "origin/main...08c494742f4b9070231e66028a671411569e654c"
+  },
   "artifacts": {
     "meta": "meta.txt",
     "intent": "intent.txt",
+    "subject_files": "subject_files.txt",
+    "subject_sha256": "subject_sha256.txt",
+    "git_log": "git.log",
     "git_diffstat": "git.diffstat",
     "git_name_status": "git.name-status",
     "git_numstat": "git.numstat",
-    "git_log": "git.log",
     "pa11y": "pa11y.txt",
     "lhci": "lhci.txt",
     "production_checks": "production_checks.txt",

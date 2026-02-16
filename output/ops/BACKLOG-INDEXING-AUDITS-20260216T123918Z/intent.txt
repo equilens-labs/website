@@ -1,0 +1,16 @@
+Intent: Evidence bundle for BACKLOG indexing/audits fixes.
+
+What was checked:
+- Pa11y CI (WCAG2AA) against 5 local URLs (http://localhost:8080/*).
+- Lighthouse CI against the same 5 URLs.
+- Production snapshot checks for robots/meta-robots/sitemap behavior.
+- Git whitespace check for origin/main...subject_head.
+
+Attestation model:
+- This bundle attests to the PR's non-evidence file contents via subject_sha256.txt.
+- It does not attempt to self-attest to the git commit that contains this bundle.
+
+How to verify:
+- Compare subject_sha256.txt against the working tree for the listed subject_files.
+- Identify the commit that introduced this bundle with:
+  git log -1 --format=%H -- output/ops/BACKLOG-INDEXING-AUDITS-20260216T123918Z

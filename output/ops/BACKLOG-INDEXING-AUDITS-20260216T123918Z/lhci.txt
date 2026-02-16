@@ -3,9 +3,6 @@
 ✅  Chrome installation found
 Healthcheck passed!
 
-Started a web server with "python3 -m http.server 8080"...
-WARNING: Timed out waiting for the server to start listening.
-         Ensure the server prints a pattern that matches /listen|ready/i when it is ready.
 Running Lighthouse 1 time(s) on http://localhost:8080/
 Run #1...done.
 Running Lighthouse 1 time(s) on http://localhost:8080/contact/

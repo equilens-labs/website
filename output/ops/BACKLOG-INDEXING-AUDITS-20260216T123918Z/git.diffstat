@@ -1,0 +1,20 @@
+ .github/workflows/audit.yml                        |  2 +-
+ .gitignore                                         | 16 ++++++++++++--
+ assets/eql/base.css                                |  6 +++---
+ ops/lighthouserc.json                              |  3 ++-
+ ops/pa11yci.json                                   |  2 ++
+ .../SHA256SUMS.txt                                 | 11 ++++++++++
+ .../git.diffstat                                   | 16 ++++++++++++++
+ .../git.log                                        |  1 +
+ .../git.name-status                                | 15 +++++++++++++
+ .../git.numstat                                    | 15 +++++++++++++
+ .../intent.txt                                     | 10 +++++++++
+ .../lhci.txt                                       | 25 ++++++++++++++++++++++
+ .../manifest.json                                  | 17 +++++++++++++++
+ .../meta.txt                                       |  5 +++++
+ .../pa11y.txt                                      |  8 +++++++
+ .../production_checks.txt                          | 16 ++++++++++++++
+ .../whitespace_check.txt                           |  1 +
+ robots.txt                                         |  3 +--
+ tasks/Backlog.md                                   | 16 +++++++-------
+ 19 files changed, 171 insertions(+), 17 deletions(-)
