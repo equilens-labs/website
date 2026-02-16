@@ -1,0 +1,16 @@
+ .gitignore                                         |   3 +
+ assets/eql/base.css                                |   1 -
+ ops/lighthouserc.json                              |   2 +
+ ops/pa11yci.json                                   |   2 +
+ .../SHA256SUMS.txt                                 |   7 ++
+ .../git.diff                                       | 112 +++++++++++++++++++++
+ .../git.diffstat                                   |   7 ++
+ .../intent.txt                                     |  10 ++
+ .../lhci.txt                                       |  25 +++++
+ .../manifest.json                                  |  14 +++
+ .../meta.txt                                       |   4 +
+ .../pa11y.txt                                      |   8 ++
+ .../production_checks.txt                          |  13 +++
+ robots.txt                                         |   3 +-
+ tasks/Backlog.md                                   |  16 +--
+ 15 files changed, 216 insertions(+), 11 deletions(-)

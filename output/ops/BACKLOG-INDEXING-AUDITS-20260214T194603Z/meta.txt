@@ -1,4 +1,0 @@
-stamp_utc: 20260214T194603Z
-branch: backlog/indexing-fonts-audits
-head: b3af8e9
-base_main: b3af8e9

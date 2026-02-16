@@ -1,7 +1,0 @@
- .gitignore            |  3 +++
- assets/eql/base.css   |  1 -
- ops/lighthouserc.json |  2 ++
- ops/pa11yci.json      |  2 ++
- robots.txt            |  3 +--
- tasks/Backlog.md      | 16 ++++++++--------
- 6 files changed, 16 insertions(+), 11 deletions(-)

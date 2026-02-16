@@ -1,0 +1,5 @@
+stamp_utc: 20260216T113946Z
+branch: backlog/indexing-fonts-audits
+validated_commit: e0954df
+merge_base_main: b3af8e9
+compare: origin/main...e0954df

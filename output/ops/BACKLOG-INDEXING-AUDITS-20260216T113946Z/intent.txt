@@ -1,0 +1,10 @@
+Evidence bundle for backlog batch:
+- robots.txt private-by-default (Disallow) to match deploy default.
+- Remove Google Fonts @import (blocked by CSP; avoids third-party dependency).
+- Expand Pa11y/LHCI URL coverage to include /fl-bsa/ and /trust-center/.
+- Update tasks/Backlog.md snapshot and checkboxes.
+
+Validation:
+- pa11y-ci against 5 URLs (local http.server).
+- lhci autorun against 5 URLs (local http.server).
+- Production spot-checks: robots.txt + meta robots + sitemap status.
