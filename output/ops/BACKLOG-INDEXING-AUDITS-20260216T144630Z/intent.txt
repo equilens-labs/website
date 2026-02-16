@@ -11,5 +11,5 @@ Attestation model:
 - SHA256SUMS.txt intentionally excludes itself (self-hashing is not meaningful).
 
 How to verify:
-- (cd output/ops/BACKLOG-INDEXING-AUDITS-20260216T143408Z && shasum -a 256 -c SHA256SUMS.txt)
+- (cd output/ops/BACKLOG-INDEXING-AUDITS-20260216T144630Z && shasum -a 256 -c SHA256SUMS.txt)
 - Compare subject_sha256.txt against the working tree for the listed subject_files.

@@ -1,3 +1,6 @@
+140be73 chore(evidence): correct production meta-robots capture
+9979643 chore(evidence): fix SHA256SUMS self-entry + EOF whitespace
+159eed7 chore(evidence): add refreshed BACKLOG indexing audits bundle
 d6a893e chore(evidence): drop superseded BACKLOG indexing audits bundle
 ce4ea67 fix(audits): restore LHCI auto-start locally; use CI config in workflow
 03201ed chore(evidence): fix production_checks EOF whitespace

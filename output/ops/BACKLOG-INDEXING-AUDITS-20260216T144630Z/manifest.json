@@ -1,11 +1,11 @@
 {
   "task": "BACKLOG-INDEXING-AUDITS",
-  "stamp_utc": "20260216T143408Z",
+  "stamp_utc": "20260216T144630Z",
   "subject": {
     "branch": "backlog/indexing-fonts-audits",
-    "head": "d6a893e8a14584ded2d6d21cfcbea7f0b19ba7bc",
+    "head": "140be732d1b625769337df84fd4b77e108a15b57",
     "merge_base_main": "b3af8e97285f590417821e1827eaea356d1812d9",
-    "compare": "origin/main...d6a893e8a14584ded2d6d21cfcbea7f0b19ba7bc"
+    "compare": "origin/main...140be732d1b625769337df84fd4b77e108a15b57"
   },
   "artifacts": {
     "meta": "meta.txt",
