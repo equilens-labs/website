@@ -1,0 +1,14 @@
+ .github/workflows/audit.yml                        |   4 +-
+ .gitignore                                         |  16 +-
+ assets/eql/base.css                                |   6 +-
+ ops/lighthouserc.ci.json                           |  21 +
+ ops/lighthouserc.json                              |   5 +-
+ ops/pa11yci.json                                   |   2 +
+ .../ops/SSOT-SYNC-20260216T123713Z/SHA256SUMS.txt  |   3 +
+ .../ops/SSOT-SYNC-20260216T123713Z/SSoT.source.md  | 449 +++++++++++++++++++++
+ .../ops/SSOT-SYNC-20260216T123713Z/SSoT.website.md | 449 +++++++++++++++++++++
+ .../ops/SSOT-SYNC-20260216T123713Z/manifest.json   |  14 +
+ output/ops/SSOT-SYNC-20260216T123713Z/source.txt   |   3 +
+ robots.txt                                         |   3 +-
+ tasks/Backlog.md                                   |  16 +-
+ 13 files changed, 973 insertions(+), 18 deletions(-)

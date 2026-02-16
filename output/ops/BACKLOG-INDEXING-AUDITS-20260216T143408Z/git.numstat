@@ -1,0 +1,13 @@
+2	2	.github/workflows/audit.yml
+14	2	.gitignore
+3	3	assets/eql/base.css
+21	0	ops/lighthouserc.ci.json
+4	1	ops/lighthouserc.json
+2	0	ops/pa11yci.json
+3	0	output/ops/SSOT-SYNC-20260216T123713Z/SHA256SUMS.txt
+449	0	output/ops/SSOT-SYNC-20260216T123713Z/SSoT.source.md
+449	0	output/ops/SSOT-SYNC-20260216T123713Z/SSoT.website.md
+14	0	output/ops/SSOT-SYNC-20260216T123713Z/manifest.json
+3	0	output/ops/SSOT-SYNC-20260216T123713Z/source.txt
+1	2	robots.txt
+8	8	tasks/Backlog.md

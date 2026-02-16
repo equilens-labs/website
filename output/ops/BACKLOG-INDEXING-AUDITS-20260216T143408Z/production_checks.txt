@@ -1,0 +1,33 @@
+== robots.txt (repo) ==
+User-agent: *
+Disallow: /
+
+== meta robots on / (repo index.html) ==
+(not found)
+
+== meta robots on production / (equilens.io) ==
+(not found)
+
+== x-robots-tag header on production / (equilens.io) ==
+(not present)
+
+== sitemap status (production) ==
+HTTP/2 404
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+etag: "6990ceed-94a"
+x-proxy-cache: MISS
+x-github-request-id: BA76:13255C:19B61:1A631:69932B42
+accept-ranges: bytes
+age: 0
+date: Mon, 16 Feb 2026 14:35:46 GMT
+via: 1.1 varnish
+x-served-by: cache-lcy-eglc8600047-LCY
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1771252547.877183,VS0,VE108
+vary: Accept-Encoding
+x-fastly-request-id: 2dae7ed6fbd1447032ed4a2b6d27c7e9797a55ad
+content-length: 2378
+

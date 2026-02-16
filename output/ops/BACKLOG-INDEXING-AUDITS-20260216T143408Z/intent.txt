@@ -1,0 +1,15 @@
+Intent: Evidence bundle for BACKLOG indexing/audits fixes.
+
+What was checked:
+- Pa11y CI (WCAG2AA) against 5 local URLs (http://localhost:8080/*) using ops/pa11yci.json.
+- Lighthouse CI against the same 5 URLs using ops/lighthouserc.json (auto-starts python http.server).
+- Production snapshot checks for robots/meta-robots/sitemap behavior (equilens.io).
+- Git whitespace check for origin/main...subject_head.
+
+Attestation model:
+- This bundle attests to the PR's non-evidence file contents via subject_sha256.txt.
+- SHA256SUMS.txt intentionally excludes itself (self-hashing is not meaningful).
+
+How to verify:
+- (cd output/ops/BACKLOG-INDEXING-AUDITS-20260216T143408Z && shasum -a 256 -c SHA256SUMS.txt)
+- Compare subject_sha256.txt against the working tree for the listed subject_files.
