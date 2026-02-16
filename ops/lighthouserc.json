@@ -8,7 +8,6 @@
         "http://localhost:8080/trust-center/",
         "http://localhost:8080/legal/"
       ],
-      "startServerCommand": "python3 -m http.server 8080",
       "numberOfRuns": 1
     },
     "assert": {

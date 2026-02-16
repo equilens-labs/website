@@ -59,7 +59,7 @@ jobs:
       - name: Accessibility (Pa11y CI)
         run: pa11y-ci --config ops/pa11yci.json
 
-      - name: Lighthouse CI (3 URLs)
+      - name: Lighthouse CI (5 URLs)
         run: lhci autorun --config=ops/lighthouserc.json || true
 
       - name: Upload audit artifacts
