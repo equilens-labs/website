@@ -1,8 +1,0 @@
-Running Pa11y on 5 URLs:
- > http://localhost:8080/ - 0 errors
- > http://localhost:8080/contact/ - 0 errors
- > http://localhost:8080/fl-bsa/ - 0 errors
- > http://localhost:8080/trust-center/ - 0 errors
- > http://localhost:8080/legal/ - 0 errors
-
-✔ 5/5 URLs passed

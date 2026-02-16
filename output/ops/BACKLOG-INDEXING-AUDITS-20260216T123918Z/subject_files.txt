@@ -1,7 +1,0 @@
-.github/workflows/audit.yml
-.gitignore
-assets/eql/base.css
-ops/lighthouserc.json
-ops/pa11yci.json
-robots.txt
-tasks/Backlog.md
