@@ -1,9 +1,0 @@
-stamp_utc: 20260218T103751Z
-task: BACKLOG-INDEXING-AUDITS
-branch: backlog/indexing-fonts-audits
-subject_head: d660e883656bb14f3843cb86b6eef4df01406522
-subject_head_short: d660e88
-merge_base_main: b3af8e97285f590417821e1827eaea356d1812d9
-compare: origin/main...d660e88
-subject_files_count: 9
-subject_sha256_file_sha256: 734a087f2b74aafa79734555ab48d6737ddebf63af47be3aeddcb59ae0f1ab10

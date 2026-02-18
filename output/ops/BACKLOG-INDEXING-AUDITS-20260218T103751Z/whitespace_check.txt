@@ -1,1 +1,0 @@
-scripts/ops/check_lhci_configs.py:72: new blank line at EOF.

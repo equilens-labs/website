@@ -1,24 +1,24 @@
  .github/workflows/audit.yml                        |  7 ++-
  .gitignore                                         | 16 ++++-
  assets/eql/base.css                                |  6 +-
- ops/lighthouserc.ci.json                           | 20 ++++++
+ ops/lighthouserc.ci.json                           | 20 +++++++
  ops/lighthouserc.json                              |  5 +-
  ops/pa11yci.json                                   |  2 +
  .../SHA256SUMS.txt                                 | 13 ++++
- .../git.diffstat                                   | 28 +++++++++
- .../git.log                                        | 11 ++++
- .../git.name-status                                | 27 ++++++++
- .../git.numstat                                    | 27 ++++++++
- .../intent.txt                                     | 15 +++++
+ .../git.diffstat                                   | 24 ++++++++
+ .../git.log                                        | 14 +++++
+ .../git.name-status                                | 23 +++++++
+ .../git.numstat                                    | 23 +++++++
+ .../intent.txt                                     | 19 ++++++
  .../lhci.txt                                       | 23 +++++++
  .../manifest.json                                  | 25 ++++++++
  .../meta.txt                                       |  9 +++
  .../pa11y.txt                                      |  8 +++
- .../production_checks.txt                          | 32 ++++++++++
- .../subject_files.txt                              |  8 +++
- .../subject_sha256.txt                             |  8 +++
+ .../production_checks.txt                          | 39 ++++++++++++
+ .../subject_files.txt                              |  9 +++
+ .../subject_sha256.txt                             |  9 +++
  .../whitespace_check.txt                           |  1 +
  robots.txt                                         |  3 +-
- scripts/ops/check_lhci_configs.py                  | 72 ++++++++++++++++++++++
+ scripts/ops/check_lhci_configs.py                  | 70 ++++++++++++++++++++++
  tasks/Backlog.md                                   | 16 ++---
- 23 files changed, 364 insertions(+), 18 deletions(-)
+ 23 files changed, 366 insertions(+), 18 deletions(-)

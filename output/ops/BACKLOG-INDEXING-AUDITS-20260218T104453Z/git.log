@@ -1,3 +1,5 @@
+a627405 chore: fix trailing newline in lhci parity check script
+5190dcf chore(evidence): refresh BACKLOG indexing checks (production robots + set-indexing preview)
 d660e88 chore(audits): enforce LHCI config parity
 e9a1c2d chore(evidence): remove SSOT sync bundle from indexing/audits PR
 4b00c40 chore(evidence): refresh BACKLOG indexing audits bundle (checksum + meta-robots)

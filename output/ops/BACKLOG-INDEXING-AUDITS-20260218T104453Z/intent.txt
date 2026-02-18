@@ -6,6 +6,7 @@ What was checked:
 - Indexing posture evidence:
   - repo index.html does not include a meta-robots tag by default;
   - scripts/seo/set-indexing.py injects meta-robots in "private" mode (captured via git-archive preview);
+  - deploy workflow invokes set-indexing (captured from .github/workflows/pages.yml);
   - production https://equilens.io/ currently includes meta-robots.
 - Production snapshot checks for robots/sitemap behavior (equilens.io).
 - Git whitespace check for origin/main...subject_head.
@@ -15,5 +16,5 @@ Attestation model:
 - SHA256SUMS.txt intentionally excludes itself (self-hashing is not meaningful).
 
 How to verify:
-- (cd output/ops/BACKLOG-INDEXING-AUDITS-20260218T103751Z && shasum -a 256 -c SHA256SUMS.txt)
+- (cd output/ops/BACKLOG-INDEXING-AUDITS-20260218T104453Z && shasum -a 256 -c SHA256SUMS.txt)
 - Compare subject_sha256.txt against the working tree for the listed subject_files.

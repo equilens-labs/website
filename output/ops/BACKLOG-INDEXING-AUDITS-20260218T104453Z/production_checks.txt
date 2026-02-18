@@ -1,0 +1,66 @@
+== robots.txt (repo) ==
+User-agent: *
+Disallow: /
+
+== robots.txt (production headers) ==
+HTTP/2 200
+server: GitHub.com
+content-type: text/plain; charset=utf-8
+last-modified: Sat, 14 Feb 2026 19:37:17 GMT
+access-control-allow-origin: *
+etag: "6990ceed-1a"
+expires: Wed, 18 Feb 2026 10:45:10 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 0E5C:27B90D:30A79C:32159E:699595DE
+accept-ranges: bytes
+age: 0
+date: Wed, 18 Feb 2026 10:46:09 GMT
+via: 1.1 varnish
+x-served-by: cache-lcy-eglc8600076-LCY
+x-cache: HIT
+x-cache-hits: 0
+x-timer: S1771411569.896019,VS0,VE104
+vary: Accept-Encoding
+x-fastly-request-id: 6e448c956620c6909c3744e2d0aa0cc3f293b2a5
+content-length: 26
+
+
+== robots.txt (production body) ==
+User-agent: *
+Disallow: /
+
+== deploy-time indexing hook (pages.yml) ==
+94:          python3 scripts/seo/set-indexing.py "${SITE_VISIBILITY}"
+
+== meta robots on / (repo index.html) ==
+(not found)
+
+== set-indexing.py private preview (git archive) ==
+6:  <meta name="robots" content="noindex, nofollow">
+
+== meta robots on production / (equilens.io) ==
+6:  <meta name="robots" content="noindex, nofollow">
+
+== x-robots-tag header on production / (equilens.io) ==
+(not present)
+
+== sitemap status (production) ==
+HTTP/2 404
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+etag: "6990ceed-94a"
+x-proxy-cache: MISS
+x-github-request-id: 42D8:F061B:309B1E:320907:699595DE
+accept-ranges: bytes
+age: 659
+date: Wed, 18 Feb 2026 10:46:09 GMT
+via: 1.1 varnish
+x-served-by: cache-lcy-eglc8600052-LCY
+x-cache: HIT
+x-cache-hits: 0
+x-timer: S1771411570.836686,VS0,VE1
+vary: Accept-Encoding
+x-fastly-request-id: f6999e56877994280b815f52df4534955c5b0f64
+content-length: 2378
