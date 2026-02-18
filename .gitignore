@@ -7,6 +7,7 @@ dist/
 
 # Node tooling
 node_modules/
+.lighthouseci/
 
 # Ignore local server temp files
 /tmp/website_server.log
