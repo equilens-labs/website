@@ -1,0 +1,7 @@
+stamp_utc: 20260218T154434Z
+branch: legal/equilens-trademark-registered
+head: b3af8e97285f590417821e1827eaea356d1812d9
+node: v25.2.1
+playwright: 1.56.1
+uk_tm_number: UK00004282061
+ukipo_results_url: https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004282061

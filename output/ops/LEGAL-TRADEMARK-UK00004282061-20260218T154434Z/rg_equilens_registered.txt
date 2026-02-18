@@ -1,0 +1,8 @@
+./trust-center/index.html:140:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./legal/index.html:273:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./fl-bsa/index.html:302:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./procurement/index.html:165:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./404.html:53:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./press/index.html:89:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./index.html:137:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
+./contact/index.html:113:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
