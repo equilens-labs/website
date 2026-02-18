@@ -1,3 +1,0 @@
-repo: git@github.com:equilens-labs/fl-bsa.git
-commit: e7173904b03ae4bd1594a1a734106148bb53175e
-path: SSoT.md
