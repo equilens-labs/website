@@ -5,4 +5,5 @@ ops/lighthouserc.ci.json
 ops/lighthouserc.json
 ops/pa11yci.json
 robots.txt
+scripts/ops/check_lhci_configs.py
 tasks/Backlog.md

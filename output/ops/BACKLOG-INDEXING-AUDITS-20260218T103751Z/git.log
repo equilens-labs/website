@@ -1,3 +1,6 @@
+d660e88 chore(audits): enforce LHCI config parity
+e9a1c2d chore(evidence): remove SSOT sync bundle from indexing/audits PR
+4b00c40 chore(evidence): refresh BACKLOG indexing audits bundle (checksum + meta-robots)
 140be73 chore(evidence): correct production meta-robots capture
 9979643 chore(evidence): fix SHA256SUMS self-entry + EOF whitespace
 159eed7 chore(evidence): add refreshed BACKLOG indexing audits bundle
