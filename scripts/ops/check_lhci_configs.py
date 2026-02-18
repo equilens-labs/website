@@ -66,7 +66,5 @@ def main() -> int:
     print("[OK] lhci configs in sync")
     return 0
 
-
 if __name__ == "__main__":
     raise SystemExit(main())
-
