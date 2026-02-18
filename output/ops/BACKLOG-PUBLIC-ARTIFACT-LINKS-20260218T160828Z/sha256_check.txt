@@ -1,0 +1,11 @@
+fl-bsa-pub.release.latest.json: OK
+fl-bsa-pub.release.latest.txt: OK
+git.diff: OK
+git.diffstat: OK
+git.name-status: OK
+intent.txt: OK
+links.txt: OK
+links_check.txt: OK
+meta.txt: OK
+subject_files.txt: OK
+subject_sha256.txt: OK

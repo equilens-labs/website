@@ -1,0 +1,9 @@
+Expose public FL-BSA reports/files on the website by linking to the public artifacts repository.
+
+Changes:
+- /fl-bsa/: add direct download links for the Whitepaper and an Example Report.
+- /procurement/: add direct links to public synthetic/demo-only example artifacts (report + manifest + SHA256 sums).
+- /trust-center/: add links to the public artifacts repo and the website evidence bundles.
+
+Source of public artifacts:
+- https://github.com/equilens-labs/fl-bsa-pub (release assets; stable latest-download URLs).
