@@ -1,6 +1,7 @@
 stamp_utc: 20260218T154434Z
 branch: legal/equilens-trademark-registered
-head: b3af8e97285f590417821e1827eaea356d1812d9
+base_main: b3af8e97285f590417821e1827eaea356d1812d9
+subject_head_at_capture: 4e0d58a29f7610c7d72849c8b6465f1389f8f638
 node: v25.2.1
 playwright: 1.56.1
 uk_tm_number: UK00004282061
