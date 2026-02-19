@@ -1,0 +1,7 @@
+brand/icons/apple-touch-icon-180.png
+brand/icons/favicon.ico
+brand/icons/favicon.svg
+brand/icons/icon-192-maskable.png
+brand/icons/icon-512-maskable.png
+brand/icons/maskable.svg
+brand/symbol/equilens-symbol.svg

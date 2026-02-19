@@ -7,7 +7,7 @@ This directory contains all official Equilens brand assets, design tokens, and u
 ```
 /brand
 ├── logo/                  # Wordmark variants (light, dark, mono)
-├── symbol/               # Monogram "[ e ]" + Safari pinned tab
+├── symbol/               # Monogram "[ e ]", source raster set, Safari pinned tab
 ├── icons/                # Favicon, app icons, webmanifest
 ├── social/               # OG image templates (Facebook, X/Twitter)
 ├── tokens/               # Design tokens (CSS + JSON)

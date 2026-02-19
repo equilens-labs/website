@@ -1,0 +1,14 @@
+dimensions.txt: OK
+git.diff: OK
+git.diffstat: OK
+git.name-status: OK
+git.status: OK
+http_checks.txt: OK
+intent.txt: OK
+manifest_consistency.result.txt: OK
+manifest_consistency.txt: OK
+meta.txt: OK
+source_provenance.txt: OK
+source_sha256.txt: OK
+subject_files.txt: OK
+subject_sha256.txt: OK

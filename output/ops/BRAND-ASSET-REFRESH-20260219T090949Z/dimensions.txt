@@ -1,0 +1,8 @@
+brand/icons/apple-touch-icon-180.png: 180 180 
+brand/icons/icon-192-maskable.png: 192 192 
+brand/icons/icon-512-maskable.png: 512 512 
+brand/symbol/equilens-symbol-light-64.png: 64 64 
+brand/symbol/equilens-symbol-light-128.png: 128 128 
+brand/symbol/equilens-symbol-light-256.png: 256 256 
+brand/symbol/equilens-symbol-light-512.png: 512 512 
+brand/symbol/equilens-symbol-light-1024.png: 1024 1024 

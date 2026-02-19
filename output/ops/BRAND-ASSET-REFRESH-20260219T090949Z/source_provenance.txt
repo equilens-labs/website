@@ -1,0 +1,4 @@
+Provided source files were delivered by stakeholder in local filesystem path:
+../../Downloads/files-2
+
+No external download URL was used for this intake.

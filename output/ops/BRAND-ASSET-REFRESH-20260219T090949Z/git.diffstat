@@ -1,0 +1,8 @@
+ brand/icons/apple-touch-icon-180.png | Bin 6679 -> 4707 bytes
+ brand/icons/favicon.ico              | Bin 15086 -> 15086 bytes
+ brand/icons/favicon.svg              |   7 +++----
+ brand/icons/icon-192-maskable.png    | Bin 7650 -> 4873 bytes
+ brand/icons/icon-512-maskable.png    | Bin 23825 -> 15355 bytes
+ brand/icons/maskable.svg             |  13 +++++++------
+ brand/symbol/equilens-symbol.svg     |   7 +++----
+ 7 files changed, 13 insertions(+), 14 deletions(-)

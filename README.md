@@ -10,7 +10,7 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
   - Icons: `brand/icons/favicon.{svg,ico}`, Apple touch icons, PWA maskable icons
   - Social: `brand/social/og-1200x{630,600}.{svg,png}` for Open Graph images
   - Tokens: `brand/tokens/tokens.{json,css}` for design system
-  - Symbol: `brand/symbol/equilens-symbol.svg` for favicon source
+  - Symbol: `brand/symbol/equilens-symbol.svg` and `brand/symbol/equilens-symbol-light-*.png` for favicon/app-icon sources
 - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
 - Legal verification: `scripts/legal/verify.sh LEGAL-PUB-<tag>` captures compliance evidence for legal pages
 - Icon generation: `scripts/icons/generate.py` produces Apple/PWA icons in `brand/icons/`

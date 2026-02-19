@@ -1,0 +1,30 @@
+GET /brand/icons/favicon.ico
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.2
+Date: Thu, 19 Feb 2026 09:09:25 GMT
+Content-type: image/x-icon
+Content-Length: 15086
+GET /brand/icons/favicon.svg
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.2
+Date: Thu, 19 Feb 2026 09:09:25 GMT
+Content-type: image/svg+xml
+Content-Length: 908
+GET /brand/icons/apple-touch-icon-180.png
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.2
+Date: Thu, 19 Feb 2026 09:09:25 GMT
+Content-type: image/png
+Content-Length: 4707
+GET /brand/icons/icon-192-maskable.png
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.2
+Date: Thu, 19 Feb 2026 09:09:25 GMT
+Content-type: image/png
+Content-Length: 4873
+GET /brand/icons/icon-512-maskable.png
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.2
+Date: Thu, 19 Feb 2026 09:09:25 GMT
+Content-type: image/png
+Content-Length: 15355

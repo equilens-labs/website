@@ -1,0 +1,6 @@
+Integrate stakeholder-provided Equilens symbol-light raster assets into website icon outputs.
+Scope:
+- Import source PNG set (64/128/256/512/1024) under brand/symbol/.
+- Regenerate website-served icon PNGs (apple-touch 180, maskable 192/512) and favicon.ico from 1024 source.
+- Align favicon.svg and maskable.svg color/background treatment with light icon style.
+- Capture deterministic provenance and validation evidence.
