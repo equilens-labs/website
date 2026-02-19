@@ -3,9 +3,9 @@
   "stamp_utc": "20260218T104453Z",
   "subject": {
     "branch": "backlog/indexing-fonts-audits",
-    "head": "a627405525d8178098995f0f46e7b8d6b5da1985",
+    "head": "e22c811a4212f4ba217b00eb820ad1478fd5745b",
     "merge_base_main": "b3af8e97285f590417821e1827eaea356d1812d9",
-    "compare": "origin/main...a627405525d8178098995f0f46e7b8d6b5da1985"
+    "compare": "origin/main...e22c811a4212f4ba217b00eb820ad1478fd5745b"
   },
   "artifacts": {
     "meta": "meta.txt",
