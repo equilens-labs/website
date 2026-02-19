@@ -1,4 +1,5 @@
- output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat |  4 ----
- .../ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status |  2 +-
- .../resvg_command_check.txt                                  | 12 ++++++------
- 3 files changed, 7 insertions(+), 11 deletions(-)
+ .../dimensions.txt                                 | 16 +++----
+ .../git.diffstat                                   |  4 --
+ .../git.name-status                                |  3 +-
+ .../http_checks.txt                                | 50 +++++++++++-----------
+ 4 files changed, 35 insertions(+), 38 deletions(-)

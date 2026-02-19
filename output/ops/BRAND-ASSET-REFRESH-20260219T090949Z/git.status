@@ -1,5 +1,6 @@
+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/dimensions.txt
  M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
  M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
  M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
  M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
- M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/http_checks.txt
