@@ -7,7 +7,7 @@ This directory contains all official Equilens brand assets, design tokens, and u
 ```
 /brand
 ├── logo/                  # Wordmark variants (light, dark, mono)
-├── symbol/               # Monogram "[ e ]" + Safari pinned tab
+├── symbol/               # Monogram "[ e ]", source raster set, Safari pinned tab
 ├── icons/                # Favicon, app icons, webmanifest
 ├── social/               # OG image templates (Facebook, X/Twitter)
 ├── tokens/               # Design tokens (CSS + JSON)
@@ -19,16 +19,17 @@ This directory contains all official Equilens brand assets, design tokens, and u
 ### Favicon ICO
 
 ```bash
-magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./icons/favicon.ico
+magick ./symbol/equilens-symbol-light-1024.png -define icon:auto-resize=16,32,48 ./icons/favicon.ico
 ```
 
-### Maskable icons & Apple touch
+### Canonical full refresh (run from repository root)
 
 ```bash
-resvg ./icons/maskable.svg -w 180 -o ./icons/apple-touch-icon-180.png
-resvg ./icons/maskable.svg -w 192 -o ./icons/icon-192-maskable.png
-resvg ./icons/maskable.svg -w 512 -o ./icons/icon-512-maskable.png
+python3 scripts/icons/generate.py
 ```
+
+This canonical path uses `magick` as the single renderer backend for deterministic website icon outputs.
+Do not regenerate shipped `brand/icons/*.png` via `resvg`, because that path produces different bytes.
 
 ## Inline usage
 
