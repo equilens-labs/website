@@ -1,0 +1,5 @@
+[OK] wrote:
+  - brand/icons/apple-touch-icon-180.png (present)
+  - brand/icons/icon-192-maskable.png (present)
+  - brand/icons/icon-512-maskable.png (present)
+  - brand/icons/favicon.ico (present)

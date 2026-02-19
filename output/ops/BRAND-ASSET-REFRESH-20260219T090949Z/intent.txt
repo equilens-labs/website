@@ -1,0 +1,4 @@
+Address high-severity evidence consistency finding:
+- Align subject_files.txt with the exact file set attested by subject_sha256.txt.
+- Recompute subject_sha256.txt directly from subject_files.txt to ensure reproducible attestation.
+- Refresh bundle-level checksum files.

@@ -1,0 +1,3 @@
+manifest_path: brand/icons/site.webmanifest
+icons_count: 2
+missing: none
