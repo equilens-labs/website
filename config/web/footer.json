@@ -1,6 +1,6 @@
 {
   "brand": {
-    "trademark_status": "tm"
+    "trademark_status": "registered"
   },
   "columns": [
     {"title": "Company", "links": [
@@ -16,5 +16,5 @@
       {"label": "Open Source", "href": "/legal/#open-source"},
       {"label": "Accessibility", "href": "/legal/#accessibility"}]}
   ],
-  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd. Last deploy {deploy_date} (commit {commit})."
+  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd in the United Kingdom. Last deploy {deploy_date} (commit {commit})."
 }
