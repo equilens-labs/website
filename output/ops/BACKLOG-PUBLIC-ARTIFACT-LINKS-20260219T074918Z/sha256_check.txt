@@ -1,0 +1,14 @@
+artifact_digest_lock.txt: OK
+asset_integrity_check.txt: OK
+fl-bsa-pub.release.v4.0.3.min.json: OK
+fl-bsa-pub.release.v4.0.3.min.txt: OK
+git.diff: OK
+git.diffstat: OK
+git.name-status: OK
+intent.txt: OK
+links.txt: OK
+links_check.txt: OK
+meta.txt: OK
+release.SHA256SUMS.txt: OK
+subject_files.txt: OK
+subject_sha256.txt: OK
