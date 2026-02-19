@@ -1,7 +1,6 @@
-brand/icons/apple-touch-icon-180.png
-brand/icons/favicon.ico
-brand/icons/favicon.svg
-brand/icons/icon-192-maskable.png
-brand/icons/icon-512-maskable.png
-brand/icons/maskable.svg
-brand/symbol/equilens-symbol.svg
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt

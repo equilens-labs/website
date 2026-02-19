@@ -1,4 +1,10 @@
-Provided source files were delivered by stakeholder in local filesystem path:
-../../Downloads/files-2
+Canonical source for the imported raster symbol set is now pinned to an immutable public commit:
+https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
 
-No external download URL was used for this intake.
+Chain of custody:
+1) Stakeholder handoff received locally at ../../Downloads/files-2
+2) Files copied into repository path brand/symbol/equilens-symbol-light-*.png
+3) Public immutable commit anchor established at ab925bef5304a5ba0b58792534c0304072e9d696
+4) Remote-bytes verification recorded in source_immutable_check.txt
+
+Licensing/ownership basis is documented in legal_basis.txt.

@@ -25,9 +25,9 @@ magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./
 ### Maskable icons & Apple touch
 
 ```bash
-resvg ./icons/maskable.svg -w 180 -o ./icons/apple-touch-icon-180.png
-resvg ./icons/maskable.svg -w 192 -o ./icons/icon-192-maskable.png
-resvg ./icons/maskable.svg -w 512 -o ./icons/icon-512-maskable.png
+resvg -w 180 ./icons/maskable.svg ./icons/apple-touch-icon-180.png
+resvg -w 192 ./icons/maskable.svg ./icons/icon-192-maskable.png
+resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
 ```
 
 ## Inline usage

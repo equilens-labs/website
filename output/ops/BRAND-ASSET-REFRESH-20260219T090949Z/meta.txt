@@ -1,6 +1,10 @@
 stamp_utc: 20260219T090949Z
 branch: brand/asset-refresh-20260219
 base_main: 6633f31ca35a066d7cba83312479e98d62d024f1
-pre_commit_head: 6633f31ca35a066d7cba83312479e98d62d024f1
-source_delivery: stakeholder local handoff
-source_path: ../../Downloads/files-2
+pre_commit_head: ab925bef5304a5ba0b58792534c0304072e9d696
+source_origin_repo: https://github.com/equilens-labs/website
+source_origin_commit: ab925bef5304a5ba0b58792534c0304072e9d696
+source_origin_tree: https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
+source_intake_delivery: stakeholder local handoff
+source_intake_path: ../../Downloads/files-2
+legal_owner_reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061

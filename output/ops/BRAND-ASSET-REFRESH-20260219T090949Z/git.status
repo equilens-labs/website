@@ -1,12 +1,22 @@
- M brand/icons/apple-touch-icon-180.png
- M brand/icons/favicon.ico
- M brand/icons/favicon.svg
- M brand/icons/icon-192-maskable.png
- M brand/icons/icon-512-maskable.png
- M brand/icons/maskable.svg
- M brand/symbol/equilens-symbol.svg
-?? brand/symbol/equilens-symbol-light-1024.png
-?? brand/symbol/equilens-symbol-light-128.png
-?? brand/symbol/equilens-symbol-light-256.png
-?? brand/symbol/equilens-symbol-light-512.png
-?? brand/symbol/equilens-symbol-light-64.png
+M  README.md
+M  brand/README.md
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+AM output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/generator_check.txt
+MM output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+MM output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+MM output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+MM output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/legal_basis.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_immutable_check.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_immutable_urls.txt
+A  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_intake_sha256.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+M  output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+M  scripts/icons/generate.py

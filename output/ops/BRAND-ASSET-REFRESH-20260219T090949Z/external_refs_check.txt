@@ -1,0 +1,12 @@
+reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
+method: curl status probe
+http_status: 403
+note: UK IPO endpoint blocks non-browser clients; validate in browser for legal review.
+
+reference: https://find-and-update.company-information.service.gov.uk/company/14469638
+method: curl status probe
+http_status: 200
+
+reference: https://github.com/equilens-labs/website/commit/ab925bef5304a5ba0b58792534c0304072e9d696
+method: curl status probe
+http_status: 200
