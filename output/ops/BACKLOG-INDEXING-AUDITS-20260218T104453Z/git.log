@@ -1,0 +1,16 @@
+a627405 chore: fix trailing newline in lhci parity check script
+5190dcf chore(evidence): refresh BACKLOG indexing checks (production robots + set-indexing preview)
+d660e88 chore(audits): enforce LHCI config parity
+e9a1c2d chore(evidence): remove SSOT sync bundle from indexing/audits PR
+4b00c40 chore(evidence): refresh BACKLOG indexing audits bundle (checksum + meta-robots)
+140be73 chore(evidence): correct production meta-robots capture
+9979643 chore(evidence): fix SHA256SUMS self-entry + EOF whitespace
+159eed7 chore(evidence): add refreshed BACKLOG indexing audits bundle
+d6a893e chore(evidence): drop superseded BACKLOG indexing audits bundle
+ce4ea67 fix(audits): restore LHCI auto-start locally; use CI config in workflow
+03201ed chore(evidence): fix production_checks EOF whitespace
+2231866 chore(evidence): sync SSOT provenance to fl-bsa@e7173904
+3e14122 chore(evidence): refresh BACKLOG indexing audits bundle
+08c4947 fix(audits): deterministic fonts, LHCI config, and evidence ignore
+4e5e47d chore(evidence): fix backlog evidence provenance/whitespace
+e0954df fix: align indexing defaults, fonts, and audits

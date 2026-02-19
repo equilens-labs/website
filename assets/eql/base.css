@@ -3,7 +3,6 @@
    Version: 2.1 (Modern Professional)
    Last Updated: 2025-12-03
    ============================================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================================================
    1. CSS VARIABLES / DESIGN TOKENS
@@ -61,8 +60,9 @@
   --border-dark: var(--color-gray-400);
 
   /* --- Typography System --- */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', monospace;
+  /* System font stacks to avoid network font dependencies (CSP: style-src 'self'). */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* --- Spacing Scale --- */
   --space-0: 0;

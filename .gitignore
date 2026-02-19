@@ -1,5 +1,14 @@
-# Ignore all generated evidence and artifacts
-/output/
+# Evidence: keep committed bundles under output/ops/ (manifests, hashes, logs),
+# but ignore any other generated output and bulky screenshot PNGs.
+/output/**
+!/output/ops/
+!/output/ops/**
+
+# Transient CI/local artifacts: uploaded as workflow artifacts, not committed.
+output/ops/SCREENSHOTS-*/
+output/ops/PLAYWRIGHT-AUDIT-*/
+
+# Ignore bulky screenshot PNGs even inside committed evidence bundles.
 output/ops/**/*.png
 
 # Ignore build output
@@ -17,3 +26,6 @@ node_modules/
 
 # Local Playwright MCP artifacts
 .playwright-mcp/
+
+# Lighthouse CI local output
+.lighthouseci/

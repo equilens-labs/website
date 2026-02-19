@@ -59,8 +59,11 @@ jobs:
       - name: Accessibility (Pa11y CI)
         run: pa11y-ci --config ops/pa11yci.json
 
-      - name: Lighthouse CI (3 URLs)
-        run: lhci autorun --config=ops/lighthouserc.json || true
+      - name: Verify LHCI config parity
+        run: python3 scripts/ops/check_lhci_configs.py
+
+      - name: Lighthouse CI (5 URLs)
+        run: lhci autorun --config=ops/lighthouserc.ci.json || true
 
       - name: Upload audit artifacts
         if: always()
