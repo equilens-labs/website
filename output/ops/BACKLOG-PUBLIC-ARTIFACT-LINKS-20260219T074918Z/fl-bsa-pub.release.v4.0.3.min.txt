@@ -17,3 +17,4 @@ assets: 13
 
 required_assets_check: PASS
 required: whitepaper.pdf, customer_report.pdf, manifest.json, SHA256SUMS.txt
+required_assets_integrity: PASS
