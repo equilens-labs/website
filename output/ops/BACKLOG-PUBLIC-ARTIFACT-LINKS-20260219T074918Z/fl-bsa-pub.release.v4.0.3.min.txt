@@ -14,3 +14,6 @@ assets: 13
 - SHA256SUMS.txt
 - whitepaper.pdf
 - WhitePaper_Reviewer_Pack_v4.zip
+
+required_assets_check: PASS
+required: whitepaper.pdf, customer_report.pdf, manifest.json, SHA256SUMS.txt

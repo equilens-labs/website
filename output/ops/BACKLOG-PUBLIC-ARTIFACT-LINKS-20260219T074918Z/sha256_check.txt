@@ -1,5 +1,5 @@
-fl-bsa-pub.release.latest.json: OK
-fl-bsa-pub.release.latest.txt: OK
+fl-bsa-pub.release.v4.0.3.min.json: OK
+fl-bsa-pub.release.v4.0.3.min.txt: OK
 git.diff: OK
 git.diffstat: OK
 git.name-status: OK

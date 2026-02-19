@@ -1,4 +1,0 @@
-stamp_utc: 20260218T160828Z
-branch: backlog/public-artifact-links
-head: b3af8e97285f590417821e1827eaea356d1812d9
-fl_bsa_pub_repo: https://github.com/equilens-labs/fl-bsa-pub
