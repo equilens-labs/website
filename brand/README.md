@@ -22,14 +22,6 @@ This directory contains all official Equilens brand assets, design tokens, and u
 magick ./symbol/equilens-symbol-light-1024.png -define icon:auto-resize=16,32,48 ./icons/favicon.ico
 ```
 
-### Maskable icons & Apple touch
-
-```bash
-resvg -w 180 ./icons/maskable.svg ./icons/apple-touch-icon-180.png
-resvg -w 192 ./icons/maskable.svg ./icons/icon-192-maskable.png
-resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
-```
-
 ### Canonical full refresh (run from repository root)
 
 ```bash
@@ -37,6 +29,7 @@ python3 scripts/icons/generate.py
 ```
 
 This canonical path uses `magick` as the single renderer backend for deterministic website icon outputs.
+Do not regenerate shipped `brand/icons/*.png` via `resvg`, because that path produces different bytes.
 
 ## Inline usage
 

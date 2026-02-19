@@ -1,5 +1,4 @@
-Address renderer non-determinism finding:
-- Remove multi-renderer fallback from icon generator.
-- Require magick as the single renderer backend for all website icon outputs.
-- Regenerate icon PNG artifacts using the canonical renderer.
-- Capture repeated-run hash stability evidence.
+Address low-severity docs drift finding:
+- Remove non-canonical resvg icon generation commands from brand/README.md.
+- Keep a single documented icon regeneration path (scripts/icons/generate.py).
+- Explicitly warn against resvg regeneration for shipped icon PNG files.
