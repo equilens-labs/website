@@ -1,585 +1,628 @@
-diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
-index 4a24309..624d8fb 100644
---- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
-+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
-@@ -1,18 +1,12 @@
--https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
--HTTP/2 403
--date: Thu, 19 Feb 2026 09:44:23 GMT
--content-type: text/html; charset=UTF-8
--content-length: 7094
--accept-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
--https://find-and-update.company-information.service.gov.uk/company/14469638
--HTTP/2 200
--date: Thu, 19 Feb 2026 09:44:23 GMT
--content-type: text/html;charset=UTF-8
--content-length: 35158
--cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
--https://github.com/equilens-labs/website/commit/ab925bef5304a5ba0b58792534c0304072e9d696
--HTTP/2 200
--date: Thu, 19 Feb 2026 09:44:24 GMT
--content-type: text/html; charset=utf-8
--vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
--x-repository-download: git clone https://github.com/equilens-labs/website.git
-+reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
-+method: curl status probe
-+http_status: 403
-+note: UK IPO endpoint blocks non-browser clients; validate in browser for legal review.
-+
-+reference: https://find-and-update.company-information.service.gov.uk/company/14469638
-+method: curl status probe
-+http_status: 200
-+
-+reference: https://github.com/equilens-labs/website/commit/ab925bef5304a5ba0b58792534c0304072e9d696
-+method: curl status probe
-+http_status: 200
 diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
-index bf12db3..e69de29 100644
+index 9e159fa..e69de29 100644
 --- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
 +++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
-@@ -1,499 +0,0 @@
--diff --git a/README.md b/README.md
--index 7697f52..e5aace8 100644
----- a/README.md
--+++ b/README.md
--@@ -13,7 +13,7 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
--   - Symbol: `brand/symbol/equilens-symbol.svg` and `brand/symbol/equilens-symbol-light-*.png` for favicon/app-icon sources
-- - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
-- - Legal verification: `scripts/legal/verify.sh LEGAL-PUB-<tag>` captures compliance evidence for legal pages
---- Icon generation: `scripts/icons/generate.py` produces Apple/PWA icons in `brand/icons/`
--+- Icon generation: `scripts/icons/generate.py` regenerates `brand/icons/{apple-touch-icon-180.png,icon-192-maskable.png,icon-512-maskable.png,favicon.ico}` from `brand/symbol/equilens-symbol-light-1024.png`
-- - Additional hardening: `404.html`, `.well-known/security.txt`
-- - Custom domain: set via `CNAME`
-- - Workflows: `.github/workflows/pages.yml` (deploy) and `.github/workflows/audit.yml` (links/a11y/Lighthouse reports)
--diff --git a/brand/README.md b/brand/README.md
--index 5d978a2..2898bc7 100644
----- a/brand/README.md
--+++ b/brand/README.md
--@@ -25,9 +25,9 @@ magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./
-- ### Maskable icons & Apple touch
--
-- ```bash
---resvg ./icons/maskable.svg -w 180 -o ./icons/apple-touch-icon-180.png
---resvg ./icons/maskable.svg -w 192 -o ./icons/icon-192-maskable.png
---resvg ./icons/maskable.svg -w 512 -o ./icons/icon-512-maskable.png
--+resvg -w 180 ./icons/maskable.svg ./icons/apple-touch-icon-180.png
--+resvg -w 192 ./icons/maskable.svg ./icons/icon-192-maskable.png
--+resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
-- ```
--
-- ## Inline usage
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--index a5d20b6..fa38c68 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--@@ -1,14 +1,19 @@
-- 6b000ddca0f825206693f43184df3a687a3923a9daae4d42bb3a0b1b1e61289c  dimensions.txt
---92b5abf83971f96314b6840bf0eddb3205c6e5c602350cae46e374b5673ca7b2  git.diff
---407916a0c5a01e504ca71e31156fd43b080c736d16f8982ba2f22f7cfc296e06  git.diffstat
---d9fd353e9d17c88780eaf652d9ce1c4417992c7b0d14207fd883e9cc5e7a3c5e  git.name-status
---1aa442cc45c08e1d18056b85fae2c5ac4bbc1d43fc7508a75a99f710664e8c0e  git.status
--+bf56eb679185b44397d3d9e175129567ab370f227e20c9b6ea2b9584473f6c66  external_refs_check.txt
--+cea81367755eb22638affbe1fab5d6ab2e550e4ac372895791782fa488c30e86  git.diff
--+98718169cd16ccacdd8a43bead805d51dec4fa5cc8437d3bec2ee642dc4cd374  git.diffstat
--+3a7e827c6a28806fc0a5b89c21e12b20c5ec6c26458117ba17e0ce53fbdc33fe  git.name-status
--+42c2a08c3324794b3e8a23d4fb742acb8a928f4344bf0fcfe75d0c7031a1776d  git.status
-- 32dac1757b1f12d340ffe803275907309cd35de66cbb811d0609c9e909c7b993  http_checks.txt
---0fbbf86e63d1ef6b665df14295ae30e5453259e11fcf070f9a4dfb76725886b7  intent.txt
--+45598eb866e978e92361006678bd57725606d44d337bbaf4edfd37f4a3ecc2c3  intent.txt
--+253c6aaa3addd76028b9de53b4f288dcd983c2d1c5bb90b4b645353e040f1994  legal_basis.txt
-- 821697d98ed7f6c2c6ecc0a71b09463ec261724886a3b894387e4717bb99b035  manifest_consistency.result.txt
-- c33dc75717ebb6b7f494011efb7aebcdb232e01821d69195fc83e5a301305431  manifest_consistency.txt
---2b00ee4c493f7b16eea2199911cc91b6be583900f1b159bd78d0e574b7a175e2  meta.txt
---5274792e1814d0b1d792a6564579dea880a17b700c2b840ebf7e75894ab24ee0  source_provenance.txt
---749f44c89f99545fa81640fb67a2dc668f3478f1959c306517967f2cde4de800  source_sha256.txt
---9ed37ccfcadb7f7c330d5bf405815239fcf5b509b1d3a83c3c1e8d39061518c3  subject_files.txt
---4b1e6786b0bf62c219592abe9ae2ea5a128b491f60c6e0d3cbf808a746c170a8  subject_sha256.txt
--+2b7eeb200c5fb6b145c702892488cc4c9d86f89ed616ecf5f18de4cb28059e7a  meta.txt
--+a0f6423dec3c56855e901fbd7888b123832aadde64b65c686946d8d77e7ffaf4  source_immutable_check.txt
--+d3083868f75e1bc9006dfb105bd848825c754ddf6728a3ca5a830e6859a08807  source_immutable_urls.txt
--+749f44c89f99545fa81640fb67a2dc668f3478f1959c306517967f2cde4de800  source_intake_sha256.txt
--+a9ef4d9c6d5d475cf4aca3a1748afb34d089fc5551aee0ea5d56b5cf2c2eef38  source_provenance.txt
--+598f1579dbfea63e0b2e5ba775c8471719da507a19aee84bea221aae8756e6bf  source_sha256.txt
--+bc3953c710bb8e53a1d5b81d0ac75ee3cd544afc3f19971ec309a6d0d2b9775d  subject_files.txt
--+ef302ffe830625cd21016275f7c6ab41490e31ce34de97e1a729e63413e19016  subject_sha256.txt
+@@ -1,585 +0,0 @@
+-diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+-index 4a24309..624d8fb 100644
+---- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+-+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+-@@ -1,18 +1,12 @@
+--https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
+--HTTP/2 403
+--date: Thu, 19 Feb 2026 09:44:23 GMT
+--content-type: text/html; charset=UTF-8
+--content-length: 7094
+--accept-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+--https://find-and-update.company-information.service.gov.uk/company/14469638
+--HTTP/2 200
+--date: Thu, 19 Feb 2026 09:44:23 GMT
+--content-type: text/html;charset=UTF-8
+--content-length: 35158
+--cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+--https://github.com/equilens-labs/website/commit/ab925bef5304a5ba0b58792534c0304072e9d696
+--HTTP/2 200
+--date: Thu, 19 Feb 2026 09:44:24 GMT
+--content-type: text/html; charset=utf-8
+--vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
+--x-repository-download: git clone https://github.com/equilens-labs/website.git
+-+reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
+-+method: curl status probe
+-+http_status: 403
+-+note: UK IPO endpoint blocks non-browser clients; validate in browser for legal review.
+-+
+-+reference: https://find-and-update.company-information.service.gov.uk/company/14469638
+-+method: curl status probe
+-+http_status: 200
+-+
+-+reference: https://github.com/equilens-labs/website/commit/ab925bef5304a5ba0b58792534c0304072e9d696
+-+method: curl status probe
+-+http_status: 200
 -diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--index d28e07d..e69de29 100644
+-index bf12db3..e69de29 100644
 ---- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
 -+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--@@ -1,83 +0,0 @@
---diff --git a/brand/icons/apple-touch-icon-180.png b/brand/icons/apple-touch-icon-180.png
---index 73098cf..3f661c4 100644
---Binary files a/brand/icons/apple-touch-icon-180.png and b/brand/icons/apple-touch-icon-180.png differ
---diff --git a/brand/icons/favicon.ico b/brand/icons/favicon.ico
---index 02e5dff..8ae576b 100644
---Binary files a/brand/icons/favicon.ico and b/brand/icons/favicon.ico differ
---diff --git a/brand/icons/favicon.svg b/brand/icons/favicon.svg
---index d20aaff..51404a5 100644
------ a/brand/icons/favicon.svg
---+++ b/brand/icons/favicon.svg
---@@ -1,15 +1,14 @@
--- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="equilens-favicon">
---   <title id="equilens-favicon">Equilens</title>
---   <style>
---+    .bg { fill: #FFFFFF; }
---     .bracket { fill: #4F46E5; }
----    .text    { fill: #111827; }
---+    .text { fill: #111827; }
---   </style>
---+  <rect class="bg" width="64" height="64"/>
---   <g transform="translate(4,11)">
----    <!-- [ -->
---     <path class="bracket" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
----    <!-- e -->
---     <path class="text" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
----    <!-- ] -->
---     <path class="bracket" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
---   </g>
--- </svg>
---diff --git a/brand/icons/icon-192-maskable.png b/brand/icons/icon-192-maskable.png
---index 9ce02a2..45db38a 100644
---Binary files a/brand/icons/icon-192-maskable.png and b/brand/icons/icon-192-maskable.png differ
---diff --git a/brand/icons/icon-512-maskable.png b/brand/icons/icon-512-maskable.png
---index 63a7e3c..8fe3092 100644
---Binary files a/brand/icons/icon-512-maskable.png and b/brand/icons/icon-512-maskable.png differ
---diff --git a/brand/icons/maskable.svg b/brand/icons/maskable.svg
---index 4a5ccf0..e48d9e3 100644
------ a/brand/icons/maskable.svg
---+++ b/brand/icons/maskable.svg
---@@ -1,13 +1,14 @@
----<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
---+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="equilens-maskable">
---+  <title id="equilens-maskable">Equilens</title>
---   <defs>
---     <style>
----      .bg { fill: #111827; }    /* dark tile */
----      .br { fill: #A5B4FC; }    /* light indigo for contrast on dark */
----      .tx { fill: #FFFFFF; }    /* reversed */
---+      .bg { fill: #FFFFFF; }
---+      .br { fill: #4F46E5; }
---+      .tx { fill: #111827; }
---     </style>
---   </defs>
----  <rect class="bg" width="512" height="512" rx="96" ry="96"/>
----  <g transform="translate(96,120) scale(5.7)">  <!-- approx 10% inset -->
---+  <rect class="bg" width="512" height="512"/>
---+  <g transform="translate(96,120) scale(5.7)">
---     <path class="br" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
---     <path class="tx" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
---     <path class="br" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
---diff --git a/brand/symbol/equilens-symbol.svg b/brand/symbol/equilens-symbol.svg
---index d20aaff..51404a5 100644
------ a/brand/symbol/equilens-symbol.svg
---+++ b/brand/symbol/equilens-symbol.svg
---@@ -1,15 +1,14 @@
--- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="equilens-favicon">
---   <title id="equilens-favicon">Equilens</title>
---   <style>
---+    .bg { fill: #FFFFFF; }
---     .bracket { fill: #4F46E5; }
----    .text    { fill: #111827; }
---+    .text { fill: #111827; }
---   </style>
---+  <rect class="bg" width="64" height="64"/>
---   <g transform="translate(4,11)">
----    <!-- [ -->
---     <path class="bracket" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
----    <!-- e -->
---     <path class="text" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
----    <!-- ] -->
---     <path class="bracket" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
---   </g>
--- </svg>
+-@@ -1,499 +0,0 @@
+--diff --git a/README.md b/README.md
+--index 7697f52..e5aace8 100644
+----- a/README.md
+--+++ b/README.md
+--@@ -13,7 +13,7 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
+--   - Symbol: `brand/symbol/equilens-symbol.svg` and `brand/symbol/equilens-symbol-light-*.png` for favicon/app-icon sources
+-- - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
+-- - Legal verification: `scripts/legal/verify.sh LEGAL-PUB-<tag>` captures compliance evidence for legal pages
+---- Icon generation: `scripts/icons/generate.py` produces Apple/PWA icons in `brand/icons/`
+--+- Icon generation: `scripts/icons/generate.py` regenerates `brand/icons/{apple-touch-icon-180.png,icon-192-maskable.png,icon-512-maskable.png,favicon.ico}` from `brand/symbol/equilens-symbol-light-1024.png`
+-- - Additional hardening: `404.html`, `.well-known/security.txt`
+-- - Custom domain: set via `CNAME`
+-- - Workflows: `.github/workflows/pages.yml` (deploy) and `.github/workflows/audit.yml` (links/a11y/Lighthouse reports)
+--diff --git a/brand/README.md b/brand/README.md
+--index 5d978a2..2898bc7 100644
+----- a/brand/README.md
+--+++ b/brand/README.md
+--@@ -25,9 +25,9 @@ magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./
+-- ### Maskable icons & Apple touch
+--
+-- ```bash
+---resvg ./icons/maskable.svg -w 180 -o ./icons/apple-touch-icon-180.png
+---resvg ./icons/maskable.svg -w 192 -o ./icons/icon-192-maskable.png
+---resvg ./icons/maskable.svg -w 512 -o ./icons/icon-512-maskable.png
+--+resvg -w 180 ./icons/maskable.svg ./icons/apple-touch-icon-180.png
+--+resvg -w 192 ./icons/maskable.svg ./icons/icon-192-maskable.png
+--+resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
+-- ```
+--
+-- ## Inline usage
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--index a5d20b6..fa38c68 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--@@ -1,14 +1,19 @@
+-- 6b000ddca0f825206693f43184df3a687a3923a9daae4d42bb3a0b1b1e61289c  dimensions.txt
+---92b5abf83971f96314b6840bf0eddb3205c6e5c602350cae46e374b5673ca7b2  git.diff
+---407916a0c5a01e504ca71e31156fd43b080c736d16f8982ba2f22f7cfc296e06  git.diffstat
+---d9fd353e9d17c88780eaf652d9ce1c4417992c7b0d14207fd883e9cc5e7a3c5e  git.name-status
+---1aa442cc45c08e1d18056b85fae2c5ac4bbc1d43fc7508a75a99f710664e8c0e  git.status
+--+bf56eb679185b44397d3d9e175129567ab370f227e20c9b6ea2b9584473f6c66  external_refs_check.txt
+--+cea81367755eb22638affbe1fab5d6ab2e550e4ac372895791782fa488c30e86  git.diff
+--+98718169cd16ccacdd8a43bead805d51dec4fa5cc8437d3bec2ee642dc4cd374  git.diffstat
+--+3a7e827c6a28806fc0a5b89c21e12b20c5ec6c26458117ba17e0ce53fbdc33fe  git.name-status
+--+42c2a08c3324794b3e8a23d4fb742acb8a928f4344bf0fcfe75d0c7031a1776d  git.status
+-- 32dac1757b1f12d340ffe803275907309cd35de66cbb811d0609c9e909c7b993  http_checks.txt
+---0fbbf86e63d1ef6b665df14295ae30e5453259e11fcf070f9a4dfb76725886b7  intent.txt
+--+45598eb866e978e92361006678bd57725606d44d337bbaf4edfd37f4a3ecc2c3  intent.txt
+--+253c6aaa3addd76028b9de53b4f288dcd983c2d1c5bb90b4b645353e040f1994  legal_basis.txt
+-- 821697d98ed7f6c2c6ecc0a71b09463ec261724886a3b894387e4717bb99b035  manifest_consistency.result.txt
+-- c33dc75717ebb6b7f494011efb7aebcdb232e01821d69195fc83e5a301305431  manifest_consistency.txt
+---2b00ee4c493f7b16eea2199911cc91b6be583900f1b159bd78d0e574b7a175e2  meta.txt
+---5274792e1814d0b1d792a6564579dea880a17b700c2b840ebf7e75894ab24ee0  source_provenance.txt
+---749f44c89f99545fa81640fb67a2dc668f3478f1959c306517967f2cde4de800  source_sha256.txt
+---9ed37ccfcadb7f7c330d5bf405815239fcf5b509b1d3a83c3c1e8d39061518c3  subject_files.txt
+---4b1e6786b0bf62c219592abe9ae2ea5a128b491f60c6e0d3cbf808a746c170a8  subject_sha256.txt
+--+2b7eeb200c5fb6b145c702892488cc4c9d86f89ed616ecf5f18de4cb28059e7a  meta.txt
+--+a0f6423dec3c56855e901fbd7888b123832aadde64b65c686946d8d77e7ffaf4  source_immutable_check.txt
+--+d3083868f75e1bc9006dfb105bd848825c754ddf6728a3ca5a830e6859a08807  source_immutable_urls.txt
+--+749f44c89f99545fa81640fb67a2dc668f3478f1959c306517967f2cde4de800  source_intake_sha256.txt
+--+a9ef4d9c6d5d475cf4aca3a1748afb34d089fc5551aee0ea5d56b5cf2c2eef38  source_provenance.txt
+--+598f1579dbfea63e0b2e5ba775c8471719da507a19aee84bea221aae8756e6bf  source_sha256.txt
+--+bc3953c710bb8e53a1d5b81d0ac75ee3cd544afc3f19971ec309a6d0d2b9775d  subject_files.txt
+--+ef302ffe830625cd21016275f7c6ab41490e31ce34de97e1a729e63413e19016  subject_sha256.txt
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--index d28e07d..e69de29 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--@@ -1,83 +0,0 @@
+---diff --git a/brand/icons/apple-touch-icon-180.png b/brand/icons/apple-touch-icon-180.png
+---index 73098cf..3f661c4 100644
+---Binary files a/brand/icons/apple-touch-icon-180.png and b/brand/icons/apple-touch-icon-180.png differ
+---diff --git a/brand/icons/favicon.ico b/brand/icons/favicon.ico
+---index 02e5dff..8ae576b 100644
+---Binary files a/brand/icons/favicon.ico and b/brand/icons/favicon.ico differ
+---diff --git a/brand/icons/favicon.svg b/brand/icons/favicon.svg
+---index d20aaff..51404a5 100644
+------ a/brand/icons/favicon.svg
+---+++ b/brand/icons/favicon.svg
+---@@ -1,15 +1,14 @@
+--- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="equilens-favicon">
+---   <title id="equilens-favicon">Equilens</title>
+---   <style>
+---+    .bg { fill: #FFFFFF; }
+---     .bracket { fill: #4F46E5; }
+----    .text    { fill: #111827; }
+---+    .text { fill: #111827; }
+---   </style>
+---+  <rect class="bg" width="64" height="64"/>
+---   <g transform="translate(4,11)">
+----    <!-- [ -->
+---     <path class="bracket" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
+----    <!-- e -->
+---     <path class="text" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
+----    <!-- ] -->
+---     <path class="bracket" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
+---   </g>
+--- </svg>
+---diff --git a/brand/icons/icon-192-maskable.png b/brand/icons/icon-192-maskable.png
+---index 9ce02a2..45db38a 100644
+---Binary files a/brand/icons/icon-192-maskable.png and b/brand/icons/icon-192-maskable.png differ
+---diff --git a/brand/icons/icon-512-maskable.png b/brand/icons/icon-512-maskable.png
+---index 63a7e3c..8fe3092 100644
+---Binary files a/brand/icons/icon-512-maskable.png and b/brand/icons/icon-512-maskable.png differ
+---diff --git a/brand/icons/maskable.svg b/brand/icons/maskable.svg
+---index 4a5ccf0..e48d9e3 100644
+------ a/brand/icons/maskable.svg
+---+++ b/brand/icons/maskable.svg
+---@@ -1,13 +1,14 @@
+----<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+---+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="equilens-maskable">
+---+  <title id="equilens-maskable">Equilens</title>
+---   <defs>
+---     <style>
+----      .bg { fill: #111827; }    /* dark tile */
+----      .br { fill: #A5B4FC; }    /* light indigo for contrast on dark */
+----      .tx { fill: #FFFFFF; }    /* reversed */
+---+      .bg { fill: #FFFFFF; }
+---+      .br { fill: #4F46E5; }
+---+      .tx { fill: #111827; }
+---     </style>
+---   </defs>
+----  <rect class="bg" width="512" height="512" rx="96" ry="96"/>
+----  <g transform="translate(96,120) scale(5.7)">  <!-- approx 10% inset -->
+---+  <rect class="bg" width="512" height="512"/>
+---+  <g transform="translate(96,120) scale(5.7)">
+---     <path class="br" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
+---     <path class="tx" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
+---     <path class="br" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
+---diff --git a/brand/symbol/equilens-symbol.svg b/brand/symbol/equilens-symbol.svg
+---index d20aaff..51404a5 100644
+------ a/brand/symbol/equilens-symbol.svg
+---+++ b/brand/symbol/equilens-symbol.svg
+---@@ -1,15 +1,14 @@
+--- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="equilens-favicon">
+---   <title id="equilens-favicon">Equilens</title>
+---   <style>
+---+    .bg { fill: #FFFFFF; }
+---     .bracket { fill: #4F46E5; }
+----    .text    { fill: #111827; }
+---+    .text { fill: #111827; }
+---   </style>
+---+  <rect class="bg" width="64" height="64"/>
+---   <g transform="translate(4,11)">
+----    <!-- [ -->
+---     <path class="bracket" d="M12.32 -3.87H20.98V-0.97H16.08V30.3H20.98V33.2H12.32V-3.87Z"/>
+----    <!-- e -->
+---     <path class="text" d="M38.35 19.52v1.21H26.82q.17 2.58 1.56 3.92 1.4 1.35 3.89 1.35 1.45 0 2.8-.35 1.36-.35 2.7-1.06v2.36q-1.36.57-2.77.87-1.42.29-2.88.29-3.65 0-5.78-2.11-2.13-2.11-2.13-5.71 0-3.72 2.02-5.91 2.02-2.18 5.46-2.18 3.08 0 4.87 1.97 1.79 1.96 1.79 5.35Zm-2.51-.74q-.02-2.04-1.13-3.25-1.13-1.22-3-1.22-2.09 0-3.35 1.17-1.26 1.18-1.45 3.32l8.93-.02Z"/>
+----    <!-- ] -->
+---     <path class="bracket" d="M49.35 -3.87V33.2H40.69V30.3H45.57V-0.97H40.69V-3.87H49.35Z"/>
+---   </g>
+--- </svg>
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--index 9289e3d..395796b 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--@@ -1,8 +1,16 @@
+--- brand/icons/apple-touch-icon-180.png | Bin 6679 -> 4707 bytes
+--- brand/icons/favicon.ico              | Bin 15086 -> 15086 bytes
+--- brand/icons/favicon.svg              |   7 +++----
+--- brand/icons/icon-192-maskable.png    | Bin 7650 -> 4873 bytes
+--- brand/icons/icon-512-maskable.png    | Bin 23825 -> 15355 bytes
+--- brand/icons/maskable.svg             |  13 +++++++------
+--- brand/symbol/equilens-symbol.svg     |   7 +++----
+--- 7 files changed, 13 insertions(+), 14 deletions(-)
+--+ README.md                                          |   2 +-
+--+ brand/README.md                                    |   6 +-
+--+ .../SHA256SUMS.txt                                 |  25 +-
+--+ .../BRAND-ASSET-REFRESH-20260219T090949Z/git.diff  | 577 ++++++++++++++++++---
+--+ .../git.diffstat                                   |   8 -
+--+ .../git.name-status                                |  22 +-
+--+ .../git.status                                     |  27 +-
+--+ .../intent.txt                                     |  10 +-
+--+ .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  10 +-
+--+ .../sha256_check.txt                               |   5 +
+--+ .../source_provenance.txt                          |  12 +-
+--+ .../source_sha256.txt                              |  10 +-
+--+ .../subject_files.txt                              |  22 +-
+--+ .../subject_sha256.txt                             |   3 +
+--+ scripts/icons/generate.py                          | 119 ++++-
+--+ 15 files changed, 694 insertions(+), 164 deletions(-)
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--index 8b5fc6b..2ecebe4 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--@@ -1,7 +1,15 @@
+---M	brand/icons/apple-touch-icon-180.png
+---M	brand/icons/favicon.ico
+---M	brand/icons/favicon.svg
+---M	brand/icons/icon-192-maskable.png
+---M	brand/icons/icon-512-maskable.png
+---M	brand/icons/maskable.svg
+---M	brand/symbol/equilens-symbol.svg
+--+M	README.md
+--+M	brand/README.md
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--+M	scripts/icons/generate.py
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--index 5cac1e2..f7ce75e 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--@@ -1,12 +1,15 @@
+--- M brand/icons/apple-touch-icon-180.png
+--- M brand/icons/favicon.ico
+--- M brand/icons/favicon.svg
+--- M brand/icons/icon-192-maskable.png
+--- M brand/icons/icon-512-maskable.png
+--- M brand/icons/maskable.svg
+--- M brand/symbol/equilens-symbol.svg
+---?? brand/symbol/equilens-symbol-light-1024.png
+---?? brand/symbol/equilens-symbol-light-128.png
+---?? brand/symbol/equilens-symbol-light-256.png
+---?? brand/symbol/equilens-symbol-light-512.png
+---?? brand/symbol/equilens-symbol-light-64.png
+--+ M README.md
+--+ M brand/README.md
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--+ M scripts/icons/generate.py
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--index 50d2b72..014150b 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--@@ -1,6 +1,4 @@
+---Integrate stakeholder-provided Equilens symbol-light raster assets into website icon outputs.
+---Scope:
+---- Import source PNG set (64/128/256/512/1024) under brand/symbol/.
+---- Regenerate website-served icon PNGs (apple-touch 180, maskable 192/512) and favicon.ico from 1024 source.
+---- Align favicon.svg and maskable.svg color/background treatment with light icon style.
+---- Capture deterministic provenance and validation evidence.
+--+Address review findings for brand asset refresh evidence and tooling sync:
+--+- Replace local-only source provenance with immutable source references pinned to a public Git commit.
+--+- Align icon generation automation with current brand asset layout and output paths.
+--+- Correct brand export command syntax for current resvg CLI behavior.
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--index 82308e3..6efb956 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--@@ -1,6 +1,10 @@
+-- stamp_utc: 20260219T090949Z
+-- branch: brand/asset-refresh-20260219
+-- base_main: 6633f31ca35a066d7cba83312479e98d62d024f1
+---pre_commit_head: 6633f31ca35a066d7cba83312479e98d62d024f1
+---source_delivery: stakeholder local handoff
+---source_path: ../../Downloads/files-2
+--+pre_commit_head: ab925bef5304a5ba0b58792534c0304072e9d696
+--+source_origin_repo: https://github.com/equilens-labs/website
+--+source_origin_commit: ab925bef5304a5ba0b58792534c0304072e9d696
+--+source_origin_tree: https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
+--+source_intake_delivery: stakeholder local handoff
+--+source_intake_path: ../../Downloads/files-2
+--+legal_owner_reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--index 65b8160..1ef3f95 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--@@ -1,13 +1,18 @@
+-- dimensions.txt: OK
+--+external_refs_check.txt: OK
+-- git.diff: OK
+-- git.diffstat: OK
+-- git.name-status: OK
+-- git.status: OK
+-- http_checks.txt: OK
+-- intent.txt: OK
+--+legal_basis.txt: OK
+-- manifest_consistency.result.txt: OK
+-- manifest_consistency.txt: OK
+-- meta.txt: OK
+--+source_immutable_check.txt: OK
+--+source_immutable_urls.txt: OK
+--+source_intake_sha256.txt: OK
+-- source_provenance.txt: OK
+-- source_sha256.txt: OK
+-- subject_files.txt: OK
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--index 1f86034..f004a7a 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--@@ -1,4 +1,10 @@
+---Provided source files were delivered by stakeholder in local filesystem path:
+---../../Downloads/files-2
+--+Canonical source for the imported raster symbol set is now pinned to an immutable public commit:
+--+https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
+--
+---No external download URL was used for this intake.
+--+Chain of custody:
+--+1) Stakeholder handoff received locally at ../../Downloads/files-2
+--+2) Files copied into repository path brand/symbol/equilens-symbol-light-*.png
+--+3) Public immutable commit anchor established at ab925bef5304a5ba0b58792534c0304072e9d696
+--+4) Remote-bytes verification recorded in source_immutable_check.txt
+--+
+--+Licensing/ownership basis is documented in legal_basis.txt.
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--index 0e470c8..bc0f2ec 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--@@ -1,5 +1,5 @@
+---068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  ../../Downloads/files-2/equilens-symbol-light-64.png
+---d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  ../../Downloads/files-2/equilens-symbol-light-128.png
+---8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  ../../Downloads/files-2/equilens-symbol-light-256.png
+---dd7cf2df93428e5e5a8cb9c1abb4ba4bfaaca1893665a6ece90e21d573ee8ea0  ../../Downloads/files-2/equilens-symbol-light-512.png
+---07ffcde48c2c13223bdbb3ad6a29596b9636c11b8935b5ce6f58acd97239c2ba  ../../Downloads/files-2/equilens-symbol-light-1024.png
+--+068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  brand/symbol/equilens-symbol-light-64.png
+--+d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  brand/symbol/equilens-symbol-light-128.png
+--+8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  brand/symbol/equilens-symbol-light-256.png
+--+dd7cf2df93428e5e5a8cb9c1abb4ba4bfaaca1893665a6ece90e21d573ee8ea0  brand/symbol/equilens-symbol-light-512.png
+--+07ffcde48c2c13223bdbb3ad6a29596b9636c11b8935b5ce6f58acd97239c2ba  brand/symbol/equilens-symbol-light-1024.png
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--index 16a3dd9..0483df6 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--@@ -1,7 +1,15 @@
+---brand/icons/apple-touch-icon-180.png
+---brand/icons/favicon.ico
+---brand/icons/favicon.svg
+---brand/icons/icon-192-maskable.png
+---brand/icons/icon-512-maskable.png
+---brand/icons/maskable.svg
+---brand/symbol/equilens-symbol.svg
+--+README.md
+--+brand/README.md
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--+scripts/icons/generate.py
+--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--index 0a0c924..3864187 100644
+----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--@@ -1,3 +1,6 @@
+--+6fd68273180dadf9e0120e8cb0a5e48c19a40e6e742be8852f443071f686d71b  README.md
+--+d721e811630454c119cf5ac9ac18e2a86f8de1ce9cb9e5651def1451d4d2588a  brand/README.md
+--+deaff1b8b7f54df097eadb7c4525cb3d06a62cb3602cdc8690a964ccd612b955  scripts/icons/generate.py
+-- 068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  brand/symbol/equilens-symbol-light-64.png
+-- d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  brand/symbol/equilens-symbol-light-128.png
+-- 8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  brand/symbol/equilens-symbol-light-256.png
+--diff --git a/scripts/icons/generate.py b/scripts/icons/generate.py
+--index 590dab3..787c095 100755
+----- a/scripts/icons/generate.py
+--+++ b/scripts/icons/generate.py
+--@@ -1,24 +1,111 @@
+-- #!/usr/bin/env python3
+---"""Generate Apple touch icon and PWA icons from existing 1024px logo."""
+---from pathlib import Path
+--+"""Generate website icon outputs from the canonical 1024px symbol raster."""
+--+
+--+from __future__ import annotations
+--
+---from PIL import Image
+--+import argparse
+--+import shutil
+--+import subprocess
+--+import sys
+--+from pathlib import Path
+--
+---SRC = Path("brand/equilens_logo_mark_pack_v1_1/equilens_logo_mark_v1_1_white_1024.png")
+---DEST = Path("assets/brand")
+---SIZES = {
+---    "apple-touch-icon.png": 180,
+---    "icon-192.png": 192,
+---    "icon-512.png": 512,
+--+DEFAULT_SOURCE = Path("brand/symbol/equilens-symbol-light-1024.png")
+--+DEFAULT_DEST = Path("brand/icons")
+--+PNG_SIZES = {
+--+    "apple-touch-icon-180.png": 180,
+--+    "icon-192-maskable.png": 192,
+--+    "icon-512-maskable.png": 512,
+-- }
+--+FAVICON_NAME = "favicon.ico"
+--+
+--+
+--+def run(cmd: list[str]) -> None:
+--+    subprocess.run(cmd, check=True)
+--+
+--+
+--+def build_with_sips(source: Path, dest: Path) -> None:
+--+    for name, size in PNG_SIZES.items():
+--+        run(
+--+            [
+--+                "sips",
+--+                "-s",
+--+                "format",
+--+                "png",
+--+                "-z",
+--+                str(size),
+--+                str(size),
+--+                str(source),
+--+                "--out",
+--+                str(dest / name),
+--+            ]
+--+        )
+--+
+--+
+--+def build_with_magick(source: Path, dest: Path) -> None:
+--+    for name, size in PNG_SIZES.items():
+--+        run(["magick", str(source), "-resize", f"{size}x{size}", str(dest / name)])
+--+
+--+
+--+def build_favicon_ico(source: Path, dest: Path) -> None:
+--+    run(
+--+        [
+--+            "magick",
+--+            str(source),
+--+            "-define",
+--+            "icon:auto-resize=16,32,48",
+--+            str(dest / FAVICON_NAME),
+--+        ]
+--+    )
+--+
+--+
+--+def main() -> int:
+--+    parser = argparse.ArgumentParser(
+--+        description="Generate Equilens website icons in brand/icons/."
+--+    )
+--+    parser.add_argument(
+--+        "--source",
+--+        type=Path,
+--+        default=DEFAULT_SOURCE,
+--+        help=f"Source 1024px PNG (default: {DEFAULT_SOURCE})",
+--+    )
+--+    parser.add_argument(
+--+        "--dest",
+--+        type=Path,
+--+        default=DEFAULT_DEST,
+--+        help=f"Destination directory (default: {DEFAULT_DEST})",
+--+    )
+--+    args = parser.parse_args()
+--+
+--+    source = args.source
+--+    dest = args.dest
+--+
+--+    if not source.exists():
+--+        print(f"[ERROR] source image not found: {source}", file=sys.stderr)
+--+        return 1
+--+
+--+    dest.mkdir(parents=True, exist_ok=True)
+--+
+--+    if shutil.which("sips"):
+--+        build_with_sips(source, dest)
+--+    elif shutil.which("magick"):
+--+        build_with_magick(source, dest)
+--+    else:
+--+        print("[ERROR] requires either 'sips' or 'magick' to generate PNG icons.", file=sys.stderr)
+--+        return 1
+--+
+--+    if shutil.which("magick"):
+--+        build_favicon_ico(source, dest)
+--+    else:
+--+        print("[WARN] 'magick' not found; skipping favicon.ico generation.", file=sys.stderr)
+--
+---if not SRC.exists():
+---    raise SystemExit(f"source image not found: {SRC}")
+--+    written = [*(dest / n for n in PNG_SIZES), dest / FAVICON_NAME]
+--+    print("[OK] wrote:")
+--+    for path in written:
+--+        state = "present" if path.exists() else "missing"
+--+        print(f"  - {path} ({state})")
+--
+---DEST.mkdir(parents=True, exist_ok=True)
+--+    return 0
+--
+---image = Image.open(SRC).convert("RGBA")
+---for name, size in SIZES.items():
+---    image.resize((size, size), Image.LANCZOS).save(DEST / name)
+--
+---print("[OK] wrote", ", ".join(SIZES.keys()))
+--+if __name__ == "__main__":
+--+    raise SystemExit(main())
 -diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
--index 9289e3d..395796b 100644
+-index 395796b..dc9a238 100644
 ---- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
 -+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
--@@ -1,8 +1,16 @@
--- brand/icons/apple-touch-icon-180.png | Bin 6679 -> 4707 bytes
--- brand/icons/favicon.ico              | Bin 15086 -> 15086 bytes
--- brand/icons/favicon.svg              |   7 +++----
--- brand/icons/icon-192-maskable.png    | Bin 7650 -> 4873 bytes
--- brand/icons/icon-512-maskable.png    | Bin 23825 -> 15355 bytes
--- brand/icons/maskable.svg             |  13 +++++++------
--- brand/symbol/equilens-symbol.svg     |   7 +++----
--- 7 files changed, 13 insertions(+), 14 deletions(-)
--+ README.md                                          |   2 +-
--+ brand/README.md                                    |   6 +-
--+ .../SHA256SUMS.txt                                 |  25 +-
--+ .../BRAND-ASSET-REFRESH-20260219T090949Z/git.diff  | 577 ++++++++++++++++++---
--+ .../git.diffstat                                   |   8 -
--+ .../git.name-status                                |  22 +-
--+ .../git.status                                     |  27 +-
--+ .../intent.txt                                     |  10 +-
--+ .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  10 +-
--+ .../sha256_check.txt                               |   5 +
--+ .../source_provenance.txt                          |  12 +-
--+ .../source_sha256.txt                              |  10 +-
--+ .../subject_files.txt                              |  22 +-
--+ .../subject_sha256.txt                             |   3 +
--+ scripts/icons/generate.py                          | 119 ++++-
--+ 15 files changed, 694 insertions(+), 164 deletions(-)
+-@@ -1,16 +1,4 @@
+-- README.md                                          |   2 +-
+-- brand/README.md                                    |   6 +-
+-- .../SHA256SUMS.txt                                 |  25 +-
+-- .../BRAND-ASSET-REFRESH-20260219T090949Z/git.diff  | 577 ++++++++++++++++++---
+-- .../git.diffstat                                   |   8 -
+-- .../git.name-status                                |  22 +-
+-- .../git.status                                     |  27 +-
+-- .../intent.txt                                     |  10 +-
+-- .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  10 +-
+-- .../sha256_check.txt                               |   5 +
+-- .../source_provenance.txt                          |  12 +-
+-- .../source_sha256.txt                              |  10 +-
+-- .../subject_files.txt                              |  22 +-
+-- .../subject_sha256.txt                             |   3 +
+-- scripts/icons/generate.py                          | 119 ++++-
+-- 15 files changed, 694 insertions(+), 164 deletions(-)
+-+ .../external_refs_check.txt                        | 30 +++++++++-------------
+-+ .../git.diffstat                                   | 16 ------------
+-+ .../git.name-status                                | 15 +----------
+-+ 3 files changed, 13 insertions(+), 48 deletions(-)
 -diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--index 8b5fc6b..2ecebe4 100644
+-index 2ecebe4..21461ab 100644
 ---- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
 -+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--@@ -1,7 +1,15 @@
---M	brand/icons/apple-touch-icon-180.png
---M	brand/icons/favicon.ico
---M	brand/icons/favicon.svg
---M	brand/icons/icon-192-maskable.png
---M	brand/icons/icon-512-maskable.png
---M	brand/icons/maskable.svg
---M	brand/symbol/equilens-symbol.svg
--+M	README.md
--+M	brand/README.md
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--+M	scripts/icons/generate.py
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--index 5cac1e2..f7ce75e 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--@@ -1,12 +1,15 @@
--- M brand/icons/apple-touch-icon-180.png
--- M brand/icons/favicon.ico
--- M brand/icons/favicon.svg
--- M brand/icons/icon-192-maskable.png
--- M brand/icons/icon-512-maskable.png
--- M brand/icons/maskable.svg
--- M brand/symbol/equilens-symbol.svg
---?? brand/symbol/equilens-symbol-light-1024.png
---?? brand/symbol/equilens-symbol-light-128.png
---?? brand/symbol/equilens-symbol-light-256.png
---?? brand/symbol/equilens-symbol-light-512.png
---?? brand/symbol/equilens-symbol-light-64.png
--+ M README.md
--+ M brand/README.md
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--+ M output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--+ M scripts/icons/generate.py
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--index 50d2b72..014150b 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--@@ -1,6 +1,4 @@
---Integrate stakeholder-provided Equilens symbol-light raster assets into website icon outputs.
---Scope:
---- Import source PNG set (64/128/256/512/1024) under brand/symbol/.
---- Regenerate website-served icon PNGs (apple-touch 180, maskable 192/512) and favicon.ico from 1024 source.
---- Align favicon.svg and maskable.svg color/background treatment with light icon style.
---- Capture deterministic provenance and validation evidence.
--+Address review findings for brand asset refresh evidence and tooling sync:
--+- Replace local-only source provenance with immutable source references pinned to a public Git commit.
--+- Align icon generation automation with current brand asset layout and output paths.
--+- Correct brand export command syntax for current resvg CLI behavior.
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--index 82308e3..6efb956 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--@@ -1,6 +1,10 @@
-- stamp_utc: 20260219T090949Z
-- branch: brand/asset-refresh-20260219
-- base_main: 6633f31ca35a066d7cba83312479e98d62d024f1
---pre_commit_head: 6633f31ca35a066d7cba83312479e98d62d024f1
---source_delivery: stakeholder local handoff
---source_path: ../../Downloads/files-2
--+pre_commit_head: ab925bef5304a5ba0b58792534c0304072e9d696
--+source_origin_repo: https://github.com/equilens-labs/website
--+source_origin_commit: ab925bef5304a5ba0b58792534c0304072e9d696
--+source_origin_tree: https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
--+source_intake_delivery: stakeholder local handoff
--+source_intake_path: ../../Downloads/files-2
--+legal_owner_reference: https://trademarks.ipo.gov.uk/ipo-tmcase/page/History/1/UK00004282061
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--index 65b8160..1ef3f95 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--@@ -1,13 +1,18 @@
-- dimensions.txt: OK
--+external_refs_check.txt: OK
-- git.diff: OK
-- git.diffstat: OK
-- git.name-status: OK
-- git.status: OK
-- http_checks.txt: OK
-- intent.txt: OK
--+legal_basis.txt: OK
-- manifest_consistency.result.txt: OK
-- manifest_consistency.txt: OK
-- meta.txt: OK
--+source_immutable_check.txt: OK
--+source_immutable_urls.txt: OK
--+source_intake_sha256.txt: OK
-- source_provenance.txt: OK
-- source_sha256.txt: OK
-- subject_files.txt: OK
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--index 1f86034..f004a7a 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--@@ -1,4 +1,10 @@
---Provided source files were delivered by stakeholder in local filesystem path:
---../../Downloads/files-2
--+Canonical source for the imported raster symbol set is now pinned to an immutable public commit:
--+https://github.com/equilens-labs/website/tree/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol
--
---No external download URL was used for this intake.
--+Chain of custody:
--+1) Stakeholder handoff received locally at ../../Downloads/files-2
--+2) Files copied into repository path brand/symbol/equilens-symbol-light-*.png
--+3) Public immutable commit anchor established at ab925bef5304a5ba0b58792534c0304072e9d696
--+4) Remote-bytes verification recorded in source_immutable_check.txt
--+
--+Licensing/ownership basis is documented in legal_basis.txt.
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--index 0e470c8..bc0f2ec 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--@@ -1,5 +1,5 @@
---068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  ../../Downloads/files-2/equilens-symbol-light-64.png
---d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  ../../Downloads/files-2/equilens-symbol-light-128.png
---8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  ../../Downloads/files-2/equilens-symbol-light-256.png
---dd7cf2df93428e5e5a8cb9c1abb4ba4bfaaca1893665a6ece90e21d573ee8ea0  ../../Downloads/files-2/equilens-symbol-light-512.png
---07ffcde48c2c13223bdbb3ad6a29596b9636c11b8935b5ce6f58acd97239c2ba  ../../Downloads/files-2/equilens-symbol-light-1024.png
--+068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  brand/symbol/equilens-symbol-light-64.png
--+d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  brand/symbol/equilens-symbol-light-128.png
--+8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  brand/symbol/equilens-symbol-light-256.png
--+dd7cf2df93428e5e5a8cb9c1abb4ba4bfaaca1893665a6ece90e21d573ee8ea0  brand/symbol/equilens-symbol-light-512.png
--+07ffcde48c2c13223bdbb3ad6a29596b9636c11b8935b5ce6f58acd97239c2ba  brand/symbol/equilens-symbol-light-1024.png
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--index 16a3dd9..0483df6 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--@@ -1,7 +1,15 @@
---brand/icons/apple-touch-icon-180.png
---brand/icons/favicon.ico
---brand/icons/favicon.svg
---brand/icons/icon-192-maskable.png
---brand/icons/icon-512-maskable.png
---brand/icons/maskable.svg
---brand/symbol/equilens-symbol.svg
--+README.md
--+brand/README.md
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--+scripts/icons/generate.py
--diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--index 0a0c924..3864187 100644
----- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--+++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--@@ -1,3 +1,6 @@
--+6fd68273180dadf9e0120e8cb0a5e48c19a40e6e742be8852f443071f686d71b  README.md
--+d721e811630454c119cf5ac9ac18e2a86f8de1ce9cb9e5651def1451d4d2588a  brand/README.md
--+deaff1b8b7f54df097eadb7c4525cb3d06a62cb3602cdc8690a964ccd612b955  scripts/icons/generate.py
-- 068e866c6d8fde86a70edce563b2b5224f6a3136f7391b76545eb44c67d352e9  brand/symbol/equilens-symbol-light-64.png
-- d8f53ca930f078a5834fe209c3385192d5df8a0c45c2fcc644d0d3955af0e5c7  brand/symbol/equilens-symbol-light-128.png
-- 8a530559f92a6e52b7575c7dab7e535998e853a08620b68bd0e1072b04787422  brand/symbol/equilens-symbol-light-256.png
--diff --git a/scripts/icons/generate.py b/scripts/icons/generate.py
--index 590dab3..787c095 100755
----- a/scripts/icons/generate.py
--+++ b/scripts/icons/generate.py
--@@ -1,24 +1,111 @@
-- #!/usr/bin/env python3
---"""Generate Apple touch icon and PWA icons from existing 1024px logo."""
---from pathlib import Path
--+"""Generate website icon outputs from the canonical 1024px symbol raster."""
--+
--+from __future__ import annotations
--
---from PIL import Image
--+import argparse
--+import shutil
--+import subprocess
--+import sys
--+from pathlib import Path
--
---SRC = Path("brand/equilens_logo_mark_pack_v1_1/equilens_logo_mark_v1_1_white_1024.png")
---DEST = Path("assets/brand")
---SIZES = {
---    "apple-touch-icon.png": 180,
---    "icon-192.png": 192,
---    "icon-512.png": 512,
--+DEFAULT_SOURCE = Path("brand/symbol/equilens-symbol-light-1024.png")
--+DEFAULT_DEST = Path("brand/icons")
--+PNG_SIZES = {
--+    "apple-touch-icon-180.png": 180,
--+    "icon-192-maskable.png": 192,
--+    "icon-512-maskable.png": 512,
-- }
--+FAVICON_NAME = "favicon.ico"
--+
--+
--+def run(cmd: list[str]) -> None:
--+    subprocess.run(cmd, check=True)
--+
--+
--+def build_with_sips(source: Path, dest: Path) -> None:
--+    for name, size in PNG_SIZES.items():
--+        run(
--+            [
--+                "sips",
--+                "-s",
--+                "format",
--+                "png",
--+                "-z",
--+                str(size),
--+                str(size),
--+                str(source),
--+                "--out",
--+                str(dest / name),
--+            ]
--+        )
--+
--+
--+def build_with_magick(source: Path, dest: Path) -> None:
--+    for name, size in PNG_SIZES.items():
--+        run(["magick", str(source), "-resize", f"{size}x{size}", str(dest / name)])
--+
--+
--+def build_favicon_ico(source: Path, dest: Path) -> None:
--+    run(
--+        [
--+            "magick",
--+            str(source),
--+            "-define",
--+            "icon:auto-resize=16,32,48",
--+            str(dest / FAVICON_NAME),
--+        ]
--+    )
--+
--+
--+def main() -> int:
--+    parser = argparse.ArgumentParser(
--+        description="Generate Equilens website icons in brand/icons/."
--+    )
--+    parser.add_argument(
--+        "--source",
--+        type=Path,
--+        default=DEFAULT_SOURCE,
--+        help=f"Source 1024px PNG (default: {DEFAULT_SOURCE})",
--+    )
--+    parser.add_argument(
--+        "--dest",
--+        type=Path,
--+        default=DEFAULT_DEST,
--+        help=f"Destination directory (default: {DEFAULT_DEST})",
--+    )
--+    args = parser.parse_args()
--+
--+    source = args.source
--+    dest = args.dest
--+
--+    if not source.exists():
--+        print(f"[ERROR] source image not found: {source}", file=sys.stderr)
--+        return 1
--+
--+    dest.mkdir(parents=True, exist_ok=True)
--+
--+    if shutil.which("sips"):
--+        build_with_sips(source, dest)
--+    elif shutil.which("magick"):
--+        build_with_magick(source, dest)
--+    else:
--+        print("[ERROR] requires either 'sips' or 'magick' to generate PNG icons.", file=sys.stderr)
--+        return 1
--+
--+    if shutil.which("magick"):
--+        build_favicon_ico(source, dest)
--+    else:
--+        print("[WARN] 'magick' not found; skipping favicon.ico generation.", file=sys.stderr)
--
---if not SRC.exists():
---    raise SystemExit(f"source image not found: {SRC}")
--+    written = [*(dest / n for n in PNG_SIZES), dest / FAVICON_NAME]
--+    print("[OK] wrote:")
--+    for path in written:
--+        state = "present" if path.exists() else "missing"
--+        print(f"  - {path} ({state})")
--
---DEST.mkdir(parents=True, exist_ok=True)
--+    return 0
--
---image = Image.open(SRC).convert("RGBA")
---for name, size in SIZES.items():
---    image.resize((size, size), Image.LANCZOS).save(DEST / name)
--
---print("[OK] wrote", ", ".join(SIZES.keys()))
--+if __name__ == "__main__":
--+    raise SystemExit(main())
+-@@ -1,15 +1,2 @@
+--M	README.md
+--M	brand/README.md
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
+-+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+- M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+--M	scripts/icons/generate.py
 diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
-index 395796b..dc9a238 100644
+index dc9a238..0db2297 100644
 --- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
 +++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
-@@ -1,16 +1,4 @@
-- README.md                                          |   2 +-
-- brand/README.md                                    |   6 +-
-- .../SHA256SUMS.txt                                 |  25 +-
-- .../BRAND-ASSET-REFRESH-20260219T090949Z/git.diff  | 577 ++++++++++++++++++---
-- .../git.diffstat                                   |   8 -
-- .../git.name-status                                |  22 +-
-- .../git.status                                     |  27 +-
-- .../intent.txt                                     |  10 +-
-- .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  10 +-
-- .../sha256_check.txt                               |   5 +
-- .../source_provenance.txt                          |  12 +-
-- .../source_sha256.txt                              |  10 +-
-- .../subject_files.txt                              |  22 +-
-- .../subject_sha256.txt                             |   3 +
-- scripts/icons/generate.py                          | 119 ++++-
-- 15 files changed, 694 insertions(+), 164 deletions(-)
-+ .../external_refs_check.txt                        | 30 +++++++++-------------
-+ .../git.diffstat                                   | 16 ------------
-+ .../git.name-status                                | 15 +----------
-+ 3 files changed, 13 insertions(+), 48 deletions(-)
+@@ -1,4 +1,4 @@
+- .../external_refs_check.txt                        | 30 +++++++++-------------
+- .../git.diffstat                                   | 16 ------------
+- .../git.name-status                                | 15 +----------
+- 3 files changed, 13 insertions(+), 48 deletions(-)
++ output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat |  4 ----
++ .../ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status |  2 +-
++ .../resvg_command_check.txt                                  | 12 ++++++------
++ 3 files changed, 7 insertions(+), 11 deletions(-)
 diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
-index 2ecebe4..21461ab 100644
+index 21461ab..1f184d8 100644
 --- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
 +++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
-@@ -1,15 +1,2 @@
--M	README.md
--M	brand/README.md
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/SHA256SUMS.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
-+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+@@ -1,2 +1,2 @@
+-M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
  M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/sha256_check.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_provenance.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/source_sha256.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
--M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
--M	scripts/icons/generate.py
++M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
+diff --git a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
+index 27ceb4b..0eb075f 100644
+--- a/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
++++ b/output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/resvg_command_check.txt
+@@ -1,6 +1,6 @@
+-resvg -w 180 brand/icons/maskable.svg /var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/apple-touch-icon-180.png
+-resvg -w 192 brand/icons/maskable.svg /var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/icon-192-maskable.png
+-resvg -w 512 brand/icons/maskable.svg /var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/icon-512-maskable.png
+-/var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/apple-touch-icon-180.png: PNG image data, 180 x 180, 8-bit/color RGBA, non-interlaced
+-/var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/icon-192-maskable.png:    PNG image data, 192 x 192, 8-bit/color RGBA, non-interlaced
+-/var/folders/b9/b5p9nmgx6sj2xmp1sd7pzjj80000gn/T/tmp.w8Jf0W0IXP/icon-512-maskable.png:    PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced
++resvg -w 180 brand/icons/maskable.svg /tmp/equilens-resvg-check/apple-touch-icon-180.png
++resvg -w 192 brand/icons/maskable.svg /tmp/equilens-resvg-check/icon-192-maskable.png
++resvg -w 512 brand/icons/maskable.svg /tmp/equilens-resvg-check/icon-512-maskable.png
++/tmp/equilens-resvg-check/apple-touch-icon-180.png: PNG image data, 180 x 180, 8-bit/color RGBA, non-interlaced
++/tmp/equilens-resvg-check/icon-192-maskable.png:    PNG image data, 192 x 192, 8-bit/color RGBA, non-interlaced
++/tmp/equilens-resvg-check/icon-512-maskable.png:    PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced

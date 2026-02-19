@@ -1,4 +1,4 @@
- .../external_refs_check.txt                        | 30 +++++++++-------------
- .../git.diffstat                                   | 16 ------------
- .../git.name-status                                | 15 +----------
- 3 files changed, 13 insertions(+), 48 deletions(-)
+ output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat |  4 ----
+ .../ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status |  2 +-
+ .../resvg_command_check.txt                                  | 12 ++++++------
+ 3 files changed, 7 insertions(+), 11 deletions(-)
