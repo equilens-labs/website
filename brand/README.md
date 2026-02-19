@@ -19,7 +19,7 @@ This directory contains all official Equilens brand assets, design tokens, and u
 ### Favicon ICO
 
 ```bash
-magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./icons/favicon.ico
+magick ./symbol/equilens-symbol-light-1024.png -define icon:auto-resize=16,32,48 ./icons/favicon.ico
 ```
 
 ### Maskable icons & Apple touch
@@ -28,6 +28,12 @@ magick -background none ./icons/favicon.svg -define icon:auto-resize=16,32,48 ./
 resvg -w 180 ./icons/maskable.svg ./icons/apple-touch-icon-180.png
 resvg -w 192 ./icons/maskable.svg ./icons/icon-192-maskable.png
 resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
+```
+
+### Canonical full refresh (run from repository root)
+
+```bash
+python3 scripts/icons/generate.py
 ```
 
 ## Inline usage

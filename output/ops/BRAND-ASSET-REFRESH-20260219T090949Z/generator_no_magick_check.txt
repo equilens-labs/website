@@ -1,0 +1,3 @@
+[ERROR] requires 'magick' to generate favicon.ico.
+exit_code: 1
+expected_nonzero_without_magick: PASS

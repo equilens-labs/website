@@ -85,18 +85,23 @@ def main() -> int:
 
     dest.mkdir(parents=True, exist_ok=True)
 
-    if shutil.which("sips"):
-        build_with_sips(source, dest)
-    elif shutil.which("magick"):
-        build_with_magick(source, dest)
-    else:
+    has_sips = bool(shutil.which("sips"))
+    has_magick = bool(shutil.which("magick"))
+
+    if not (has_sips or has_magick):
         print("[ERROR] requires either 'sips' or 'magick' to generate PNG icons.", file=sys.stderr)
         return 1
 
-    if shutil.which("magick"):
-        build_favicon_ico(source, dest)
-    else:
-        print("[WARN] 'magick' not found; skipping favicon.ico generation.", file=sys.stderr)
+    if not has_magick:
+        print("[ERROR] requires 'magick' to generate favicon.ico.", file=sys.stderr)
+        return 1
+
+    if has_sips:
+        build_with_sips(source, dest)
+    elif has_magick:
+        build_with_magick(source, dest)
+
+    build_favicon_ico(source, dest)
 
     written = [*(dest / n for n in PNG_SIZES), dest / FAVICON_NAME]
     print("[OK] wrote:")

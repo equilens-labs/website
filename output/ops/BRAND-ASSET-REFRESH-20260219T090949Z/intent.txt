@@ -1,4 +1,4 @@
-Address review findings for brand asset refresh evidence and tooling sync:
-- Replace local-only source provenance with immutable source references pinned to a public Git commit.
-- Align icon generation automation with current brand asset layout and output paths.
-- Correct brand export command syntax for current resvg CLI behavior.
+Address follow-up review findings:
+- Align documented favicon generation command with canonical shipped artifact pipeline.
+- Make icon generator fail fast when required favicon tooling (magick) is unavailable.
+- Replace manual-only UK IPO legal verification note with machine-captured browser evidence.

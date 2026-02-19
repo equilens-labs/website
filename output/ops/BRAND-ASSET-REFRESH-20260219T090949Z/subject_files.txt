@@ -1,7 +1,12 @@
-output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/dimensions.txt
+README.md
+brand/README.md
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
 output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diff
 output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.diffstat
 output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
 output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.status
-output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/http_checks.txt
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
 output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_files.txt
+output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+scripts/icons/generate.py

@@ -1,3 +1,8 @@
-M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/dimensions.txt
+M	README.md
+M	brand/README.md
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
 M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
-M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/http_checks.txt
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/subject_sha256.txt
+M	scripts/icons/generate.py

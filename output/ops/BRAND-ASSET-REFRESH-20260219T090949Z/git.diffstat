@@ -1,5 +1,10 @@
- .../dimensions.txt                                 | 16 +++----
- .../git.diffstat                                   |  4 --
- .../git.name-status                                |  3 +-
- .../http_checks.txt                                | 50 +++++++++++-----------
- 4 files changed, 35 insertions(+), 38 deletions(-)
+ README.md                                          |  2 +-
+ brand/README.md                                    |  8 +++++++-
+ .../external_refs_check.txt                        |  7 ++++---
+ .../git.diffstat                                   |  5 -----
+ .../git.name-status                                |  9 +++++++--
+ .../intent.txt                                     |  8 ++++----
+ .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  1 +
+ .../subject_sha256.txt                             |  6 +++---
+ scripts/icons/generate.py                          | 23 +++++++++++++---------
+ 9 files changed, 41 insertions(+), 28 deletions(-)
