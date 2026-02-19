@@ -1,4 +1,5 @@
-Address follow-up review findings:
-- Align documented favicon generation command with canonical shipped artifact pipeline.
-- Make icon generator fail fast when required favicon tooling (magick) is unavailable.
-- Replace manual-only UK IPO legal verification note with machine-captured browser evidence.
+Address renderer non-determinism finding:
+- Remove multi-renderer fallback from icon generator.
+- Require magick as the single renderer backend for all website icon outputs.
+- Regenerate icon PNG artifacts using the canonical renderer.
+- Capture repeated-run hash stability evidence.

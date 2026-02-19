@@ -1,10 +1,14 @@
- README.md                                          |  2 +-
- brand/README.md                                    |  8 +++++++-
- .../external_refs_check.txt                        |  7 ++++---
- .../git.diffstat                                   |  5 -----
- .../git.name-status                                |  9 +++++++--
- .../intent.txt                                     |  8 ++++----
- .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |  1 +
- .../subject_sha256.txt                             |  6 +++---
- scripts/icons/generate.py                          | 23 +++++++++++++---------
- 9 files changed, 41 insertions(+), 28 deletions(-)
+ README.md                                          |   2 +-
+ brand/README.md                                    |   2 ++
+ brand/icons/apple-touch-icon-180.png               | Bin 4707 -> 5487 bytes
+ brand/icons/icon-192-maskable.png                  | Bin 4873 -> 5660 bytes
+ brand/icons/icon-512-maskable.png                  | Bin 15355 -> 14433 bytes
+ .../generator_check.txt                            |   7 ----
+ .../generator_no_magick_check.txt                  |   2 +-
+ .../git.diffstat                                   |  10 ------
+ .../git.name-status                                |   6 +++-
+ .../intent.txt                                     |   9 ++---
+ .../BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt  |   2 +-
+ .../subject_sha256.txt                             |  20 +++++------
+ scripts/icons/generate.py                          |  38 ++++++---------------
+ 13 files changed, 35 insertions(+), 63 deletions(-)

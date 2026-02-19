@@ -1,6 +1,10 @@
 M	README.md
 M	brand/README.md
-M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/external_refs_check.txt
+M	brand/icons/apple-touch-icon-180.png
+M	brand/icons/icon-192-maskable.png
+M	brand/icons/icon-512-maskable.png
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/generator_check.txt
+M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/generator_no_magick_check.txt
 M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/git.name-status
 M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/intent.txt
 M	output/ops/BRAND-ASSET-REFRESH-20260219T090949Z/meta.txt

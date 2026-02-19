@@ -36,6 +36,8 @@ resvg -w 512 ./icons/maskable.svg ./icons/icon-512-maskable.png
 python3 scripts/icons/generate.py
 ```
 
+This canonical path uses `magick` as the single renderer backend for deterministic website icon outputs.
+
 ## Inline usage
 
 ### Light theme

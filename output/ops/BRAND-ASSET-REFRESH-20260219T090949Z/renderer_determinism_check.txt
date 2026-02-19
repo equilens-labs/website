@@ -1,0 +1,13 @@
+run_1_hashes:
+dc901dcf4addf4066f823a5ea722fa8b97cc1a5ee971b8451d892df6a238d054  brand/icons/apple-touch-icon-180.png
+2c20a89c843b2907474da5d431fe26f72224eddfc40e2bd1705082f4d003453e  brand/icons/icon-192-maskable.png
+026459d674923687347145c8eea95108e8fd846ec19d3efd3b15328439170e16  brand/icons/icon-512-maskable.png
+1b369cee22caf92e0ec8df953b488b5f70cf5cc635b4d6faad20295bd8a14302  brand/icons/favicon.ico
+
+run_2_hashes:
+dc901dcf4addf4066f823a5ea722fa8b97cc1a5ee971b8451d892df6a238d054  brand/icons/apple-touch-icon-180.png
+2c20a89c843b2907474da5d431fe26f72224eddfc40e2bd1705082f4d003453e  brand/icons/icon-192-maskable.png
+026459d674923687347145c8eea95108e8fd846ec19d3efd3b15328439170e16  brand/icons/icon-512-maskable.png
+1b369cee22caf92e0ec8df953b488b5f70cf5cc635b4d6faad20295bd8a14302  brand/icons/favicon.ico
+
+hash_stability: PASS

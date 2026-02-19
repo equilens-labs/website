@@ -2,6 +2,8 @@ dimensions.txt: OK
 external_refs_check.txt: OK
 favicon_command_check.txt: OK
 generator_check.txt: OK
+generator_check_run1.txt: OK
+generator_check_run2.txt: OK
 generator_no_magick_check.txt: OK
 git.diff: OK
 git.diffstat: OK
@@ -15,6 +17,8 @@ legal_basis.txt: OK
 manifest_consistency.result.txt: OK
 manifest_consistency.txt: OK
 meta.txt: OK
+renderer_backend_policy.txt: OK
+renderer_determinism_check.txt: OK
 resvg_command_check.txt: OK
 source_immutable_check.txt: OK
 source_immutable_urls.txt: OK

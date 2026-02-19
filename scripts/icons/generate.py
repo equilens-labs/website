@@ -23,27 +23,20 @@ def run(cmd: list[str]) -> None:
     subprocess.run(cmd, check=True)
 
 
-def build_with_sips(source: Path, dest: Path) -> None:
+def build_png_icons(source: Path, dest: Path) -> None:
     for name, size in PNG_SIZES.items():
         run(
             [
-                "sips",
-                "-s",
-                "format",
-                "png",
-                "-z",
-                str(size),
-                str(size),
+                "magick",
                 str(source),
-                "--out",
+                "-filter",
+                "Lanczos",
+                "-resize",
+                f"{size}x{size}",
+                "-strip",
                 str(dest / name),
             ]
         )
-
-
-def build_with_magick(source: Path, dest: Path) -> None:
-    for name, size in PNG_SIZES.items():
-        run(["magick", str(source), "-resize", f"{size}x{size}", str(dest / name)])
 
 
 def build_favicon_ico(source: Path, dest: Path) -> None:
@@ -85,22 +78,11 @@ def main() -> int:
 
     dest.mkdir(parents=True, exist_ok=True)
 
-    has_sips = bool(shutil.which("sips"))
-    has_magick = bool(shutil.which("magick"))
-
-    if not (has_sips or has_magick):
-        print("[ERROR] requires either 'sips' or 'magick' to generate PNG icons.", file=sys.stderr)
+    if not shutil.which("magick"):
+        print("[ERROR] requires 'magick' to generate PNG icons and favicon.ico.", file=sys.stderr)
         return 1
 
-    if not has_magick:
-        print("[ERROR] requires 'magick' to generate favicon.ico.", file=sys.stderr)
-        return 1
-
-    if has_sips:
-        build_with_sips(source, dest)
-    elif has_magick:
-        build_with_magick(source, dest)
-
+    build_png_icons(source, dest)
     build_favicon_ico(source, dest)
 
     written = [*(dest / n for n in PNG_SIZES), dest / FAVICON_NAME]
