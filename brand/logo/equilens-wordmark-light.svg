@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" role="img" aria-labelledby="equilens-wordmark">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29.36 -0.65 196.17 38.84" role="img" aria-labelledby="equilens-wordmark">
   <title id="equilens-wordmark">Equilens</title>
   <style>
-    .bracket { fill: #4F46E5; }   /* brand indigo */
-    .text    { fill: #111827; }   /* near-black */
-    .accent  { fill: #4F46E5; }   /* i-dot accent */
+    .bracket { fill: #4F46E5; }
+    .text    { fill: #111827; }
+    .accent  { fill: #4F46E5; }
   </style>
   <g transform="scale(0.717,0.717)">
     <!-- Left Bracket [ -->

@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" role="img" aria-labelledby="equilens-wordmark-dark">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29.36 -0.65 196.17 38.84" role="img" aria-labelledby="equilens-wordmark-dark">
   <title id="equilens-wordmark-dark">Equilens (dark)</title>
   <style>
-    .bracket { fill: #A5B4FC; }   /* light indigo for dark BGs (AA+) */
-    .text    { fill: #FFFFFF; }   /* reversed */
-    .accent  { fill: #A5B4FC; }   /* i-dot */
+    .bracket { fill: #A5B4FC; }
+    .text    { fill: #FFFFFF; }
+    .accent  { fill: #4F46E5; }
   </style>
   <g transform="scale(0.717,0.717)">
     <!-- Left Bracket [ -->
