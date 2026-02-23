@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 70" role="img" aria-labelledby="equilens-wordmark-tagline">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29.36 -0.65 196.17 67.65" role="img" aria-labelledby="equilens-wordmark-tagline">
   <title id="equilens-wordmark-tagline">Equilens — Algorithmic Compliance</title>
   <style>
     .bracket { fill: #4F46E5; }
@@ -29,6 +29,5 @@
     <!-- Right Bracket ] -->
     <path class="bracket" d="M 302.10 1.56 L 302.10 48.53 L 291.13 48.53 L 291.13 44.85 L 297.31 44.85 L 297.31 5.24 L 291.13 5.24 L 291.13 1.56 L 302.10 1.56 Z"/>
   </g>
-  <!-- Tagline positioned below the scaled wordmark -->
-  <text class="tagline" x="200" y="55" text-anchor="middle" dominant-baseline="hanging">Algorithmic Compliance</text>
+  <text class="tagline" x="127.44" y="55" text-anchor="middle" dominant-baseline="hanging">Algorithmic Compliance</text>
 </svg>
