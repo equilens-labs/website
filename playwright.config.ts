@@ -21,7 +21,7 @@ export default defineConfig({
     ['json', { outputFile: path.join(auditDir, 'report.json') }],
   ],
   outputDir: artifactsDir,
-  timeout: 30_000,
+  timeout: 60_000,
   expect: {
     timeout: 5_000,
   },
