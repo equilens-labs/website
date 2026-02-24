@@ -28,8 +28,8 @@ test.describe('Equilens site surfaces', () => {
       expect(title).toMatch(/Equilens|FL-BSA|Trust Center/i);
 
       if (pageEntry.path === '/fl-bsa/') {
-        await expect(page.locator('.steps .step')).toHaveCount(4);
-        await expect(page.locator('.steps .step-number')).toHaveCount(4);
+        await expect(page.locator('.timeline .timeline-item')).toHaveCount(4);
+        await expect(page.locator('.timeline .timeline-icon')).toHaveCount(4);
       }
 
       const screenshotFile = `${pageEntry.slug}-${testInfo.project.name}.png`;
