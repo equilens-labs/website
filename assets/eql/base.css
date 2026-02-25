@@ -467,14 +467,20 @@ abbr {
   justify-content: flex-start;
   text-decoration: none;
   min-height: 44px;
-  margin-left: -32px;  /* Align with left margin */
+  margin-left: 0;
 }
 
-.logo img {
+.logo-wordmark {
   display: block;
-  height: 54px;
-  width: auto;
-  margin-top: 16px;  /* Push logo down */
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-symbol {
+  display: none;
+  width: 32px;
+  height: 32px;
 }
 
 /* Nav Links */
@@ -1617,8 +1623,17 @@ a[download]::after {
   }
 
   .logo {
-    width: 210px;
-    height: 48px;
+    width: auto;
+    height: 44px;
+    margin-left: 0;
+  }
+
+  .logo-wordmark {
+    display: none;
+  }
+
+  .logo-symbol {
+    display: block;
   }
 
   .hero {

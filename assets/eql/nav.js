@@ -7,6 +7,7 @@
     const response = await fetch('/config/web/nav.json');
     if (!response.ok) throw new Error('Failed to load nav config');
     const config = await response.json();
+    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol.svg';
 
     const navLinks = config.links.map(link =>
       `<a href="${link.href}" class="nav-link">${link.label}</a>`
@@ -16,7 +17,8 @@
 <nav class="navbar site-nav" role="navigation" aria-label="Primary">
   <div class="navbar-content">
     <a href="${config.brand.href}" class="logo" aria-label="Equilens home">
-      <img src="${config.brand.img}" alt="${config.brand.alt}" width="240" height="52">
+      <img class="logo-wordmark" src="${config.brand.img}" alt="${config.brand.alt}" width="196" height="39">
+      <img class="logo-symbol" src="${brandCompactImg}" alt="" width="64" height="64" aria-hidden="true">
     </a>
     <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">

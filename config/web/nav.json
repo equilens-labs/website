@@ -1,5 +1,5 @@
 {
-  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "alt": "Equilens"},
+  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol.svg", "alt": "Equilens"},
   "links": [
     {"label": "FL‑BSA", "href": "/fl-bsa/"},
     {"label": "Trust Center", "href": "/trust-center/"},

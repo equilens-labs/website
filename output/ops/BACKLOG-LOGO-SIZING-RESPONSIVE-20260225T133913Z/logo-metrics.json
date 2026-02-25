@@ -1,0 +1,60 @@
+{
+  "desktopMetrics": {
+    "logoLinkBox": {
+      "x": 24,
+      "y": 16,
+      "width": 200,
+      "height": 44,
+      "top": 16,
+      "right": 224,
+      "bottom": 60,
+      "left": 24
+    },
+    "wordmarkDisplay": "block",
+    "wordmarkBox": {
+      "x": 24,
+      "y": 18.203125,
+      "width": 200,
+      "height": 39.59375,
+      "top": 18.203125,
+      "right": 224,
+      "bottom": 57.796875,
+      "left": 24
+    },
+    "symbolDisplay": "none",
+    "heroBox": {
+      "x": 442.203125,
+      "y": 152,
+      "width": 555.578125,
+      "height": 110,
+      "top": 152,
+      "right": 997.78125,
+      "bottom": 262,
+      "left": 442.203125
+    }
+  },
+  "mobileMetrics": {
+    "logoLinkBox": {
+      "x": 16,
+      "y": 12,
+      "width": 32,
+      "height": 44,
+      "top": 12,
+      "right": 48,
+      "bottom": 56,
+      "left": 16
+    },
+    "wordmarkDisplay": "none",
+    "symbolDisplay": "block",
+    "symbolBox": {
+      "x": 16,
+      "y": 18,
+      "width": 32,
+      "height": 32,
+      "top": 18,
+      "right": 48,
+      "bottom": 50,
+      "left": 16
+    }
+  }
+}
