@@ -1,4 +1,0 @@
-Address review findings for public artifact links:
-- Pin website links to a fixed public release tag (v4.0.3) instead of mutable /latest URLs.
-- Refresh evidence provenance metadata to distinguish base main SHA from branch head at capture time.
-- Minimize stored GitHub release metadata to only fields needed for reproducibility (no user profile payloads).

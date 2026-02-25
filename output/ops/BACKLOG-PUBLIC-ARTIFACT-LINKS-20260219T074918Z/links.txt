@@ -1,7 +1,0 @@
-https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf
-https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/customer_report.pdf
-https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/manifest.json
-https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/SHA256SUMS.txt
-https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3
-https://github.com/equilens-labs/fl-bsa-pub
-https://github.com/equilens-labs/website/tree/main/output/ops

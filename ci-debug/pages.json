@@ -1,0 +1,25 @@
+{
+  "url": "https://api.github.com/repos/equilens-labs/website/pages",
+  "status": "building",
+  "cname": "equilens.io",
+  "custom_404": true,
+  "html_url": "http://equilens.io/",
+  "build_type": "legacy",
+  "source": {
+    "branch": "gh-pages",
+    "path": "/"
+  },
+  "public": true,
+  "protected_domain_state": "verified",
+  "pending_domain_unverified_at": null,
+  "https_certificate": {
+    "state": "approved",
+    "description": "The certificate has been approved.",
+    "domains": [
+      "equilens.io",
+      "www.equilens.io"
+    ],
+    "expires_at": "2026-05-20"
+  },
+  "https_enforced": false
+}

@@ -1,9 +1,0 @@
-Update public website copy to reflect that the Equilens mark is now a registered UK trade mark.
-
-Changes in scope:
-- Replace Equilens™ -> Equilens® in the site footer across pages.
-- Update Press Kit brand-usage guidance from ™ to ®.
-- Update footer SSoT config to trademark_status=registered.
-
-Registration verification source:
-- UK IPO “Search for a trade mark” record for UK00004282061 (Equilens).

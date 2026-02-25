@@ -1,5 +1,0 @@
- assets/eql/base.css |  7 +++++++
- contact/index.html  | 25 +------------------------
- fl-bsa/index.html   |  7 ++++---
- index.html          |  6 +++---
- 4 files changed, 15 insertions(+), 30 deletions(-)

@@ -1,3 +1,0 @@
-[ERROR] requires 'magick' to generate PNG icons and favicon.ico.
-exit_code: 1
-expected_nonzero_without_magick: PASS

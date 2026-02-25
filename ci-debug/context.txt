@@ -1,0 +1,6 @@
+GITHUB_REF=refs/heads/main
+GITHUB_SHA=5a20da8ddb8a1ea47c3eb268a64008cbe908c2ce
+GITHUB_EVENT_NAME=workflow_dispatch
+Actor=Daimakaimura
+Runner OS=Linux
+Repo=equilens-labs/website

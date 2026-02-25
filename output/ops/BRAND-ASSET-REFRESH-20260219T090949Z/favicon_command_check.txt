@@ -1,4 +1,0 @@
-command: (cd brand && magick ./symbol/equilens-symbol-light-1024.png -define icon:auto-resize=16,32,48 /tmp/equilens-favicon-doc-check.ico)
-sha256_committed_favicon: 1b369cee22caf92e0ec8df953b488b5f70cf5cc635b4d6faad20295bd8a14302
-sha256_generated_from_doc_command: 1b369cee22caf92e0ec8df953b488b5f70cf5cc635b4d6faad20295bd8a14302
-sha256_match: PASS

@@ -1,1 +1,0 @@
-OK: no external script src on legal/

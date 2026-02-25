@@ -1,3 +1,0 @@
-stamp_utc: 20260214T193428Z
-branch: main
-head_before: 971cb74

@@ -1,4 +1,0 @@
-Contact: mailto:equilens@equilens.io
-Policy: https://equilens.io/legal/
-Expires: 2026-12-31T00:00:00Z
-Acknowledgments: https://equilens.io/legal/

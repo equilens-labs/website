@@ -1,3 +1,0 @@
-stamp_utc: 20260214T193158Z
-branch: main
-head_before: 2b48039

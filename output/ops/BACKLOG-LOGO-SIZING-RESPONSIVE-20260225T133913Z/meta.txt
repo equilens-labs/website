@@ -1,6 +1,0 @@
-timestamp_utc: 20260225T134602Z
-branch: fix/nav-logo-responsive-symbol
-repo_head_at_capture: b447e22819a4
-base_main_commit: 5d2c8b0ef934
-source_guideline: brand/guidelines/brand-guidelines.md
-notes: Desktop wordmark width=200px. Mobile compact symbol width/height=36px. Mobile center delta vs menu button=0px.

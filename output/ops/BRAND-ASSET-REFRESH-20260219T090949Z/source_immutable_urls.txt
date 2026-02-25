@@ -1,5 +1,0 @@
-https://raw.githubusercontent.com/equilens-labs/website/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol/equilens-symbol-light-64.png
-https://raw.githubusercontent.com/equilens-labs/website/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol/equilens-symbol-light-128.png
-https://raw.githubusercontent.com/equilens-labs/website/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol/equilens-symbol-light-256.png
-https://raw.githubusercontent.com/equilens-labs/website/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol/equilens-symbol-light-512.png
-https://raw.githubusercontent.com/equilens-labs/website/ab925bef5304a5ba0b58792534c0304072e9d696/brand/symbol/equilens-symbol-light-1024.png

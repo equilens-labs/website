@@ -1,2 +1,0 @@
-50:        <li><strong>Registered office:</strong> 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL.</li>
-51:        <li><strong>Place of registration:</strong> England &amp; Wales.</li>

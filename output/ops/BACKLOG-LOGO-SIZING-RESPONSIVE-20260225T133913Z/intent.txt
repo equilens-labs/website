@@ -1,6 +1,0 @@
-Goal: rebalance navbar logo sizing after brand asset refresh and enforce responsive switch to symbol mark on small screens.
-Follow-up: address mobile visual issue by increasing symbol size and centering the compact mark asset itself.
-Acceptance:
-- Desktop uses wordmark at guideline-aligned width.
-- Mobile uses compact symbol mark with balanced size.
-- Mobile symbol is vertically centered against the right toolbar button.

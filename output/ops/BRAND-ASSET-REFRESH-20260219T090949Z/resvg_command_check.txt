@@ -1,6 +1,0 @@
-resvg -w 180 brand/icons/maskable.svg /tmp/equilens-resvg-check/apple-touch-icon-180.png
-resvg -w 192 brand/icons/maskable.svg /tmp/equilens-resvg-check/icon-192-maskable.png
-resvg -w 512 brand/icons/maskable.svg /tmp/equilens-resvg-check/icon-512-maskable.png
-/tmp/equilens-resvg-check/apple-touch-icon-180.png: PNG image data, 180 x 180, 8-bit/color RGBA, non-interlaced
-/tmp/equilens-resvg-check/icon-192-maskable.png:    PNG image data, 192 x 192, 8-bit/color RGBA, non-interlaced
-/tmp/equilens-resvg-check/icon-512-maskable.png:    PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced

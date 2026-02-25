@@ -1,2 +1,0 @@
-site.webmanifest icon references checked against filesystem.
-Expectation: all referenced icons exist at configured paths.

@@ -1,8 +1,0 @@
-Backlog P0 fix: GitHub Pages branch-mode deploy mismatch.
-
-Change:
-- In .github/workflows/pages.yml, the branch-mode publisher job now publishes the dist artifact produced in the build job (instead of re-checking out and rebuilding).
-- Add actions: read permission for artifact download.
-
-Expected effect:
-- Branch-mode publishing ships the same dist/ output that includes SEO toggles, sitemap generation (public), OG render, and any PDF render outputs produced in the build job.
