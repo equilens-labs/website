@@ -1,0 +1,53 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index d4cec35..79d6c44 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -479,8 +479,9 @@ abbr {
+ 
+ .logo-symbol {
+   display: none;
+-  width: 32px;
+-  height: 32px;
++  width: 36px;
++  height: 36px;
++  flex: 0 0 auto;
+ }
+ 
+ /* Nav Links */
+diff --git a/assets/eql/nav.js b/assets/eql/nav.js
+index 067c9d5..6c0f166 100644
+--- a/assets/eql/nav.js
++++ b/assets/eql/nav.js
+@@ -7,7 +7,7 @@
+     const response = await fetch('/config/web/nav.json');
+     if (!response.ok) throw new Error('Failed to load nav config');
+     const config = await response.json();
+-    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol.svg';
++    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol-nav.svg';
+ 
+     const navLinks = config.links.map(link =>
+       `<a href="${link.href}" class="nav-link">${link.label}</a>`
+diff --git a/config/web/nav.json b/config/web/nav.json
+index 9fac424..0ae07dc 100644
+--- a/config/web/nav.json
++++ b/config/web/nav.json
+@@ -1,5 +1,5 @@
+ {
+-  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol.svg", "alt": "Equilens"},
++  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol-nav.svg", "alt": "Equilens"},
+   "links": [
+     {"label": "FL‑BSA", "href": "/fl-bsa/"},
+     {"label": "Trust Center", "href": "/trust-center/"},
+diff --git a/templates/header.html b/templates/header.html
+index 7b6fba1..e979043 100644
+--- a/templates/header.html
++++ b/templates/header.html
+@@ -2,7 +2,7 @@
+   <div class="navbar-content">
+     <a href="/" class="logo" aria-label="Equilens home">
+       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+-      <img class="logo-symbol" src="/brand/symbol/equilens-symbol.svg" alt="" width="64" height="64" aria-hidden="true">
++      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
+     </a>
+     <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+     <div id="nav-links" class="nav-links" data-open="false">

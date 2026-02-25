@@ -1,0 +1,41 @@
+{
+  "viewport": {
+    "w": 390,
+    "h": 664
+  },
+  "logoBox": {
+    "x": 16,
+    "y": 12,
+    "width": 36,
+    "height": 44,
+    "top": 12,
+    "right": 52,
+    "bottom": 56,
+    "left": 16
+  },
+  "symbolDisplay": "block",
+  "symbolBox": {
+    "x": 16,
+    "y": 16,
+    "width": 36,
+    "height": 36,
+    "top": 16,
+    "right": 52,
+    "bottom": 52,
+    "left": 16
+  },
+  "menuBox": {
+    "x": 319.328125,
+    "y": 12,
+    "width": 54.671875,
+    "height": 44,
+    "top": 12,
+    "right": 374,
+    "bottom": 56,
+    "left": 319.328125
+  },
+  "symbolCenterY": 34,
+  "menuCenterY": 34,
+  "centerDeltaY": 0,
+  "menuLineHeight": "23.8px"
+}
