@@ -12,22 +12,23 @@ else
   echo "MISSING .well-known/security.txt" >"$BASE/security_missing.txt"
 fi
 
-rg -n "Valfox Ltd" legal/imprint.html >"$BASE/imprint_has_name.txt"
-rg -n "Company" legal/imprint.html >"$BASE/imprint_has_number.txt"
-rg -n "Registered office" legal/imprint.html >"$BASE/imprint_has_office.txt"
-rg -n "England" legal/imprint.html >"$BASE/imprint_has_jurisdiction.txt"
+rg -n "Valfox Ltd" legal/index.html >"$BASE/imprint_has_name.txt"
+rg -n "Company number" legal/index.html >"$BASE/imprint_has_number.txt"
+rg -n "Registered office" legal/index.html >"$BASE/imprint_has_office.txt"
+rg -n "England" legal/index.html >"$BASE/imprint_has_jurisdiction.txt"
 
 rg -n "Controller" legal/privacy.html >"$BASE/privacy_has_controller.txt"
 rg -n "legitimate interests" legal/privacy.html >"$BASE/privacy_has_legal_basis.txt"
 rg -n "ico.org.uk" legal/privacy.html >"$BASE/privacy_has_ico.txt"
 rg -n "Cookie" legal/privacy.html >"$BASE/privacy_links_cookie.txt"
 
-rg -n "We do <strong>not</strong> use analytics" legal/cookie-policy.html >"$BASE/cookie_no_analytics.txt"
+rg -n "We do <strong>not</strong> use analytics" legal/index.html >"$BASE/cookie_no_analytics.txt"
 
-[ -f legal/open-source.html ] && echo OK > "$BASE/open_source_present.txt" || echo MISSING > "$BASE/open_source_present.txt"
-[ -f legal/accessibility.html ] && echo OK > "$BASE/accessibility_present.txt" || echo MISSING > "$BASE/accessibility_present.txt"
-[ -f legal/dpa-position.html ] && echo OK > "$BASE/dpa_position_present.txt" || echo MISSING > "$BASE/dpa_position_present.txt"
-[ -f legal/responsible-use.html ] && echo OK > "$BASE/responsible_use_present.txt" || echo MISSING > "$BASE/responsible_use_present.txt"
+[ -f legal/index.html ] && echo OK > "$BASE/legal_hub_present.txt" || echo MISSING > "$BASE/legal_hub_present.txt"
+if rg -q 'id="open-source"' legal/index.html; then echo OK > "$BASE/open_source_present.txt"; else echo MISSING > "$BASE/open_source_present.txt"; fi
+if rg -q 'id="accessibility"' legal/index.html; then echo OK > "$BASE/accessibility_present.txt"; else echo MISSING > "$BASE/accessibility_present.txt"; fi
+if rg -q 'id="dpa-position"' legal/index.html; then echo OK > "$BASE/dpa_position_present.txt"; else echo MISSING > "$BASE/dpa_position_present.txt"; fi
+if rg -q 'id="responsible-use"' legal/index.html; then echo OK > "$BASE/responsible_use_present.txt"; else echo MISSING > "$BASE/responsible_use_present.txt"; fi
 [ -f trust-center/index.html ] && echo OK > "$BASE/trust_center_present.txt" || echo MISSING > "$BASE/trust_center_present.txt"
 
 rg -n "Governing law" legal/tos.html > "$BASE/tos_has_governing_law.txt" || true
