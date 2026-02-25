@@ -1,6 +1,14 @@
-## main...origin/main
+## fix/nav-logo-responsive-symbol...origin/fix/nav-logo-responsive-symbol
  M assets/eql/base.css
  M assets/eql/nav.js
  M config/web/nav.json
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/git.diff
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/git.status
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/intent.txt
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/logo-metrics.json
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/meta.txt
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/mobile-navbar-logo.png
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/subject_files.txt
+ M output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/subject_sha256.txt
  M templates/header.html
-?? output/ops/BACKLOG-LOGO-SIZING-RESPONSIVE-20260225T133913Z/
+?? brand/symbol/equilens-symbol-nav.svg

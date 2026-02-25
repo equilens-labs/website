@@ -1,97 +1,53 @@
 diff --git a/assets/eql/base.css b/assets/eql/base.css
-index b57c7e2..d4cec35 100644
+index d4cec35..79d6c44 100644
 --- a/assets/eql/base.css
 +++ b/assets/eql/base.css
-@@ -467,14 +467,20 @@ abbr {
-   justify-content: flex-start;
-   text-decoration: none;
-   min-height: 44px;
--  margin-left: -32px;  /* Align with left margin */
-+  margin-left: 0;
- }
+@@ -479,8 +479,9 @@ abbr {
  
--.logo img {
-+.logo-wordmark {
-   display: block;
--  height: 54px;
--  width: auto;
--  margin-top: 16px;  /* Push logo down */
-+  width: 200px;
-+  max-width: 100%;
-+  height: auto;
-+}
-+
-+.logo-symbol {
-+  display: none;
-+  width: 32px;
-+  height: 32px;
+ .logo-symbol {
+   display: none;
+-  width: 32px;
+-  height: 32px;
++  width: 36px;
++  height: 36px;
++  flex: 0 0 auto;
  }
  
  /* Nav Links */
-@@ -1617,8 +1623,17 @@ a[download]::after {
-   }
- 
-   .logo {
--    width: 210px;
--    height: 48px;
-+    width: auto;
-+    height: 44px;
-+    margin-left: 0;
-+  }
-+
-+  .logo-wordmark {
-+    display: none;
-+  }
-+
-+  .logo-symbol {
-+    display: block;
-   }
- 
-   .hero {
 diff --git a/assets/eql/nav.js b/assets/eql/nav.js
-index dacf70e..067c9d5 100644
+index 067c9d5..6c0f166 100644
 --- a/assets/eql/nav.js
 +++ b/assets/eql/nav.js
-@@ -7,6 +7,7 @@
+@@ -7,7 +7,7 @@
      const response = await fetch('/config/web/nav.json');
      if (!response.ok) throw new Error('Failed to load nav config');
      const config = await response.json();
-+    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol.svg';
+-    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol.svg';
++    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol-nav.svg';
  
      const navLinks = config.links.map(link =>
        `<a href="${link.href}" class="nav-link">${link.label}</a>`
-@@ -16,7 +17,8 @@
- <nav class="navbar site-nav" role="navigation" aria-label="Primary">
-   <div class="navbar-content">
-     <a href="${config.brand.href}" class="logo" aria-label="Equilens home">
--      <img src="${config.brand.img}" alt="${config.brand.alt}" width="240" height="52">
-+      <img class="logo-wordmark" src="${config.brand.img}" alt="${config.brand.alt}" width="196" height="39">
-+      <img class="logo-symbol" src="${brandCompactImg}" alt="" width="64" height="64" aria-hidden="true">
-     </a>
-     <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
-     <div id="nav-links" class="nav-links" data-open="false">
 diff --git a/config/web/nav.json b/config/web/nav.json
-index 0b9ba9f..9fac424 100644
+index 9fac424..0ae07dc 100644
 --- a/config/web/nav.json
 +++ b/config/web/nav.json
 @@ -1,5 +1,5 @@
  {
--  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "alt": "Equilens"},
-+  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol.svg", "alt": "Equilens"},
+-  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol.svg", "alt": "Equilens"},
++  "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol-nav.svg", "alt": "Equilens"},
    "links": [
      {"label": "FL‑BSA", "href": "/fl-bsa/"},
      {"label": "Trust Center", "href": "/trust-center/"},
 diff --git a/templates/header.html b/templates/header.html
-index 2120287..7b6fba1 100644
+index 7b6fba1..e979043 100644
 --- a/templates/header.html
 +++ b/templates/header.html
-@@ -1,7 +1,8 @@
- <nav class="navbar site-nav" role="navigation" aria-label="Primary">
+@@ -2,7 +2,7 @@
    <div class="navbar-content">
      <a href="/" class="logo" aria-label="Equilens home">
--      <img src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="252" height="54">
-+      <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
-+      <img class="logo-symbol" src="/brand/symbol/equilens-symbol.svg" alt="" width="64" height="64" aria-hidden="true">
+       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+-      <img class="logo-symbol" src="/brand/symbol/equilens-symbol.svg" alt="" width="64" height="64" aria-hidden="true">
++      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
      </a>
      <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
      <div id="nav-links" class="nav-links" data-open="false">

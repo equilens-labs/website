@@ -7,7 +7,7 @@
     const response = await fetch('/config/web/nav.json');
     if (!response.ok) throw new Error('Failed to load nav config');
     const config = await response.json();
-    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol.svg';
+    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol-nav.svg';
 
     const navLinks = config.links.map(link =>
       `<a href="${link.href}" class="nav-link">${link.label}</a>`
