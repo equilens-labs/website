@@ -1,0 +1,7 @@
+Intent: Align website claims (performance, evidence/signing, supply chain, runtime hardening) with SSOT and FL-BSA repo truth sources; remove CSP-noisy inline SVG styles.
+UTC: 20260302T135551Z
+Website SSOT: SSoT.md §6 (Performance Targets).
+FL-BSA repo grounding: equilens-labs/fl-bsa @ c3e2d4cbc54b (pinned blob URLs).
+  - Supply chain signing/SBOM/provenance: https://github.com/equilens-labs/fl-bsa/blob/c3e2d4cbc54b/.github/workflows/release.yml
+  - CVE scan cadence: https://github.com/equilens-labs/fl-bsa/blob/c3e2d4cbc54b/.github/workflows/cve-scan.yml
+  - Evidence/signing optionality: https://github.com/equilens-labs/fl-bsa/blob/c3e2d4cbc54b/docs/operations/production-checklist.md
