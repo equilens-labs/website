@@ -6,7 +6,7 @@
 
 ## Operating Context
 - **Brand**: Equilens — Fair-Lending Bias-Simulation Appliance (FL-BSA).
-- **Legal entity**: Valfox Ltd (United Kingdom). Registered office: 840 Ibis Court, Centre Park, Warrington, Cheshire, England, WA1 1RL. Trading presence communicated as London, UK.
+- **Legal entity**: Valfox Ltd (United Kingdom). Registered office: Apollo House, Hallam Way, Whitehills Business Park, Blackpool, England, FY4 5FS. Trading presence communicated as London, UK.
 - **Regulatory touchpoints**: ECOA, EU AI Act, UK FCA/ICO guidance, and any jurisdiction-specific fair-lending or algorithmic accountability frameworks encountered.
 
 ## Rigour Requirements
