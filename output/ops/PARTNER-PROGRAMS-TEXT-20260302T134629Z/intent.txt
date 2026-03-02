@@ -1,0 +1,3 @@
+Intent: Replace non-official partner badge images with text-only partner program references (reduce trademark/branding risk; avoid missing assets).
+UTC: 20260302T134629Z
+Branch: pr/partner-badges-compliance
