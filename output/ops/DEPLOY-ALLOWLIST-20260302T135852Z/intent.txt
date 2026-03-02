@@ -1,0 +1,3 @@
+Intent: Harden deployment packaging by switching scripts/deploy/prepare.sh to an allowlist (reduce risk of shipping internal repo artifacts).
+UTC: 20260302T135852Z
+Validated: scripts/deploy/prepare.sh produced dist/ with only allowlisted paths.
