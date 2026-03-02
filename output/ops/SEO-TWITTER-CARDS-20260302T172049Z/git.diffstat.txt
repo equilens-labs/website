@@ -10,7 +10,7 @@
  legal/accessibility.html     | 15 ++++++++++++++-
  legal/cookie-policy.html     | 15 ++++++++++++++-
  legal/imprint.html           | 15 ++++++++++++++-
- legal/index.html             | 22 +++++++++++++++-------
+ legal/index.html             |  8 ++++++++
  legal/open-source.html       | 15 ++++++++++++++-
  legal/privacy.html           |  8 ++++++++
  legal/tos.html               |  8 ++++++++
@@ -18,4 +18,4 @@
  pricing/index.html           | 15 ++++++++++++++-
  procurement/index.html       |  8 ++++++++
  trust-center/index.html      |  8 ++++++++
- 20 files changed, 242 insertions(+), 22 deletions(-)
+ 20 files changed, 235 insertions(+), 15 deletions(-)
