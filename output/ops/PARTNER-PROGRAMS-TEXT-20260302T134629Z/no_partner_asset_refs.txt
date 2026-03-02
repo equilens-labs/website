@@ -1,0 +1,7 @@
+Check: ensure site does not reference `/brand/partners/*` assets (removed due to trademark/endorsement risk).
+
+Command (repo root):
+  rg -n "/brand/partners/" -S .
+
+Result:
+  PASS: no matches (ripgrep exits 1 when no matches are found).
