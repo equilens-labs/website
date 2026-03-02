@@ -1,0 +1,3 @@
+73:          <h2>Cookies &amp; similar technologies</h2>
+74:          <p>We do not use analytics, advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
+91:      <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>

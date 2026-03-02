@@ -1,0 +1,7 @@
+legal/accessibility.html
+legal/cookie-policy.html
+legal/imprint.html
+legal/index.html
+legal/open-source.html
+legal/privacy.html
+legal/tos.html

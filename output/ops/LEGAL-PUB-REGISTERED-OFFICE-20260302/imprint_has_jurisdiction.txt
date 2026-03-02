@@ -1,0 +1,4 @@
+57:            <p><strong>Controller:</strong> Valfox Ltd (trading as "Equilens"), registered in England &amp; Wales (Company number 14469638). Registered office: Apollo House, Hallam Way, Whitehills Business Park, Blackpool, England, FY4 5FS. Contact: <a href="mailto:privacy@equilens.io">privacy@equilens.io</a>.</p>
+138:            <p>These website terms are governed by the laws of England &amp; Wales. Courts of England &amp; Wales have exclusive jurisdiction over any disputes relating to this site.</p>
+224:              <li><strong>Registered office:</strong> Apollo House, Hallam Way, Whitehills Business Park, Blackpool, England, FY4 5FS.</li>
+225:              <li><strong>Place of registration:</strong> England &amp; Wales.</li>

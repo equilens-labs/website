@@ -1,0 +1,4 @@
+57:            <p><strong>Controller:</strong> Valfox Ltd (trading as "Equilens"), registered in England &amp; Wales (Company number 14469638). Registered office: Apollo House, Hallam Way, Whitehills Business Park, Blackpool, England, FY4 5FS. Contact: <a href="mailto:privacy@equilens.io">privacy@equilens.io</a>.</p>
+129:            <p>Logos and other marks are owned by Equilens/Valfox Ltd. Do not reuse or modify without permission. References to third-party trademarks are for identification only.</p>
+222:              <li><strong>Legal name:</strong> Valfox Ltd (trading as "Equilens").</li>
+273:    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
