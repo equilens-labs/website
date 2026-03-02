@@ -1,0 +1,4 @@
+Intent: Normalize Twitter Card metadata across public site pages (add twitter:* tags; align og:description and OG image dimensions; ensure redirect stubs include description and absolute canonicals where previously relative).
+UTC: 20260302T172049Z
+Notes: No twitter @handle tags (no twitter:site/twitter:creator).
+Validation: npm test (Playwright) passed 88/88 (see output/ops/PLAYWRIGHT-AUDIT-20260302T172015Z/).
