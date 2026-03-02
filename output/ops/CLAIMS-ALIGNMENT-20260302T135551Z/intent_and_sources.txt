@@ -1,0 +1,7 @@
+Intent: Align website claims (performance, evidence/signing, supply chain, runtime hardening) with SSOT and FL-BSA repo truth sources; remove CSP-noisy inline SVG styles.
+UTC: 20260302T135551Z
+Website SSOT: SSoT.md §6 (Performance Targets).
+FL-BSA repo grounding: /tmp/fl-bsa-20260302T124920Z @ c3e2d4cbc54b.
+  - Supply chain signing/SBOM/provenance: /tmp/fl-bsa-20260302T124920Z/.github/workflows/release.yml
+  - CVE scan cadence: /tmp/fl-bsa-20260302T124920Z/.github/workflows/cve-scan.yml
+  - Evidence/signing optionality: /tmp/fl-bsa-20260302T124920Z/docs/operations/production-checklist.md

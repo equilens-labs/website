@@ -55,8 +55,8 @@
               </h3>
               <ul class="checks">
                 <li>Cosign-signed images (keyless <abbr>OIDC</abbr>).</li>
-                <li><abbr>SBOM</abbr> + <abbr>SLSA</abbr> provenance.</li>
-                <li>Weekly <abbr>CVE</abbr> scans (break-on-critical).</li>
+                <li><abbr>SBOM</abbr> + build provenance attestations.</li>
+                <li>Daily <abbr>CVE</abbr> scans (fail on critical) + release-time HIGH/CRITICAL gating.</li>
               </ul>
             </div>
             <div class="card">
@@ -65,9 +65,9 @@
                 Runtime Protection
               </h3>
               <ul class="checks">
-                <li>Hardened containers (non-root, read-only).</li>
-                <li>Seccomp &amp; AppArmor profiles.</li>
-                <li>Secrets via <abbr>KMS</abbr>/Secrets Manager.</li>
+                <li>Non-root runtime (default).</li>
+                <li>No-new-privileges; writes confined to <code>OUTPUT_DIR</code>.</li>
+                <li>Secrets managed by your platform (<abbr>KMS</abbr>/Vault/Secrets Manager).</li>
               </ul>
             </div>
             <div class="card">
@@ -83,7 +83,7 @@
             </div>
             <div class="card">
               <h3>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline" style="stroke: #4f46e5;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 Regulatory Mapping<sup>1</sup>
               </h3>
               <ul class="checks">
@@ -109,7 +109,8 @@
             <div class="chain-node">Evidence Pack</div>
           </div>
 
-          <p>Every run emits a <strong>signed manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
+          <p>Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
+          <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
           <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
           <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>
 
