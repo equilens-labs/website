@@ -1,0 +1,21 @@
+ 404.html                     | 13 +++++++++++++
+ contact/index.html           |  8 ++++++++
+ docs/index.html              | 15 ++++++++++++++-
+ faq/index.html               | 15 ++++++++++++++-
+ fl-bsa/faq/index.html        | 17 +++++++++++++++--
+ fl-bsa/index.html            |  8 ++++++++
+ fl-bsa/legal/index.html      | 17 +++++++++++++++--
+ fl-bsa/pricing/index.html    | 17 +++++++++++++++--
+ fl-bsa/whitepaper/index.html | 17 +++++++++++++++--
+ legal/accessibility.html     | 15 ++++++++++++++-
+ legal/cookie-policy.html     | 15 ++++++++++++++-
+ legal/imprint.html           | 15 ++++++++++++++-
+ legal/index.html             |  8 ++++++++
+ legal/open-source.html       | 15 ++++++++++++++-
+ legal/privacy.html           |  8 ++++++++
+ legal/tos.html               |  8 ++++++++
+ press/index.html             |  8 ++++++++
+ pricing/index.html           | 15 ++++++++++++++-
+ procurement/index.html       |  8 ++++++++
+ trust-center/index.html      |  8 ++++++++
+ 20 files changed, 235 insertions(+), 15 deletions(-)
