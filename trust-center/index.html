@@ -64,11 +64,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                 Runtime Protection
               </h3>
-              <ul class="checks">
-                <li>Non-root runtime (default).</li>
-                <li>No-new-privileges; writes confined to <code>OUTPUT_DIR</code>.</li>
-                <li>Secrets managed by your platform (<abbr>KMS</abbr>/Vault/Secrets Manager).</li>
-              </ul>
+                <ul class="checks">
+                  <li>Non-root runtime (default).</li>
+                  <li>No-new-privileges; evidence artifacts written under <code>OUTPUT_DIR</code> (temporary writes may occur depending on deployment configuration).</li>
+                  <li>Secrets managed by your platform (<abbr>KMS</abbr>/Vault/Secrets Manager).</li>
+                </ul>
             </div>
             <div class="card">
               <h3>
@@ -115,12 +115,12 @@
           <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>
 
           <h3>Public reports &amp; files</h3>
-          <ul class="checks">
-            <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
-            <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
-            <li><a href="https://github.com/equilens-labs/website/tree/main/output/ops" target="_blank" rel="noopener noreferrer">Website evidence bundles</a> (operational audits, deploy snapshots, and checksums for this site).</li>
-          </ul>
-        </div>
+            <ul class="checks">
+              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
+              <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
+              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
+            </ul>
+          </div>
       </section>
     </div>
   </div>

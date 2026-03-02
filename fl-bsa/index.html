@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>FL-BSA — Fair-Lending Bias-Simulation Appliance</title>
-	  <meta content="Self-hosted appliance for bias simulation, evidence packs, and reporting across lending workflows." name="description"/>
+    <meta content="Self-hosted appliance for bias simulation, evidence packs, and reporting across lending workflows." name="description"/>
   <link href="https://equilens.io/fl-bsa/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
@@ -44,10 +44,10 @@
     "@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"Do we send any data to Equilens?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC/VM. Zero outbound calls by default."}},
-	      {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
+        {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
       {"@type":"Question","name":"What regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
       {"@type":"Question","name":"What are the deployment options?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace AMI or containerized via docker-compose. CPU-only and GPU-preferred profiles supported."}},
-	      {"@type":"Question","name":"What’s in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
+        {"@type":"Question","name":"What’s in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
     ]
    }
   </script>
@@ -114,7 +114,7 @@
           </div>
           <div class="timeline-content">
             <h3>Cryptographic Evidence</h3>
-	            <p>Generate tamper-evident packs. Every run emits an evidence manifest (<abbr>SHA-256</abbr>) and hash-linked certificates linking data to outcomes.</p>
+              <p>Generate tamper-evident packs. Every run emits an evidence manifest (<abbr>SHA-256</abbr>) and hash-linked certificates linking data to outcomes.</p>
           </div>
         </div>
         <div class="timeline-item">
