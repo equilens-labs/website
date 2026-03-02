@@ -10,6 +10,7 @@ chmod +x "$SCRIPT_DIR/update-footer.sh"
 "$SCRIPT_DIR/update-footer.sh"
 
 # Copy only the public website surface (allowlist)
+# NOTE: When adding a new top-level page/section, update SITE_FILES/SITE_DIRS so it is included in dist/.
 SITE_FILES=(
   "404.html"
   "index.html"
