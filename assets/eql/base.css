@@ -1463,9 +1463,9 @@ a[download]::after {
   margin: 0;
 }
 
-/* Pricing Section Accents */
-#pricing .card h3,
-#deployment .card h3 {
+/* Accent card headings inside section panels (TOC pages). */
+.section-block .card h2,
+.section-block .card h3 {
   color: var(--color-primary);
 }
 
