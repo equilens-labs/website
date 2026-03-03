@@ -1201,19 +1201,6 @@ a.card-hero:hover,
   }
 }
 
-@media (min-width: 1100px) {
-  .steps.steps--triptych {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
-  }
-
-  .steps.steps--triptych > .step:last-child:nth-child(odd) {
-    grid-column: auto;
-    max-width: none;
-    margin: 0;
-  }
-}
-
 .step {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
