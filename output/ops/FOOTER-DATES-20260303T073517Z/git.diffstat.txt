@@ -1,0 +1,11 @@
+ 404.html                | 3 ++-
+ contact/index.html      | 3 ++-
+ fl-bsa/index.html       | 3 ++-
+ index.html              | 3 ++-
+ legal/index.html        | 3 ++-
+ legal/privacy.html      | 3 ++-
+ legal/tos.html          | 3 ++-
+ press/index.html        | 3 ++-
+ procurement/index.html  | 3 ++-
+ trust-center/index.html | 3 ++-
+ 10 files changed, 20 insertions(+), 10 deletions(-)

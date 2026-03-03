@@ -1,0 +1,179 @@
+diff --git a/404.html b/404.html
+index d12b1b0..986f85a 100644
+--- a/404.html
++++ b/404.html
+@@ -63,7 +63,7 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
+@@ -85,6 +85,7 @@
+ 
+ 
+ 
++
+ 
+ </body>
+ </html>
+diff --git a/contact/index.html b/contact/index.html
+index 5dd98ff..0e67103 100644
+--- a/contact/index.html
++++ b/contact/index.html
+@@ -118,9 +118,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index afceda9..72a25bd 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -339,7 +339,7 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
+@@ -361,5 +361,6 @@
+ 
+ 
+ 
++
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index d184c5e..ae60164 100644
+--- a/index.html
++++ b/index.html
+@@ -134,7 +134,7 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
+@@ -156,6 +156,7 @@
+ 
+ 
+ 
++
+ 
+ </body>
+ </html>
+diff --git a/legal/index.html b/legal/index.html
+index a73edbb..2bcaa1e 100644
+--- a/legal/index.html
++++ b/legal/index.html
+@@ -278,9 +278,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
+diff --git a/legal/privacy.html b/legal/privacy.html
+index 484f0aa..7c66365 100644
+--- a/legal/privacy.html
++++ b/legal/privacy.html
+@@ -106,9 +106,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
+diff --git a/legal/tos.html b/legal/tos.html
+index bd64072..224a05f 100644
+--- a/legal/tos.html
++++ b/legal/tos.html
+@@ -93,9 +93,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
+diff --git a/press/index.html b/press/index.html
+index d92440b..c7829e0 100644
+--- a/press/index.html
++++ b/press/index.html
+@@ -94,9 +94,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
+diff --git a/procurement/index.html b/procurement/index.html
+index 1ff2555..3daca1f 100644
+--- a/procurement/index.html
++++ b/procurement/index.html
+@@ -171,7 +171,7 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
+@@ -196,6 +196,7 @@
+ 
+ 
+ 
++
+ 
+ 
+ </body>
+diff --git a/trust-center/index.html b/trust-center/index.html
+index b1b8966..630e9b0 100644
+--- a/trust-center/index.html
++++ b/trust-center/index.html
+@@ -153,9 +153,10 @@
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+ 
++
+ </body>
+ </html>
