@@ -1,5 +1,5 @@
-Intent: Make the homepage explicitly FL‑BSA-first (product landing), while preserving the restored landing sections.
-UTC: 20260303T094506Z
+Intent: Keep the homepage as the Equilens landing page (vision + positioning), with a brief FL‑BSA mention/link, while preserving restored landing sections.
+UTC: 20260303T100949Z
 Base: pr/footer-2026
 Validation: npm test (Playwright) passed 88/88 (summary: playwright_stats.json); git diff --check origin/pr/footer-2026..HEAD clean (see git_diff_check.txt).
 Sources (fl-bsa @ c3e2d4cbc54b38bd717ec3d8b66b666045e9f163):
