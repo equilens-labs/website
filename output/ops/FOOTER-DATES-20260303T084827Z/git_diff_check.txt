@@ -1,0 +1,4 @@
+Command: git diff --check origin/main -- 404.html index.html contact/index.html press/index.html procurement/index.html trust-center/index.html fl-bsa/index.html legal/index.html legal/privacy.html legal/tos.html
+Exit: 0
+Output:
+(no whitespace errors)

@@ -1,0 +1,299 @@
+diff --git a/404.html b/404.html
+index d12b1b0..0eca2db 100644
+--- a/404.html
++++ b/404.html
+@@ -56,35 +56,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ </body>
+ </html>
+diff --git a/contact/index.html b/contact/index.html
+index 5dd98ff..429b2ff 100644
+--- a/contact/index.html
++++ b/contact/index.html
+@@ -111,16 +111,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index afceda9..6865db3 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -332,34 +332,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index d184c5e..824b0d2 100644
+--- a/index.html
++++ b/index.html
+@@ -127,35 +127,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ </body>
+ </html>
+diff --git a/legal/index.html b/legal/index.html
+index a73edbb..35c582e 100644
+--- a/legal/index.html
++++ b/legal/index.html
+@@ -271,16 +271,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>
+diff --git a/legal/privacy.html b/legal/privacy.html
+index 484f0aa..6ae8f73 100644
+--- a/legal/privacy.html
++++ b/legal/privacy.html
+@@ -99,16 +99,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>
+diff --git a/legal/tos.html b/legal/tos.html
+index bd64072..f8894e6 100644
+--- a/legal/tos.html
++++ b/legal/tos.html
+@@ -86,16 +86,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>
+diff --git a/press/index.html b/press/index.html
+index d92440b..b230945 100644
+--- a/press/index.html
++++ b/press/index.html
+@@ -87,16 +87,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>
+diff --git a/procurement/index.html b/procurement/index.html
+index 1ff2555..56d6c7c 100644
+--- a/procurement/index.html
++++ b/procurement/index.html
+@@ -164,39 +164,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ </body>
+ </html>
+diff --git a/trust-center/index.html b/trust-center/index.html
+index b1b8966..4c4c289 100644
+--- a/trust-center/index.html
++++ b/trust-center/index.html
+@@ -146,16 +146,16 @@
+       <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+       <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+       <li><a href="/legal/#imprint">Imprint</a></li>
+     </ul></section>
+     <section><h3>Resources</h3><ul>
+       <li><a href="/legal/#open-source">Open Source</a></li>
+       <li><a href="/legal/#accessibility">Accessibility</a></li>
+     </ul></section>
+   </div>
+   <div class="container">
+-    <small>© 2025 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2025-12-04 (commit bd61d3a).</small>
++    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
+   </div>
+ </footer>
+
+ </body>
+ </html>

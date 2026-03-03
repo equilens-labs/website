@@ -1,0 +1,4 @@
+Intent: Refresh footer trust signals (copyright year + last-deploy placeholder) for 2026; normalize footer->body trailing blank lines to reduce diff churn.
+UTC: 20260303T084827Z
+Notes: Deploy workflow overwrites 'Last deploy … (commit …)' during dist preparation; this PR updates the committed source so it is not stale pre-deploy.
+Validation: git diff --check origin/main -- <subject files> clean.
