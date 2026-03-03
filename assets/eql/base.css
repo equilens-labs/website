@@ -629,6 +629,11 @@ abbr {
   min-width: 0;
 }
 
+/* Pages with a TOC use panel-style section blocks. Give them surface contrast. */
+.page-content .section {
+  background: var(--bg-subtle);
+}
+
 @media (min-width: 1100px) {
   .page-with-toc {
     padding-left: 240px;
