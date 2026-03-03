@@ -1,0 +1,3 @@
+Intent: Fix desktop TOC layout so sidebar does not shift content off-center (replace padding-left + fixed TOC with grid columns + sticky TOC).
+UTC: 20260303T073800Z
+Validation: npm test (Playwright) passed 88/88; git diff --check clean.
