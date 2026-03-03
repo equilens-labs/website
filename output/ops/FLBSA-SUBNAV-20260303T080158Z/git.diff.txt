@@ -19,36 +19,19 @@ index 79d6c44..36f11f2 100644
  }
  
 diff --git a/assets/eql/nav.js b/assets/eql/nav.js
-index 6c0f166..0d28f4d 100644
+index 6c0f166..564fe93 100644
 --- a/assets/eql/nav.js
 +++ b/assets/eql/nav.js
-@@ -83,23 +83,42 @@ function initNavFeatures() {
+@@ -83,6 +83,7 @@ function initNavFeatures() {
        }
      });
    });
 +
-+  // Ensure anchored headings aren't obscured by stacked sticky navs (navbar + product subnav).
-+  // Only applies on pages that render `.product-subnav`.
-+  if (document.querySelector('.product-subnav')) {
-+    syncScrollPaddingTopForProductSubnav();
-+    window.addEventListener('resize', syncScrollPaddingTopForProductSubnav);
-+  }
  }
  
  // Flag to temporarily pause scroll spy after click
- let scrollSpyPaused = false;
- let scrollSpyPauseTimeout = null;
+@@ -91,15 +92,17 @@ let scrollSpyPauseTimeout = null;
  
-+function syncScrollPaddingTopForProductSubnav() {
-+  const subnav = document.querySelector('.product-subnav');
-+  if (!subnav) return;
-+  const nav = document.querySelector('.navbar');
-+  if (!nav) return;
-+
-+  const padding = Math.ceil(nav.getBoundingClientRect().height + subnav.getBoundingClientRect().height + 16);
-+  document.documentElement.style.scrollPaddingTop = `${padding}px`;
-+}
-+
  // Update TOC active state for a specific hash
  function updateTocActiveState(hash) {
 -  const toc = document.querySelector('.toc');
@@ -74,7 +57,7 @@ index 6c0f166..0d28f4d 100644
    });
  }
  
-@@ -158,29 +177,37 @@ function setProductSubnav() {
+@@ -158,29 +161,37 @@ function setProductSubnav() {
    });
  
    if (bestLink) {
@@ -124,7 +107,7 @@ index 6c0f166..0d28f4d 100644
  
    if (!sections.length) return;
  
-@@ -218,10 +245,11 @@ function initScrollSpy() {
+@@ -218,10 +229,11 @@ function initScrollSpy() {
        }
      }
  
@@ -139,7 +122,7 @@ index 6c0f166..0d28f4d 100644
      }
    }
  
-@@ -232,4 +260,3 @@ function initScrollSpy() {
+@@ -232,4 +244,3 @@ function initScrollSpy() {
  setProductSubnav();
  window.addEventListener('hashchange', setProductSubnav);
  initScrollSpy();

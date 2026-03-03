@@ -84,27 +84,11 @@ function initNavFeatures() {
     });
   });
 
-  // Ensure anchored headings aren't obscured by stacked sticky navs (navbar + product subnav).
-  // Only applies on pages that render `.product-subnav`.
-  if (document.querySelector('.product-subnav')) {
-    syncScrollPaddingTopForProductSubnav();
-    window.addEventListener('resize', syncScrollPaddingTopForProductSubnav);
-  }
 }
 
 // Flag to temporarily pause scroll spy after click
 let scrollSpyPaused = false;
 let scrollSpyPauseTimeout = null;
-
-function syncScrollPaddingTopForProductSubnav() {
-  const subnav = document.querySelector('.product-subnav');
-  if (!subnav) return;
-  const nav = document.querySelector('.navbar');
-  if (!nav) return;
-
-  const padding = Math.ceil(nav.getBoundingClientRect().height + subnav.getBoundingClientRect().height + 16);
-  document.documentElement.style.scrollPaddingTop = `${padding}px`;
-}
 
 // Update TOC active state for a specific hash
 function updateTocActiveState(hash) {
