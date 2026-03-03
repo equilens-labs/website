@@ -1,0 +1,38 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index 8ba73ff..f1d1bb3 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -1464,7 +1464,8 @@ a[download]::after {
+ }
+
+ /* Pricing Section Accents */
+-#pricing .card h3 {
++#pricing .card h3,
++#deployment .card h3 {
+   color: var(--color-primary);
+ }
+
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index bab9080..1739332 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -145,11 +145,17 @@
+       <p class="lead">Self-hosted appliance deployed inside your environment (BYOC).</p>
+       <div class="grid">
+         <div class="card">
+-          <h3><abbr>AWS</abbr> Marketplace</h3>
++          <h3>
++            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
++            <abbr>AWS</abbr> Marketplace
++          </h3>
+           <p>Launch in your <abbr>AWS</abbr> account and run FL-BSA in your <abbr>VPC</abbr>.</p>
+         </div>
+         <div class="card">
+-          <h3>Container</h3>
++          <h3>
++            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="m12 2 9 5-9 5-9-5 9-5"></path><path d="m3 12 9 5 9-5"></path><path d="m3 17 9 5 9-5"></path></svg>
++            Container
++          </h3>
+           <p>Deploy via docker-compose or Kubernetes in a customer-controlled environment.</p>
+         </div>
+       </div>

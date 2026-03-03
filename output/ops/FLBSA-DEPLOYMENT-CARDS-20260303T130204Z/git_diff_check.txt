@@ -1,0 +1,4 @@
+Command: git diff --check 7bba59f..HEAD
+Exit: 0
+Output:
+(no whitespace errors)
