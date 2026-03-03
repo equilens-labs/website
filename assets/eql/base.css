@@ -1464,7 +1464,8 @@ a[download]::after {
 }
 
 /* Pricing Section Accents */
-#pricing .card h3 {
+#pricing .card h3,
+#deployment .card h3 {
   color: var(--color-primary);
 }
 
