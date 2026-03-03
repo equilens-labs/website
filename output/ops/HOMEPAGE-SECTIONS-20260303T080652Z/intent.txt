@@ -1,0 +1,4 @@
+Intent: Restore substantive homepage sections (value props + architecture overview + CTA) and normalize the hero logo heading semantics.
+UTC: 20260303T080652Z
+Base: pr/footer-2026
+Validation: npm test (Playwright) passed 88/88; git diff --check clean.
