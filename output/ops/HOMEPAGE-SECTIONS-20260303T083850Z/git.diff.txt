@@ -19,7 +19,7 @@ index 79d6c44..4c2d2b1 100644
    max-width: 100%;
  }
 diff --git a/index.html b/index.html
-index ae60164..6fc2557 100644
+index 824b0d2..eebe90c 100644
 --- a/index.html
 +++ b/index.html
 @@ -69,8 +69,9 @@
