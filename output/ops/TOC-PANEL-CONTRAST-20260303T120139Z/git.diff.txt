@@ -1,0 +1,28 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index a8bf1d7..8ba73ff 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -629,6 +629,11 @@ abbr {
+   min-width: 0;
+ }
+
++/* Pages with a TOC use panel-style section blocks. Give them surface contrast. */
++.page-content .section {
++  background: var(--bg-subtle);
++}
++
+ @media (min-width: 1100px) {
+   .page-with-toc {
+     padding-left: 240px;
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index 0b77d5a..bab9080 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -76,6 +76,7 @@
+         <div class="toc-inner">
+           <a href="#overview" class="toc-label">FL-BSA</a>
+           <a href="#how-it-works" class="toc-link">How it Works</a>
++          <a href="#deployment" class="toc-link">Deployment</a>
+           <a href="#pricing" class="toc-link">Licensing</a>
+           <a href="#compliance" class="toc-link">Regulatory Assurance</a>
+           <a href="#docs" class="toc-link">Documentation</a>
