@@ -1,0 +1,7 @@
+Intent: Normalize panel/card styling across TOC pages and ensure FL-BSA Documentation cards match the rest of the product panels.
+UTC: 20260303T132243Z
+Base: 5a07857
+Changes:
+- Apply consistent accent styling to card headings inside .section-block panels (TOC pages).
+- Update FL-BSA Documentation section: add consistent heading icons + center CTA row.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 5a07857..HEAD clean (see git_diff_check.txt).
