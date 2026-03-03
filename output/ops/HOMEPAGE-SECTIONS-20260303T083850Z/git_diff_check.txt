@@ -1,0 +1,4 @@
+Command: git diff --check origin/pr/footer-2026
+Exit: 0
+Output:
+(no whitespace errors)
