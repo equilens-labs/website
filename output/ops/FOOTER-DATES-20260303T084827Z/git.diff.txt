@@ -17,7 +17,7 @@ index d12b1b0..0eca2db 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
 -
 -
 -
@@ -58,7 +58,7 @@ index 5dd98ff..429b2ff 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
 diff --git a/fl-bsa/index.html b/fl-bsa/index.html
@@ -80,7 +80,7 @@ index afceda9..6865db3 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
 -
 -
 -
@@ -120,7 +120,7 @@ index d184c5e..824b0d2 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
 -
 -
 -
@@ -161,7 +161,7 @@ index a73edbb..35c582e 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
 diff --git a/legal/privacy.html b/legal/privacy.html
@@ -183,7 +183,7 @@ index 484f0aa..6ae8f73 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
 diff --git a/legal/tos.html b/legal/tos.html
@@ -205,7 +205,7 @@ index bd64072..f8894e6 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
 diff --git a/press/index.html b/press/index.html
@@ -227,7 +227,7 @@ index d92440b..b230945 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
 diff --git a/procurement/index.html b/procurement/index.html
@@ -249,7 +249,7 @@ index 1ff2555..56d6c7c 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
 -
 -
 -
@@ -294,6 +294,6 @@ index b1b8966..4c4c289 100644
 +    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-03-02 (commit fdeb4e3).</small>
    </div>
  </footer>
- 
+
  </body>
  </html>
