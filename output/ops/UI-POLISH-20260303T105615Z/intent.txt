@@ -1,0 +1,10 @@
+Intent: Fix obvious UI/content papercuts (centering + wording) discovered during review.
+UTC: 20260303T105615Z
+Base: origin/main
+Changes:
+- Center small footnote notes inside .text-center blocks.
+- Use a properly centered mobile nav symbol SVG (fixes compact-logo visual offset).
+- Remove the FL-BSA "Design" section.
+- Replace "Explore pricing" with "View licensing" (we do not publish pricing).
+- Update /pricing/ redirect copy to say "Licensing".
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check origin/main..HEAD clean (see git_diff_check.txt).
