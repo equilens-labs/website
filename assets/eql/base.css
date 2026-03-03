@@ -379,14 +379,9 @@ p {
   width: 100%;
 }
 
-.brand-title.brand-title--logo {
-  font-size: 1rem;
-  text-shadow: none;
-}
-
 .hero-logo {
   display: block;
-  height: clamp(72px, 12vw, 110px);
+  height: 110px;
   width: auto;
   max-width: 100%;
 }
