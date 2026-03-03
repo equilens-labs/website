@@ -1,0 +1,4 @@
+Intent: Restore substantive homepage sections and normalize indentation (spaces-only) for long-term diff hygiene.
+UTC: 20260303T083850Z
+Base: pr/footer-2026
+Validation: npm test (Playwright) passed 88/88; git diff --check clean.
