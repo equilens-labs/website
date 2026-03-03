@@ -106,29 +106,46 @@
       </section>
 
       <section class="section alt" id="evidence-chain">
-        <div class="section-block section-block--narrow">
+        <div class="section-block">
           <h2>Evidence Chain</h2>
-          
-          <div class="chain-visual">
-            <div class="chain-node">Input Data</div>
-            <span class="chain-arrow">&rarr;</span>
-            <div class="chain-node">Simulation</div>
-            <span class="chain-arrow">&rarr;</span>
-            <div class="chain-node">Evidence Pack</div>
+
+          <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
+
+          <div class="steps steps--triptych" aria-label="Evidence chain steps">
+            <div class="step">
+              <header>
+                <span class="step-number">1</span>
+                <h3 class="step-title">Input Data</h3>
+              </header>
+              <p>Input hash recorded.</p>
+            </div>
+            <div class="step">
+              <header>
+                <span class="step-number">2</span>
+                <h3 class="step-title">Simulation</h3>
+              </header>
+              <p>Parameters captured.</p>
+            </div>
+            <div class="step">
+              <header>
+                <span class="step-number">3</span>
+                <h3 class="step-title">Evidence Pack</h3>
+              </header>
+              <p>Manifest + outputs.</p>
+            </div>
           </div>
 
-          <p>Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
           <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
           <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
           <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>
 
           <h3>Public reports &amp; files</h3>
-            <ul class="checks">
-              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
-              <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
-              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
-            </ul>
-          </div>
+          <ul class="checks">
+            <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
+            <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
+            <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
+          </ul>
+        </div>
       </section>
     </div>
   </div>
