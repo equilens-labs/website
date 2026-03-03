@@ -1,0 +1,7 @@
+Intent: Replace the Trust Center Evidence Chain schema diagram with the standard steps component so it matches the site’s panel/card language.
+UTC: 20260303T141033Z
+Base: 4260854
+Changes:
+- Replace bespoke chain diagram with a 3-step card layout (reuses existing .steps/.step styling).
+- Add a .steps--triptych modifier to render 3-up steps on desktop.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 4260854..HEAD clean (see git_diff_check.txt).

@@ -1,0 +1,180 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index 2c5cf56..dda3296 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -1201,6 +1201,19 @@ a.card-hero:hover,
+   }
+ }
+ 
++@media (min-width: 1100px) {
++  .steps.steps--triptych {
++    grid-template-columns: repeat(3, 1fr);
++    gap: var(--space-8);
++  }
++
++  .steps.steps--triptych > .step:last-child:nth-child(odd) {
++    grid-column: auto;
++    max-width: none;
++    margin: 0;
++  }
++}
++
+ .step {
+   border: 1px solid var(--border-light);
+   border-radius: var(--radius-xl);
+@@ -1815,89 +1828,3 @@ a[download]::after {
+     grid-template-columns: repeat(2, 1fr); /* 2x2 on desktop as requested */
+   }
+ }
+-
+-/* ============================================================================
+-   12. CHAIN VISUAL COMPONENT
+-   ============================================================================ */
+-
+-.chain-visual {
+-  display: flex;
+-  align-items: center;
+-  justify-content: center;
+-  gap: var(--space-4);
+-  margin: var(--space-8) auto;
+-  flex-wrap: wrap;
+-  counter-reset: chain-step;
+-  max-width: var(--max-width-4xl);
+-  padding: var(--space-6) var(--space-5);
+-  background: var(--bg-subtle);
+-  border: 1px solid var(--border-light);
+-  border-radius: var(--radius-xl);
+-}
+-
+-.chain-node {
+-  display: inline-flex;
+-  align-items: center;
+-  justify-content: center;
+-  gap: var(--space-3);
+-  min-width: 200px;
+-  background: var(--color-white);
+-  border: 1px solid var(--border-light);
+-  border-radius: var(--radius-xl);
+-  padding: var(--space-4) var(--space-6);
+-  font-size: var(--text-sm);
+-  font-weight: var(--font-semibold);
+-  color: var(--text-primary);
+-  box-shadow: var(--shadow-sm);
+-  transition: all var(--transition-base);
+-}
+-
+-.chain-node::before {
+-  content: counter(chain-step);
+-  counter-increment: chain-step;
+-  display: inline-flex;
+-  align-items: center;
+-  justify-content: center;
+-  width: 24px;
+-  height: 24px;
+-  border-radius: var(--radius-full);
+-  background: var(--color-primary-a10);
+-  color: var(--color-primary);
+-  font-size: var(--text-xs);
+-  font-family: var(--font-mono);
+-  font-weight: var(--font-bold);
+-  flex: 0 0 auto;
+-}
+-
+-.chain-node:hover {
+-  transform: translateY(-2px);
+-  border-color: var(--color-primary-a15);
+-  box-shadow: var(--shadow-md);
+-}
+-
+-.chain-arrow {
+-  display: inline-flex;
+-  align-items: center;
+-  justify-content: center;
+-  width: 36px;
+-  height: 36px;
+-  border-radius: var(--radius-full);
+-  background: var(--color-primary-a08);
+-  border: 1px solid var(--color-primary-a15);
+-  color: var(--color-primary-text);
+-  box-shadow: var(--shadow-xs);
+-  font-size: var(--text-lg);
+-  font-weight: var(--font-bold);
+-  line-height: 1;
+-}
+-
+-@media (max-width: 640px) {
+-  .chain-visual {
+-    flex-direction: column;
+-    gap: var(--space-2);
+-  }
+-  
+-  .chain-arrow {
+-    transform: rotate(90deg);
+-  }
+-}
+diff --git a/trust-center/index.html b/trust-center/index.html
+index b1b8966..ee041ec 100644
+--- a/trust-center/index.html
++++ b/trust-center/index.html
+@@ -106,29 +106,46 @@
+       </section>
+ 
+       <section class="section alt" id="evidence-chain">
+-        <div class="section-block section-block--narrow">
++        <div class="section-block">
+           <h2>Evidence Chain</h2>
+-          
+-          <div class="chain-visual">
+-            <div class="chain-node">Input Data</div>
+-            <span class="chain-arrow">&rarr;</span>
+-            <div class="chain-node">Simulation</div>
+-            <span class="chain-arrow">&rarr;</span>
+-            <div class="chain-node">Evidence Pack</div>
++
++          <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
++
++          <div class="steps steps--triptych" aria-label="Evidence chain steps">
++            <div class="step">
++              <header>
++                <span class="step-number">1</span>
++                <h3 class="step-title">Input Data</h3>
++              </header>
++              <p>Input hash recorded.</p>
++            </div>
++            <div class="step">
++              <header>
++                <span class="step-number">2</span>
++                <h3 class="step-title">Simulation</h3>
++              </header>
++              <p>Parameters captured.</p>
++            </div>
++            <div class="step">
++              <header>
++                <span class="step-number">3</span>
++                <h3 class="step-title">Evidence Pack</h3>
++              </header>
++              <p>Manifest + outputs.</p>
++            </div>
+           </div>
+ 
+-          <p>Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
+           <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
+           <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
+           <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>
+ 
+           <h3>Public reports &amp; files</h3>
+-            <ul class="checks">
+-              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
+-              <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
+-              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
+-            </ul>
+-          </div>
++          <ul class="checks">
++            <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
++            <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
++            <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
++          </ul>
++        </div>
+       </section>
+     </div>
+   </div>
