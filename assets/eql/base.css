@@ -604,11 +604,13 @@ abbr {
   color: var(--color-primary-text);
 }
 
-.subnav-link[aria-current="page"] {
+.subnav-link[aria-current="page"],
+.subnav-link[aria-current="location"] {
   color: var(--color-primary);
 }
 
-.subnav-link[aria-current="page"]::after {
+.subnav-link[aria-current="page"]::after,
+.subnav-link[aria-current="location"]::after {
   background: var(--color-primary);
 }
 

@@ -1,0 +1,167 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index 79d6c44..36f11f2 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -604,11 +604,13 @@ abbr {
+   color: var(--color-primary-text);
+ }
+ 
+-.subnav-link[aria-current="page"] {
++.subnav-link[aria-current="page"],
++.subnav-link[aria-current="location"] {
+   color: var(--color-primary);
+ }
+ 
+-.subnav-link[aria-current="page"]::after {
++.subnav-link[aria-current="page"]::after,
++.subnav-link[aria-current="location"]::after {
+   background: var(--color-primary);
+ }
+ 
+diff --git a/assets/eql/nav.js b/assets/eql/nav.js
+index 6c0f166..0d28f4d 100644
+--- a/assets/eql/nav.js
++++ b/assets/eql/nav.js
+@@ -83,23 +83,42 @@ function initNavFeatures() {
+       }
+     });
+   });
++
++  // Ensure anchored headings aren't obscured by stacked sticky navs (navbar + product subnav).
++  // Only applies on pages that render `.product-subnav`.
++  if (document.querySelector('.product-subnav')) {
++    syncScrollPaddingTopForProductSubnav();
++    window.addEventListener('resize', syncScrollPaddingTopForProductSubnav);
++  }
+ }
+ 
+ // Flag to temporarily pause scroll spy after click
+ let scrollSpyPaused = false;
+ let scrollSpyPauseTimeout = null;
+ 
++function syncScrollPaddingTopForProductSubnav() {
++  const subnav = document.querySelector('.product-subnav');
++  if (!subnav) return;
++  const nav = document.querySelector('.navbar');
++  if (!nav) return;
++
++  const padding = Math.ceil(nav.getBoundingClientRect().height + subnav.getBoundingClientRect().height + 16);
++  document.documentElement.style.scrollPaddingTop = `${padding}px`;
++}
++
+ // Update TOC active state for a specific hash
+ function updateTocActiveState(hash) {
+-  const toc = document.querySelector('.toc');
+-  if (!toc) return;
+-
+-  const links = toc.querySelectorAll('.toc-link[href^="#"]');
+-  links.forEach(link => {
+-    link.removeAttribute('aria-current');
+-    if (link.getAttribute('href') === hash) {
+-      link.setAttribute('aria-current', 'location');
+-    }
++  const navs = document.querySelectorAll('.toc, .section-nav, .product-subnav');
++  if (!navs.length) return;
++
++  navs.forEach(nav => {
++    const links = nav.querySelectorAll('.toc-link[href^="#"], .section-nav-link[href^="#"], .subnav-link[href^="#"]');
++    links.forEach(link => {
++      link.removeAttribute('aria-current');
++      if (link.getAttribute('href') === hash) {
++        link.setAttribute('aria-current', 'location');
++      }
++    });
+   });
+ }
+ 
+@@ -158,29 +177,37 @@ function setProductSubnav() {
+   });
+ 
+   if (bestLink) {
+-    bestLink.setAttribute('aria-current', 'page');
++    bestLink.setAttribute('aria-current', 'location');
+   } else if (links[0]) {
+-    links[0].setAttribute('aria-current', 'page');
++    links[0].setAttribute('aria-current', 'location');
+   }
+ }
+ 
+ // Scroll-spy for subnav: highlights active section as user scrolls
+ function initScrollSpy() {
+-  const subnav = document.querySelector('.toc') || document.querySelector('.section-nav') || document.querySelector('.product-subnav');
+-  if (!subnav) return;
+-
+-  const links = subnav.querySelectorAll('.toc-link[href^="#"], .section-nav-link[href^="#"], .subnav-link[href^="#"]');
+-  if (!links.length) return;
++  const navs = Array.from(document.querySelectorAll('.toc, .section-nav, .product-subnav'));
++  if (!navs.length) return;
++
++  const hrefToLinks = new Map();
++  for (const nav of navs) {
++    const links = nav.querySelectorAll('.toc-link[href^="#"], .section-nav-link[href^="#"], .subnav-link[href^="#"]');
++    links.forEach(link => {
++      const href = link.getAttribute('href');
++      if (!href || !href.startsWith('#') || href.length < 2) return;
++      const bucket = hrefToLinks.get(href) || [];
++      bucket.push(link);
++      hrefToLinks.set(href, bucket);
++    });
++  }
+ 
+-  // Get all target sections
+   const sections = [];
+-  links.forEach(link => {
+-    const targetId = link.getAttribute('href').substring(1);
++  for (const href of hrefToLinks.keys()) {
++    const targetId = href.substring(1);
+     const section = document.getElementById(targetId);
+     if (section) {
+-      sections.push({ id: targetId, el: section, link: link });
++      sections.push({ id: targetId, el: section, href });
+     }
+-  });
++  }
+ 
+   if (!sections.length) return;
+ 
+@@ -218,10 +245,11 @@ function initScrollSpy() {
+       }
+     }
+ 
+-    // Update aria-current
+-    links.forEach(link => link.removeAttribute('aria-current'));
++    // Update aria-current across all TOC/subnav variants
++    hrefToLinks.forEach(links => links.forEach(link => link.removeAttribute('aria-current')));
+     if (activeSection) {
+-      activeSection.link.setAttribute('aria-current', 'location');
++      const links = hrefToLinks.get(activeSection.href) || [];
++      links.forEach(link => link.setAttribute('aria-current', 'location'));
+     }
+   }
+ 
+@@ -232,4 +260,3 @@ function initScrollSpy() {
+ setProductSubnav();
+ window.addEventListener('hashchange', setProductSubnav);
+ initScrollSpy();
+-
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index afceda9..17c7f7f 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -71,6 +71,16 @@
+ 
+ 
+   <main id="main">
++    <nav class="product-subnav" aria-label="FL‑BSA sections">
++      <div class="subnav-inner">
++        <a class="subnav-link" href="#overview">Overview</a>
++        <a class="subnav-link" href="#how-it-works">How it Works</a>
++        <a class="subnav-link" href="#pricing">Licensing</a>
++        <a class="subnav-link" href="#compliance">Regulatory Assurance</a>
++        <a class="subnav-link" href="#docs">Documentation</a>
++        <a class="subnav-link" href="#faq">FAQ</a>
++      </div>
++    </nav>
+     <div class="page-with-toc">
+       <nav class="toc" aria-label="Table of contents">
+         <div class="toc-inner">
