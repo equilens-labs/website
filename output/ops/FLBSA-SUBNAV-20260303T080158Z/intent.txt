@@ -1,0 +1,3 @@
+Intent: Add a visible FL-BSA in-page sub-navigation bar (product subnav) and ensure active-section highlighting works across TOC + subnav.
+UTC: 20260303T080158Z
+Validation: npm test (Playwright) passed 88/88; git diff --check origin/main clean (see git_diff_check.txt).
