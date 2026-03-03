@@ -5,19 +5,19 @@ index 79d6c44..36f11f2 100644
 @@ -604,11 +604,13 @@ abbr {
    color: var(--color-primary-text);
  }
- 
+
 -.subnav-link[aria-current="page"] {
 +.subnav-link[aria-current="page"],
 +.subnav-link[aria-current="location"] {
    color: var(--color-primary);
  }
- 
+
 -.subnav-link[aria-current="page"]::after {
 +.subnav-link[aria-current="page"]::after,
 +.subnav-link[aria-current="location"]::after {
    background: var(--color-primary);
  }
- 
+
 diff --git a/assets/eql/nav.js b/assets/eql/nav.js
 index 6c0f166..564fe93 100644
 --- a/assets/eql/nav.js
@@ -28,10 +28,10 @@ index 6c0f166..564fe93 100644
    });
 +
  }
- 
+
  // Flag to temporarily pause scroll spy after click
 @@ -91,15 +92,17 @@ let scrollSpyPauseTimeout = null;
- 
+
  // Update TOC active state for a specific hash
  function updateTocActiveState(hash) {
 -  const toc = document.querySelector('.toc');
@@ -56,10 +56,10 @@ index 6c0f166..564fe93 100644
 +    });
    });
  }
- 
+
 @@ -158,29 +161,37 @@ function setProductSubnav() {
    });
- 
+
    if (bestLink) {
 -    bestLink.setAttribute('aria-current', 'page');
 +    bestLink.setAttribute('aria-current', 'location');
@@ -68,7 +68,7 @@ index 6c0f166..564fe93 100644
 +    links[0].setAttribute('aria-current', 'location');
    }
  }
- 
+
  // Scroll-spy for subnav: highlights active section as user scrolls
  function initScrollSpy() {
 -  const subnav = document.querySelector('.toc') || document.querySelector('.section-nav') || document.querySelector('.product-subnav');
@@ -90,7 +90,7 @@ index 6c0f166..564fe93 100644
 +      hrefToLinks.set(href, bucket);
 +    });
 +  }
- 
+
 -  // Get all target sections
    const sections = [];
 -  links.forEach(link => {
@@ -104,13 +104,13 @@ index 6c0f166..564fe93 100644
      }
 -  });
 +  }
- 
+
    if (!sections.length) return;
- 
+
 @@ -218,10 +229,11 @@ function initScrollSpy() {
        }
      }
- 
+
 -    // Update aria-current
 -    links.forEach(link => link.removeAttribute('aria-current'));
 +    // Update aria-current across all TOC/subnav variants
@@ -121,7 +121,7 @@ index 6c0f166..564fe93 100644
 +      links.forEach(link => link.setAttribute('aria-current', 'location'));
      }
    }
- 
+
 @@ -232,4 +244,3 @@ function initScrollSpy() {
  setProductSubnav();
  window.addEventListener('hashchange', setProductSubnav);
@@ -132,8 +132,8 @@ index afceda9..17c7f7f 100644
 --- a/fl-bsa/index.html
 +++ b/fl-bsa/index.html
 @@ -71,6 +71,16 @@
- 
- 
+
+
    <main id="main">
 +    <nav class="product-subnav" aria-label="FL‑BSA sections">
 +      <div class="subnav-inner">
