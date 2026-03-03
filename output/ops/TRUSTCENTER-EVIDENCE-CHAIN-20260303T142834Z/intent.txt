@@ -1,0 +1,7 @@
+Intent: Make the Trust Center Evidence Chain panel follow the same card/grid style as the other Trust Center panels.
+UTC: 20260303T142834Z
+Base: 2a50f0b
+Changes:
+- Use the standard 2x2 .grid of .card elements for the Evidence Chain schema (matches Security Posture).
+- Fold “Public reports & files” into the grid to avoid one-off panel styling.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 2a50f0b..HEAD clean (see git_diff_check.txt).
