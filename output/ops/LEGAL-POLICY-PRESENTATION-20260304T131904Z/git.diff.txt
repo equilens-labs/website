@@ -1,0 +1,85 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index f90346f..cea6f32 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -918,6 +918,41 @@ abbr {
+   text-align: center;
+ }
+
++/* Policy pages (legal) */
++.policy .section-block > h2 {
++  text-align: left;
++  font-size: var(--text-3xl);
++}
++
++.policy .section-block .container > h2 {
++  text-align: left;
++  font-size: var(--text-2xl);
++  margin-bottom: var(--space-4);
++  margin-top: var(--space-10);
++  padding-top: var(--space-6);
++  border-top: 1px solid var(--border-light);
++}
++
++.policy .section-block .container > h2:first-of-type {
++  margin-top: var(--space-6);
++  padding-top: 0;
++  border-top: none;
++}
++
++.policy .section-block p {
++  line-height: var(--leading-relaxed);
++}
++
++.policy .section-block .checks li {
++  line-height: var(--leading-relaxed);
++}
++
++.policy .section-block .note {
++  text-align: left;
++  margin-left: 0;
++  margin-right: 0;
++}
++
+ /* Legal/policy page h3 styling (direct children only, not in cards) */
+ .section-block > .container > h3,
+ .section-block > h3 {
+diff --git a/legal/index.html b/legal/index.html
+index a73edbb..687bdc7 100644
+--- a/legal/index.html
++++ b/legal/index.html
+@@ -27,7 +27,7 @@
+   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
+   <link rel="stylesheet" href="/assets/eql/base.css">
+ </head>
+-<body class="eql">
++<body class="eql policy">
+   <a class="skip-to-content" href="#main">Skip to content</a>
+   <div id="nav-placeholder"></div>
+   <script src="/assets/eql/nav.js" defer></script>
+diff --git a/legal/privacy.html b/legal/privacy.html
+index 484f0aa..0f517c6 100644
+--- a/legal/privacy.html
++++ b/legal/privacy.html
+@@ -27,7 +27,7 @@
+   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
+   <link rel="stylesheet" href="/assets/eql/base.css">
+ </head>
+-<body class="eql">
++<body class="eql policy">
+   <a class="skip-to-content" href="#main">Skip to content</a>
+   <div id="nav-placeholder"></div>
+   <script src="/assets/eql/nav.js" defer></script>
+diff --git a/legal/tos.html b/legal/tos.html
+index bd64072..15c4b9e 100644
+--- a/legal/tos.html
++++ b/legal/tos.html
+@@ -27,7 +27,7 @@
+   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
+   <link rel="stylesheet" href="/assets/eql/base.css">
+ </head>
+-<body class="eql">
++<body class="eql policy">
+   <a class="skip-to-content" href="#main">Skip to content</a>
+   <div id="nav-placeholder"></div>
+   <script src="/assets/eql/nav.js" defer></script>

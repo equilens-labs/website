@@ -1,0 +1,4 @@
+assets/eql/base.css
+legal/index.html
+legal/privacy.html
+legal/tos.html
