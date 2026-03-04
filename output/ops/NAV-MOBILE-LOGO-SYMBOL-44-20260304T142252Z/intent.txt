@@ -1,0 +1,7 @@
+Intent: Increase the mobile nav logo icon size so it visibly matches the wordmark height.
+UTC: 20260304T142252Z
+Base: 9b8e567
+Changes:
+- On <=768px, set the nav logo symbol to 44x44.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 9b8e567..HEAD clean (see git_diff_check.txt).
+Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T142111Z/report.json
