@@ -355,7 +355,7 @@ p {
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   font-weight: var(--font-semibold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
