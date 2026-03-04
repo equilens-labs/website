@@ -1,7 +1,0 @@
-Intent: Increase hero accent subtitles ("eyebrow" text like "Algorithmic Compliance") so they read as intentional, not undersized.
-UTC: 20260304T134400Z
-Base: 209adfa
-Changes:
-- Increase `.eyebrow` font-size clamp values.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 209adfa..HEAD clean (see git_diff_check.txt).
-Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T134238Z/report.json

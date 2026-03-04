@@ -1,9 +1,0 @@
-Intent: Improve legal page presentation (typography + hierarchy) while preserving the existing site template.
-UTC: 20260304T131904Z
-Base: 0e7ae82
-Changes:
-- Add a policy-mode body class on legal pages.
-- For policy-mode pages, left-align legal section headings, reduce heading scale, and add light separators between sections.
-- Tighten paragraph/list line-height and left-align legal note callouts for improved scanability.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 0e7ae82..HEAD clean (see git_diff_check.txt).
-Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T131717Z/report.json

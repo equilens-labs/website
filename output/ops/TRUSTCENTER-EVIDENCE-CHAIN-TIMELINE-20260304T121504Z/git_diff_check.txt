@@ -1,4 +1,0 @@
-Command: git diff --check f28890d..HEAD
-Exit: 0
-Output:
-(no whitespace errors)

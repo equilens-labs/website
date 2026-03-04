@@ -1,7 +1,0 @@
-Intent: Bring the mobile nav "Menu" toggle into alignment with the site's button styling (surface, border, hover state).
-UTC: 20260304T121119Z
-Base: 2ba554c
-Changes:
-- Restyle .nav-toggle to match the secondary button aesthetic, including hover and expanded states.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 2ba554c..HEAD clean (see git_diff_check.txt).
-Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T121030Z/report.json

@@ -1,4 +1,0 @@
-Command: git diff --check c0992a6..HEAD
-Exit: 0
-Output:
-(no whitespace errors)

@@ -1,2 +1,0 @@
-assets/eql/base.css
-fl-bsa/index.html

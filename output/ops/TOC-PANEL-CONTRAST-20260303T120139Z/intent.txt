@@ -1,7 +1,0 @@
-Intent: Improve visual consistency on TOC pages by adding subtle surface contrast behind section panels, and expose the FL-BSA Deployment section in the sidebar TOC.
-UTC: 20260303T120139Z
-Base: c0992a6
-Changes:
-- Add a subtle background behind .page-content sections so section-block panels read as panels (not flat).
-- Add 'Deployment' to the FL-BSA sidebar table of contents.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check c0992a6..HEAD clean (see git_diff_check.txt).

@@ -1,7 +1,0 @@
-Intent: Make the FL-BSA Deployment panel visually consistent (icons + accent headings), so it doesn’t read as a flat/un-styled section.
-UTC: 20260303T130204Z
-Base: 7bba59f
-Changes:
-- Add inline icons to the Deployment cards (Marketplace / Container).
-- Apply the same accent heading color used in Licensing to Deployment card headings.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 7bba59f..HEAD clean (see git_diff_check.txt).

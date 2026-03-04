@@ -1,8 +1,0 @@
-Intent: Remove the fixed-position TOC + left-padding hack and use a proper grid+sticky sidebar so TOC pages stay optically centered and consistent.
-UTC: 20260304T111707Z
-Base: 939fc36
-Changes:
-- Convert .page-with-toc to a 2-column grid at desktop widths.
-- Make the TOC sticky within layout (scrollable when long), instead of fixed to the viewport.
-- Remove extra inner padding on .section-block > .container to avoid double-padding on legal/policy panels.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 939fc36..HEAD clean (see git_diff_check.txt).

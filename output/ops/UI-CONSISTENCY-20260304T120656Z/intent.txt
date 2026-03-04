@@ -1,9 +1,0 @@
-Intent: Reduce UI drift by aligning process components (How it Works timeline + Procurement steps) with the site card surface styling, and make the Contact form layout consistent (full-width controls, left-aligned labels).
-UTC: 20260304T120656Z
-Base: 41731e9
-Changes:
-- Update timeline cards to use the same border/shadow/padding scale as .card, and add a short lead line in FL-BSA "How it Works".
-- Update step cards (Procurement steps) to match the same surface styling.
-- Improve Contact form usability by making inputs/selects/textarea full-width and letting the form content stretch within its card.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 41731e9..HEAD clean (see git_diff_check.txt).
-Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T120603Z/report.json

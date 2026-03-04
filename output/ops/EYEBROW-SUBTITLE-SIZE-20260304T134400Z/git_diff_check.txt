@@ -1,4 +1,0 @@
-Command: git diff --check 209adfa..HEAD
-Exit: 0
-Output:
-(no whitespace errors)

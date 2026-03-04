@@ -1,7 +1,0 @@
-Intent: Improve the Trust Center Evidence Chain section so the diagram looks intentional (not raw) and list alignment matches the rest of the site.
-UTC: 20260303T135559Z
-Base: 2d995d6
-Changes:
-- Restyle the Evidence Chain schema diagram (nodes + arrows) to match the site’s card/panel language.
-- Ensure .section-block--narrow checklists are left-aligned and centered as a block.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 2d995d6..HEAD clean (see git_diff_check.txt).

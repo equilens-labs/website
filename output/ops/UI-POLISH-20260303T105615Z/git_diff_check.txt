@@ -1,4 +1,0 @@
-Command: git diff --check origin/main..HEAD
-Exit: 0
-Output:
-(no whitespace errors)

@@ -1,7 +1,0 @@
-Intent: Make hero accent subtitles ("eyebrow" text) bold for stronger visual hierarchy.
-UTC: 20260304T140745Z
-Base: 2611f9b
-Changes:
-- Increase `.eyebrow` font-weight.
-Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check 2611f9b..HEAD clean (see git_diff_check.txt).
-Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T140659Z/report.json
