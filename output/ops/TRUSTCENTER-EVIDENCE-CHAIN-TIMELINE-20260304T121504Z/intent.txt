@@ -1,0 +1,9 @@
+Intent: Make the Trust Center "Evidence Chain" section read like an actual chain (4-step sequence) while keeping panel/card styling consistent.
+UTC: 20260304T121504Z
+Base: f28890d
+Changes:
+- Replace the Evidence Chain 2x2 schema grid with the shared 4-step timeline component.
+- Move the long "Public reports & files" checklist out of the schema and into its own compact card.
+- Align timeline headings with the section-panel accent color.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check f28890d..HEAD clean (see git_diff_check.txt).
+Playwright source: output/ops/PLAYWRIGHT-AUDIT-20260304T121419Z/report.json
