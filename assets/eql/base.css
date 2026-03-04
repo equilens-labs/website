@@ -636,15 +636,17 @@ abbr {
 
 @media (min-width: 1100px) {
   .page-with-toc {
-    padding-left: 240px;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--space-10);
+    align-items: start;
   }
 
   .toc {
     display: block;
-    position: fixed;
-    left: var(--space-6);
+    position: sticky;
     top: 96px;
-    width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
   }
 
   .toc-inner {
@@ -946,6 +948,8 @@ abbr {
 /* Section-block container max-width */
 .section-block > .container {
   max-width: var(--content-width);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .cta-row {
