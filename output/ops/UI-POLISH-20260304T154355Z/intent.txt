@@ -1,0 +1,18 @@
+Intent: Consolidate PR #24 UI polish changes (content + layout + card surfaces) and address review hygiene (spaces-only HTML, accessible timeline step labels) with a single deterministic evidence bundle.
+UTC: 20260304T154355Z
+Base: origin/main
+
+Changes:
+- TOC layout: use grid + sticky TOC to keep TOC pages optically centered; balance gutters on very wide screens.
+- Surfaces: align panels/cards and process components (timeline + procurement steps) to shared card styling.
+- Content polish: remove FL-BSA "Design" section; use "Licensing" wording (no public pricing); center small footnote notes.
+- Nav: normalize mobile toggle + compact logo sizing.
+- Trust Center: present Evidence Chain as a 4-step timeline and move the public artifacts checklist into a compact card.
+- A11y/hygiene: add DOM step labels for timeline cards; replace tab indentation with spaces.
+
+Evidence hygiene:
+- Prune superseded intermediate bundles under output/ops/ (keep this consolidated bundle only).
+
+Validation:
+- npm test (Playwright) passed (summary: playwright_stats.json).
+- git diff --check origin/main..HEAD clean (see git_diff_check.txt).
