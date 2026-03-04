@@ -111,53 +111,53 @@
 
           <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
 
-	          <div class="timeline" aria-label="Evidence chain schema">
-	            <div class="timeline-item">
-	              <div class="timeline-marker">
-	                <span class="timeline-icon">1</span>
-	              </div>
-	              <div class="timeline-content">
-	                <h3>Input Data</h3>
-	                <p>Input hash recorded.</p>
-	              </div>
-	            </div>
-	            <div class="timeline-item">
-	              <div class="timeline-marker">
-	                <span class="timeline-icon">2</span>
-	              </div>
-	              <div class="timeline-content">
-	                <h3>Simulation</h3>
-	                <p>Parameters captured.</p>
-	              </div>
-	            </div>
-	            <div class="timeline-item">
-	              <div class="timeline-marker">
-	                <span class="timeline-icon">3</span>
-	              </div>
-	              <div class="timeline-content">
-	                <h3>Evidence Pack</h3>
-	                <p>Manifest + outputs.</p>
-	              </div>
-	            </div>
-	            <div class="timeline-item">
-	              <div class="timeline-marker">
-	                <span class="timeline-icon">4</span>
-	              </div>
-	              <div class="timeline-content">
-	                <h3>Traceability</h3>
-	                <p>Hash-linked chain from snapshot to report.</p>
-	              </div>
-	            </div>
-	          </div>
+          <div class="timeline" aria-label="Evidence chain schema">
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <span class="timeline-icon">1</span>
+              </div>
+              <div class="timeline-content">
+                <h3><span class="sr-only">Step 1: </span>Input Data</h3>
+                <p>Input hash recorded.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <span class="timeline-icon">2</span>
+              </div>
+              <div class="timeline-content">
+                <h3><span class="sr-only">Step 2: </span>Simulation</h3>
+                <p>Parameters captured.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <span class="timeline-icon">3</span>
+              </div>
+              <div class="timeline-content">
+                <h3><span class="sr-only">Step 3: </span>Evidence Pack</h3>
+                <p>Manifest + outputs.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <span class="timeline-icon">4</span>
+              </div>
+              <div class="timeline-content">
+                <h3><span class="sr-only">Step 4: </span>Traceability</h3>
+                <p>Hash-linked chain from snapshot to report.</p>
+              </div>
+            </div>
+          </div>
 
-	          <div class="card card--compact mt-8">
-	            <h3>Public reports &amp; files</h3>
-	            <ul class="checks">
-	              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
-	              <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
-	              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
-	            </ul>
-	          </div>
+          <div class="card card--compact mt-8">
+            <h3>Public reports &amp; files</h3>
+            <ul class="checks">
+              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>
+              <li><a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v4.0.3" target="_blank" rel="noopener noreferrer">Pinned artifacts release (v4.0.3)</a> (includes <code>manifest.json</code> and <code>SHA256SUMS.txt</code>).</li>
+              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
+            </ul>
+          </div>
 
           <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
           <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
