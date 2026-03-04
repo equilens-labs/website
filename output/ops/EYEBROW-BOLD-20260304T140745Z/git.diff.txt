@@ -1,0 +1,13 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index 5075cda..4ec1cbd 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -356,7 +356,7 @@ p {
+ .eyebrow {
+   font-family: var(--font-sans);
+   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+-  font-weight: var(--font-semibold);
++  font-weight: var(--font-bold);
+   letter-spacing: 0.05em;
+   text-transform: uppercase;
+   color: var(--color-primary);
