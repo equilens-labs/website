@@ -3,7 +3,7 @@ index 665ffe1..35720da 100644
 --- a/assets/eql/base.css
 +++ b/assets/eql/base.css
 @@ -636,15 +636,17 @@ abbr {
- 
+
  @media (min-width: 1100px) {
    .page-with-toc {
 -    padding-left: 240px;
@@ -11,7 +11,7 @@ index 665ffe1..35720da 100644
 +    gap: var(--space-10);
 +    align-items: start;
    }
- 
+
    .toc {
      display: block;
 -    position: fixed;
@@ -22,7 +22,7 @@ index 665ffe1..35720da 100644
 +    max-height: calc(100vh - 120px);
 +    overflow: auto;
    }
- 
+
    .toc-inner {
 @@ -946,6 +948,8 @@ abbr {
  /* Section-block container max-width */
@@ -31,5 +31,5 @@ index 665ffe1..35720da 100644
 +  padding-left: 0;
 +  padding-right: 0;
  }
- 
+
  .cta-row {

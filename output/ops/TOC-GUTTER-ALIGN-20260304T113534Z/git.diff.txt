@@ -5,7 +5,7 @@ index 35720da..9afb3d4 100644
 @@ -695,6 +695,18 @@ abbr {
    }
  }
- 
+
 +/* On very wide viewports, keep the page content optically centered while
 +   allowing the TOC to sit in the left gutter. */
 +@media (min-width: 1440px) {

@@ -5,7 +5,7 @@ index dda3296..665ffe1 100644
 @@ -1201,19 +1201,6 @@ a.card-hero:hover,
    }
  }
- 
+
 -@media (min-width: 1100px) {
 -  .steps.steps--triptych {
 -    grid-template-columns: repeat(3, 1fr);
@@ -27,9 +27,9 @@ index ee041ec..176de77 100644
 --- a/trust-center/index.html
 +++ b/trust-center/index.html
 @@ -111,40 +111,41 @@
- 
+
            <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
- 
+
 -          <div class="steps steps--triptych" aria-label="Evidence chain steps">
 -            <div class="step">
 -              <header>
@@ -77,7 +77,7 @@ index ee041ec..176de77 100644
 +              </ul>
 +            </div>
            </div>
- 
+
            <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
            <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
            <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>

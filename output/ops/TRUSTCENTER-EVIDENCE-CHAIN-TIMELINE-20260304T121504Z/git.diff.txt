@@ -5,7 +5,7 @@ index 42282b6..f90346f 100644
 @@ -1830,6 +1830,10 @@ a[download]::after {
    text-align: center;
  }
- 
+
 +.section-block .timeline-content h3 {
 +  color: var(--color-primary);
 +}
@@ -18,9 +18,9 @@ index 176de77..0fb8b9a 100644
 --- a/trust-center/index.html
 +++ b/trust-center/index.html
 @@ -111,37 +111,53 @@
- 
+
            <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
- 
+
 -          <div class="grid" aria-label="Evidence chain schema">
 -            <div class="card">
 -              <h3>
@@ -99,6 +99,6 @@ index 176de77..0fb8b9a 100644
 +	              <li>Operational site evidence bundles are available on request (deploy snapshots, checksums, audits).</li>
 +	            </ul>
 +	          </div>
- 
+
            <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
            <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>

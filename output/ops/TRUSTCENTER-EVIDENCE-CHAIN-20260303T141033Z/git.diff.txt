@@ -5,7 +5,7 @@ index 2c5cf56..dda3296 100644
 @@ -1201,6 +1201,19 @@ a.card-hero:hover,
    }
  }
- 
+
 +@media (min-width: 1100px) {
 +  .steps.steps--triptych {
 +    grid-template-columns: repeat(3, 1fr);
@@ -107,7 +107,7 @@ index 2c5cf56..dda3296 100644
 -    flex-direction: column;
 -    gap: var(--space-2);
 -  }
--  
+-
 -  .chain-arrow {
 -    transform: rotate(90deg);
 -  }
@@ -118,12 +118,12 @@ index b1b8966..ee041ec 100644
 +++ b/trust-center/index.html
 @@ -106,29 +106,46 @@
        </section>
- 
+
        <section class="section alt" id="evidence-chain">
 -        <div class="section-block section-block--narrow">
 +        <div class="section-block">
            <h2>Evidence Chain</h2>
--          
+-
 -          <div class="chain-visual">
 -            <div class="chain-node">Input Data</div>
 -            <span class="chain-arrow">&rarr;</span>
@@ -156,12 +156,12 @@ index b1b8966..ee041ec 100644
 +              <p>Manifest + outputs.</p>
 +            </div>
            </div>
- 
+
 -          <p>Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr>SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr>PDF</abbr>, metrics, generators).</p>
            <p class="note note--small">Signing/witnessing is optional and depends on deployment configuration.</p>
            <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
            <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr>SBOM</abbr>.</p>
- 
+
            <h3>Public reports &amp; files</h3>
 -            <ul class="checks">
 -              <li><a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">FL-BSA public artifacts</a> (synthetic/demo-only reports + data published as GitHub Release assets).</li>

@@ -3,7 +3,7 @@ index caa9ae0..42282b6 100644
 --- a/assets/eql/base.css
 +++ b/assets/eql/base.css
 @@ -542,13 +542,27 @@ abbr {
- 
+
  .nav-toggle {
    display: none;
 -  border: 1px solid var(--border-default);
@@ -31,5 +31,5 @@ index caa9ae0..42282b6 100644
 +  background: var(--color-primary-a08);
 +  border-color: var(--color-primary);
  }
- 
+
  /* Product Sub-Navigation (FL-BSA pages) */
