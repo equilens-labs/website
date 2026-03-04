@@ -1,0 +1,7 @@
+Intent: Keep TOC pages optically centered while placing the TOC back in the left gutter on very wide screens.
+UTC: 20260304T113534Z
+Base: ed2d9f8
+Changes:
+- For viewports >= 1440px, expand .page-with-toc to full width and add a balancing right gutter column.
+- Preserve the grid+sticky TOC behavior introduced in the prior TOC layout fix.
+Validation: npm test (Playwright) passed (summary: playwright_stats.json); git diff --check ed2d9f8..HEAD clean (see git_diff_check.txt).
