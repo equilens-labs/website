@@ -918,6 +918,41 @@ abbr {
   text-align: center;
 }
 
+/* Policy pages (legal) */
+.policy .section-block > h2 {
+  text-align: left;
+  font-size: var(--text-3xl);
+}
+
+.policy .section-block .container > h2 {
+  text-align: left;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-light);
+}
+
+.policy .section-block .container > h2:first-of-type {
+  margin-top: var(--space-6);
+  padding-top: 0;
+  border-top: none;
+}
+
+.policy .section-block p {
+  line-height: var(--leading-relaxed);
+}
+
+.policy .section-block .checks li {
+  line-height: var(--leading-relaxed);
+}
+
+.policy .section-block .note {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* Legal/policy page h3 styling (direct children only, not in cards) */
 .section-block > .container > h3,
 .section-block > h3 {
