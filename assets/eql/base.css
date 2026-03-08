@@ -409,6 +409,12 @@ ul, ol {
   color: var(--text-subtle);
 }
 
+.product-name {
+  color: var(--color-primary-text);
+  font-weight: var(--font-bold);
+  white-space: nowrap;
+}
+
 /* Acronyms */
 abbr {
   text-decoration: none;
