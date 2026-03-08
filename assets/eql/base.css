@@ -859,6 +859,32 @@ abbr {
   margin: var(--space-4) auto;
 }
 
+.hero-highlights {
+  margin-top: var(--space-8);
+}
+
+.hero-highlights .card {
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero-highlights .card:hover {
+  transform: none;
+  border-color: rgba(229, 231, 235, 1);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero-highlights .card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+  color: var(--color-primary-text);
+}
+
+.hero-highlights .card p {
+  font-size: var(--text-sm);
+  margin-bottom: 0;
+}
+
 .hero-content .note {
   text-align: center;
   font-size: var(--text-sm);
