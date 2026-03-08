@@ -1,0 +1,178 @@
+
+> equilens-website@1.0.0 test
+> npm run playwright:audit
+
+
+> equilens-website@1.0.0 playwright:audit
+> scripts/ops/run_playwright_audit.sh
+
+
+Running 84 tests using 5 workers
+
+(node:2989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2986) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2989) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2986) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/ renders nav and footer (1.3s)
+  ✓   5 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › / renders nav and footer (1.4s)
+  ✓   4 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/pricing/ renders nav and footer (1.4s)
+  ✓   3 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/legal/ renders nav and footer (1.5s)
+  ✓   1 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/faq/ renders nav and footer (1.6s)
+  ✓   6 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/whitepaper/ renders nav and footer (1.0s)
+  ✓   8 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /procurement/ renders nav and footer (899ms)
+  ✓   9 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /press/ renders nav and footer (829ms)
+  ✓   7 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /pricing/ renders nav and footer (1.0s)
+  ✓  10 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /contact/ renders nav and footer (822ms)
+  ✓  15 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#how-it-works is reachable (680ms)
+  ✓  11 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /trust-center/ renders nav and footer (865ms)
+  ✓  13 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/privacy.html renders nav and footer (877ms)
+  ✓  14 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/tos.html renders nav and footer (872ms)
+  ✓  12 [chromium-desktop] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/index.html renders nav and footer (1.1s)
+  ✓  16 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#deployment is reachable (672ms)
+  ✓  17 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#pricing is reachable (691ms)
+  ✓  18 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#compliance is reachable (690ms)
+  ✓  19 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#whitepaper is reachable (712ms)
+(node:3060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3061) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  20 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#docs is reachable (666ms)
+(node:3062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3061) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [chromium-desktop] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#faq is reachable (667ms)
+(node:3066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  22 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › / renders nav and footer (1.4s)
+  ✓  24 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/pricing/ renders nav and footer (1.8s)
+  ✓  23 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/ renders nav and footer (1.9s)
+  ✓  25 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/legal/ renders nav and footer (1.8s)
+  ✓  26 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/faq/ renders nav and footer (1.7s)
+  ✓  27 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/whitepaper/ renders nav and footer (1.6s)
+  ✓  30 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /press/ renders nav and footer (1.0s)
+  ✓  29 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /procurement/ renders nav and footer (1.3s)
+  ✓  31 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /contact/ renders nav and footer (973ms)
+  ✓  28 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /pricing/ renders nav and footer (1.5s)
+  ✓  36 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#how-it-works is reachable (681ms)
+  ✓  32 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /trust-center/ renders nav and footer (1.3s)
+  ✓  35 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/tos.html renders nav and footer (1.1s)
+  ✓  34 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/privacy.html renders nav and footer (1.2s)
+  ✓  33 [chromium-mobile] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/index.html renders nav and footer (1.7s)
+  ✓  37 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#deployment is reachable (687ms)
+  ✓  38 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#pricing is reachable (689ms)
+  ✓  39 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#compliance is reachable (674ms)
+  ✓  40 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#whitepaper is reachable (691ms)
+(node:3175) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3175) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  41 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#docs is reachable (700ms)
+  ✓  42 [chromium-mobile] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#faq is reachable (728ms)
+(node:3185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3187) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3185) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3187) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  43 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › / renders nav and footer (818ms)
+  ✓  44 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/ renders nav and footer (929ms)
+  ✓  45 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/pricing/ renders nav and footer (946ms)
+  ✓  47 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/faq/ renders nav and footer (905ms)
+  ✓  46 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/legal/ renders nav and footer (906ms)
+  ✓  48 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/whitepaper/ renders nav and footer (854ms)
+  ✓  50 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /procurement/ renders nav and footer (795ms)
+  ✓  49 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /pricing/ renders nav and footer (893ms)
+  ✓  51 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /press/ renders nav and footer (723ms)
+  ✓  52 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /contact/ renders nav and footer (739ms)
+  ✓  53 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /trust-center/ renders nav and footer (792ms)
+  ✓  55 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/privacy.html renders nav and footer (775ms)
+  ✓  54 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/index.html renders nav and footer (923ms)
+  ✓  57 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#how-it-works is reachable (665ms)
+  ✓  56 [chromium-tablet-768] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/tos.html renders nav and footer (780ms)
+  ✓  58 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#deployment is reachable (645ms)
+  ✓  59 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#pricing is reachable (643ms)
+  ✓  60 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#compliance is reachable (645ms)
+(node:3238) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  61 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#whitepaper is reachable (658ms)
+(node:3243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  62 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#docs is reachable (644ms)
+(node:3244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3238) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  63 [chromium-tablet-768] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#faq is reachable (661ms)
+(node:3245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3246) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3246) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  64 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › / renders nav and footer (838ms)
+  ✓  65 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/ renders nav and footer (1.0s)
+  ✓  66 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/pricing/ renders nav and footer (1.0s)
+  ✓  67 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/legal/ renders nav and footer (1.0s)
+  ✓  68 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/faq/ renders nav and footer (999ms)
+  ✓  69 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /fl-bsa/whitepaper/ renders nav and footer (985ms)
+  ✓  70 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /pricing/ renders nav and footer (980ms)
+  ✓  71 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /procurement/ renders nav and footer (841ms)
+  ✓  72 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /press/ renders nav and footer (779ms)
+  ✓  73 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /contact/ renders nav and footer (775ms)
+  ✓  74 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /trust-center/ renders nav and footer (814ms)
+  ✓  78 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#how-it-works is reachable (647ms)
+  ✓  76 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/privacy.html renders nav and footer (813ms)
+  ✓  77 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/tos.html renders nav and footer (814ms)
+  ✓  75 [chromium-tablet-1024] › tests/site.spec.ts:20:9 › Equilens site surfaces › /legal/index.html renders nav and footer (1.0s)
+  ✓  79 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#deployment is reachable (657ms)
+  ✓  80 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#pricing is reachable (662ms)
+  ✓  81 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#compliance is reachable (672ms)
+  ✓  82 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#whitepaper is reachable (665ms)
+  ✓  83 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#docs is reachable (651ms)
+  ✓  84 [chromium-tablet-1024] › tests/site.spec.ts:47:9 › Equilens site surfaces › anchor /fl-bsa/#faq is reachable (659ms)
+
+  84 passed (18.6s)
+[OK] Playwright audit -> output/ops/PLAYWRIGHT-AUDIT-20260308T121352Z

@@ -1,0 +1,6 @@
+Intent: Final homepage copy refinement after render review. Keep the existing company-first structure, but tighten the narrative so the homepage reads as one progression: where FL-BSA runs, what it does, and what it produces.
+UTC: 20260308T121059Z
+Supersedes:
+- output/ops/HOMEPAGE-NARRATIVE-COHERENCE-20260308T120544Z/
+Subject files:
+- index.html
