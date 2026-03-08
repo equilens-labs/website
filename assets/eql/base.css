@@ -847,14 +847,6 @@ abbr {
   margin-right: auto;
 }
 
-.hero-context {
-  max-width: 56ch;
-  margin: 0 auto;
-  color: var(--text-muted);
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
-}
-
 .hero-content .checks {
   text-align: left;
   display: inline-block;
@@ -1019,33 +1011,6 @@ abbr {
   max-width: var(--content-width);
   padding-left: 0;
   padding-right: 0;
-}
-
-.homepage-overview .card .btn {
-  margin-top: auto;
-}
-
-.home-proof-strip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-3);
-  margin-top: var(--space-8);
-}
-
-.home-proof-item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-full);
-  background: var(--bg-subtle);
-  color: var(--text-secondary);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  line-height: var(--leading-normal);
-  text-align: center;
 }
 
 .cta-row {
