@@ -1,0 +1,7 @@
+Intent: Replace the over-explanatory homepage orientation pass with a cleaner company-first narrative. Keep the page as the Equilens homepage, make the Equilens -> FL-BSA relationship clear in one lead paragraph, and tighten the supporting cards so they reinforce a single story instead of opening a second section.
+UTC: 20260308T120544Z
+Supersedes:
+- output/ops/HOMEPAGE-BRAND-ORIENTATION-20260308T115505Z/
+Subject files:
+- index.html
+- assets/eql/base.css

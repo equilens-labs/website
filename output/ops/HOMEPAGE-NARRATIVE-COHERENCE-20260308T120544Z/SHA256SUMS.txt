@@ -1,0 +1,2 @@
+c9910fbad2304462855b93c24702b634e0aaefd1ecafb03e36f0de1e4b3654be  output/ops/HOMEPAGE-NARRATIVE-COHERENCE-20260308T120544Z/artifacts/homepage-desktop.png
+3f6fbdcf5255a58ded89ea7c8bf4f873dd70f332fad4412dac5ae210c6cdabca  output/ops/HOMEPAGE-NARRATIVE-COHERENCE-20260308T120544Z/artifacts/homepage-mobile.png

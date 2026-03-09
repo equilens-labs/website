@@ -1,0 +1,30 @@
+[
+  {
+    "viewport": "desktop",
+    "title": "Equilens — Algorithmic Compliance",
+    "lead": "Equilens builds regulatory infrastructure for algorithmic decision-making. FL-BSA, our self-hosted fair-lending bias-simulation appliance, helps regulated teams simulate lending models, review disparity outcomes, and generate regulator-oriented evidence packs1 without moving customer data outside their environment.",
+    "ctas": [
+      "Explore FL-BSA",
+      "Review Trust Center"
+    ],
+    "cards": [
+      "Customer-Hosted",
+      "Evidence-Led",
+      "Repeatable Review"
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "title": "Equilens — Algorithmic Compliance",
+    "lead": "Equilens builds regulatory infrastructure for algorithmic decision-making. FL-BSA, our self-hosted fair-lending bias-simulation appliance, helps regulated teams simulate lending models, review disparity outcomes, and generate regulator-oriented evidence packs1 without moving customer data outside their environment.",
+    "ctas": [
+      "Explore FL-BSA",
+      "Review Trust Center"
+    ],
+    "cards": [
+      "Customer-Hosted",
+      "Evidence-Led",
+      "Repeatable Review"
+    ]
+  }
+]

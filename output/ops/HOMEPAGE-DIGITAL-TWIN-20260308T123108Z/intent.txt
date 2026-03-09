@@ -1,0 +1,6 @@
+Intent: Reintroduce the canonical FL-BSA phrase "regulatory digital twin for lending" into the Equilens homepage lead while keeping the current company-first structure and supporting card layout unchanged.
+UTC: 20260308T123108Z
+Source:
+- SSoT.md: FL-BSA canonical wording uses "regulatory digital twin for lending".
+Subject files:
+- index.html

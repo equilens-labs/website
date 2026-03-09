@@ -1,0 +1,2 @@
+03ffc86bf95d33844c5fb283ff55c41c8091e5e502f0b5f2ddd96385f6c7f4de  output/ops/HOMEPAGE-DIGITAL-TWIN-20260308T123108Z/artifacts/homepage-desktop.png
+01e0dc1c60ae858d43d8821d182af7a8b5df3ba80941f8721424d008a93ef946  output/ops/HOMEPAGE-DIGITAL-TWIN-20260308T123108Z/artifacts/homepage-mobile.png

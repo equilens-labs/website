@@ -1,0 +1,7 @@
+Intent: Refine the FL-BSA product page after render review. Keep the existing section order, but clarify the hero narrative, add a compact top-of-page summary/action layer, simplify early section copy, and align deployment wording with the current customer-hosted procurement language.
+UTC: 20260308T124333Z
+Supersedes:
+- output/ops/UI-POLISH-20260304T154355Z/
+Subject files:
+- fl-bsa/index.html
+- assets/eql/base.css

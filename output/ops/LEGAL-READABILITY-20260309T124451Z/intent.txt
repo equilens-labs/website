@@ -1,0 +1,6 @@
+Intent: Improve readability on the legal surfaces without changing the underlying copy. Turn policy notes into clear callouts, tighten long-form line length, strengthen legal section hierarchy, and make small-note text legible across the site.
+UTC: 20260309T124451Z
+Supersedes:
+- output/ops/SITE-TYPOGRAPHY-CONSISTENCY-20260309T123848Z/
+Subject files:
+- assets/eql/base.css

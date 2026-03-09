@@ -1,0 +1,14 @@
+{
+  "desktop": {
+    "heroComputedColor": "rgb(79, 70, 229)",
+    "productColor": "rgb(79, 70, 229)",
+    "acronymColor": "rgb(55, 48, 163)",
+    "faqSummarySize": "18px"
+  },
+  "mobile": {
+    "heroComputedColor": "rgb(79, 70, 229)",
+    "productColor": "rgb(79, 70, 229)",
+    "acronymColor": "rgb(55, 48, 163)",
+    "scrollHeight": 10065
+  }
+}

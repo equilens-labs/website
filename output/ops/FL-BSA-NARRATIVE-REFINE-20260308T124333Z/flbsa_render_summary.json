@@ -1,0 +1,37 @@
+{
+  "desktop": {
+    "heroLead": "FL-BSA is a self-hosted regulatory digital twin for lending. It helps regulated teams simulate lending models on synthetic borrower cohorts, measure disparity, and generate audit-ready evidence packs without moving customer data outside their environment.",
+    "heroCards": [
+      "Customer-Hosted",
+      "Bias Simulation",
+      "Evidence Packs"
+    ],
+    "heroCtas": [
+      "Contact Sales",
+      "Download Whitepaper (PDF)"
+    ],
+    "h2s": [
+      "How it Works",
+      "Deployment",
+      "Licensing",
+      "Regulatory Assurance",
+      "Documentation",
+      "FAQ"
+    ],
+    "scrollHeight": 7209
+  },
+  "mobile": {
+    "heroLead": "FL-BSA is a self-hosted regulatory digital twin for lending. It helps regulated teams simulate lending models on synthetic borrower cohorts, measure disparity, and generate audit-ready evidence packs without moving customer data outside their environment.",
+    "heroCards": [
+      "Customer-Hosted",
+      "Bias Simulation",
+      "Evidence Packs"
+    ],
+    "heroCtas": [
+      "Contact Sales",
+      "Download Whitepaper (PDF)"
+    ],
+    "tocVisible": false,
+    "scrollHeight": 10110
+  }
+}

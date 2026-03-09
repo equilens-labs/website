@@ -1,0 +1,5 @@
+Intent: Add subtle visual emphasis to visible FL-BSA mentions on the Equilens homepage by applying bold weight and product-accent color in the hero lead and supporting card text.
+UTC: 20260308T122421Z
+Subject files:
+- index.html
+- assets/eql/base.css

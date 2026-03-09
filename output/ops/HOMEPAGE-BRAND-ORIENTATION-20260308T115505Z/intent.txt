@@ -1,0 +1,8 @@
+Intent: Clarify the Equilens homepage as a company-first surface by explicitly framing FL-BSA as the product surface, adding one orientation/proof section, and keeping the page brand-led rather than turning it into a second product page.
+UTC: 20260308T115505Z
+Context:
+- User feedback: homepage should stay company-first because it is the Equilens homepage, not the FL-BSA page.
+- Goal: preserve that intent while making the Equilens -> FL-BSA relationship clearer and adding one layer of proof/orientation for reviewers.
+Subject files:
+- index.html
+- assets/eql/base.css

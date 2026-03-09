@@ -1,0 +1,7 @@
+Intent: Refine FL-BSA page typography so the page carries more of the design weight through text. Emphasize visible FL-BSA mentions in the accent color, give acronyms stronger and more intentional typographic treatment, and tighten product-page hierarchy without changing the underlying narrative structure.
+UTC: 20260309T111508Z
+Supersedes:
+- output/ops/FL-BSA-NARRATIVE-REFINE-20260308T124333Z/
+Subject files:
+- fl-bsa/index.html
+- assets/eql/base.css
