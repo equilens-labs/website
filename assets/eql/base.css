@@ -410,8 +410,18 @@ ul, ol {
 }
 
 .product-name {
-  color: var(--color-primary-text);
+  color: var(--color-primary);
   font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.acronym {
+  color: var(--color-primary-text);
+  display: inline-block;
+  font-size: 0.95em;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
@@ -419,10 +429,10 @@ ul, ol {
 abbr {
   text-decoration: none;
   font-variant-caps: all-small-caps;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  color: var(--text-primary);
-  border-bottom: 1px dotted var(--border-medium);
+  letter-spacing: 0.06em;
+  font-weight: var(--font-bold);
+  color: var(--color-primary-text);
+  border-bottom: 1px dotted rgba(79, 70, 229, 0.35);
   cursor: help;
 }
 
@@ -883,6 +893,52 @@ abbr {
 .hero-highlights .card p {
   font-size: var(--text-sm);
   margin-bottom: 0;
+}
+
+.product-page--flbsa .eyebrow {
+  color: var(--color-primary-text);
+  letter-spacing: 0.08em;
+}
+
+.product-page--flbsa .brand-title {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.045em;
+  text-shadow: 0 4px 18px rgba(79, 70, 229, 0.12);
+}
+
+.product-page--flbsa .hero .lead {
+  color: var(--text-primary);
+  font-size: clamp(1.2rem, 1.9vw, 1.45rem);
+  line-height: 1.68;
+}
+
+.product-page--flbsa .section-block > h2 {
+  letter-spacing: -0.03em;
+}
+
+.product-page--flbsa .section-block .lead {
+  color: var(--text-primary);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  max-width: 48ch;
+}
+
+.product-page--flbsa .section-block .card h3,
+.product-page--flbsa .timeline-content h3,
+.product-page--flbsa .faq-item summary {
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.02em;
+}
+
+.product-page--flbsa .faq-item summary {
+  font-size: var(--text-lg);
+}
+
+.product-page--flbsa .hero-highlights .card p,
+.product-page--flbsa .timeline-content p,
+.product-page--flbsa .card p,
+.product-page--flbsa .faq-item p {
+  text-wrap: pretty;
 }
 
 .hero-content .note {
