@@ -1,0 +1,6 @@
+contact/index.html
+procurement/index.html
+trust-center/index.html
+legal/index.html
+legal/privacy.html
+legal/tos.html

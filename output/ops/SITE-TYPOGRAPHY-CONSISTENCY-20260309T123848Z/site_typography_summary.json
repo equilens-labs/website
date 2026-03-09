@@ -1,0 +1,18 @@
+{
+  "contact": {
+    "productNameCount": 1,
+    "lead": "Reach out about FL-BSA, partnerships, or support."
+  },
+  "procurement": {
+    "productNameCount": 1,
+    "lead": "Subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance in your VPC."
+  },
+  "trust_center": {
+    "productNameCount": 1,
+    "acronymCount": 0
+  },
+  "legal_hub": {
+    "productNameCount": 7,
+    "acronymCount": 11
+  }
+}
