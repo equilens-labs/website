@@ -1,0 +1,13 @@
+{
+  "desktop": {
+    "titleColor": "rgb(15, 23, 42)",
+    "leadColor": "rgb(51, 65, 85)",
+    "leadFontSize": "21.6px",
+    "eyebrowColor": "rgb(79, 70, 229)"
+  },
+  "mobile": {
+    "titleColor": "rgb(15, 23, 42)",
+    "leadFontSize": "18px",
+    "scrollHeight": 10051
+  }
+}

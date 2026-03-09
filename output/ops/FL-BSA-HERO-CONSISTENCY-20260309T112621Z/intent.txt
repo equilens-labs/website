@@ -1,0 +1,6 @@
+Intent: Correct the FL-BSA hero typography after the prior typography pass drifted from the shared homepage system. Restore the title to the default dark heading color, return the hero lead to the shared lead scale, and keep the product-name/acronym emphasis without breaking visual consistency.
+UTC: 20260309T112621Z
+Supersedes:
+- output/ops/FL-BSA-TYPOGRAPHY-20260309T111508Z/
+Subject files:
+- assets/eql/base.css

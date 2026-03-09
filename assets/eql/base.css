@@ -895,24 +895,6 @@ abbr {
   margin-bottom: 0;
 }
 
-.product-page--flbsa .eyebrow {
-  color: var(--color-primary-text);
-  letter-spacing: 0.08em;
-}
-
-.product-page--flbsa .brand-title {
-  color: var(--color-primary);
-  font-weight: var(--font-bold);
-  letter-spacing: -0.045em;
-  text-shadow: 0 4px 18px rgba(79, 70, 229, 0.12);
-}
-
-.product-page--flbsa .hero .lead {
-  color: var(--text-primary);
-  font-size: clamp(1.2rem, 1.9vw, 1.45rem);
-  line-height: 1.68;
-}
-
 .product-page--flbsa .section-block > h2 {
   letter-spacing: -0.03em;
 }
