@@ -994,13 +994,18 @@ abbr {
   font-size: var(--text-3xl);
 }
 
+.policy .section-block > .container {
+  max-width: 48rem;
+}
+
 .policy .section-block .container > h2 {
   text-align: left;
-  font-size: var(--text-2xl);
+  font-size: clamp(1.45rem, 1.9vw, 1.75rem);
   margin-bottom: var(--space-4);
-  margin-top: var(--space-10);
-  padding-top: var(--space-6);
+  margin-top: var(--space-12);
+  padding-top: var(--space-7);
   border-top: 1px solid var(--border-light);
+  letter-spacing: -0.02em;
 }
 
 .policy .section-block .container > h2:first-of-type {
@@ -1010,17 +1015,25 @@ abbr {
 }
 
 .policy .section-block p {
+  max-width: 68ch;
+  color: var(--text-secondary);
   line-height: var(--leading-relaxed);
+  text-wrap: pretty;
 }
 
 .policy .section-block .checks li {
+  max-width: 66ch;
+  color: var(--text-secondary);
+  font-size: 0.975rem;
   line-height: var(--leading-relaxed);
 }
 
 .policy .section-block .note {
   text-align: left;
+  margin: var(--space-5) 0;
   margin-left: 0;
   margin-right: 0;
+  max-width: 64ch;
 }
 
 /* Legal/policy page h3 styling (direct children only, not in cards) */
@@ -1032,6 +1045,13 @@ abbr {
   border-top: 1px solid var(--border-light);
   font-size: var(--text-lg);
   color: var(--text-primary);
+}
+
+.policy .section-block > .container > h3,
+.policy .section-block > h3 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.01em;
 }
 
 .section-block > .container > h3:first-of-type,
@@ -1447,8 +1467,36 @@ a[download]::after {
 }
 
 .note.note--small {
-  font-size: var(--text-xs);
-  opacity: 0.6;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  opacity: 1;
+}
+
+.policy .section-block .note {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  color: var(--text-secondary);
+  font-style: normal;
+  padding: var(--space-4) var(--space-5);
+}
+
+.policy .section-block .note strong {
+  color: var(--text-primary);
+}
+
+.policy .section-block .note em {
+  color: var(--text-muted);
+}
+
+.policy .section-block .note.note--small {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: rgba(148, 163, 184, 0.22);
+  border-left-color: rgba(79, 70, 229, 0.55);
+  color: var(--text-muted);
+  font-size: 0.825rem;
 }
 
 /* Contact Form */
