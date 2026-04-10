@@ -54,7 +54,7 @@
       {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default."}},
         {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
       {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
-      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Subscribe through AWS Marketplace and deploy in your own account, or deploy the container stack via docker-compose. CPU-only and GPU-preferred profiles are supported."}},
+      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace availability is coming soon. Contact Equilens for guided pilot access, or deploy the container stack via docker-compose. CPU-only and GPU-preferred profiles are supported."}},
         {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
     ]
    }
@@ -108,7 +108,7 @@
             </div>
             <div class="cta-row">
               <a class="btn btn-primary" href="/contact/">Contact Sales</a>
-              <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (PDF)</a>
+              <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
             </div>
           </div>
         </section>
@@ -168,7 +168,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
             <abbr title="Amazon Web Services">AWS</abbr> Marketplace
           </h3>
-          <p>Subscribe through <abbr title="Amazon Web Services">AWS</abbr> Marketplace and deploy <span class="product-name">FL-BSA</span> inside your own account.</p>
+          <p><abbr title="Amazon Web Services">AWS</abbr> Marketplace availability is coming soon. Contact Equilens for guided pilot access while the public listing is pending.</p>
         </div>
         <div class="card">
           <h3>
@@ -243,7 +243,7 @@
             Product Scope
           </h3>
           <ul class="checks">
-            <li>Self-hosted appliance (<abbr title="Amazon Web Services">AWS</abbr> Marketplace subscription / Docker deployment).</li>
+            <li>Self-hosted appliance (guided <abbr title="Amazon Web Services">AWS</abbr> deployment / Docker deployment).</li>
             <li>No personal data exfiltration.</li>
             <li>Evidence bundle: <span class="acronym">PDF</span> report, evidence manifest (<span class="acronym">SHA-256</span>), certificate appendix.</li>
           </ul>
@@ -264,7 +264,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             Licensing &amp; Usage
           </h3>
-          <p>Usage terms are provided through <abbr title="Amazon Web Services">AWS</abbr> Marketplace subscription or Private Offer. Custom <abbr title="Service Level Agreement">SLA</abbr>s and professional services statements of work are executed separately.</p>
+          <p>Usage terms are finalized during pilot qualification and can be provided through Private Offer or the public <abbr title="Amazon Web Services">AWS</abbr> Marketplace path once available. Custom <abbr title="Service Level Agreement">SLA</abbr>s and professional services statements of work are executed separately.</p>
           <p class="note">Open-source components are catalogued at <a href="/legal/#open-source">/legal/</a>.</p>
         </div>
       </div>
@@ -281,19 +281,19 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                   Whitepaper
                 </h3>
-                <p>Technical overview of <span class="product-name">FL-BSA</span>'s fair-lending simulation approach and evidence model.</p>
-                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (PDF)</a>
+                <p>Current public demo whitepaper covering <span class="product-name">FL-BSA</span>'s fair-lending simulation approach and evidence model.</p>
+                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
               </div>
               <div class="card">
                 <h3>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
                   Example Report
                 </h3>
-                <p>Sample evidence bundle showing the regulator-oriented report, certificates, and manifest structure.</p>
-                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Example Report (PDF)</a>
+                <p>Current public demo evidence bundle showing the regulator-oriented report, certificates, and manifest structure.</p>
+                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
               </div>
             </div>
-            <p class="note">Public synthetic/demo-only artifacts (reports, data, checksums) are published as GitHub Release assets in <a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">equilens-labs/fl-bsa-pub</a>.</p>
+            <p class="note">Current public demo artifacts (reports, data, checksums) are published as synthetic/demo-only GitHub Release assets in <a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">equilens-labs/fl-bsa-pub</a>.</p>
             <div class="card mt-6">
               <h3>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -324,7 +324,7 @@
       </details>
       <details class="faq-item">
         <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
-        <p>Subscribe through <span class="acronym">AWS</span> Marketplace and deploy in your own account, or deploy the container stack via docker-compose. <span class="acronym">CPU</span>-only and <span class="acronym">GPU</span>-preferred profiles are supported.</p>
+        <p><span class="acronym">AWS</span> Marketplace availability is coming soon. Contact Equilens for guided pilot access, or deploy the container stack via docker-compose. <span class="acronym">CPU</span>-only and <span class="acronym">GPU</span>-preferred profiles are supported.</p>
       </details>
       <details class="faq-item">
         <summary>What is included in the evidence bundle?</summary>
