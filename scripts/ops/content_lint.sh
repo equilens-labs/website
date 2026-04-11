@@ -11,7 +11,7 @@ if grep -r --include="*.html" --include="*.md" -n "Equilens Ltd" . --exclude-dir
   exit 1
 fi
 
-if grep -r --include="*.html" -n -E "ensures? compliance|guarantees? compliance|guarantees? regulatory approval|makes you compliant|automatically compliant" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
+if grep -r --include="*.html" --include="*.md" -n -E "ensures? compliance|guarantees? compliance|guarantees? regulatory approval|makes you compliant|automatically compliant" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
   echo "ERROR: Found over-promising compliance language"
   exit 1
 fi
