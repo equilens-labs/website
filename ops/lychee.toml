@@ -5,5 +5,5 @@ retry_wait_time = 2
 max_retries = 2
 exclude = ["mailto:*"]
 offline = false
-format = "markdown"
+format = "Markdown"
 output = "lychee/results.md"
