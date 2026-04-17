@@ -302,7 +302,7 @@ Targets, not guarantees. Actual performance depends on hardware, data complexity
 
 Reference targets on a typical modern CPU (for indicative sizing):
 	•	~10k rows:
-	•	Full pipeline (ingest → CTGAN training → dual-branch analysis → report) ≤ ~20 minutes on a reference CPU.
+	•	Full pipeline (ingest → CTGAN training → dual-branch analysis → report) is typically in the ~20–25 minute range on a reference CPU.
 	•	~100k rows:
 	•	CTGAN training ≤ ~45 minutes on the same reference CPU, with reduced epochs for CI/PR smoke tests.
 	•	Larger datasets (e.g. 1M+ rows):
