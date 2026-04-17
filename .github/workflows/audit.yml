@@ -36,6 +36,8 @@ jobs:
         uses: lycheeverse/lychee-action@v1.10.0
         with:
           args: --config ops/lychee.toml .
+          fail: true
+          output: lychee/results.md
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -61,9 +63,10 @@ jobs:
         with:
           name: site-audits
           path: |
-            ./*.report.json
             ./.lighthouseci/**/*
             ./lychee/results.md
+          if-no-files-found: error
+          include-hidden-files: true
 
       - name: Upload screenshots artifact
         if: always()
