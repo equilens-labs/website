@@ -1,0 +1,2 @@
+6598471a04a9c5e287a3d199d0e49b6ed4ff8d64f083d1fc56a16c64fca58fb5  output/ops/HOMEPAGE-COPY-REFINE-20260308T121059Z/artifacts/homepage-desktop.png
+e09b3abf0bded1689c05aaa1306a7b555f1d4595722a96cc77bcfbd118bc2921  output/ops/HOMEPAGE-COPY-REFINE-20260308T121059Z/artifacts/homepage-mobile.png

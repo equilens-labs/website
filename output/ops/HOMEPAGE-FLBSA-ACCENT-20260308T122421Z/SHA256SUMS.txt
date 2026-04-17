@@ -1,0 +1,1 @@
+30ea520bc0e71dd42b79e0991b65b4de68d2dfe6905aed88b4027bfbcf89f27b  output/ops/HOMEPAGE-FLBSA-ACCENT-20260308T122421Z/artifacts/homepage-desktop.png

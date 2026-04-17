@@ -1,0 +1,215 @@
+diff --git a/assets/eql/base.css b/assets/eql/base.css
+index d0092ce..a64040d 100644
+--- a/assets/eql/base.css
++++ b/assets/eql/base.css
+@@ -410,8 +410,18 @@ ul, ol {
+ }
+ 
+ .product-name {
++  color: var(--color-primary);
++  font-weight: var(--font-bold);
++  letter-spacing: -0.01em;
++  white-space: nowrap;
++}
++
++.acronym {
+   color: var(--color-primary-text);
++  display: inline-block;
++  font-size: 0.95em;
+   font-weight: var(--font-bold);
++  letter-spacing: 0.08em;
+   white-space: nowrap;
+ }
+ 
+@@ -419,10 +429,10 @@ ul, ol {
+ abbr {
+   text-decoration: none;
+   font-variant-caps: all-small-caps;
+-  letter-spacing: 0.05em;
+-  font-weight: 600;
+-  color: var(--text-primary);
+-  border-bottom: 1px dotted var(--border-medium);
++  letter-spacing: 0.06em;
++  font-weight: var(--font-bold);
++  color: var(--color-primary-text);
++  border-bottom: 1px dotted rgba(79, 70, 229, 0.35);
+   cursor: help;
+ }
+ 
+@@ -885,6 +895,52 @@ abbr {
+   margin-bottom: 0;
+ }
+ 
++.product-page--flbsa .eyebrow {
++  color: var(--color-primary-text);
++  letter-spacing: 0.08em;
++}
++
++.product-page--flbsa .brand-title {
++  color: var(--color-primary);
++  font-weight: var(--font-bold);
++  letter-spacing: -0.045em;
++  text-shadow: 0 4px 18px rgba(79, 70, 229, 0.12);
++}
++
++.product-page--flbsa .hero .lead {
++  color: var(--text-primary);
++  font-size: clamp(1.2rem, 1.9vw, 1.45rem);
++  line-height: 1.68;
++}
++
++.product-page--flbsa .section-block > h2 {
++  letter-spacing: -0.03em;
++}
++
++.product-page--flbsa .section-block .lead {
++  color: var(--text-primary);
++  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
++  max-width: 48ch;
++}
++
++.product-page--flbsa .section-block .card h3,
++.product-page--flbsa .timeline-content h3,
++.product-page--flbsa .faq-item summary {
++  font-weight: var(--font-semibold);
++  letter-spacing: -0.02em;
++}
++
++.product-page--flbsa .faq-item summary {
++  font-size: var(--text-lg);
++}
++
++.product-page--flbsa .hero-highlights .card p,
++.product-page--flbsa .timeline-content p,
++.product-page--flbsa .card p,
++.product-page--flbsa .faq-item p {
++  text-wrap: pretty;
++}
++
+ .hero-content .note {
+   text-align: center;
+   font-size: var(--text-sm);
+diff --git a/fl-bsa/index.html b/fl-bsa/index.html
+index 484827f..6b2891d 100644
+--- a/fl-bsa/index.html
++++ b/fl-bsa/index.html
+@@ -62,7 +62,7 @@
+   <!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->
+   <link rel="stylesheet" href="/assets/eql/base.css">
+ </head>
+- <body class="eql">
++ <body class="eql product-page product-page--flbsa">
+   <a class="skip-to-content" href="#main">
+    Skip to content
+   </a>
+@@ -74,7 +74,7 @@
+     <div class="page-with-toc">
+       <nav class="toc" aria-label="Table of contents">
+         <div class="toc-inner">
+-          <a href="#overview" class="toc-label">FL-BSA</a>
++          <a href="#overview" class="toc-label"><span class="product-name">FL-BSA</span></a>
+           <a href="#how-it-works" class="toc-link">How it Works</a>
+           <a href="#deployment" class="toc-link">Deployment</a>
+           <a href="#pricing" class="toc-link">Licensing</a>
+@@ -90,7 +90,7 @@
+             <p class="eyebrow">Fair-Lending Bias-Simulation Appliance</p>
+             <h1 class="brand-title">FL‑BSA</h1>
+             <p class="lead">
+-              FL-BSA is a self-hosted regulatory digital twin for lending. It helps regulated teams simulate lending models on synthetic borrower cohorts, measure disparity, and generate audit-ready evidence packs without moving customer data outside their environment.
++              <span class="product-name">FL-BSA</span> is a self-hosted regulatory digital twin for lending. It helps regulated teams simulate lending models on synthetic borrower cohorts, measure disparity, and generate audit-ready evidence packs without moving customer data outside their environment.
+             </p>
+             <div class="hero-highlights grid grid-3" aria-label="FL-BSA highlights">
+               <div class="card card--compact">
+@@ -124,7 +124,7 @@
+           </div>
+           <div class="timeline-content">
+             <h3><span class="sr-only">Step 1: </span>Snapshot the Baseline</h3>
+-            <p>Connect to your data warehouse in read-only mode. FL-BSA captures a bounded snapshot of features and decisions to establish the baseline for the run.</p>
++            <p>Connect to your data warehouse in read-only mode. <span class="product-name">FL-BSA</span> captures a bounded snapshot of features and decisions to establish the baseline for the run.</p>
+           </div>
+         </div>
+         <div class="timeline-item">
+@@ -151,7 +151,7 @@
+           </div>
+           <div class="timeline-content">
+             <h3><span class="sr-only">Step 4: </span>Review Findings and Act</h3>
+-            <p>Review the regulator-oriented report, then use the findings to tune models or document Less Discriminatory Alternatives (LDAs).</p>
++            <p>Review the regulator-oriented report, then use the findings to tune models or document Less Discriminatory Alternatives (<span class="acronym">LDAs</span>).</p>
+           </div>
+         </div>
+       </div>
+@@ -168,7 +168,7 @@
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+             <abbr title="Amazon Web Services">AWS</abbr> Marketplace
+           </h3>
+-          <p>Subscribe through <abbr title="Amazon Web Services">AWS</abbr> Marketplace and deploy FL-BSA inside your own account.</p>
++          <p>Subscribe through <abbr title="Amazon Web Services">AWS</abbr> Marketplace and deploy <span class="product-name">FL-BSA</span> inside your own account.</p>
+         </div>
+         <div class="card">
+           <h3>
+@@ -245,7 +245,7 @@
+           <ul class="checks">
+             <li>Self-hosted appliance (<abbr title="Amazon Web Services">AWS</abbr> Marketplace subscription / Docker deployment).</li>
+             <li>No personal data exfiltration.</li>
+-            <li>Evidence bundle: PDF report, evidence manifest (SHA-256), certificate appendix.</li>
++            <li>Evidence bundle: <span class="acronym">PDF</span> report, evidence manifest (<span class="acronym">SHA-256</span>), certificate appendix.</li>
+           </ul>
+         </div>
+         <div class="card">
+@@ -254,7 +254,7 @@
+             Controls &amp; Attestations
+           </h3>
+           <ul class="checks">
+-            <li>Control mapping: FCA, EU AI Act, and ECOA touchpoints documented.</li>
++            <li>Control mapping: <span class="acronym">FCA</span>, <span class="acronym">EU AI</span> Act, and <span class="acronym">ECOA</span> touchpoints documented.</li>
+             <li>Security posture: hardened images, optional Prometheus metrics.</li>
+             <li>Change management: versioned releases.</li>
+           </ul>
+@@ -281,7 +281,7 @@
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                   Whitepaper
+                 </h3>
+-                <p>Technical overview of FL-BSA's fair-lending simulation approach and evidence model.</p>
++                <p>Technical overview of <span class="product-name">FL-BSA</span>'s fair-lending simulation approach and evidence model.</p>
+                 <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (PDF)</a>
+               </div>
+               <div class="card">
+@@ -299,7 +299,7 @@
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                 Technical Docs
+               </h3>
+-              <p>Licensed customers receive technical documentation, API references, and integration guides through our secure portal.</p>
++              <p>Licensed customers receive technical documentation, <span class="acronym">API</span> references, and integration guides through our secure portal.</p>
+               <div class="cta-row mt-4">
+                 <a class="btn btn-secondary" href="/contact/">Request Access</a>
+               </div>
+@@ -312,23 +312,23 @@
+       <h2>FAQ</h2>
+       <details class="faq-item">
+         <summary>Does any customer data leave our environment?</summary>
+-        <p>No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default.</p>
++        <p>No. <span class="product-name">FL-BSA</span> is self-hosted; all compute happens in your <span class="acronym">VPC</span> or <span class="acronym">VM</span>. Zero outbound calls by default.</p>
+       </details>
+       <details class="faq-item">
+         <summary>How long does a typical run take?</summary>
+-        <p>Reference targets on a modern CPU: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration.</p>
++        <p>Reference targets on a modern <span class="acronym">CPU</span>: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration.</p>
+       </details>
+       <details class="faq-item">
+         <summary>Which regulatory frameworks are covered?</summary>
+-        <p>Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment.</p>
++        <p>Evidence maps to <span class="acronym">ECOA</span>/Reg B (US), <span class="acronym">EU AI</span> Act, and <span class="acronym">FCA</span> Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment.</p>
+       </details>
+       <details class="faq-item">
+-        <summary>How can FL-BSA be deployed?</summary>
+-        <p>Subscribe through AWS Marketplace and deploy in your own account, or deploy the container stack via docker-compose. CPU-only and GPU-preferred profiles are supported.</p>
++        <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
++        <p>Subscribe through <span class="acronym">AWS</span> Marketplace and deploy in your own account, or deploy the container stack via docker-compose. <span class="acronym">CPU</span>-only and <span class="acronym">GPU</span>-preferred profiles are supported.</p>
+       </details>
+       <details class="faq-item">
+         <summary>What is included in the evidence bundle?</summary>
+-        <p>A 30-page PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID.</p>
++        <p>A 30-page <span class="acronym">PDF</span> report, an evidence manifest (dataset hash, <span class="acronym">RNG</span> seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID.</p>
+       </details>
+     </div>
+   </section>

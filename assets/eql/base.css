@@ -355,8 +355,8 @@ p {
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: var(--font-semibold);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-weight: var(--font-bold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-primary);
@@ -409,14 +409,30 @@ ul, ol {
   color: var(--text-subtle);
 }
 
+.product-name {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.acronym {
+  color: var(--color-primary-text);
+  display: inline-block;
+  font-size: 0.95em;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
 /* Acronyms */
 abbr {
   text-decoration: none;
   font-variant-caps: all-small-caps;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  color: var(--text-primary);
-  border-bottom: 1px dotted var(--border-medium);
+  letter-spacing: 0.06em;
+  font-weight: var(--font-bold);
+  color: var(--color-primary-text);
+  border-bottom: 1px dotted rgba(79, 70, 229, 0.35);
   cursor: help;
 }
 
@@ -542,13 +558,27 @@ abbr {
 
 .nav-toggle {
   display: none;
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-2);
-  background: transparent;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-white);
+  box-shadow: var(--shadow-xs);
+  color: var(--color-primary-text);
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
+  transition: all var(--transition-base);
+}
+
+.nav-toggle:hover {
+  background: var(--color-gray-50);
+  border-color: var(--color-primary-text);
+  transform: translateY(-1px);
+}
+
+.nav-toggle[aria-expanded="true"] {
+  background: var(--color-primary-a08);
+  border-color: var(--color-primary);
 }
 
 /* Product Sub-Navigation (FL-BSA pages) */
@@ -629,17 +659,24 @@ abbr {
   min-width: 0;
 }
 
+/* Pages with a TOC use panel-style section blocks. Give them surface contrast. */
+.page-content .section {
+  background: var(--bg-subtle);
+}
+
 @media (min-width: 1100px) {
   .page-with-toc {
-    padding-left: 240px;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--space-10);
+    align-items: start;
   }
 
   .toc {
     display: block;
-    position: fixed;
-    left: var(--space-6);
+    position: sticky;
     top: 96px;
-    width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
   }
 
   .toc-inner {
@@ -685,6 +722,18 @@ abbr {
     border-left-width: 3px; /* Thicker active border */
     font-weight: var(--font-medium);
     background: linear-gradient(to right, var(--color-primary-a08), transparent); /* Subtle highlight */
+  }
+}
+
+/* On very wide viewports, keep the page content optically centered while
+   allowing the TOC to sit in the left gutter. */
+@media (min-width: 1440px) {
+  .page-with-toc {
+    max-width: none;
+    margin: 0;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    grid-template-columns: 220px minmax(0, 1fr) 220px;
   }
 }
 
@@ -820,6 +869,60 @@ abbr {
   margin: var(--space-4) auto;
 }
 
+.hero-highlights {
+  margin-top: var(--space-8);
+}
+
+.hero-highlights .card {
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero-highlights .card:hover {
+  transform: none;
+  border-color: rgba(229, 231, 235, 1);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero-highlights .card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+  color: var(--color-primary-text);
+}
+
+.hero-highlights .card p {
+  font-size: var(--text-sm);
+  margin-bottom: 0;
+}
+
+.product-page--flbsa .section-block > h2 {
+  letter-spacing: -0.03em;
+}
+
+.product-page--flbsa .section-block .lead {
+  color: var(--text-primary);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  max-width: 48ch;
+}
+
+.product-page--flbsa .section-block .card h3,
+.product-page--flbsa .timeline-content h3,
+.product-page--flbsa .faq-item summary {
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.02em;
+}
+
+.product-page--flbsa .faq-item summary {
+  font-size: var(--text-lg);
+}
+
+.product-page--flbsa .hero-highlights .card p,
+.product-page--flbsa .timeline-content p,
+.product-page--flbsa .card p,
+.product-page--flbsa .faq-item p {
+  text-wrap: pretty;
+}
+
 .hero-content .note {
   text-align: center;
   font-size: var(--text-sm);
@@ -873,9 +976,64 @@ abbr {
   margin-right: auto;
 }
 
+.section-block--narrow .checks {
+  text-align: left;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-block h2 {
   margin-top: 0;
   text-align: center;
+}
+
+/* Policy pages (legal) */
+.policy .section-block > h2 {
+  text-align: left;
+  font-size: var(--text-3xl);
+}
+
+.policy .section-block > .container {
+  max-width: 48rem;
+}
+
+.policy .section-block .container > h2 {
+  text-align: left;
+  font-size: clamp(1.45rem, 1.9vw, 1.75rem);
+  margin-bottom: var(--space-4);
+  margin-top: var(--space-12);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--border-light);
+  letter-spacing: -0.02em;
+}
+
+.policy .section-block .container > h2:first-of-type {
+  margin-top: var(--space-6);
+  padding-top: 0;
+  border-top: none;
+}
+
+.policy .section-block p {
+  max-width: 68ch;
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+.policy .section-block .checks li {
+  max-width: 66ch;
+  color: var(--text-secondary);
+  font-size: 0.975rem;
+  line-height: var(--leading-relaxed);
+}
+
+.policy .section-block .note {
+  text-align: left;
+  margin: var(--space-5) 0;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 64ch;
 }
 
 /* Legal/policy page h3 styling (direct children only, not in cards) */
@@ -887,6 +1045,13 @@ abbr {
   border-top: 1px solid var(--border-light);
   font-size: var(--text-lg);
   color: var(--text-primary);
+}
+
+.policy .section-block > .container > h3,
+.policy .section-block > h3 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.01em;
 }
 
 .section-block > .container > h3:first-of-type,
@@ -934,6 +1099,8 @@ abbr {
 /* Section-block container max-width */
 .section-block > .container {
   max-width: var(--content-width);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .cta-row {
@@ -1190,18 +1357,18 @@ a.card-hero:hover,
 }
 
 .step {
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(229, 231, 235, 1);
   border-radius: var(--radius-xl);
   background: var(--color-white);
   padding: var(--space-7);
   transition: all var(--transition-base);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .step:hover {
   border-color: var(--color-primary-a15);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
 
 .step header {
@@ -1300,14 +1467,44 @@ a[download]::after {
 }
 
 .note.note--small {
-  font-size: var(--text-xs);
-  opacity: 0.6;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  opacity: 1;
+}
+
+.policy .section-block .note {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  color: var(--text-secondary);
+  font-style: normal;
+  padding: var(--space-4) var(--space-5);
+}
+
+.policy .section-block .note strong {
+  color: var(--text-primary);
+}
+
+.policy .section-block .note em {
+  color: var(--text-muted);
+}
+
+.policy .section-block .note.note--small {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: rgba(148, 163, 184, 0.22);
+  border-left-color: rgba(79, 70, 229, 0.55);
+  color: var(--text-muted);
+  font-size: 0.825rem;
 }
 
 /* Contact Form */
 .contact-form-card {
   max-width: var(--max-width-2xl);
   margin: 0 auto;
+  align-items: stretch;
+  text-align: left;
 }
 
 .contact-form-card h2 {
@@ -1324,6 +1521,7 @@ a[download]::after {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  width: 100%;
 }
 
 .form-group {
@@ -1349,6 +1547,7 @@ a[download]::after {
   color: var(--text-primary);
   background: var(--color-white);
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  width: 100%;
 }
 
 .form-group input:focus,
@@ -1458,8 +1657,9 @@ a[download]::after {
   margin: 0;
 }
 
-/* Pricing Section Accents */
-#pricing .card h3 {
+/* Accent card headings inside section panels (TOC pages). */
+.section-block .card h2,
+.section-block .card h3 {
   color: var(--color-primary);
 }
 
@@ -1635,6 +1835,8 @@ a[download]::after {
 
   .logo-symbol {
     display: block;
+    width: 44px;
+    height: 44px;
   }
 
   .hero {
@@ -1687,6 +1889,7 @@ a[download]::after {
 .mt-8 { margin-top: var(--space-8); }
 .text-muted { color: var(--text-muted); }
 .text-center { text-align: center; }
+.text-center .note { margin-left: auto; margin-right: auto; }
 
 .icon-hero {
   width: 28px; /* Slightly larger for better visibility */
@@ -1718,9 +1921,9 @@ a[download]::after {
 .timeline {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-8);
   margin: var(--space-8) 0;
-  padding: var(--space-4); /* Space for shadows */
+  padding: 0;
   counter-reset: step-counter;
 }
 
@@ -1738,11 +1941,11 @@ a[download]::after {
 
 .timeline-content {
   flex: 1;
-  padding: var(--space-6);
+  padding: var(--space-8);
   background: var(--color-white);
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(229, 231, 235, 1);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
@@ -1752,7 +1955,7 @@ a[download]::after {
 
 .timeline-content:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
   border-color: var(--color-primary-a15);
 }
 
@@ -1775,11 +1978,15 @@ a[download]::after {
 }
 
 .timeline-content h3 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-semibold);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
   color: var(--text-primary);
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-4);
   text-align: center;
+}
+
+.section-block .timeline-content h3 {
+  color: var(--color-primary);
 }
 
 .timeline-content p {
@@ -1787,7 +1994,7 @@ a[download]::after {
   line-height: var(--leading-relaxed);
   margin: 0;
   text-align: center;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
 }
 
 @media (min-width: 768px) {
@@ -1799,55 +2006,5 @@ a[download]::after {
 @media (min-width: 1100px) {
   .timeline {
     grid-template-columns: repeat(2, 1fr); /* 2x2 on desktop as requested */
-  }
-}
-
-/* ============================================================================
-   12. CHAIN VISUAL COMPONENT
-   ============================================================================ */
-
-.chain-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  margin: var(--space-8) 0;
-  flex-wrap: wrap;
-}
-
-.chain-node {
-  background: var(--color-white);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-5);
-  font-family: var(--font-sans); /* Clean sans-serif */
-  font-size: var(--text-xs);
-  font-weight: var(--font-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast);
-}
-
-.chain-node:hover {
-  transform: translateY(-1px);
-  border-color: var(--color-primary-a15);
-}
-
-.chain-arrow {
-  color: var(--color-primary-light);
-  font-size: var(--text-xl);
-  font-weight: var(--font-bold);
-}
-
-@media (max-width: 640px) {
-  .chain-visual {
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  
-  .chain-arrow {
-    transform: rotate(90deg);
   }
 }

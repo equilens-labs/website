@@ -1,0 +1,10 @@
+ assets/eql/base.css                  | 189 +++++++++++++++++++++--------------
+ brand/symbol/equilens-symbol-nav.svg |   2 +-
+ config/tests/playwright-pages.json   |   1 -
+ fl-bsa/index.html                    | 108 ++++++++++----------
+ legal/index.html                     |   2 +-
+ legal/privacy.html                   |   2 +-
+ legal/tos.html                       |   2 +-
+ pricing/index.html                   |  14 +--
+ trust-center/index.html              |  62 +++++++++---
+ 9 files changed, 229 insertions(+), 153 deletions(-)

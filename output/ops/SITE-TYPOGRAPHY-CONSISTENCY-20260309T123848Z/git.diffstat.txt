@@ -1,0 +1,7 @@
+ contact/index.html      |  2 +-
+ legal/index.html        | 24 ++++++++++++------------
+ legal/privacy.html      | 16 ++++++++--------
+ legal/tos.html          |  8 ++++----
+ procurement/index.html  |  2 +-
+ trust-center/index.html |  2 +-
+ 6 files changed, 27 insertions(+), 27 deletions(-)

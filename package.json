@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "content:lint": "scripts/ops/content_lint.sh",
     "playwright:audit": "scripts/ops/run_playwright_audit.sh",
     "test": "npm run playwright:audit"
   },

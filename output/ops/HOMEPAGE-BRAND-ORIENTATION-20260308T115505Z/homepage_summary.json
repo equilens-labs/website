@@ -1,0 +1,48 @@
+[
+  {
+    "name": "homepage-desktop",
+    "viewport": {
+      "width": 1440,
+      "height": 1600
+    },
+    "title": "Equilens — Algorithmic Compliance",
+    "heroLead": "Equilens is the company behind FL-BSA, our self-hosted fair-lending bias-simulation appliance. We help regulated teams simulate lending models, review disparity outcomes, and generate regulator-oriented evidence packs1 without moving customer data outside their environment.",
+    "orientationHeading": "What Equilens Builds",
+    "proofItems": [
+      "Customer-hosted deployment",
+      "Synthetic borrower simulation",
+      "Hash-linked evidence packs",
+      "Trust, legal, and procurement materials"
+    ],
+    "buttons": [
+      "Explore FL-BSA",
+      "Trust Center",
+      "Explore FL-BSA",
+      "Review Trust Center",
+      "See Procurement"
+    ]
+  },
+  {
+    "name": "homepage-mobile",
+    "viewport": {
+      "width": 390,
+      "height": 1400
+    },
+    "title": "Equilens — Algorithmic Compliance",
+    "heroLead": "Equilens is the company behind FL-BSA, our self-hosted fair-lending bias-simulation appliance. We help regulated teams simulate lending models, review disparity outcomes, and generate regulator-oriented evidence packs1 without moving customer data outside their environment.",
+    "orientationHeading": "What Equilens Builds",
+    "proofItems": [
+      "Customer-hosted deployment",
+      "Synthetic borrower simulation",
+      "Hash-linked evidence packs",
+      "Trust, legal, and procurement materials"
+    ],
+    "buttons": [
+      "Explore FL-BSA",
+      "Trust Center",
+      "Explore FL-BSA",
+      "Review Trust Center",
+      "See Procurement"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "legal_desktop": {
+    "noteColor": "rgb(51, 65, 85)",
+    "noteFontStyle": "normal",
+    "noteBackground": "linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(255, 255, 255, 0.96))",
+    "noteBorderLeftWidth": "3px",
+    "paragraphMaxWidth": "685.312px"
+  },
+  "legal_privacy_mobile": {
+    "heroLead": "This notice covers the public website equilens.io.",
+    "calloutVisible": true
+  },
+  "trust_center_small_note": {
+    "color": "rgb(51, 65, 85)",
+    "fontSize": "13px",
+    "opacity": "1"
+  }
+}

@@ -1,0 +1,12 @@
+Intent: Extend the typography consistency pass beyond FL-BSA to the rest of the public pages. Standardize visible FL-BSA product-name treatment, promote plain-text technical abbreviations where pages were still reading too flat, and keep the overall layout and narrative structure unchanged.
+UTC: 20260309T123848Z
+Supersedes:
+- output/ops/FL-BSA-TYPOGRAPHY-20260309T111508Z/
+- output/ops/FL-BSA-HERO-CONSISTENCY-20260309T112621Z/
+Subject files:
+- contact/index.html
+- procurement/index.html
+- trust-center/index.html
+- legal/index.html
+- legal/privacy.html
+- legal/tos.html
