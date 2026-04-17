@@ -26,4 +26,9 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "attestations aligned to
   exit 1
 fi
 
+if grep -r --include="*.html" --include="*.md" -n -i -E "30-page PDF report|Model Fidelity|Training Convergence|≤ ~20 minutes|OSFI.*B-10|APRA.*CPS.*230|SR 11-7|PS22/9" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
+  echo "ERROR: Found stale FL-BSA evidence, runtime, or regulatory-scope wording"
+  exit 1
+fi
+
 echo "[OK] Content lint passed"
