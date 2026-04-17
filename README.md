@@ -49,6 +49,9 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
   - Uses the flows defined in `config/tests/playwright-pages.json`
   - Stores JSON report, screenshots, hashes, and manifest under `output/ops/PLAYWRIGHT-AUDIT-<timestamp>/`
   - Honors `EQL_BASE_URL` if you need to target a deployed environment instead of the local server
+- Content lint: run `npm run content:lint`
+  - Reuses the same forbidden-phrase checks enforced by `.github/workflows/audit.yml`
+  - Blocks stale AWS Marketplace subscribe language, unsupported compliance promises, and regulatory attestation phrasing
 
 ## Deployment automation
 

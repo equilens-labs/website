@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>Procurement &amp; Deployment — Equilens FL-BSA</title>
-  <meta content="How regulated teams subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance." name="description"/>
+  <meta content="How regulated teams request guided pilot access and prepare deployment of the self-hosted FL-BSA appliance." name="description"/>
   <link href="https://equilens.io/procurement/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
@@ -14,34 +14,18 @@
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/procurement/" property="og:url"/>
   <meta content="Procurement &amp; Deployment — Equilens FL-BSA" property="og:title"/>
-  <meta content="How regulated teams subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance." property="og:description"/>
+  <meta content="How regulated teams request guided pilot access and prepare deployment of the self-hosted FL-BSA appliance." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="https://equilens.io/procurement/" name="twitter:url"/>
   <meta content="Procurement &amp; Deployment — Equilens FL-BSA" name="twitter:title"/>
-  <meta content="How regulated teams subscribe via AWS Marketplace and deploy the self-hosted FL-BSA appliance." name="twitter:description"/>
+  <meta content="How regulated teams request guided pilot access and prepare deployment of the self-hosted FL-BSA appliance." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2026-03-02 for Valfox Ltd registered office address. -->
-  <script type="application/ld+json">
-   {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Buy and deploy FL-BSA",
-    "description": "How regulated teams subscribe via AWS Marketplace and deploy the self-hosted appliance.",
-    "totalTime": "PT15M",
-    "step": [
-      {"@type": "HowToStep", "name": "Subscribe", "text": "Open the AWS Marketplace listing and click Subscribe. Review and accept the standard terms."},
-      {"@type": "HowToStep", "name": "Launch", "text": "Launch the AMI in your AWS account. Choose instance type and network placement per policy."},
-      {"@type": "HowToStep", "name": "Start services", "text": "On boot, systemd runs docker-compose; the appliance is available on port 8080 (adjustable)."},
-        {"@type": "HowToStep", "name": "Run a test", "text": "Upload sample data or a sandbox dataset. Generate the evidence manifest (SHA-256) and PDF report."},
-      {"@type": "HowToStep", "name": "Move to Pilot", "text": "Activate the paid Pilot tier or request a Private Offer once procurement approves."}
-    ]
-   }
-  </script>
   <link rel="stylesheet" href="/assets/eql/base.css">
 </head>
  <body class="eql">
@@ -55,7 +39,7 @@
     <div class="hero-content">
       <p class="eyebrow">Getting Started</p>
       <h1 class="brand-title">Procurement &amp; Deployment</h1>
-      <p class="lead">Subscribe via <abbr>AWS</abbr> Marketplace and deploy the self-hosted <span class="product-name">FL-BSA</span> appliance in your <abbr>VPC</abbr>.</p>
+      <p class="lead"><abbr>AWS</abbr> Marketplace listing coming soon. Contact Equilens for guided pilot access to the self-hosted <span class="product-name">FL-BSA</span> appliance in your <abbr>VPC</abbr>.</p>
     </div>
   </section>
 
@@ -66,16 +50,16 @@
      <div class="step">
       <header>
        <span class="step-number">1</span>
-       <h3 class="step-title">Subscribe on <abbr>AWS</abbr> Marketplace</h3>
+       <h3 class="step-title">Request guided pilot access</h3>
       </header>
-      <p>Open the <abbr>AWS</abbr> Marketplace listing and click <em>Subscribe</em>. Review and accept the standard terms.</p>
+      <p><abbr>AWS</abbr> Marketplace listing coming soon. Contact Equilens to request guided pilot access and pre-release deployment materials.</p>
      </div>
      <div class="step">
       <header>
        <span class="step-number">2</span>
-       <h3 class="step-title">Launch inside your account</h3>
+       <h3 class="step-title">Prepare your environment</h3>
       </header>
-      <p>Launch the container stack (Helm/docker-compose) in your account. Select instance type, region, <abbr>VPC</abbr>, and subnet per your change controls.</p>
+      <p>We will confirm the approved deployment path for your environment. Select instance type, region, <abbr>VPC</abbr>, and subnet per your change controls.</p>
      </div>
      <div class="step">
       <header>
@@ -94,9 +78,9 @@
      <div class="step">
       <header>
        <span class="step-number">5</span>
-       <h3 class="step-title">Move to Pilot</h3>
+       <h3 class="step-title">Confirm pilot scope</h3>
       </header>
-      <p>Activate the paid Pilot tier or request a Private Offer for enterprise terms once procurement approves.</p>
+      <p>If evaluation fit is confirmed, we can align pilot terms or a Private Offer for enterprise rollouts.</p>
      </div>
     </div>
    </section>
@@ -109,15 +93,15 @@
       <ul class="checks">
          <li>Evidence manifest (<abbr>JSON</abbr>) and <abbr>PDF</abbr> report with embedded hashes.</li>
        <li>Infrastructure <abbr>BOM</abbr> and network diagram (request access).</li>
-       <li>Security attestations aligned to <abbr>FCA</abbr>, <abbr>EU AI</abbr> Act, and <abbr>ECOA</abbr> checkpoints.</li>
+       <li>Control mapping aligned to <abbr>FCA</abbr>, <abbr>EU AI</abbr> Act, and <abbr>ECOA</abbr> checkpoints.</li>
       </ul>
-      <p class="note">Public synthetic/demo-only examples (release <code>v4.0.3</code>): <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/customer_report.pdf" target="_blank" rel="noopener noreferrer">customer_report.pdf</a>, <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/manifest.json" target="_blank" rel="noopener noreferrer">manifest.json</a>, <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer">SHA256SUMS.txt</a>.</p>
+      <p class="note">Current public demo materials (synthetic/demo-only, prerelease <code>v5.0.0-rc4</code>): <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/customer_report.pdf" target="_blank" rel="noopener noreferrer">customer_report.pdf</a>, <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/manifest.json" target="_blank" rel="noopener noreferrer">manifest.json</a>, <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer">SHA256SUMS.txt</a>.</p>
      </div>
      <div class="card">
       <h3>Commercials</h3>
       <ul class="checks">
-         <li><abbr>AWS</abbr> Marketplace offer (annual and multi-year options depend on offer terms).</li>
-       <li>Pilot tier (3-month) for regulated sandbox evaluations.</li>
+         <li>Commercial terms are finalized during pilot qualification; annual, multi-year, and Marketplace structures depend on the release path.</li>
+       <li>Pilot evaluations are scoped with agreed duration and success criteria.</li>
        <li>Private Offer support for custom terms or multi-entity rollouts.</li>
       </ul>
      </div>
