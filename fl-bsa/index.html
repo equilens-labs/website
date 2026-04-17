@@ -52,10 +52,10 @@
     "@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default."}},
-        {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
-      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment."}},
+        {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
+      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment."}},
       {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace availability is coming soon. Contact Equilens for guided pilot access, or deploy the container stack via docker-compose. CPU-only and GPU-preferred profiles are supported."}},
-        {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A 30-page PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
+        {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
     ]
    }
   </script>
@@ -108,7 +108,7 @@
             </div>
             <div class="cta-row">
               <a class="btn btn-primary" href="/contact/">Contact Sales</a>
-              <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
+              <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
             </div>
           </div>
         </section>
@@ -202,9 +202,9 @@
           <ul class="checks">
             <li>Full evidence bundle generation.</li>
             <li>Standard support (Email).</li>
-            <li>Production-ready appliance.</li>
+            <li>Production-grade appliance configuration for guided evaluation.</li>
           </ul>
-          <p class="note">Designed for a single-model audit or 3-month <abbr title="Proof of Concept">PoC</abbr>.</p>
+          <p class="note">Designed for a scoped single-model audit or time-boxed <abbr title="Proof of Concept">PoC</abbr>.</p>
         </div>
         <div class="card">
           <h3>Standard</h3>
@@ -212,7 +212,7 @@
           <ul class="checks">
             <li>Continuous monitoring support.</li>
             <li>Full commercial use rights.</li>
-            <li>Quarterly software updates.</li>
+            <li>Regular software updates.</li>
           </ul>
         </div>
         <div class="card">
@@ -282,7 +282,7 @@
                   Whitepaper
                 </h3>
                 <p>Current public demo whitepaper covering <span class="product-name">FL-BSA</span>'s fair-lending simulation approach and evidence model.</p>
-                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
+                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
               </div>
               <div class="card">
                 <h3>
@@ -290,7 +290,7 @@
                   Example Report
                 </h3>
                 <p>Current public demo evidence bundle showing the regulator-oriented report, certificates, and manifest structure.</p>
-                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v4.0.3/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
+                <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc4/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
               </div>
             </div>
             <p class="note">Current public demo artifacts (reports, data, checksums) are published as synthetic/demo-only GitHub Release assets in <a href="https://github.com/equilens-labs/fl-bsa-pub" target="_blank" rel="noopener noreferrer">equilens-labs/fl-bsa-pub</a>.</p>
@@ -316,11 +316,11 @@
       </details>
       <details class="faq-item">
         <summary>How long does a typical run take?</summary>
-        <p>Reference targets on a modern <span class="acronym">CPU</span>: ~10k rows (full pipeline) ≤ ~20 minutes; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration.</p>
+        <p>Reference targets on a modern <span class="acronym">CPU</span>: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration.</p>
       </details>
       <details class="faq-item">
         <summary>Which regulatory frameworks are covered?</summary>
-        <p>Evidence maps to <span class="acronym">ECOA</span>/Reg B (US), <span class="acronym">EU AI</span> Act, and <span class="acronym">FCA</span> Consumer Duty. Certificates include Data Quality, Model Fidelity, Training Convergence, Synthetic Quality, and Regulatory Alignment.</p>
+        <p>Evidence maps to <span class="acronym">ECOA</span>/Reg B (US), <span class="acronym">EU AI</span> Act, and <span class="acronym">FCA</span> Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment.</p>
       </details>
       <details class="faq-item">
         <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
@@ -328,7 +328,7 @@
       </details>
       <details class="faq-item">
         <summary>What is included in the evidence bundle?</summary>
-        <p>A 30-page <span class="acronym">PDF</span> report, an evidence manifest (dataset hash, <span class="acronym">RNG</span> seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID.</p>
+        <p>A <span class="acronym">PDF</span> report, an evidence manifest (dataset hash, <span class="acronym">RNG</span> seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID.</p>
       </details>
     </div>
   </section>
