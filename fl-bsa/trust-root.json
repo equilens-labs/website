@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-05-14T04:35:11.858242+00:00",
+  "key_algorithm": "ECDSA-P256",
+  "key_policy": {
+    "public_endpoint_role": "external verifier trust root for customer-facing evidence bundles",
+    "roles": [
+      "manifest",
+      "artifact_attestation",
+      "dataset_lineage",
+      "legal_review_attestation"
+    ],
+    "separate_authorities_required": true,
+    "secret_material_not_published": true
+  },
+  "keys": [
+    {
+      "algorithm": "ECDSA-P256",
+      "fingerprint": "186be6908daa326f",
+      "public_key_x": "5582f5c387a5c0f7e61c44f72311aaffc7e3f6db85b24f24f39973faf91a607a",
+      "public_key_y": "513a8258b37f3558798fca1e43fbfa51f3ab26617b9015ce4c9c405623e8522b",
+      "role": "manifest",
+      "secret_name": "FLBSA_RELEASE_MANIFEST_SIGNER_KEY_JSON"
+    },
+    {
+      "algorithm": "ECDSA-P256",
+      "fingerprint": "ca63f168fcc6c177",
+      "public_key_x": "abd861e6ba8d345a81410260e8890b7b8e8d5be541ee4e751bbea23ad1e49315",
+      "public_key_y": "1c23f3bda0d9a92a3934350dee6a4a7c712e106d79eef23468bb23738410c5c8",
+      "role": "artifact_attestation",
+      "secret_name": "FLBSA_RELEASE_ARTIFACT_ATTESTATION_SIGNER_KEY_JSON"
+    },
+    {
+      "algorithm": "ECDSA-P256",
+      "fingerprint": "4840da5e4580d404",
+      "public_key_x": "ed593c26e3009c35f961514b2724d0adb1c74f65a586bcd518acc3a8e57808b0",
+      "public_key_y": "5e83b6ccf31386b4075d19770b8648fcfc309043360aab693c239c1bdba21108",
+      "role": "dataset_lineage",
+      "secret_name": "FLBSA_RELEASE_DATASET_LINEAGE_SIGNER_KEY_JSON"
+    },
+    {
+      "algorithm": "ECDSA-P256",
+      "fingerprint": "f21a690e796353aa",
+      "public_key_x": "ad99d62ccee5b286c20c1fb386af4d288f7f03afa461a40c4836c6d594338725",
+      "public_key_y": "9bb761ac28b762c0155e40ae8e6604a04df31a03e7daf14f0a376a2a0180d777",
+      "role": "legal_review_attestation",
+      "secret_name": "FLBSA_RELEASE_LEGAL_REVIEW_ATTESTATION_SIGNER_KEY_JSON"
+    }
+  ],
+  "schema_version": "flbsa.vendor_trust_root.v1",
+  "signature_algorithm": "ECDSA-P256-SHA256",
+  "vendor": {
+    "brand": "Equilens",
+    "name": "Valfox Ltd",
+    "product": "FL-BSA"
+  }
+}
