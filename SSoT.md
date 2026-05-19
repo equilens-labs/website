@@ -1,13 +1,13 @@
 Fair-Lending Bias-Simulation Appliance — Single Source of Truth (SSOT)
 
-Last updated: 2025-12-21
+Last updated: 2026-05-19
 
 Scope. This document is the product-level single source of truth for FL-BSA.
 It covers: architecture, capabilities, regulatory positioning, performance targets, and the commercial model.
 Implementation-level details (code, CI, infra) live in the repo and ops docs and are not duplicated here.
 
 One-sentence summary.
-FL-BSA is a regulatory digital twin for lending – a safety-through-simulation appliance that generates synthetic borrowers, measures bias in synthetic decision patterns, and emits tamper-evident evidence packs without touching live decisions.
+FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit decisions – a safety-through-simulation system that generates synthetic borrowers, measures bias in synthetic decision patterns, and emits tamper-evident evidence packs without touching live decisions.
 
 ⸻
 
@@ -34,7 +34,7 @@ FL-BSA is a regulatory digital twin for lending – a safety-through-simulation 
 
 1.3 Core value proposition
 
-FL-BSA is the bank’s regulatory digital twin for lending.
+FL-BSA is a customer-hosted evidence appliance for credit-risk, fair-outcomes, and AI-governance teams.
 	•	Safety-through-simulation only
 	•	FL-BSA never makes, overrides, or batch-scores live lending decisions.
 	•	It generates synthetic "what-if" portfolios and measures bias in those synthetic decisions.
@@ -42,7 +42,7 @@ FL-BSA is the bank’s regulatory digital twin for lending.
 	•	Dual-branch view of bias
 	•	Amplification branch (“status-quo”):
 	•	Generates synthetic borrowers that mirror historical patterns in applications, decisions, and outcomes.
-	•	Shows how the current stack behaves given the actual history the bank has created.
+	•	Shows how the current stack behaves given the actual history, policies, and decision flows the customer has created.
 	•	Intrinsic branch ("counterfactual baseline"):
 	•	Trains CTGAN without the loan decision column, then applies fair decision rules via post-labeling to produce synthetic borrowers with equitable outcomes.
 	•	Approximates a "fairer baseline" where structural penalties are removed.
@@ -52,25 +52,25 @@ FL-BSA is the bank’s regulatory digital twin for lending.
 	•	Metrics and manifests.
 	•	Hashes and certificates.
 	•	PDF reports and supporting logs.
-	•	The pack is designed to be consumed by risk, compliance, internal audit, and (via the bank) external reviewers.
+	•	The pack is designed to be consumed by risk, compliance, model governance, internal audit, and customer-authorized external reviewers.
 	•	BYOC commercial model
 	•	Customers run FL-BSA in their own cloud/on-prem environment and pay their own compute, including GPUs.
 	•	FL-BSA is licensed as an appliance (software) that converts data and models into auditable evidence.
 
 1.4 Simulation vs Reporting Strategy
 
-FL-BSA is deliberately scoped to the bank’s Simulation Strategy, not its Reporting Strategy.
+FL-BSA is deliberately scoped to the customer’s Simulation Strategy, not its Reporting Strategy.
 	•	Simulation Strategy (FL-BSA domain)
 	•	Generate synthetic portfolios and estimate group-level fairness outcomes via synthetic simulation.
 	•	Explore Less Discriminatory Alternatives (LDAs), overlays, and “counterfactual reject” scenarios.
 	•	Quantify intrinsic vs amplification effects.
 	•	Produce evidence that can support regulatory engagement.
-	•	Reporting Strategy (bank domain, out of scope for FL-BSA)
+	•	Reporting Strategy (customer domain, out of scope for FL-BSA)
 	•	How production decisions are explained to customers and regulators (e.g. ECOA adverse-action notices, Consumer Duty statements).
 	•	How self-testing results feed into governance, remediation, and official disclosures.
 
 This separation is enforced by:
-	•	The no-raw-data-leaves stance: real borrower data and SCPD stay inside the bank’s perimeter.
+	•	The no-raw-data-leaves stance: real borrower data and SCPD stay inside the customer-controlled perimeter.
 	•	A synthetic-only export boundary: artefacts that leave the appliance (CSV, Parquet, JSON, PDF) are explicitly simulation outputs and must not be treated as “historical truth”.
 
 1.5 Out of scope
@@ -171,35 +171,35 @@ To maintain the Simulation vs Reporting split:
 
 3. Regulatory Positioning (Conceptual)
 
-This section captures design intent and positioning. It is not legal advice and does not replace the bank’s own counsel.
+This section captures design intent and positioning. It is not legal advice and does not replace the customer’s own counsel.
 
 3.1 United States – ECOA / Reg B / CFPB
 	•	FL-BSA is designed to support disparate-impact and disparate-treatment analysis under ECOA/Reg B, by:
 	•	Generating synthetic borrower populations with protected attributes.
-	•	Approximating the bank's decision patterns via synthetic generation to estimate group-level outcomes.
+	•	Approximating customer decision patterns via synthetic generation to estimate group-level outcomes.
 	•	Quantifying metrics such as adverse impact ratio and TPR/FPR disparities.
 	•	Argus-style risk mitigation:
 	•	The appliance is never used to fabricate or backfill “historical” performance data.
 	•	Synthetic borrowers are explicitly marked as synthetic and are only used for simulation, not for production reporting.
 	•	Self-testing and LDAs:
-	•	FL-BSA helps banks search for and quantify Less Discriminatory Alternatives (LDAs) by simulating alternative policies and models.
-	•	The bank retains responsibility for:
+	•	FL-BSA helps customers search for and quantify Less Discriminatory Alternatives (LDAs) by simulating alternative policies and models.
+	•	The customer retains responsibility for:
 	•	Deciding which LDAs to adopt.
 	•	Managing any discovery/comms implications of self-testing records.
 
 3.2 European Union – EU AI Act, Data Governance
 	•	FL-BSA is designed to be used in a way that aligns with EU AI Act obligations for high-risk systems (e.g. credit scoring) by:
 	•	Supporting workflows where:
-	•	Real SCPD is used for training synthetic generators within the bank’s safe environment when strictly necessary.
+	•	Real SCPD is used for training synthetic generators within the customer’s safe environment when strictly necessary.
 	•	Downstream bias analysis is performed on synthetic data.
 	•	Only synthetic and aggregate artefacts leave the environment.
 	•	Providing:
 	•	Dataset-quality metrics aligned with Article 10(3) (distribution coverage, representativeness).
 	•	Documentation hooks for transparency and data-governance sections (Article 13).
-	•	FL-BSA does not itself decide which legal basis or derogations (e.g. strict necessity under Article 10(5)) the bank relies on; it only provides technical capabilities consistent with those strategies.
+	•	FL-BSA does not itself decide which legal basis or derogations (e.g. strict necessity under Article 10(5)) the customer relies on; it only provides technical capabilities consistent with those strategies.
 
 3.3 United Kingdom – FCA, Consumer Duty, SDEG
-	•	FL-BSA supports UK banks in analysing:
+	•	FL-BSA supports regulated UK credit providers and credit-infrastructure firms in analysing:
 	•	Outcome disparities under Consumer Duty (e.g. acceptance, pricing, default treatment).
 	•	“Exclusion harm” by simulating counterfactual reject scenarios:
 	•	What would have happened if certain historically rejected applicants had been approved?
@@ -215,7 +215,7 @@ This section captures design intent and positioning. It is not legal advice and 
 	•	Core inputs:
 	•	Historical application & performance data (tabular).
 	•	Optional: additional context columns may be present in uploaded snapshots, but the reference pipeline operates on the canonical schema columns only (FL‑BSA does not execute scorecards).
-	•	Optional: external data sources the bank uses (bureau, open banking features, etc.).
+	•	Optional: external data sources the customer uses (bureau, open banking features, etc.).
 	•	Protected attributes / SCPD:
 	•	Where lawfully collected and accessible, these are used for:
 	•	Training synthetic generators (if permitted).
@@ -236,9 +236,9 @@ FL-BSA computes synthetic-data quality metrics along three conceptual axes:
 	•	Privacy. How far synthetic records are from any observed real record.
 	•	E.g. nearest-neighbour distance statistics.
 	•	Utility. How useful synthetic data is for modelling.
-	•	E.g. train-on-synthetic / test-on-real performance comparisons (with in-bank evaluation).
+	•	E.g. train-on-synthetic / test-on-real performance comparisons (with customer-controlled evaluation).
 
-Current versions surface these metrics in manifests and reports so that banks can form their own acceptance criteria. These synthetic-quality metrics are treated as observable evidence signals unless operators choose stricter policies.
+Current versions surface these metrics in manifests and reports so that customers can form their own acceptance criteria. These synthetic-quality metrics are treated as observable evidence signals unless operators choose stricter policies.
 
 4.3 Fairness metrics
 	•	FL-BSA supports a configurable set of fairness metrics, including but not limited to:
@@ -323,22 +323,22 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 
 7.1 Environments
 	•	FL-BSA is designed to run in:
-	•	Bank’s own cloud accounts (e.g. AWS VPC).
+	•	Customer-controlled cloud accounts (e.g. AWS VPC).
 	•	On-prem virtualised environments.
 	•	Typical topology:
 	•	Application and worker containers on app nodes.
 	•	Optional database for configuration / metadata.
-	•	Access to bank’s data warehouse / lake via secure network paths.
+	•	Access to the customer’s data warehouse / lake via secure network paths.
 
 7.2 Data ingress
 	•	Ingest options:
 	•	Pull from data warehouse / lake (e.g. SQL, object store).
 	•	Receive prepared snapshots (CSV/Parquet) dropped into a landing bucket.
-	•	Data movement is under the bank's control; FL-BSA does not open outbound tunnels to vendor services except for optional AWS Marketplace usage metering (gated by `FLBSA_ALLOW_MARKETPLACE_METERING=1`).
+	•	Data movement is under the customer’s control; FL-BSA does not open outbound tunnels to vendor services except for optional AWS Marketplace usage metering (gated by `FLBSA_ALLOW_MARKETPLACE_METERING=1`).
 
 7.3 Data egress
 	•	Artefacts produced:
-	•	Stored in the bank’s storage (e.g. object buckets, file shares).
+	•	Stored in customer-controlled storage (e.g. object buckets, file shares).
 	•	Accessed via:
 	•	API (download endpoints).
 	•	Direct retrieval from configured storage.
@@ -353,7 +353,7 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 
 8.2 SCPD handling
 	•	FL-BSA assumes SCPD is:
-	•	Collected lawfully by the bank.
+	•	Collected lawfully by the customer.
 	•	Made available for fairness analysis where regulations and internal policies permit.
 	•	FL-BSA:
 	•	Uses SCPD to annotate records and compute group-based metrics.
@@ -361,7 +361,7 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 	•	Does not send SCPD to external services.
 
 8.3 Identity & access control
-	•	Authentication and authorisation are delegated to bank infrastructure where possible (SSO, IdP).
+	•	Authentication and authorisation are delegated to customer infrastructure where possible (SSO, IdP).
 	•	Within FL-BSA, roles typically include:
 	•	Admin / platform owner.
 	•	Risk / model validation.
@@ -399,14 +399,14 @@ Typical levers for pricing and capacity planning:
 10. Support & Operations
 
 10.1 Vendor support
-	•	Remote support only (no direct shell access into bank systems).
+	•	Remote support only (no direct shell access into customer systems).
 	•	Channels:
 	•	Ticketing system / email.
 	•	Scheduled calls for complex issues.
 	•	Artefacts exchanged for support (where allowed):
 	•	Logs and redacted metrics.
 	•	Synthetic-only samples.
-	•	Never raw SCPD unless explicitly authorised by the bank.
+	•	Never raw SCPD unless explicitly authorised by the customer.
 
 10.2 Monitoring & health
 	•	FL-BSA exposes health endpoints and basic metrics for:
