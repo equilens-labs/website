@@ -70,7 +70,7 @@ FL-BSA is deliberately scoped to the customer’s Simulation Strategy, not its R
 	•	How self-testing results feed into governance, remediation, and official disclosures.
 
 This separation is enforced by:
-	•	The no-raw-data-leaves stance: real borrower data and SCPD stay inside the customer-controlled perimeter.
+	•	The no-raw-data-leaves stance: real borrower data and SCPD stay inside the customer's environment.
 	•	A synthetic-only export boundary: artefacts that leave the appliance (CSV, Parquet, JSON, PDF) are explicitly simulation outputs and must not be treated as “historical truth”.
 
 1.5 Out of scope
@@ -413,7 +413,7 @@ Typical levers for pricing and capacity planning:
 	•	Service uptime.
 	•	Queue depths (jobs).
 	•	Error rates.
-	•	Banks are expected to:
+	•	Customers are expected to:
 	•	Integrate these into their own monitoring stacks (e.g. Prometheus, CloudWatch).
 
 ⸻
@@ -434,15 +434,19 @@ Security and compliance:
 	•	Provide clearer "compliance summary" artefacts per scenario (e.g. a small JSON verdict + rationale).
 	•	Evolve security posture in line with ops and customer requirements.
 
-Certification roadmap (planned, not yet attained):
+Certification roadmap (planned, not yet attained; current operational status belongs in GTM/task
+records, not this SSOT):
 	•	SOC 2 Type II — formal audit planned; current controls are SOC 2 aligned.
 	•	ISO 27001 — certification planned; current practices are ISO 27001 aligned.
 	•	Cyber Essentials / Cyber Essentials Plus — under evaluation for UK market.
 	•	AWS Financial Services Competency — requires customer references and AWS validation.
 
-Cloud marketplace status:
-	•	AWS — seller account active (Valfox Ltd); listing in progress.
-	•	Microsoft Partner Network — enrolled (MPN ID: 7035328); Azure Marketplace offer available.
+Cloud marketplace posture:
+	•	FL-BSA is packaged for customer-hosted marketplace-style delivery.
+	•	AWS — AWS Partner registered (Valfox Ltd / Equilens seller account active; recorded 2026-02-25); listing in progress and not represented here as publicly transactable.
+	•	Microsoft Partner Network — enrolled (MPN ID: 7035328); Azure Marketplace availability, acceptance, and release scope are governed by current release/GTM records.
+	•	Current AWS/Azure listing, acceptance, and promotion status is release/GTM working state; see the
+		current task board and private GTM records rather than treating this SSOT as a live launch ledger.
 
 ⸻
 
