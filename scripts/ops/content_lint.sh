@@ -31,4 +31,9 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "30-page PDF report|Mode
   exit 1
 fi
 
+if grep -r --include="*.html" --include="*.md" -n -i -E "regulatory digital twin|audit-ready|regulator-ready|court-admissible|FCA[- ]approved|regulator[- ]approved|production decisioning|compliance certified|ECOA-compliant|production-grade appliance|full commercial use rights" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
+  echo "ERROR: Found stale or over-strong FL-BSA GTM/regulatory wording"
+  exit 1
+fi
+
 echo "[OK] Content lint passed"

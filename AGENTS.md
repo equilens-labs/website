@@ -5,7 +5,7 @@
 - Maintain credibility in a regulated fair-lending market by upholding strict technical, legal, and scientific standards.
 
 ## Operating Context
-- **Brand**: Equilens — Fair-Lending Bias-Simulation Appliance (FL-BSA).
+- **Brand**: Equilens — FL-BSA, self-hosted fair-outcomes evidence for regulated credit decisions.
 - **Legal entity**: Valfox Ltd (United Kingdom). Registered office: Apollo House, Hallam Way, Whitehills Business Park, Blackpool, England, FY4 5FS. Trading presence communicated as London, UK.
 - **Regulatory touchpoints**: ECOA, EU AI Act, UK FCA/ICO guidance, and any jurisdiction-specific fair-lending or algorithmic accountability frameworks encountered.
 
