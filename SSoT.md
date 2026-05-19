@@ -1,4 +1,4 @@
-Fair-Lending Bias-Simulation Appliance — Single Source of Truth (SSOT)
+FL-BSA Website Single Source of Truth (SSOT)
 
 Last updated: 2026-05-19
 
@@ -29,7 +29,7 @@ FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit de
 	•	Outputs:
 	•	Synthetic borrower portfolios (tabular).
 	•	Metrics manifests and compliance indicators.
-	•	Regulator-aligned PDF reports.
+	•	Review-oriented PDF reports with regulatory mapping.
 	•	Evidence bundles (certificates, manifests, logs).
 
 1.3 Core value proposition
@@ -78,7 +78,7 @@ This separation is enforced by:
 FL-BSA is not:
 	•	A live credit decision engine or LOS replacement.
 	•	A data warehouse, MDM system, or reporting platform.
-	•	A generic AI-governance dashboard; it is specialised for fair-lending bias simulation.
+	•	A generic AI-governance dashboard; it is specialised for fair-outcomes evidence in regulated credit decisions.
 
 ⸻
 
@@ -382,7 +382,7 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 	•	Licensing shape (indicative):
 	•	Evaluation / sandbox tier with limited data volume.
 	•	Pilot or project-based licences (fixed term, scoped datasets).
-	•	Ongoing annual licences for production-scale use.
+	•	Ongoing annual licences for contracted rollout after evaluation.
 
 Concrete pricing numbers are intentionally excluded from this SSOT; they live in commercial documents and may vary by market.
 
