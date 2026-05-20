@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri none; form-action none">
   <meta http-equiv="refresh" content="0; url=/legal/#imprint">
   <link rel="canonical" href="https://equilens.io/legal/">
   <title>Redirecting to Legal…</title>
@@ -19,6 +20,8 @@
   <meta name="twitter:title" content="Redirecting to Legal…">
   <meta name="twitter:description" content="Redirecting to Equilens company information and imprint.">
   <meta name="twitter:image" content="https://equilens.io/brand/social/og-1200x630.png">
+  <!-- Plausible is kept on redirect pages for consistency; it may not fire before the zero-second refresh. -->
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="eql">
   <p>This page moved to <a href="/legal/#imprint">/legal/#imprint</a>. Redirecting…</p>

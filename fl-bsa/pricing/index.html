@@ -3,6 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri none; form-action none">
   <title>Redirecting to FL-BSA Licensing...</title>
   <meta content="0; url=/fl-bsa/#pricing" http-equiv="refresh"/>
   <link href="https://equilens.io/fl-bsa/" rel="canonical"/>
@@ -19,7 +20,9 @@
   <meta content="Redirecting to FL-BSA Licensing..." name="twitter:title"/>
   <meta content="Redirecting to consolidated FL-BSA licensing." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
- </head>
+   <!-- Plausible is kept on redirect pages for consistency; it may not fire before the zero-second refresh. -->
+   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.js"></script>
+</head>
  <body class="eql">
   <p>You are being redirected to the consolidated FL-BSA licensing section. <a href="/fl-bsa/#pricing">Continue</a>.</p>
  </body>

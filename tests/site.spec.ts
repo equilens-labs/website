@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,13 +15,24 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf-8')) as {
 const pages = config.pages;
 const anchors = config.anchors ?? [];
 
+async function stubPlausible(page: Page) {
+  await page.route('https://plausible.io/**', async (route) => {
+    await route.fulfill({
+      status: 204,
+      body: '',
+    });
+  });
+}
+
 test.describe('Equilens site surfaces', () => {
   for (const pageEntry of pages) {
     test(`${pageEntry.path} renders nav and footer`, async ({ page }, testInfo) => {
+      await stubPlausible(page);
       await page.goto(pageEntry.path, { waitUntil: 'networkidle' });
 
       await expect(page.locator('nav.site-nav')).toHaveCount(1);
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
+      await expect(page.locator('script[src="https://plausible.io/js/script.js"][data-domain="equilens.io"]')).toHaveCount(1);
       await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
@@ -45,6 +56,7 @@ test.describe('Equilens site surfaces', () => {
 
   for (const anchor of anchors) {
     test(`anchor ${anchor.url} is reachable`, async ({ page }) => {
+      await stubPlausible(page);
       await page.goto(anchor.url, { waitUntil: 'networkidle' });
       const hashIndex = anchor.url.indexOf('#');
       if (hashIndex !== -1) {
