@@ -24,7 +24,7 @@
 
       const subject = interest ? 'FL-BSA enquiry: ' + interest : 'FL-BSA enquiry';
       const mailto =
-        'mailto:equilens@equilens.io?subject=' +
+        'mailto:hello@equilens.io?subject=' +
         encodeURIComponent(subject) +
         '&body=' +
         encodeURIComponent(lines.join('\n'));

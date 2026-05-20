@@ -34,7 +34,7 @@ EU GDPR representative: [Company name], [full postal address], [rep‑email]. Th
 
 B) Open‑Source / SBOM links
 • Issue: On Legal → Open Source, links to GitHub SBOM and NOTICE 404. ￼ ￼ ￼
-• Fix options: 1. Publish stable SBOM per release and a NOTICE file in the repo, then link those exact URLs; or 2. Replace links with: “SBOM and NOTICE available on request (oss@equilens.io).”
+• Fix options: 1. Publish stable SBOM per release and a NOTICE file in the repo, then link those exact URLs; or 2. Replace links with: “SBOM and NOTICE available on request (support@equilens.io).”
 • Impact: High (buyer diligence) • Lanes: Legal/Eng • Rollback: keep the section but remove links until live.
 
 C) Home page claim (“regulator‑ready evidence”)
@@ -84,7 +84,7 @@ EU GDPR representative: [Name, Address], [Email]. They may be contacted on EU da
 
 Legal → Open Source:
 
-Replace the two GitHub links with “SBOM and NOTICE available on request: oss@equilens.io” until the links resolve. ￼
+Replace the two GitHub links with “SBOM and NOTICE available on request: support@equilens.io” until the links resolve. ￼
 
 Trust Center (top of page):
 

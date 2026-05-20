@@ -34,7 +34,7 @@ Scope: website + email enquiries; no analytics, no ads, no forms.
 
 Controller & contact
 
-Controller: Valfox Ltd (trading as “Equilens”). Contact: privacy@equilens.io (or the chosen inbox).
+Controller: Valfox Ltd (trading as “Equilens”). Contact: legal@equilens.io (or the chosen inbox).
 If appointed, add: EU GDPR representative: [name, address, email].
 
 Data we process
