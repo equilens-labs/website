@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>Privacy Notice — Equilens</title>
   <meta name="description" content="Privacy Notice for the equilens.io website.">
   <link rel="canonical" href="https://equilens.io/legal/privacy.html">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri none; form-action none">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri none; form-action none">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#4f46e5">
   <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
@@ -26,6 +27,7 @@
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/assets/eql/base.css">
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="eql policy">
   <a class="skip-to-content" href="#main">Skip to content</a>
@@ -53,16 +55,18 @@
           <ul class="checks">
             <li><strong>Emails you send us</strong> at <a href="mailto:hello@equilens.io">hello@equilens.io</a>.</li>
             <li><strong>Minimal server/<span class="acronym">CDN</span> logs</strong> (<span class="acronym">IP</span> address, user agent, timestamp, requested <span class="acronym">URL</span>) required to deliver the site and investigate security issues.</li>
+            <li><strong>Aggregate website analytics</strong> from Plausible Analytics: page path, referrer, device type, browser, operating system, and country-level location. Plausible does not use cookies, browser storage, or persistent identifiers; raw <span class="acronym">IP</span> addresses and full user-agent strings are not stored.</li>
           </ul>
 
           <h2>Purposes &amp; legal bases</h2>
-          <p>We process this limited data to respond to inquiries and operate a reliable, secure website. The legal basis is our <em>legitimate interests</em> (<span class="acronym">UK</span> <span class="acronym">GDPR</span> Art. 6(1)(f)).</p>
+          <p>We process this limited data to respond to inquiries, operate a reliable and secure website, and understand aggregate site usage. The legal basis is our <em>legitimate interests</em> (<span class="acronym">UK</span> <span class="acronym">GDPR</span> Art. 6(1)(f)).</p>
 
           <h2>Recipients</h2>
           <p>Personal data may be processed by our service providers strictly for the purposes above, including:</p>
           <ul class="checks">
             <li>Email provider (Google Workspace).</li>
             <li>Static hosting/<span class="acronym">CDN</span> provider (GitHub Pages / GitHub, Inc.).</li>
+            <li>Website analytics provider (Plausible Analytics / Plausible Insights OÜ).</li>
           </ul>
 
           <h2>International transfers</h2>
@@ -72,6 +76,7 @@
           <ul class="checks">
             <li>Email correspondence: retained as needed for support and communications, then deleted when no longer required.</li>
             <li>Server/<span class="acronym">CDN</span> logs: rotated automatically and retained for approximately 30 days for diagnostics and security.</li>
+            <li>Aggregate Plausible analytics: retained while needed for trend reporting and deleted when no longer required or when the site analytics account is removed.</li>
           </ul>
 
           <h2>Your rights</h2>
@@ -79,9 +84,9 @@
           <p>You may lodge a complaint with the UK Information Commissioner's Office (<a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>).</p>
 
           <h2>Cookies &amp; similar technologies</h2>
-          <p>We do not use analytics, advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
+          <p>We use Plausible Analytics for aggregate, cookieless website measurement. We do not use advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
           <p><strong>Updates:</strong> We may update this notice; the effective date will change accordingly.</p>
-          <p class="note"><em>Effective date:</em> 2025-10-11</p>
+          <p class="note"><em>Effective date:</em> 2026-05-20</p>
         </div>
       </div>
     </section>
@@ -106,7 +111,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-20 (commit 5ce1aaa).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-20 (commit e9cb204).</small>
   </div>
 </footer>
 
