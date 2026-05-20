@@ -1,0 +1,3 @@
+76:            <li>Email correspondence: retained as needed for support and communications, then deleted when no longer required.</li>
+77:            <li>Server/<span class="acronym">CDN</span> logs: rotated automatically and retained for approximately 30 days for diagnostics and security.</li>
+78:            <li>Aggregate Plausible analytics: retained while needed for trend reporting and deleted when no longer required or when the site analytics account is removed.</li>

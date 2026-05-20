@@ -21,8 +21,11 @@ rg -n "Controller" legal/privacy.html >"$BASE/privacy_has_controller.txt"
 rg -n "legitimate interests" legal/privacy.html >"$BASE/privacy_has_legal_basis.txt"
 rg -n "ico.org.uk" legal/privacy.html >"$BASE/privacy_has_ico.txt"
 rg -n "Cookie" legal/privacy.html >"$BASE/privacy_links_cookie.txt"
+rg -n "Plausible Analytics" legal/privacy.html >"$BASE/privacy_discloses_plausible.txt"
 
-rg -n "We do <strong>not</strong> use analytics" legal/index.html >"$BASE/cookie_no_analytics.txt"
+rg -n "Plausible Analytics" legal/index.html >"$BASE/cookie_discloses_plausible.txt"
+rg -n "does <strong>not</strong> set cookies|advertising or social media cookies" legal/index.html >"$BASE/cookie_analytics_posture.txt"
+rg -n "script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io" legal/index.html legal/privacy.html >"$BASE/plausible_csp_present.txt"
 
 [ -f legal/index.html ] && echo OK > "$BASE/legal_hub_present.txt" || echo MISSING > "$BASE/legal_hub_present.txt"
 if rg -q 'id="open-source"' legal/index.html; then echo OK > "$BASE/open_source_present.txt"; else echo MISSING > "$BASE/open_source_present.txt"; fi
@@ -35,7 +38,18 @@ rg -n "Governing law" legal/tos.html > "$BASE/tos_has_governing_law.txt" || true
 rg -n "retained" legal/privacy.html > "$BASE/privacy_has_retention.txt" || true
 
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
-rg -n "<script[^>]+src=\"https?://" legal || echo "OK: no external script src on legal/" >"$BASE/no_external_scripts_ok.txt"
+if rg -n "<script[^>]+src=\"https?://" legal >"$BASE/external_scripts.txt"; then
+  if rg -v "https://plausible\.io/js/script\.js" "$BASE/external_scripts.txt" >"$BASE/unapproved_external_scripts.txt"; then
+    echo "ERROR: unapproved external script src found in legal/" >&2
+    cat "$BASE/unapproved_external_scripts.txt" >&2
+    exit 1
+  else
+    rm -f "$BASE/unapproved_external_scripts.txt"
+    echo "OK: only approved Plausible external script src found in legal/" >"$BASE/no_unapproved_external_scripts_ok.txt"
+  fi
+else
+  echo "OK: no external script src on legal/" >"$BASE/no_external_scripts_ok.txt"
+fi
 
 if [[ -f "$BASE/security.txt.copy" ]]; then
   rg -n "^Contact: " "$BASE/security.txt.copy" >"$BASE/security_contact.txt"
