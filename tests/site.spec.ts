@@ -34,9 +34,18 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator('script[src="https://plausible.io/js/script.js"][data-domain="equilens.io"]')).toHaveCount(1);
       await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
-      await expect(page.locator('a[href*="fl-bsa-pub/releases/tag"]')).toHaveCount(0);
-      await expect(page.locator('a[href$="/manifest.json"]')).toHaveCount(0);
-      await expect(page.locator('a[href$="/SHA256SUMS.txt"]')).toHaveCount(0);
+      const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
+      const manifestLinks = page.locator('a[href$="/manifest.json"]');
+      const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
+      if (pageEntry.path === '/trust-center/') {
+        await expect(releaseTagLinks).toHaveCount(1);
+        await expect(manifestLinks).toHaveCount(1);
+        await expect(checksumLinks).toHaveCount(1);
+      } else {
+        await expect(releaseTagLinks).toHaveCount(0);
+        await expect(manifestLinks).toHaveCount(0);
+        await expect(checksumLinks).toHaveCount(0);
+      }
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
       expect(title).toMatch(/Equilens|FL-BSA|Trust Center/i);
