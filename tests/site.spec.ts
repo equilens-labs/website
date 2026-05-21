@@ -31,9 +31,29 @@ test.describe('Equilens site surfaces', () => {
       await page.goto(pageEntry.path, { waitUntil: 'networkidle' });
 
       await expect(page.locator('nav.site-nav')).toHaveCount(1);
+      await expect(page.locator('nav.site-nav a.nav-link[href="/procurement/"]')).toHaveText('Procurement');
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator('script[src="https://plausible.io/js/script.js"][data-domain="equilens.io"]')).toHaveCount(1);
       await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
+      const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
+      const manifestLinks = page.locator('a[href$="/manifest.json"]');
+      const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
+      const provenanceLinks = page.locator('a[href$="/PROVENANCE.md"]');
+      if (pageEntry.path === '/trust-center/') {
+        await expect(releaseTagLinks).toHaveCount(1);
+        await expect(manifestLinks).toHaveCount(1);
+        await expect(checksumLinks).toHaveCount(1);
+        await expect(provenanceLinks).toHaveCount(1);
+        await expect(page.getByRole('link', { name: 'Request Security Pack' })).toHaveAttribute(
+          'href',
+          '/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.',
+        );
+      } else {
+        await expect(releaseTagLinks).toHaveCount(0);
+        await expect(manifestLinks).toHaveCount(0);
+        await expect(checksumLinks).toHaveCount(0);
+        await expect(provenanceLinks).toHaveCount(0);
+      }
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
       expect(title).toMatch(/Equilens|FL-BSA|Trust Center/i);
@@ -41,6 +61,14 @@ test.describe('Equilens site surfaces', () => {
       if (pageEntry.path === '/fl-bsa/') {
         await expect(page.locator('.timeline .timeline-item')).toHaveCount(4);
         await expect(page.locator('.timeline .timeline-icon')).toHaveCount(4);
+        await expect(page.getByRole('link', { name: 'Download Whitepaper Intake (ZIP)' })).toHaveAttribute(
+          'href',
+          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/WhitePaper_Intake_Bundle_v4.zip',
+        );
+        await expect(page.getByRole('link', { name: 'Download Demo GOLD Pack (ZIP)' })).toHaveAttribute(
+          'href',
+          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/gold_bundle.zip',
+        );
       }
 
       const screenshotFile = `${pageEntry.slug}-${testInfo.project.name}.png`;
@@ -53,6 +81,14 @@ test.describe('Equilens site surfaces', () => {
       });
     });
   }
+
+  test('contact query parameters prefill security review enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.', { waitUntil: 'networkidle' });
+
+    await expect(page.locator('#interest')).toHaveValue('Security Pack');
+    await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
+  });
 
   for (const anchor of anchors) {
     test(`anchor ${anchor.url} is reachable`, async ({ page }) => {

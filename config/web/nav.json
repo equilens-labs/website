@@ -2,6 +2,7 @@
   "brand": {"href": "/", "img": "/brand/logo/equilens-wordmark-light.svg", "imgCompact": "/brand/symbol/equilens-symbol-nav.svg", "alt": "Equilens"},
   "links": [
     {"label": "FL‑BSA", "href": "/fl-bsa/"},
+    {"label": "Procurement", "href": "/procurement/"},
     {"label": "Trust Center", "href": "/trust-center/"},
     {"label": "Legal", "href": "/legal/"},
     {"label": "Contact", "href": "/contact/"}
