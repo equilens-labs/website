@@ -37,14 +37,17 @@ test.describe('Equilens site surfaces', () => {
       const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
       const manifestLinks = page.locator('a[href$="/manifest.json"]');
       const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
+      const provenanceLinks = page.locator('a[href$="/PROVENANCE.md"]');
       if (pageEntry.path === '/trust-center/') {
         await expect(releaseTagLinks).toHaveCount(1);
         await expect(manifestLinks).toHaveCount(1);
         await expect(checksumLinks).toHaveCount(1);
+        await expect(provenanceLinks).toHaveCount(1);
       } else {
         await expect(releaseTagLinks).toHaveCount(0);
         await expect(manifestLinks).toHaveCount(0);
         await expect(checksumLinks).toHaveCount(0);
+        await expect(provenanceLinks).toHaveCount(0);
       }
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
