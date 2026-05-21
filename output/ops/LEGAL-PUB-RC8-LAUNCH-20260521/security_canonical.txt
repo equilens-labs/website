@@ -1,0 +1,1 @@
+3:Canonical: https://equilens.io/.well-known/security.txt

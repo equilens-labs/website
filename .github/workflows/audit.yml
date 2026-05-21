@@ -55,7 +55,7 @@ jobs:
         run: python3 scripts/ops/check_lhci_configs.py
 
       - name: Lighthouse CI (5 URLs)
-        run: lhci autorun --config=ops/lighthouserc.ci.json || true
+        run: lhci autorun --config=ops/lighthouserc.ci.json
 
       - name: Upload audit artifacts
         if: always()

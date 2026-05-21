@@ -1,0 +1,3 @@
+57:            <li><strong>Aggregate website analytics</strong> from Plausible Analytics: page path, referrer, device type, browser, operating system, and country-level location. Plausible does not use cookies, browser storage, or persistent identifiers; raw <abbr title="Internet Protocol">IP</abbr> addresses and full user-agent strings are not stored.</li>
+68:            <li>Website analytics provider (Plausible Analytics / Plausible Insights OÜ).</li>
+86:          <p>We use Plausible Analytics for aggregate, cookieless website measurement. We do not use advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
