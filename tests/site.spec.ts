@@ -14,6 +14,18 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf-8')) as {
 
 const pages = config.pages;
 const anchors = config.anchors ?? [];
+const redirectMetadata = [
+  {
+    file: 'legal/privacy.html',
+    title: 'Privacy Notice — Equilens',
+    description: 'Privacy Notice for equilens.io. See /legal/#privacy.',
+  },
+  {
+    file: 'legal/tos.html',
+    title: 'Website Terms — Equilens',
+    description: 'Website Terms for equilens.io. See /legal/#terms-of-service.',
+  },
+];
 
 async function stubPlausible(page: Page) {
   await page.route('https://plausible.io/**', async (route) => {
@@ -25,6 +37,17 @@ async function stubPlausible(page: Page) {
 }
 
 test.describe('Equilens site surfaces', () => {
+  for (const redirect of redirectMetadata) {
+    test(`${redirect.file} preserves policy metadata while redirecting`, async () => {
+      const html = fs.readFileSync(path.join(root, redirect.file), 'utf-8');
+
+      expect(html).toContain(`<title>${redirect.title}</title>`);
+      expect(html).toContain(`content="${redirect.description}"`);
+      expect(html).toContain(`content="${redirect.title}"`);
+      expect(html).not.toContain('Redirecting to Legal…');
+    });
+  }
+
   for (const pageEntry of pages) {
     test(`${pageEntry.path} renders nav and footer`, async ({ page }, testInfo) => {
       await stubPlausible(page);
@@ -57,6 +80,11 @@ test.describe('Equilens site surfaces', () => {
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
       expect(title).toMatch(/Equilens|FL-BSA|Trust Center/i);
+      const horizontalOverflow = await page.evaluate(() =>
+        Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) -
+        document.documentElement.clientWidth
+      );
+      expect(horizontalOverflow).toBeLessThanOrEqual(1);
 
       if (pageEntry.path === '/fl-bsa/') {
         await expect(page.locator('.timeline .timeline-item')).toHaveCount(4);
