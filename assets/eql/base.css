@@ -1124,6 +1124,19 @@ abbr {
   justify-content: flex-start;
 }
 
+.artifact-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.artifact-actions .btn {
+  width: min(100%, 22rem);
+}
+
 /* Stack - single column layout */
 .stack {
   display: flex;
