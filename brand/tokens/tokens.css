@@ -1,0 +1,25 @@
+:root {
+  --eql-color-brand-500: #4F46E5;
+  --eql-color-brand-700: #4338CA;
+  --eql-color-brand-dark-500: #A5B4FC;
+  --eql-color-ink-900: #111827;
+  --eql-color-ink-700: #374151;
+  --eql-color-ink-rev: #FFFFFF;
+  --eql-color-muted-500: #6B7280;
+  --eql-color-muted-dark: #9CA3AF;
+  --eql-color-bg-light: #FFFFFF;
+  --eql-color-bg-dark: #111827;
+  --eql-color-surface-light: #F9FAFB;
+  --eql-color-surface-dark: #1F2937;
+  --eql-color-state-success-light: #16A34A;
+  --eql-color-state-success-dark: #22C55E;
+  --eql-color-state-warning-light: #D97706;
+  --eql-color-state-warning-dark: #F59E0B;
+  --eql-color-state-danger-light: #DC2626;
+  --eql-color-state-danger-dark: #EF4444;
+  --eql-radius-1: 6px;
+  --eql-radius-2: 12px;
+  --eql-motion-ease-standard: cubic-bezier(.2,.8,.2,1);
+  --eql-motion-dur-fast: 150ms;
+  --eql-motion-dur-med: 250ms;
+}

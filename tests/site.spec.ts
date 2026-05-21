@@ -44,6 +44,10 @@ test.describe('Equilens site surfaces', () => {
         await expect(manifestLinks).toHaveCount(1);
         await expect(checksumLinks).toHaveCount(1);
         await expect(provenanceLinks).toHaveCount(1);
+        await expect(page.getByRole('link', { name: 'Request Security Pack' })).toHaveAttribute(
+          'href',
+          '/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.',
+        );
       } else {
         await expect(releaseTagLinks).toHaveCount(0);
         await expect(manifestLinks).toHaveCount(0);
@@ -77,6 +81,14 @@ test.describe('Equilens site surfaces', () => {
       });
     });
   }
+
+  test('contact query parameters prefill security review enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.', { waitUntil: 'networkidle' });
+
+    await expect(page.locator('#interest')).toHaveValue('Security Pack');
+    await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
+  });
 
   for (const anchor of anchors) {
     test(`anchor ${anchor.url} is reachable`, async ({ page }) => {

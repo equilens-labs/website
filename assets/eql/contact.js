@@ -4,6 +4,23 @@
     const form = document.getElementById('contact-form');
     if (!form) return;
 
+    const params = new URLSearchParams(window.location.search);
+    const interestParam = params.get('interest');
+    const messageParam = params.get('message');
+    const interestField = document.getElementById('interest');
+    const messageField = document.getElementById('message');
+
+    if (interestParam && interestField) {
+      const options = Array.from(interestField.options || []);
+      if (options.some((option) => option.value === interestParam)) {
+        interestField.value = interestParam;
+      }
+    }
+
+    if (messageParam && messageField && !messageField.value) {
+      messageField.value = messageParam;
+    }
+
     form.addEventListener('submit', function onSubmit(e) {
       e.preventDefault();
 
@@ -39,4 +56,3 @@
     bind();
   }
 })();
-
