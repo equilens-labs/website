@@ -40,51 +40,52 @@
     <div class="hero-content">
       <p class="eyebrow">Getting Started</p>
       <h1 class="brand-title">Procurement &amp; Deployment</h1>
-      <p class="lead"><abbr>AWS</abbr> Marketplace listing coming soon. Contact Equilens for guided pilot access to the self-hosted <span class="product-name">FL-BSA</span> appliance in your <abbr>VPC</abbr>.</p>
+      <p class="lead"><abbr title="Amazon Web Services">AWS</abbr> Marketplace listing coming soon. Contact Equilens for guided pilot access to the self-hosted <span class="product-name">FL-BSA</span> appliance in your <abbr title="Virtual Private Cloud">VPC</abbr>.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-    <h2>Deployment steps</h2>
-    <div class="steps">
-     <div class="step">
-      <header>
-       <span class="step-number">1</span>
-       <h3 class="step-title">Request guided pilot access</h3>
-      </header>
-      <p><abbr>AWS</abbr> Marketplace listing coming soon. Contact Equilens to request guided pilot access and pre-release deployment materials.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">2</span>
-       <h3 class="step-title">Prepare your environment</h3>
-      </header>
-      <p>We will confirm the approved deployment path for your environment. Select instance type, region, <abbr>VPC</abbr>, and subnet per your change controls.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">3</span>
-       <h3 class="step-title">Boot the appliance</h3>
-      </header>
-      <p>Boot runs <code>docker-compose</code> via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">4</span>
-       <h3 class="step-title">Run a test</h3>
-      </header>
-        <p>Upload sample data or a sandbox dataset. Produce the <abbr>PDF</abbr> report, evidence manifest (<abbr>SHA-256</abbr>), and checksum log.</p>
-     </div>
-     <div class="step">
-      <header>
-       <span class="step-number">5</span>
-       <h3 class="step-title">Confirm pilot scope</h3>
-      </header>
-      <p>If evaluation fit is confirmed, we can align pilot terms or a Private Offer for enterprise rollouts.</p>
-     </div>
+      <h2>Deployment steps</h2>
+      <div class="steps">
+        <div class="step">
+          <header>
+            <span class="step-number">1</span>
+            <h3 class="step-title">Request guided pilot access</h3>
+          </header>
+          <p><abbr title="Amazon Web Services">AWS</abbr> Marketplace listing coming soon. Contact Equilens to request guided pilot access and pre-release deployment materials.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">2</span>
+            <h3 class="step-title">Prepare your environment</h3>
+          </header>
+          <p>We will confirm the approved deployment path for your environment. Select instance type, region, <abbr title="Virtual Private Cloud">VPC</abbr>, and subnet per your change controls.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">3</span>
+            <h3 class="step-title">Boot the appliance</h3>
+          </header>
+          <p>Boot runs <code>docker-compose</code> via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">4</span>
+            <h3 class="step-title">Run a test</h3>
+          </header>
+          <p>Upload sample data or a sandbox dataset. Produce the <abbr title="Portable Document Format">PDF</abbr> report, evidence manifest (<abbr title="Secure Hash Algorithm 256">SHA-256</abbr>), and checksum log.</p>
+        </div>
+        <div class="step">
+          <header>
+            <span class="step-number">5</span>
+            <h3 class="step-title">Confirm pilot scope</h3>
+          </header>
+          <p>If evaluation fit is confirmed, we can align pilot terms or a Private Offer for enterprise rollouts.</p>
+        </div>
+      </div>
     </div>
-   </section>
+  </section>
    <section class="section alt">
     <div class="container">
     <h2>Procurement package</h2>
@@ -92,9 +93,9 @@
      <div class="card">
       <h3>Evidence bundle</h3>
       <ul class="checks">
-         <li>Evidence manifest (<abbr>JSON</abbr>) and <abbr>PDF</abbr> report with embedded hashes.</li>
-       <li>Infrastructure <abbr>BOM</abbr> and network diagram (request access).</li>
-       <li>Control mapping aligned to <abbr>FCA</abbr>, <abbr>EU AI</abbr> Act, and <abbr>ECOA</abbr> checkpoints.</li>
+         <li>Evidence manifest (<abbr title="JavaScript Object Notation">JSON</abbr>) and <abbr title="Portable Document Format">PDF</abbr> report with embedded hashes.</li>
+       <li>Infrastructure <abbr title="Bill of Materials">BOM</abbr> and network diagram (request access).</li>
+       <li>Control mapping aligned to <abbr title="Financial Conduct Authority">FCA</abbr>, <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Equal Credit Opportunity Act">ECOA</abbr> checkpoints.</li>
       </ul>
       <p class="note">Current controlled-pilot product reference: <code>v5.0.0-rc8.4</code>. Public demo materials are selected synthetic/demo assets from that pinned release, including the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/customer_report.pdf" target="_blank" rel="noopener noreferrer">demo report</a>; supporting run packs and intake diagnostics are linked from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>. They are not customer output or legal advice.</p>
      </div>
@@ -115,15 +116,15 @@
       <h2>Deployment options</h2>
       <div class="grid">
         <div class="card">
-          <h3>Container (<abbr>VM</abbr>)</h3>
-          <p>docker-compose stack (<abbr>API</abbr>, Worker, Redis). <abbr>CPU</abbr>-only profile available; <abbr>GPU</abbr> preferred for faster synthetic generation.</p>
+          <h3>Container (<abbr title="Virtual Machine">VM</abbr>)</h3>
+          <p>docker-compose stack (<abbr title="Application Programming Interface">API</abbr>, Worker, Redis). <abbr title="Central Processing Unit">CPU</abbr>-only profile available; <abbr title="Graphics Processing Unit">GPU</abbr> preferred for faster synthetic generation.</p>
         </div>
         <div class="card">
-          <h3>Alternate: <abbr>AWS</abbr> <abbr>AMI</abbr></h3>
-          <p>Single-tenant <abbr>AMI</abbr> with deterministic boot. Delivers <abbr>API</abbr>, worker, and reporting services; integrates with customer <abbr>IAM</abbr>.</p>
+          <h3>Alternate: <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr></h3>
+          <p>Single-tenant <abbr title="Amazon Machine Image">AMI</abbr> with deterministic boot. Delivers <abbr title="Application Programming Interface">API</abbr>, worker, and reporting services; integrates with customer <abbr title="Identity and Access Management">IAM</abbr>.</p>
         </div>
       </div>
-      <p class="note">Coordinate <abbr>CSP</abbr>, <abbr>HSTS</abbr>, and <abbr>CAA</abbr> updates through your network and <abbr>DNS</abbr> teams. We provide implementation runbooks on request.</p>
+      <p class="note">Coordinate <abbr title="Content Security Policy">CSP</abbr>, <abbr title="HTTP Strict Transport Security">HSTS</abbr>, and <abbr title="Certification Authority Authorization">CAA</abbr> updates through your network and <abbr title="Domain Name System">DNS</abbr> teams. We provide implementation runbooks on request.</p>
     </div>
    </section>
 

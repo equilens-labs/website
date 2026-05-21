@@ -31,6 +31,7 @@ test.describe('Equilens site surfaces', () => {
       await page.goto(pageEntry.path, { waitUntil: 'networkidle' });
 
       await expect(page.locator('nav.site-nav')).toHaveCount(1);
+      await expect(page.locator('nav.site-nav a.nav-link[href="/procurement/"]')).toHaveText('Procurement');
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator('script[src="https://plausible.io/js/script.js"][data-domain="equilens.io"]')).toHaveCount(1);
       await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
