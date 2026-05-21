@@ -35,6 +35,7 @@ if rg -q 'id="responsible-use"' legal/index.html; then echo OK > "$BASE/responsi
 [ -f trust-center/index.html ] && echo OK > "$BASE/trust_center_present.txt" || echo MISSING > "$BASE/trust_center_present.txt"
 
 rg -n "Governing law" legal/tos.html > "$BASE/tos_has_governing_law.txt" || true
+rg -n "Effective date" legal/tos.html > "$BASE/tos_has_effective_date.txt" || true
 rg -n "retained" legal/privacy.html > "$BASE/privacy_has_retention.txt" || true
 
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
@@ -53,6 +54,7 @@ fi
 
 if [[ -f "$BASE/security.txt.copy" ]]; then
   rg -n "^Contact: " "$BASE/security.txt.copy" >"$BASE/security_contact.txt"
+  rg -n "^Canonical: " "$BASE/security.txt.copy" >"$BASE/security_canonical.txt"
   rg -n "^Expires: " "$BASE/security.txt.copy" >"$BASE/security_expires.txt"
 fi
 

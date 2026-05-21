@@ -1,0 +1,1 @@
+61:          <p>We process this limited data to respond to inquiries, operate a reliable and secure website, and understand aggregate site usage. The legal basis is our <em>legitimate interests</em> (<abbr title="United Kingdom">UK</abbr> <abbr title="General Data Protection Regulation">GDPR</abbr> Art. 6(1)(f)).</p>

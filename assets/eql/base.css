@@ -51,7 +51,7 @@
   --text-primary: #0f172a;       /* Slate-900 */
   --text-secondary: #334155;     /* Slate-700 */
   --text-muted: #64748b;         /* Slate-500 */
-  --text-subtle: #94a3b8;        /* Slate-400 */
+  --text-subtle: #64748b;        /* Slate-500 - AA for text and readable placeholders */
 
   /* Border Colors */
   --border-default: var(--color-gray-200);
@@ -516,8 +516,6 @@ abbr {
   position: relative;
   padding: 0 var(--space-2);
   white-space: nowrap;
-  will-change: color;
-  transform: translateZ(0);
 }
 
 .nav-link::after {
@@ -1888,6 +1886,83 @@ a[download]::after {
 
   .site-footer {
     padding: var(--space-8) 0 var(--space-4);
+  }
+}
+
+@media print {
+  :root {
+    --bg-main: #ffffff;
+    --bg-subtle: #ffffff;
+    --bg-alt: #ffffff;
+    --bg-muted: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #111827;
+    --text-muted: #374151;
+    --text-subtle: #374151;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  #nav-placeholder,
+  .skip-to-content,
+  .toc,
+  .product-subnav,
+  .cta-row {
+    display: none !important;
+  }
+
+  .page-with-toc,
+  .grid,
+  .steps,
+  .stack,
+  .site-footer .grid {
+    display: block !important;
+  }
+
+  .hero,
+  .section,
+  .section.alt,
+  .site-footer {
+    background: #ffffff !important;
+    padding: 18pt 0 !important;
+  }
+
+  .container,
+  .section-block,
+  .page-content {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .card,
+  .step,
+  .timeline-content,
+  .section-block {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border-color: #d1d5db !important;
+  }
+
+  .grid > *,
+  .steps > *,
+  .stack > * {
+    margin-bottom: 12pt !important;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    overflow-wrap: anywhere;
   }
 }
 

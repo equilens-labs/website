@@ -1,0 +1,3 @@
+85:          <h2>Cookies &amp; similar technologies</h2>
+86:          <p>We use Plausible Analytics for aggregate, cookieless website measurement. We do not use advertising or social media cookies. See our <a href="/legal/cookie-policy.html">Cookie Policy</a> for details.</p>
+103:      <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
