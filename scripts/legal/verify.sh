@@ -5,6 +5,12 @@ TAG="${1:-LEGAL-PUB-v1}"
 BASE="output/ops/LEGAL-PUB-${TAG}"
 mkdir -p "$BASE"
 
+if ! command -v rg >/dev/null 2>&1; then
+  rg() {
+    grep -R --line-number --extended-regexp "$@"
+  }
+fi
+
 find legal -maxdepth 1 -type f -name "*.html" -print | sort >"$BASE/legal_pages.txt"
 if [[ -f .well-known/security.txt ]]; then
   cp .well-known/security.txt "$BASE/security.txt.copy"
@@ -18,7 +24,7 @@ rg -n "Registered office" legal/index.html >"$BASE/imprint_has_office.txt"
 rg -n "England" legal/index.html >"$BASE/imprint_has_jurisdiction.txt"
 
 rg -n "Controller" legal/index.html >"$BASE/privacy_has_controller.txt"
-rg -n "Data protection contact" legal/index.html >"$BASE/privacy_has_data_protection_contact.txt"
+rg -n "Data protection contact.*privacy@equilens\.io" legal/index.html >"$BASE/privacy_has_data_protection_contact.txt"
 rg -n "Product privacy scope" legal/index.html >"$BASE/privacy_has_product_scope.txt"
 rg -n "legitimate interests" legal/index.html >"$BASE/privacy_has_legal_basis.txt"
 rg -n "ico.org.uk" legal/index.html >"$BASE/privacy_has_ico.txt"
