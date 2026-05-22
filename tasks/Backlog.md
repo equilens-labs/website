@@ -1,15 +1,15 @@
 # Backlog (equilens.io website)
 
-**Last updated:** 2026-02-14  
+**Last updated:** 2026-05-22
 **Purpose:** Single list of pending website work for `equilens.io` (content, deployment, audits). Keep this file short; link out to `tasks/Legal*.md` and source files for details.
 
 **Priority legend:** P0 = blocking / fix before launch, P1 = soon / high leverage, P2 = later / opportunistic.
 
 ## Current Production Snapshot (Facts)
 
-- Live site footer shows last deploy **2026-02-14** (commit `b3af8e9`).
-- GitHub Pages is configured in **branch mode** (serving from `gh-pages`).
-- `audit.yml` succeeded on the same SHA as the latest deploy.
+- Live site footer is rewritten during GitHub Pages deployment and should show the deployed commit.
+- GitHub Pages deployment, site audits, and CodeQL were green after the latest privacy-inbox merge.
+- Public privacy copy uses `privacy@equilens.io` for data-protection, rights, and DPA requests.
 
 ## P0 (Launch Blockers)
 
@@ -47,11 +47,12 @@
     - JSON-LD blocks are valid JSON (parseable) and pass basic linting.
   - Refs: `fl-bsa/index.html`.
 
-- [ ] **Legal: EU GDPR representative is still a placeholder**
-  - Problem: Privacy Notice says "EU GDPR Representative: To be appointed."
+- [x] **Legal: remove public EU GDPR representative placeholder**
+  - Problem: Privacy Notice previously published placeholder EU representative text.
   - DoD:
-    - Replace placeholder with actual representative details OR (if not applicable) adjust the claim and ensure legal counsel is aligned.
-  - Refs: `legal/index.html`, `tasks/Legal3.md`, `tasks/Legal4.md`.
+    - No public placeholder representative details or "to be appointed" wording.
+    - Add representative details only after appointment or counsel-approved position.
+  - Refs: `legal/index.html`, `trust-center/index.html`, website issue `#40`.
 
 - [x] **Contact page functionality vs CSP**
   - Problem: pages set CSP `script-src 'self'`, but `/contact/` relies on an inline `<script>` (likely blocked in modern browsers).

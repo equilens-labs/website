@@ -31,7 +31,7 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "30-page PDF report|Mode
   exit 1
 fi
 
-if grep -r --include="*.html" --include="*.md" -n -i -E "regulatory digital twin|audit-ready|regulator-ready|court-admissible|FCA[- ]approved|regulator[- ]approved|production decisioning|compliance certified|ECOA-compliant|production-grade appliance|full commercial use rights" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
+if grep -r --include="*.html" --include="*.md" -n -i -E "regulatory digital twin|audit-ready|regulator-ready|court-admissible|FCA[- ]approved|regulator[- ]approved|production decisioning|compliance certified|ECOA-compliant|production-grade appliance|full commercial use rights|Annual Licence[[:space:]]*·[[:space:]]*Production|Regulatory Assurance|Controls[[:space:]]*&[[:space:]]*Attestations|Alternate:[[:space:]]*.*AWS.*AMI|v5\.0\.0-rc4|EU GDPR Representative|equilens@equilens\.io" . --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=tasks --exclude-dir=output; then
   echo "ERROR: Found stale or over-strong FL-BSA GTM/regulatory wording"
   exit 1
 fi
