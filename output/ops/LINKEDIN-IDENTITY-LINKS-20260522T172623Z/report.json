@@ -1,0 +1,3871 @@
+{
+  "config": {
+    "configFile": "/home/daimakaimura/fl-bsa-root/repos/website/playwright.config.ts",
+    "rootDir": "/home/daimakaimura/fl-bsa-root/repos/website/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 24
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 24
+        },
+        "id": "chromium-desktop",
+        "name": "chromium-desktop",
+        "testDir": "/home/daimakaimura/fl-bsa-root/repos/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 24
+        },
+        "id": "chromium-mobile",
+        "name": "chromium-mobile",
+        "testDir": "/home/daimakaimura/fl-bsa-root/repos/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 24
+        },
+        "id": "chromium-tablet-768",
+        "name": "chromium-tablet-768",
+        "testDir": "/home/daimakaimura/fl-bsa-root/repos/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 24
+        },
+        "id": "chromium-tablet-1024",
+        "name": "chromium-tablet-1024",
+        "testDir": "/home/daimakaimura/fl-bsa-root/repos/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 24,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "site.spec.ts",
+      "file": "site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Equilens site surfaces",
+          "file": "site.spec.ts",
+          "line": 39,
+          "column": 6,
+          "specs": [
+            {
+              "title": "legal/privacy.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 55,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:32.616Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1a2c93fcb6de4457d65a",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "legal/tos.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 232,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.714Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-aab979e9399503e0fadb",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 26549,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.810Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-desktop/home-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1f2d4f37f7472c741667",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 20419,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:36.034Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-desktop/fl-bsa-overview-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-79e0757a96dfa063e371",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 32363,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.686Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-desktop/fl-bsa-pricing-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-727fb327fb64a1c9f124",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 30360,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:32.805Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-desktop/fl-bsa-compliance-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-725ea2d7c5622d2ba487",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 26985,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.849Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-desktop/fl-bsa-faq-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0ca4aaea760538b9f466",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 26740,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.248Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-desktop/fl-bsa-whitepaper-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-e546544dc8085d807aeb",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 29083,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.227Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-desktop/pricing-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6de3308c9cbc918b8e33",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 25159,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.545Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-desktop/procurement-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-47777fb0a37536f71cbb",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 10,
+                      "status": "passed",
+                      "duration": 15120,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.455Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-desktop/press-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-8d136851095adaba9beb",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 11,
+                      "status": "passed",
+                      "duration": 20533,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:35.541Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-desktop/contact-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3bbc413c26ee8748715e",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 12,
+                      "status": "passed",
+                      "duration": 20461,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:32.757Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-desktop/trust-center-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ade649d881c6bd88a2a1",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 35139,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.448Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-desktop/legal-index-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c50b160e6ab7a05d9624",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 14,
+                      "status": "passed",
+                      "duration": 25107,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.110Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-desktop/legal-privacy-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b21b422a1b45b46f5b06",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 15,
+                      "status": "passed",
+                      "duration": 24672,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.725Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-desktop.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-desktop/legal-tos-chromium-desktop.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b20cdfabd3a206dfdae4",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "contact query parameters prefill security review enquiry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 16,
+                      "status": "passed",
+                      "duration": 8271,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:35.692Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0dcd6935a91f59c07a5c",
+              "file": "site.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 17,
+                      "status": "passed",
+                      "duration": 17707,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:34.881Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d42a3b0fa626429766ac",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 18,
+                      "status": "passed",
+                      "duration": 19144,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.307Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d76ed8acd1bfb71cad36",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 19,
+                      "status": "passed",
+                      "duration": 15264,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.607Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6f316f5bba07f00e8f40",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 20,
+                      "status": "passed",
+                      "duration": 8164,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:36.232Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-10a7e04ec98857f20eda",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 21,
+                      "status": "passed",
+                      "duration": 7659,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:36.269Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b4f5f9ac45647b394221",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 22,
+                      "status": "passed",
+                      "duration": 13081,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4aa1d9b0954c3fa94ae8",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 23,
+                      "status": "passed",
+                      "duration": 14632,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:32.862Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-034e7af1046cad8168ea",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /trust-center/#data-protection is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20143,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:33.001Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f45607a853a9e9e44383",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "legal/privacy.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 24,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:38.799Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-e4a943f13c0ca73cb324",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "legal/tos.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:38.868Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-09c0e4e6db84d1181be4",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 29853,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:38.903Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-mobile/home-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3541fdacebc24d64580f",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 21,
+                      "status": "passed",
+                      "duration": 39432,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:54.559Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-mobile/fl-bsa-overview-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4813f1090d1021395cdd",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 16,
+                      "status": "passed",
+                      "duration": 40014,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:54.374Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-mobile/fl-bsa-pricing-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5b004b5c48b52822fa81",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 20,
+                      "status": "passed",
+                      "duration": 45611,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:55.237Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-mobile/fl-bsa-compliance-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-77a7153486b38294e2d4",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 22,
+                      "status": "passed",
+                      "duration": 39722,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:57.129Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-mobile/fl-bsa-faq-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-06b5a9f93a58a08ae397",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 23,
+                      "status": "passed",
+                      "duration": 46207,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:58.226Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-mobile/fl-bsa-whitepaper-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3d84c9e47a45baf32ef9",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 10,
+                      "status": "passed",
+                      "duration": 51489,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:59.219Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-mobile/pricing-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-e8ca53c082a305cb34be",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 19,
+                      "status": "passed",
+                      "duration": 31185,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:26:59.864Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-mobile/procurement-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-25f219d761aae198029a",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 18,
+                      "status": "passed",
+                      "duration": 23216,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:03.408Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-mobile/press-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1a7c83ea3cc01fede12c",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24990,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:03.771Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-mobile/contact-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-69b0a21ca014f3a84a8e",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 35,
+                      "parallelIndex": 17,
+                      "status": "passed",
+                      "duration": 46131,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:04.187Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-mobile/trust-center-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5313dc2587086c74a01d",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 12,
+                      "status": "passed",
+                      "duration": 49176,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:04.324Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-mobile/legal-index-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-30e7189ec5b8b959ca23",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 36,
+                      "parallelIndex": 11,
+                      "status": "passed",
+                      "duration": 48812,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:07.422Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-mobile/legal-privacy-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-eb4b4cf8cac8a71fdb6f",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 37,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 49181,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:07.012Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-mobile.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-mobile/legal-tos-chromium-mobile.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-8324e34440cd3f75a499",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "contact query parameters prefill security review enquiry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 38,
+                      "parallelIndex": 14,
+                      "status": "passed",
+                      "duration": 15222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:09.568Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-894cc4425a9a6907caf9",
+              "file": "site.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 39,
+                      "parallelIndex": 15,
+                      "status": "passed",
+                      "duration": 18815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:09.544Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-cacb38870f67259001ed",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 40,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 18721,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:09.305Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-3ca2aaf8c1e83fd2775e",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 41,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 16124,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:11.577Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6f74c0eaa3d9d7874719",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 42,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 17090,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:11.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0947eacf542c35248f89",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 43,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 15964,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:11.449Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9490cdc6f8e031958c7e",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 44,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 18840,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:11.788Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9f4917693edd01397c63",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 45,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 15353,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:12.609Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-db5e5e7ffda4b23cc12e",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /trust-center/#data-protection is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-mobile",
+                  "projectName": "chromium-mobile",
+                  "results": [
+                    {
+                      "workerIndex": 46,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 20196,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:13.766Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d75a86eef57df68f8e8c",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "legal/privacy.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:14.380Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-57f27ec54d3cd587749a",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "legal/tos.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 48,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 28,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:14.709Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c135b3bec20f439530f2",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 26649,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:14.445Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-tablet-768/home-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9afd86c1a7f1042a82a8",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 48,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 31390,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:14.778Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-tablet-768/fl-bsa-overview-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b44a6a287c658ea2d85c",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 49,
+                      "parallelIndex": 14,
+                      "status": "passed",
+                      "duration": 19579,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:33.454Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-tablet-768/fl-bsa-pricing-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f8cc282c54e11d888410",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 50,
+                      "parallelIndex": 18,
+                      "status": "passed",
+                      "duration": 31235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:36.873Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-tablet-768/fl-bsa-compliance-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ecb018522217b84d8276",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 51,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 33888,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:37.369Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-tablet-768/fl-bsa-faq-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-270d43c2ec728c07eba7",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 52,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 36075,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:37.586Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-tablet-768/fl-bsa-whitepaper-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f722aaf25c958d2e6a19",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 53,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 33288,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:37.606Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-tablet-768/pricing-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-0377bfd870787a48db3c",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 54,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 29985,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:37.703Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-tablet-768/procurement-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f32acb7057698747b823",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 55,
+                      "parallelIndex": 15,
+                      "status": "passed",
+                      "duration": 30445,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:38.323Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-tablet-768/press-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-da4470e11d51b31fa98e",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 56,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 26341,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:39.080Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-tablet-768/contact-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-30c899d0fd6edd236945",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 57,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 27424,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:39.080Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-tablet-768/trust-center-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-2ad9982d1dbda1a7df5e",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 58,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 30686,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:41.417Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-tablet-768/legal-index-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-74a7a457b48d4bdaab18",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 59,
+                      "parallelIndex": 19,
+                      "status": "passed",
+                      "duration": 39677,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:41.855Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-tablet-768/legal-privacy-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-54f46b7864f324cac66b",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 60,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 26373,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:43.829Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-tablet-768.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-tablet-768/legal-tos-chromium-tablet-768.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-87d5c536ba3326c306d5",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "contact query parameters prefill security review enquiry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 61,
+                      "parallelIndex": 21,
+                      "status": "passed",
+                      "duration": 21194,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:44.420Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-877865e38fc61db307bf",
+              "file": "site.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 62,
+                      "parallelIndex": 16,
+                      "status": "passed",
+                      "duration": 24006,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:45.440Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4187cf90f7b3ad6e1119",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 63,
+                      "parallelIndex": 22,
+                      "status": "passed",
+                      "duration": 26048,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:47.751Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-bd3dcda0916425d286a0",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4859,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:41.372Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-2397517fa6dd010016c6",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 64,
+                      "parallelIndex": 20,
+                      "status": "passed",
+                      "duration": 26387,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:49.925Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1635e260fbfc7ebbe461",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 65,
+                      "parallelIndex": 23,
+                      "status": "passed",
+                      "duration": 21553,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:52.693Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c14b54ca4c977fa94945",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 48,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 4329,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:46.421Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-b86745f00d9956c26210",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4285,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:46.485Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-1d76004fc236cfb15c31",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /trust-center/#data-protection is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-768",
+                  "projectName": "chromium-tablet-768",
+                  "results": [
+                    {
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3350,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:50.859Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5c1d5c2ef38b89e0fce9",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "legal/privacy.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 66,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 99,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:55.463Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-54f045ec61c3e539c118",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "legal/tos.html preserves policy metadata while redirecting",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 67,
+                      "parallelIndex": 17,
+                      "status": "passed",
+                      "duration": 88,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:56.913Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-2dab7354a930e286e2af",
+              "file": "site.spec.ts",
+              "line": 41,
+              "column": 9
+            },
+            {
+              "title": "/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 68,
+                      "parallelIndex": 10,
+                      "status": "passed",
+                      "duration": 32969,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:56.992Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "home-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-renders-nav-and-footer-chromium-tablet-1024/home-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-97b9b17ddc4febaeebbc",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 70,
+                      "parallelIndex": 14,
+                      "status": "passed",
+                      "duration": 34110,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:58.254Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-overview-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-fl-bsa-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-overview-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ed57abc53079ac314acb",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 69,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 36629,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:58.199Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-pricing-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-08f4a-cing-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-pricing-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-ff98ca62dc5b54fa3222",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/legal/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 71,
+                      "parallelIndex": 12,
+                      "status": "passed",
+                      "duration": 35507,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:59.010Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-compliance-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a9251-egal-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-compliance-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-cdd1df02eaad4ae36c33",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/faq/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 66,
+                      "parallelIndex": 13,
+                      "status": "passed",
+                      "duration": 33710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:55.815Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-faq-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-71d01--faq-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-faq-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-af7de9e898bd23ff0a48",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/fl-bsa/whitepaper/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 67,
+                      "parallelIndex": 17,
+                      "status": "passed",
+                      "duration": 36473,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:27:57.080Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fl-bsa-whitepaper-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-0e171-aper-renders-nav-and-footer-chromium-tablet-1024/fl-bsa-whitepaper-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c5f0c5f9b3f2a0909820",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/pricing/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 72,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 34414,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:00.186Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "pricing-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-pricing-renders-nav-and-footer-chromium-tablet-1024/pricing-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-4ecc2623abd145063577",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/procurement/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 73,
+                      "parallelIndex": 11,
+                      "status": "passed",
+                      "duration": 35443,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:00.245Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "procurement-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-12512-ment-renders-nav-and-footer-chromium-tablet-1024/procurement-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-26254d94be7ba3704e60",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/press/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 74,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 23260,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:13.968Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "press-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-press-renders-nav-and-footer-chromium-tablet-1024/press-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-c12ab8caa9b0c5b86e4d",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/contact/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 75,
+                      "parallelIndex": 21,
+                      "status": "passed",
+                      "duration": 26864,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:14.252Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "contact-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surfaces-contact-renders-nav-and-footer-chromium-tablet-1024/contact-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-5db5fcaf67003b0ce1c0",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/trust-center/ renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 76,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 27155,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:15.501Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trust-center-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-ea16d-nter-renders-nav-and-footer-chromium-tablet-1024/trust-center-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-d193494770158b241a3f",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/index.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 77,
+                      "parallelIndex": 18,
+                      "status": "passed",
+                      "duration": 26099,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:17.290Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-index-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a4f41-html-renders-nav-and-footer-chromium-tablet-1024/legal-index-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-af48088f663005442e1e",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/privacy.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 78,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 25744,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:17.685Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-privacy-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-300b3-html-renders-nav-and-footer-chromium-tablet-1024/legal-privacy-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6d1d9b600816674799c8",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "/legal/tos.html renders nav and footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 79,
+                      "parallelIndex": 16,
+                      "status": "passed",
+                      "duration": 24409,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:19.355Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "legal-tos-chromium-tablet-1024.png",
+                          "contentType": "image/png",
+                          "path": "/home/daimakaimura/fl-bsa-root/repos/website/output/ops/LINKEDIN-IDENTITY-LINKS-20260522T172623Z/artifacts/site-Equilens-site-surface-a5a0b-html-renders-nav-and-footer-chromium-tablet-1024/legal-tos-chromium-tablet-1024.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-6088ff9f3e4f9493e772",
+              "file": "site.spec.ts",
+              "line": 52,
+              "column": 9
+            },
+            {
+              "title": "contact query parameters prefill security review enquiry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 81,
+                      "parallelIndex": 15,
+                      "status": "passed",
+                      "duration": 19553,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:19.946Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-66f340df7d35088d63c2",
+              "file": "site.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "anchor /fl-bsa/#how-it-works is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 80,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 21361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:18.722Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-fb9dd3cb0d11dd8d68cf",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#deployment is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 82,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 21370,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:21.006Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-39eaacbb6549c3358dcf",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#pricing is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 83,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 19617,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:21.266Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-9c3b8e49c121b098ec3e",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#compliance is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 84,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 20611,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:21.539Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-7aa25bb96a8c094c20e2",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#whitepaper is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 85,
+                      "parallelIndex": 22,
+                      "status": "passed",
+                      "duration": 17283,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:23.423Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-401d18dd4ce0da3bf9f0",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#docs is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 87,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 18153,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:24.620Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-900977ddabd243147232",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /fl-bsa/#faq is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 86,
+                      "parallelIndex": 23,
+                      "status": "passed",
+                      "duration": 19090,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:23.129Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-527b781a92ff1761f628",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            },
+            {
+              "title": "anchor /trust-center/#data-protection is reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-tablet-1024",
+                  "projectName": "chromium-tablet-1024",
+                  "results": [
+                    {
+                      "workerIndex": 88,
+                      "parallelIndex": 20,
+                      "status": "passed",
+                      "duration": 16165,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-22T17:28:26.043Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-fa0c6e710c99e9cc6e2a",
+              "file": "site.spec.ts",
+              "line": 126,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-22T17:26:25.632Z",
+    "duration": 139120.67500000002,
+    "expected": 100,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

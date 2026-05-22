@@ -6,7 +6,8 @@
     {"title": "Company", "links": [
       {"label": "Press", "href": "/press/"},
       {"label": "Procurement", "href": "/procurement/"},
-      {"label": "Trust Center", "href": "/trust-center/"}]},
+      {"label": "Trust Center", "href": "/trust-center/"},
+      {"label": "LinkedIn", "href": "https://www.linkedin.com/company/equilens-labs/", "external": true}]},
     {"title": "Legal", "links": [
       {"label": "Privacy", "href": "/legal/#privacy"},
       {"label": "Cookie Policy", "href": "/legal/#cookie-policy"},
