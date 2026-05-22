@@ -35,12 +35,6 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 
-  /* Semantic Colors */
-  --color-success: #10b981;        /* Green-500 */
-  --color-warning: #f59e0b;        /* Amber-500 */
-  --color-error: #ef4444;          /* Red-500 */
-  --color-info: #3b82f6;           /* Blue-500 */
-
   /* Surface Colors */
   --bg-main: var(--color-white);
   --bg-subtle: #f8fafc;            /* Slate-50 */
@@ -51,7 +45,7 @@
   --text-primary: #0f172a;       /* Slate-900 */
   --text-secondary: #334155;     /* Slate-700 */
   --text-muted: #64748b;         /* Slate-500 */
-  --text-subtle: #64748b;        /* Slate-500 - AA for text and readable placeholders */
+  --text-subtle: var(--text-muted);
 
   /* Border Colors */
   --border-default: var(--color-gray-200);
@@ -80,17 +74,18 @@
   --space-20: 5rem;      /* 80px */
   --space-24: 6rem;      /* 96px */
 
-  /* --- Typography Scale --- */
+  /* --- Typography Scale ---
+     Mobile-first values step up at layout breakpoints below. */
   --text-xs: 0.75rem;     /* 12px */
   --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;      /* 16px */
   --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
-  --text-4xl: 2.25rem;    /* 36px */
-  --text-5xl: 3rem;       /* 48px */
-  --text-6xl: 3.75rem;    /* 60px */
+  --text-xl: 1.125rem;    /* 18px */
+  --text-2xl: 1.125rem;   /* 18px */
+  --text-3xl: 1.3rem;     /* 21px */
+  --text-4xl: 1.5rem;     /* 24px */
+  --text-5xl: 1.875rem;   /* 30px */
+  --text-6xl: 2rem;       /* 32px */
 
   /* Font Weights */
   --font-light: 300;
@@ -109,8 +104,8 @@
   --leading-loose: 2;
 
   /* Letter Spacing */
-  --tracking-tighter: -0.04em;
-  --tracking-tight: -0.02em;
+  --tracking-tighter: 0em;
+  --tracking-tight: 0em;
   --tracking-normal: 0em;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
@@ -168,6 +163,28 @@
   --transition-base: 200ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 300ms ease;
   --transition-slower: 500ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-xl: 1.2rem;     /* 19px */
+    --text-2xl: 1.35rem;   /* 22px */
+    --text-3xl: 1.625rem;  /* 26px */
+    --text-4xl: 2rem;      /* 32px */
+    --text-5xl: 2.25rem;   /* 36px */
+    --text-6xl: 3rem;      /* 48px */
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 1.875rem;  /* 30px */
+    --text-4xl: 2.25rem;   /* 36px */
+    --text-5xl: 2.75rem;   /* 44px */
+    --text-6xl: 3.75rem;   /* 60px */
+  }
 }
 
 /* Superscript for footnotes */
@@ -318,24 +335,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-size: var(--text-6xl);
   font-weight: var(--font-extrabold); /* Heavier for impact */
   letter-spacing: var(--tracking-tighter);
 }
 
 h2 {
-  font-size: clamp(1.875rem, 3.75vw, 2.75rem);
+  font-size: var(--text-5xl);
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-6);
   letter-spacing: var(--tracking-tight);
 }
 
 h3 {
-  font-size: clamp(1.3rem, 2.6vw, 1.95rem);
+  font-size: var(--text-3xl);
 }
 
 h4 {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-size: var(--text-2xl);
 }
 
 h5 {
@@ -354,7 +371,7 @@ p {
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-size: var(--text-base);
   font-weight: var(--font-bold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -367,7 +384,7 @@ p {
 .brand-title {
   font-weight: var(--font-semibold); /* Matching h1 */
   letter-spacing: var(--tracking-tight);
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: var(--text-6xl);
   margin: 0; /* Removed bottom margin as eyebrow handles it */
   color: var(--text-primary);
   text-align: center;
@@ -388,7 +405,7 @@ p {
   max-width: 64ch;
   margin: 0 auto var(--space-6);
   color: var(--text-secondary);
-  font-size: clamp(1.125rem, 1.8vw, 1.35rem); /* Slightly larger */
+  font-size: var(--text-xl);
   font-weight: var(--font-normal); /* Cleaner look */
   line-height: var(--leading-relaxed);
 }
@@ -410,7 +427,7 @@ ul, ol {
 .product-name {
   color: var(--color-primary);
   font-weight: var(--font-bold);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-normal);
   white-space: nowrap;
 }
 
@@ -892,12 +909,12 @@ abbr {
 }
 
 .product-page--flbsa .section-block > h2 {
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-normal);
 }
 
 .product-page--flbsa .section-block .lead {
   color: var(--text-primary);
-  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-size: var(--text-lg);
   max-width: 48ch;
 }
 
@@ -905,7 +922,7 @@ abbr {
 .product-page--flbsa .timeline-content h3,
 .product-page--flbsa .faq-item summary {
   font-weight: var(--font-semibold);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-normal);
 }
 
 .product-page--flbsa .faq-item summary {
@@ -996,12 +1013,12 @@ abbr {
 
 .policy .section-block .container > h2 {
   text-align: left;
-  font-size: clamp(1.45rem, 1.9vw, 1.75rem);
+  font-size: var(--text-2xl);
   margin-bottom: var(--space-4);
   margin-top: var(--space-12);
   padding-top: var(--space-7);
   border-top: 1px solid var(--border-light);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-normal);
 }
 
 .policy .section-block .container > h2:first-of-type {
@@ -1047,7 +1064,7 @@ abbr {
 .policy .section-block > h3 {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-normal);
 }
 
 .section-block > .container > h3:first-of-type,
@@ -1898,7 +1915,7 @@ a[download]::after {
     --text-primary: #000000;
     --text-secondary: #111827;
     --text-muted: #374151;
-    --text-subtle: #374151;
+    --text-subtle: var(--text-muted);
   }
 
   body {

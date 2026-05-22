@@ -17,15 +17,15 @@ rg -n "Company number" legal/index.html >"$BASE/imprint_has_number.txt"
 rg -n "Registered office" legal/index.html >"$BASE/imprint_has_office.txt"
 rg -n "England" legal/index.html >"$BASE/imprint_has_jurisdiction.txt"
 
-rg -n "Controller" legal/privacy.html >"$BASE/privacy_has_controller.txt"
-rg -n "legitimate interests" legal/privacy.html >"$BASE/privacy_has_legal_basis.txt"
-rg -n "ico.org.uk" legal/privacy.html >"$BASE/privacy_has_ico.txt"
-rg -n "Cookie" legal/privacy.html >"$BASE/privacy_links_cookie.txt"
-rg -n "Plausible Analytics" legal/privacy.html >"$BASE/privacy_discloses_plausible.txt"
+rg -n "Controller" legal/index.html >"$BASE/privacy_has_controller.txt"
+rg -n "legitimate interests" legal/index.html >"$BASE/privacy_has_legal_basis.txt"
+rg -n "ico.org.uk" legal/index.html >"$BASE/privacy_has_ico.txt"
+rg -n "Cookie" legal/index.html >"$BASE/privacy_links_cookie.txt"
+rg -n "Plausible Analytics" legal/index.html >"$BASE/privacy_discloses_plausible.txt"
 
 rg -n "Plausible Analytics" legal/index.html >"$BASE/cookie_discloses_plausible.txt"
 rg -n "does <strong>not</strong> set cookies|advertising or social media cookies" legal/index.html >"$BASE/cookie_analytics_posture.txt"
-rg -n "script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io" legal/index.html legal/privacy.html >"$BASE/plausible_csp_present.txt"
+rg -n "script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io" legal/index.html legal/privacy.html legal/tos.html >"$BASE/plausible_csp_present.txt"
 
 [ -f legal/index.html ] && echo OK > "$BASE/legal_hub_present.txt" || echo MISSING > "$BASE/legal_hub_present.txt"
 if rg -q 'id="open-source"' legal/index.html; then echo OK > "$BASE/open_source_present.txt"; else echo MISSING > "$BASE/open_source_present.txt"; fi
@@ -34,9 +34,9 @@ if rg -q 'id="dpa-position"' legal/index.html; then echo OK > "$BASE/dpa_positio
 if rg -q 'id="responsible-use"' legal/index.html; then echo OK > "$BASE/responsible_use_present.txt"; else echo MISSING > "$BASE/responsible_use_present.txt"; fi
 [ -f trust-center/index.html ] && echo OK > "$BASE/trust_center_present.txt" || echo MISSING > "$BASE/trust_center_present.txt"
 
-rg -n "Governing law" legal/tos.html > "$BASE/tos_has_governing_law.txt" || true
-rg -n "Effective date" legal/tos.html > "$BASE/tos_has_effective_date.txt" || true
-rg -n "retained" legal/privacy.html > "$BASE/privacy_has_retention.txt" || true
+awk '/<section class="section alt" id="terms-of-service">/ { capture=1 } capture && /Governing law/ { print FILENAME ":" FNR ":" $0 } capture && /<\/section>/ { capture=0 }' legal/index.html > "$BASE/tos_has_governing_law.txt" || true
+awk '/<section class="section alt" id="terms-of-service">/ { capture=1 } capture && /Effective date/ { print FILENAME ":" FNR ":" $0 } capture && /<\/section>/ { capture=0 }' legal/index.html > "$BASE/tos_has_effective_date.txt" || true
+rg -n "retained" legal/index.html > "$BASE/privacy_has_retention.txt" || true
 
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
 if rg -n "<script[^>]+src=\"https?://" legal >"$BASE/external_scripts.txt"; then
