@@ -3,8 +3,9 @@ Validation:
 - scripts/legal/verify.sh GTM-REVIEW-CLEANUP-20260522: passed
 - HTML parser smoke check: passed
 - git diff --check: passed
-- npm test / Playwright audit: 100 passed
+- npm test / Playwright audit: 100 passed after regulator-aligned wording patch
 
 Notes:
 - live_prechange_scan.txt captured the remaining public Trust Center EU/EEA representative card before this branch is deployed.
 - postchange_forbidden_phrase_scan.txt only matches guard-script patterns, not public HTML copy.
+- broad "regulator-aligned evidence packs" wording was removed from hero/meta copy and blocked by content_lint.
