@@ -25,6 +25,13 @@ def make_href(href: str, d: str) -> str:
         return href
     return d + href
 
+def render_link(link: dict, d: str) -> str:
+    attrs = [f'href="{make_href(link["href"], d)}"']
+    if link.get('external'):
+        attrs.append('target="_blank"')
+        attrs.append('rel="noopener noreferrer"')
+    return f'      <li><a {" ".join(attrs)}>{link["label"]}</a></li>'
+
 def git_info():
     def run(cmd):
         try:
@@ -48,7 +55,7 @@ def render(d: str) -> str:
     column_html = []
     for col in footer['columns']:
         links = '\n'.join(
-            [f'      <li><a href="{make_href(link["href"], d)}">{link["label"]}</a></li>' for link in col['links']]
+            [render_link(link, d) for link in col['links']]
         )
         column_html.append(f'    <section><h3>{col["title"]}</h3><ul>\n{links}\n    </ul></section>')
     html = html.replace('<!--FOOTER_COLUMNS-->', '\n'.join(column_html))

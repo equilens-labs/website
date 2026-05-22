@@ -58,6 +58,10 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator('script[src="https://plausible.io/js/script.js"][data-domain="equilens.io"]')).toHaveCount(1);
       await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
+      const linkedInLink = page.locator('footer.site-footer a[href="https://www.linkedin.com/company/equilens-labs/"]');
+      await expect(linkedInLink).toHaveCount(1);
+      await expect(linkedInLink).toHaveAttribute('target', '_blank');
+      await expect(linkedInLink).toHaveAttribute('rel', 'noopener noreferrer');
       const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
       const manifestLinks = page.locator('a[href$="/manifest.json"]');
       const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');

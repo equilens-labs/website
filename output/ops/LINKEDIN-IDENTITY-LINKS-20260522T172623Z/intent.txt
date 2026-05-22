@@ -1,0 +1,17 @@
+Intent
+Add the operator-provided Equilens LinkedIn company profile URL to public website identity surfaces.
+
+Source
+Operator-provided URL: https://www.linkedin.com/company/equilens-labs/
+
+Scope
+- Add a LinkedIn footer link through config/web/footer.json.
+- Render configured external footer links with target="_blank" and rel="noopener noreferrer".
+- Add LinkedIn to homepage Organization JSON-LD sameAs.
+- Add a Playwright regression check for the footer link and external-link attributes.
+- Do not add AWS or Azure partner badges in this PR; badge usage needs confirmed partner status and approved badge/artwork terms.
+
+Validation
+- git diff --check
+- npm run content:lint
+- npm run playwright:audit -- LINKEDIN-IDENTITY-LINKS
