@@ -1,0 +1,8 @@
+7:  <meta name="description" content="Legal policies for Equilens FL-BSA — Privacy, Terms, Cookies, and more.">
+17:  <meta property="og:description" content="Legal policies for Equilens FL-BSA — Privacy, Terms, Cookies, and more.">
+24:  <meta name="twitter:description" content="Legal policies for Equilens FL-BSA — Privacy, Terms, Cookies, and more.">
+42:        <a href="#cookie-policy" class="toc-link">Cookie Policy</a>
+105:            <h3>Cookies &amp; similar technologies</h3>
+106:            <p>We use Plausible Analytics for aggregate, cookieless website measurement. We do not use advertising or social media cookies. See our <a href="#cookie-policy">Cookie Policy</a> for details.</p>
+115:          <h2>Cookie Policy</h2>
+279:      <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
