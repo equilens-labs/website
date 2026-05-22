@@ -1,0 +1,16 @@
+=== /
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
+=== /fl-bsa/
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
+=== /procurement/
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
+=== /trust-center/
+              <h3>EU / EEA representative</h3>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
+=== /legal/
+            <p><strong>Data protection contact:</strong> You can contact Equilens about privacy or data protection matters at <a href="mailto:privacy@equilens.io">privacy@equilens.io</a>.</p>
+            <p>You have <abbr title="United Kingdom">UK</abbr>/<abbr title="European Union">EU</abbr> data protection rights (access, rectification, erasure, restriction, objection, portability where applicable). To exercise these rights, email <a href="mailto:privacy@equilens.io">privacy@equilens.io</a>.</p>
+            <p>Contact <a href="mailto:privacy@equilens.io">privacy@equilens.io</a> to request a DPA or initiate that process.</p>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
+=== /contact/
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-22 (commit 4c5608c).</small>
