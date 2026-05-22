@@ -22,6 +22,7 @@
     { "url": "/fl-bsa/#compliance", "slug": "fl-bsa-compliance-section" },
     { "url": "/fl-bsa/#whitepaper", "slug": "fl-bsa-whitepaper-section" },
     { "url": "/fl-bsa/#docs", "slug": "fl-bsa-docs-section" },
-    { "url": "/fl-bsa/#faq", "slug": "fl-bsa-faq-section" }
+    { "url": "/fl-bsa/#faq", "slug": "fl-bsa-faq-section" },
+    { "url": "/trust-center/#data-protection", "slug": "trust-center-data-protection" }
   ]
 }

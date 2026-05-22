@@ -18,10 +18,20 @@ rg -n "Registered office" legal/index.html >"$BASE/imprint_has_office.txt"
 rg -n "England" legal/index.html >"$BASE/imprint_has_jurisdiction.txt"
 
 rg -n "Controller" legal/index.html >"$BASE/privacy_has_controller.txt"
+rg -n "Data protection contact" legal/index.html >"$BASE/privacy_has_data_protection_contact.txt"
+rg -n "Product privacy scope" legal/index.html >"$BASE/privacy_has_product_scope.txt"
 rg -n "legitimate interests" legal/index.html >"$BASE/privacy_has_legal_basis.txt"
 rg -n "ico.org.uk" legal/index.html >"$BASE/privacy_has_ico.txt"
 rg -n "Cookie" legal/index.html >"$BASE/privacy_links_cookie.txt"
 rg -n "Plausible Analytics" legal/index.html >"$BASE/privacy_discloses_plausible.txt"
+if rg -ni "EU .*representative.*to be appointed|to be appointed|to be confirmed" legal/index.html >"$BASE/eu_rep_placeholder_found.txt"; then
+  echo "ERROR: public EU/EEA representative placeholder found in legal/index.html" >&2
+  cat "$BASE/eu_rep_placeholder_found.txt" >&2
+  exit 1
+else
+  rm -f "$BASE/eu_rep_placeholder_found.txt"
+  echo "OK: no public EU/EEA representative placeholder found" >"$BASE/no_eu_rep_placeholder_ok.txt"
+fi
 
 rg -n "Plausible Analytics" legal/index.html >"$BASE/cookie_discloses_plausible.txt"
 rg -n "does <strong>not</strong> set cookies|advertising or social media cookies" legal/index.html >"$BASE/cookie_analytics_posture.txt"
