@@ -915,7 +915,6 @@ abbr {
 
 .product-page--flbsa .section-block .lead {
   color: var(--text-primary);
-  max-width: var(--measure-narrow);
 }
 
 .product-page--flbsa .section-block .card h3,
@@ -1076,7 +1075,7 @@ abbr {
 
 .section-block p {
   text-align: left;
-  line-height: var(--leading-loose);
+  line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
 }
 
@@ -1479,6 +1478,7 @@ a[download]::after {
 .note.note--small {
   color: var(--text-secondary);
   font-size: 0.8125rem;
+  font-style: normal;
   opacity: 1;
 }
 
