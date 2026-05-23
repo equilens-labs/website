@@ -86,7 +86,10 @@ jobs:
 
       - name: Ensure script permissions
         run: |
-          chmod +x scripts/seo/toggle-robots.sh scripts/og/render.sh scripts/evidence/snapshot.sh scripts/ops/guard_dns_ssl.sh || true
+          chmod +x scripts/seo/toggle-robots.sh scripts/og/render.sh scripts/evidence/snapshot.sh scripts/ops/guard_dns_ssl.sh scripts/ops/check_footer_metadata.sh || true
+
+      - name: Footer metadata guard
+        run: scripts/ops/check_footer_metadata.sh
 
       - name: Set site visibility (private/public)
         run: |

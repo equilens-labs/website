@@ -1,0 +1,18 @@
+Intent
+Address the visual/layout consistency pass across the public website.
+
+Scope
+- Restore visible section banding on table-of-content pages.
+- Re-align hero hierarchy, lead sizing, mobile type steps, card surfaces, shadows, measures, and glass surfaces.
+- Normalize homepage and FL-BSA hero card treatment.
+- Keep source footers free of stale hard-coded deploy metadata; stamp actual date/commit only in the deploy artifact.
+- Bring redirect metadata, Trust Center metadata, Legal metadata, hero labels, and small accessibility details into parity.
+- Keep AWS/Azure partner badges out of scope until badge eligibility and artwork rules are confirmed.
+
+Validation
+- scripts/ops/check_footer_metadata.sh
+- npm run content:lint
+- git diff --check
+- HTML parser smoke
+- scripts/deploy/prepare.sh
+- npm run playwright:audit -- SITE-VISUAL-CONSISTENCY

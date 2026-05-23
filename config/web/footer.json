@@ -14,8 +14,10 @@
       {"label": "Terms of Service", "href": "/legal/#terms-of-service"},
       {"label": "Imprint", "href": "/legal/#imprint"}]},
     {"title": "Resources", "links": [
+      {"label": "Documentation", "href": "/fl-bsa/#docs"},
+      {"label": "FAQ", "href": "/fl-bsa/#faq"},
       {"label": "Open Source", "href": "/legal/#open-source"},
       {"label": "Accessibility", "href": "/legal/#accessibility"}]}
   ],
-  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd in the United Kingdom. Last deploy {deploy_date} (commit {commit})."
+  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd in the United Kingdom. Last deploy: {deploy_note}."
 }
