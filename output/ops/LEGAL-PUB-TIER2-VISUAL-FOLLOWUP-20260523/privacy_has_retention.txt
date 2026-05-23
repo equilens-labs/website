@@ -1,0 +1,3 @@
+96:              <li>Business, sales, procurement, and support correspondence: retained as needed for communications, customer support, relationship management, audit trails, and legal or accounting records, then deleted when no longer required.</li>
+97:              <li>Server/<abbr title="Content Delivery Network">CDN</abbr> logs: rotated automatically and retained for approximately 30 days for diagnostics and security.</li>
+98:              <li>Aggregate Plausible analytics: retained while needed for trend reporting and deleted when no longer required or when the site analytics account is removed.</li>

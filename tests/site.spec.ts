@@ -19,31 +19,57 @@ const redirectMetadata = [
     file: 'legal/accessibility.html',
     title: 'Accessibility — Equilens',
     description: 'Accessibility information for equilens.io. See /legal/#accessibility.',
+    url: 'https://equilens.io/legal/#accessibility',
   },
   {
     file: 'legal/cookie-policy.html',
     title: 'Cookie Policy — Equilens',
     description: 'Cookie Policy for equilens.io. See /legal/#cookie-policy.',
+    url: 'https://equilens.io/legal/#cookie-policy',
   },
   {
     file: 'legal/imprint.html',
     title: 'Imprint — Equilens',
     description: 'Company information and imprint for Equilens. See /legal/#imprint.',
+    url: 'https://equilens.io/legal/#imprint',
   },
   {
     file: 'legal/open-source.html',
     title: 'Open Source — Equilens',
     description: 'Open source information for Equilens. See /legal/#open-source.',
+    url: 'https://equilens.io/legal/#open-source',
   },
   {
     file: 'legal/privacy.html',
     title: 'Privacy Notice — Equilens',
     description: 'Privacy Notice for equilens.io. See /legal/#privacy.',
+    url: 'https://equilens.io/legal/#privacy',
   },
   {
     file: 'legal/tos.html',
     title: 'Website Terms — Equilens',
     description: 'Website Terms for equilens.io. See /legal/#terms-of-service.',
+    url: 'https://equilens.io/legal/#terms-of-service',
+  },
+];
+const flbsaRedirectMetadata = [
+  {
+    file: 'docs/index.html',
+    title: 'FL-BSA Documentation — Equilens',
+    description: 'Documentation links for FL-BSA. See /fl-bsa/#docs.',
+    url: 'https://equilens.io/fl-bsa/#docs',
+  },
+  {
+    file: 'faq/index.html',
+    title: 'FL-BSA FAQ — Equilens',
+    description: 'Frequently asked questions for FL-BSA. See /fl-bsa/#faq.',
+    url: 'https://equilens.io/fl-bsa/#faq',
+  },
+  {
+    file: 'pricing/index.html',
+    title: 'FL-BSA Licensing — Equilens',
+    description: 'Licensing information for FL-BSA. See /fl-bsa/#pricing.',
+    url: 'https://equilens.io/fl-bsa/#pricing',
   },
 ];
 
@@ -64,9 +90,49 @@ test.describe('Equilens site surfaces', () => {
       expect(html).toContain(`<title>${redirect.title}</title>`);
       expect(html).toContain(`content="${redirect.description}"`);
       expect(html).toContain(`content="${redirect.title}"`);
+      expect(html).toContain(`property="og:url" content="${redirect.url}"`);
+      expect(html).toContain(`name="twitter:url" content="${redirect.url}"`);
       expect(html).not.toContain('Redirecting to Legal…');
     });
   }
+
+  for (const redirect of flbsaRedirectMetadata) {
+    test(`${redirect.file} preserves FL-BSA metadata while redirecting`, async () => {
+      const html = fs.readFileSync(path.join(root, redirect.file), 'utf-8');
+
+      expect(html).toContain(`<title>${redirect.title}</title>`);
+      expect(html).toContain(`content="${redirect.description}"`);
+      expect(html).toContain(`content="${redirect.title}"`);
+      expect(html).toContain(`property="og:url" content="${redirect.url}"`);
+      expect(html).toContain(`name="twitter:url" content="${redirect.url}"`);
+      expect(html).not.toContain('Redirecting to FL-BSA');
+    });
+  }
+
+  test('404 page is noindex and keeps footer heading inside the footer', async () => {
+    const html = fs.readFileSync(path.join(root, '404.html'), 'utf-8');
+
+    expect(html).toContain('<meta name="referrer" content="strict-origin-when-cross-origin">');
+    expect(html).toContain('<meta name="robots" content="noindex">');
+    expect(html).toContain('<footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">');
+    expect(html).toContain('<h2 class="sr-only" id="site-sections-heading">Site sections</h2>');
+    expect(html).not.toContain('</main>\n\n  <h2 class="sr-only">Site sections</h2>');
+  });
+
+  test('Tier 2 visual consistency fixes stay in place', async () => {
+    const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
+    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
+    const contact = fs.readFileSync(path.join(root, 'contact', 'index.html'), 'utf-8');
+
+    expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
+    expect(css).toContain('.section-block p {\n  text-align: left;\n  line-height: var(--leading-relaxed);');
+    expect(css).toContain('.note.note--small {\n  color: var(--text-secondary);\n  font-size: 0.8125rem;\n  font-style: normal;');
+    expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
+    expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
+    expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
+    expect(contact).toContain('<body class="eql">');
+    expect(contact).not.toContain('<body class="eql landing">');
+  });
 
   test('FL-BSA metadata preserves the canonical appliance descriptor', async () => {
     const html = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
