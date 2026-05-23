@@ -68,6 +68,41 @@ test.describe('Equilens site surfaces', () => {
     });
   }
 
+  test('FL-BSA metadata preserves the canonical appliance descriptor', async () => {
+    const html = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+
+    expect(html).toContain('<title>FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance</title>');
+    expect(html).toContain('Self-hosted fair-outcomes evidence appliance for regulated credit decisions');
+    expect(html).not.toContain('Self-hosted fair-outcomes evidence for regulated credit decisions:');
+  });
+
+  test('high-content pages preserve section banding rhythm', async () => {
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
+
+    expect(flbsa).toContain('<section class="section alt" id="pricing">');
+    expect(flbsa).toContain('<section class="section alt" id="docs">');
+    expect(flbsa).toContain('<section class="section alt">\n          <div class="cta-row">');
+    expect(trustCenter).toContain('<section class="section alt" aria-label="Security review next steps">');
+  });
+
+  test('home and FL-BSA hero cards share the hero-highlights wrapper', async () => {
+    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+
+    expect(home).toContain('class="hero-highlights grid grid-3 mt-6"');
+    expect(flbsa).toContain('class="hero-highlights grid grid-3"');
+  });
+
+  test('brand token import is wired into live CSS aliases', async () => {
+    const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
+
+    expect(css).toContain('@import url("/brand/tokens/tokens.css");');
+    expect(css).toContain('--color-primary: var(--eql-color-brand-500);');
+    expect(css).toContain('--color-primary-hover: var(--eql-color-brand-700);');
+    expect(css).toContain('--color-gray-900: var(--eql-color-ink-900);');
+  });
+
   for (const pageEntry of pages) {
     test(`${pageEntry.path} renders nav and footer`, async ({ page }, testInfo) => {
       await stubPlausible(page);

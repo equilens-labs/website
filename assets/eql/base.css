@@ -13,8 +13,8 @@
 :root {
   /* --- Color System --- */
   /* Primary Palette (Indigo) */
-  --color-primary: #4f46e5;        /* Indigo-600 - Primary brand */
-  --color-primary-hover: #4338ca;  /* Indigo-700 - Hover states */
+  --color-primary: var(--eql-color-brand-500);        /* Indigo-600 - Primary brand */
+  --color-primary-hover: var(--eql-color-brand-700);  /* Indigo-700 - Hover states */
   --color-primary-light: #6366f1;  /* Indigo-500 - Light accent */
   --color-primary-dark: #3730a3;   /* Indigo-800 - Dark accent */
   --color-primary-text: #3730a3;   /* Indigo-800 - WCAG AA text (7.2:1 contrast) */
@@ -24,18 +24,18 @@
   --color-primary-a12: rgba(79, 70, 229, 0.12);
 
   /* Neutrals */
-  --color-white: #ffffff;
+  --color-white: var(--eql-color-bg-light);
   --color-black: #000000;
-  --color-gray-50: #f9fafb;
+  --color-gray-50: var(--eql-color-surface-light);
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
   --color-gray-300: #d1d5db;
   --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
+  --color-gray-500: var(--eql-color-muted-500);
   --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
+  --color-gray-700: var(--eql-color-ink-700);
   --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --color-gray-900: var(--eql-color-ink-900);
 
   /* Surface Colors */
   --bg-main: var(--color-white);
