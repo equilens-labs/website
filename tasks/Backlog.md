@@ -1,6 +1,6 @@
 # Backlog (equilens.io website)
 
-**Last updated:** 2026-05-22
+**Last updated:** 2026-05-23
 **Purpose:** Single list of pending website work for `equilens.io` (content, deployment, audits). Keep this file short; link out to `tasks/Legal*.md` and source files for details.
 
 **Priority legend:** P0 = blocking / fix before launch, P1 = soon / high leverage, P2 = later / opportunistic.
@@ -8,7 +8,8 @@
 ## Current Production Snapshot (Facts)
 
 - Live site footer is rewritten during GitHub Pages deployment and should show the deployed commit.
-- GitHub Pages deployment, site audits, and CodeQL were green after the latest privacy-inbox merge.
+- Latest deployed commit checked after PR #49: `1ca22bf` on 2026-05-23.
+- GitHub Pages deployment, site audits, and CodeQL were green after the latest visual-consistency merge.
 - Public privacy copy uses `privacy@equilens.io` for data-protection, rights, and DPA requests.
 
 ## P0 (Launch Blockers)
@@ -68,17 +69,18 @@
 
 ## P1 (Soon / High Leverage)
 
-- [ ] **Decide what content should be publicly published**
-  - Problem: `scripts/deploy/prepare.sh` copies most of the repo into `dist/` (including `SSoT.md`, `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, `package*.json`, etc.).
+- [x] **Decide what content should be publicly published**
+  - Problem: `scripts/deploy/prepare.sh` previously risked copying broad repo content into `dist/`.
   - DoD:
-    - Explicit allowlist for what ships, or explicit decision that publishing these files is acceptable (and keep them polished for public consumption).
-    - If `SSoT.md` is intentionally public, ensure it is a canonical, launch-grade document (no draft/preface text) and aligned with the FL-BSA repo SSOT.
+    - Explicit allowlist for what ships.
+    - Repository-internal files such as `SSoT.md`, `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, and `package*.json` do not ship unless deliberately added to the allowlist.
   - Refs: `scripts/deploy/prepare.sh`.
 
 - [ ] **Deployment gating policy: don't deploy when audits fail**
   - Problem: `audit.yml` can fail while `pages.yml` deploy still succeeds, so production can drift into a known-bad state (a11y/SEO/regression).
   - DoD:
     - Define and implement a policy: either make deploy depend on audits, or explicitly document why deploy can proceed with known audit failures.
+  - Status: still open. Latest deploy and audit were both green, but they remain independent workflows.
   - Refs: `.github/workflows/audit.yml`, `.github/workflows/pages.yml`.
 
 - [ ] **Truth sync: FL-BSA performance claims and SSOT**
@@ -113,14 +115,15 @@
 
 ## P2 (Later / Opportunistic)
 
-- [ ] **Bring Playwright audit configuration in sync with real routes**
-  - Problem: `config/tests/playwright-pages.json` references paths that do not exist (e.g., `/fl-bsa/whitepaper/`, `/fl-bsa/pricing/`), so audits will drift or provide false confidence.
+- [x] **Bring Playwright audit configuration in sync with real routes**
+  - Problem: `config/tests/playwright-pages.json` previously referenced FL-BSA route paths before the redirect shims existed.
   - DoD:
-    - Either create real routes for those paths OR adjust the config to match the actual site information architecture.
+    - Routes referenced by `config/tests/playwright-pages.json` exist as pages or intentional redirect shims.
+    - Playwright audit passes across the configured page list.
   - Refs: `config/tests/playwright-pages.json`, `tests/site.spec.ts`, `scripts/ops/run_playwright_audit.sh`.
 
-- [ ] **README accuracy pass**
-  - Problem: README claims deployment "from main" and a visibility strategy that does not match current Pages branch-mode behavior; it also references missing config files (e.g., `config/web/flbsa_subnav.json`).
+- [x] **README accuracy pass**
+  - Problem: README claimed deployment "from main" without explaining branch-mode publishing and referenced a missing `config/web/flbsa_subnav.json`.
   - DoD:
     - README matches the actual deploy mode, visibility controls, and config structure.
   - Refs: `README.md`, `.github/workflows/pages.yml`, `config/web/`.
