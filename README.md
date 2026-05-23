@@ -2,7 +2,7 @@
 
 [![DNS/TLS Guard](https://github.com/equilens-labs/website/actions/workflows/dns-ssl-guard.yml/badge.svg)](https://github.com/equilens-labs/website/actions/workflows/dns-ssl-guard.yml)
 
-Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
+Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workflow builds a `dist/` artifact and publishes it to the `gh-pages` branch used by GitHub Pages.
 
 - Content: HTML/CSS only, root directory
 - Brand assets: All brand assets live under `brand/` directory structure:
@@ -36,15 +36,14 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 ## Content management
 
-- Primary navigation, FL‑BSA product sub-nav, and the micro-footer are synchronised from JSON “single source of truth” files:
+- Primary navigation and the micro-footer are synchronised from JSON single-source files:
   - Navigation links: `config/web/nav.json`
-  - FL‑BSA product sub-nav links: `config/web/flbsa_subnav.json`
   - Footer links: `config/web/footer.json`
 - Navigation is rendered at runtime into the `#nav-placeholder` container by `/assets/eql/nav.js`, which reads from `config/web/nav.json`. This keeps the nav SSOT in a single JSON file while avoiding extra build tooling.
-- After updating the FL‑BSA sub-nav or footer JSON, run the sync scripts to fan out the change across every HTML page:
+- The FL-BSA product sub-nav is maintained as a static HTML partial at `templates/flbsa_subnav.html`.
+- After updating the footer JSON, run the sync script to fan out the change across every HTML page:
 
   ```bash
-  python3 scripts/content/sync_flbsa_subnav.py  # FL-BSA sub-navigation
   python3 scripts/content/sync_footer_ssot.py
   ```
 
@@ -70,8 +69,9 @@ Static site for Equilens FL‑BSA. Deployed via GitHub Pages from `main`.
 
 - Pushes to `main` keep the site private (`noindex` / `Disallow: /`).
 - Trigger `Deploy website to GitHub Pages` manually with `visibility=public` once you are ready to open indexing; rerun with `visibility=private` to revert.
+- The deploy workflow prepares the allowlisted public surface under `dist/`, stamps footer metadata in that deploy artifact, and publishes the resulting tree to `gh-pages`.
 - Each deployment run renders the OG PNG and writes evidence snapshots under `output/ops/SITE-DEPLOY-<timestamp>/`.
- - A DNS/TLS guard validates GitHub Pages DNS A/AAAA records and live TLS SANs for the custom domain; deployment fails if mismatched. Evidence is saved under `output/ops/DNS-SSL-GUARD-<timestamp>/`.
+- A DNS/TLS guard validates GitHub Pages DNS A/AAAA records and live TLS SANs for the custom domain; deployment fails if mismatched. Evidence is saved under `output/ops/DNS-SSL-GUARD-<timestamp>/`.
 
 ## VS Code setup
 
