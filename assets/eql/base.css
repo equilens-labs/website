@@ -79,6 +79,7 @@
   /* --- Typography Scale ---
      Mobile-first values step up at layout breakpoints below. */
   --text-xs: 0.75rem;     /* 12px */
+  --text-note: 0.8125rem;  /* 13px */
   --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;      /* 16px */
   --text-lg: 1.125rem;    /* 18px */
@@ -138,6 +139,7 @@
   --surface-glass-light: rgba(255, 255, 255, 0.6);
   --surface-glass: rgba(255, 255, 255, 0.8);
   --surface-glass-border: rgba(229, 231, 235, 0.5);
+  --surface-glass-card-border: rgba(255, 255, 255, 0.5);
 
   /* --- Layout --- */
   --max-width-xs: 20rem;      /* 320px */
@@ -449,7 +451,7 @@ abbr {
   letter-spacing: var(--tracking-wider);
   font-weight: var(--font-bold);
   color: var(--color-primary-text);
-  border-bottom: 1px dotted rgba(79, 70, 229, 0.35);
+  border-bottom: 1px dotted var(--color-primary-a15);
   cursor: help;
 }
 
@@ -695,7 +697,7 @@ abbr {
 
   .toc-label {
     display: block;
-    font-size: 0.875rem;  /* Increased to text-sm */
+    font-size: var(--text-sm);
     font-weight: var(--font-bold);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wider);
@@ -714,7 +716,7 @@ abbr {
     padding: 0.5rem 0; /* Increased padding */
     padding-left: var(--space-4);
     border-left: 2px solid var(--border-default);
-    font-size: 1rem;  /* Increased to text-base */
+    font-size: var(--text-base);
     color: var(--text-muted);
     text-decoration: none;
     transition: all var(--transition-base);
@@ -723,7 +725,7 @@ abbr {
 
   .toc-link:hover {
     color: var(--color-primary-text);
-    border-left-color: rgba(79, 70, 229, 0.4);
+    border-left-color: var(--color-primary-a15);
   }
 
   .toc-link[aria-current="location"] {
@@ -894,7 +896,7 @@ abbr {
 
 .hero-highlights .card:not(.card-hero):hover {
   transform: none;
-  border-color: rgba(229, 231, 235, 1);
+  border-color: var(--border-default);
   box-shadow: var(--shadow-xs);
 }
 
@@ -915,7 +917,6 @@ abbr {
 
 .product-page--flbsa .section-block .lead {
   color: var(--text-primary);
-  max-width: var(--measure-narrow);
 }
 
 .product-page--flbsa .section-block .card h3,
@@ -1037,7 +1038,7 @@ abbr {
 .policy .section-block .checks li {
   max-width: var(--measure-default);
   color: var(--text-secondary);
-  font-size: 0.975rem;
+  font-size: var(--text-base);
   line-height: var(--leading-relaxed);
 }
 
@@ -1076,7 +1077,7 @@ abbr {
 
 .section-block p {
   text-align: left;
-  line-height: var(--leading-loose);
+  line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
 }
 
@@ -1190,7 +1191,7 @@ abbr {
 .card {
   background: var(--color-white);
   /* Softer border but visible */
-  border: 1px solid rgba(229, 231, 235, 1); 
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   transition: all var(--transition-base);
@@ -1258,7 +1259,7 @@ a.card:hover,
   background: var(--surface-glass-light);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--surface-glass-card-border);
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-xl);
   padding: var(--space-8) var(--space-6);
@@ -1302,7 +1303,7 @@ a.card-hero:hover,
   padding: var(--space-3) var(--space-6); /* Wider padding */
   min-height: 48px;  
   min-width: 44px;
-  gap: 8px;
+  gap: var(--space-2);
   border: none;
   transition: all var(--transition-fast);
 }
@@ -1367,7 +1368,7 @@ a.card-hero:hover,
 }
 
 .step {
-  border: 1px solid rgba(229, 231, 235, 1);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
   background: var(--color-white);
   padding: var(--space-7);
@@ -1411,7 +1412,7 @@ a.card-hero:hover,
   border-radius: var(--radius-full);
   background: var(--color-primary);
   color: var(--color-white);
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-family: var(--font-mono);
   font-weight: var(--font-bold);
   flex-shrink: 0;
@@ -1478,7 +1479,8 @@ a[download]::after {
 
 .note.note--small {
   color: var(--text-secondary);
-  font-size: 0.8125rem;
+  font-size: var(--text-note);
+  font-style: normal;
   opacity: 1;
 }
 
@@ -1506,7 +1508,7 @@ a[download]::after {
   border-color: rgba(148, 163, 184, 0.22);
   border-left-color: rgba(79, 70, 229, 0.55);
   color: var(--text-muted);
-  font-size: 0.8125rem;
+  font-size: var(--text-note);
 }
 
 /* Contact Form */
@@ -1874,7 +1876,7 @@ a[download]::after {
   }
 
   .grid {
-    gap: 1.5rem;
+    gap: var(--space-6);
   }
 }
 
@@ -2026,16 +2028,11 @@ a[download]::after {
   position: relative;
 }
 
-/* Hide old markers */
-.timeline-marker {
-  display: none;
-}
-
 .timeline-content {
   flex: 1;
   padding: var(--space-8);
   background: var(--color-white);
-  border: 1px solid rgba(229, 231, 235, 1);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
