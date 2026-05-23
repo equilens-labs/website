@@ -126,12 +126,42 @@ test.describe('Equilens site surfaces', () => {
 
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
     expect(css).toContain('.section-block p {\n  text-align: left;\n  line-height: var(--leading-relaxed);');
-    expect(css).toContain('.note.note--small {\n  color: var(--text-secondary);\n  font-size: 0.8125rem;\n  font-style: normal;');
+    expect(css).toContain('.note.note--small {\n  color: var(--text-secondary);\n  font-size: var(--text-note);\n  font-style: normal;');
     expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
     expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
     expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
     expect(contact).toContain('<body class="eql">');
     expect(contact).not.toContain('<body class="eql landing">');
+  });
+
+  test('Tier 3 token and CTA polish stays in place', async () => {
+    const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
+    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
+    const docs = fs.readFileSync(path.join(root, 'docs', 'index.html'), 'utf-8');
+    const faq = fs.readFileSync(path.join(root, 'faq', 'index.html'), 'utf-8');
+    const pricing = fs.readFileSync(path.join(root, 'pricing', 'index.html'), 'utf-8');
+
+    expect(css).toContain('--text-note: 0.8125rem;');
+    expect(css).toContain('--surface-glass-card-border: rgba(255, 255, 255, 0.5);');
+    expect(css).not.toContain('border: 1px solid rgba(255, 255, 255, 0.5)');
+    expect(css).not.toContain('border: 1px solid rgba(229, 231, 235, 1)');
+    expect(css).not.toContain('border-color: rgba(229, 231, 235, 1)');
+    expect(css).not.toContain('gap: 8px;');
+    expect(css).not.toContain('gap: 1.5rem;');
+    expect(css).not.toContain('rgba(79, 70, 229, 0.35)');
+    expect(css).not.toContain('rgba(79, 70, 229, 0.4)');
+    expect(css).not.toContain('.timeline-marker');
+
+    expect(flbsa).not.toContain('timeline-marker');
+    expect(trustCenter).not.toContain('timeline-marker');
+    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Contact Sales</a>\n        <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Request Access</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
+    expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
+    expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
+    expect(faq).toContain('<span class="product-name">FL-BSA</span> FAQ');
+    expect(pricing).toContain('<span class="product-name">FL-BSA</span> Licensing');
   });
 
   test('FL-BSA metadata preserves the canonical appliance descriptor', async () => {
@@ -213,7 +243,7 @@ test.describe('Equilens site surfaces', () => {
 
       if (pageEntry.path === '/fl-bsa/') {
         await expect(page.locator('.timeline .timeline-item')).toHaveCount(4);
-        await expect(page.locator('.timeline .timeline-icon')).toHaveCount(4);
+        await expect(page.locator('.timeline .timeline-icon')).toHaveCount(0);
         await expect(page.getByRole('link', { name: 'Download Whitepaper Intake (ZIP)' })).toHaveAttribute(
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/WhitePaper_Intake_Bundle_v4.zip',
