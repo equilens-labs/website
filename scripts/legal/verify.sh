@@ -30,6 +30,8 @@ rg -n "legitimate interests" legal/index.html >"$BASE/privacy_has_legal_basis.tx
 rg -n "ico.org.uk" legal/index.html >"$BASE/privacy_has_ico.txt"
 rg -n "Cookie" legal/index.html >"$BASE/privacy_links_cookie.txt"
 rg -n "Plausible Analytics" legal/index.html >"$BASE/privacy_discloses_plausible.txt"
+rg -n "outbound link clicks.*file download clicks|file download clicks.*outbound link clicks" legal/index.html >"$BASE/privacy_discloses_plausible_click_measurement.txt"
+rg -n "do not track form submissions" legal/index.html >"$BASE/privacy_discloses_no_form_tracking.txt"
 if rg -ni "EU .*representative.*to be appointed|to be appointed|to be confirmed" legal/index.html >"$BASE/eu_rep_placeholder_found.txt"; then
   echo "ERROR: public EU/EEA representative placeholder found in legal/index.html" >&2
   cat "$BASE/eu_rep_placeholder_found.txt" >&2
@@ -40,6 +42,8 @@ else
 fi
 
 rg -n "Plausible Analytics" legal/index.html >"$BASE/cookie_discloses_plausible.txt"
+rg -n "outbound link clicks.*file download clicks|file download clicks.*outbound link clicks" legal/index.html >"$BASE/cookie_discloses_plausible_click_measurement.txt"
+rg -n "do <strong>not</strong> track form submissions" legal/index.html >"$BASE/cookie_discloses_no_form_tracking.txt"
 rg -n "does <strong>not</strong> set cookies|advertising or social media cookies" legal/index.html >"$BASE/cookie_analytics_posture.txt"
 rg -n "script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io" legal/index.html legal/privacy.html legal/tos.html >"$BASE/plausible_csp_present.txt"
 
@@ -56,7 +60,7 @@ rg -n "retained" legal/index.html > "$BASE/privacy_has_retention.txt" || true
 
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
 if rg -n "<script[^>]+src=\"https?://" legal >"$BASE/external_scripts.txt"; then
-  if rg -v "https://plausible\.io/js/script\.js" "$BASE/external_scripts.txt" >"$BASE/unapproved_external_scripts.txt"; then
+  if rg -v "https://plausible\.io/js/script\.outbound-links\.file-downloads\.js" "$BASE/external_scripts.txt" >"$BASE/unapproved_external_scripts.txt"; then
     echo "ERROR: unapproved external script src found in legal/" >&2
     cat "$BASE/unapproved_external_scripts.txt" >&2
     exit 1
