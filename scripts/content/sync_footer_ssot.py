@@ -3,7 +3,6 @@ import datetime
 import json
 import pathlib
 import re
-import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FOOTER_SSOT = ROOT / "config/web/footer.json"
@@ -32,24 +31,6 @@ def render_link(link: dict, d: str) -> str:
         attrs.append('rel="noopener noreferrer"')
     return f'      <li><a {" ".join(attrs)}>{link["label"]}</a></li>'
 
-def git_info():
-    def run(cmd):
-        try:
-            return subprocess.check_output(cmd, cwd=ROOT).decode().strip()
-        except (subprocess.CalledProcessError, FileNotFoundError):
-            return ''
-
-    commit = run(['git', 'rev-parse', '--short', 'HEAD']) or 'unknown'
-    commit_date_iso = run(['git', 'show', '-s', '--format=%cI', 'HEAD'])
-    if commit_date_iso:
-        try:
-            deploy_date = datetime.datetime.fromisoformat(commit_date_iso).date()
-        except ValueError:
-            deploy_date = datetime.date.today()
-    else:
-        deploy_date = datetime.date.today()
-    return commit, deploy_date.isoformat()
-
 def render(d: str) -> str:
     html = partial
     column_html = []
@@ -59,15 +40,13 @@ def render(d: str) -> str:
         )
         column_html.append(f'    <section><h3>{col["title"]}</h3><ul>\n{links}\n    </ul></section>')
     html = html.replace('<!--FOOTER_COLUMNS-->', '\n'.join(column_html))
-    commit, deploy_date = git_info()
     # Trademark toggle: "tm" or "registered"
     tm_status = footer.get('brand', {}).get('trademark_status', 'tm')
     tm_symbol = '™' if tm_status == 'tm' else '®'
     tm_text = 'trade mark' if tm_status == 'tm' else 'registered trade mark'
     note = footer.get('note', '').format(
         year=datetime.date.today().year,
-        commit=commit,
-        deploy_date=deploy_date,
+        deploy_note='stamped during publishing',
         tm_symbol=tm_symbol,
         tm_text=tm_text
     )

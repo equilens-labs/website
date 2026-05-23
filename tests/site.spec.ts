@@ -16,6 +16,26 @@ const pages = config.pages;
 const anchors = config.anchors ?? [];
 const redirectMetadata = [
   {
+    file: 'legal/accessibility.html',
+    title: 'Accessibility — Equilens',
+    description: 'Accessibility information for equilens.io. See /legal/#accessibility.',
+  },
+  {
+    file: 'legal/cookie-policy.html',
+    title: 'Cookie Policy — Equilens',
+    description: 'Cookie Policy for equilens.io. See /legal/#cookie-policy.',
+  },
+  {
+    file: 'legal/imprint.html',
+    title: 'Imprint — Equilens',
+    description: 'Company information and imprint for Equilens. See /legal/#imprint.',
+  },
+  {
+    file: 'legal/open-source.html',
+    title: 'Open Source — Equilens',
+    description: 'Open source information for Equilens. See /legal/#open-source.',
+  },
+  {
     file: 'legal/privacy.html',
     title: 'Privacy Notice — Equilens',
     description: 'Privacy Notice for equilens.io. See /legal/#privacy.',
