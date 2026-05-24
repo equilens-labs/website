@@ -55,7 +55,7 @@
       {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default."}},
         {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
       {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment."}},
-      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"AWS Marketplace availability is coming soon. Contact Equilens for guided pilot access, or deploy the container stack via docker-compose. CPU-only and GPU-preferred profiles are supported."}},
+      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS path, or agree a private container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
         {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
     ]
    }
@@ -110,7 +110,7 @@
               </div>
             </div>
             <div class="cta-row">
-              <a class="btn btn-primary" href="/contact/">Contact Sales</a>
+              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
               <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
             </div>
           </div>
@@ -157,9 +157,9 @@
         <div class="card">
           <h3>
             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-            <abbr title="Amazon Web Services">AWS</abbr> Marketplace
+            Guided <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr>
           </h3>
-          <p><abbr title="Amazon Web Services">AWS</abbr> Marketplace availability is coming soon. Contact Equilens for guided pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first AWS customer path while the public listing is pending.</p>
+          <p>The current AWS path is controlled guided-pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first customer path or an agreed private handoff. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</p>
         </div>
         <div class="card">
           <h3>
@@ -176,49 +176,18 @@
   <section class="section alt" id="pricing">
     <div class="section-block">
       <h2>Licensing</h2>
-      <p class="lead">Customer-hosted model: you control the infrastructure; we licence the appliance software.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>Sandbox</h3>
-          <p><strong>Free Trial</strong> · Non-production</p>
-          <ul class="checks">
-            <li>Pre-bundled <abbr title="Financial Conduct Authority">FCA</abbr> sandbox dataset.</li>
-            <li>Evidence bundle (watermarked).</li>
-            <li>Ideal for technical evaluation.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Pilot</h3>
-          <p><strong>Fixed Term</strong> · Proof of Concept</p>
-          <ul class="checks">
-            <li>Full evidence bundle generation.</li>
-            <li>Standard support (Email).</li>
-            <li>Controlled appliance configuration for guided evaluation.</li>
-          </ul>
-          <p class="note">Designed for a scoped single-model audit or time-boxed <abbr title="Proof of Concept">PoC</abbr>.</p>
-        </div>
-        <div class="card">
-          <h3>Standard</h3>
-          <p><strong>Annual Licence</strong> · Controlled rollout</p>
-          <ul class="checks">
-            <li>Continuous monitoring support.</li>
-            <li>Contracted usage rights.</li>
-            <li>Regular software updates.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Enterprise</h3>
-          <p><strong>Volume Licence</strong> · Strategic</p>
-          <ul class="checks">
-            <li>Scaled rows &amp; models as defined in the contract and validated hardware.</li>
-            <li>Priority support &amp; onboarding.</li>
-            <li>Custom <abbr title="Service Level Agreement">SLA</abbr> &amp; procurement terms.</li>
-          </ul>
-          <p class="note">For organizations deploying across multiple business lines.</p>
-        </div>
+      <p class="lead">Customer-hosted model: you control the infrastructure; we licence the appliance software through controlled qualification.</p>
+      <div class="card">
+        <h3>Controlled Pilot Access</h3>
+        <ul class="checks">
+          <li>Request an evidence-readiness assessment, pricing, or guided pilot qualification.</li>
+          <li>Scope one regulated-credit workflow, evidence question, data boundary, and deployment path.</li>
+          <li>Commercial terms are finalized during qualification and may be delivered through a Private Offer or agreed private handoff.</li>
+        </ul>
+        <p class="note">Annual and volume licence structures are post-qualification options, not public cold-sell offers. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/contact/">Contact Sales</a>
+        <a class="btn btn-primary" href="/contact/">Request Assessment</a>
         <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>
       </div>
     </div>
@@ -257,7 +226,7 @@
             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             Licensing &amp; Usage
           </h3>
-          <p>Usage terms are finalized during pilot qualification and can be provided through Private Offer or the public <abbr title="Amazon Web Services">AWS</abbr> Marketplace path once available. Custom <abbr title="Service Level Agreement">SLA</abbr>s and professional services statements of work are executed separately.</p>
+          <p>Usage terms are finalized during pilot qualification and can be provided through a Private Offer or agreed private handoff path. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Custom <abbr title="Service Level Agreement">SLA</abbr>s and professional services statements of work are executed separately.</p>
           <p class="note">Open-source components are catalogued at <a href="/legal/#open-source">/legal/</a>.</p>
         </div>
       </div>
@@ -324,7 +293,7 @@
       </details>
       <details class="faq-item">
         <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
-        <p><abbr title="Amazon Web Services">AWS</abbr> Marketplace availability is coming soon. Contact Equilens for guided pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first AWS customer path, or agree a controlled container/<abbr title="Virtual Machine">VM</abbr> deployment where appropriate. <abbr title="Central Processing Unit">CPU</abbr>-only and <abbr title="Graphics Processing Unit">GPU</abbr>-preferred profiles are supported.</p>
+        <p>Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first AWS customer path, or agree a controlled container/<abbr title="Virtual Machine">VM</abbr> deployment where appropriate. <abbr title="Central Processing Unit">CPU</abbr>-only and <abbr title="Graphics Processing Unit">GPU</abbr>-preferred profiles are supported.</p>
       </details>
       <details class="faq-item">
         <summary>What is included in the evidence bundle?</summary>
@@ -335,8 +304,8 @@
 
         <section class="section alt">
           <div class="cta-row">
-            <a class="btn btn-primary" href="/contact/">Contact Equilens</a>
-            <a class="btn btn-secondary" href="#pricing">View licensing</a>
+            <a class="btn btn-primary" href="/contact/">Request Assessment</a>
+            <a class="btn btn-secondary" href="#pricing">Review Access</a>
           </div>
         </section>
       </div><!-- /.page-content -->
@@ -364,7 +333,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-23 (commit d4588a6).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-24 (commit 8869e8c).</small>
   </div>
 </footer>
 
