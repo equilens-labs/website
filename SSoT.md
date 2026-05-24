@@ -379,10 +379,11 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 	•	Bring Your Own Cloud/Compute (BYOC):
 	•	Customers provision and pay for their own compute and storage.
 	•	FL-BSA incurs no hidden infra costs from the vendor side.
-	•	Licensing shape (indicative):
-	•	Evaluation / sandbox tier with limited data volume.
-	•	Pilot or project-based licences (fixed term, scoped datasets).
-	•	Ongoing annual licences for contracted rollout after evaluation.
+	•	Current public commercial posture:
+	•	Prospects request an evidence-readiness assessment, pricing, or guided pilot qualification.
+	•	Commercial terms are finalized during qualification and may be delivered through a controlled private-offer or agreed private handoff path.
+	•	Annual and volume licence structures are indicative future or post-qualification shapes, not cold-sell public offers.
+	•	Public AWS Marketplace access is not yet available; current AWS-oriented access is controlled guided-pilot / private handoff only unless current release and GTM records explicitly say otherwise.
 
 Concrete pricing numbers are intentionally excluded from this SSOT; they live in commercial documents and may vary by market.
 

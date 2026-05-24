@@ -156,7 +156,7 @@ test.describe('Equilens site surfaces', () => {
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');
-    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Contact Sales</a>\n        <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Request Assessment</a>\n        <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>');
     expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Request Access</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
     expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
     expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
