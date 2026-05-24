@@ -2086,6 +2086,20 @@ a[download]::after {
   font-size: var(--text-base);
 }
 
+.timeline-content .evidence-chain-list {
+  margin: 0;
+  max-width: 30rem;
+  text-align: left;
+}
+
+.timeline-content .evidence-chain-list li {
+  margin-bottom: var(--space-3);
+}
+
+.timeline-content .evidence-chain-list li:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .timeline {
     grid-template-columns: repeat(2, 1fr);

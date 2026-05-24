@@ -136,31 +136,47 @@
         <div class="section-block">
           <h2>Evidence Chain</h2>
 
-          <p class="lead">Every run emits a <strong>hash-linked evidence manifest</strong> (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) linking input hash → model parameters → outputs (<abbr title="Portable Document Format">PDF</abbr>, metrics, generators).</p>
+          <p class="lead">Each run is designed around machine-readable evidence: recorded run context, manifests, certificates, reports, and verification files that can be reviewed outside the user interface.</p>
 
           <div class="timeline" aria-label="Evidence chain schema">
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3><span class="sr-only">Step 1: </span>Input Data</h3>
-                <p>Input hash recorded.</p>
+                <h3><span class="sr-only">Step 1: </span>Run Context</h3>
+                <ul class="checks evidence-chain-list">
+                  <li>Task ID, timestamps, RNG seed, and software version.</li>
+                  <li><code>dataset_hash</code> binding the run to the input snapshot.</li>
+                  <li>Row/feature counts and protected-attribute summary where available.</li>
+                </ul>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3><span class="sr-only">Step 2: </span>Simulation</h3>
-                <p>Parameters captured.</p>
+                <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
+                <ul class="checks evidence-chain-list">
+                  <li><code>metrics.json</code> as the technical source of truth for the run.</li>
+                  <li>Synthetic-data manifests and hashes for generated outputs.</li>
+                  <li>Configuration snapshot, relevant log excerpts, and rendered reports.</li>
+                </ul>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3><span class="sr-only">Step 3: </span>Evidence Pack</h3>
-                <p>Manifest + outputs.</p>
+                <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
+                <ul class="checks evidence-chain-list">
+                  <li>Data-lineage, training, tuning, synthetic-quality, and pipeline certificates.</li>
+                  <li>Sequential <code>previous_certificate_hash</code> links within the run.</li>
+                  <li>Regulatory-alignment certificate as a traceability artifact, not a legal attestation.</li>
+                </ul>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
-                <h3><span class="sr-only">Step 4: </span>Traceability</h3>
-                <p>Hash-linked chain from snapshot to report.</p>
+                <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
+                <ul class="checks evidence-chain-list">
+                  <li>Evidence bundle and sidecar manifest retrievable by Task ID.</li>
+                  <li>Certificate hashes can be recomputed using the published hashing spec.</li>
+                  <li>Optional encryption, signing, and witnessing depend on deployment configuration.</li>
+                </ul>
               </div>
             </div>
           </div>
