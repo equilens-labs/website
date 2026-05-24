@@ -138,47 +138,83 @@
 
           <p class="lead">Each run is designed around machine-readable evidence: recorded run context, manifests, certificates, reports, and verification files that can be reviewed outside the user interface.</p>
 
-          <div class="timeline" aria-label="Evidence chain schema">
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3><span class="sr-only">Step 1: </span>Run Context</h3>
-                <ul class="checks evidence-chain-list">
-                  <li>Task ID, timestamps, RNG seed, and software version.</li>
-                  <li><code>dataset_hash</code> binding the run to the input snapshot.</li>
-                  <li>Row/feature counts and protected-attribute summary where available.</li>
-                </ul>
+          <div class="evidence-chain" role="list" aria-label="Evidence chain schema">
+            <article class="evidence-chain-card evidence-chain-card--context" role="listitem">
+              <div class="evidence-chain-card__header">
+                <span class="evidence-chain-node" aria-hidden="true">01</span>
+                <div>
+                  <p class="evidence-chain-kicker">Capture</p>
+                  <h3><span class="sr-only">Step 1: </span>Run Context</h3>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
-                <ul class="checks evidence-chain-list">
-                  <li><code>metrics.json</code> as the technical source of truth for the run.</li>
-                  <li>Synthetic-data manifests and hashes for generated outputs.</li>
-                  <li>Configuration snapshot, relevant log excerpts, and rendered reports.</li>
-                </ul>
+              <div class="evidence-chain-tags">
+                <code>task_id</code>
+                <code>dataset_hash</code>
+                <code>rng_seed</code>
               </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
-                <ul class="checks evidence-chain-list">
-                  <li>Data-lineage, training, tuning, synthetic-quality, and pipeline certificates.</li>
-                  <li>Sequential <code>previous_certificate_hash</code> links within the run.</li>
-                  <li>Regulatory-alignment certificate as a traceability artifact, not a legal attestation.</li>
-                </ul>
+              <ul class="checks evidence-chain-list">
+                <li>Task ID, timestamps, RNG seed, and software version.</li>
+                <li><code>dataset_hash</code> binding the run to the input snapshot.</li>
+                <li>Row/feature counts and protected-attribute summary where available.</li>
+              </ul>
+            </article>
+            <article class="evidence-chain-card evidence-chain-card--manifest" role="listitem">
+              <div class="evidence-chain-card__header">
+                <span class="evidence-chain-node" aria-hidden="true">02</span>
+                <div>
+                  <p class="evidence-chain-kicker">Record</p>
+                  <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
-                <ul class="checks evidence-chain-list">
-                  <li>Evidence bundle and sidecar manifest retrievable by Task ID.</li>
-                  <li>Certificate hashes can be recomputed using the documented hashing spec shipped with the evidence bundle.</li>
-                  <li>Optional encryption, signing, and witnessing depend on deployment configuration.</li>
-                </ul>
+              <div class="evidence-chain-tags">
+                <code>metrics.json</code>
+                <code>manifest.json</code>
+                <code>reports</code>
               </div>
-            </div>
+              <ul class="checks evidence-chain-list">
+                <li><code>metrics.json</code> as the technical source of truth for the run.</li>
+                <li>Synthetic-data manifests and hashes for generated outputs.</li>
+                <li>Configuration snapshot, relevant log excerpts, and rendered reports.</li>
+              </ul>
+            </article>
+            <article class="evidence-chain-card evidence-chain-card--certificate" role="listitem">
+              <div class="evidence-chain-card__header">
+                <span class="evidence-chain-node" aria-hidden="true">03</span>
+                <div>
+                  <p class="evidence-chain-kicker">Link</p>
+                  <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
+                </div>
+              </div>
+              <div class="evidence-chain-tags">
+                <code>certificate_hash</code>
+                <code>previous_hash</code>
+                <code>cert_chain</code>
+              </div>
+              <ul class="checks evidence-chain-list">
+                <li>Data-lineage, training, tuning, synthetic-quality, and pipeline certificates.</li>
+                <li>Sequential <code>previous_certificate_hash</code> links within the run.</li>
+                <li>Regulatory-alignment certificate as a traceability artifact, not a legal attestation.</li>
+              </ul>
+            </article>
+            <article class="evidence-chain-card evidence-chain-card--verify" role="listitem">
+              <div class="evidence-chain-card__header">
+                <span class="evidence-chain-node" aria-hidden="true">04</span>
+                <div>
+                  <p class="evidence-chain-kicker">Check</p>
+                  <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
+                </div>
+              </div>
+              <div class="evidence-chain-tags">
+                <code>evidence.zip</code>
+                <code>sidecar</code>
+                <code>hashing spec</code>
+              </div>
+              <ul class="checks evidence-chain-list">
+                <li>Evidence bundle and sidecar manifest retrievable by Task ID.</li>
+                <li>Certificate hashes can be recomputed using the documented hashing spec shipped with the evidence bundle.</li>
+                <li>Optional encryption, signing, and witnessing depend on deployment configuration.</li>
+              </ul>
+            </article>
           </div>
 
           <div class="card card--compact mt-8">
