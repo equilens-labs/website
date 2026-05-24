@@ -63,7 +63,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   - Honors `EQL_BASE_URL` if you need to target a deployed environment instead of the local server
 - Content lint: run `npm run content:lint`
   - Reuses the same forbidden-phrase checks enforced by `.github/workflows/audit.yml`
-  - Blocks stale AWS Marketplace subscribe language, unsupported compliance promises, and regulatory attestation phrasing
+  - Blocks stale AWS Marketplace subscribe language, pre-live Marketplace/tier phrasing, unsupported compliance promises, and regulatory attestation phrasing
 
 ## Deployment automation
 

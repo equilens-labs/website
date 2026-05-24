@@ -1,6 +1,6 @@
 # Backlog (equilens.io website)
 
-**Last updated:** 2026-05-23
+**Last updated:** 2026-05-24
 **Purpose:** Single list of pending website work for `equilens.io` (content, deployment, audits). Keep this file short; link out to `tasks/Legal*.md` and source files for details.
 
 **Priority legend:** P0 = blocking / fix before launch, P1 = soon / high leverage, P2 = later / opportunistic.
@@ -83,16 +83,18 @@
   - Status: still open. Latest deploy and audit were both green, but they remain independent workflows.
   - Refs: `.github/workflows/audit.yml`, `.github/workflows/pages.yml`.
 
-- [ ] **Truth sync: FL-BSA performance claims and SSOT**
+- [x] **Truth sync: FL-BSA performance claims and SSOT**
   - Problem: `/fl-bsa/` claims "~12 minutes for ~1M rows" but canonical SSOT treats 1M+ as long-running/capacity-planning.
   - DoD:
     - Website claims match canonical SSOT and/or validated public baselines; no over-promising.
+  - Status: source and live copy now say `1M+` rows are long-running capacity-planning scenarios; no live contradicting claim found.
   - Refs: `fl-bsa/index.html`, FL-BSA repo `SSoT.md` and `docs/technical/performance.md`.
 
-- [ ] **Truth sync: Trust Center claims vs shipped controls**
+- [x] **Truth sync: Trust Center claims vs shipped controls**
   - Problem: Trust Center makes concrete security claims (seccomp/AppArmor, KMS/Secrets Manager, read-only) that must match what we actually ship/support in FL-BSA.
   - DoD:
     - Each claim is backed by shipped configuration/docs, or is softened to "supported / available options" with clear scoping.
+  - Status: Trust Center runtime language now scopes secrets as customer-managed deployment controls; stale seccomp/AppArmor/read-only-style claims are not present in the live source.
   - Refs: `trust-center/index.html`, FL-BSA repo `docs/security/*`, deploy configs.
 
 - [x] **Fix CSS font loading vs CSP + privacy posture**
@@ -107,10 +109,11 @@
     - Add `/fl-bsa/` and `/trust-center/` (at minimum) to a11y/Lighthouse sweeps.
   - Refs: `ops/pa11yci.json`, `ops/lighthouserc.json`, `.github/workflows/audit.yml`.
 
-- [ ] **Align procurement/pricing language with actual Marketplace reality**
+- [x] **Align procurement/pricing language with actual Marketplace reality**
   - Problem: procurement page claims "Annual and multi-year licensing options" and "Pilot tier (3-month)" which must match the actual AWS Marketplace listing/strategy.
   - DoD:
     - Copy matches the live listing(s) and commercial motion; no implied SKUs that are not real.
+  - Status: public copy now uses controlled guided-pilot / private-handoff wording, removes cold-sell tiers, and content lint blocks the stale Marketplace/tier phrases.
   - Refs: `procurement/index.html`, `tasks/Legal4.md`.
 
 ## P2 (Later / Opportunistic)
