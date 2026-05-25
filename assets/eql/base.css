@@ -2168,7 +2168,7 @@ a[download]::after {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2);
   position: relative;
   text-align: center;
   z-index: 1;
@@ -2176,19 +2176,20 @@ a[download]::after {
 
 .evidence-chain-node {
   align-items: center;
-  background: var(--chain-accent-soft);
-  border: 1px solid var(--chain-accent-border);
-  border-radius: var(--radius-full);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   color: var(--chain-accent);
   display: inline-flex;
   flex: 0 0 auto;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: var(--font-semibold);
-  height: 2.4rem;
+  height: auto;
   justify-content: center;
   letter-spacing: var(--tracking-normal);
-  width: 2.4rem;
+  line-height: var(--leading-tight);
+  width: auto;
 }
 
 .evidence-chain-kicker {
@@ -2202,7 +2203,7 @@ a[download]::after {
 }
 
 .evidence-chain-card h3 {
-  color: var(--text-primary);
+  color: var(--chain-accent);
   font-size: var(--text-xl);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-normal);
@@ -2281,11 +2282,6 @@ a[download]::after {
   }
 
   .evidence-chain-card__header {
-    gap: var(--space-3);
-  }
-
-  .evidence-chain-node {
-    height: 2.25rem;
-    width: 2.25rem;
+    gap: var(--space-2);
   }
 }
