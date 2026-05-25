@@ -46,7 +46,7 @@
   /* Text Colors - Updated to Slate (Rich Blue-Grays) for Depth */
   --text-primary: #0f172a;       /* Slate-900 */
   --text-secondary: #334155;     /* Slate-700 */
-  --text-muted: #64748b;         /* Slate-500 */
+  --text-muted: #475569;         /* Slate-600 */
   --text-subtle: var(--text-muted);
 
   /* Border Colors */
@@ -83,12 +83,12 @@
   --text-sm: 0.875rem;    /* 14px */
   --text-base: 1rem;      /* 16px */
   --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.1875rem;   /* 19px */
-  --text-2xl: 1.25rem;    /* 20px */
-  --text-3xl: 1.3rem;     /* 21px */
-  --text-4xl: 1.5rem;     /* 24px */
-  --text-5xl: 1.875rem;   /* 30px */
-  --text-6xl: 2rem;       /* 32px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.75rem;    /* 28px */
+  --text-4xl: 2rem;       /* 32px */
+  --text-5xl: 2.5rem;     /* 40px */
+  --text-6xl: 3rem;       /* 48px */
 
   /* Font Weights */
   --font-light: 300;
@@ -180,12 +180,12 @@
 
 @media (min-width: 768px) {
   :root {
-    --text-xl: 1.2rem;     /* 19px */
-    --text-2xl: 1.35rem;   /* 22px */
-    --text-3xl: 1.625rem;  /* 26px */
-    --text-4xl: 2rem;      /* 32px */
-    --text-5xl: 2.25rem;   /* 36px */
-    --text-6xl: 3rem;      /* 48px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 2rem;      /* 32px */
+    --text-4xl: 2.5rem;    /* 40px */
+    --text-5xl: 3rem;      /* 48px */
+    --text-6xl: 3.5rem;    /* 56px */
   }
 }
 
@@ -193,10 +193,10 @@
   :root {
     --text-xl: 1.25rem;    /* 20px */
     --text-2xl: 1.5rem;    /* 24px */
-    --text-3xl: 1.875rem;  /* 30px */
-    --text-4xl: 2.25rem;   /* 36px */
-    --text-5xl: 2.75rem;   /* 44px */
-    --text-6xl: 3.75rem;   /* 60px */
+    --text-3xl: 2rem;      /* 32px */
+    --text-4xl: 2.5rem;    /* 40px */
+    --text-5xl: 3.5rem;    /* 56px */
+    --text-6xl: 4.5rem;    /* 72px */
   }
 }
 
@@ -1200,14 +1200,13 @@ abbr {
   display: flex;
   flex-direction: column;
   height: 100%;
-  text-align: center; /* Center everything by default */
-  align-items: center; /* Center flex children */
+  text-align: left;
+  align-items: flex-start;
 }
 
 /* Interactive cards get hover effects */
 a.card:hover,
-.card-interactive:hover,
-.card:hover { /* Allow subtle lift on all cards for tactile feel */
+.card-interactive:hover {
   border-color: var(--color-primary-a15);
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
@@ -1220,14 +1219,14 @@ a.card:hover,
   margin-bottom: var(--space-4);
   color: var(--text-primary);
   line-height: var(--leading-tight);
-  text-align: center; /* Center all card titles */
+  text-align: left;
 }
 
 .card p {
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
-  text-align: center; /* Center paragraphs */
+  text-align: left;
 }
 
 .card p:last-child {
@@ -1239,11 +1238,9 @@ a.card:hover,
 }
 
 .card .checks {
-  margin: var(--space-4) auto; /* Center the block */
-  text-align: left; /* Keep list items left-aligned */
-  display: inline-block; /* Shrink wrap to content */
-  width: 100%; /* Allow full width but content centered if inline-block context allows, or specific width */
-  max-width: fit-content; /* Center the list block */
+  margin: var(--space-4) 0;
+  text-align: left;
+  width: 100%;
 }
 
 .card .checks li {
@@ -1266,6 +1263,7 @@ a.card:hover,
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
   transition: all var(--transition-base);
 }
@@ -1276,7 +1274,7 @@ a.card-hero {
 }
 
 a.card-hero:hover,
-.card-hero:hover { /* Allow hover on static cards too for delight */
+a.card.card-hero:hover {
   border-color: var(--color-primary-a15);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
@@ -2038,12 +2036,11 @@ a[download]::after {
   transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center flex children (badge) */
-  text-align: center; /* Center text */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .timeline-content:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
   border-color: var(--color-primary-a15);
 }
@@ -2071,7 +2068,7 @@ a[download]::after {
   font-weight: var(--font-bold);
   color: var(--text-primary);
   margin: 0 0 var(--space-4);
-  text-align: center;
+  text-align: left;
 }
 
 .section-block .timeline-content h3 {
@@ -2082,7 +2079,7 @@ a[download]::after {
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-size: var(--text-base);
 }
 
@@ -2136,12 +2133,12 @@ a[download]::after {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  align-items: center;
+  align-items: stretch;
   min-height: 100%;
   overflow: hidden;
   padding: var(--space-6);
   position: relative;
-  text-align: center;
+  text-align: left;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
