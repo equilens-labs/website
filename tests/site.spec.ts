@@ -199,6 +199,31 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('--color-gray-900: var(--eql-color-ink-900);');
   });
 
+  test('mobile section headings avoid emergency mid-word wrapping', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 390, height: 900 });
+    await page.goto('/fl-bsa/#docs', { waitUntil: 'networkidle' });
+
+    const heading = page.locator('#docs h2');
+    await expect(heading).toHaveText('Documentation');
+
+    const metrics = await heading.evaluate((element) => {
+      const styles = window.getComputedStyle(element);
+      const lineHeight = parseFloat(styles.lineHeight);
+      const height = element.getBoundingClientRect().height;
+
+      return {
+        fontSize: styles.fontSize,
+        lineCount: height / lineHeight,
+        overflowWrap: styles.overflowWrap,
+      };
+    });
+
+    expect(metrics.fontSize).toBe('36px');
+    expect(metrics.overflowWrap).toBe('normal');
+    expect(metrics.lineCount).toBeLessThan(1.2);
+  });
+
   for (const pageEntry of pages) {
     test(`${pageEntry.path} renders nav and footer`, async ({ page }, testInfo) => {
       await stubPlausible(page);
