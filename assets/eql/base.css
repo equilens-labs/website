@@ -1000,13 +1000,18 @@ abbr {
 }
 
 /* Policy pages (legal) */
+.policy .section-block {
+  max-width: 48rem;
+}
+
 .policy .section-block > h2 {
+  color: var(--color-primary-text);
   text-align: center;
   font-size: var(--text-3xl);
 }
 
 .policy .section-block > .container {
-  max-width: 48rem;
+  max-width: 100%;
 }
 
 .policy .section-block .container > h2 {
@@ -1703,6 +1708,12 @@ a[download]::after {
   color: var(--color-primary);
 }
 
+.trust-center-page .section-block .card h2,
+.trust-center-page .section-block .card h3,
+.trust-center-page .evidence-chain-card h3 {
+  color: var(--color-primary-text);
+}
+
 /* ============================================================================
    7. FOOTER
    ============================================================================ */
@@ -2152,7 +2163,9 @@ a[download]::after {
   --chain-accent: var(--color-primary);
   --chain-accent-soft: var(--color-primary-a08);
   --chain-accent-border: var(--color-primary-a15);
-  background: var(--color-white);
+  background:
+    linear-gradient(180deg, var(--chain-accent-soft), rgba(255, 255, 255, 0) 4.5rem),
+    var(--color-white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
@@ -2169,7 +2182,7 @@ a[download]::after {
 }
 
 .evidence-chain-card::before {
-  background: var(--chain-accent-border);
+  background: var(--chain-accent-soft);
   content: "";
   height: 3px;
   left: 0;
@@ -2202,10 +2215,10 @@ a[download]::after {
 
 .evidence-chain-node {
   align-items: center;
-  background: var(--chain-accent);
-  border: 0;
+  background: var(--chain-accent-soft);
+  border: 1px solid var(--chain-accent-border);
   border-radius: var(--radius-full);
-  color: var(--color-white);
+  color: var(--color-primary-text);
   display: inline-flex;
   flex: 0 0 auto;
   font-family: var(--font-mono);
