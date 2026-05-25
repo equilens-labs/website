@@ -118,15 +118,24 @@
           <p class="lead"><span class="product-name">FL-BSA</span> is customer-hosted by design. Customer borrower datasets and model details remain inside the customer-controlled environment in normal appliance operation.</p>
           <div class="grid">
             <div class="card">
-              <h3>Customer-hosted appliance</h3>
+              <h3>
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+                Customer-hosted appliance
+              </h3>
               <p>The configured product posture keeps borrower datasets, model parameters, and protected-attribute data inside the customer environment. Equilens does not receive those materials as part of normal appliance operation.</p>
             </div>
             <div class="card">
-              <h3>Equilens business data</h3>
+              <h3>
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Equilens business data
+              </h3>
               <p>Equilens still processes business contact, website, procurement, support, and company-communication data. The privacy notice explains those uses and how to contact us.</p>
             </div>
             <div class="card">
-              <h3>Privacy contact</h3>
+              <h3>
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Privacy contact
+              </h3>
               <p>Privacy and data-protection matters route through the role inbox listed in the privacy notice. Additional privacy-governance items are tracked internally until approved for publication.</p>
             </div>
           </div>
@@ -143,15 +152,7 @@
             <article class="evidence-chain-card" role="listitem">
               <div class="evidence-chain-card__header">
                 <span class="evidence-chain-node" aria-hidden="true">01</span>
-                <div>
-                  <p class="evidence-chain-kicker">Capture</p>
-                  <h3><span class="sr-only">Step 1: </span>Run Context</h3>
-                </div>
-              </div>
-              <div class="evidence-chain-tags">
-                <code>task_id</code>
-                <code>dataset_hash</code>
-                <code>rng_seed</code>
+                <h3><span class="sr-only">Step 1: </span>Run Context</h3>
               </div>
               <ul class="checks evidence-chain-list">
                 <li>Task ID, timestamps, RNG seed, and software version.</li>
@@ -162,15 +163,7 @@
             <article class="evidence-chain-card" role="listitem">
               <div class="evidence-chain-card__header">
                 <span class="evidence-chain-node" aria-hidden="true">02</span>
-                <div>
-                  <p class="evidence-chain-kicker">Record</p>
-                  <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
-                </div>
-              </div>
-              <div class="evidence-chain-tags">
-                <code>metrics.json</code>
-                <code>manifest.json</code>
-                <code>reports</code>
+                <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
               </div>
               <ul class="checks evidence-chain-list">
                 <li><code>metrics.json</code> as the technical source of truth for the run.</li>
@@ -181,15 +174,7 @@
             <article class="evidence-chain-card" role="listitem">
               <div class="evidence-chain-card__header">
                 <span class="evidence-chain-node" aria-hidden="true">03</span>
-                <div>
-                  <p class="evidence-chain-kicker">Link</p>
-                  <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
-                </div>
-              </div>
-              <div class="evidence-chain-tags">
-                <code>certificate_hash</code>
-                <code>previous_hash</code>
-                <code>cert_chain</code>
+                <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
               </div>
               <ul class="checks evidence-chain-list">
                 <li>Data-lineage, training, tuning, synthetic-quality, and pipeline certificates.</li>
@@ -200,15 +185,7 @@
             <article class="evidence-chain-card" role="listitem">
               <div class="evidence-chain-card__header">
                 <span class="evidence-chain-node" aria-hidden="true">04</span>
-                <div>
-                  <p class="evidence-chain-kicker">Check</p>
-                  <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
-                </div>
-              </div>
-              <div class="evidence-chain-tags">
-                <code>evidence.zip</code>
-                <code>sidecar</code>
-                <code>hashing spec</code>
+                <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
               </div>
               <ul class="checks evidence-chain-list">
                 <li>Evidence bundle and sidecar manifest retrievable by Task ID.</li>
@@ -218,8 +195,11 @@
             </article>
           </div>
 
-          <div class="card card--compact mt-8">
-            <h3>Public reports &amp; files</h3>
+          <div class="card card--compact card--reader mt-8">
+            <h3>
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
+              Public reports &amp; files
+            </h3>
             <ul class="checks">
               <li><span class="product-name">FL-BSA</span> controlled-pilot product reference: <code>v5.0.0-rc8.4</code>.</li>
               <li>Selected public demo downloads are available from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>.</li>
@@ -271,7 +251,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-25 (commit 9fdffd1).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-25 (commit 9af32f4).</small>
   </div>
 </footer>
 
