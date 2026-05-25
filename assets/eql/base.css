@@ -2158,6 +2158,7 @@ a[download]::after {
   box-shadow: var(--shadow-card-hover);
 }
 
+/* Evidence cards keep a centered stepper cap while list content stays left-aligned. */
 .evidence-chain-card__header {
   align-items: center;
   display: flex;
