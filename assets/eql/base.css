@@ -1035,6 +1035,14 @@ abbr {
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .policy .section-block p:not(.note) {
+    text-align: justify;
+    text-align-last: left;
+  }
 }
 
 .policy .section-block .checks li {
@@ -1049,7 +1057,8 @@ abbr {
   margin: var(--space-5) 0;
   margin-left: 0;
   margin-right: 0;
-  max-width: var(--measure-default);
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Legal/policy page h3 styling (direct children only, not in cards) */
