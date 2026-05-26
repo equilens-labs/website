@@ -2163,9 +2163,7 @@ a[download]::after {
   --chain-accent: var(--color-primary);
   --chain-accent-soft: var(--color-primary-a08);
   --chain-accent-border: var(--color-primary-a15);
-  background:
-    linear-gradient(180deg, var(--chain-accent-soft), rgba(255, 255, 255, 0) 4.5rem),
-    var(--color-white);
+  background: var(--color-white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
@@ -2181,16 +2179,7 @@ a[download]::after {
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.evidence-chain-card::before {
-  background: var(--chain-accent-soft);
-  content: "";
-  height: 3px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
+.evidence-chain-card::before,
 .evidence-chain-card::after {
   display: none;
 }
@@ -2233,7 +2222,7 @@ a[download]::after {
 
 .evidence-chain-card h3 {
   color: var(--chain-accent);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-bold);
   letter-spacing: var(--tracking-normal);
   line-height: var(--leading-tight);
