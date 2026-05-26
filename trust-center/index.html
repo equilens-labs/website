@@ -154,9 +154,9 @@
                 <h3><span class="sr-only">Step 1: </span>Run Context</h3>
               </div>
               <ul class="checks evidence-chain-list">
-                <li>Task ID, timestamps, RNG seed, and software version.</li>
-                <li><code>dataset_hash</code> binding the run to the input snapshot.</li>
-                <li>Row/feature counts and protected-attribute summary where available.</li>
+                <li><strong>Task ID, timestamps, and RNG seed</strong> identify the exact run.</li>
+                <li><code>dataset_hash</code> binds the run to its input snapshot.</li>
+                <li><strong>Row and feature counts</strong> record scale, with protected-attribute summary where available.</li>
               </ul>
             </article>
             <article class="evidence-chain-card" role="listitem">
@@ -165,9 +165,9 @@
                 <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
               </div>
               <ul class="checks evidence-chain-list">
-                <li><code>metrics.json</code> as the technical source of truth for the run.</li>
-                <li>Synthetic-data manifests and hashes for generated outputs.</li>
-                <li>Configuration snapshot, relevant log excerpts, and rendered reports.</li>
+                <li><code>metrics.json</code> remains the technical source of truth for the run.</li>
+                <li><strong>Synthetic-data manifests and hashes</strong> identify generated outputs.</li>
+                <li><strong>Configuration snapshots, log excerpts, and rendered reports</strong> are retained with the run.</li>
               </ul>
             </article>
             <article class="evidence-chain-card" role="listitem">
@@ -176,9 +176,9 @@
                 <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
               </div>
               <ul class="checks evidence-chain-list">
-                <li>Data-lineage, training, tuning, synthetic-quality, and pipeline certificates.</li>
-                <li>Sequential <code>previous_certificate_hash</code> links within the run.</li>
-                <li>Regulatory-alignment certificate as a traceability artifact, not a legal attestation.</li>
+                <li><strong>Lineage, training, tuning, synthetic-quality, and pipeline certificates</strong> cover the workflow.</li>
+                <li><code>previous_certificate_hash</code> links each certificate to the prior artifact.</li>
+                <li><strong>Regulatory-alignment certificate</strong> supports traceability without becoming a legal attestation.</li>
               </ul>
             </article>
             <article class="evidence-chain-card" role="listitem">
@@ -187,9 +187,9 @@
                 <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
               </div>
               <ul class="checks evidence-chain-list">
-                <li>Evidence bundle and sidecar manifest retrievable by Task ID.</li>
-                <li>Certificate hashes can be recomputed using the documented hashing spec shipped with the evidence bundle.</li>
-                <li>Optional encryption, signing, and witnessing depend on deployment configuration.</li>
+                <li><strong>Evidence bundle and sidecar manifest</strong> are retrievable by Task ID.</li>
+                <li><strong>Certificate hashes</strong> can be recomputed using the documented hashing spec shipped with the bundle.</li>
+                <li><strong>Encryption, signing, and witnessing</strong> remain deployment-specific controls.</li>
               </ul>
             </article>
           </div>
