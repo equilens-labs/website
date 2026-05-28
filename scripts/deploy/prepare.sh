@@ -9,6 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Copy only the public website surface (allowlist)
 # NOTE: When adding a new top-level page/section, update SITE_FILES/SITE_DIRS so it is included in dist/.
 SITE_FILES=(
+  ".nojekyll"
   "404.html"
   "index.html"
   "robots.txt"
