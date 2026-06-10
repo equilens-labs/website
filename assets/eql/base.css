@@ -2303,3 +2303,16 @@ a[download]::after {
 
 /* Prevent abbr chips (SHA-256, SLA, etc.) breaking across lines */
 abbr[title] { white-space: nowrap; }
+
+/* Sentence-length hero headlines: one size down from the wordmark display size,
+   balanced wrapping, bounded measure. (.brand-title remains for short wordmarks.) */
+.hero-headline {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-extrabold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  text-align: center;
+  text-wrap: balance;
+  max-width: 24ch;
+  margin: 0 auto;
+}
