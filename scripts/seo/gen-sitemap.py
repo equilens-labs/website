@@ -18,9 +18,21 @@ if not domain:
 base_url = f"https://{domain}"
 today = datetime.date.today().isoformat()
 
+EXCLUDED_TOP_DIRS = {"output", "templates", "node_modules", "dist", "ci-debug"}
+
 urls: list[str] = []
 for html_file in sorted(ROOT.rglob("index.html")):
     rel = html_file.parent.relative_to(ROOT)
+    parts = rel.parts
+    if parts and parts[0] in EXCLUDED_TOP_DIRS:
+        continue
+    # Skip meta-refresh redirect stubs: they are URL aliases, not canonical pages,
+    # and must not appear in the sitemap.
+    try:
+        if 'http-equiv="refresh"' in html_file.read_text(encoding="utf-8", errors="ignore"):
+            continue
+    except OSError:
+        continue
     if rel == pathlib.Path('.'):
         path = '/'
     else:

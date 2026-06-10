@@ -29,3 +29,7 @@ node_modules/
 
 # Lighthouse CI local output
 .lighthouseci/
+
+# Python bytecode
+__pycache__/
+*.pyc
