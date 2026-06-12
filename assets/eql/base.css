@@ -1790,7 +1790,7 @@ a[download]::after {
 }
 
 .site-footer .footer-boundary {
-  max-width: var(--measure-wide);
+  max-width: 72rem;
   margin: 0 auto var(--space-2);
   text-align: center;
   color: var(--text-primary);
