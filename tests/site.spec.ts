@@ -158,13 +158,64 @@ test.describe('Equilens site surfaces', () => {
     const contact = fs.readFileSync(path.join(root, 'contact', 'index.html'), 'utf-8');
 
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
+    expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);');
     expect(css).toContain('.section-block p {\n  text-align: left;\n  line-height: var(--leading-relaxed);');
+    expect(css).toContain('.section-block {\n  background: rgba(255, 255, 255, 0.88);');
+    expect(css).toContain('width: calc(100% - var(--space-8));');
+    expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code,\n.evidence-chain-list code {');
+    expect(css).toContain('.hero-highlights .card-hero {\n    display: grid;');
+    expect(css).toContain('.contact-form-card h2 {\n  font-size: var(--text-2xl);');
     expect(css).toContain('.note.note--small {\n  color: var(--text-secondary);\n  font-size: var(--text-note);\n  font-style: normal;');
     expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
+    expect(procurement).toContain('<h1 class="hero-headline">Procurement &amp; Deployment</h1>');
+    expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
     expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
     expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
     expect(contact).toContain('<body class="eql">');
     expect(contact).not.toContain('<body class="eql landing">');
+  });
+
+  test('visual system primitives render consistently across breakpoints', async ({ page }) => {
+    await stubPlausible(page);
+
+    await page.setViewportSize({ width: 390, height: 1000 });
+    await page.goto('/procurement/', { waitUntil: 'networkidle' });
+    const mobileSectionBlock = page.locator('.section-block').first();
+    const mobileSectionBox = await mobileSectionBlock.boundingBox();
+    expect(mobileSectionBox?.x).toBeGreaterThanOrEqual(15);
+    expect(mobileSectionBox?.width).toBeLessThanOrEqual(360);
+    await expect(page.locator('h1.hero-headline')).toHaveText('Procurement & Deployment');
+
+    await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    const heroHighlightsBox = await page.locator('.hero-highlights').boundingBox();
+    expect(heroHighlightsBox?.height).toBeLessThan(430);
+
+    await page.setViewportSize({ width: 820, height: 1100 });
+    await page.goto('/trust-center/', { waitUntil: 'networkidle' });
+    const codeWrap = await page.locator('.evidence-chain-list code').first().evaluate((element) => {
+      const style = getComputedStyle(element);
+      return {
+        overflowWrap: style.overflowWrap,
+        wordBreak: style.wordBreak,
+      };
+    });
+    expect(codeWrap).toEqual({ overflowWrap: 'anywhere', wordBreak: 'break-word' });
+    const tabletOverflow = await page.evaluate(() =>
+      Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) -
+      document.documentElement.clientWidth
+    );
+    expect(tabletOverflow).toBeLessThanOrEqual(1);
+
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto('/contact/', { waitUntil: 'networkidle' });
+    const contactHeadingStyle = await page.locator('.contact-form-card h2').evaluate((element) => {
+      const style = getComputedStyle(element);
+      return {
+        fontSize: style.fontSize,
+        fontWeight: style.fontWeight,
+      };
+    });
+    expect(contactHeadingStyle).toEqual({ fontSize: '24px', fontWeight: '600' });
   });
 
   test('Tier 3 token and CTA polish stays in place', async () => {
@@ -240,7 +291,7 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('--color-gray-900: var(--eql-color-ink-900);');
   });
 
-  test('mobile section headings avoid emergency mid-word wrapping', async ({ page }) => {
+  test('mobile section headings use the compact section scale without emergency wrapping', async ({ page }) => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 390, height: 900 });
     await page.goto('/fl-bsa/#docs', { waitUntil: 'networkidle' });
@@ -260,7 +311,7 @@ test.describe('Equilens site surfaces', () => {
       };
     });
 
-    expect(metrics.fontSize).toBe('36px');
+    expect(metrics.fontSize).toBe('28px');
     expect(metrics.overflowWrap).toBe('normal');
     expect(metrics.lineCount).toBeLessThan(1.2);
   });
