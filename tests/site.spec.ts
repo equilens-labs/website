@@ -169,6 +169,7 @@ test.describe('Equilens site surfaces', () => {
 
   test('Tier 3 token and CTA polish stays in place', async () => {
     const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
+    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
     const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
     const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
     const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
@@ -186,6 +187,13 @@ test.describe('Equilens site surfaces', () => {
     expect(css).not.toContain('rgba(79, 70, 229, 0.35)');
     expect(css).not.toContain('rgba(79, 70, 229, 0.4)');
     expect(css).not.toContain('.timeline-marker');
+
+    expect(home).toContain('<small class="footer-boundary">Product boundary: FL-BSA');
+    expect(home).not.toContain('<p class="footer-boundary">');
+    expect(home).not.toContain('<strong>Product boundary:</strong>');
+    expect(home).not.toContain('footer-boundary"><span class="product-name">');
+    expect(home.indexOf('Last deploy: stamped during publishing.')).toBeLessThan(home.indexOf('<small class="footer-boundary">Product boundary: FL-BSA'));
+    expect(css).toContain('.site-footer .footer-boundary {\n  max-width: var(--measure-default);\n  margin: var(--space-2) auto 0;\n  padding: 0 var(--space-4);\n  text-align: center;\n  color: var(--text-muted);');
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');
@@ -266,7 +274,7 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('nav.site-nav a.nav-link[href="/procurement/"]')).toHaveText('Procurement');
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator('script[src="https://plausible.io/js/script.outbound-links.file-downloads.js"][data-domain="equilens.io"]')).toHaveCount(1);
-      await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
+      await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
       const linkedInLink = page.locator('footer.site-footer a[href="https://www.linkedin.com/company/equilens-labs/"]');
       await expect(linkedInLink).toHaveCount(1);
       await expect(linkedInLink).toHaveAttribute('target', '_blank');
@@ -342,7 +350,7 @@ test.describe('Equilens site surfaces', () => {
         const hash = anchor.url.slice(hashIndex + 1);
         await expect(page.locator(`#${hash}`)).toBeVisible();
       }
-      await expect(page.locator('footer.site-footer small')).toContainText('Last deploy');
+      await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
     });
   }
 });

@@ -1790,13 +1790,15 @@ a[download]::after {
 }
 
 .site-footer .footer-boundary {
-  max-width: 72rem;
-  margin: 0 auto var(--space-2);
+  max-width: var(--measure-default);
+  margin: var(--space-2) auto 0;
+  padding: 0 var(--space-4);
   text-align: center;
-  color: var(--text-primary);
+  color: var(--text-muted);
   font-size: var(--text-xs);
   line-height: var(--leading-relaxed);
   font-family: var(--font-sans);
+  font-weight: var(--font-normal);
 }
 
 .site-footer .container:last-of-type {
