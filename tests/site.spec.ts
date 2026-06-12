@@ -163,9 +163,16 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('.section-block {\n  background: rgba(255, 255, 255, 0.88);');
     expect(css).toContain('width: calc(100% - var(--space-8));');
     expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code,\n.evidence-chain-list code {');
+    expect(css).toContain('code {\n  background: var(--bg-subtle);');
     expect(css).toContain('.hero-highlights .card-hero {\n    display: grid;');
     expect(css).toContain('.contact-form-card h2 {\n  font-size: var(--text-2xl);');
-    expect(css).toContain('.note.note--small {\n  color: var(--text-secondary);\n  font-size: var(--text-note);\n  font-style: normal;');
+    expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
+    expect(css).toContain('abbr {\n  text-decoration: none;\n  font-variant-caps: all-small-caps;\n  letter-spacing: var(--tracking-wide);\n  font-weight: var(--font-semibold);');
+    expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
+    expect(css).toContain('.note.note--small {\n  color: var(--text-muted);\n  font-size: var(--text-note);\n  font-style: normal;');
+    expect(css).toContain('.section-block .note,\n.card .note,\n.contact-form .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
+    expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
+    expect(css).not.toContain('font-style: italic;');
     expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
     expect(procurement).toContain('<h1 class="hero-headline">Procurement &amp; Deployment</h1>');
     expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
