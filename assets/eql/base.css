@@ -912,10 +912,6 @@ abbr {
   letter-spacing: var(--tracking-normal);
 }
 
-.product-page--flbsa .section-block .lead {
-  color: var(--text-primary);
-}
-
 .product-page--flbsa .section-block .card h3,
 .product-page--flbsa .timeline-content h3,
 .product-page--flbsa .faq-item summary {
@@ -953,11 +949,12 @@ abbr {
 
 /* Section block - clean container for content sections */
 .section-block {
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.88);
   padding: var(--space-10) var(--space-6);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
+  width: calc(100% - var(--space-8));
   max-width: var(--max-width-5xl);
   margin: 0 auto;
 }
@@ -965,6 +962,7 @@ abbr {
 @media (min-width: 768px) {
   .section-block {
     padding: var(--space-12) var(--space-10);
+    width: calc(100% - var(--space-12));
   }
 }
 
@@ -996,6 +994,11 @@ abbr {
 
 .section-block h2 {
   margin-top: 0;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
   text-align: center;
 }
 
@@ -1090,7 +1093,7 @@ abbr {
 
 .section-block .note {
   text-align: center;
-  max-width: var(--content-width);
+  max-width: var(--measure-default);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1192,12 +1195,10 @@ abbr {
 /* Cards - Updated for Modern Look */
 .card {
   background: var(--color-white);
-  /* Softer border but visible */
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--space-8);
   transition: all var(--transition-base);
-  /* Deeper shadow for pop */
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
@@ -1281,7 +1282,7 @@ a.card:hover,
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--surface-glass-card-border);
   box-shadow: var(--shadow-md);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--space-8) var(--space-6);
   text-align: center;
   display: flex;
@@ -1390,9 +1391,9 @@ a.card.card-hero:hover {
 
 .step {
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   background: var(--color-white);
-  padding: var(--space-7);
+  padding: var(--space-8);
   transition: all var(--transition-base);
   box-shadow: var(--shadow-card);
   text-align: center;
@@ -1415,9 +1416,9 @@ a.card.card-hero:hover {
 
 .step header h3 {
   margin: 0;
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--text-primary);
+  color: var(--color-primary-text);
   line-height: var(--leading-tight);
 }
 
@@ -1548,11 +1549,18 @@ a[download]::after {
 }
 
 .contact-form-card h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
   text-align: center;
   margin-bottom: var(--space-2);
 }
 
 .contact-form-card .lead {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-narrow);
   text-align: center;
   margin-bottom: var(--space-8);
 }
@@ -1648,9 +1656,10 @@ a[download]::after {
 /* FAQ Accordion */
 .faq-item {
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   margin-bottom: var(--space-4);
   background: var(--color-white);
+  box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
 }
 
@@ -1705,7 +1714,7 @@ a[download]::after {
 /* Accent card headings inside section panels (TOC pages). */
 .section-block .card h2,
 .section-block .card h3 {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .trust-center-page .section-block .card h2,
@@ -1804,6 +1813,15 @@ a[download]::after {
 .site-footer .container:last-of-type {
   padding-top: var(--space-3);
   border-top: 1px solid var(--border-light);
+}
+
+.section-block code,
+.card code,
+.note code,
+.checks code,
+.evidence-chain-list code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* ============================================================================
@@ -1947,12 +1965,42 @@ a[download]::after {
     margin-top: var(--space-5);
   }
 
-  .section-block code,
-  .card code,
-  .note code,
-  .checks code {
-    overflow-wrap: anywhere;
-    word-break: break-word;
+  .hero-highlights.grid {
+    gap: var(--space-3);
+  }
+
+  .hero-highlights .card-hero {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--space-3);
+    row-gap: var(--space-1);
+    padding: var(--space-4);
+    text-align: left;
+  }
+
+  .hero-highlights .card-hero .icon-hero {
+    grid-row: 1 / span 2;
+    margin: 0;
+    width: 22px;
+    height: 22px;
+  }
+
+  .hero-highlights .card-hero h3,
+  .hero-highlights .card-hero p {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    text-align: left;
+  }
+
+  .hero-highlights .card-hero h3 {
+    font-size: var(--text-base);
+    margin-bottom: 0;
+  }
+
+  .hero-highlights .card-hero p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
   }
 
   .product-subnav {
@@ -1972,6 +2020,10 @@ a[download]::after {
 
   .grid {
     gap: var(--space-6);
+  }
+
+  .section-block h2 {
+    font-size: var(--text-3xl);
   }
 }
 
@@ -2226,7 +2278,7 @@ a[download]::after {
   --chain-accent-border: var(--color-primary-a15);
   background: var(--color-white);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
