@@ -189,7 +189,7 @@
               <ul class="checks evidence-chain-list">
                 <li><strong>Evidence bundle and sidecar manifest</strong> are retrievable by Task ID.</li>
                 <li><strong>Certificate hashes</strong> can be recomputed using the documented hashing spec shipped with the bundle.</li>
-                <li><strong>Vendor trust root:</strong> signed release manifests and evidence attestations verify against our published keys at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code> — verify out of band. Verification is offline; no Equilens service is required.</li>
+                <li><strong>Vendor trust root:</strong> where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against our published keys at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code> — verify out of band. Customer-local evidence with <code>vendor_authorship_claimed=false</code> proves bundle consistency, not vendor authorship. Verification is offline; no Equilens service is required.</li>
                 <li><strong>Encryption, signing, and witnessing</strong> remain deployment-specific controls.</li>
               </ul>
             </article>

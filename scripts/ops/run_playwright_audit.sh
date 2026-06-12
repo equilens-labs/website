@@ -8,6 +8,7 @@ mkdir -p "$OUT"
 
 export PLAYWRIGHT_AUDIT_TAG="$TAG"
 export PLAYWRIGHT_AUDIT_STAMP="$STAMP"
+PLAYWRIGHT_WORKERS="${PLAYWRIGHT_WORKERS:-8}"
 
 PORT=8000
 BASE_URL="http://localhost:${PORT}"
@@ -32,7 +33,7 @@ cleanup() {
 trap cleanup EXIT
 
 npx @playwright/test install chromium >/tmp/playwright-install.log 2>&1
-npx @playwright/test test --config=playwright.config.ts
+npx @playwright/test test --config=playwright.config.ts --workers="${PLAYWRIGHT_WORKERS}"
 
 ARTIFACTS="${OUT}/artifacts"
 if compgen -G "${ARTIFACTS}/*.png" >/dev/null 2>&1; then

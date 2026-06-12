@@ -51,13 +51,13 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default."}},
+      {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. It does not exfiltrate model parameters, raw data, or SCPD to Equilens-controlled services. Optional AWS Marketplace usage metering is enabled only by configuration."}},
         {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
-      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment."}},
+      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping."}},
       {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS path, or agree a controlled container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
         {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}},
-      {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode that computes the same fairness evidence directly on decision or score columns your own models produce. It is not yet shipped."}},
-      {"@type":"Question","name":"Can we verify the evidence ourselves?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evidence bundles are hash-linked (SHA-256) with a documented hashing spec shipped in the bundle, and signed artefacts verify against the published Equilens vendor trust root at /fl-bsa/trust-root.json. Verification is offline; no Equilens service is required."}}
+      {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped."}},
+      {"@type":"Question","name":"Can we verify the evidence ourselves?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evidence bundles are hash-linked (SHA-256) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at /fl-bsa/trust-root.json. Direct-AMI/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required."}}
     ]
    }
   </script>
@@ -94,6 +94,10 @@
             <p class="lead">
               <span class="product-name">FL-BSA</span> — the Fair-Lending Bias-Simulation Appliance — is a self-hosted fair-outcomes evidence appliance for regulated credit decisions. It runs inside the customer-controlled environment and helps teams review credit-decision, affordability, pricing, underwriting, and policy-review workflows. Each run packages a PDF report, metrics, manifests, and certificates for governance, model-risk, audit, and regulatory review.
             </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
+              <a class="btn btn-secondary" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
+            </div>
             <h2 class="sr-only">FL-BSA highlights</h2>
             <div class="hero-highlights grid grid-3" aria-label="FL-BSA highlights">
               <div class="card card-hero">
@@ -111,10 +115,6 @@
                 <h3>Evidence Packs</h3>
                 <p>Generate reports, manifests, and certificates that support audit, model-risk, and regulatory review.</p>
               </div>
-            </div>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
-              <a class="btn btn-secondary" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
             </div>
           </div>
         </section>
@@ -149,7 +149,7 @@
           </div>
         </div>
       </div>
-      <p class="note"><strong>In build — measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns learned from your historical data; it never executes your models. We are building a production-targeted measurement mode that computes the same fairness evidence directly on decision or score columns produced by your own models. It is in active development and is not part of the current release.</p>
+      <p class="note"><strong>In build — measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns learned from your historical data; it never executes your models. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is in active development and is not part of the current release.</p>
     </div>
   </section>
 
@@ -297,7 +297,7 @@
       <h2>FAQ</h2>
       <details class="faq-item">
         <summary>Does any customer data leave our environment?</summary>
-        <p>No. <span class="product-name">FL-BSA</span> is self-hosted; all compute happens in your <abbr title="Virtual Private Cloud">VPC</abbr> or <abbr title="Virtual Machine">VM</abbr>. Zero outbound calls by default.</p>
+        <p>No. <span class="product-name">FL-BSA</span> is self-hosted; all compute happens in your <abbr title="Virtual Private Cloud">VPC</abbr> or <abbr title="Virtual Machine">VM</abbr>. It does not exfiltrate model parameters, raw data, or <abbr title="Special Category Personal Data">SCPD</abbr> to Equilens-controlled services. Optional <abbr title="Amazon Web Services">AWS</abbr> Marketplace usage metering is enabled only by configuration.</p>
       </details>
       <details class="faq-item">
         <summary>How long does a typical run take?</summary>
@@ -305,7 +305,7 @@
       </details>
       <details class="faq-item">
         <summary>Which regulatory frameworks are covered?</summary>
-        <p>Evidence maps to <abbr title="Equal Credit Opportunity Act">ECOA</abbr>/Reg B (US), <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment.</p>
+        <p>Evidence maps to <abbr title="Equal Credit Opportunity Act">ECOA</abbr>/Reg B (US), <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping.</p>
       </details>
       <details class="faq-item">
         <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
@@ -317,11 +317,11 @@
       </details>
       <details class="faq-item">
         <summary>Does <span class="product-name">FL-BSA</span> test our actual production model?</summary>
-        <p>Not in the current release. <span class="product-name">FL-BSA</span> simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode that computes the same fairness evidence directly on decision or score columns your own models produce. It is not yet shipped.</p>
+        <p>Not in the current release. <span class="product-name">FL-BSA</span> simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped.</p>
       </details>
       <details class="faq-item">
         <summary>Can we verify the evidence ourselves?</summary>
-        <p>Yes. Evidence bundles are hash-linked (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) with a documented hashing spec shipped in the bundle, and signed artefacts verify against the published Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a>. Verification is offline; no Equilens service is required.</p>
+        <p>Yes. Evidence bundles are hash-linked (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a>. Direct-<abbr title="Amazon Machine Image">AMI</abbr>/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required.</p>
       </details>
     </div>
   </section>

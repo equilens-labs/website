@@ -178,7 +178,7 @@ test.describe('Equilens site surfaces', () => {
 
     expect(flbsa).toContain('<section class="section alt" id="pricing">');
     expect(flbsa).toContain('<section class="section alt" id="docs">');
-    expect(flbsa).toContain('<section class="section alt">\n          <div class="cta-row">');
+    expect(flbsa).toMatch(/<section class="section alt">[\s\S]*<div class="cta-row">/);
     expect(trustCenter).toContain('<section class="section alt" aria-label="Security review next steps">');
   });
 
@@ -242,16 +242,18 @@ test.describe('Equilens site surfaces', () => {
       const manifestLinks = page.locator('a[href$="/manifest.json"]');
       const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
       const provenanceLinks = page.locator('a[href$="/PROVENANCE.md"]');
-      if (pageEntry.path === '/trust-center/') {
+      if (pageEntry.path === '/trust-center/' || pageEntry.path === '/fl-bsa/whitepaper/') {
         await expect(releaseTagLinks).toHaveCount(1);
         await expect(manifestLinks).toHaveCount(1);
         await expect(checksumLinks).toHaveCount(1);
         await expect(provenanceLinks).toHaveCount(1);
+      }
+      if (pageEntry.path === '/trust-center/') {
         await expect(page.getByRole('link', { name: 'Request Security Pack' })).toHaveAttribute(
           'href',
           '/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.',
         );
-      } else {
+      } else if (pageEntry.path !== '/fl-bsa/whitepaper/') {
         await expect(releaseTagLinks).toHaveCount(0);
         await expect(manifestLinks).toHaveCount(0);
         await expect(checksumLinks).toHaveCount(0);
@@ -271,11 +273,11 @@ test.describe('Equilens site surfaces', () => {
         await expect(page.locator('.timeline .timeline-icon')).toHaveCount(0);
         await expect(page.getByRole('link', { name: 'Download Whitepaper Intake (ZIP)' })).toHaveAttribute(
           'href',
-          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/WhitePaper_Intake_Bundle_v4.zip',
+          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
         );
         await expect(page.getByRole('link', { name: 'Download Demo GOLD Pack (ZIP)' })).toHaveAttribute(
           'href',
-          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/gold_bundle.zip',
+          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip',
         );
       }
 
