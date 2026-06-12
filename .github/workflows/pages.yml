@@ -25,7 +25,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SITE_VISIBILITY: ${{ github.event_name == 'workflow_dispatch' && inputs.visibility || 'private' }}
+  # Default flipped to 'public' on 2026-06-10 (indexing unblock): pushes to main now deploy
+  # publicly. A manual workflow_dispatch with visibility=private remains available to re-hide.
+  SITE_VISIBILITY: ${{ github.event_name == 'workflow_dispatch' && inputs.visibility || 'public' }}
 
 jobs:
   build:
@@ -104,19 +106,9 @@ jobs:
       - name: Render OpenGraph PNG from SVG
         run: scripts/og/render.sh
 
-      - name: Install Chrome (for PDF render)
-        uses: browser-actions/setup-chrome@v1
-
-      - name: Render Whitepaper PDF (deploy artifact)
-        continue-on-error: true
-        timeout-minutes: 2
-        run: |
-          HTML="${{ github.workspace }}/fl-bsa/whitepaper/index.html"
-          OUT="${{ github.workspace }}/fl-bsa/whitepaper/Equilens_FL-BSA_Whitepaper_v1.pdf"
-          echo "Rendering $HTML -> $OUT"
-          timeout 90s google-chrome --headless=new --no-sandbox --disable-gpu \
-            --print-to-pdf="$OUT" "file://$HTML" || echo "PDF render timed out or failed"
-          ls -lh "$OUT" || echo "PDF not generated"
+      # Removed 2026-06-10: the "Render Whitepaper PDF" step printed the whitepaper page HTML to
+      # an unlinked PDF at a guessable URL. The canonical whitepaper PDF ships from the pinned
+      # public release; the on-site page at /fl-bsa/whitepaper/ links it directly.
 
       - name: Prepare deploy artifact
         run: |

@@ -3,27 +3,116 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri none; form-action none">
-  <title>Redirecting to FL-BSA Whitepaper...</title>
-  <meta content="0; url=/fl-bsa/#whitepaper" http-equiv="refresh"/>
-  <link href="https://equilens.io/fl-bsa/" rel="canonical"/>
-  <meta content="Redirecting to the FL-BSA whitepaper section." name="description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="https://equilens.io/fl-bsa/" property="og:url"/>
-  <meta content="Redirecting to FL-BSA Whitepaper..." property="og:title"/>
-  <meta content="Redirecting to the FL-BSA whitepaper section." property="og:description"/>
+  <title>FL-BSA Technical Whitepaper — Demo Evidence — Equilens</title>
+  <meta content="The FL-BSA technical whitepaper: how a regulated-credit dataset becomes a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data, with offline verification steps." name="description"/>
+  <link href="https://equilens.io/fl-bsa/whitepaper/" rel="canonical"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="#4f46e5" name="theme-color"/>
+  <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="/brand/icons/site.webmanifest">
+  <meta content="article" property="og:type"/>
+  <meta content="https://equilens.io/fl-bsa/whitepaper/" property="og:url"/>
+  <meta content="FL-BSA Technical Whitepaper — Demo Evidence" property="og:title"/>
+  <meta content="How FL-BSA turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data and verifiable offline." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="https://equilens.io/fl-bsa/" name="twitter:url"/>
-  <meta content="Redirecting to FL-BSA Whitepaper..." name="twitter:title"/>
-  <meta content="Redirecting to the FL-BSA whitepaper section." name="twitter:description"/>
+  <meta content="https://equilens.io/fl-bsa/whitepaper/" name="twitter:url"/>
+  <meta content="FL-BSA Technical Whitepaper — Demo Evidence" name="twitter:title"/>
+  <meta content="How FL-BSA turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data and verifiable offline." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
-   <!-- Plausible is kept on redirect pages for consistency; it may not fire before the zero-second refresh. -->
-   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
+  <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/eql/base.css">
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
 </head>
- <body class="eql">
-  <p>You are being redirected to the FL-BSA whitepaper section. <a href="/fl-bsa/#whitepaper">Continue</a>.</p>
- </body>
+ <body class="eql product-page product-page--flbsa">
+  <a class="skip-to-content" href="#main">Skip to content</a>
+  <div id="nav-placeholder"></div>
+  <script src="/assets/eql/nav.js" defer></script>
+
+  <main id="main">
+    <section class="hero" id="overview" aria-label="Whitepaper overview">
+      <div class="hero-content">
+        <p class="eyebrow">Technical Whitepaper — Demo Evidence</p>
+        <h1 class="hero-headline"><span class="product-name">FL-BSA</span> Technical Whitepaper</h1>
+        <p class="lead">
+          How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack. Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation — one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline — and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (PDF)</a>
+          <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download Intake Bundle (ZIP)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="boundary">
+      <div class="section-block">
+        <h2>Demo and Synthetic Boundary</h2>
+        <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records. It is published from a non-commercial technical-proof prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
+        <p class="note">The intake bundle is an unsigned, non-evidence-grade diagnostics ZIP with the aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
+      </div>
+    </section>
+
+    <section class="section" id="provenance">
+      <div class="section-block">
+        <h2>Provenance</h2>
+        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its SHA-256 digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="verify">
+      <div class="section-block">
+        <h2>Verify It Yourself</h2>
+        <p class="lead">Verification is offline — no Equilens service is involved.</p>
+        <ol class="checks">
+          <li>Download the <abbr title="Portable Document Format">PDF</abbr> and intake <abbr title="ZIP archive">ZIP</abbr> from the pinned release above.</li>
+          <li>Recompute SHA-256 checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
+          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected trust-root SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code> — verify out of band.</li>
+        </ol>
+        <p class="note">Evidence bundles produced by a deployed appliance ship with a documented hashing spec and offline verification helpers; see the <a href="/trust-center/">Trust Center</a> for the evidence-chain overview.</p>
+      </div>
+    </section>
+
+    <section class="section" id="next">
+      <div class="section-block">
+        <h2>Ready to scope an assessment?</h2>
+        <p class="lead">Request an evidence-readiness assessment, pricing, or guided pilot qualification — a written reply, not a sales call.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/contact/">Request Assessment</a>
+          <a class="btn btn-secondary" href="/fl-bsa/">Back to FL-BSA</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-sync="footer" role="contentinfo">
+  <div class="container grid">
+        <section><h3>Company</h3><ul>
+      <li><a href="/press/">Press</a></li>
+      <li><a href="/procurement/">Procurement</a></li>
+      <li><a href="/trust-center/">Trust Center</a></li>
+      <li><a href="https://www.linkedin.com/company/equilens-labs/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul></section>
+    <section><h3>Legal</h3><ul>
+      <li><a href="/legal/#privacy">Privacy</a></li>
+      <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+      <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+      <li><a href="/legal/#imprint">Imprint</a></li>
+    </ul></section>
+    <section><h3>Resources</h3><ul>
+      <li><a href="/fl-bsa/#docs">Documentation</a></li>
+      <li><a href="/fl-bsa/#faq">FAQ</a></li>
+      <li><a href="/legal/#open-source">Open Source</a></li>
+      <li><a href="/legal/#accessibility">Accessibility</a></li>
+    </ul></section>
+  </div>
+  <div class="container">
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy: stamped during publishing.</small>
+  </div>
+</footer>
+
+</body>
 </html>
