@@ -435,8 +435,8 @@ ul, ol {
 }
 
 .product-name {
-  color: var(--color-primary);
-  font-weight: var(--font-bold);
+  color: var(--color-primary-text);
+  font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-normal);
   white-space: nowrap;
 }
@@ -445,11 +445,22 @@ ul, ol {
 abbr {
   text-decoration: none;
   font-variant-caps: all-small-caps;
-  letter-spacing: var(--tracking-wider);
-  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--font-semibold);
   color: var(--color-primary-text);
-  border-bottom: 1px dotted var(--color-primary-a15);
+  border-bottom: 1px dotted var(--border-medium);
   cursor: help;
+}
+
+code {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-weight: var(--font-medium);
+  padding: 0.05em 0.28em;
 }
 
 /* ============================================================================
@@ -1107,6 +1118,15 @@ abbr {
   line-height: var(--leading-loose);
 }
 
+.section-block strong,
+.card strong,
+.step strong,
+.faq-item strong,
+.note strong {
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
 /* Section-block direct paragraphs (outside container) should also be centered */
 .section-block > p {
   text-align: center;
@@ -1499,43 +1519,36 @@ a[download]::after {
 
 /* Note paragraphs */
 .note {
-  font-size: var(--text-sm);
+  font-size: var(--text-note);
   color: var(--text-muted);
-  font-style: italic;
+  font-style: normal;
   line-height: var(--leading-relaxed);
   margin-top: var(--space-4);
 }
 
 .note.note--small {
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-size: var(--text-note);
   font-style: normal;
   opacity: 1;
 }
 
-.policy .section-block .note {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(255, 255, 255, 0.96));
-  border: 1px solid rgba(79, 70, 229, 0.14);
-  border-left: 3px solid var(--color-primary);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xs);
-  color: var(--text-secondary);
-  font-style: normal;
-  padding: var(--space-4) var(--space-5);
-}
-
-.policy .section-block .note strong {
-  color: var(--text-primary);
-}
-
-.policy .section-block .note em {
+.section-block .note,
+.card .note,
+.contact-form .note {
+  border-top: 1px solid var(--border-light);
   color: var(--text-muted);
+  padding-top: var(--space-3);
 }
 
+.note em {
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: var(--font-semibold);
+}
+
+.policy .section-block .note,
 .policy .section-block .note.note--small {
-  background: rgba(248, 250, 252, 0.95);
-  border-color: rgba(148, 163, 184, 0.22);
-  border-left-color: rgba(79, 70, 229, 0.55);
   color: var(--text-muted);
   font-size: var(--text-note);
 }
