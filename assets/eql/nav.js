@@ -51,15 +51,21 @@ function initNavFeatures() {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.getElementById('nav-links');
   if (toggle && links) {
+    const setOpen = (open) => {
+      links.setAttribute('data-open', String(open));
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('nav-open', open);
+    };
     toggle.addEventListener('click', () => {
       const open = links.getAttribute('data-open') === 'true';
-      links.setAttribute('data-open', String(!open));
-      toggle.setAttribute('aria-expanded', String(!open));
+      setOpen(!open);
+    });
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setOpen(false));
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && links.getAttribute('data-open') === 'true') {
-        links.setAttribute('data-open', 'false');
-        toggle.setAttribute('aria-expanded', 'false');
+        setOpen(false);
         toggle.focus();
       }
     });
@@ -232,4 +238,3 @@ function initScrollSpy() {
 setProductSubnav();
 window.addEventListener('hashchange', setProductSubnav);
 initScrollSpy();
-

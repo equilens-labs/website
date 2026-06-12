@@ -1789,6 +1789,16 @@ a[download]::after {
   font-family: var(--font-sans);
 }
 
+.site-footer .footer-boundary {
+  max-width: var(--measure-wide);
+  margin: 0 auto var(--space-2);
+  text-align: center;
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+  font-family: var(--font-sans);
+}
+
 .site-footer .container:last-of-type {
   padding-top: var(--space-3);
   border-top: 1px solid var(--border-light);
@@ -1855,19 +1865,39 @@ a[download]::after {
     min-height: 44px;
   }
 
+  .navbar-content {
+    position: relative;
+  }
+
   .nav-links {
     display: none;
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    right: 0;
     flex-direction: column;
-    gap: var(--space-4);
-    padding-top: var(--space-3);
+    align-items: stretch;
+    gap: var(--space-1);
+    width: auto;
+    padding: var(--space-3);
+    background: var(--color-white);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
   }
 
   .nav-links[data-open="true"] {
     display: flex;
   }
 
+  body.nav-open main {
+    margin-top: calc(var(--space-20) + 9rem);
+  }
+
   .nav-link {
     padding: var(--space-3) var(--space-4);
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .nav-link::after {
@@ -1891,7 +1921,36 @@ a[download]::after {
   }
 
   .hero {
-    padding: var(--space-24) var(--space-4) var(--space-16);
+    padding: var(--space-16) var(--space-4) var(--space-10);
+  }
+
+  .page-content .hero {
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .hero-content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero-logo {
+    height: 92px;
+  }
+
+  .lead {
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+  }
+
+  .hero-highlights {
+    margin-top: var(--space-5);
+  }
+
+  .section-block code,
+  .card code,
+  .note code,
+  .checks code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .product-subnav {
@@ -2299,4 +2358,20 @@ a[download]::after {
   .evidence-chain-card__header {
     gap: var(--space-2);
   }
+}
+
+/* Prevent abbr chips (SHA-256, SLA, etc.) breaking across lines */
+abbr[title] { white-space: nowrap; }
+
+/* Sentence-length hero headlines: one size down from the wordmark display size,
+   balanced wrapping, bounded measure. (.brand-title remains for short wordmarks.) */
+.hero-headline {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-extrabold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  text-align: center;
+  text-wrap: balance;
+  max-width: 24ch;
+  margin: 0 auto;
 }

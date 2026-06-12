@@ -2,12 +2,11 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
-  <meta name="robots" content="noindex, nofollow">
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance</title>
   <meta content="Self-hosted fair-outcomes evidence appliance for regulated credit decisions: review credit workflows, package evidence outputs, and keep customer data in your environment." name="description"/>
   <link href="https://equilens.io/fl-bsa/" rel="canonical"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri none; form-action none">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
   <meta content="#4f46e5" name="theme-color"/>
   <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
@@ -52,15 +51,16 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. Zero outbound calls by default."}},
-        {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running/capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
-      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment."}},
-      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS path, or agree a private container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
-        {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}}
+      {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. It does not exfiltrate model parameters, raw data, or SCPD to Equilens-controlled services. Optional AWS Marketplace usage metering is enabled only by configuration."}},
+        {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
+      {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping."}},
+      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS path, or agree a controlled container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
+        {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}},
+      {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped."}},
+      {"@type":"Question","name":"Can we verify the evidence ourselves?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evidence bundles are hash-linked (SHA-256) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at /fl-bsa/trust-root.json. Direct-AMI/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required."}}
     ]
    }
   </script>
-  <!-- LEXPRO_PHRASE: regulatory_alignment_certificate -->
   <link rel="stylesheet" href="/assets/eql/base.css">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
 </head>
@@ -89,11 +89,15 @@
       <div class="page-content">
         <section class="hero" id="overview" aria-label="FL-BSA overview">
           <div class="hero-content">
-            <p class="eyebrow">Fair Lending - Bias Simulation Appliance</p>
+            <p class="eyebrow">Fair-Lending Bias-Simulation Appliance</p>
             <h1 class="brand-title">FL-BSA</h1>
             <p class="lead">
               <span class="product-name">FL-BSA</span> — the Fair-Lending Bias-Simulation Appliance — is a self-hosted fair-outcomes evidence appliance for regulated credit decisions. It runs inside the customer-controlled environment and helps teams review credit-decision, affordability, pricing, underwriting, and policy-review workflows. Each run packages a PDF report, metrics, manifests, and certificates for governance, model-risk, audit, and regulatory review.
             </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
+              <a class="btn btn-secondary" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
+            </div>
             <h2 class="sr-only">FL-BSA highlights</h2>
             <div class="hero-highlights grid grid-3" aria-label="FL-BSA highlights">
               <div class="card card-hero">
@@ -104,17 +108,13 @@
               <div class="card card-hero">
                 <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
                 <h3>Outcome Simulation</h3>
-                <p>Stress-test lending models on synthetic borrower cohorts instead of live production decision traffic.</p>
+                <p>Stress-test lending decision patterns on synthetic borrower cohorts instead of live production decision traffic.</p>
               </div>
               <div class="card card-hero">
                 <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
                 <h3>Evidence Packs</h3>
                 <p>Generate reports, manifests, and certificates that support audit, model-risk, and regulatory review.</p>
               </div>
-            </div>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
-              <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
             </div>
           </div>
         </section>
@@ -127,13 +127,13 @@
         <div class="timeline-item">
           <div class="timeline-content">
             <h3><span class="sr-only">Step 1: </span>Snapshot the Baseline</h3>
-            <p>Connect to your data warehouse in read-only mode. <span class="product-name">FL-BSA</span> captures a bounded snapshot of features and decisions to establish the baseline for the run.</p>
+            <p>Point <span class="product-name">FL-BSA</span> at a bounded, read-only snapshot of features and decisions (prepared CSV/Parquet or a warehouse pull) to establish the baseline for the run.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
             <h3><span class="sr-only">Step 2: </span>Simulate Two Branches</h3>
-            <p>Train two generative branches: Amplification reflects the status quo, while Intrinsic models a fairer baseline so teams can isolate structural bias.</p>
+            <p>Train two generative branches. Amplification asks: are we amplifying the unfairness already in our history? Intrinsic asks: would the model still discriminate if history were fairer? The gap between them is the audit object.</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -149,6 +149,7 @@
           </div>
         </div>
       </div>
+      <p class="note"><strong>In build — measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns learned from your historical data; it never executes your models. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is in active development and is not part of the current release.</p>
     </div>
   </section>
 
@@ -192,6 +193,15 @@
         </ul>
         <p class="note">Annual and volume licence structures are post-qualification options, not public cold-sell offers. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</p>
       </div>
+      <div class="card card--reader mt-6">
+        <h3>Engagement Shapes</h3>
+        <ul class="checks">
+          <li><strong>Evidence-readiness assessment</strong> (~5 business days): a short findings memo on your workflow, schema, data boundary, and evidence gaps, with a stop/go recommendation. Pricing on request.</li>
+          <li><strong>Evidence readiness sprint</strong> (~2 weeks): an evidence-gap memo, a draft evidence-pack acceptance checklist, and a scoped plan for a controlled evidence run. Pricing on request.</li>
+          <li><strong>Fair outcomes evidence sprint</strong> (6–10 weeks): one controlled, customer-hosted evidence scenario delivered under controlled-pilot posture, with evidence-pack deliverables and a governance readout. Pricing on request.</li>
+        </ul>
+        <p class="note">Requesting an assessment commits you to nothing beyond a written reply.</p>
+      </div>
       <div class="cta-row">
         <a class="btn btn-primary" href="/contact/">Request Assessment</a>
         <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>
@@ -232,7 +242,7 @@
             <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             Licensing &amp; Usage
           </h3>
-          <p>Usage terms are finalized during pilot qualification and can be provided through a Private Offer or agreed private handoff path. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Custom <abbr title="Service Level Agreement">SLA</abbr>s and professional services statements of work are executed separately.</p>
+          <p>Usage terms are finalized during pilot qualification and can be provided through a Private Offer or agreed private handoff path. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Custom <abbr title="Service Level Agreement">SLA</abbr> terms and professional services statements of work are executed separately.</p>
           <p class="note">Open-source components are catalogued at <a href="/legal/#open-source">/legal/</a>.</p>
         </div>
       </div>
@@ -249,10 +259,10 @@
                   <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                   Whitepaper
                 </h3>
-                <p>Pinned public demo whitepaper covering <span class="product-name">FL-BSA</span>'s regulated-credit evidence model. The intake ZIP is an unsigned, non-evidence-grade diagnostics bundle with aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
+                <p>Public demo whitepaper covering <span class="product-name">FL-BSA</span>'s regulated-credit evidence model. The intake ZIP is an unsigned, non-evidence-grade diagnostics bundle with aggregate synthetic-data and fairness inputs used for the public whitepaper build. See the <a href="/fl-bsa/whitepaper/">whitepaper page</a> for provenance and verification steps.</p>
                 <div class="artifact-actions">
-                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Demo Whitepaper (PDF)</a>
-                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download Whitepaper Intake (ZIP)</a>
+                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (demo build, PDF)</a>
+                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download Whitepaper Intake (ZIP)</a>
                 </div>
               </div>
               <div class="card card--reader">
@@ -262,12 +272,12 @@
                 </h3>
                 <p>Pinned public demo report generated from the balanced scenario in the public GOLD run fixture. The ZIP is the supporting synthetic/demo GOLD run pack: balanced scenario artifacts, companion validation scenarios, row-level synthetic demo datasets, certificates, manifests, and evidence guides.</p>
                 <div class="artifact-actions">
-                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
-                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc8.4/gold_bundle.zip" target="_blank" rel="noopener noreferrer">Download Demo GOLD Pack (ZIP)</a>
+                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
+                  <a class="btn btn-secondary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip" target="_blank" rel="noopener noreferrer">Download Demo GOLD Pack (ZIP)</a>
                 </div>
               </div>
             </div>
-            <p class="note">Current controlled-pilot product reference: <code>v5.0.0-rc8.4</code>. The downloads above are selected synthetic/demo assets from that pinned public release; they are not customer output, legal advice, or proof of a public Marketplace launch.</p>
+            <p class="note">Current public technical-proof reference: <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease). The downloads above are selected synthetic/demo assets from that public release; they are not customer output, legal advice, or proof of a public Marketplace launch.</p>
             <div class="card mt-6">
               <h3>
                 <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -287,7 +297,7 @@
       <h2>FAQ</h2>
       <details class="faq-item">
         <summary>Does any customer data leave our environment?</summary>
-        <p>No. <span class="product-name">FL-BSA</span> is self-hosted; all compute happens in your <abbr title="Virtual Private Cloud">VPC</abbr> or <abbr title="Virtual Machine">VM</abbr>. Zero outbound calls by default.</p>
+        <p>No. <span class="product-name">FL-BSA</span> is self-hosted; all compute happens in your <abbr title="Virtual Private Cloud">VPC</abbr> or <abbr title="Virtual Machine">VM</abbr>. It does not exfiltrate model parameters, raw data, or <abbr title="Special Category Personal Data">SCPD</abbr> to Equilens-controlled services. Optional <abbr title="Amazon Web Services">AWS</abbr> Marketplace usage metering is enabled only by configuration.</p>
       </details>
       <details class="faq-item">
         <summary>How long does a typical run take?</summary>
@@ -295,7 +305,7 @@
       </details>
       <details class="faq-item">
         <summary>Which regulatory frameworks are covered?</summary>
-        <p>Evidence maps to <abbr title="Equal Credit Opportunity Act">ECOA</abbr>/Reg B (US), <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory alignment.</p>
+        <p>Evidence maps to <abbr title="Equal Credit Opportunity Act">ECOA</abbr>/Reg B (US), <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping.</p>
       </details>
       <details class="faq-item">
         <summary>How can <span class="product-name">FL-BSA</span> be deployed?</summary>
@@ -305,13 +315,25 @@
         <summary>What is included in the evidence bundle?</summary>
         <p>A <abbr title="Portable Document Format">PDF</abbr> report, an evidence manifest (dataset hash, <abbr title="Random Number Generator">RNG</abbr> seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID.</p>
       </details>
+      <details class="faq-item">
+        <summary>Does <span class="product-name">FL-BSA</span> test our actual production model?</summary>
+        <p>Not in the current release. <span class="product-name">FL-BSA</span> simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can we verify the evidence ourselves?</summary>
+        <p>Yes. Evidence bundles are hash-linked (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a>. Direct-<abbr title="Amazon Machine Image">AMI</abbr>/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required.</p>
+      </details>
     </div>
   </section>
 
         <section class="section alt">
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/contact/">Request Assessment</a>
-            <a class="btn btn-secondary" href="#pricing">Review Access</a>
+          <div class="section-block">
+            <h2>Ready to scope an assessment?</h2>
+            <p class="lead">Request an evidence-readiness assessment, pricing, or guided pilot qualification — a written reply, not a sales call.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="/contact/">Request Assessment</a>
+              <a class="btn btn-secondary" href="#pricing">Review Licensing</a>
+            </div>
           </div>
         </section>
       </div><!-- /.page-content -->
@@ -339,7 +361,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-05-28 (commit baee8ee).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-06-12 (commit 467de62).</small>
   </div>
 </footer>
 
