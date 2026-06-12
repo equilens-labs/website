@@ -67,8 +67,9 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Deployment automation
 
-- Pushes to `main` keep the site private (`noindex` / `Disallow: /`).
-- Trigger `Deploy website to GitHub Pages` manually with `visibility=public` once you are ready to open indexing; rerun with `visibility=private` to revert.
+- Pushes to `main` deploy publicly by default (`Allow: /` plus sitemap generation).
+- Trigger `Deploy website to GitHub Pages` manually with `visibility=private` to re-hide indexing; use `visibility=public` to reopen it explicitly.
+- Source `robots.txt` remains private by default so local/source checkouts are conservative; the deploy workflow rewrites robots/indexing metadata in the `dist/` artifact for the selected visibility.
 - The deploy workflow prepares the allowlisted public surface under `dist/`, stamps footer metadata in that deploy artifact, and publishes the resulting tree to `gh-pages`.
 - Each deployment run renders the OG PNG and writes evidence snapshots under `output/ops/SITE-DEPLOY-<timestamp>/`.
 - A DNS/TLS guard validates GitHub Pages DNS A/AAAA records and live TLS SANs for the custom domain; deployment fails if mismatched. Evidence is saved under `output/ops/DNS-SSL-GUARD-<timestamp>/`.

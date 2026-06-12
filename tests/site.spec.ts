@@ -1,5 +1,7 @@
 import { expect, type Page, test } from '@playwright/test';
+import { execFileSync } from 'child_process';
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 
 type PageEntry = { path: string; slug: string };
@@ -117,6 +119,37 @@ test.describe('Equilens site surfaces', () => {
     expect(html).toContain('<footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">');
     expect(html).toContain('<h2 class="sr-only" id="site-sections-heading">Site sections</h2>');
     expect(html).not.toContain('</main>\n\n  <h2 class="sr-only">Site sections</h2>');
+  });
+
+  test('public indexing transform keeps 404 pages out of search indexes', async () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'eql-indexing-'));
+    try {
+      const scriptDir = path.join(tempRoot, 'scripts', 'seo');
+      fs.mkdirSync(scriptDir, { recursive: true });
+      fs.copyFileSync(path.join(root, 'scripts', 'seo', 'set-indexing.py'), path.join(scriptDir, 'set-indexing.py'));
+      fs.writeFileSync(
+        path.join(tempRoot, 'index.html'),
+        '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex, nofollow"><title>Home</title></head><body></body></html>',
+      );
+      fs.writeFileSync(
+        path.join(tempRoot, '404.html'),
+        '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>Not found</title></head><body></body></html>',
+      );
+
+      execFileSync('python3', [path.join(scriptDir, 'set-indexing.py'), 'public'], {
+        cwd: tempRoot,
+        stdio: 'pipe',
+      });
+
+      const publicHome = fs.readFileSync(path.join(tempRoot, 'index.html'), 'utf-8');
+      const public404 = fs.readFileSync(path.join(tempRoot, '404.html'), 'utf-8');
+
+      expect(publicHome).not.toContain('name="robots"');
+      expect(public404).toContain('<meta name="robots" content="noindex">');
+      expect(public404).not.toContain('noindex, nofollow');
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
   });
 
   test('Tier 2 visual consistency fixes stay in place', async () => {
