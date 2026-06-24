@@ -21,7 +21,8 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Analytics
 
-- Public website visits, outbound link clicks, and file download clicks are measured with Plausible Analytics for the `equilens.io` domain.
+- Public website visits, outbound link clicks, file download clicks, and selected CTA/custom-event
+  clicks are measured with Plausible Analytics for the `equilens.io` domain.
 - The active snippet is the cookieless Plausible script:
 
   ```html
@@ -29,7 +30,10 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   ```
 
 - Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`.
-- Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current posture is aggregate Plausible analytics for pageviews, outbound links, and file downloads only; no form-submission tracking, advertising pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
+- Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current
+  posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
+  CTA/custom-event labels only; no form-submission tracking or form-content tracking, advertising
+  pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
 - Run `scripts/legal/verify.sh <tag>` after changing analytics/legal text so the evidence bundle records the approved Plausible posture.
 
 **Local preview:** Install the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) in VS Code, then right-click any HTML file and select "Show Preview" for instant live reload on save.
