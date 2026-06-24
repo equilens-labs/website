@@ -26,7 +26,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - The active snippet is the cookieless Plausible script:
 
   ```html
-  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
   ```
 
 - Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`.

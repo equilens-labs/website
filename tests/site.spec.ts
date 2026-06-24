@@ -16,6 +16,8 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf-8')) as {
 
 const pages = config.pages;
 const anchors = config.anchors ?? [];
+const plausibleScriptSrc = 'https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js';
+const nonTaggedPlausibleScript = ['script', 'outbound-links', 'file-downloads.js'].join('.');
 const redirectMetadata = [
   {
     file: 'legal/accessibility.html',
@@ -309,6 +311,30 @@ test.describe('Equilens site surfaces', () => {
     expect(legal).toContain('We do not track form submissions or form contents');
   });
 
+  test('tracked HTML pages load Plausible tagged-events script variant', async () => {
+    const trackedHtmlFiles = execFileSync('git', ['ls-files', '*.html'], {
+      cwd: root,
+      encoding: 'utf-8',
+    })
+      .trim()
+      .split('\n')
+      .filter(Boolean);
+
+    const trackedHtmlPages = trackedHtmlFiles
+      .map((file) => ({
+        file,
+        html: fs.readFileSync(path.join(root, file), 'utf-8'),
+      }))
+      .filter(({ html }) => /<html[\s>]/i.test(html));
+
+    expect(trackedHtmlPages.length).toBeGreaterThan(0);
+
+    for (const { file, html } of trackedHtmlPages) {
+      expect(html, file).toContain(`src="${plausibleScriptSrc}"`);
+      expect(html, file).not.toContain(nonTaggedPlausibleScript);
+    }
+  });
+
   test('high-content pages preserve section banding rhythm', async () => {
     const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
     const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
@@ -369,7 +395,7 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('nav.site-nav')).toHaveCount(1);
       await expect(page.locator('nav.site-nav a.nav-link[href="/procurement/"]')).toHaveText('Procurement');
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
-      await expect(page.locator('script[src="https://plausible.io/js/script.outbound-links.file-downloads.js"][data-domain="equilens.io"]')).toHaveCount(1);
+      await expect(page.locator(`script[src="${plausibleScriptSrc}"][data-domain="equilens.io"]`)).toHaveCount(1);
       await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
       const linkedInLink = page.locator('footer.site-footer a[href="https://www.linkedin.com/company/equilens-labs/"]');
       await expect(linkedInLink).toHaveCount(1);
