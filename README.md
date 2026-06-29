@@ -34,6 +34,9 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
   CTA/custom-event labels only; no form-submission tracking or form-content tracking, advertising
   pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
+- Keep tracked CTA link destinations short and static. Plausible records the clicked link target for
+  tagged link events, so do not put boilerplate message text, form content, or personal data in CTA
+  query strings.
 - Run `scripts/legal/verify.sh <tag>` after changing analytics/legal text so the evidence bundle records the approved Plausible posture.
 
 **Local preview:** Install the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) in VS Code, then right-click any HTML file and select "Show Preview" for instant live reload on save.

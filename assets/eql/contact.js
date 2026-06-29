@@ -9,6 +9,11 @@
     const messageParam = params.get('message');
     const interestField = document.getElementById('interest');
     const messageField = document.getElementById('message');
+    const defaultMessages = {
+      'Procurement Pack':
+        'Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.',
+      'Security Pack': 'Please send the FL-BSA security pack and vendor questionnaire materials.',
+    };
 
     if (interestParam && interestField) {
       const options = Array.from(interestField.options || []);
@@ -17,8 +22,8 @@
       }
     }
 
-    if (messageParam && messageField && !messageField.value) {
-      messageField.value = messageParam;
+    if (messageField && !messageField.value) {
+      messageField.value = messageParam || defaultMessages[interestParam] || '';
     }
 
     form.addEventListener('submit', function onSubmit(e) {

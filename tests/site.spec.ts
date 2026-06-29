@@ -268,8 +268,8 @@ test.describe('Equilens site surfaces', () => {
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');
-    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack&amp;message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.">Request the Pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>');
-    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack&amp;message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.">Request the Pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
     expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
     expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
     expect(faq).toContain('<span class="product-name">FL-BSA</span> FAQ');
@@ -301,6 +301,7 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).toContain('plausible-event-surface=');
     expect(trackedHtml).toContain('plausible-event-cta=');
     expect(trackedHtml).toContain('plausible-event-intent=');
+    expect(trackedHtml).not.toContain('message=');
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
@@ -414,7 +415,7 @@ test.describe('Equilens site surfaces', () => {
       if (pageEntry.path === '/trust-center/') {
         await expect(page.getByRole('link', { name: 'Request Security Pack' }).first()).toHaveAttribute(
           'href',
-          '/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.',
+          '/contact/?interest=Security%20Pack',
         );
       } else if (pageEntry.path !== '/fl-bsa/whitepaper/') {
         await expect(releaseTagLinks).toHaveCount(0);
@@ -457,7 +458,7 @@ test.describe('Equilens site surfaces', () => {
 
   test('contact query parameters prefill security review enquiry', async ({ page }) => {
     await stubPlausible(page);
-    await page.goto('/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.', { waitUntil: 'networkidle' });
+    await page.goto('/contact/?interest=Security%20Pack', { waitUntil: 'networkidle' });
 
     await expect(page.locator('#interest')).toHaveValue('Security Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
@@ -465,7 +466,7 @@ test.describe('Equilens site surfaces', () => {
 
   test('contact query parameters prefill procurement pack enquiry', async ({ page }) => {
     await stubPlausible(page);
-    await page.goto('/contact/?interest=Procurement%20Pack&message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.', { waitUntil: 'networkidle' });
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
 
     await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.');
