@@ -60,7 +60,7 @@ rg -n "retained" legal/index.html > "$BASE/privacy_has_retention.txt" || true
 
 rg -n "<form" legal || echo "OK: no forms found" >"$BASE/no_forms_ok.txt"
 if rg -n "<script[^>]+src=\"https?://" legal >"$BASE/external_scripts.txt"; then
-  if rg -v "https://plausible\.io/js/script\.outbound-links\.file-downloads\.js" "$BASE/external_scripts.txt" >"$BASE/unapproved_external_scripts.txt"; then
+  if rg -v "https://plausible\.io/js/script\.tagged-events\.outbound-links\.file-downloads\.js" "$BASE/external_scripts.txt" >"$BASE/unapproved_external_scripts.txt"; then
     echo "ERROR: unapproved external script src found in legal/" >&2
     cat "$BASE/unapproved_external_scripts.txt" >&2
     exit 1

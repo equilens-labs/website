@@ -16,6 +16,8 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf-8')) as {
 
 const pages = config.pages;
 const anchors = config.anchors ?? [];
+const plausibleScriptSrc = 'https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js';
+const nonTaggedPlausibleScript = ['script', 'outbound-links', 'file-downloads.js'].join('.');
 const redirectMetadata = [
   {
     file: 'legal/accessibility.html',
@@ -154,8 +156,10 @@ test.describe('Equilens site surfaces', () => {
 
   test('Tier 2 visual consistency fixes stay in place', async () => {
     const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
     const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
     const contact = fs.readFileSync(path.join(root, 'contact', 'index.html'), 'utf-8');
+    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
 
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);');
@@ -173,8 +177,17 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('.section-block .note,\n.card .note,\n.contact-form .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
     expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
     expect(css).not.toContain('font-style: italic;');
+    expect(flbsa).toContain('<strong>Access request:</strong>');
+    expect(flbsa).toContain('<strong>Data boundary:</strong>');
+    expect(flbsa).toContain('<strong>Marketplace access:</strong>');
     expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
     expect(procurement).toContain('<h1 class="hero-headline">Procurement &amp; Deployment</h1>');
+    expect(procurement).toContain('<strong>Evidence manifest:</strong>');
+    expect(procurement).toContain('<strong>Commercial terms:</strong>');
+    expect(trustCenter).toContain('<strong>Image signing:</strong>');
+    expect(trustCenter).toContain('<strong>Privilege boundary:</strong>');
+    expect(trustCenter).toContain('<strong>Public technical-proof reference:</strong>');
+    expect(trustCenter).toContain('<strong>Demo-artifact boundary:</strong>');
     expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
     expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
     expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
@@ -255,8 +268,8 @@ test.describe('Equilens site surfaces', () => {
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');
-    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Request Assessment</a>\n        <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>');
-    expect(flbsa).toContain('<a class="btn btn-primary" href="/contact/">Request Access</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack&amp;message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.">Request the Pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack&amp;message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.">Request the Pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
     expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
     expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
     expect(faq).toContain('<span class="product-name">FL-BSA</span> FAQ');
@@ -269,6 +282,57 @@ test.describe('Equilens site surfaces', () => {
     expect(html).toContain('<title>FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance</title>');
     expect(html).toContain('Self-hosted fair-outcomes evidence appliance for regulated credit decisions');
     expect(html).not.toContain('Self-hosted fair-outcomes evidence for regulated credit decisions:');
+  });
+
+  test('Plausible CTA events stay aggregate and non-PII', async () => {
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
+    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
+    const contact = fs.readFileSync(path.join(root, 'contact', 'index.html'), 'utf-8');
+    const whitepaper = fs.readFileSync(path.join(root, 'fl-bsa', 'whitepaper', 'index.html'), 'utf-8');
+    const legal = fs.readFileSync(path.join(root, 'legal', 'index.html'), 'utf-8');
+    const trackedHtml = [flbsa, procurement, trustCenter, contact, whitepaper].join('\n');
+
+    expect(trackedHtml).toContain('plausible-event-name=Request+Pack');
+    expect(trackedHtml).toContain('plausible-event-name=Security+Pack+Click');
+    expect(trackedHtml).toContain('plausible-event-name=Procurement+Review+Click');
+    expect(trackedHtml).toContain('plausible-event-name=Proof+Asset+Click');
+    expect(trackedHtml).toContain('plausible-event-name=Contact+Email+Click');
+    expect(trackedHtml).toContain('plausible-event-surface=');
+    expect(trackedHtml).toContain('plausible-event-cta=');
+    expect(trackedHtml).toContain('plausible-event-intent=');
+    expect(trackedHtml).not.toContain('plausible-event-email=');
+    expect(trackedHtml).not.toContain('plausible-event-name-field=');
+    expect(trackedHtml).not.toContain('plausible-event-organisation=');
+    expect(trackedHtml).not.toContain('plausible-event-message=');
+    expect(trackedHtml).not.toContain('plausible-event-route=');
+    expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
+    expect(legal).toContain('selected static CTA/custom-event labels');
+    expect(legal).toContain('We do not track form submissions or form contents');
+  });
+
+  test('tracked HTML pages load Plausible tagged-events script variant', async () => {
+    const trackedHtmlFiles = execFileSync('git', ['ls-files', '*.html'], {
+      cwd: root,
+      encoding: 'utf-8',
+    })
+      .trim()
+      .split('\n')
+      .filter(Boolean);
+
+    const trackedHtmlPages = trackedHtmlFiles
+      .map((file) => ({
+        file,
+        html: fs.readFileSync(path.join(root, file), 'utf-8'),
+      }))
+      .filter(({ html }) => /<html[\s>]/i.test(html));
+
+    expect(trackedHtmlPages.length).toBeGreaterThan(0);
+
+    for (const { file, html } of trackedHtmlPages) {
+      expect(html, file).toContain(`src="${plausibleScriptSrc}"`);
+      expect(html, file).not.toContain(nonTaggedPlausibleScript);
+    }
   });
 
   test('high-content pages preserve section banding rhythm', async () => {
@@ -331,7 +395,7 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('nav.site-nav')).toHaveCount(1);
       await expect(page.locator('nav.site-nav a.nav-link[href="/procurement/"]')).toHaveText('Procurement');
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
-      await expect(page.locator('script[src="https://plausible.io/js/script.outbound-links.file-downloads.js"][data-domain="equilens.io"]')).toHaveCount(1);
+      await expect(page.locator(`script[src="${plausibleScriptSrc}"][data-domain="equilens.io"]`)).toHaveCount(1);
       await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
       const linkedInLink = page.locator('footer.site-footer a[href="https://www.linkedin.com/company/equilens-labs/"]');
       await expect(linkedInLink).toHaveCount(1);
@@ -348,7 +412,7 @@ test.describe('Equilens site surfaces', () => {
         await expect(provenanceLinks).toHaveCount(1);
       }
       if (pageEntry.path === '/trust-center/') {
-        await expect(page.getByRole('link', { name: 'Request Security Pack' })).toHaveAttribute(
+        await expect(page.getByRole('link', { name: 'Request Security Pack' }).first()).toHaveAttribute(
           'href',
           '/contact/?interest=Security%20Pack&message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.',
         );
@@ -397,6 +461,14 @@ test.describe('Equilens site surfaces', () => {
 
     await expect(page.locator('#interest')).toHaveValue('Security Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
+  });
+
+  test('contact query parameters prefill procurement pack enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Procurement%20Pack&message=Please%20send%20the%20FL-BSA%20buyer%20and%20procurement%20pack%20and%20help%20scope%20a%20readiness%20conversation.', { waitUntil: 'networkidle' });
+
+    await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
+    await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.');
   });
 
   for (const anchor of anchors) {

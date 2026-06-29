@@ -26,7 +26,7 @@
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/assets/eql/base.css">
-  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.outbound-links.file-downloads.js"></script>
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql trust-center-page">
   <a class="skip-to-content" href="#main">Skip to content</a>
@@ -51,8 +51,8 @@
           <h1 class="brand-title">Trust Center</h1>
           <p class="lead">Security, privacy, and evidence-chain posture for the self-hosted fair-outcomes evidence appliance for regulated credit decisions.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="/contact/?interest=Security%20Pack&amp;message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.">Contact Security Review</a>
-            <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>
+            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=hero-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack&amp;message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.">Request Security Pack</a>
+            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=hero-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>
           </div>
         </div>
       </section>
@@ -68,9 +68,9 @@
                 Supply Chain
               </h3>
               <ul class="checks">
-                <li>Cosign-signed images (keyless <abbr title="OpenID Connect">OIDC</abbr>).</li>
-                <li><abbr title="Software Bill of Materials">SBOM</abbr> + build provenance attestations.</li>
-                <li>Daily <abbr title="Common Vulnerabilities and Exposures">CVE</abbr> scans (fail on critical) + release-time HIGH/CRITICAL gating.</li>
+                <li><strong>Image signing:</strong> Cosign-signed images (keyless <abbr title="OpenID Connect">OIDC</abbr>).</li>
+                <li><strong>Provenance:</strong> <abbr title="Software Bill of Materials">SBOM</abbr> + build provenance attestations.</li>
+                <li><strong>Vulnerability gating:</strong> Daily <abbr title="Common Vulnerabilities and Exposures">CVE</abbr> scans (fail on critical) + release-time HIGH/CRITICAL gating.</li>
               </ul>
             </div>
             <div class="card">
@@ -79,9 +79,9 @@
                 Runtime Protection
               </h3>
                 <ul class="checks">
-                  <li>Non-root runtime (default).</li>
-                  <li>No-new-privileges; evidence artifacts written under <code>OUTPUT_DIR</code> (temporary writes may occur depending on deployment configuration).</li>
-                  <li>Customer-managed secrets in your deployment platform (<abbr title="Key Management System">KMS</abbr>/Vault/Secrets Manager); Equilens does not operate those controls.</li>
+                  <li><strong>Runtime user:</strong> Non-root runtime (default).</li>
+                  <li><strong>Privilege boundary:</strong> No-new-privileges; evidence artifacts written under <code>OUTPUT_DIR</code> (temporary writes may occur depending on deployment configuration).</li>
+                  <li><strong>Secrets:</strong> Customer-managed secrets in your deployment platform (<abbr title="Key Management System">KMS</abbr>/Vault/Secrets Manager); Equilens does not operate those controls.</li>
                 </ul>
             </div>
             <div class="card">
@@ -90,9 +90,9 @@
                 Data Sovereignty
               </h3>
               <ul class="checks">
-                <li>Runs entirely in your <abbr title="Virtual Private Cloud">VPC</abbr>/<abbr title="Virtual Machine">VM</abbr>.</li>
-                <li>No data egress by default.</li>
-                <li>Customer-controlled retention.</li>
+                <li><strong>Deployment boundary:</strong> Runs entirely in your <abbr title="Virtual Private Cloud">VPC</abbr>/<abbr title="Virtual Machine">VM</abbr>.</li>
+                <li><strong>Egress posture:</strong> No data egress by default.</li>
+                <li><strong>Retention:</strong> Customer-controlled retention.</li>
               </ul>
             </div>
             <div class="card">
@@ -101,9 +101,9 @@
                 Regulatory Mapping<sup>1</sup>
               </h3>
               <ul class="checks">
-                <li><abbr title="Equal Credit Opportunity Act">ECOA</abbr> / Reg B.</li>
-                <li><abbr title="European Union Artificial Intelligence">EU AI</abbr> Act.</li>
-                <li><abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty outcome metrics.</li>
+                <li><strong><abbr title="Equal Credit Opportunity Act">ECOA</abbr> / Reg B.</strong></li>
+                <li><strong><abbr title="European Union Artificial Intelligence">EU AI</abbr> Act.</strong></li>
+                <li><strong><abbr title="Financial Conduct Authority">FCA</abbr> Consumer Duty outcome metrics.</strong></li>
               </ul>
             </div>
           </div>
@@ -201,11 +201,11 @@
               Public reports &amp; files
             </h3>
             <ul class="checks">
-              <li><span class="product-name">FL-BSA</span> public technical-proof reference: <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease).</li>
-              <li>Selected public demo downloads are available from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>.</li>
-              <li>Public demo artifacts are synthetic/demo-only sample materials, not customer output, legal advice, or proof of a public Marketplace launch. Customer evidence bundles are generated by the customer's deployed <span class="product-name">FL-BSA</span> appliance and are not published in this repository.</li>
-              <li>Integrity verification: see <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">public release page</a>, plus <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a> for provenance notes.</li>
-              <li>Website deployment evidence bundles are available on request (deploy snapshots, checksums, and site-audit outputs).</li>
+              <li><strong>Public technical-proof reference:</strong> <span class="product-name">FL-BSA</span> <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease).</li>
+              <li><strong>Public demo downloads:</strong> Selected downloads are available from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>.</li>
+              <li><strong>Demo-artifact boundary:</strong> Public demo artifacts are synthetic/demo-only sample materials, not customer output, legal advice, or proof of a public Marketplace launch. Customer evidence bundles are generated by the customer's deployed <span class="product-name">FL-BSA</span> appliance and are not published in this repository.</li>
+              <li><strong>Integrity verification:</strong> See <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">public release page</a>, plus <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a> for provenance notes.</li>
+              <li><strong>Deployment evidence:</strong> Website deployment evidence bundles are available on request (deploy snapshots, checksums, and site-audit outputs).</li>
             </ul>
           </div>
 
@@ -220,8 +220,8 @@
           <h2>Need the security pack?</h2>
           <p class="lead">We can provide vendor-questionnaire support, deployment notes, and the available evidence bundle for qualified procurement reviews.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="/contact/?interest=Security%20Pack&amp;message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.">Request Security Pack</a>
-            <a class="btn btn-secondary" href="/procurement/">Review Procurement</a>
+            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack&amp;message=Please%20send%20the%20FL-BSA%20security%20pack%20and%20vendor%20questionnaire%20materials.">Request Security Pack</a>
+            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>
           </div>
         </div>
       </section>
