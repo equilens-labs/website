@@ -51,13 +51,16 @@ def render(d: str) -> str:
         tm_text=tm_text
     )
     html = html.replace('{{note}}', note)
+    # Product-boundary disclaimer (claims-register mandatory block), site-wide.
+    html = html.replace('{{boundary}}', footer.get('boundary_note', ''))
     return html
 
 for page in ROOT.rglob('*.html'):
     if page.is_relative_to(TEMPLATE_DIR) or page.is_relative_to(BRAND_DIR):
         continue
-    # Skip third-party or tool HTML trees
-    if any(seg in page.parts for seg in ('vendor', 'node_modules')):
+    # Skip third-party or tool HTML trees, plus evidence snapshots and deploy artifacts:
+    # files under output/ are committed evidence and must never be rewritten.
+    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist')):
         continue
     d = depth(page)
     block = render(d)

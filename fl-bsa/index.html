@@ -54,7 +54,7 @@
       {"@type":"Question","name":"Does any customer data leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. FL-BSA is self-hosted; all compute happens in your VPC or VM. It does not exfiltrate model parameters, raw data, or SCPD to Equilens-controlled services. Optional AWS Marketplace usage metering is enabled only by configuration."}},
         {"@type":"Question","name":"How long does a typical run take?","acceptedAnswer":{"@type":"Answer","text":"Reference targets on a modern CPU: ~10k rows (full pipeline) typically in the ~20-25 minute range; ~100k rows (training) ≤ ~45 minutes. 1M+ rows are long-running capacity-planning scenarios. Actual performance depends on hardware, data complexity, and configuration."}},
       {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping."}},
-      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS path, or agree a controlled container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
+      {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"Public AWS Marketplace access is not yet available. Contact Equilens for controlled guided-pilot access to the AMI-first AWS customer path, or agree a controlled container/VM deployment where appropriate. CPU-only and GPU-preferred profiles are supported."}},
         {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}},
       {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped."}},
       {"@type":"Question","name":"Can we verify the evidence ourselves?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evidence bundles are hash-linked (SHA-256) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at /fl-bsa/trust-root.json. Direct-AMI/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required."}}
@@ -343,7 +343,8 @@
       </div><!-- /.page-content -->
     </div><!-- /.page-with-toc -->
   </main>
-  <footer class="site-footer" data-sync="footer" role="contentinfo">
+  <footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">
+  <h2 class="sr-only" id="site-sections-heading">Site sections</h2>
   <div class="container grid">
         <section><h3>Company</h3><ul>
       <li><a href="/press/">Press</a></li>
@@ -366,8 +367,12 @@
   </div>
   <div class="container">
     <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy: stamped during publishing.</small>
+    <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
+
+
+
 
 
 

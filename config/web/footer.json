@@ -19,5 +19,6 @@
       {"label": "Open Source", "href": "/legal/#open-source"},
       {"label": "Accessibility", "href": "/legal/#accessibility"}]}
   ],
-  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd in the United Kingdom. Last deploy: {deploy_note}."
+  "note": "© {year} Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens{tm_symbol} is a {tm_text} of Valfox Ltd in the United Kingdom. Last deploy: {deploy_note}.",
+  "boundary_note": "Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance."
 }
