@@ -54,7 +54,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   ```
 
 - The footer partial (`templates/footer.html`) emits the screen-reader "Site sections" heading and the `footer-boundary` product-boundary disclaimer on every page. Playwright tests assert both, so change footer content only via the JSON/template + sync script.
-- Legacy, currently unused: `templates/header.html` + `scripts/content/sync_nav_ssot.py` (superseded by the runtime nav.js renderer; pages contain no static navbar to sync) and `templates/flbsa_subnav.html` (no page currently includes a product sub-nav). Kept for reference only.
+- The primary nav is baked statically by `scripts/content/sync_nav_static.py` (SSoT: `config/web/nav.json`); `assets/eql/nav.js` only wires behaviour. Legacy, currently unused: `templates/header.html` + `scripts/content/sync_nav_ssot.py`. The product sub-nav (template + CSS) was removed — no page ever included it.
 
 ## Evidence screenshots
 

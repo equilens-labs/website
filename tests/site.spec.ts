@@ -191,8 +191,13 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('abbr {\n  text-decoration: none;\n  font-variant-caps: all-small-caps;\n  letter-spacing: var(--tracking-wide);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
-    expect(css).toContain('.note.note--small {\n  color: var(--text-muted);\n  font-size: var(--text-note);\n  font-style: normal;');
-    expect(css).toContain('.section-block .note,\n.card .note,\n.contact-form .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
+    // note--small was a no-op restatement of .note; the variant is deleted
+    // outright, so no rogue note styling can reappear under that class.
+    expect(css).not.toContain('.note.note--small');
+    // Form notes must not draw the footnote divider (it misfired mid-form on
+    // /contact/); panel and card notes keep it.
+    expect(css).toContain('.section-block .note,\n.card .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
+    expect(css).not.toContain('.contact-form .note {\n  border-top:');
     expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
     expect(css).not.toContain('font-style: italic;');
     expect(flbsa).toContain('<strong>Access request:</strong>');
