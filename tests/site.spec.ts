@@ -381,6 +381,31 @@ test.describe('Equilens site surfaces', () => {
     expect(flbsa).toContain('class="hero-highlights grid grid-3"');
   });
 
+  test('homepage title carries the algorithmic-compliance positioning', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/', { waitUntil: 'networkidle' });
+
+    await expect(page).toHaveTitle('Equilens — Algorithmic Compliance');
+  });
+
+  test('homepage source ships the static nav and contact path without JS', async () => {
+    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
+
+    expect(home).toContain('href="/contact/"');
+    expect(home).toContain('class="navbar site-nav"');
+    expect(home).toContain('Algorithmic Compliance');
+  });
+
+  test('footer Company column links to Contact on home and FL-BSA', async () => {
+    for (const file of ['index.html', path.join('fl-bsa', 'index.html')]) {
+      const html = fs.readFileSync(path.join(root, file), 'utf-8');
+      const companyStart = html.indexOf('<section><h3>Company</h3><ul>');
+      expect(companyStart, file).toBeGreaterThan(-1);
+      const companyColumn = html.slice(companyStart, html.indexOf('</ul></section>', companyStart));
+      expect(companyColumn, file).toContain('<li><a href="/contact/">Contact</a></li>');
+    }
+  });
+
   test('brand token import is wired into live CSS aliases', async () => {
     const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
 
