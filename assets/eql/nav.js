@@ -1,48 +1,5 @@
-// Render navigation from config
-(async function renderNav() {
-  // Pages ship a statically baked nav (scripts/content/sync_nav_static.py);
-  // when present, skip the fetch/render and only wire up nav behaviour.
-  if (document.querySelector('nav.site-nav')) {
-    initNavFeatures();
-    return;
-  }
-
-  // Fallback: legacy pages that still carry the placeholder.
-  const placeholder = document.getElementById('nav-placeholder');
-  if (!placeholder) return;
-
-  try {
-    const response = await fetch('/config/web/nav.json');
-    if (!response.ok) throw new Error('Failed to load nav config');
-    const config = await response.json();
-    const brandCompactImg = config.brand.imgCompact || '/brand/symbol/equilens-symbol-nav.svg';
-
-    const navLinks = config.links.map(link =>
-      `<a href="${link.href}" class="nav-link">${link.label}</a>`
-    ).join('');
-
-    const navHTML = `
-<nav class="navbar site-nav" role="navigation" aria-label="Primary">
-  <div class="navbar-content">
-    <a href="${config.brand.href}" class="logo" aria-label="Equilens home">
-      <img class="logo-wordmark" src="${config.brand.img}" alt="${config.brand.alt}" width="196" height="39">
-      <img class="logo-symbol" src="${brandCompactImg}" alt="" width="64" height="64" aria-hidden="true">
-    </a>
-    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
-    <div id="nav-links" class="nav-links" data-open="false">
-      ${navLinks}
-    </div>
-  </div>
-</nav>`;
-
-    placeholder.outerHTML = navHTML;
-
-    // Initialize nav functionality after rendering
-    initNavFeatures();
-  } catch (error) {
-    console.error('Nav render failed:', error);
-  }
-})();
+// Navigation behaviour for the statically baked nav
+// (scripts/content/sync_nav_static.py bakes the markup at build time).
 
 // Initialize nav features (called after nav is rendered)
 function initNavFeatures() {
@@ -126,64 +83,12 @@ function pauseScrollSpy(duration) {
   }, duration);
 }
 
-// Product sub-nav active state
-function setProductSubnav() {
-  const links = document.querySelectorAll('.product-subnav .subnav-link');
-  if (!links.length) return;
-
-  const path = window.location.pathname.replace(/\/?$/, '/');
-  const hash = window.location.hash;
-
-  let bestLink = null;
-  let bestScore = -1;
-
-  links.forEach(link => {
-    link.removeAttribute('aria-current');
-    const href = link.getAttribute('href');
-    if (!href) return;
-
-    const url = new URL(href, window.location.origin);
-    const targetPath = url.pathname.replace(/\/?$/, '/');
-    const targetHash = url.hash;
-
-    let score = 0;
-
-    if (path === targetPath) {
-      score += 100;
-    } else if (targetPath !== '/' && path.startsWith(targetPath)) {
-      score += 50;
-    }
-
-    if (targetHash) {
-      if (hash === targetHash) {
-        score += 40;
-      }
-      if (path === targetPath && hash === targetHash) {
-        score += 25;
-      }
-    } else if (path === targetPath) {
-      score += 20;
-    }
-
-    if (score > bestScore) {
-      bestScore = score;
-      bestLink = link;
-    }
-  });
-
-  if (bestLink) {
-    bestLink.setAttribute('aria-current', 'page');
-  } else if (links[0]) {
-    links[0].setAttribute('aria-current', 'page');
-  }
-}
-
-// Scroll-spy for subnav: highlights active section as user scrolls
+// Scroll-spy for the TOC: highlights active section as user scrolls
 function initScrollSpy() {
-  const subnav = document.querySelector('.toc') || document.querySelector('.section-nav') || document.querySelector('.product-subnav');
+  const subnav = document.querySelector('.toc');
   if (!subnav) return;
 
-  const links = subnav.querySelectorAll('.toc-link[href^="#"], .section-nav-link[href^="#"], .subnav-link[href^="#"]');
+  const links = subnav.querySelectorAll('.toc-link[href^="#"]');
   if (!links.length) return;
 
   // Get all target sections
@@ -243,6 +148,5 @@ function initScrollSpy() {
   updateActiveSection(); // Initial state
 }
 
-setProductSubnav();
-window.addEventListener('hashchange', setProductSubnav);
+initNavFeatures();
 initScrollSpy();

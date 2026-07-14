@@ -47,10 +47,11 @@ changes will be overwritten.
    suite — tests assert the footer's labeled heading and product-boundary
    disclaimer on every page.
 
+The primary nav is baked statically by `scripts/content/sync_nav_static.py`
+(SSoT: `config/web/nav.json`); `assets/eql/nav.js` only wires behaviour.
 Legacy, currently unused: `templates/header.html` +
-`scripts/content/sync_nav_ssot.py` (superseded by the runtime nav renderer)
-and `templates/flbsa_subnav.html` (no page includes a product sub-nav). Kept
-for reference only; do not run the nav sync against current pages.
+`scripts/content/sync_nav_ssot.py`. The product sub-nav template and CSS were
+removed — no page ever included them.
 
 ## Evidence & tooling
 
