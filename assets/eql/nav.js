@@ -1,5 +1,13 @@
 // Render navigation from config
 (async function renderNav() {
+  // Pages ship a statically baked nav (scripts/content/sync_nav_static.py);
+  // when present, skip the fetch/render and only wire up nav behaviour.
+  if (document.querySelector('nav.site-nav')) {
+    initNavFeatures();
+    return;
+  }
+
+  // Fallback: legacy pages that still carry the placeholder.
   const placeholder = document.getElementById('nav-placeholder');
   if (!placeholder) return;
 
