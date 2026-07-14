@@ -68,7 +68,7 @@
       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
       <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
@@ -88,76 +88,86 @@
         <p class="lead">We build self-hosted software that turns fair-lending compliance into evidence you can verify. It runs inside your environment — no borrower data, model details, or protected attributes ever leave — and it makes no lending decisions.</p>
         <p class="hero-audience">For risk, compliance, and model-governance teams at regulated lenders.</p>
         <div class="cta-row">
-          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
           <a class="btn btn-secondary" href="/fl-bsa/">Explore FL-BSA</a>
         </div>
         <p class="cta-note">A written reply, not a sales call.</p>
       </div>
     </section>
 
-    <section class="container section-block" aria-labelledby="flbsa-heading">
-      <h2 id="flbsa-heading">FL-BSA — our flagship appliance</h2>
-      <p><span class="product-name">FL-BSA</span> — the Fair-Lending Bias-Simulation Appliance — is a self-hosted evidence appliance for regulated credit decisions: simulate decision patterns, package tamper-evident evidence packs, and keep borrower data in your environment.</p>
+    <section class="section" aria-labelledby="flbsa-heading">
+      <div class="section-block">
+        <h2 id="flbsa-heading">FL-BSA — our flagship appliance</h2>
+        <p><span class="product-name">FL-BSA</span> — the Fair-Lending Bias-Simulation Appliance — is a self-hosted evidence appliance for regulated credit decisions: simulate decision patterns, package tamper-evident evidence packs, and keep borrower data in your environment.</p>
         <div class="hero-highlights grid grid-3 mt-6" aria-label="Key FL-BSA capabilities">
-          <div class="card card-hero">
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-            <h3>Outcome Simulation</h3>
+          <div class="card">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg>
+            <h3>Outcome simulation</h3>
             <p>Generate synthetic borrower scenarios and stress-test lending decision patterns for disparity before concerns become live remediation work.</p>
           </div>
-          <div class="card card-hero">
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-            <h3>Evidence Packs</h3>
+          <div class="card">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-evidence"></use></svg>
+            <h3>Evidence packs</h3>
             <p>Turn each run into reports, manifests, certificates, and documentation that risk, compliance, and audit teams can review together.</p>
           </div>
-          <div class="card card-hero">
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-            <h3>Customer-Hosted</h3>
+          <div class="card">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
+            <h3>Customer-hosted</h3>
             <p>Deploy <span class="product-name">FL-BSA</span> inside your own environment so sensitive data, model artifacts, and review workflows stay within your perimeter.</p>
           </div>
         </div>
-      <p class="mt-6"><a class="btn btn-secondary" href="/fl-bsa/">See how FL-BSA works</a></p>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="/fl-bsa/">See how FL-BSA works</a>
+        </div>
+      </div>
     </section>
 
-    <section class="container section-block" aria-labelledby="different-heading">
-      <h2 id="different-heading">Why teams choose a self-hosted appliance</h2>
-      <p>Most fairness analytics ask you to send decision data to a vendor's cloud. FL-BSA works the other way round: it deploys into your own environment, with no-egress enforced in our release pipeline, and it never makes or influences a live lending decision. Every evidence pack is hash-chained, so your auditors can verify it independently — without trusting us.</p>
-      <p>The EU AI Act applies to high-risk credit scoring from 2 August 2026 and asks for documented data governance and traceability. FL-BSA is built to help you prepare that evidence. This is not legal advice, and FL-BSA does not certify compliance.</p>
+    <section class="section alt" aria-labelledby="different-heading">
+      <div class="section-block">
+        <h2 id="different-heading">Why teams choose a self-hosted appliance</h2>
+        <p>Most fairness analytics ask you to send decision data to a vendor's cloud. FL-BSA works the other way round: it deploys into your own environment, with no-egress enforced in our release pipeline, and it never makes or influences a live lending decision. Every evidence pack is hash-chained, so your auditors can verify it independently — without trusting us.</p>
+        <p>The EU AI Act applies to high-risk credit scoring from 2 August 2026 and asks for documented data governance and traceability. FL-BSA is built to help you prepare that evidence. This is not legal advice, and FL-BSA does not certify compliance.</p>
+      </div>
     </section>
 
-    <section class="container section-block" aria-labelledby="verify-heading">
-      <h2 id="verify-heading">Verify it yourself, before a call</h2>
-      <p>Everything we publish ships with SHA-256 manifests and a published trust root. Download the demo artifacts and recompute the hashes — you do not have to take our word for it.</p>
-      <div class="grid grid-3 mt-6">
-        <div class="card">
-          <h3>Demo report (PDF)</h3>
-          <p>A complete evidence-pack report on synthetic data. DEMO/EVALUATION watermark.</p>
-          <div class="artifact-actions">
-            <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=demo-report" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener">Download demo report</a>
+    <section class="section" aria-labelledby="verify-heading">
+      <div class="section-block">
+        <h2 id="verify-heading">Verify it yourself, before a call</h2>
+        <p>Everything we publish ships with SHA-256 manifests and a published trust root. Download the demo artifacts and recompute the hashes — you do not have to take our word for it.</p>
+        <div class="grid grid-3 mt-6">
+          <div class="card">
+            <h3>Demo report (PDF)</h3>
+            <p>A complete evidence-pack report on synthetic data. DEMO/EVALUATION watermark.</p>
+            <div class="artifact-actions">
+              <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=demo-report" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener">Download demo report (PDF)</a>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <h3>Whitepaper (demo build)</h3>
-          <p>How a regulated-credit dataset becomes a tamper-evident evidence pack, with offline verification steps.</p>
-          <div class="artifact-actions">
-            <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Read the whitepaper</a>
+          <div class="card">
+            <h3>Whitepaper (demo build)</h3>
+            <p>How a regulated-credit dataset becomes a tamper-evident evidence pack, with offline verification steps.</p>
+            <div class="artifact-actions">
+              <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Read the whitepaper</a>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <h3>Trust Center</h3>
-          <p>Security posture, the evidence chain, and the published trust root.</p>
-          <div class="artifact-actions">
-            <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>
+          <div class="card">
+            <h3>Trust Center</h3>
+            <p>Security posture, the evidence chain, and the published trust root.</p>
+            <div class="artifact-actions">
+              <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="container section-block" aria-labelledby="cta-heading">
-      <h2 id="cta-heading">Ready to scope readiness?</h2>
-      <p>Request the buyer and procurement pack, or start a readiness conversation. It commits you to nothing beyond a written reply.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
-        <a class="btn btn-secondary plausible-event-name=Security+Pack+Click plausible-event-surface=home plausible-event-cta=final-security plausible-event-intent=procurement" href="/contact/?interest=Security%20Pack">Request Security Pack</a>
+    <section class="section alt" aria-labelledby="cta-heading">
+      <div class="section-block">
+        <h2 id="cta-heading">Ready to scope readiness?</h2>
+        <p>Request the buyer and procurement pack, or start a readiness conversation. It commits you to nothing beyond a written reply.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
+          <a class="btn btn-secondary plausible-event-name=Security+Pack+Click plausible-event-surface=home plausible-event-cta=final-security plausible-event-intent=procurement" href="/contact/?interest=Security%20Pack">Request security pack</a>
+        </div>
       </div>
     </section>
   </main>

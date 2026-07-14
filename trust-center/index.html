@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="/assets/eql/base.css">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
-<body class="eql trust-center-page">
+<body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
   <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
   <div class="navbar-content">
@@ -36,7 +36,7 @@
       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
       <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link" aria-current="page">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
@@ -49,9 +49,9 @@
     <nav class="toc" aria-label="Table of contents">
       <div class="toc-inner">
         <a href="#overview" class="toc-label">Trust Center</a>
-        <a href="#security-posture" class="toc-link">Security Posture</a>
-        <a href="#data-protection" class="toc-link">Data Protection</a>
-        <a href="#evidence-chain" class="toc-link">Evidence Chain</a>
+        <a href="#security-posture" class="toc-link">Security posture</a>
+        <a href="#data-protection" class="toc-link">Data protection</a>
+        <a href="#evidence-chain" class="toc-link">Evidence chain</a>
       </div>
     </nav>
 
@@ -59,58 +59,46 @@
       <section class="hero" id="overview" aria-label="Trust Center overview">
         <div class="hero-content">
           <p class="eyebrow">Security &amp; Compliance</p>
-          <h1 class="brand-title">Trust Center</h1>
+          <h1 class="hero-headline">Trust Center</h1>
           <p class="lead">Security, privacy, and evidence-chain posture for the self-hosted fair-outcomes evidence appliance for regulated credit decisions.</p>
           <div class="cta-row">
-            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=hero-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack">Request Security Pack</a>
-            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=hero-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>
+            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=hero-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack">Request security pack</a>
+            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=hero-secondary plausible-event-intent=procurement" href="/procurement/">Review procurement</a>
           </div>
         </div>
       </section>
 
       <section class="section" id="security-posture">
         <div class="section-block">
-          <h2>Security Posture</h2>
+          <h2>Security posture</h2>
           <p class="lead">We employ a defense-in-depth strategy, securing the software supply chain from commit to container.</p>
           <div class="grid">
-            <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                Supply Chain
-              </h3>
+            <div class="card card--reader">
+              <h3>Supply chain</h3>
               <ul class="checks">
                 <li><strong>Image signing:</strong> Cosign-signed images (keyless <abbr title="OpenID Connect">OIDC</abbr>).</li>
                 <li><strong>Provenance:</strong> <abbr title="Software Bill of Materials">SBOM</abbr> + build provenance attestations.</li>
                 <li><strong>Vulnerability gating:</strong> Daily <abbr title="Common Vulnerabilities and Exposures">CVE</abbr> scans (fail on critical) + release-time HIGH/CRITICAL gating.</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                Runtime Protection
-              </h3>
+            <div class="card card--reader">
+              <h3>Runtime protection</h3>
                 <ul class="checks">
                   <li><strong>Runtime user:</strong> Non-root runtime (default).</li>
                   <li><strong>Privilege boundary:</strong> No-new-privileges; evidence artifacts written under <code>OUTPUT_DIR</code> (temporary writes may occur depending on deployment configuration).</li>
                   <li><strong>Secrets:</strong> Customer-managed secrets in your deployment platform (<abbr title="Key Management System">KMS</abbr>/Vault/Secrets Manager); Equilens does not operate those controls.</li>
                 </ul>
             </div>
-            <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                Data Sovereignty
-              </h3>
+            <div class="card card--reader">
+              <h3>Data sovereignty</h3>
               <ul class="checks">
                 <li><strong>Deployment boundary:</strong> Runs entirely in your <abbr title="Virtual Private Cloud">VPC</abbr>/<abbr title="Virtual Machine">VM</abbr>.</li>
                 <li><strong>Egress posture:</strong> No data egress by default.</li>
                 <li><strong>Retention:</strong> Customer-controlled retention.</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Regulatory Mapping<sup>1</sup>
-              </h3>
+            <div class="card card--reader">
+              <h3>Regulatory mapping<sup>1</sup></h3>
               <ul class="checks">
                 <li><strong><abbr title="Equal Credit Opportunity Act">ECOA</abbr> / Reg B.</strong></li>
                 <li><strong><abbr title="European Union Artificial Intelligence">EU AI</abbr> Act.</strong></li>
@@ -124,28 +112,22 @@
 
       <section class="section alt" id="data-protection">
         <div class="section-block">
-          <h2>Data Protection</h2>
+          <h2>Data protection</h2>
           <p class="lead"><span class="product-name">FL-BSA</span> is customer-hosted by design. Customer borrower datasets and model details remain inside the customer-controlled environment in normal appliance operation.</p>
           <div class="grid">
             <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-                Customer-hosted appliance
-              </h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
+              <h3>Customer-hosted appliance</h3>
               <p>The configured product posture keeps borrower datasets, model parameters, and protected-attribute data inside the customer environment. Equilens does not receive those materials as part of normal appliance operation.</p>
             </div>
             <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Equilens business data
-              </h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-docs"></use></svg>
+              <h3>Equilens business data</h3>
               <p>Equilens still processes business contact, website, procurement, support, and company-communication data. The privacy notice explains those uses and how to contact us.</p>
             </div>
             <div class="card">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                Privacy contact
-              </h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-contact"></use></svg>
+              <h3>Privacy contact</h3>
               <p>Privacy and data-protection matters route through the role inbox listed in the privacy notice. Additional privacy-governance items are tracked internally until approved for publication.</p>
             </div>
           </div>
@@ -153,51 +135,43 @@
       </section>
 
       <section class="section" id="evidence-chain">
-        <div class="section-block section-block--evidence-chain">
-          <h2>Evidence Chain</h2>
+        <div class="section-block">
+          <h2>Evidence chain</h2>
 
           <p class="lead">Each run is designed around machine-readable evidence: recorded run context, manifests, certificates, reports, and verification files that can be reviewed outside the user interface.</p>
 
-          <div class="evidence-chain" role="list" aria-label="Evidence chain schema">
-            <article class="evidence-chain-card" role="listitem">
-              <div class="evidence-chain-card__header">
-                <span class="evidence-chain-node" aria-hidden="true">01</span>
-                <h3><span class="sr-only">Step 1: </span>Run Context</h3>
-              </div>
-              <ul class="checks evidence-chain-list">
+          <div class="grid" role="list" aria-label="Evidence chain schema">
+            <article class="card card--reader" role="listitem">
+              <span class="badge-number" aria-hidden="true">1</span>
+              <h3><span class="sr-only">Step 1: </span>Run context</h3>
+              <ul class="checks">
                 <li><strong>Task ID, timestamps, and RNG seed</strong> identify the exact run.</li>
                 <li><code>dataset_hash</code> binds the run to its input snapshot.</li>
                 <li><strong>Row and feature counts</strong> record scale, with protected-attribute summary where available.</li>
               </ul>
             </article>
-            <article class="evidence-chain-card" role="listitem">
-              <div class="evidence-chain-card__header">
-                <span class="evidence-chain-node" aria-hidden="true">02</span>
-                <h3><span class="sr-only">Step 2: </span>Manifest Set</h3>
-              </div>
-              <ul class="checks evidence-chain-list">
+            <article class="card card--reader" role="listitem">
+              <span class="badge-number" aria-hidden="true">2</span>
+              <h3><span class="sr-only">Step 2: </span>Manifest set</h3>
+              <ul class="checks">
                 <li><code>metrics.json</code> remains the technical source of truth for the run.</li>
                 <li><strong>Synthetic-data manifests and hashes</strong> identify generated outputs.</li>
                 <li><strong>Configuration snapshots, log excerpts, and rendered reports</strong> are retained with the run.</li>
               </ul>
             </article>
-            <article class="evidence-chain-card" role="listitem">
-              <div class="evidence-chain-card__header">
-                <span class="evidence-chain-node" aria-hidden="true">03</span>
-                <h3><span class="sr-only">Step 3: </span>Certificate Chain</h3>
-              </div>
-              <ul class="checks evidence-chain-list">
+            <article class="card card--reader" role="listitem">
+              <span class="badge-number" aria-hidden="true">3</span>
+              <h3><span class="sr-only">Step 3: </span>Certificate chain</h3>
+              <ul class="checks">
                 <li><strong>Lineage, training, tuning, synthetic-quality, and pipeline certificates</strong> cover the workflow.</li>
                 <li><code>previous_certificate_hash</code> links each certificate to the prior artifact.</li>
                 <li><strong>Regulatory-alignment certificate</strong> supports traceability without becoming a legal attestation.</li>
               </ul>
             </article>
-            <article class="evidence-chain-card" role="listitem">
-              <div class="evidence-chain-card__header">
-                <span class="evidence-chain-node" aria-hidden="true">04</span>
-                <h3><span class="sr-only">Step 4: </span>Offline Verification</h3>
-              </div>
-              <ul class="checks evidence-chain-list">
+            <article class="card card--reader" role="listitem">
+              <span class="badge-number" aria-hidden="true">4</span>
+              <h3><span class="sr-only">Step 4: </span>Offline verification</h3>
+              <ul class="checks">
                 <li><strong>Evidence bundle and sidecar manifest</strong> are retrievable by Task ID.</li>
                 <li><strong>Certificate hashes</strong> can be recomputed using the documented hashing spec shipped with the bundle.</li>
                 <li><strong>Vendor trust root:</strong> where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against our published keys at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code> — verify out of band. Customer-local evidence with <code>vendor_authorship_claimed=false</code> proves bundle consistency, not vendor authorship. Verification is offline; no Equilens service is required.</li>
@@ -207,10 +181,7 @@
           </div>
 
           <div class="card card--compact card--reader mt-8">
-            <h3>
-              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-              Public reports &amp; files
-            </h3>
+            <h3>Public reports &amp; files</h3>
             <ul class="checks">
               <li><strong>Public technical-proof reference:</strong> <span class="product-name">FL-BSA</span> <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease).</li>
               <li><strong>Public demo downloads:</strong> Selected downloads are available from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>.</li>
@@ -231,8 +202,8 @@
           <h2>Need the security pack?</h2>
           <p class="lead">We can provide vendor-questionnaire support, deployment notes, and the available evidence bundle for qualified procurement reviews.</p>
           <div class="cta-row">
-            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack">Request Security Pack</a>
-            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>
+            <a class="btn btn-primary plausible-event-name=Security+Pack+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-primary plausible-event-intent=security-pack plausible-event-offer_stage=pack" href="/contact/?interest=Security%20Pack">Request security pack</a>
+            <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=trust-center plausible-event-cta=next-steps-secondary plausible-event-intent=procurement" href="/procurement/">Review procurement</a>
           </div>
         </div>
       </section>

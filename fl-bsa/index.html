@@ -64,7 +64,7 @@
   <link rel="stylesheet" href="/assets/eql/base.css">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
- <body class="eql product-page product-page--flbsa">
+ <body class="eql">
   <a class="skip-to-content" href="#main">
    Skip to content
   </a>
@@ -74,7 +74,7 @@
       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
       <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       <a href="/fl-bsa/" class="nav-link" aria-current="page">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
@@ -87,11 +87,11 @@
     <div class="page-with-toc">
       <nav class="toc" aria-label="Table of contents">
         <div class="toc-inner">
-          <a href="#overview" class="toc-label"><span class="product-name">FL-BSA</span></a>
-          <a href="#how-it-works" class="toc-link">How it Works</a>
+          <a href="#overview" class="toc-label">FL-BSA</a>
+          <a href="#how-it-works" class="toc-link">How it works</a>
           <a href="#deployment" class="toc-link">Deployment</a>
           <a href="#pricing" class="toc-link">Licensing</a>
-          <a href="#compliance" class="toc-link">Governance Evidence</a>
+          <a href="#compliance" class="toc-link">Governance evidence</a>
           <a href="#docs" class="toc-link">Documentation</a>
           <a href="#faq" class="toc-link">FAQ</a>
         </div>
@@ -101,29 +101,31 @@
         <section class="hero" id="overview" aria-label="FL-BSA overview">
           <div class="hero-content">
             <p class="eyebrow">Fair-Lending Bias-Simulation Appliance</p>
-            <h1 class="brand-title">FL-BSA</h1>
+            <h1 class="hero-headline">FL-BSA</h1>
             <p class="lead">
               <span class="product-name">FL-BSA</span> — the Fair-Lending Bias-Simulation Appliance — is a self-hosted fair-outcomes evidence appliance for regulated credit decisions. It runs inside the customer-controlled environment and helps teams review credit-decision, affordability, pricing, underwriting, and policy-review workflows. Each run packages a PDF report, metrics, manifests, and certificates for governance, model-risk, audit, and regulatory review.
             </p>
             <div class="cta-row">
-              <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+              <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
               <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-whitepaper plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
             </div>
-            <h2 class="sr-only">FL-BSA highlights</h2>
+          </div>
+          <h2 class="sr-only">FL-BSA highlights</h2>
+          <div class="container">
             <div class="hero-highlights grid grid-3" aria-label="FL-BSA highlights">
-              <div class="card card-hero">
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-                <h3>Customer-Hosted</h3>
+              <div class="card">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
+                <h3>Customer-hosted</h3>
                 <p>Run inside your <abbr title="Virtual Private Cloud">VPC</abbr>, <abbr title="Virtual Machine">VM</abbr>, or other customer-controlled environment.</p>
               </div>
-              <div class="card card-hero">
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-                <h3>Outcome Simulation</h3>
+              <div class="card">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg>
+                <h3>Outcome simulation</h3>
                 <p>Stress-test lending decision patterns on synthetic borrower cohorts instead of live production decision traffic.</p>
               </div>
-              <div class="card card-hero">
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-hero"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-                <h3>Evidence Packs</h3>
+              <div class="card">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-evidence"></use></svg>
+                <h3>Evidence packs</h3>
                 <p>Generate reports, manifests, and certificates that support audit, model-risk, and regulatory review.</p>
               </div>
             </div>
@@ -132,32 +134,28 @@
 
   <section class="section alt" id="how-it-works">
     <div class="section-block">
-      <h2>How it Works</h2>
+      <h2>How it works</h2>
       <p class="lead">Four steps from source snapshot to evidence prepared for governance review.</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3><span class="sr-only">Step 1: </span>Snapshot the Baseline</h3>
-            <p>Point <span class="product-name">FL-BSA</span> at a bounded, read-only snapshot of features and decisions (prepared CSV/Parquet or a warehouse pull) to establish the baseline for the run.</p>
-          </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">1</span>
+          <h3><span class="sr-only">Step 1: </span>Snapshot the baseline</h3>
+          <p>Point <span class="product-name">FL-BSA</span> at a bounded, read-only snapshot of features and decisions (prepared CSV/Parquet or a warehouse pull) to establish the baseline for the run.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3><span class="sr-only">Step 2: </span>Simulate Two Branches</h3>
-            <p>Train two generative branches. Amplification asks: are we amplifying the unfairness already in our history? Intrinsic asks: would the model still discriminate if history were fairer? The gap between them is the audit object.</p>
-          </div>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">2</span>
+          <h3><span class="sr-only">Step 2: </span>Simulate two branches</h3>
+          <p>Train two generative branches. Amplification asks: are we amplifying the unfairness already in our history? Intrinsic asks: would the model still discriminate if history were fairer? The gap between them is the audit object.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3><span class="sr-only">Step 3: </span>Generate Hash-Linked Evidence</h3>
-            <p>Every run emits a tamper-evident evidence manifest (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) plus certificates that link source data, model settings, and outputs.</p>
-          </div>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">3</span>
+          <h3><span class="sr-only">Step 3: </span>Generate hash-linked evidence</h3>
+          <p>Every run emits a tamper-evident evidence manifest (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>) plus certificates that link source data, model settings, and outputs.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3><span class="sr-only">Step 4: </span>Review Findings and Act</h3>
-            <p>Use the review-oriented report findings to tune models or document Less Discriminatory Alternatives (<abbr title="Less Discriminatory Alternatives">LDAs</abbr>).</p>
-          </div>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">4</span>
+          <h3><span class="sr-only">Step 4: </span>Review findings and act</h3>
+          <p>Use the review-oriented report findings to tune models or document Less Discriminatory Alternatives (<abbr title="Less Discriminatory Alternatives">LDAs</abbr>).</p>
         </div>
       </div>
       <p class="note"><strong>In build — measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns learned from your historical data; it never executes your models. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is in active development and is not part of the current release.</p>
@@ -170,17 +168,13 @@
       <p class="lead">Choose the customer-hosted path that fits your procurement and infrastructure model.</p>
       <div class="grid">
         <div class="card">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-            Guided <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr>
-          </h3>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
+          <h3>Guided <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr></h3>
           <p>The current AWS path is controlled guided-pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first customer path or an agreed private handoff. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</p>
         </div>
         <div class="card">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="m12 2 9 5-9 5-9-5 9-5"></path><path d="m3 12 9 5 9-5"></path><path d="m3 17 9 5 9-5"></path></svg>
-            Container
-          </h3>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-deploy"></use></svg>
+          <h3>Container</h3>
           <p>Deploy the container stack via docker-compose in your <abbr title="Virtual Private Cloud">VPC</abbr>, <abbr title="Virtual Machine">VM</abbr>, or on-prem environment.</p>
         </div>
       </div>
@@ -188,15 +182,14 @@
     </div>
   </section>
 
+  <!-- The section id "pricing" is a published anchor (redirect stubs and
+       inbound links target /fl-bsa/#pricing); the visible label is "Licensing". -->
   <section class="section alt" id="pricing">
     <div class="section-block">
       <h2>Licensing</h2>
       <p class="lead">Customer-hosted model: you control the infrastructure; we licence the appliance software through controlled qualification.</p>
       <div class="card card--reader">
-        <h3>
-          <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-          Controlled Pilot Access
-        </h3>
+        <h3>Controlled pilot access</h3>
         <ul class="checks">
           <li><strong>Access request:</strong> Evidence-readiness assessment, pricing, or guided pilot qualification.</li>
           <li><strong>Pilot scope:</strong> One regulated-credit workflow, evidence question, data boundary, and deployment path.</li>
@@ -205,7 +198,7 @@
         <p class="note">Annual and volume licence structures are post-qualification options, not public cold-sell offers. Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</p>
       </div>
       <div class="card card--reader mt-6">
-        <h3>Engagement Shapes</h3>
+        <h3>Engagement shapes</h3>
         <ul class="checks">
           <li><strong>Evidence-readiness assessment</strong> (~5 business days): a short findings memo on your workflow, schema, data boundary, and evidence gaps, with a stop/go recommendation. Pricing on request.</li>
           <li><strong>Evidence readiness sprint</strong> (~2 weeks): an evidence-gap memo, a draft evidence-pack acceptance checklist, and a scoped plan for a controlled evidence run. Pricing on request.</li>
@@ -214,34 +207,28 @@
         <p class="note">Requesting the pack or a readiness conversation commits you to nothing beyond a written reply.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
-        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>
+        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
+        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review procurement</a>
       </div>
     </div>
   </section>
 
   <section class="section" id="compliance">
     <div class="section-block">
-      <h2>Governance Evidence</h2>
+      <h2>Governance evidence</h2>
       <p class="lead">Materials and controls designed to support security review, vendor due diligence, and regulatory dialogue.</p>
       <p class="note"><span class="product-name">FL-BSA</span> is a simulation and evidence-packaging tool. It does not certify regulatory compliance or replace legal, compliance, or model-risk judgment.</p>
       <div class="stack">
-        <div class="card">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            Product Scope
-          </h3>
+        <div class="card card--reader">
+          <h3>Product scope</h3>
           <ul class="checks">
             <li><strong>Self-hosted appliance:</strong> Guided <abbr title="Amazon Web Services">AWS</abbr> deployment / Docker deployment.</li>
             <li><strong>Data boundary:</strong> No borrower, model, or protected-attribute data sent to vendor SaaS in self-hosted deployments.</li>
             <li><strong>Evidence bundle:</strong> <abbr title="Portable Document Format">PDF</abbr> report, evidence manifest (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>), certificate appendix.</li>
           </ul>
         </div>
-        <div class="card">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            Controls &amp; Mapping
-          </h3>
+        <div class="card card--reader">
+          <h3>Controls &amp; mapping</h3>
           <ul class="checks">
             <li><strong>Control mapping:</strong> <abbr title="Financial Conduct Authority">FCA</abbr>, <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Equal Credit Opportunity Act">ECOA</abbr> touchpoints documented.</li>
             <li><strong>Security posture:</strong> Hardened images, optional Prometheus metrics.</li>
@@ -249,10 +236,7 @@
           </ul>
         </div>
         <div class="card card--reader">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            Licensing &amp; Usage
-          </h3>
+          <h3>Licensing &amp; usage</h3>
           <ul class="checks">
             <li><strong>Usage terms:</strong> Finalized during pilot qualification and can be provided through a Private Offer or agreed private handoff path.</li>
             <li><strong>Marketplace access:</strong> Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available.</li>
@@ -270,37 +254,28 @@
             <p class="lead">Public materials for evaluation, plus licensed technical docs for implementation teams.</p>
             <div class="grid">
               <div class="card card--reader">
-                <h3 id="whitepaper">
-                  <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                  Whitepaper
-                </h3>
+                <h3 id="whitepaper">Whitepaper</h3>
                 <p>Public demo whitepaper covering <span class="product-name">FL-BSA</span>'s regulated-credit evidence model. The intake ZIP is an unsigned, non-evidence-grade diagnostics bundle with aggregate synthetic-data and fairness inputs used for the public whitepaper build. See the <a href="/fl-bsa/whitepaper/">whitepaper page</a> for provenance and verification steps.</p>
                 <div class="artifact-actions">
-                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (demo build, PDF)</a>
-                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-whitepaper-intake plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download Whitepaper Intake (ZIP)</a>
+                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download whitepaper (demo build, PDF)</a>
+                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-whitepaper-intake plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download whitepaper intake (ZIP)</a>
                 </div>
               </div>
               <div class="card card--reader">
-                <h3>
-                  <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-                  Example Report
-                </h3>
+                <h3>Example report</h3>
                 <p>Pinned public demo report generated from the balanced scenario in the public GOLD run fixture. The ZIP is the supporting synthetic/demo GOLD run pack: balanced scenario artifacts, companion validation scenarios, row-level synthetic demo datasets, certificates, manifests, and evidence guides.</p>
                 <div class="artifact-actions">
-                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-demo-report plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download Demo Report (PDF)</a>
-                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-demo-gold-pack plausible-event-asset=demo-gold-pack-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip" target="_blank" rel="noopener noreferrer">Download Demo GOLD Pack (ZIP)</a>
+                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-demo-report plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Download demo report (PDF)</a>
+                  <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=docs-demo-gold-pack plausible-event-asset=demo-gold-pack-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip" target="_blank" rel="noopener noreferrer">Download demo GOLD pack (ZIP)</a>
                 </div>
               </div>
             </div>
             <p class="note">Current public technical-proof reference: <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease). The downloads above are selected synthetic/demo assets from that public release; they are not customer output, legal advice, or proof of a public Marketplace launch.</p>
             <div class="card mt-6">
-              <h3>
-                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Technical Docs
-              </h3>
+              <h3>Technical docs</h3>
               <p>Licensed customers receive technical documentation, <abbr title="Application Programming Interface">API</abbr> references, and integration guides through our secure portal.</p>
               <div class="cta-row mt-4">
-                <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+                <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
                 <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>
               </div>
             </div>
@@ -346,8 +321,8 @@
             <h2>Ready to scope readiness?</h2>
             <p class="lead">Request the buyer/procurement pack or a readiness conversation — a written reply, not a sales call.</p>
             <div class="cta-row">
-              <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
-              <a class="btn btn-secondary" href="#pricing">Review Licensing</a>
+              <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
+              <a class="btn btn-secondary" href="#pricing">Review licensing</a>
             </div>
           </div>
         </section>

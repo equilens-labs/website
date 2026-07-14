@@ -182,12 +182,17 @@ test.describe('Equilens site surfaces', () => {
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);');
     expect(css).toContain('.section-block p {\n  text-align: left;\n  line-height: var(--leading-relaxed);');
-    expect(css).toContain('.section-block {\n  background: rgba(255, 255, 255, 0.88);');
+    // Normalization: panels are solid white (the 0.88-alpha wash is gone).
+    expect(css).toContain('.section-block {\n  background: var(--color-white);');
     expect(css).toContain('width: calc(100% - var(--space-8));');
-    expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code,\n.evidence-chain-list code {');
+    // Evidence lists are plain .checks now; code chips must still wrap.
+    expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code {');
     expect(css).toContain('code {\n  background: var(--bg-subtle);');
-    expect(css).toContain('.hero-highlights .card-hero {\n    display: grid;');
-    expect(css).toContain('.contact-form-card h2 {\n  font-size: var(--text-2xl);');
+    // Mobile cards keep the compact left icon-row grid (now for every card).
+    expect(css).toContain('.card {\n    display: grid;');
+    // Contact form heading follows the panel h2 scale; the form itself is the
+    // width-constrained element.
+    expect(css).toContain('.contact-form {\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-5);\n  width: 100%;\n  max-width: var(--max-width-2xl);');
     expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('abbr {\n  text-decoration: none;\n  font-variant-caps: all-small-caps;\n  letter-spacing: var(--tracking-wide);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
@@ -195,9 +200,10 @@ test.describe('Equilens site surfaces', () => {
     // outright, so no rogue note styling can reappear under that class.
     expect(css).not.toContain('.note.note--small');
     // Form notes must not draw the footnote divider (it misfired mid-form on
-    // /contact/); panel and card notes keep it.
+    // /contact/); panel and card notes keep it, and the form rule explicitly
+    // disables it so the panel-note rule cannot reintroduce it.
     expect(css).toContain('.section-block .note,\n.card .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
-    expect(css).not.toContain('.contact-form .note {\n  border-top:');
+    expect(css).toContain('.contact-form .note {\n  border-top: none;\n  padding-top: 0;');
     expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
     expect(css).not.toContain('font-style: italic;');
     expect(flbsa).toContain('<strong>Access request:</strong>');
@@ -235,7 +241,7 @@ test.describe('Equilens site surfaces', () => {
 
     await page.setViewportSize({ width: 820, height: 1100 });
     await page.goto('/trust-center/', { waitUntil: 'networkidle' });
-    const codeWrap = await page.locator('.evidence-chain-list code').first().evaluate((element) => {
+    const codeWrap = await page.locator('#evidence-chain .checks code').first().evaluate((element) => {
       const style = getComputedStyle(element);
       return {
         overflowWrap: style.overflowWrap,
@@ -251,14 +257,16 @@ test.describe('Equilens site surfaces', () => {
 
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto('/contact/', { waitUntil: 'networkidle' });
-    const contactHeadingStyle = await page.locator('.contact-form-card h2').evaluate((element) => {
+    // The contact heading now uses the one documented panel-h2 scale
+    // (40px/600 at desktop) instead of a page-local 24px card size.
+    const contactHeadingStyle = await page.locator('.section-block h2').evaluate((element) => {
       const style = getComputedStyle(element);
       return {
         fontSize: style.fontSize,
         fontWeight: style.fontWeight,
       };
     });
-    expect(contactHeadingStyle).toEqual({ fontSize: '24px', fontWeight: '600' });
+    expect(contactHeadingStyle).toEqual({ fontSize: '40px', fontWeight: '600' });
   });
 
   test('Tier 3 token and CTA polish stays in place', async () => {
@@ -272,7 +280,9 @@ test.describe('Equilens site surfaces', () => {
     const pricing = fs.readFileSync(path.join(root, 'pricing', 'index.html'), 'utf-8');
 
     expect(css).toContain('--text-note: 0.8125rem;');
-    expect(css).toContain('--surface-glass-card-border: rgba(255, 255, 255, 0.5);');
+    // Glass surfaces stay tokenized (the card-glass variant was deleted; the
+    // navbar keeps the slate-tinted glass border token).
+    expect(css).toContain('--surface-glass-border: rgba(226, 232, 240, 0.5);');
     expect(css).not.toContain('border: 1px solid rgba(255, 255, 255, 0.5)');
     expect(css).not.toContain('border: 1px solid rgba(229, 231, 235, 1)');
     expect(css).not.toContain('border-color: rgba(229, 231, 235, 1)');
@@ -300,8 +310,8 @@ test.describe('Equilens site surfaces', () => {
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');
-    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review Procurement</a>');
-    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review procurement</a>');
+    expect(flbsa).toContain('<a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
     expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
     expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
     expect(faq).toContain('<span class="product-name">FL-BSA</span> FAQ');
@@ -417,7 +427,9 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('@import url("/brand/tokens/tokens.css");');
     expect(css).toContain('--color-primary: var(--eql-color-brand-500);');
     expect(css).toContain('--color-primary-hover: var(--eql-color-brand-700);');
-    expect(css).toContain('--color-gray-900: var(--eql-color-ink-900);');
+    // The unused gray ramp was deleted; primary text is wired to the brand
+    // ink token (slate-900), so brand ink actually renders.
+    expect(css).toContain('--text-primary: var(--eql-color-ink-900);');
   });
 
   test('mobile section headings use the compact section scale without emergency wrapping', async ({ page }) => {
@@ -474,7 +486,7 @@ test.describe('Equilens site surfaces', () => {
         await expect(provenanceLinks).toHaveCount(1);
       }
       if (pageEntry.path === '/trust-center/') {
-        await expect(page.getByRole('link', { name: 'Request Security Pack' }).first()).toHaveAttribute(
+        await expect(page.getByRole('link', { name: 'Request security pack' }).first()).toHaveAttribute(
           'href',
           '/contact/?interest=Security%20Pack',
         );
@@ -494,13 +506,16 @@ test.describe('Equilens site surfaces', () => {
       expect(horizontalOverflow).toBeLessThanOrEqual(1);
 
       if (pageEntry.path === '/fl-bsa/') {
-        await expect(page.locator('.timeline .timeline-item')).toHaveCount(4);
-        await expect(page.locator('.timeline .timeline-icon')).toHaveCount(0);
-        await expect(page.getByRole('link', { name: 'Download Whitepaper Intake (ZIP)' })).toHaveAttribute(
+        // How-it-works folded from the bespoke .timeline into the shared
+        // card + number-badge grammar: still four steps, no legacy markup.
+        await expect(page.locator('#how-it-works .card')).toHaveCount(4);
+        await expect(page.locator('#how-it-works .badge-number')).toHaveCount(4);
+        await expect(page.locator('.timeline')).toHaveCount(0);
+        await expect(page.getByRole('link', { name: 'Download whitepaper intake (ZIP)' })).toHaveAttribute(
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
         );
-        await expect(page.getByRole('link', { name: 'Download Demo GOLD Pack (ZIP)' })).toHaveAttribute(
+        await expect(page.getByRole('link', { name: 'Download demo GOLD pack (ZIP)' })).toHaveAttribute(
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip',
         );

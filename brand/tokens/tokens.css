@@ -1,25 +1,49 @@
+/* ============================================================================
+   Equilens brand tokens - single source for brand color, radius, and state
+   values. Mirrored in tokens.json (press kit). Consumed by
+   /assets/eql/base.css via semantic aliases.
+   ============================================================================ */
 :root {
-  --eql-color-brand-500: #4F46E5;
-  --eql-color-brand-700: #4338CA;
-  --eql-color-brand-dark-500: #A5B4FC;
-  --eql-color-ink-900: #111827;
-  --eql-color-ink-700: #374151;
-  --eql-color-ink-rev: #FFFFFF;
-  --eql-color-muted-500: #6B7280;
-  --eql-color-muted-dark: #9CA3AF;
+  /* Brand (indigo) */
+  --eql-color-brand-500: #4F46E5;  /* interactive / brand chrome */
+  --eql-color-brand-700: #4338CA;  /* hover-darken of brand-500 */
+  --eql-color-brand-800: #3730A3;  /* emphasized text: links, product names, accent headings */
+  --eql-color-brand-a08: rgba(79, 70, 229, 0.08);
+  --eql-color-brand-a10: rgba(79, 70, 229, 0.1);
+  --eql-color-brand-a15: rgba(79, 70, 229, 0.15);
+
+  /* Ink & muted (one slate ramp) */
+  --eql-color-ink-900: #0F172A;
+  --eql-color-ink-700: #334155;
+  --eql-color-muted-500: #475569;
+
+  /* Surfaces */
   --eql-color-bg-light: #FFFFFF;
+  --eql-color-surface-light: #F8FAFC;
+
+  /* Borders (slate) */
+  --eql-color-border-100: #F1F5F9;
+  --eql-color-border-200: #E2E8F0;
+  --eql-color-border-300: #CBD5E1;
+
+  /* Radius steps: 8 inputs/small - 12 cards - 16 panels - full pills/badges */
+  --eql-radius-sm: 8px;
+  --eql-radius-md: 12px;
+  --eql-radius-lg: 16px;
+  --eql-radius-full: 9999px;
+
+  /* reserved: dark-mode palette - no dark theme is shipped yet */
+  --eql-color-brand-dark-500: #A5B4FC;
+  --eql-color-ink-rev: #FFFFFF;
+  --eql-color-muted-dark: #9CA3AF;
   --eql-color-bg-dark: #111827;
-  --eql-color-surface-light: #F9FAFB;
   --eql-color-surface-dark: #1F2937;
+
+  /* reserved: state colors - wire into form :user-invalid / alerts when built */
   --eql-color-state-success-light: #16A34A;
   --eql-color-state-success-dark: #22C55E;
   --eql-color-state-warning-light: #D97706;
   --eql-color-state-warning-dark: #F59E0B;
   --eql-color-state-danger-light: #DC2626;
   --eql-color-state-danger-dark: #EF4444;
-  --eql-radius-1: 6px;
-  --eql-radius-2: 12px;
-  --eql-motion-ease-standard: cubic-bezier(.2,.8,.2,1);
-  --eql-motion-dur-fast: 150ms;
-  --eql-motion-dur-med: 250ms;
 }

@@ -56,7 +56,7 @@ def render(current: str) -> str:
       <img class="logo-wordmark" src="{brand["img"]}" alt="{brand["alt"]}" width="196" height="39">
       <img class="logo-symbol" src="{brand_compact_img}" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       {nav_links}
     </div>
