@@ -8,6 +8,8 @@
     "test": "npm run playwright:audit"
   },
   "devDependencies": {
+    "@fontsource-variable/geist": "^5.2.9",
+    "@fontsource-variable/geist-mono": "^5.2.8",
     "@playwright/test": "^1.56.1"
   }
 }

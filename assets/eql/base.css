@@ -4,6 +4,23 @@
    Equilens Design System - Consolidated Base Stylesheet
    ============================================================================ */
 
+/* --- Self-hosted type (Geist via Fontsource; latin variable subsets) --- */
+@font-face {
+  font-family: "Geist Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/brand/fonts/geist-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Geist Mono Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/brand/fonts/geist-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+
 /* ============================================================================
    1. CSS VARIABLES / DESIGN TOKENS
    ============================================================================ */
@@ -41,8 +58,8 @@
 
   /* --- Typography System --- */
   /* System font stacks to avoid network font dependencies (CSP: style-src 'self'). */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* --- Spacing Scale --- */
   --space-1: 0.25rem;    /* 4px */
@@ -280,6 +297,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
   color: var(--text-primary);
   letter-spacing: var(--tracking-tight);
   overflow-wrap: normal;
@@ -314,9 +332,9 @@ p {
 }
 
 .eyebrow {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--color-primary);
@@ -350,7 +368,8 @@ p {
   margin-bottom: var(--space-6);
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
-  font-size: var(--text-lg);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-primary-text);
 }
@@ -658,7 +677,12 @@ code {
   justify-content: center;
   padding: var(--space-6) 0 var(--space-8);
   position: relative;
-  background: radial-gradient(circle at 50% 0%, var(--color-primary-a08) 0%, rgba(255, 255, 255, 0) 60%);
+  background-image:
+    linear-gradient(var(--border-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000 40%, transparent 100%);
 }
 
 
@@ -955,7 +979,7 @@ code {
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   padding: var(--space-8);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   column-gap: var(--space-3);
@@ -978,6 +1002,40 @@ code {
 
 .card:not(:has(> .icon)):not(:has(> .badge-number)) {
   grid-template-columns: minmax(0, 1fr);
+}
+
+/* Borderless feature rows: product capabilities, not boxed offers */
+.card--plain {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: var(--space-2) 0;
+}
+
+/* Evidence figure: real report pages, framed, demo-captioned */
+.evidence-figure {
+  margin: 0 auto var(--space-10);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.evidence-figure img {
+  width: min(100%, 22rem);
+  height: auto;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.evidence-figure figcaption {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
 }
 
 /* Cards with an action row pin it to a shared bottom line */
@@ -1052,7 +1110,7 @@ code {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-weight: var(--font-medium);
   cursor: pointer;
   line-height: 1.1;
