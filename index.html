@@ -57,6 +57,8 @@
     ]
   }
   </script>
+  <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
@@ -99,17 +101,17 @@
         <h2 id="flbsa-heading">Meet FL-BSA</h2>
         <p><span class="product-name">FL-BSA</span>, the Fair-Lending Bias-Simulation Appliance, is our flagship product: simulate decision patterns, package tamper-evident evidence packs, and keep borrower data in your environment.</p>
         <div class="hero-highlights grid grid-3 mt-6" aria-label="Key FL-BSA capabilities">
-          <div class="card">
+          <div class="card card--plain">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg>
             <h3>Outcome simulation</h3>
             <p>Generate synthetic borrower scenarios and stress-test lending decision patterns for disparity before concerns become live remediation work.</p>
           </div>
-          <div class="card">
+          <div class="card card--plain">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-evidence"></use></svg>
             <h3>Evidence packs</h3>
             <p>Turn each run into reports, manifests, certificates, and documentation that risk, compliance, and audit teams review together.</p>
           </div>
-          <div class="card">
+          <div class="card card--plain">
             <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
             <h3>Customer-hosted</h3>
             <p>Deploy <span class="product-name">FL-BSA</span> inside your own environment so sensitive data, model artifacts, and review workflows stay within your perimeter.</p>
@@ -146,6 +148,11 @@
       <div class="section-block">
         <h2 id="verify-heading">Verify it yourself</h2>
         <p>Everything we publish ships with SHA-256 manifests and a published trust root. Download the demo artifacts and recompute the hashes yourself.</p>
+        <figure class="evidence-figure">
+          <img src="/brand/product/report-cover.png" alt="Cover page of the FL-BSA demo evidence report" width="619" height="800" loading="lazy">
+          <img src="/brand/product/report-screening.png" alt="Screening-decision page of the FL-BSA demo evidence report, showing the disparate-impact table and dataset overview" width="619" height="800" loading="lazy">
+          <figcaption>Pages from the demo evidence report. Synthetic data, DEMO/EVALUATION watermark.</figcaption>
+        </figure>
         <div class="grid grid-3 mt-6">
           <div class="card">
             <h3>Demo report</h3>

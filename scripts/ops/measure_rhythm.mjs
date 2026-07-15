@@ -21,13 +21,13 @@ await p.goto(BASE + '/', { waitUntil: 'networkidle' });
 
 const m = await p.evaluate(() => {
   const gaps = [];
-  const els = document.querySelectorAll('main h2, main .section-block > p, main .section-block > .grid, main .section-block > .cta-row, main .section-block > .note');
+  const els = document.querySelectorAll('main h2, main .section-block > p, main .section-block > .grid, main .section-block > .cta-row, main .section-block > .note, main .section-block > figure');
   let prev = null;
   els.forEach(el => {
     const r = el.getBoundingClientRect();
     if (r.height === 0) return;
     gaps.push({
-      kind: el.tagName.toLowerCase() + (el.classList.contains('note') ? '.note' : el.classList.contains('cta-row') ? '.cta-row' : el.classList.contains('grid') || el.classList.contains('hero-highlights') ? '.grid' : ''),
+      kind: el.tagName.toLowerCase() === 'figure' ? 'figure' : el.tagName.toLowerCase() + (el.classList.contains('note') ? '.note' : el.classList.contains('cta-row') ? '.cta-row' : el.classList.contains('grid') || el.classList.contains('hero-highlights') ? '.grid' : ''),
       gap: prev ? Math.round(r.top - prev.bottom) : null,
       prevKind: prev ? prev.kind : null,
       text: (el.textContent || '').trim().slice(0, 24).replace(/\s+/g, ' '),
@@ -65,6 +65,8 @@ const RULES = [
   { prev: '.grid', kind: '.cta-row', expect: 40, label: 'grid -> cta-row' },
   { prev: '.grid', kind: '.note', expect: 24, label: 'grid -> note' },
   { prev: '', kind: '.cta-row', expect: 40, label: 'intro -> cta-row' },
+  { prev: '', kind: 'figure', expect: 40, label: 'intro -> figure' },
+  { prev: 'figure', kind: '.grid', expect: 40, label: 'figure -> grid' },
 ];
 for (const g of m.gaps) {
   if (g.gap === null) continue;
