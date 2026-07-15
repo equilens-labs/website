@@ -57,4 +57,11 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "regulator[- ]aligned[[:
   exit 1
 fi
 
+# Founder rule (2026-07-14): the word "call" is banned on web surfaces — no "sales call",
+# no "before a call", no call framing anywhere in published copy.
+if grep -r --include="*.html" -n -i -E "\bcalls?\b" "${GREP_EXCLUDES[@]}" .; then
+  echo "ERROR: Found banned word 'call' in web copy (founder rule 2026-07-14)"
+  exit 1
+fi
+
 echo "[OK] Content lint passed"
