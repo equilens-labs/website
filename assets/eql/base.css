@@ -133,9 +133,6 @@
   --content-width-narrow: 48rem;  /* policy/legal panels */
   --measure-default: 68ch;
   --measure-narrow: 48ch;
-  /* ch shrinks with font-size; small annotation text uses this fixed width so
-     it matches the body column instead of rendering conspicuously narrower. */
-  --measure-fixed: 41rem;
 
   /* --- Chrome --- */
   --nav-height: 72px;  /* fixed navbar; drives scroll offsets + sticky tops */
@@ -865,7 +862,7 @@ code {
 
 .section-block .note {
   text-align: center;
-  max-width: var(--measure-fixed);
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
 }
