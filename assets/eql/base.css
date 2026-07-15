@@ -400,7 +400,7 @@ ul, ol {
 
 
 .product-name {
-  color: var(--color-primary-text);
+  color: inherit;
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-normal);
   white-space: nowrap;
@@ -921,6 +921,7 @@ code {
 .landing .section-block > h2 + p {
   text-align: center;
   margin-bottom: var(--space-10);
+  font-size: var(--text-lg);
 }
 
 
