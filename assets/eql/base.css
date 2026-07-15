@@ -677,12 +677,46 @@ code {
   justify-content: center;
   padding: var(--space-6) 0 var(--space-8);
   position: relative;
-  background-image:
-    linear-gradient(var(--border-light) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
-  background-size: 32px 32px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000 40%, transparent 100%);
+  overflow: hidden;
+}
+
+/* Brand watermark: the wordmark's brackets frame every hero (founder pick,
+   2026-07-15). Empty alt text keeps them silent for screen readers. */
+.hero::before,
+.hero::after {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-58%);
+  font-family: var(--font-mono);
+  font-weight: 200;
+  font-size: clamp(14rem, 24vw, 34rem);
+  line-height: 1;
+  color: var(--color-primary-a08);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero::before {
+  content: "[" / "";
+  left: 4%;
+}
+
+.hero::after {
+  content: "]" / "";
+  right: 4%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .hero::before,
+  .hero::after {
+    display: block;
+  }
 }
 
 
