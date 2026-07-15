@@ -69,4 +69,12 @@ if grep -r --include="*.html" -n -i -E "\bcalls?\b" "${GREP_EXCLUDES[@]}" .; the
   exit 1
 fi
 
+# Design rule (2026-07-15): no em-dashes in site copy. <title>, <meta …>, and
+# JSON-LD "name" lines are metadata (exempt); everything else is visible copy
+# and must use a colon, comma, period, or parentheses instead.
+if grep -r --include="*.html" -n "—" "${GREP_EXCLUDES[@]}" . | grep -v -E '<title>|<meta[[:space:]]|"name":"'; then
+  echo "ERROR: Found em-dash in site copy (design rule 2026-07-15); rewrite with colon, comma, period, or parentheses"
+  exit 1
+fi
+
 echo "[OK] Content lint passed"
