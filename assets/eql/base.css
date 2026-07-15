@@ -332,7 +332,7 @@ p {
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-wider);
@@ -368,7 +368,7 @@ p {
   margin-bottom: var(--space-6);
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-primary-text);
@@ -929,7 +929,7 @@ code {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-3);
   width: 100%;
 }
@@ -981,36 +981,16 @@ code {
   border-radius: var(--radius-md);
   padding: var(--space-8);
   box-shadow: none;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  column-gap: var(--space-3);
-  row-gap: var(--space-1);
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
-  text-align: left;
-}
-
-.card > * {
-  grid-column: 2;
+  text-align: center;
 }
 
 .card > .icon,
 .card > .badge-number {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  margin: 0;
-}
-
-.card:not(:has(> .icon)):not(:has(> .badge-number)) {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-/* Borderless feature rows: product capabilities, not boxed offers */
-.card--plain {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: var(--space-2) 0;
+  margin: 0 0 var(--space-3);
 }
 
 /* Evidence figure: real report pages, framed, demo-captioned */
@@ -1055,7 +1035,7 @@ code {
   margin-bottom: var(--space-2);
   color: var(--color-primary-text);
   line-height: var(--leading-tight);
-  text-align: left;
+  text-align: center;
 }
 
 .card p {
@@ -1065,7 +1045,7 @@ code {
   margin-left: 0;
   margin-right: 0;
   max-width: none;
-  text-align: left;
+  text-align: center;
 }
 
 .card p:last-child {
