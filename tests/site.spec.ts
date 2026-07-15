@@ -181,7 +181,9 @@ test.describe('Equilens site surfaces', () => {
 
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
     expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);');
-    expect(css).toContain('.section-block p {\n  text-align: left;\n  line-height: var(--leading-relaxed);');
+    // One body-paragraph color everywhere (census fix 2026-07-15): panel
+    // paragraphs are secondary slate, left at measure.
+    expect(css).toContain('.section-block p {\n  color: var(--text-secondary);\n  text-align: left;\n  line-height: var(--leading-relaxed);');
     // Normalization: panels are solid white (the 0.88-alpha wash is gone).
     expect(css).toContain('.section-block {\n  background: var(--color-white);');
     expect(css).toContain('width: calc(100% - var(--space-8));');
