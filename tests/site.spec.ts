@@ -319,7 +319,9 @@ test.describe('Equilens site surfaces', () => {
     expect(footerTemplate).toContain('<h2 class="sr-only" id="site-sections-heading">Site sections</h2>');
     expect(footerTemplate).toContain('<small class="footer-boundary">{{boundary}}</small>');
     expect(JSON.parse(footerConfig).boundary_note).toContain('Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance.');
-    expect(css).toContain('.site-footer .footer-boundary {\n  max-width: var(--measure-default);\n  margin: var(--space-2) auto 0;\n  padding: 0 var(--space-4);\n  text-align: center;\n  color: var(--text-muted);');
+    // The boundary line spans the footer width so both footer smalls read at
+    // one horizontal length (founder pass 2026-07-15).
+    expect(css).toContain('.site-footer .footer-boundary {\n  max-width: none;\n  margin: var(--space-2) auto 0;\n  padding: 0 var(--space-4);\n  text-align: center;\n  color: var(--text-muted);');
 
     expect(flbsa).not.toContain('timeline-marker');
     expect(trustCenter).not.toContain('timeline-marker');

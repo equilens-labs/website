@@ -8,8 +8,11 @@ where one exists; change the rule and its gate together, never ad hoc.
 
 - **Geist Sans** (self-hosted `/brand/fonts/geist-latin-wght-normal.woff2`) — all text,
   including eyebrows and the hero subtitle (uppercase, semibold, wide tracking).
-- **Geist Mono** (self-hosted) — number badges, figure captions, hashes/IDs, and
-  code ONLY. Never for labels or headings (founder rule).
+- **Geist Mono** (self-hosted) — number badges, hashes/IDs, and code ONLY.
+  Never for labels, headings, or captions (founder rules).
+- Small annotation text (notes, captions) uses `--measure-fixed` (rem-based) so
+  its column matches body prose; `ch` measures shrink with font-size and made
+  small text render conspicuously narrow. Footer boundary spans the footer width.
 - Scale: h1 56/800 · section h2 40/600 (centered) · card h3 18/600 ·
   body 16/1.7 · landing section intro 18 · note 13. Headings track tight.
 - Casing: sentence case for headings, buttons, labels. Proper nouns and legal
