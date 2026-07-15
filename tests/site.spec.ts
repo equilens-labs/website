@@ -241,8 +241,13 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('h1.hero-headline')).toHaveText('Procurement & Deployment');
 
     await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    // Guard the original mobile-squeeze bug under the centered card grammar
+    // (founder rule 2026-07-15): cards span the container as full-width rows
+    // and the stack stays within a sane ceiling.
     const heroHighlightsBox = await page.locator('.hero-highlights').boundingBox();
-    expect(heroHighlightsBox?.height).toBeLessThan(430);
+    expect(heroHighlightsBox?.height).toBeLessThan(520);
+    const firstCardBox = await page.locator('.hero-highlights .card').first().boundingBox();
+    expect(firstCardBox?.width).toBeGreaterThan(300);
 
     await page.setViewportSize({ width: 820, height: 1100 });
     await page.goto('/trust-center/', { waitUntil: 'networkidle' });
