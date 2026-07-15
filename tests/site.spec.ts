@@ -188,8 +188,10 @@ test.describe('Equilens site surfaces', () => {
     // Evidence lists are plain .checks now; code chips must still wrap.
     expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code {');
     expect(css).toContain('code {\n  background: var(--bg-subtle);');
-    // Mobile cards keep the compact left icon-row grid (now for every card).
-    expect(css).toContain('.card {\n    display: grid;');
+    // Every card uses the left icon-row grid at all widths (default rule,
+    // not just the mobile media block) with left-aligned content.
+    expect(css).toContain('display: grid;\n  grid-template-columns: auto minmax(0, 1fr);');
+    expect(css).toContain('text-align: left;\n}\n\n.card > * {');
     // Contact form heading follows the panel h2 scale; the form itself is the
     // width-constrained element.
     expect(css).toContain('.contact-form {\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-5);\n  width: 100%;\n  max-width: var(--max-width-2xl);');

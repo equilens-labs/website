@@ -656,7 +656,7 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-6) 0 var(--space-12);
+  padding: var(--space-6) 0 var(--space-8);
   position: relative;
   background: radial-gradient(circle at 50% 0%, var(--color-primary-a08) 0%, rgba(255, 255, 255, 0) 60%);
 }
@@ -877,12 +877,18 @@ code {
   margin-top: var(--space-8);
 }
 
+/* Landing section intros: the single lead paragraph directly under a
+   centered section h2 is centered; long prose elsewhere stays left. */
+.landing .section-block > h2 + p {
+  text-align: center;
+}
+
 
 .artifact-actions {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
   width: 100%;
 }
@@ -934,31 +940,57 @@ code {
   border-radius: var(--radius-md);
   padding: var(--space-8);
   box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-3);
+  row-gap: var(--space-1);
+  align-content: start;
   height: 100%;
-  text-align: center;
-  align-items: center;
+  text-align: left;
 }
 
+.card > * {
+  grid-column: 2;
+}
+
+.card > .icon,
+.card > .badge-number {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+}
+
+.card:not(:has(> .icon)):not(:has(> .badge-number)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Cards with an action row pin it to a shared bottom line */
+.card:has(> .artifact-actions) {
+  grid-template-rows: auto 1fr auto;
+}
+
+.card:not(:has(> .icon)):not(:has(> .badge-number)) > * {
+  grid-column: 1;
+}
 
 .card h2,
 .card h3 {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-semibold);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   color: var(--color-primary-text);
   line-height: var(--leading-tight);
-  text-align: center;
+  text-align: left;
 }
 
 .card p {
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  text-align: left;
 }
 
 .card p:last-child {
@@ -1556,35 +1588,14 @@ a[download]::after {
     gap: var(--space-3);
   }
 
-  /* All cards adopt the compact left icon-row layout on small screens */
+  /* Cards use the shared left icon-row grid; small screens only compact it */
   .card {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    column-gap: var(--space-3);
-    row-gap: var(--space-1);
     padding: var(--space-5);
-    text-align: left;
-  }
-
-  .card > * {
-    grid-column: 2;
   }
 
   .card > .icon {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    margin: 0;
     width: 22px;
     height: 22px;
-  }
-
-  .card h2,
-  .card h3,
-  .card p {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-    text-align: left;
   }
 
   .card .checks,
