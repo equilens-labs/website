@@ -61,7 +61,9 @@ group→note 24 · panel padding symmetric (48) · no trailing-margin accumulati
 - Hero: the LANDING hero only is framed by faint bracket strokes in the
   wordmark's squared geometry (`.landing .hero::before/::after`, founder pick
   2026-07-15) — drawn as borders sized relative to the hero (cannot clip),
-  tablet-and-up, silent for screen readers. Interior heroes stay clean. No
+  tablet-and-up, silent for screen readers. Interior heroes carry the same
+  signature at whisper volume: one bracket corner top-left, its mirror
+  bottom-right (`body:not(.landing) .hero::before/::after`). No
   grids, gradients, or mist. Wordmark lockup + sans uppercase subtitle.
 
 ## Layout & alignment
