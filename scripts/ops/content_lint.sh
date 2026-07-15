@@ -57,6 +57,11 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "regulator[- ]aligned[[:
   exit 1
 fi
 
+# Product-name treatment: FL-BSA in prose must always be wrapped in
+# <span class="product-name"> (one consistent rendering; designer rule 2026-07-15).
+echo "Checking product-name treatment..."
+python3 scripts/ops/check_product_name.py
+
 # Founder rule (2026-07-14): the word "call" is banned on web surfaces — no "sales call",
 # no "before a call", no call framing anywhere in published copy.
 if grep -r --include="*.html" -n -i -E "\bcalls?\b" "${GREP_EXCLUDES[@]}" .; then
