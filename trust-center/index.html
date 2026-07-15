@@ -76,7 +76,8 @@
           <p class="lead">We employ a defense-in-depth strategy, securing the software supply chain from commit to container.</p>
           <div class="grid">
             <div class="card card--reader">
-              <h3>Supply chain</h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-deploy"></use></svg>
+            <h3>Supply chain</h3>
               <ul class="checks">
                 <li><strong>Image signing:</strong> Cosign-signed images (keyless <abbr title="OpenID Connect">OIDC</abbr>).</li>
                 <li><strong>Provenance:</strong> <abbr title="Software Bill of Materials">SBOM</abbr> + build provenance attestations.</li>
@@ -84,7 +85,8 @@
               </ul>
             </div>
             <div class="card card--reader">
-              <h3>Runtime protection</h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-security"></use></svg>
+            <h3>Runtime protection</h3>
                 <ul class="checks">
                   <li><strong>Runtime user:</strong> Non-root runtime (default).</li>
                   <li><strong>Privilege boundary:</strong> No-new-privileges; evidence artifacts written under <code>OUTPUT_DIR</code> (temporary writes may occur depending on deployment configuration).</li>
@@ -92,7 +94,8 @@
                 </ul>
             </div>
             <div class="card card--reader">
-              <h3>Data sovereignty</h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg>
+            <h3>Data sovereignty</h3>
               <ul class="checks">
                 <li><strong>Deployment boundary:</strong> Runs entirely in your <abbr title="Virtual Private Cloud">VPC</abbr>/<abbr title="Virtual Machine">VM</abbr>.</li>
                 <li><strong>Egress posture:</strong> No data egress by default.</li>
@@ -100,7 +103,8 @@
               </ul>
             </div>
             <div class="card card--reader">
-              <h3>Regulatory mapping<sup>1</sup></h3>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg#icon-docs"></use></svg>
+            <h3>Regulatory mapping<sup>1</sup></h3>
               <ul class="checks">
                 <li><strong><abbr title="Equal Credit Opportunity Act">ECOA</abbr> / Reg B.</strong></li>
                 <li><strong><abbr title="European Union Artificial Intelligence">EU AI</abbr> Act.</strong></li>
@@ -194,9 +198,7 @@
             </ul>
           </div>
 
-          <p class="note">Signing/witnessing is optional and depends on deployment configuration.</p>
-          <p>Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report.</p>
-          <p class="text-muted">Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr title="Software Bill of Materials">SBOM</abbr>.</p>
+          <p class="note">Signing/witnessing is optional and depends on deployment configuration. Evidence is retrievable by Task ID, providing a complete audit trail from data ingestion to final report. Where a component's licence requires reproduction of NOTICE text, the relevant excerpt is provided alongside the <abbr title="Software Bill of Materials">SBOM</abbr>.</p>
         </div>
       </section>
 
