@@ -400,7 +400,7 @@ ul, ol {
 
 
 .product-name {
-  color: inherit;
+  color: var(--color-primary-text);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-normal);
   white-space: nowrap;

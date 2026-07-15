@@ -195,10 +195,10 @@ test.describe('Equilens site surfaces', () => {
     // Contact form heading follows the panel h2 scale; the form itself is the
     // width-constrained element.
     expect(css).toContain('.contact-form {\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-5);\n  width: 100%;\n  max-width: var(--max-width-2xl);');
-    // Product name renders semibold in the surrounding text color (indigo is
-    // reserved for interactive elements); consistency enforced by
+    // Product name always renders in the accent color, semibold (founder rule
+    // 2026-07-15); consistency of wrapping enforced by
     // scripts/ops/check_product_name.py in content lint.
-    expect(css).toContain('.product-name {\n  color: inherit;\n  font-weight: var(--font-semibold);');
+    expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('abbr {\n  text-decoration: none;\n  font-variant-caps: all-small-caps;\n  letter-spacing: var(--tracking-wide);\n  font-weight: var(--font-semibold);');
     expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
     // note--small was a no-op restatement of .note; the variant is deleted
