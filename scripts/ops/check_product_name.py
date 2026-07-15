@@ -22,7 +22,9 @@ PAGES = [p for p in ROOT.rglob("*.html")
                     for part in p.relative_to(ROOT).parts)]
 
 WRAPPED = re.compile(r'<span class="product-name">FL[-‑]BSA</span>')
-PROSE = re.compile(r"<(p|li|figcaption|td|dd)(\s[^>]*)?>(.*?)</\1>", re.S)
+# h2/h3 included per founder rule: FL-BSA is accent-colored in section headings
+# too. h1, nav, buttons, and summaries stay exempt chrome.
+PROSE = re.compile(r"<(p|li|figcaption|td|dd|h2|h3)(\s[^>]*)?>(.*?)</\1>", re.S)
 EXEMPT_INNER = re.compile(r"<(a|code|button|strong|span)(\s[^>]*)?>.*?</\1>", re.S)
 
 violations = []
@@ -56,6 +58,6 @@ if violations:
     for path, snippet in violations:
         print(f"VIOLATION {path}: {snippet}")
     print(f"ERROR: {len(violations)} unwrapped FL-BSA occurrence(s) in prose "
-          f"(rule: always <span class=\"product-name\">FL-BSA</span> in p/li/figcaption/td/dd)")
+          f"(rule: wrap in .product-name in prose and h2/h3)")
     sys.exit(1)
 print("[OK] product-name treatment consistent")
