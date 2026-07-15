@@ -210,7 +210,8 @@ body {
   color: var(--text-primary);
   background: var(--bg-main);
   line-height: var(--leading-relaxed);
-  overflow-x: hidden;
+  /* No overflow-x: hidden here: it silently disables position: sticky
+     (TOC) and only masks real overflow, which the test suite guards. */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
