@@ -717,6 +717,46 @@ code {
   z-index: 1;
 }
 
+/* Interior heroes: the bracket signature at whisper volume — one corner
+   top-left, its mirror bottom-right (founder pick 2026-07-15). */
+body:not(.landing) .hero {
+  position: relative;
+  overflow: hidden;
+}
+
+body:not(.landing) .hero::before,
+body:not(.landing) .hero::after {
+  content: "";
+  display: none;
+  position: absolute;
+  width: 3.5rem;
+  height: 7rem;
+  border: 0 solid var(--color-primary-a10);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body:not(.landing) .hero::before {
+  top: 10%;
+  left: 4%;
+  border-left-width: 8px;
+  border-top-width: 8px;
+}
+
+body:not(.landing) .hero::after {
+  bottom: 10%;
+  right: 4%;
+  border-right-width: 8px;
+  border-bottom-width: 8px;
+}
+
+@media (min-width: 768px) {
+  body:not(.landing) .hero::before,
+  body:not(.landing) .hero::after {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .landing .hero::before,
   .landing .hero::after {
