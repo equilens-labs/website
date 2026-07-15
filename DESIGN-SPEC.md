@@ -58,7 +58,10 @@ group→note 24 · panel padding symmetric (48) · no trailing-margin accumulati
 - **Badge**: one 40px tinted mono number style for every sequence.
 - **Evidence figure**: real artifact imagery, hairline frame, mono demo caption.
 - **Note**: 13px muted, left at measure, top divider inside panels.
-- Hero: graph-grid background (no gradients/mist); wordmark lockup + mono subtitle.
+- Hero: framed by faint oversized wordmark brackets (`.hero::before/::after`,
+  founder pick 2026-07-15) — tablet-and-up only, silent for screen readers,
+  clipped by the hero. No grids, gradients, or mist. Wordmark lockup + sans
+  uppercase subtitle.
 
 ## Layout & alignment
 
