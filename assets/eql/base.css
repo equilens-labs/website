@@ -407,12 +407,11 @@ ul, ol {
   white-space: nowrap;
 }
 
-/* Acronyms */
+/* Acronyms: read as normal text; the dotted underline signals the hover
+   expansion. No small-caps/weight change — size-shifted chips made dense
+   copy look spotty (founder pass, 2026-07-15). */
 abbr {
   text-decoration: none;
-  font-variant-caps: all-small-caps;
-  letter-spacing: var(--tracking-wide);
-  font-weight: var(--font-semibold);
   border-bottom: 1px dotted var(--border-medium);
   cursor: help;
 }
@@ -862,7 +861,7 @@ code {
 }
 
 .section-block .note {
-  text-align: left;
+  text-align: center;
   max-width: var(--measure-default);
   margin-left: auto;
   margin-right: auto;
