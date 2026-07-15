@@ -56,8 +56,8 @@ group→note 24 · panel padding symmetric (48) · no trailing-margin accumulati
   radius 12, no rest shadow, **centered** content, **icon above the title on every
   card**, one-line titles, action rows pinned to a shared bottom line.
 - **Badge**: one 40px tinted mono number style for every sequence.
-- **Evidence figure**: real artifact imagery, hairline frame, mono demo caption.
-- **Note**: 13px muted, left at measure, top divider inside panels.
+- **Evidence figure**: real artifact imagery, hairline frame, body-face demo caption.
+- **Note**: 13px muted, centered, spanning the panel content width, top divider.
 - Hero: the LANDING hero only is framed by faint bracket strokes in the
   wordmark's squared geometry (`.landing .hero::before/::after`, founder pick
   2026-07-15) — drawn as borders sized relative to the hero (cannot clip),
@@ -74,7 +74,7 @@ white/slate stripes on every page.
 
 - Claims register: banned/approved language enforced (existing rules).
 - The word **"call" is banned** site-wide.
-- **No em-dashes** in site copy (pending final sweep; lint rule lands when clean).
+- **No em-dashes** in site copy (lint-enforced; titles/meta/JSON-LD names exempt).
 - Plain, precise English; short sentences; no marketing embellishment.
 - Mandatory product-boundary block in the footer of every page.
 
