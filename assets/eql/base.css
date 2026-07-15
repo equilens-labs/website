@@ -133,6 +133,9 @@
   --content-width-narrow: 48rem;  /* policy/legal panels */
   --measure-default: 68ch;
   --measure-narrow: 48ch;
+  /* ch shrinks with font-size; small annotation text uses this fixed width so
+     it matches the body column instead of rendering conspicuously narrower. */
+  --measure-fixed: 41rem;
 
   /* --- Chrome --- */
   --nav-height: 72px;  /* fixed navbar; drives scroll offsets + sticky tops */
@@ -862,7 +865,7 @@ code {
 
 .section-block .note {
   text-align: center;
-  max-width: var(--measure-default);
+  max-width: var(--measure-fixed);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1014,7 +1017,6 @@ code {
   width: 100%;
   text-align: center;
   margin-top: var(--space-4);
-  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-muted);
 }
@@ -1474,7 +1476,7 @@ a[download]::after {
 }
 
 .site-footer .footer-boundary {
-  max-width: var(--measure-default);
+  max-width: none;
   margin: var(--space-2) auto 0;
   padding: 0 var(--space-4);
   text-align: center;
