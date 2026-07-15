@@ -51,9 +51,7 @@
       <div class="hero-content">
         <p class="eyebrow">Technical Whitepaper: Demo Evidence</p>
         <h1 class="hero-headline">FL-BSA Technical Whitepaper</h1>
-        <p class="lead">
-          How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack. Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation (one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline) and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.
-        </p>
+        <p class="lead">How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack.</p>
         <div class="cta-row">
           <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download whitepaper (demo build, PDF)</a>
           <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-intake-zip plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download whitepaper intake (ZIP)</a>
@@ -64,7 +62,9 @@
     <section class="section alt" id="boundary">
       <div class="section-block">
         <h2>Demo and synthetic boundary</h2>
-        <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records. It is published from a non-commercial technical-proof prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
+        <p>Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation (one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline) and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.</p>
+        <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records.</p>
+        <p>It is published from a non-commercial technical-proof prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
         <p class="note">The intake bundle is an unsigned, non-evidence-grade diagnostics ZIP with the aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
       </div>
     </section>
@@ -72,7 +72,7 @@
     <section class="section" id="provenance">
       <div class="section-block">
         <h2>Provenance</h2>
-        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its SHA-256 digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
+        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
       </div>
     </section>
 
@@ -82,8 +82,8 @@
         <p class="lead">Verification is offline: no Equilens service is involved.</p>
         <ol>
           <li>Download the <abbr title="Portable Document Format">PDF</abbr> and intake <abbr title="ZIP archive">ZIP</abbr> from the pinned release above.</li>
-          <li>Recompute SHA-256 checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
-          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected trust-root SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code>. Verify out of band.</li>
+          <li>Recompute <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
+          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (<abbr title="Elliptic Curve Digital Signature Algorithm, P-256 curve">ECDSA-P256</abbr>). Expected trust-root <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr>: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code>. Verify out of band.</li>
         </ol>
         <p class="note">Evidence bundles produced by a deployed appliance ship with a documented hashing spec and offline verification helpers; see the <a href="/trust-center/">Trust Center</a> for the evidence-chain overview.</p>
       </div>
