@@ -199,7 +199,10 @@ test.describe('Equilens site surfaces', () => {
     // 2026-07-15); consistency of wrapping enforced by
     // scripts/ops/check_product_name.py in content lint.
     expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
-    expect(css).toContain('abbr {\n  text-decoration: none;\n  font-variant-caps: all-small-caps;\n  letter-spacing: var(--tracking-wide);\n  font-weight: var(--font-semibold);');
+    // Acronyms render as normal text with a dotted hover underline — the
+    // small-caps size shift made dense copy spotty (founder pass 2026-07-15).
+    expect(css).toContain('abbr {\n  text-decoration: none;\n  border-bottom: 1px dotted var(--border-medium);\n  cursor: help;\n}');
+    expect(css).not.toContain('all-small-caps');
     expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
     // note--small was a no-op restatement of .note; the variant is deleted
     // outright, so no rogue note styling can reappear under that class.
