@@ -846,6 +846,7 @@ code {
 }
 
 .section-block p {
+  color: var(--text-secondary);
   text-align: left;
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-4);
