@@ -399,10 +399,13 @@ test.describe('Equilens site surfaces', () => {
     const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
     const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
 
-    expect(flbsa).toContain('<section class="section alt" id="pricing">');
-    expect(flbsa).toContain('<section class="section alt" id="docs">');
-    expect(flbsa).toMatch(/<section class="section alt">[\s\S]*<div class="cta-row">/);
-    expect(trustCenter).toContain('<section class="section alt" aria-label="Security review next steps">');
+    // Every page's banding starts white after the hero and alternates strictly
+    // (consistency pass 2026-07-16) — assert the full sequence, not spot sections.
+    for (const html of [flbsa, trustCenter]) {
+      const seq = [...html.matchAll(/<section class="(section(?: alt)?)(?: [\w-]+)*"/g)].map((m) => m[1]);
+      expect(seq.length).toBeGreaterThan(2);
+      seq.forEach((cls, i) => expect(cls).toBe(i % 2 === 0 ? 'section' : 'section alt'));
+    }
   });
 
   test('home and FL-BSA hero cards share the hero-highlights wrapper', async () => {
