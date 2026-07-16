@@ -225,7 +225,7 @@ test.describe('Equilens site surfaces', () => {
     expect(procurement).toContain('<strong>Commercial terms:</strong>');
     expect(trustCenter).toContain('<strong>Image signing:</strong>');
     expect(trustCenter).toContain('<strong>Privilege boundary:</strong>');
-    expect(trustCenter).toContain('<strong>Public technical-proof reference:</strong>');
+    expect(trustCenter).toContain('<strong>Public demo release:</strong>');
     expect(trustCenter).toContain('<strong>Demo-artifact boundary:</strong>');
     expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
     expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
