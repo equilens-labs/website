@@ -1,0 +1,8 @@
+extends: existence
+message: "Banned word '%s' on web surfaces (founder rules 2026-07)."
+level: error
+ignorecase: true
+scope: raw
+tokens:
+  - '\bcalls?\b'
+  - '—'

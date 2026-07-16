@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   audit:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -19,6 +19,17 @@ jobs:
 
       - name: Content lint (forbidden phrases)
         run: scripts/ops/content_lint.sh
+
+      - name: HTML conformance (html-validate)
+        run: |
+          npm ci --ignore-scripts
+          npm run lint:html
+
+      - name: Claims lint (Vale)
+        run: |
+          curl -sL -o /tmp/vale.tgz https://github.com/errata-ai/vale/releases/download/v3.7.1/vale_3.7.1_Linux_64-bit.tar.gz
+          tar -xzf /tmp/vale.tgz -C /tmp vale
+          /tmp/vale --config .vale.ini index.html 404.html fl-bsa contact legal press procurement trust-center
 
       - name: Setup Python server
         run: |
@@ -36,7 +47,7 @@ jobs:
         run: scripts/evidence/screenshots.sh "SCREENSHOTS-AUDIT"
 
       - name: Link check (Lychee pinned)
-        uses: lycheeverse/lychee-action@v1.10.0
+        uses: lycheeverse/lychee-action@v2
         with:
           args: --config ops/lychee.toml .
           fail: true

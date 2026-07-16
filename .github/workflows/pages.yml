@@ -1,10 +1,12 @@
 name: Deploy website to GitHub Pages
 
 on:
-  push:
+  # Deploys are gated on the audit workflow: this fires only when
+  # "Site audits" completes on main, and the build job requires success.
+  workflow_run:
+    workflows: ["Site audits (links, a11y, Lighthouse)"]
+    types: [completed]
     branches: [ main ]
-    paths:
-      - '**'
   workflow_dispatch:
     inputs:
       visibility:
@@ -31,6 +33,7 @@ env:
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     outputs:
       mode: ${{ steps.pages_mode.outputs.mode }}

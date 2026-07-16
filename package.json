@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "content:lint": "scripts/ops/content_lint.sh",
+    "lint:html": "html-validate index.html 404.html 'fl-bsa/**/*.html' 'contact/*.html' 'legal/*.html' 'press/*.html' 'procurement/*.html' 'trust-center/*.html' 'docs/*.html' 'faq/*.html' 'pricing/*.html'",
     "playwright:audit": "scripts/ops/run_playwright_audit.sh",
     "test": "npm run playwright:audit"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
-    "@playwright/test": "^1.56.1"
+    "@playwright/test": "^1.56.1",
+    "html-validate": "^10.17.0"
   }
 }

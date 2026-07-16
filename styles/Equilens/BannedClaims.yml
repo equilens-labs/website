@@ -1,0 +1,16 @@
+extends: existence
+message: "Banned claim '%s' (claims register): never on web surfaces."
+level: error
+ignorecase: true
+scope: raw
+tokens:
+  - 'generally available'
+  - 'FCA[- ]approved'
+  - 'regulator[- ]approved'
+  - 'regulator[- ]ready'
+  - 'audit[- ]ready'
+  - 'court[- ]admissible'
+  - 'compliance certified'
+  - 'ECOA-compliant'
+  - 'production decisioning'
+  - 'regulatory digital twin'

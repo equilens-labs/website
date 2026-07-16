@@ -1,10 +1,9 @@
-verbosity = "info"
 max_concurrency = 8
 timeout = 20
 retry_wait_time = 2
 max_retries = 2
 exclude = ["mailto:*"]
-exclude_path = ["output/ops"]
+exclude_path = ["output/ops", "node_modules", "tasks"]
 offline = false
-format = "Markdown"
-output = "lychee/results.md"
+format = "markdown"
+root_dir = "."
