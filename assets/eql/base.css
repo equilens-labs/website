@@ -758,6 +758,13 @@ body:not(.landing) .hero::after {
   }
 }
 
+/* TOC layouts wrap cards inside the hero box and offset it sideways, so the
+   corner strokes land orphaned next to content there. Simple heroes only. */
+.page-with-toc .hero::before,
+.page-with-toc .hero::after {
+  display: none !important;
+}
+
 @media (min-width: 768px) {
   .landing .hero::before,
   .landing .hero::after {
