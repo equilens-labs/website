@@ -56,6 +56,8 @@ group→note 24 · panel padding symmetric (48) · no trailing-margin accumulati
   radius 12, no rest shadow, **centered** content, **icon above the title on every
   card**, one-line titles, action rows pinned to a shared bottom line.
 - **Badge**: one 40px tinted mono number style for every sequence.
+- **Stacked grid** (`.grid--stack`): dense reader cards (long checks, code tokens)
+  get one card per row with checks at reading measure; light cards stay in columns.
 - **Evidence figure**: real artifact imagery, hairline frame, body-face demo caption.
 - **Note**: 13px muted, centered, spanning the panel content width, top divider.
 - Hero: the LANDING hero only is framed by faint bracket strokes in the
