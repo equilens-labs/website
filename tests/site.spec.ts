@@ -203,7 +203,7 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
     // Acronyms render as normal text with a dotted hover underline — the
     // small-caps size shift made dense copy spotty (founder pass 2026-07-15).
-    expect(css).toContain('abbr {\n  text-decoration: none;\n  border-bottom: 1px dotted var(--border-medium);\n  cursor: help;\n}');
+    expect(css).toContain('abbr {\n  text-decoration: none;\n  font-weight: var(--font-semibold);\n  border-bottom: 1px dotted var(--border-medium);\n  cursor: help;\n}');
     expect(css).not.toContain('all-small-caps');
     expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
     // note--small was a no-op restatement of .note; the variant is deleted
