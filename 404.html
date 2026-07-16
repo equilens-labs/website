@@ -25,13 +25,26 @@
   <meta name="twitter:image" content="https://equilens.io/brand/social/og-1200x630.png">
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="/assets/eql/base.css">
+  <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260716a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql landing">
   <a class="skip-to-content" href="#main">Skip to content</a>
-    <div id="nav-placeholder"></div>
-  <script src="/assets/eql/nav.js" defer></script>
+    <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
+  <div class="navbar-content">
+    <a href="/" class="logo" aria-label="Equilens home">
+      <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
+    </a>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+  <script src="/assets/eql/nav.js?v=20260716a" defer></script>
 
 
 
@@ -39,10 +52,10 @@
   <section class="hero" aria-label="Error page">
     <div class="hero-content">
       <p class="eyebrow">Error 404</p>
-      <h1 class="brand-title">Page Not Found</h1>
+      <h1 class="hero-headline">Page not found</h1>
       <p class="lead">The page you're looking for doesn't exist or has been moved.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/">Return Home</a>
+        <a class="btn btn-primary" href="/">Return home</a>
       </div>
     </div>
   </section>
@@ -55,6 +68,7 @@
       <li><a href="/press/">Press</a></li>
       <li><a href="/procurement/">Procurement</a></li>
       <li><a href="/trust-center/">Trust Center</a></li>
+      <li><a href="/contact/">Contact</a></li>
       <li><a href="https://www.linkedin.com/company/equilens-labs/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
     </ul></section>
     <section><h3>Legal</h3><ul>
@@ -75,6 +89,7 @@
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
+
 
 
 

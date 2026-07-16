@@ -57,4 +57,24 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "regulator[- ]aligned[[:
   exit 1
 fi
 
+# Product-name treatment: FL-BSA in prose must always be wrapped in
+# <span class="product-name"> (one consistent rendering; designer rule 2026-07-15).
+echo "Checking product-name treatment..."
+python3 scripts/ops/check_product_name.py
+
+# Founder rule (2026-07-14): the word "call" is banned on web surfaces — no "sales call",
+# no "before a call", no call framing anywhere in published copy.
+if grep -r --include="*.html" -n -i -E "\bcalls?\b" "${GREP_EXCLUDES[@]}" .; then
+  echo "ERROR: Found banned word 'call' in web copy (founder rule 2026-07-14)"
+  exit 1
+fi
+
+# Design rule (2026-07-15): no em-dashes in site copy. <title>, <meta …>, and
+# JSON-LD "name" lines are metadata (exempt); everything else is visible copy
+# and must use a colon, comma, period, or parentheses instead.
+if grep -r --include="*.html" -n "—" "${GREP_EXCLUDES[@]}" . | grep -v -E '<title>|<meta[[:space:]]|"name":"'; then
+  echo "ERROR: Found em-dash in site copy (design rule 2026-07-15); rewrite with colon, comma, period, or parentheses"
+  exit 1
+fi
+
 echo "[OK] Content lint passed"
