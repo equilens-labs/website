@@ -8,8 +8,6 @@
     </style>
   </defs>
   <rect class="bg" width="1200" height="630"/>
-  <!-- Safe margins (6% each side) -->
-  <rect x="72" y="38" width="1056" height="554" fill="none" stroke="#E5E7EB" stroke-dasharray="8,8" pointer-events="none"/>
 
   <!-- Wordmark (light) placed top-left -->
   <g transform="translate(96,110) scale(0.825)">
@@ -36,14 +34,22 @@
     <path class="brand" d="M 302.10 1.56 L 302.10 48.53 L 291.13 48.53 L 291.13 44.85 L 297.31 44.85 L 297.31 5.24 L 291.13 5.24 L 291.13 1.56 L 302.10 1.56 Z"/>
   </g>
 
-  <!-- Headline placeholder -->
-  <text x="96" y="330" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="64" fill="#111827">
-    Your headline fits here
+  <!-- Headline -->
+  <text x="96" y="322" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="64" fill="#111827">
+    Algorithmic Compliance
   </text>
-  <text x="96" y="390" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="32" class="muted">
-    Optional subheading or summary line
+  <text x="96" y="382" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="32" class="muted">
+    Self-hosted evidence infrastructure
+  </text>
+  <text x="96" y="426" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="32" class="muted">
+    for regulated decisions.
   </text>
 
   <!-- Accent bar -->
-  <rect x="96" y="420" width="240" height="8" class="brand"/>
+  <rect x="96" y="458" width="240" height="8" class="brand"/>
+
+  <!-- Site -->
+  <text x="96" y="560" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="24" class="muted">
+    equilens.io
+  </text>
 </svg>
