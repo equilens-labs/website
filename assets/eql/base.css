@@ -988,6 +988,12 @@ body:not(.landing) .hero {
 }
 
 /* Grid */
+.grid--stack .card .checks {
+  max-width: var(--measure-default);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1003,6 +1009,12 @@ body:not(.landing) .hero {
 
   .grid.grid-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Stacked grid: dense reader cards get one card per row (founder pass
+     2026-07-16); checks keep a readable measure inside the wide card. */
+  .grid.grid--stack {
+    grid-template-columns: 1fr;
   }
 
   /* A lone last card in a two-column panel grid centers on its own row */
