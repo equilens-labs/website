@@ -1,13 +1,15 @@
-FL-BSA Website Single Source of Truth (SSOT)
+Fair-Lending Bias-Simulation Appliance — Single Source of Truth (SSOT)
 
-Last updated: 2026-05-19
+Last updated: 2026-06-12
 
 Scope. This document is the product-level single source of truth for FL-BSA.
 It covers: architecture, capabilities, regulatory positioning, performance targets, and the commercial model.
 Implementation-level details (code, CI, infra) live in the repo and ops docs and are not duplicated here.
+Release-evidence mechanics and historical release decisions are maintained outside this product
+truth document.
 
 One-sentence summary.
-FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit decisions – a safety-through-simulation system that generates synthetic borrowers, measures bias in synthetic decision patterns, and emits tamper-evident evidence packs without touching live decisions.
+FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit decisions – a safety-through-simulation system whose default path generates synthetic borrowers, measures bias in synthetic decision patterns, and emits tamper-evident evidence packs without touching live decisions; a draft real-model measurement mode (§1.5) is governance-gated separately.
 
 ⸻
 
@@ -29,7 +31,7 @@ FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit de
 	•	Outputs:
 	•	Synthetic borrower portfolios (tabular).
 	•	Metrics manifests and compliance indicators.
-	•	Review-oriented PDF reports with regulatory mapping.
+	•	PDF reports for governance review.
 	•	Evidence bundles (certificates, manifests, logs).
 
 1.3 Core value proposition
@@ -37,18 +39,34 @@ FL-BSA is a self-hosted fair-outcomes evidence appliance for regulated credit de
 FL-BSA is a customer-hosted evidence appliance for credit-risk, fair-outcomes, and AI-governance teams.
 	•	Safety-through-simulation only
 	•	FL-BSA never makes, overrides, or batch-scores live lending decisions.
-	•	It generates synthetic "what-if" portfolios and measures bias in those synthetic decisions.
-	•	All outputs are simulation artefacts, not production records.
+	•	The default simulation path generates synthetic "what-if" portfolios and measures bias in those
+		synthetic decisions.
+	•	Simulation-path outputs are simulation artefacts, not production records.
+	•	The separate `measure_real_model` draft evidence class in section 1.5 is the only current
+		carve-out: it emits unsigned aggregate measurement artifacts over a customer-authored decision
+		or score column, and those artifacts are not synthetic borrower portfolios or production lending
+		records.
 	•	Dual-branch view of bias
 	•	Amplification branch (“status-quo”):
-	•	Generates synthetic borrowers that mirror historical patterns in applications, decisions, and outcomes.
+	•	Generates synthetic borrowers that preserve protected-group proportions and historical bias signals for fair-lending simulation.
+	•	Distribution and correlation utility diagnostics are emitted for reviewer context; they are not a guarantee that the whole borrower portfolio distribution is mirrored.
 	•	Shows how the current stack behaves given the actual history, policies, and decision flows the customer has created.
 	•	Intrinsic branch ("counterfactual baseline"):
-	•	Trains CTGAN without the loan decision column, then applies fair decision rules via post-labeling to produce synthetic borrowers with equitable outcomes.
+	•	Trains the configured generator without the loan decision column, then applies fair decision rules via post-labeling to produce synthetic borrowers with equitable outcomes.
 	•	Approximates a "fairer baseline" where structural penalties are removed.
 	•	The gap between branches is the primary audit object: amplification vs intrinsic bias.
+	•	v5.0.0 generator posture:
+	•	The selected v5 generator cut target is native/no-CTGAN using the first-party evidence-native
+		backend with a no-DataCebo dependency posture, subject to the final native release-candidate
+		contract and release-owner disposition for the selected SHA.
+	•	The earlier `v5.0.0-rc9` CTGAN-backed proof remains historical technical evidence and a
+		comparator baseline; it is not the selected v5 default-generator path.
+	•	Legacy CTGAN/RDT remains an explicitly gated compatibility/comparator path only. Any commercial
+		or customer use of that path still requires the CTGAN/RDT legal authorization controls.
+	•	Full differential privacy is post-v5 scope. The v5 native posture is no-CTGAN/no-DataCebo with
+		privacy characterization and export/profile walls, not a formal DP claim.
 	•	Evidence, not opinions
-	•	Every run produces a tamper-evident evidence pack:
+	•	Every simulation-path run produces a tamper-evident evidence pack (the §1.5 measurement carve-out emits unsigned artifacts instead):
 	•	Metrics and manifests.
 	•	Hashes and certificates.
 	•	PDF reports and supporting logs.
@@ -71,14 +89,45 @@ FL-BSA is deliberately scoped to the customer’s Simulation Strategy, not its R
 
 This separation is enforced by:
 	•	The no-raw-data-leaves stance: real borrower data and SCPD stay inside the customer's environment.
-	•	A synthetic-only export boundary: artefacts that leave the appliance (CSV, Parquet, JSON, PDF) are explicitly simulation outputs and must not be treated as “historical truth”.
+	•	A synthetic-only export boundary for simulation-path exports: synthetic CSV, Parquet, JSON, and
+		PDF artefacts that leave the appliance are explicitly simulation outputs and must not be treated
+		as “historical truth”.
+	•	A separate unsigned measurement boundary for `measure_real_model`: dedicated real-model
+		artifacts are not synthetic exports and are never production records; they are not signed external
+		evidence unless a later release record, with the required claims and release approvals, explicitly
+		promotes that evidence class.
 
-1.5 Out of scope
+1.5 Real-model measurement evidence class (draft / governance-gated)
+
+A separate `measure_real_model` evidence class is in pre-production draft. It lets a customer run
+FL-BSA inside the customer-controlled environment against a prepared dataset containing protected
+attributes plus a customer-authored decision or probability-score column.
+	•	FL-BSA measures aggregate fairness metrics over the supplied customer-authored output.
+	•	FL-BSA does not call the customer model, execute a scorecard, connect to production decision
+		services, make lending decisions, or override lending decisions.
+	•	The mode emits dedicated real-model measurement artifacts, not synthetic-pipeline artifacts.
+	•	The mode may expose unsigned measurement outputs and, when approved, a dedicated unsigned
+		measurement report. Certificates and evidence-bundle signing are not part of this draft evidence
+		class unless separately promoted.
+	•	Current emitted artifacts are unsigned (`signed: false`) and are not certificates, conformity
+		assessment evidence, regulator approval, legal advice, or production release approval.
+	•	Artifacts may include provenance bindings to the submitted source file. Those bindings support
+		artifact integrity, but they are not production records or row-level semantic certification.
+	•	Customer-facing handoff, customer-pack inclusion, customer-facing production use, or any external
+		claim that this real-model measurement evidence class is release-grade requires explicit
+		release/claims/SSoT-owner approval, and any required legal/customer-handoff approval, in the
+		relevant release record.
+
+This draft evidence class does not change the current product posture for shipped release evidence:
+the released appliance remains safety-through-simulation unless a later release record explicitly
+promotes real-model measurement with the required claims and release approvals.
+
+1.6 Out of scope
 
 FL-BSA is not:
 	•	A live credit decision engine or LOS replacement.
 	•	A data warehouse, MDM system, or reporting platform.
-	•	A generic AI-governance dashboard; it is specialised for fair-outcomes evidence in regulated credit decisions.
+	•	A generic AI-governance dashboard; it is specialised for fair-lending bias simulation.
 
 ⸻
 
@@ -92,7 +141,7 @@ Concept.
 	•	Trains generative models on features plus historical decisions/outcomes, preserving observed patterns in approvals/denials and performance.
 	•	Represents “what your current stack is doing today”, including any inherited bias.
 	•	Intrinsic branch (Branch B)
-	•	Trains CTGAN without the loan decision column (loan_approved excluded from training).
+	•	Trains the configured generator without the loan decision column (loan_approved excluded from training).
 	•	Post-labels synthetic records with fair decisions via `flbsa.synthetic.fair_decisions`.
 	•	Represents an approximate "fair baseline" where structural penalties are removed as far as practicable.
 	•	A comparison module computes branch-to-branch deltas on:
@@ -108,7 +157,7 @@ Narrative mapping.
 	•	The difference between branches is how FL-BSA explains bias to non-technical stakeholders.
 
 2.2 Synthetic data generation
-	•	FL-BSA uses CTGAN-style tabular generative models to produce synthetic borrower portfolios with:
+	•	FL-BSA uses a tabular generator contract to produce synthetic borrower portfolios with:
 	•	Mixed continuous/categorical features.
 	•	Application-time features.
 	•	Decisions and outcomes (for amplified branch).
@@ -117,7 +166,13 @@ Narrative mapping.
 	•	Supports multiple protected attributes (e.g. gender, race/ethnicity) and combinations.
 	•	Handles class imbalance (e.g. minority groups, rare outcomes) via appropriate sampling and training configuration.
 	•	Ensures synthetic data stays within plausible ranges and business constraints (e.g. income, loan-amount ratios).
-	•	Optional post-processing hooks (copula repair, band clamping, windowed Spearman boost) can restore feature correlations that CTGAN may under-learn; disabled by default. See `docs/architecture/realism-gates.md`.
+	•	For the selected v5 cut target, the intended default simulation backend is the first-party
+		evidence-native generator under a no-DataCebo dependency posture once the final native
+		release-candidate contract and release-owner disposition pass for the selected SHA. Legacy
+		CTGAN remains a gated comparator/compatibility backend, not the selected v5 default.
+	•	Optional post-processing hooks (copula repair, band clamping, windowed Spearman boost) can
+		restore feature correlations that tabular generation may under-learn. See
+		`docs/architecture/realism-gates.md`.
 	•	Synthetic data is never linked back to identifiable individuals and is designed so that no single synthetic record can be trivially re-identified as a real borrower.
 
 2.3 Bias auditing & adverse-action support
@@ -128,12 +183,12 @@ Narrative mapping.
 	•	EU AI Act data-governance requirements (Article 10, Article 13).
 	•	UK FCA Consumer Duty / SDEG-relevant metrics.
 	•	Adverse-action-style analysis:
-	•	For scenarios that appear non-compliant, FL-BSA can surface reason codes or key contributing factors in a form that can inform ECOA-aligned adverse-action narratives.
-	•	These are inputs to legal/compliance processes; they are not themselves adverse-action letters.
+	•	Current adverse-action output is fixed-template scaffold material for reviewed workflows. It is not a per-row, data-derived, or model-attribution engine.
+	•	These artifacts may help structure customer legal/compliance review, but they are not Reg B adverse-action notices and must not be used as legally final customer communications without customer-owned attribution, policy, and legal review.
 
 2.4 Certificates & evidence packs
 
-FL-BSA treats each audit run as producing a cryptographically anchored evidence pack. At a minimum, packs include:
+FL-BSA treats each simulation-path audit run as producing a cryptographically anchored evidence pack. At a minimum, packs include:
 	•	Metrics manifest (metrics.json or equivalent).
 	•	Synthetic data manifests and hashes.
 	•	Configuration snapshot (models, hyperparameters, seed).
@@ -148,13 +203,48 @@ FL-BSA treats each audit run as producing a cryptographically anchored evidence 
 
 Certificates reference each other and key artefacts via hashes so that tampering is detectable.
 
+Human-readable report renderer boundary.
+	•	Active customer-facing and release evidence PDFs render through the offline Typst report
+		renderer and carry report metadata naming that engine.
+	•	Legacy LaTeX templates, metadata normalization, and archive fixtures are compatibility
+		surfaces only. They are not a release fallback and must not be used to claim current customer
+		report generation.
+
+Certificate acceptance boundary for release evidence.
+	•	`valid_with_limitations` is not equivalent to an unqualified release-grade pass.
+	•	Release-grade/customer evidence must say whether accepted certificates are unqualified
+		release evidence or limited verification evidence accepted under an explicit release-owner
+		disposition.
+	•	Hyperparameter tuning certificates must keep completed-search, truncated-search, cache,
+		default, and default-after-rejected-trials claim scopes machine-readable so downstream
+		reports cannot collapse them into a single success status.
+	•	Compliance statuses emitted to reports and certificates use the canonical vocabulary:
+		`PASS`, `WARN`, `DEGRADED`, `FAIL`, and `UNKNOWN`.
+	•	The detailed gate contract lives in
+		`docs/development/quality-gates.md#certificate-acceptance-boundary`.
+
+Trust-root boundary for externally visible evidence.
+	•	Release-grade, customer-facing, or externally reviewed evidence must bind both:
+	•	`FLBSA_VENDOR_TRUST_ROOT_URL`, an HTTPS URL for the vendor trust-root document.
+	•	`FLBSA_VENDOR_TRUST_ROOT_SHA256`, the SHA-256 digest expected for that document.
+	•	Evidence workflows that mint or reuse release-grade artifacts fail closed when either value is absent or malformed.
+	•	Bundled certificate keys are implementation convenience material, not the external authorship trust anchor.
+	•	Vendor-authored evidence additionally requires
+		`evidence_authorship.vendor_authorship_claimed=true` and signer fingerprints published in
+		the pinned vendor trust root. Only that mode is expected to pass strict
+		`--pubkey trust-root.json --require-signatures --require-manifest-signature` verification.
+	•	Direct-AMI/customer-local evidence with `vendor_authorship_claimed=false` is self-attested:
+		trust-root URL/SHA metadata proves the handoff is bound to the expected governance document,
+		and bundled keys prove bundle consistency, but neither proves vendor authorship.
+	•	The current trust-root URL/SHA values, rotation process, and verifier commands live in `docs/crypto/trust-root-governance.md` and `docs/crypto/evidence-verification-guide.md`.
+
 2.5 Simulation–reporting firewall
 
 To maintain the Simulation vs Reporting split:
 	•	FL-BSA:
 	•	Does not connect to production decision services for live scoring.
 	•	Is integrated with source systems in a read-only fashion (for ingest) and as a write-only archive for evidence.
-	•	All exported datasets and reports are:
+	•	All exported simulation-path datasets and reports are:
 	•	Clearly labelled as synthetic or simulated, and
 	•	Intended for risk/compliance analysis, not for MIS, finance, or statutory reporting pipelines.
 
@@ -250,15 +340,27 @@ Current versions surface these metrics in manifests and reports so that customer
 	•	Per branch (Amplification vs Intrinsic).
 	•	Per scenario (e.g. threshold shifts, counterfactual rejects).
 
+Group and intersectional fairness signals require explicit support evidence before FL-BSA treats
+them as reviewable screening signals. Missing support scope is not claimed; below-minimum group
+count is not calculable under the configured support policy; and measured but below-percentage
+support is disclosed as a support caveat rather than treated as an unqualified finding. These
+support rules protect the validity of fairness claims. They are separate from differential privacy,
+which remains a future post-v5 feature until formal DP mechanisms, accounting, and certificates are
+implemented; native support evidence is not a formal DP claim.
+
 4.4 Metrics manifest (metrics.json)
-	•	Each run produces a canonical metrics manifest containing:
+	•	Each simulation-path run produces a canonical metrics manifest containing:
 	•	Run metadata (ID, timestamps, RNG seed, software version, `dataset_hash`).
+	•	`dataset_hash` is the compatibility name for the SHA-256 digest of the
+		canonicalized input CSV surface (`canonical_input_sha256`), not necessarily the
+		raw upload-file byte hash. When upload metadata is present, raw and persisted byte
+		hashes are recorded separately in dataset-lineage evidence.
 	•	Data summary (row/feature counts, list of protected attributes).
 	•	Dataset-quality metrics (representativeness/coverage) when available.
 	•	Synthetic-data quality metrics.
 	•	Fairness metrics and compliance indicators.
 	•	This manifest is treated as part of the technical SSOT for that run and is referenced by certificates.
-	•	In this repository, internal release acceptance (GOLD) validates the manifest schema and enforces selected launch-readiness checks (e.g., dataset-quality thresholds and required realism/provenance surfaces).
+	•	Internal release validation separately checks the manifest schema and selected launch-readiness surfaces (e.g., dataset-quality thresholds and required realism/provenance fields).
 
 ⸻
 
@@ -266,7 +368,7 @@ Current versions surface these metrics in manifests and reports so that customer
 
 5.1 Evidence pack contents
 
-Each run’s evidence pack typically includes:
+Each simulation-path run's evidence pack typically includes:
 	•	Metrics manifest(s).
 	•	Synthetic data manifest(s) and hashes.
 	•	Configuration snapshot (YAML/JSON).
@@ -277,7 +379,9 @@ Each run’s evidence pack typically includes:
 
 5.2 Certificates and hash chains
 	•	FL-BSA uses cryptographic hashes to tie artefacts together:
-	•	The DataLineageCertificate includes hashes of the input dataset, synthetic output, and model parameters.
+	•	The DataLineageCertificate includes observed hashes across the raw upload,
+		persisted/canonicalized input surface, synthetic output, and model parameters when those
+		surfaces are available.
 	•	Other certificates (training, tuning, validation) focus on stage-specific metadata.
 	•	Certificates link sequentially via `previous_certificate_hash` within each pipeline run, allowing auditors to:
 	•	Verify that a given metrics file and report correspond to a particular data snapshot and configuration.
@@ -302,9 +406,9 @@ Targets, not guarantees. Actual performance depends on hardware, data complexity
 
 Reference targets on a typical modern CPU (for indicative sizing):
 	•	~10k rows:
-	•	Full pipeline (ingest → CTGAN training → dual-branch analysis → report) is typically in the ~20–25 minute range on a reference CPU.
+	•	Full pipeline (ingest → generator training → dual-branch analysis → report) is typically in the ~20–25 minute range on a reference CPU.
 	•	~100k rows:
-	•	CTGAN training ≤ ~45 minutes on the same reference CPU, with reduced epochs for CI/PR smoke tests.
+	•	Generator training ≤ ~45 minutes on the same reference CPU, with reduced epochs for CI/PR smoke tests.
 	•	Larger datasets (e.g. 1M+ rows):
 	•	Treated as long-running, capacity-planning scenarios, currently outside CI baselines but supported when appropriate hardware is provisioned.
 
@@ -380,10 +484,15 @@ GPU acceleration can reduce training times substantially but is not assumed as b
 	•	Customers provision and pay for their own compute and storage.
 	•	FL-BSA incurs no hidden infra costs from the vendor side.
 	•	Current public commercial posture:
-	•	Prospects request an evidence-readiness assessment, pricing, or guided pilot qualification.
+	•	Prospects request an evidence-readiness assessment, pricing discussion, or guided pilot qualification.
+	•	For the selected v5 generator cut, the intended commercial handoff posture is native/no-CTGAN
+		and no-DataCebo after the final native release-candidate contract and release-owner
+		disposition pass for the selected SHA. The historical CTGAN-backed rc9 proof remains a
+		comparator/technical record, not the selected v5 default. Full differential privacy remains a
+		post-v5 roadmap item, not a v5 commercial claim.
 	•	Commercial terms are finalized during qualification and may be delivered through a controlled private-offer or agreed private handoff path.
 	•	Annual and volume licence structures are indicative future or post-qualification shapes, not cold-sell public offers.
-	•	Public AWS Marketplace access is not yet available; current AWS-oriented access is controlled guided-pilot / private handoff only unless current release and GTM records explicitly say otherwise.
+	•	Public AWS Marketplace access is not yet a standing offer; current AWS-oriented access remains controlled guided-pilot / private handoff unless current release and GTM records explicitly say otherwise.
 
 Concrete pricing numbers are intentionally excluded from this SSOT; they live in commercial documents and may vary by market.
 

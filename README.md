@@ -8,7 +8,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Brand assets: All brand assets live under `brand/` directory structure:
   - Logos: `brand/logo/equilens-wordmark-{light,dark,mono}.svg`
   - Icons: `brand/icons/favicon.{svg,ico}`, Apple touch icons, PWA maskable icons
-  - Social: `brand/social/og-1200x{630,600}.{svg,png}` for Open Graph images
+  - Social: `brand/social/og-1200x630.{svg,png}` for Open Graph images
   - Tokens: `brand/tokens/tokens.{json,css}` for design system
   - Symbol: `brand/symbol/equilens-symbol.svg` and `brand/symbol/equilens-symbol-light-*.png` for favicon/app-icon sources
 - Automation scripts: `scripts/seo/*`, `scripts/og/render.sh`, and `scripts/evidence/snapshot.sh`
@@ -43,19 +43,18 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Content management
 
-- Primary navigation and the micro-footer are synchronised from JSON single-source files:
+- Primary navigation and the site footer are synchronised from JSON single-source files:
   - Navigation links: `config/web/nav.json`
-  - Footer links: `config/web/footer.json`
-- Navigation is rendered at runtime into the `#nav-placeholder` container by `/assets/eql/nav.js`, which reads from `config/web/nav.json`. This keeps the nav SSOT in a single JSON file while avoiding extra build tooling.
-- The FL-BSA product sub-nav is maintained as a static HTML partial at `templates/flbsa_subnav.html`.
-- After updating the footer JSON, run the sync script to fan out the change across every HTML page:
+  - Footer links, copyright note, and product-boundary disclaimer: `config/web/footer.json`
+- Navigation is rendered at runtime into the `#nav-placeholder` container by `/assets/eql/nav.js`, which reads from `config/web/nav.json`. This keeps the nav SSOT in a single JSON file while avoiding extra build tooling. No sync script is needed for navigation changes.
+- After updating `config/web/footer.json` or `templates/footer.html`, run the sync script to fan out the footer across every HTML page (redirect stubs contain no footer and pass through unchanged; `output/` and `dist/` are never touched):
 
   ```bash
   python3 scripts/content/sync_footer_ssot.py
   ```
 
-- Archived helpers used for previous theming experiments now live under `scripts/archive/legacy-sync/`. They are kept for reference only; do not run them on the current codebase.
-- The HTML partials injected by the sync scripts live under `templates/` (currently `footer.html` and `flbsa_subnav.html`).
+- The footer partial (`templates/footer.html`) emits the screen-reader "Site sections" heading and the `footer-boundary` product-boundary disclaimer on every page. Playwright tests assert both, so change footer content only via the JSON/template + sync script.
+- Legacy, currently unused: `templates/header.html` + `scripts/content/sync_nav_ssot.py` (superseded by the runtime nav.js renderer; pages contain no static navbar to sync) and `templates/flbsa_subnav.html` (no page currently includes a product sub-nav). Kept for reference only.
 
 ## Evidence screenshots
 

@@ -75,6 +75,24 @@ const flbsaRedirectMetadata = [
     description: 'Licensing information for FL-BSA. See /fl-bsa/#pricing.',
     url: 'https://equilens.io/fl-bsa/#pricing',
   },
+  {
+    file: 'fl-bsa/faq/index.html',
+    title: 'FL-BSA FAQ — Equilens',
+    description: 'Frequently asked questions for FL-BSA. See /fl-bsa/#faq.',
+    url: 'https://equilens.io/fl-bsa/#faq',
+  },
+  {
+    file: 'fl-bsa/legal/index.html',
+    title: 'FL-BSA Governance Evidence — Equilens',
+    description: 'Governance evidence information for FL-BSA. See /fl-bsa/#compliance.',
+    url: 'https://equilens.io/fl-bsa/#compliance',
+  },
+  {
+    file: 'fl-bsa/pricing/index.html',
+    title: 'FL-BSA Licensing — Equilens',
+    description: 'Licensing information for FL-BSA. See /fl-bsa/#pricing.',
+    url: 'https://equilens.io/fl-bsa/#pricing',
+  },
 ];
 
 async function stubPlausible(page: Page) {
@@ -264,6 +282,15 @@ test.describe('Equilens site surfaces', () => {
     expect(home).not.toContain('<strong>Product boundary:</strong>');
     expect(home).not.toContain('footer-boundary"><span class="product-name">');
     expect(home.indexOf('Last deploy: stamped during publishing.')).toBeLessThan(home.indexOf('<small class="footer-boundary">Product boundary: FL-BSA'));
+
+    // Footer SSOT template must keep emitting the labeled heading and the
+    // product-boundary disclaimer, so sync_footer_ssot.py cannot strip them.
+    const footerTemplate = fs.readFileSync(path.join(root, 'templates', 'footer.html'), 'utf-8');
+    const footerConfig = fs.readFileSync(path.join(root, 'config', 'web', 'footer.json'), 'utf-8');
+    expect(footerTemplate).toContain('aria-labelledby="site-sections-heading"');
+    expect(footerTemplate).toContain('<h2 class="sr-only" id="site-sections-heading">Site sections</h2>');
+    expect(footerTemplate).toContain('<small class="footer-boundary">{{boundary}}</small>');
+    expect(JSON.parse(footerConfig).boundary_note).toContain('Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance.');
     expect(css).toContain('.site-footer .footer-boundary {\n  max-width: var(--measure-default);\n  margin: var(--space-2) auto 0;\n  padding: 0 var(--space-4);\n  text-align: center;\n  color: var(--text-muted);');
 
     expect(flbsa).not.toContain('timeline-marker');
@@ -398,6 +425,10 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('footer.site-footer')).toHaveCount(1);
       await expect(page.locator(`script[src="${plausibleScriptSrc}"][data-domain="equilens.io"]`)).toHaveCount(1);
       await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
+      await expect(page.locator('footer.site-footer small.footer-boundary')).toContainText(
+        'Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance.',
+      );
+      await expect(page.locator('footer.site-footer h2#site-sections-heading')).toHaveCount(1);
       const linkedInLink = page.locator('footer.site-footer a[href="https://www.linkedin.com/company/equilens-labs/"]');
       await expect(linkedInLink).toHaveCount(1);
       await expect(linkedInLink).toHaveAttribute('target', '_blank');
