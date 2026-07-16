@@ -26,13 +26,26 @@
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <!-- Source: Companies House (https://find-and-update.company-information.service.gov.uk/company/14469638) retrieved 2026-03-02 for Valfox Ltd registered office address. -->
-  <link rel="stylesheet" href="/assets/eql/base.css">
+  <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260716a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
  <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
-    <div id="nav-placeholder"></div>
-  <script src="/assets/eql/nav.js" defer></script>
+    <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
+  <div class="navbar-content">
+    <a href="/" class="logo" aria-label="Equilens home">
+      <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
+    </a>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/procurement/" class="nav-link" aria-current="page">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+  <script src="/assets/eql/nav.js?v=20260716a" defer></script>
 
 
 <main id="main">
@@ -40,9 +53,9 @@
     <div class="hero-content">
       <p class="eyebrow">Getting Started</p>
       <h1 class="hero-headline">Procurement &amp; Deployment</h1>
-      <p class="lead">Request guided pilot access to the self-hosted fair-outcomes evidence appliance for regulated credit decisions. For AWS customers, the intended guided-pilot path is <abbr title="Amazon Machine Image">AMI</abbr>-first, with container/<abbr title="Virtual Machine">VM</abbr> deployment available for private, controlled, or non-AWS paths where agreed.</p>
+      <p class="lead">Request guided pilot access to the self-hosted fair-outcomes evidence appliance for regulated credit decisions. For <abbr title="Amazon Web Services">AWS</abbr> customers, the intended guided-pilot path is <abbr title="Amazon Machine Image">AMI</abbr>-first, with container/<abbr title="Virtual Machine">VM</abbr> deployment available for private, controlled, or non-AWS paths where agreed.</p>
       <div class="cta-row">
-        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=procurement plausible-event-cta=hero-primary plausible-event-intent=procurement plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=procurement plausible-event-cta=hero-primary plausible-event-intent=procurement plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
         <a class="btn btn-secondary plausible-event-name=Security+Pack+Click plausible-event-surface=procurement plausible-event-cta=hero-secondary plausible-event-intent=security-pack" href="/trust-center/">Review Trust Center</a>
       </div>
     </div>
@@ -51,40 +64,30 @@
   <section class="section">
     <div class="section-block">
       <h2>Deployment steps</h2>
-      <div class="steps">
-        <div class="step">
-          <header>
-            <span class="step-number">1</span>
-            <h3 class="step-title">Request guided pilot access</h3>
-          </header>
-          <p>Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Contact Equilens to request controlled guided-pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first AWS path or agreed private deployment materials.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">1</span>
+          <h3><span class="sr-only">Step 1: </span>Request guided pilot access</h3>
+          <p>Public <abbr title="Amazon Web Services">AWS</abbr> Marketplace access is not yet available. Contact Equilens to request controlled guided-pilot access to the <abbr title="Amazon Machine Image">AMI</abbr>-first <abbr title="Amazon Web Services">AWS</abbr> path or agreed private deployment materials.</p>
         </div>
-        <div class="step">
-          <header>
-            <span class="step-number">2</span>
-            <h3 class="step-title">Prepare your environment</h3>
-          </header>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">2</span>
+          <h3><span class="sr-only">Step 2: </span>Prepare your environment</h3>
           <p>We will confirm the approved deployment path for your environment. Select instance type, region, <abbr title="Virtual Private Cloud">VPC</abbr>, and subnet per your change controls.</p>
         </div>
-        <div class="step">
-          <header>
-            <span class="step-number">3</span>
-            <h3 class="step-title">Boot the appliance</h3>
-          </header>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">3</span>
+          <h3><span class="sr-only">Step 3: </span>Boot the appliance</h3>
           <p>Boot runs <code>docker-compose</code> via systemd. The appliance listens on port 8080 (configurable), with optional Prometheus on 9090.</p>
         </div>
-        <div class="step">
-          <header>
-            <span class="step-number">4</span>
-            <h3 class="step-title">Run a test</h3>
-          </header>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">4</span>
+          <h3><span class="sr-only">Step 4: </span>Run a test</h3>
           <p>Upload sample data or a sandbox dataset. Produce the <abbr title="Portable Document Format">PDF</abbr> report, evidence manifest (<abbr title="Secure Hash Algorithm (256-bit)">SHA-256</abbr>), and checksum log.</p>
         </div>
-        <div class="step">
-          <header>
-            <span class="step-number">5</span>
-            <h3 class="step-title">Confirm pilot scope</h3>
-          </header>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">5</span>
+          <h3><span class="sr-only">Step 5: </span>Confirm pilot scope</h3>
           <p>If evaluation fit is confirmed, we can align pilot terms or a Private Offer for enterprise rollouts.</p>
         </div>
       </div>
@@ -95,22 +98,19 @@
     <h2>Procurement package</h2>
     <div class="grid">
      <div class="card card--reader">
-      <h3>
-       <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
-       Evidence bundle
-      </h3>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-evidence"></use></svg>
+            <h3>Evidence bundle</h3>
       <ul class="checks">
        <li><strong>Evidence manifest:</strong> <abbr title="JavaScript Object Notation">JSON</abbr> manifest and <abbr title="Portable Document Format">PDF</abbr> report with embedded hashes.</li>
        <li><strong>Infrastructure:</strong> <abbr title="Bill of Materials">BOM</abbr> and network diagram (request access).</li>
        <li><strong>Control mapping:</strong> <abbr title="Financial Conduct Authority">FCA</abbr>, <abbr title="European Union Artificial Intelligence">EU AI</abbr> Act, and <abbr title="Equal Credit Opportunity Act">ECOA</abbr> checkpoints.</li>
       </ul>
-      <p class="note">Current public technical-proof reference: <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease). Public demo materials are selected synthetic/demo assets from that public release, including the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">demo report</a>; supporting run packs and intake diagnostics are linked from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>. They are not customer output, legal advice, or proof of a public Marketplace launch.</p>
+      
+        
      </div>
-     <div class="card">
-      <h3>
-       <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-       Commercials
-      </h3>
+     <div class="card card--reader">
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-contact"></use></svg>
+            <h3>Commercials</h3>
       <ul class="checks">
        <li><strong>Commercial terms:</strong> Finalized during qualification; annual, multi-year, and Marketplace structures are post-qualification options where supported by the release path.</li>
        <li><strong>Pilot evaluations:</strong> Scoped with agreed duration and success criteria.</li>
@@ -118,6 +118,7 @@
       </ul>
      </div>
     </div>
+        <p class="note">Public demo release: <code>v5.0.0-rc9-public-fix-2724455</code> (non-commercial prerelease). Public demo materials are selected synthetic/demo assets from that public release, including the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">demo report</a>; supporting run packs and intake diagnostics are linked from <a href="/fl-bsa/#docs"><span class="product-name">FL-BSA</span> documentation</a>. They are not customer output, legal advice, or proof of a public Marketplace launch.</p>
     </div>
    </section>
 
@@ -125,18 +126,14 @@
     <div class="section-block">
       <h2>Deployment options</h2>
       <div class="grid">
-        <div class="card card--reader">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-            Guided <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr>-first
-          </h3>
-          <p>Primary current AWS customer path for controlled guided pilot or private handoff. Single-tenant <abbr title="Amazon Machine Image">AMI</abbr> with deterministic boot, reporting services, and integration with customer <abbr title="Identity and Access Management">IAM</abbr>.</p>
+        <div class="card">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-hosting"></use></svg>
+          <h3>Guided <abbr title="Amazon Web Services">AWS</abbr> <abbr title="Amazon Machine Image">AMI</abbr>-first</h3>
+          <p>Primary current <abbr title="Amazon Web Services">AWS</abbr> customer path for controlled guided pilot or private handoff. Single-tenant <abbr title="Amazon Machine Image">AMI</abbr> with deterministic boot, reporting services, and integration with customer <abbr title="Identity and Access Management">IAM</abbr>.</p>
         </div>
-        <div class="card card--reader">
-          <h3>
-            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-inline"><path d="m12 2 9 5-9 5-9-5 9-5"></path><path d="m3 12 9 5 9-5"></path><path d="m3 17 9 5 9-5"></path></svg>
-            Container / <abbr title="Virtual Machine">VM</abbr> deployment
-          </h3>
+        <div class="card">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-deploy"></use></svg>
+          <h3>Container / <abbr title="Virtual Machine">VM</abbr> deployment</h3>
           <p>Available for private, controlled, or non-AWS deployments where agreed. docker-compose stack (<abbr title="Application Programming Interface">API</abbr>, Worker, Redis); <abbr title="Central Processing Unit">CPU</abbr>-only profile available, with <abbr title="Graphics Processing Unit">GPU</abbr> preferred for faster synthetic generation.</p>
         </div>
       </div>
@@ -149,7 +146,7 @@
       <h2>Need a walkthrough?</h2>
       <p class="lead">Procurement reviews commonly cover control objectives, evidence bundling, and internal audit mapping. We provide templated questionnaire responses and written walkthroughs.</p>
       <div class="cta-row">
-        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=procurement plausible-event-cta=walkthrough-primary plausible-event-intent=procurement plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=procurement plausible-event-cta=walkthrough-primary plausible-event-intent=procurement plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
         <a class="btn btn-secondary" href="/fl-bsa/">Review <span class="product-name">FL-BSA</span></a>
       </div>
     </div>
@@ -162,6 +159,7 @@
       <li><a href="/press/">Press</a></li>
       <li><a href="/procurement/">Procurement</a></li>
       <li><a href="/trust-center/">Trust Center</a></li>
+      <li><a href="/contact/">Contact</a></li>
       <li><a href="https://www.linkedin.com/company/equilens-labs/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
     </ul></section>
     <section><h3>Legal</h3><ul>
@@ -178,10 +176,11 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-16 (commit e26f68c).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-16 (commit cae9c99).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
+
 
 
 

@@ -25,63 +25,76 @@
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="/assets/eql/base.css">
+  <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260716a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
- <body class="eql product-page product-page--flbsa">
+ <body class="eql">
   <a class="skip-to-content" href="#main">Skip to content</a>
-  <div id="nav-placeholder"></div>
-  <script src="/assets/eql/nav.js" defer></script>
+  <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
+  <div class="navbar-content">
+    <a href="/" class="logo" aria-label="Equilens home">
+      <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
+    </a>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="/fl-bsa/" class="nav-link" aria-current="page">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+  <script src="/assets/eql/nav.js?v=20260716a" defer></script>
 
   <main id="main">
     <section class="hero" id="overview" aria-label="Whitepaper overview">
       <div class="hero-content">
-        <p class="eyebrow">Technical Whitepaper — Demo Evidence</p>
-        <h1 class="hero-headline"><span class="product-name">FL-BSA</span> Technical Whitepaper</h1>
-        <p class="lead">
-          How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack. Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation — one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline — and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.
-        </p>
+        <p class="eyebrow">Technical Whitepaper: Demo Evidence</p>
+        <h1 class="hero-headline">FL-BSA Technical Whitepaper</h1>
+        <p class="lead">How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack.</p>
         <div class="cta-row">
-          <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download Whitepaper (PDF)</a>
-          <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-intake-zip plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download Intake Bundle (ZIP)</a>
+          <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download whitepaper (demo build, PDF)</a>
+          <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-intake-zip plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download whitepaper intake (ZIP)</a>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="boundary">
+    <section class="section" id="boundary">
       <div class="section-block">
-        <h2>Demo and Synthetic Boundary</h2>
-        <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records. It is published from a non-commercial technical-proof prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
-        <p class="note">The intake bundle is an unsigned, non-evidence-grade diagnostics ZIP with the aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
+        <h2>Demo and synthetic boundary</h2>
+        <p>Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation (one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline) and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.</p>
+        <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records.</p>
+        <p>It is published from a non-commercial demo prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
+        <p class="note">The intake bundle is an unsigned, non-evidence-grade diagnostics <abbr title="ZIP archive">ZIP</abbr> with the aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
       </div>
     </section>
 
-    <section class="section" id="provenance">
+    <section class="section alt" id="provenance">
       <div class="section-block">
         <h2>Provenance</h2>
-        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its SHA-256 digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
+        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
       </div>
     </section>
 
-    <section class="section alt" id="verify">
+    <section class="section" id="verify">
       <div class="section-block">
-        <h2>Verify It Yourself</h2>
-        <p class="lead">Verification is offline — no Equilens service is involved.</p>
-        <ol class="checks">
+        <h2>Verify it yourself</h2>
+        <p class="lead">Verification is offline: no Equilens service is involved.</p>
+        <ol>
           <li>Download the <abbr title="Portable Document Format">PDF</abbr> and intake <abbr title="ZIP archive">ZIP</abbr> from the pinned release above.</li>
-          <li>Recompute SHA-256 checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
-          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (ECDSA-P256). Expected trust-root SHA-256: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code> — verify out of band.</li>
+          <li>Recompute <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
+          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (<abbr title="Elliptic Curve Digital Signature Algorithm, P-256 curve">ECDSA-P256</abbr>). Expected trust-root <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr>: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code>. Verify out of band.</li>
         </ol>
         <p class="note">Evidence bundles produced by a deployed appliance ship with a documented hashing spec and offline verification helpers; see the <a href="/trust-center/">Trust Center</a> for the evidence-chain overview.</p>
       </div>
     </section>
 
-    <section class="section" id="next">
+    <section class="section alt" id="next">
       <div class="section-block">
         <h2>Ready to scope readiness?</h2>
-        <p class="lead">Request the buyer/procurement pack or a readiness conversation — a written reply, not a sales call.</p>
+        <p class="lead">Request the buyer/procurement pack or a readiness conversation. It commits you to nothing beyond a written reply.</p>
         <div class="cta-row">
-          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=whitepaper plausible-event-cta=next-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the Pack</a>
+          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=whitepaper plausible-event-cta=next-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
           <a class="btn btn-secondary" href="/fl-bsa/">Back to FL-BSA</a>
         </div>
       </div>
@@ -95,6 +108,7 @@
       <li><a href="/press/">Press</a></li>
       <li><a href="/procurement/">Procurement</a></li>
       <li><a href="/trust-center/">Trust Center</a></li>
+      <li><a href="/contact/">Contact</a></li>
       <li><a href="https://www.linkedin.com/company/equilens-labs/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
     </ul></section>
     <section><h3>Legal</h3><ul>
@@ -111,10 +125,11 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-16 (commit e26f68c).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-16 (commit cae9c99).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
+
 
 
 
