@@ -12,6 +12,9 @@ GREP_EXCLUDES=(
   --exclude-dir=tasks
   --exclude-dir=output
   --exclude-dir=dist
+  # tests/ holds known-bad claims fixtures (deliberately banned phrases used to
+  # prove the Vale gate fires); never deployed (see scripts/deploy/prepare.sh).
+  --exclude-dir=tests
 )
 
 if grep -r --include="*.html" --include="*.md" -n "Equilens Ltd" "${GREP_EXCLUDES[@]}" .; then

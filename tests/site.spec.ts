@@ -110,7 +110,7 @@ test.describe('Equilens site surfaces', () => {
     test(`${entry.slug} passes axe (no critical or serious violations)`, async ({ page }) => {
       await stubPlausible(page);
       await page.goto(entry.path, { waitUntil: 'networkidle' });
-      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag22aa']).analyze();
+      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
       const blocking = results.violations.filter((v) => v.impact === 'critical' || v.impact === 'serious');
       expect(blocking.map((v) => `${v.id}: ${v.nodes.length} node(s)`)).toEqual([]);
     });

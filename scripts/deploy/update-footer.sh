@@ -4,11 +4,11 @@ set -euo pipefail
 
 TARGET_DIR="${1:-.}"
 DEPLOY_DATE=$(date -u +%Y-%m-%d)
-if [[ -n "${GITHUB_SHA:-}" ]]; then
-  COMMIT_SHORT="${GITHUB_SHA:0:7}"
-else
-  COMMIT_SHORT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
-fi
+# Stamp the checked-out tree (what is actually deployed). GITHUB_SHA is only a
+# fallback: under workflow_run triggers it is the default-branch tip, which is
+# not necessarily the audited commit that was checked out.
+COMMIT_SHORT=$(git rev-parse --short=7 HEAD 2>/dev/null || echo "${GITHUB_SHA:0:7}")
+COMMIT_SHORT="${COMMIT_SHORT:-unknown}"
 
 echo "Updating footer in ${TARGET_DIR}: date=${DEPLOY_DATE} commit=${COMMIT_SHORT}"
 

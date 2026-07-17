@@ -3,14 +3,31 @@ message: "Banned claim '%s' (claims register): never on web surfaces."
 level: error
 ignorecase: true
 scope: raw
+# Mirrors the Banned Claims section of the canonical claims register
+# (fl-bsa-gtm-private/CLAIMS_REGISTER.md). Separator class [-‑–  ] covers
+# hyphen, non-breaking hyphen, en dash, NBSP, and space variants.
+# Known-bad fixture: tests/fixtures/claims-known-bad.md (CI asserts these fire).
 tokens:
   - 'generally available'
-  - 'FCA[- ]approved'
-  - 'regulator[- ]approved'
-  - 'regulator[- ]ready'
-  - 'audit[- ]ready'
-  - 'court[- ]admissible'
+  - '(?:is|are|now|reached) GA\b'
+  - 'GA release'
+  - '(?:is|are|been|being) certified'
+  - 'certified (?:by|against|under|for)'
+  - '(?:SOC[-‑–  ]?2|ISO[-‑–  ]?27001|ISO[-‑–  ]?42001)[-‑–  ]certified'
+  - 'FCA[-‑–  ]approved'
+  - 'regulator[-‑–  ]approved'
+  - 'regulator[-‑–  ]ready'
+  - 'regulatory[-‑–  ]ready'
+  - 'audit[-‑–  ]ready'
+  - 'court[-‑–  ]admissible'
   - 'compliance certified'
-  - 'ECOA-compliant'
+  - 'ECOA[-‑–  ]compliant'
   - 'production decisioning'
+  - 'production[-‑–  ]live decisioning'
+  - 'live decisioning'
   - 'regulatory digital twin'
+  - 'model[-‑–  ]validation service'
+  - 'customer model execution'
+  - 'publicly[-‑–  ]live (?:AWS )?Marketplace'
+  - 'live on the AWS Marketplace'
+  - 'fully signed end[-‑–  ]to[-‑–  ]end evidence'

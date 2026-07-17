@@ -19,6 +19,10 @@ if ! curl -Is --max-time 2 "${BASE_URL}/" >/dev/null 2>&1; then
   SERVER_PID=$!
   sleep 1
   if ! curl -Is --max-time 3 "${BASE_URL}/" >/dev/null 2>&1; then
+    if [[ -n "${CI:-}" ]]; then
+      echo "[FAIL] Local server did not start; refusing live-site fallback in CI" >&2
+      exit 1
+    fi
     BASE_URL="https://equilens.io"
   fi
 fi

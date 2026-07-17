@@ -14,6 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.1'
+
+      - name: Install npm dependencies
+        run: npm ci --ignore-scripts
+
       - name: Footer metadata guard
         run: scripts/ops/check_footer_metadata.sh
 
@@ -21,15 +29,38 @@ jobs:
         run: scripts/ops/content_lint.sh
 
       - name: HTML conformance (html-validate)
-        run: |
-          npm ci --ignore-scripts
-          npm run lint:html
+        run: npm run lint:html
 
-      - name: Claims lint (Vale)
+      - name: Claims lint (Vale, manifest-scoped + liveness fixture)
         run: |
+          set -euo pipefail
           curl -sL -o /tmp/vale.tgz https://github.com/errata-ai/vale/releases/download/v3.7.1/vale_3.7.1_Linux_64-bit.tar.gz
           tar -xzf /tmp/vale.tgz -C /tmp vale
-          /tmp/vale --config .vale.ini index.html 404.html fl-bsa contact legal press procurement trust-center
+          mapfile -t SURFACES < <(grep -vE '^\s*(#|$)' config/deploy/surfaces.txt)
+          # Drift guard: every lint surface must also be in the deploy allowlist.
+          for s in "${SURFACES[@]}"; do
+            grep -qF "\"${s%.html}\"" scripts/deploy/prepare.sh || grep -qF "\"$s\"" scripts/deploy/prepare.sh || {
+              echo "::error::'$s' is in config/deploy/surfaces.txt but not in scripts/deploy/prepare.sh"; exit 1; }
+          done
+          # Deployed surfaces must be clean.
+          /tmp/vale --config .vale.ini "${SURFACES[@]}"
+          # Known-bad fixture must fire, or the gate is dead.
+          if /tmp/vale --config .vale.ini --output=line tests/fixtures/claims-known-bad.md > /tmp/vale-fixture.out 2>&1; then
+            echo "::error::claims gate reported no errors on the known-bad fixture"
+            cat /tmp/vale-fixture.out; exit 1
+          fi
+          HITS=$(wc -l < /tmp/vale-fixture.out)
+          if [ "$HITS" -lt 13 ]; then
+            echo "::error::claims gate fired only $HITS times on the known-bad fixture (expected >= 13)"
+            cat /tmp/vale-fixture.out; exit 1
+          fi
+          echo "Claims gate alive: $HITS hits on the known-bad fixture"
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright suite (design system, content pins, axe WCAG 2.0/2.1/2.2 AA)
+        run: npm test
 
       - name: Setup Python server
         run: |
@@ -53,11 +84,6 @@ jobs:
           fail: true
           output: lychee/results.md
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.11.1'
-
       - name: Install a11y & Lighthouse CLIs
         run: |
           npm i -g pa11y-ci@3.1.0 @lhci/cli@0.13.0
@@ -79,6 +105,8 @@ jobs:
           path: |
             ./.lighthouseci/**/*
             ./lychee/results.md
+            ./output/ops/PLAYWRIGHT-AUDIT-*/report.json
+            ./output/ops/PLAYWRIGHT-AUDIT-*/manifest.json
           if-no-files-found: error
           include-hidden-files: true
 
