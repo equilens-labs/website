@@ -66,7 +66,7 @@ while IFS= read -r f; do
   fi
   PAGES+=("$path")
 done < <(find . \
-  \( -path './.git' -o -path './.github' -o -path './output' -o -path './scripts' -o -path './template' -o -path './themes/appline' \) -prune -false -o \
+  \( -path './.git' -o -path './.github' -o -path './node_modules' -o -path './output' -o -path './scripts' -o -path './template' -o -path './themes/appline' \) -prune -false -o \
   -type f -name '*.html' -print | sort)
 
 # Unique list

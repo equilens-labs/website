@@ -1,0 +1,41 @@
+extends: existence
+message: "Banned claim '%s' (claims register): never on web surfaces."
+level: error
+ignorecase: true
+scope: raw
+# Mirrors the Banned Claims section of the canonical claims register
+# (fl-bsa-gtm-private/CLAIMS_REGISTER.md). Separator class [-\x{2011}\x{2013}\x{2014}\x{00A0} ] covers
+# hyphen, non-breaking hyphen, en dash, NBSP, and space variants.
+# Known-bad fixture: tests/fixtures/claims-known-bad.md (CI asserts these fire).
+tokens:
+  - 'generally available'
+  - '(?:is|are|now|reached) GA\b'
+  - 'GA release'
+  - '(?:is|are|been|being) certified'
+  - 'certified (?:by|against|under|for)'
+  - '(?:SOC[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?2|ISO[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?27001|ISO[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?42001)[-\x{2011}\x{2013}\x{2014}\x{00A0} ]certified'
+  - 'FCA[-\x{2011}\x{2013}\x{2014}\x{00A0} ]approved'
+  - 'regulator[-\x{2011}\x{2013}\x{2014}\x{00A0} ]approved'
+  - 'regulator[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'regulatory[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'audit[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'court[-\x{2011}\x{2013}\x{2014}\x{00A0} ]admissible'
+  - 'compliance certified'
+  - 'ECOA[-\x{2011}\x{2013}\x{2014}\x{00A0} ]compliant'
+  - 'production decisioning'
+  - 'production[-\x{2011}\x{2013}\x{2014}\x{00A0} ]live decisioning'
+  - 'live decisioning'
+  - 'regulatory digital twin'
+  - 'model[-\x{2011}\x{2013}\x{2014}\x{00A0} ]validation service'
+  - 'customer model execution'
+  - 'publicly[-\x{2011}\x{2013}\x{2014}\x{00A0} ]live (?:AWS )?Marketplace'
+  - 'live on the AWS Marketplace'
+  - 'fully signed end[-\x{2011}\x{2013}\x{2014}\x{00A0} ]to[-\x{2011}\x{2013}\x{2014}\x{00A0} ]end evidence'
+  - 'strict robustness certified'
+  - 'launch proof'
+  - 'customer[-\x{2011}\x{2013}\x{2014}\x{00A0} ]simulation closeout complete'
+  - 'DataCebo'
+  - 'CTGAN'
+  - '\bRDT\b'
+  - 'native[-\x{2011}\x{2013}\x{2014}\x{00A0} ]generator'
+  - 'real[-\x{2011}\x{2013}\x{2014}\x{00A0} ]model'

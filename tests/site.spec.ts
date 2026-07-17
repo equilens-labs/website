@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright';
 import { expect, type Page, test } from '@playwright/test';
 import { execFileSync } from 'child_process';
 import fs from 'fs';
@@ -105,6 +106,16 @@ async function stubPlausible(page: Page) {
 }
 
 test.describe('Equilens site surfaces', () => {
+  for (const entry of pages) {
+    test(`${entry.slug} passes axe (no critical or serious violations)`, async ({ page }) => {
+      await stubPlausible(page);
+      await page.goto(entry.path, { waitUntil: 'networkidle' });
+      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
+      const blocking = results.violations.filter((v) => v.impact === 'critical' || v.impact === 'serious');
+      expect(blocking.map((v) => `${v.id}: ${v.nodes.length} node(s)`)).toEqual([]);
+    });
+  }
+
   for (const redirect of redirectMetadata) {
     test(`${redirect.file} preserves policy metadata while redirecting`, async () => {
       const html = fs.readFileSync(path.join(root, redirect.file), 'utf-8');
@@ -378,7 +389,10 @@ test.describe('Equilens site surfaces', () => {
     })
       .trim()
       .split('\n')
-      .filter(Boolean);
+      .filter(Boolean)
+      // tests/ holds known-bad claims fixtures: full HTML documents that are
+      // deliberately non-compliant and never deployed (prepare.sh allowlist).
+      .filter((file) => !file.startsWith('tests/'));
 
     const trackedHtmlPages = trackedHtmlFiles
       .map((file) => ({

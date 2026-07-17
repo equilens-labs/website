@@ -1,10 +1,12 @@
 name: Deploy website to GitHub Pages
 
 on:
-  push:
+  # Deploys are gated on the audit workflow: this fires only when
+  # "Site audits" completes on main, and the build job requires success.
+  workflow_run:
+    workflows: ["Site audits (links, a11y, Lighthouse)"]
+    types: [completed]
     branches: [ main ]
-    paths:
-      - '**'
   workflow_dispatch:
     inputs:
       visibility:
@@ -20,8 +22,13 @@ permissions:
   pages: write
   id-token: write
 
+# Only trusted events share the deployment queue (and may cancel a queued
+# deploy): manual dispatch, or a successful same-repository push audit. Any
+# other trigger (e.g. a fork PR whose branch is named "main" reaching
+# workflow_run) gets a run-unique group so it can never cancel a legitimate
+# deployment; the guard job then rejects it.
 concurrency:
-  group: pages
+  group: ${{ (github.event_name == 'workflow_dispatch' || (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.conclusion == 'success')) && 'pages' || format('pages-rejected-{0}', github.run_id) }}
   cancel-in-progress: true
 
 env:
@@ -30,13 +37,70 @@ env:
   SITE_VISIBILITY: ${{ github.event_name == 'workflow_dispatch' && inputs.visibility || 'public' }}
 
 jobs:
+  # Deploy provenance guard: only same-repo pushes to main that passed the
+  # audit may deploy, and only while the audited SHA is still main's tip
+  # (a superseded SHA skips; its successor's own audit will deploy it).
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.decide.outputs.proceed }}
+      deploy_sha: ${{ steps.decide.outputs.deploy_sha }}
+    steps:
+      - name: Decide whether this event may deploy
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_EVENT: ${{ github.event.workflow_run.event }}
+          RUN_HEAD_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            # Break-glass path: deliberately bypasses the audit gate, but only
+            # ever deploys the current tip of main (never the selected ref).
+            MAIN_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/branches/main" --jq .commit.sha)
+            echo "Break-glass manual dispatch: deploying main tip ${MAIN_SHA} without waiting for an audit."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            echo "deploy_sha=${MAIN_SHA}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$RUN_CONCLUSION" != "success" ]; then
+            echo "Audit run did not succeed ($RUN_CONCLUSION); not deploying."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$RUN_EVENT" != "push" ]; then
+            echo "Audit was for a $RUN_EVENT event, not a push to main; not deploying."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$RUN_HEAD_REPO" != "$GITHUB_REPOSITORY" ]; then
+            echo "Audit head repository $RUN_HEAD_REPO is not $GITHUB_REPOSITORY; not deploying."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          MAIN_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/branches/main" --jq .commit.sha)
+          if [ "$RUN_HEAD_SHA" != "$MAIN_SHA" ]; then
+            echo "Audited SHA $RUN_HEAD_SHA is no longer main tip ($MAIN_SHA); skipping (newer audit will deploy)."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Deploying audited SHA $RUN_HEAD_SHA (current main tip)."
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+          echo "deploy_sha=$RUN_HEAD_SHA" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: guard
+    if: needs.guard.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     outputs:
       mode: ${{ steps.pages_mode.outputs.mode }}
     steps:
-      - name: Checkout
+      - name: Checkout pinned deploy SHA
         uses: actions/checkout@v4
+        with:
+          # Always the SHA the guard resolved: the audited commit for
+          # workflow_run, main's tip for break-glass dispatch. Never the
+          # dispatcher-selected ref.
+          ref: ${{ needs.guard.outputs.deploy_sha }}
 
       - name: CI context debug (early)
         continue-on-error: true
