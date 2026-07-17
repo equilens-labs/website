@@ -389,7 +389,10 @@ test.describe('Equilens site surfaces', () => {
     })
       .trim()
       .split('\n')
-      .filter(Boolean);
+      .filter(Boolean)
+      // tests/ holds known-bad claims fixtures: full HTML documents that are
+      // deliberately non-compliant and never deployed (prepare.sh allowlist).
+      .filter((file) => !file.startsWith('tests/'));
 
     const trackedHtmlPages = trackedHtmlFiles
       .map((file) => ({
