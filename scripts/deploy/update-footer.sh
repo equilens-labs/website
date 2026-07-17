@@ -7,7 +7,11 @@ DEPLOY_DATE=$(date -u +%Y-%m-%d)
 # Stamp the checked-out tree (what is actually deployed). GITHUB_SHA is only a
 # fallback: under workflow_run triggers it is the default-branch tip, which is
 # not necessarily the audited commit that was checked out.
-COMMIT_SHORT=$(git rev-parse --short=7 HEAD 2>/dev/null || echo "${GITHUB_SHA:0:7}")
+COMMIT_SHORT="$(git rev-parse --short=7 HEAD 2>/dev/null || true)"
+if [[ -z "${COMMIT_SHORT}" ]]; then
+  FALLBACK_SHA="${GITHUB_SHA:-}"
+  COMMIT_SHORT="${FALLBACK_SHA:0:7}"
+fi
 COMMIT_SHORT="${COMMIT_SHORT:-unknown}"
 
 echo "Updating footer in ${TARGET_DIR}: date=${DEPLOY_DATE} commit=${COMMIT_SHORT}"

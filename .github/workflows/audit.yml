@@ -31,30 +31,27 @@ jobs:
       - name: HTML conformance (html-validate)
         run: npm run lint:html
 
-      - name: Claims lint (Vale, manifest-scoped + liveness fixture)
+      - name: Claims lint (Vale tripwires on deploy artifact + rendered text)
         run: |
           set -euo pipefail
           curl -sL -o /tmp/vale.tgz https://github.com/errata-ai/vale/releases/download/v3.7.1/vale_3.7.1_Linux_64-bit.tar.gz
           tar -xzf /tmp/vale.tgz -C /tmp vale
-          mapfile -t SURFACES < <(grep -vE '^\s*(#|$)' config/deploy/surfaces.txt)
-          # Drift guard: every lint surface must also be in the deploy allowlist.
-          for s in "${SURFACES[@]}"; do
-            grep -qF "\"${s%.html}\"" scripts/deploy/prepare.sh || grep -qF "\"$s\"" scripts/deploy/prepare.sh || {
-              echo "::error::'$s' is in config/deploy/surfaces.txt but not in scripts/deploy/prepare.sh"; exit 1; }
-          done
-          # Deployed surfaces must be clean.
-          /tmp/vale --config .vale.ini "${SURFACES[@]}"
-          # Known-bad fixture must fire, or the gate is dead.
-          if /tmp/vale --config .vale.ini --output=line tests/fixtures/claims-known-bad.md > /tmp/vale-fixture.out 2>&1; then
-            echo "::error::claims gate reported no errors on the known-bad fixture"
-            cat /tmp/vale-fixture.out; exit 1
-          fi
-          HITS=$(wc -l < /tmp/vale-fixture.out)
-          if [ "$HITS" -lt 13 ]; then
-            echo "::error::claims gate fired only $HITS times on the known-bad fixture (expected >= 13)"
-            cat /tmp/vale-fixture.out; exit 1
-          fi
-          echo "Claims gate alive: $HITS hits on the known-bad fixture"
+          # Authoritative scope: build the deploy artifact and lint every HTML
+          # file in it, so lint scope cannot drift from what actually ships.
+          bash scripts/deploy/prepare.sh
+          mapfile -t DIST_HTML < <(find dist -type f -name '*.html' | sort)
+          [ "${#DIST_HTML[@]}" -gt 0 ] || { echo "::error::no HTML files in dist"; exit 1; }
+          /tmp/vale --config .vale.ini "${DIST_HTML[@]}"
+          # Rendered-text pass: entities decoded, markup stripped, so evasion
+          # variants (entity separators, markup splits) also trip the rules.
+          python3 scripts/ops/normalize_html_text.py dist /tmp/normtext
+          mapfile -t NORM_TXT < <(find /tmp/normtext -type f -name '*.txt' | sort)
+          /tmp/vale --config .vale.ini "${NORM_TXT[@]}"
+          # Liveness: every probe in both known-bad fixtures must fire,
+          # individually, or the gate is considered dead.
+          python3 scripts/ops/check_claims_gate.py /tmp/vale
+          # dist must not leak into later steps (screenshots, link check).
+          rm -rf dist
 
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium

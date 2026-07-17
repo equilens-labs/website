@@ -4,7 +4,7 @@ level: error
 ignorecase: true
 scope: raw
 # Mirrors the Banned Claims section of the canonical claims register
-# (fl-bsa-gtm-private/CLAIMS_REGISTER.md). Separator class [-‑–  ] covers
+# (fl-bsa-gtm-private/CLAIMS_REGISTER.md). Separator class [-\x{2011}\x{2013}\x{2014}\x{00A0} ] covers
 # hyphen, non-breaking hyphen, en dash, NBSP, and space variants.
 # Known-bad fixture: tests/fixtures/claims-known-bad.md (CI asserts these fire).
 tokens:
@@ -13,21 +13,29 @@ tokens:
   - 'GA release'
   - '(?:is|are|been|being) certified'
   - 'certified (?:by|against|under|for)'
-  - '(?:SOC[-‑–  ]?2|ISO[-‑–  ]?27001|ISO[-‑–  ]?42001)[-‑–  ]certified'
-  - 'FCA[-‑–  ]approved'
-  - 'regulator[-‑–  ]approved'
-  - 'regulator[-‑–  ]ready'
-  - 'regulatory[-‑–  ]ready'
-  - 'audit[-‑–  ]ready'
-  - 'court[-‑–  ]admissible'
+  - '(?:SOC[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?2|ISO[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?27001|ISO[-\x{2011}\x{2013}\x{2014}\x{00A0} ]?42001)[-\x{2011}\x{2013}\x{2014}\x{00A0} ]certified'
+  - 'FCA[-\x{2011}\x{2013}\x{2014}\x{00A0} ]approved'
+  - 'regulator[-\x{2011}\x{2013}\x{2014}\x{00A0} ]approved'
+  - 'regulator[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'regulatory[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'audit[-\x{2011}\x{2013}\x{2014}\x{00A0} ]ready'
+  - 'court[-\x{2011}\x{2013}\x{2014}\x{00A0} ]admissible'
   - 'compliance certified'
-  - 'ECOA[-‑–  ]compliant'
+  - 'ECOA[-\x{2011}\x{2013}\x{2014}\x{00A0} ]compliant'
   - 'production decisioning'
-  - 'production[-‑–  ]live decisioning'
+  - 'production[-\x{2011}\x{2013}\x{2014}\x{00A0} ]live decisioning'
   - 'live decisioning'
   - 'regulatory digital twin'
-  - 'model[-‑–  ]validation service'
+  - 'model[-\x{2011}\x{2013}\x{2014}\x{00A0} ]validation service'
   - 'customer model execution'
-  - 'publicly[-‑–  ]live (?:AWS )?Marketplace'
+  - 'publicly[-\x{2011}\x{2013}\x{2014}\x{00A0} ]live (?:AWS )?Marketplace'
   - 'live on the AWS Marketplace'
-  - 'fully signed end[-‑–  ]to[-‑–  ]end evidence'
+  - 'fully signed end[-\x{2011}\x{2013}\x{2014}\x{00A0} ]to[-\x{2011}\x{2013}\x{2014}\x{00A0} ]end evidence'
+  - 'strict robustness certified'
+  - 'launch proof'
+  - 'customer[-\x{2011}\x{2013}\x{2014}\x{00A0} ]simulation closeout complete'
+  - 'DataCebo'
+  - 'CTGAN'
+  - '\bRDT\b'
+  - 'native[-\x{2011}\x{2013}\x{2014}\x{00A0} ]generator'
+  - 'real[-\x{2011}\x{2013}\x{2014}\x{00A0} ]model'

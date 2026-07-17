@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claims known-bad HTML fixture (never deploy)</title>
+</head>
+<body>
+<!-- Every <p> below is a banned claim written to evade raw-text linting via
+     HTML entities or markup splits. CI normalizes this file to rendered body
+     text and asserts every line fires the Vale claims gate. -->
+<p>FL-BSA is audit&#8209;ready.</p>
+<p>FL-BSA is regulator&nbsp;approved.</p>
+<p>The pack is court&#8211;admissible.</p>
+<p>FL-BSA is <span>regulator-</span>approved.</p>
+<p>Evidence is fully signed end&#8209;to&#8209;end evidence.</p>
+<p>FL-BSA <em>is</em> certified.</p>
+<p>Data<span>Cebo</span> powers our generators.</p>
+</body>
+</html>

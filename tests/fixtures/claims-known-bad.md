@@ -17,3 +17,8 @@ that proves the gate is alive, not a no-op. Never deploy this file.
 11. The publicly-live AWS Marketplace listing is available today.
 12. Fully signed end-to-end evidence ships by default.
 13. FL-BSA is audit ready even with a plain space separator.
+14. FL-BSA is strict robustness certified.
+15. Mode A and Mode B are complete launch proof.
+16. DataCebo is commercially authorized for customer use with CTGAN and RDT.
+17. The native generator is customer-facing.
+18. Real-model measurement ships as production decisioning.
