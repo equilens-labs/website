@@ -452,6 +452,22 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('--text-primary: var(--eql-color-ink-900);');
   });
 
+  test('evidence-readiness note has an owned conversion path and is linked from FL-BSA', async () => {
+    const note = fs.readFileSync(
+      path.join(root, 'notes', 'five-things-before-a-fair-outcomes-test', 'index.html'),
+      'utf-8',
+    );
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+
+    expect(note).toContain(
+      '<link href="https://equilens.io/notes/five-things-before-a-fair-outcomes-test/" rel="canonical">',
+    );
+    expect(note).toContain('plausible-event-surface=evidence-note');
+    expect(note).toContain('href="/contact/?interest=Evidence%20Readiness%20Assessment"');
+    expect(note).toContain('These are internal decision thresholds, not regulatory safe harbours');
+    expect(flbsa).toContain('href="/notes/five-things-before-a-fair-outcomes-test/">Read the note</a>');
+  });
+
   test('mobile section headings use the compact section scale without emergency wrapping', async ({ page }) => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 390, height: 900 });
@@ -566,6 +582,16 @@ test.describe('Equilens site surfaces', () => {
 
     await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.');
+  });
+
+  test('contact query parameters prefill evidence-readiness enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Evidence%20Readiness%20Assessment', { waitUntil: 'networkidle' });
+
+    await expect(page.locator('#interest')).toHaveValue('Evidence Readiness Assessment');
+    await expect(page.locator('#message')).toHaveValue(
+      'I would like to discuss whether one credit workflow is ready for a fair-outcomes evidence test.',
+    );
   });
 
   for (const anchor of anchors) {
