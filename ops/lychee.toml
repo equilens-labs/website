@@ -3,7 +3,10 @@ max_concurrency = 8
 timeout = 20
 retry_wait_time = 2
 max_retries = 2
-exclude = ["mailto:*"]
+exclude = [
+  "mailto:*",
+  "^https://equilens\\.io/notes/five-things-before-a-fair-outcomes-test/?$",
+]
 exclude_path = ["output/ops"]
 offline = false
 format = "Markdown"
