@@ -912,6 +912,31 @@ body:not(.landing) .hero {
   margin-right: auto;
 }
 
+/* Long-form notes use the existing panel grammar with a narrower reading
+   measure and left-aligned section headings. */
+.article-prose {
+  max-width: var(--content-width);
+}
+
+.article-prose h2 {
+  font-size: var(--text-2xl);
+  text-align: left;
+  max-width: var(--measure-default);
+  margin: var(--space-10) auto var(--space-4);
+}
+
+.article-prose .note {
+  max-width: var(--measure-default);
+  text-align: left;
+}
+
+.article-prose .cta-row {
+  justify-content: flex-start;
+  max-width: var(--measure-default);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-block .checks {
   margin: var(--space-4) 0;
 }
