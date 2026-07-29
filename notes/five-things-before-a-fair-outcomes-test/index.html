@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Five things to fix before a fair-outcomes test — Equilens</title>
+  <meta content="Before choosing a metric, fix five practical gaps so one credit workflow can produce fair-outcomes evidence people can understand, challenge, and act on." name="description">
+  <link href="https://equilens.io/notes/five-things-before-a-fair-outcomes-test/" rel="canonical">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
+  <meta content="strict-origin-when-cross-origin" name="referrer">
+  <meta content="#4f46e5" name="theme-color">
+  <link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="/brand/icons/site.webmanifest">
+  <meta content="article" property="og:type">
+  <meta content="https://equilens.io/notes/five-things-before-a-fair-outcomes-test/" property="og:url">
+  <meta content="Five things to fix before you test a credit workflow for fair outcomes" property="og:title">
+  <meta content="Before choosing a metric, fix five practical gaps so one credit workflow can produce evidence people can understand, challenge, and act on." property="og:description">
+  <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image">
+  <meta content="1200" property="og:image:width">
+  <meta content="630" property="og:image:height">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="https://equilens.io/notes/five-things-before-a-fair-outcomes-test/" name="twitter:url">
+  <meta content="Five things to fix before you test a credit workflow for fair outcomes" name="twitter:title">
+  <meta content="Before choosing a metric, fix five practical gaps so one credit workflow can produce evidence people can understand, challenge, and act on." name="twitter:description">
+  <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image">
+  <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
+  <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260716a">
+  <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
+</head>
+<body class="eql article-page">
+  <a class="skip-to-content" href="#main">Skip to content</a>
+  <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
+  <div class="navbar-content">
+    <a href="/" class="logo" aria-label="Equilens home">
+      <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
+      <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
+    </a>
+    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div id="nav-links" class="nav-links" data-open="false">
+      <a href="/fl-bsa/" class="nav-link">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+  <script src="/assets/eql/nav.js?v=20260716a" defer></script>
+
+  <main id="main">
+    <header class="hero" aria-label="Evidence-readiness note">
+      <div class="hero-content">
+        <p class="eyebrow">Equilens note</p>
+        <h1 class="hero-headline">Five things to fix before you test a credit workflow for fair outcomes</h1>
+        <p class="lead">Before choosing a metric: five preconditions for testing one credit workflow without confusing activity with evidence.</p>
+      </div>
+    </header>
+
+    <section class="section alt" aria-label="Article">
+      <article class="section-block article-prose">
+        <p>Choosing a fairness metric is not the first step.</p>
+
+        <p>Before a credit-risk, model-risk, Consumer Duty or AI-governance team starts an outcomes test, it needs to know whether the workflow can produce a result that people can understand, challenge and act on.</p>
+
+        <p>That is a practical problem, not a new regulatory framework. The <abbr title="Financial Conduct Authority">FCA</abbr> says its existing frameworks continue to apply to AI, including expectations around governance and controls. It is asking firms how they govern AI, test models, monitor outcomes, ensure fair treatment and explain AI-driven decisions. Its recent Consumer Duty work also warns against presenting large amounts of data without showing what they say about customer outcomes or what action follows.</p>
+
+        <p>The independent Financial Services AI Adoption Plan published by HM Treasury reports the same implementation gap: firms want clearer, practical application of existing expectations around Consumer Duty, model risk, explainability and accountability.</p>
+
+        <p>A useful readiness check asks whether five preconditions are in place.</p>
+
+        <h2 id="one-decision">1. One decision</h2>
+
+        <p>“Our credit model” is too broad.</p>
+
+        <p>Choose one decision or treatment: approval or decline, affordability, pricing, a credit-limit change, a manual override, collections or forbearance treatment, or another clearly bounded workflow.</p>
+
+        <p>Record the population, time period, relevant policy or model version, and any exclusions. If the decision boundary is vague, the result will be vague too.</p>
+
+        <h2 id="one-question">2. One evidence question</h2>
+
+        <p>State the question before choosing the metric. For example:</p>
+
+        <ul>
+          <li>Are relevant customer groups experiencing materially different outcomes?</li>
+          <li>Did a policy or model change alter those outcomes?</li>
+          <li>Are manual overrides concentrated in a way that needs investigation?</li>
+          <li>Are the available inputs good enough to support a defensible comparison?</li>
+        </ul>
+
+        <p>Metrics should be selected because they help answer the question. Their uncertainty and limits should be stated. No single ratio or threshold creates a compliance conclusion by itself.</p>
+
+        <h2 id="data-boundary">3. A safe data boundary</h2>
+
+        <p>Credit evidence can involve borrower data, model information and, where lawful and appropriate, protected-characteristic data.</p>
+
+        <p>Decide in advance:</p>
+
+        <ul>
+          <li>where the data and model information will remain;</li>
+          <li>who can access them;</li>
+          <li>what, if anything, may leave the controlled environment;</li>
+          <li>what will be retained and for how long; and</li>
+          <li>whether an external provider needs the raw data at all.</li>
+        </ul>
+
+        <p>An evidence test should not create a new privacy, security or procurement problem while examining an existing one.</p>
+
+        <h2 id="named-owners">4. Named owners for each judgement</h2>
+
+        <p>Software can calculate and preserve evidence. It should not silently become the decision-maker.</p>
+
+        <p>Name who will:</p>
+
+        <ul>
+          <li>define the customer outcome being tested;</li>
+          <li>confirm the population and the meaning of the data;</li>
+          <li>review statistical and operational limitations;</li>
+          <li>decide whether a finding needs investigation; and</li>
+          <li>own any change to policy, model or customer treatment.</li>
+        </ul>
+
+        <p>Without those owners, even a technically correct report can go nowhere.</p>
+
+        <h2 id="pre-agreed-action">5. A pre-agreed action</h2>
+
+        <p>Agree the possible outcomes before seeing the analysis:</p>
+
+        <ul>
+          <li>stop because the data or workflow is not ready;</li>
+          <li>fix a named gap and rerun;</li>
+          <li>investigate a defined finding;</li>
+          <li>proceed to a bounded test or pilot; or</li>
+          <li>close the question because no further work is justified.</li>
+        </ul>
+
+        <p>Record the action criteria before the test: the minimum data quality needed to proceed, what magnitude and uncertainty would trigger investigation, and who can approve a bounded next step. These are internal decision thresholds, not regulatory safe harbours or automatic compliance verdicts.</p>
+
+        <p>A stop decision can be useful. It prevents weak evidence from being presented as certainty.</p>
+
+        <h2 id="test-brief">The output: a one-page test brief</h2>
+
+        <p>The readiness check should end with a short brief recording:</p>
+
+        <ul>
+          <li>the decision and evidence question;</li>
+          <li>the population, period and inputs;</li>
+          <li>the data boundary;</li>
+          <li>the named owners;</li>
+          <li>the action criteria; and</li>
+          <li>the known limitations.</li>
+        </ul>
+
+        <p>Its conclusion should be simple: <strong>ready</strong>, <strong>ready after named gaps are fixed</strong>, or <strong>not ready</strong>.</p>
+
+        <p>This is not model validation, legal advice or compliance certification. It is a way to find out whether one fair-outcomes test can be run safely and produce evidence that leads to a real decision.</p>
+
+        <p class="note">Equilens builds <span class="product-name">FL-BSA</span>, a customer-hosted, simulation-only evidence appliance for regulated credit. <span class="product-name">FL-BSA</span> does not make or override live lending decisions, provide legal advice or certify regulatory compliance.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=evidence-note plausible-event-cta=article-primary plausible-event-intent=readiness plausible-event-offer_stage=assessment" href="/contact/?interest=Evidence%20Readiness%20Assessment">Discuss one workflow</a>
+          <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=evidence-note plausible-event-cta=article-secondary plausible-event-asset=fl-bsa-overview" href="/fl-bsa/#pricing">See the assessment</a>
+        </div>
+
+        <h2 id="sources">Sources</h2>
+
+        <ul>
+          <li><a href="https://www.fca.org.uk/news/blogs/ai-financial-services-approach" target="_blank" rel="noopener noreferrer"><abbr title="Financial Conduct Authority">FCA</abbr>, “AI in financial services: shaping our approach through industry engagement”</a></li>
+          <li><a href="https://www.fca.org.uk/news/blogs/year-2-consumer-duty-board-reports-progress-and-what-comes-next" target="_blank" rel="noopener noreferrer"><abbr title="Financial Conduct Authority">FCA</abbr>, “Year 2 Consumer Duty Board Reports: progress and what comes next”</a></li>
+          <li><a href="https://handbook.fca.org.uk/handbook/prin2a/prin2as9" target="_blank" rel="noopener noreferrer"><abbr title="Financial Conduct Authority">FCA</abbr> Handbook, PRIN 2A.9, “Monitoring of consumer outcomes”</a></li>
+          <li><a href="https://www.gov.uk/government/publications/ai-adoption-plan-financial-services/financial-services-ai-adoption-plan" target="_blank" rel="noopener noreferrer">FS AI Champions, “Financial Services AI Adoption Plan” (independent report, published by HM Treasury)</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">
+  <h2 class="sr-only" id="site-sections-heading">Site sections</h2>
+  <div class="container grid">
+        <section><h3>Company</h3><ul>
+      <li><a href="/press/">Press</a></li>
+      <li><a href="/procurement/">Procurement</a></li>
+      <li><a href="/trust-center/">Trust Center</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="https://www.linkedin.com/company/equilens-labs/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul></section>
+    <section><h3>Legal</h3><ul>
+      <li><a href="/legal/#privacy">Privacy</a></li>
+      <li><a href="/legal/#cookie-policy">Cookie Policy</a></li>
+      <li><a href="/legal/#terms-of-service">Terms of Service</a></li>
+      <li><a href="/legal/#imprint">Imprint</a></li>
+    </ul></section>
+    <section><h3>Resources</h3><ul>
+      <li><a href="/fl-bsa/#docs">Documentation</a></li>
+      <li><a href="/fl-bsa/#faq">FAQ</a></li>
+      <li><a href="/legal/#open-source">Open Source</a></li>
+      <li><a href="/legal/#accessibility">Accessibility</a></li>
+    </ul></section>
+  </div>
+  <div class="container">
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-29 (commit 768c774).</small>
+    <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
+  </div>
+</footer>
+</body>
+</html>
