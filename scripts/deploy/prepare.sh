@@ -25,6 +25,7 @@ SITE_DIRS=(
   "faq"
   "fl-bsa"
   "legal"
+  "notes"
   "press"
   "pricing"
   "procurement"
