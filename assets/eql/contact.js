@@ -13,6 +13,8 @@
       'Procurement Pack':
         'Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.',
       'Security Pack': 'Please send the FL-BSA security pack and vendor questionnaire materials.',
+      'Evidence Readiness Assessment':
+        'I would like to discuss whether one credit workflow is ready for a fair-outcomes evidence test.',
     };
 
     if (interestParam && interestField) {
