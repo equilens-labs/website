@@ -468,6 +468,30 @@ test.describe('Equilens site surfaces', () => {
     expect(flbsa).toContain('href="/notes/five-things-before-a-fair-outcomes-test/">Read the note</a>');
   });
 
+  test('evidence-readiness note preserves its five numbered headings and styled lists', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/notes/five-things-before-a-fair-outcomes-test/', { waitUntil: 'networkidle' });
+
+    const expectedHeadings = [
+      '1. One decision',
+      '2. One evidence question',
+      '3. A safe data boundary',
+      '4. Named owners for each judgement',
+      '5. A pre-agreed action',
+    ];
+    const headings = page.locator('.article-step > h2');
+
+    await expect(headings).toHaveCount(expectedHeadings.length);
+    expect(await headings.evaluateAll((elements) => elements.map((element) => element.textContent))).toEqual(
+      expectedHeadings,
+    );
+    for (const heading of expectedHeadings) {
+      await expect(page.getByRole('heading', { level: 2, name: heading, exact: true })).toHaveCount(1);
+    }
+
+    await expect(page.locator('.article-step ul[role="list"], .article-output ul[role="list"]')).toHaveCount(5);
+  });
+
   test('mobile section headings use the compact section scale without emergency wrapping', async ({ page }) => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 390, height: 900 });

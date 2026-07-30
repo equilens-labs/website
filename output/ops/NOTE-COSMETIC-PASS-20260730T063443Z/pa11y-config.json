@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    }
+  },
+  "urls": [
+    "http://localhost:8765/notes/five-things-before-a-fair-outcomes-test/"
+  ]
+}

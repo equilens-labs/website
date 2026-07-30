@@ -28,6 +28,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260716a">
+  <link rel="stylesheet" href="/assets/eql/note.css?v=20260730a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql article-page">
@@ -47,7 +48,7 @@
   <script src="/assets/eql/nav.js?v=20260716a" defer></script>
 
   <main id="main">
-    <header class="hero" aria-label="Evidence-readiness note">
+    <header class="hero note-hero" aria-label="Evidence-readiness note">
       <div class="hero-content">
         <p class="eyebrow">Equilens note</p>
         <h1 class="hero-headline">Five things to fix before you test a credit workflow for fair outcomes</h1>
@@ -55,9 +56,10 @@
       </div>
     </header>
 
-    <section class="section alt" aria-label="Article">
+    <section class="section alt note-shell" aria-label="Article">
       <article class="section-block article-prose">
-        <p>Choosing a fairness metric is not the first step.</p>
+        <div class="article-intro">
+        <p class="article-opening">Choosing a fairness metric is not the first step.</p>
 
         <p>Before a credit-risk, model-risk, Consumer Duty or AI-governance team starts an outcomes test, it needs to know whether the workflow can produce a result that people can understand, challenge and act on.</p>
 
@@ -66,20 +68,24 @@
         <p>The independent Financial Services AI Adoption Plan published by HM Treasury reports the same implementation gap: firms want clearer, practical application of existing expectations around Consumer Duty, model risk, explainability and accountability.</p>
 
         <p>A useful readiness check asks whether five preconditions are in place.</p>
+        </div>
 
-        <h2 id="one-decision">1. One decision</h2>
+        <section class="article-step" aria-labelledby="one-decision">
+        <h2 id="one-decision"><span class="article-step-number">1.</span> <span>One decision</span></h2>
 
         <p>“Our credit model” is too broad.</p>
 
         <p>Choose one decision or treatment: approval or decline, affordability, pricing, a credit-limit change, a manual override, collections or forbearance treatment, or another clearly bounded workflow.</p>
 
         <p>Record the population, time period, relevant policy or model version, and any exclusions. If the decision boundary is vague, the result will be vague too.</p>
+        </section>
 
-        <h2 id="one-question">2. One evidence question</h2>
+        <section class="article-step" aria-labelledby="one-question">
+        <h2 id="one-question"><span class="article-step-number">2.</span> <span>One evidence question</span></h2>
 
         <p>State the question before choosing the metric. For example:</p>
 
-        <ul>
+        <ul role="list">
           <li>Are relevant customer groups experiencing materially different outcomes?</li>
           <li>Did a policy or model change alter those outcomes?</li>
           <li>Are manual overrides concentrated in a way that needs investigation?</li>
@@ -87,14 +93,16 @@
         </ul>
 
         <p>Metrics should be selected because they help answer the question. Their uncertainty and limits should be stated. No single ratio or threshold creates a compliance conclusion by itself.</p>
+        </section>
 
-        <h2 id="data-boundary">3. A safe data boundary</h2>
+        <section class="article-step" aria-labelledby="data-boundary">
+        <h2 id="data-boundary"><span class="article-step-number">3.</span> <span>A safe data boundary</span></h2>
 
         <p>Credit evidence can involve borrower data, model information and, where lawful and appropriate, protected-characteristic data.</p>
 
         <p>Decide in advance:</p>
 
-        <ul>
+        <ul role="list">
           <li>where the data and model information will remain;</li>
           <li>who can access them;</li>
           <li>what, if anything, may leave the controlled environment;</li>
@@ -103,14 +111,16 @@
         </ul>
 
         <p>An evidence test should not create a new privacy, security or procurement problem while examining an existing one.</p>
+        </section>
 
-        <h2 id="named-owners">4. Named owners for each judgement</h2>
+        <section class="article-step" aria-labelledby="named-owners">
+        <h2 id="named-owners"><span class="article-step-number">4.</span> <span>Named owners for each judgement</span></h2>
 
         <p>Software can calculate and preserve evidence. It should not silently become the decision-maker.</p>
 
         <p>Name who will:</p>
 
-        <ul>
+        <ul role="list">
           <li>define the customer outcome being tested;</li>
           <li>confirm the population and the meaning of the data;</li>
           <li>review statistical and operational limitations;</li>
@@ -119,12 +129,14 @@
         </ul>
 
         <p>Without those owners, even a technically correct report can go nowhere.</p>
+        </section>
 
-        <h2 id="pre-agreed-action">5. A pre-agreed action</h2>
+        <section class="article-step" aria-labelledby="pre-agreed-action">
+        <h2 id="pre-agreed-action"><span class="article-step-number">5.</span> <span>A pre-agreed action</span></h2>
 
         <p>Agree the possible outcomes before seeing the analysis:</p>
 
-        <ul>
+        <ul role="list">
           <li>stop because the data or workflow is not ready;</li>
           <li>fix a named gap and rerun;</li>
           <li>investigate a defined finding;</li>
@@ -135,12 +147,14 @@
         <p>Record the action criteria before the test: the minimum data quality needed to proceed, what magnitude and uncertainty would trigger investigation, and who can approve a bounded next step. These are internal decision thresholds, not regulatory safe harbours or automatic compliance verdicts.</p>
 
         <p>A stop decision can be useful. It prevents weak evidence from being presented as certainty.</p>
+        </section>
 
+        <section class="article-output" aria-labelledby="test-brief">
         <h2 id="test-brief">The output: a one-page test brief</h2>
 
         <p>The readiness check should end with a short brief recording:</p>
 
-        <ul>
+        <ul role="list">
           <li>the decision and evidence question;</li>
           <li>the population, period and inputs;</li>
           <li>the data boundary;</li>
@@ -152,14 +166,18 @@
         <p>Its conclusion should be simple: <strong>ready</strong>, <strong>ready after named gaps are fixed</strong>, or <strong>not ready</strong>.</p>
 
         <p>This is not model validation, legal advice or compliance certification. It is a way to find out whether one fair-outcomes test can be run safely and produce evidence that leads to a real decision.</p>
+        </section>
 
+        <aside class="article-offer" aria-label="Equilens assessment">
         <p class="note">Equilens builds <span class="product-name">FL-BSA</span>, a customer-hosted, simulation-only evidence appliance for regulated credit. <span class="product-name">FL-BSA</span> does not make or override live lending decisions, provide legal advice or certify regulatory compliance.</p>
 
         <div class="cta-row">
           <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=evidence-note plausible-event-cta=article-primary plausible-event-intent=readiness plausible-event-offer_stage=assessment" href="/contact/?interest=Evidence%20Readiness%20Assessment">Discuss one workflow</a>
           <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=evidence-note plausible-event-cta=article-secondary plausible-event-asset=fl-bsa-overview" href="/fl-bsa/#pricing">See the assessment</a>
         </div>
+        </aside>
 
+        <section class="article-sources" aria-labelledby="sources">
         <h2 id="sources">Sources</h2>
 
         <ul>
@@ -168,6 +186,7 @@
           <li><a href="https://handbook.fca.org.uk/handbook/prin2a/prin2as9" target="_blank" rel="noopener noreferrer"><abbr title="Financial Conduct Authority">FCA</abbr> Handbook, PRIN 2A.9, “Monitoring of consumer outcomes”</a></li>
           <li><a href="https://www.gov.uk/government/publications/ai-adoption-plan-financial-services/financial-services-ai-adoption-plan" target="_blank" rel="noopener noreferrer">FS AI Champions, “Financial Services AI Adoption Plan” (independent report, published by HM Treasury)</a></li>
         </ul>
+        </section>
       </article>
     </section>
   </main>

@@ -1,0 +1,106 @@
+{
+  "tag": "NOTE-COSMETIC-PR72",
+  "stamp": "20260730T100031Z",
+  "base_url": "http://localhost:8000",
+  "commit": "04a8b72 plus the working-tree subject hashes in SHA256SUMS.txt",
+  "pages": [
+    {
+      "path": "/",
+      "slug": "home"
+    },
+    {
+      "path": "/fl-bsa/",
+      "slug": "fl-bsa-overview"
+    },
+    {
+      "path": "/fl-bsa/pricing/",
+      "slug": "fl-bsa-pricing"
+    },
+    {
+      "path": "/fl-bsa/legal/",
+      "slug": "fl-bsa-compliance"
+    },
+    {
+      "path": "/fl-bsa/faq/",
+      "slug": "fl-bsa-faq"
+    },
+    {
+      "path": "/fl-bsa/whitepaper/",
+      "slug": "fl-bsa-whitepaper"
+    },
+    {
+      "path": "/notes/five-things-before-a-fair-outcomes-test/",
+      "slug": "evidence-readiness-note"
+    },
+    {
+      "path": "/pricing/",
+      "slug": "pricing"
+    },
+    {
+      "path": "/procurement/",
+      "slug": "procurement"
+    },
+    {
+      "path": "/press/",
+      "slug": "press"
+    },
+    {
+      "path": "/contact/",
+      "slug": "contact"
+    },
+    {
+      "path": "/trust-center/",
+      "slug": "trust-center"
+    },
+    {
+      "path": "/legal/index.html",
+      "slug": "legal-index"
+    },
+    {
+      "path": "/legal/privacy.html",
+      "slug": "legal-privacy"
+    },
+    {
+      "path": "/legal/tos.html",
+      "slug": "legal-tos"
+    }
+  ],
+  "anchors": [
+    {
+      "url": "/fl-bsa/#how-it-works",
+      "slug": "fl-bsa-how-it-works"
+    },
+    {
+      "url": "/fl-bsa/#deployment",
+      "slug": "fl-bsa-deployment"
+    },
+    {
+      "url": "/fl-bsa/#pricing",
+      "slug": "fl-bsa-pricing-section"
+    },
+    {
+      "url": "/fl-bsa/#compliance",
+      "slug": "fl-bsa-compliance-section"
+    },
+    {
+      "url": "/fl-bsa/#whitepaper",
+      "slug": "fl-bsa-whitepaper-section"
+    },
+    {
+      "url": "/fl-bsa/#docs",
+      "slug": "fl-bsa-docs-section"
+    },
+    {
+      "url": "/fl-bsa/#faq",
+      "slug": "fl-bsa-faq-section"
+    },
+    {
+      "url": "/trust-center/#data-protection",
+      "slug": "trust-center-data-protection"
+    }
+  ],
+  "artifacts": [],
+  "report": "playwright-report.json",
+  "source_state": "The run included the review fixes listed in review-disposition.md; exact tested subject hashes are recorded in SHA256SUMS.txt.",
+  "report_paths": "Absolute repository paths were normalized to . before commit; result data is unchanged."
+}
