@@ -233,7 +233,7 @@
   line-height: 1.6;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .article-page .note-hero {
     padding: var(--space-6) 0 var(--space-16);
   }

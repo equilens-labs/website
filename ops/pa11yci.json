@@ -11,6 +11,7 @@
     "http://localhost:8080/contact/",
     "http://localhost:8080/fl-bsa/",
     "http://localhost:8080/trust-center/",
-    "http://localhost:8080/legal/"
+    "http://localhost:8080/legal/",
+    "http://localhost:8080/notes/five-things-before-a-fair-outcomes-test/"
   ]
 }

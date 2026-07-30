@@ -1,8 +1,15 @@
 PASS  git diff --check
 PASS  npm run content:lint
-PASS  scripts/ops/run_playwright_audit.sh NOTE-COSMETIC-20260730
-      216 tests passed across desktop, mobile, 768px tablet, and 1024px tablet projects
-PASS  pa11y-ci 3.1.0, WCAG2AA, evidence-note URL
-      0 errors
+PASS  normalized article text comparison with origin/main
+      article copy matches the pre-cosmetic baseline
+PASS  python3 scripts/ops/check_lhci_configs.py
+      Pa11y and both Lighthouse configs include the note; Lighthouse configs are in sync
+PASS  scripts/ops/run_playwright_audit.sh NOTE-COSMETIC-PR72
+      explicit local server at http://localhost:8000; no live-site fallback
+      220 tests passed across desktop, mobile, 768px tablet, and 1024px tablet projects
+      report: playwright-report.json; run details: playwright-manifest.json and playwright-meta.json
+PASS  pa11y-ci 3.1.0, WCAG2AA, URL pinned in pa11y-config.json
+      explicit local server at http://localhost:8765; 0 errors
+      command and output: pa11y.txt
 PASS  manual visual review at 390px, 768px, 1024px, and 1440px widths
 PASS  no horizontal overflow in the four Playwright projects

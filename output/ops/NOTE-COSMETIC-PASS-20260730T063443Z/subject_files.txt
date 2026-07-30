@@ -1,2 +1,6 @@
 assets/eql/note.css
 notes/five-things-before-a-fair-outcomes-test/index.html
+ops/lighthouserc.ci.json
+ops/lighthouserc.json
+ops/pa11yci.json
+tests/site.spec.ts

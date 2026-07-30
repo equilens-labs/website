@@ -1,0 +1,11 @@
+Command:
+npx --yes pa11y-ci@3.1.0 --config output/ops/NOTE-COSMETIC-PASS-20260730T063443Z/pa11y-config.json
+
+Local server:
+python3 -m http.server 8765 --bind 127.0.0.1
+
+Output:
+Running Pa11y on 1 URLs:
+ > http://localhost:8765/notes/five-things-before-a-fair-outcomes-test/ - 0 errors
+
+✔ 1/1 URLs passed

@@ -5,5 +5,8 @@
     "chromeLaunchConfig": {
       "args": ["--no-sandbox", "--disable-dev-shm-usage"]
     }
-  }
+  },
+  "urls": [
+    "http://localhost:8765/notes/five-things-before-a-fair-outcomes-test/"
+  ]
 }
