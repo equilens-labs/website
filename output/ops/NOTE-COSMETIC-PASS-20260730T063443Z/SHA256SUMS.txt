@@ -1,0 +1,2 @@
+aca1b73c6a28bd4c4984a80cb04ed961fbe922a99ab392f52adf804c163abf84  assets/eql/note.css
+08ac5c3de8b90ae1a24e62e00c0afaa5aea92b04f37bb2f6917b129df2783b59  notes/five-things-before-a-fair-outcomes-test/index.html

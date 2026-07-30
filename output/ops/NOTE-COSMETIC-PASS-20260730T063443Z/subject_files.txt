@@ -1,0 +1,2 @@
+assets/eql/note.css
+notes/five-things-before-a-fair-outcomes-test/index.html

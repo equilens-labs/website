@@ -1,0 +1,6 @@
+Give the fair-outcomes evidence note a focused editorial polish pass.
+
+Scope:
+- page-specific layout, typography, spacing, hierarchy, and responsive presentation;
+- clearer visual separation for the five steps, conclusion, conversion block, and sources;
+- no changes to article copy, claims, links, analytics events, product boundaries, or site-wide styles.
