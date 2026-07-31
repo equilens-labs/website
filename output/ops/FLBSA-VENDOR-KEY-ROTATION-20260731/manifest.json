@@ -1,0 +1,46 @@
+{
+  "approved_scope": "Generate replacement manifest and artifact-attestation vendor keys; publish only after separate PR review and merge approval.",
+  "candidate_trust_root": {
+    "path": "fl-bsa/trust-root.json",
+    "sha256": "e091d563deebba59b6d3c10e59de71ba31894c4e39b5332302e3f6962a1a1b85"
+  },
+  "generated_at": "2026-07-31T08:58:33.875928+00:00",
+  "key_handling": {
+    "private_material_committed": false,
+    "private_material_exported": false,
+    "replacement_keys_generated_on_release_signer": true
+  },
+  "previous_trust_root": {
+    "sha256": "256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4"
+  },
+  "replacement_keys": [
+    {
+      "fingerprint": "8586b9d4657ed241",
+      "role": "manifest"
+    },
+    {
+      "fingerprint": "5e089842eca1b71a",
+      "role": "artifact_attestation"
+    }
+  ],
+  "retained_keys": [
+    {
+      "fingerprint": "186be6908daa326f",
+      "role": "manifest"
+    },
+    {
+      "fingerprint": "ca63f168fcc6c177",
+      "role": "artifact_attestation"
+    },
+    {
+      "fingerprint": "4840da5e4580d404",
+      "role": "dataset_lineage"
+    },
+    {
+      "fingerprint": "f21a690e796353aa",
+      "role": "legal_review_attestation"
+    }
+  ],
+  "schema_version": "equilens.ops.vendor_trust_root_rotation.v1",
+  "source_product_sha": "701cf95a87daafbe6b7723c31877b229d28005e8"
+}
