@@ -180,7 +180,7 @@
               <ul class="checks">
                 <li><strong>Evidence bundle and sidecar manifest</strong> are retrievable by Task ID.</li>
                 <li><strong>Certificate hashes</strong> can be recomputed using the documented hashing spec shipped with the bundle.</li>
-                <li><strong>Vendor trust root:</strong> where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against our published keys at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (<abbr title="Elliptic Curve Digital Signature Algorithm, P-256 curve">ECDSA-P256</abbr>). Expected <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr>: <code>256280436bd13c079fb04327c11137583c6aa4d8fc106d75654052746e65dee4</code>. Verify out of band.</li>
+                <li><strong>Vendor trust root:</strong> where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against our published keys at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (<abbr title="Elliptic Curve Digital Signature Algorithm, P-256 curve">ECDSA-P256</abbr>). Expected <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr>: <code>e091d563deebba59b6d3c10e59de71ba31894c4e39b5332302e3f6962a1a1b85</code>. Verify out of band.</li>
                 <li>Customer-local evidence with <code>vendor_authorship_claimed=false</code> proves bundle consistency, not vendor authorship. Verification is offline; no Equilens service is required.</li>
                 <li><strong>Encryption, signing, and witnessing</strong> remain deployment-specific controls.</li>
               </ul>
@@ -240,7 +240,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-30 (commit 6f839c5).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-31 (commit 4e6d820).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
