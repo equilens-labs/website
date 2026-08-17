@@ -7,6 +7,7 @@
     const params = new URLSearchParams(window.location.search);
     const interestParam = params.get('interest');
     const messageParam = params.get('message');
+    const routeParam = params.get('route');
     const interestField = document.getElementById('interest');
     const messageField = document.getElementById('message');
     const defaultMessages = {
@@ -15,7 +16,16 @@
       'Security Pack': 'Please send the FL-BSA security pack and vendor questionnaire materials.',
       'Evidence Readiness Assessment':
         'I would like to discuss whether one credit workflow is ready for a fair-outcomes evidence test.',
+      'Automated Creditworthiness Evidence Readiness':
+        'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
     };
+    const campaignRoutes = {
+      'ccd2-search-202609': {
+        interest: 'Automated Creditworthiness Evidence Readiness',
+        subject: 'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026',
+      },
+    };
+    const campaignRoute = campaignRoutes[routeParam] || null;
 
     if (interestParam && interestField) {
       const options = Array.from(interestField.options || []);
@@ -46,7 +56,12 @@
       if (interest) lines.push('Interest: ' + interest);
       if (message) lines.push('', message);
 
-      const subject = interest ? 'FL-BSA enquiry: ' + interest : 'FL-BSA enquiry';
+      const subject =
+        campaignRoute && interest === campaignRoute.interest
+          ? campaignRoute.subject
+          : interest
+            ? 'FL-BSA enquiry: ' + interest
+            : 'FL-BSA enquiry';
       const mailto =
         'mailto:hello@equilens.io?subject=' +
         encodeURIComponent(subject) +

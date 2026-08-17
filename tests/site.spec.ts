@@ -343,6 +343,50 @@ test.describe('Equilens site surfaces', () => {
     expect(html).not.toContain('Self-hosted fair-outcomes evidence for regulated credit decisions:');
   });
 
+  test('EU regulatory timing and automated-creditworthiness CTA stay current and bounded', async () => {
+    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
+    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
+
+    expect(home).not.toContain('high-risk credit scoring from 2 August 2026');
+    expect(flbsa).not.toContain('high-risk credit scoring from 2 August 2026');
+    expect(home).toContain('due to apply from 2 December 2027');
+    expect(flbsa).toContain('due to apply from 2 December 2027');
+    expect(flbsa).toContain('due to apply from 20 November 2026');
+    expect(flbsa).toContain('It does not provide legal advice, certify compliance, validate a model, or make live lending decisions.');
+    expect(flbsa).toContain(
+      'data-campaign-contact="ccd2-readiness" href="/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness">Discuss one workflow</a>',
+    );
+  });
+
+  test('paid-search campaign identity reaches only its reviewed contact route', async ({ page }) => {
+    await stubPlausible(page);
+    const genericContact = '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness';
+
+    await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      genericContact,
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=ccd2-search-202609&utm_source=google&utm_medium=cpc&utm_campaign=ccd2_readiness_eu_202609',
+      { waitUntil: 'networkidle' },
+    );
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      `${genericContact}&route=ccd2-search-202609`,
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=ccd2-search-202609&utm_source=organic&utm_medium=cpc&utm_campaign=ccd2_readiness_eu_202609',
+      { waitUntil: 'networkidle' },
+    );
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      genericContact,
+    );
+  });
+
   test('Plausible CTA events stay aggregate and non-PII', async () => {
     const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
     const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
@@ -357,6 +401,7 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).toContain('plausible-event-name=Procurement+Review+Click');
     expect(trackedHtml).toContain('plausible-event-name=Proof+Asset+Click');
     expect(trackedHtml).toContain('plausible-event-name=Contact+Email+Click');
+    expect(trackedHtml).toContain('plausible-event-name=CCD2+Evidence+Readiness+Click');
     expect(trackedHtml).toContain('plausible-event-surface=');
     expect(trackedHtml).toContain('plausible-event-cta=');
     expect(trackedHtml).toContain('plausible-event-intent=');
@@ -616,6 +661,27 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss whether one credit workflow is ready for a fair-outcomes evidence test.',
     );
+  });
+
+  test('contact query parameters prefill automated-creditworthiness enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness', {
+      waitUntil: 'networkidle',
+    });
+
+    await expect(page.locator('#interest')).toHaveValue('Automated Creditworthiness Evidence Readiness');
+    await expect(page.locator('#message')).toHaveValue(
+      'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
+    );
+  });
+
+  test('September paid-search route generates a distinct static subject', async ({ page }) => {
+    const contactScript = fs.readFileSync(path.join(root, 'assets', 'eql', 'contact.js'), 'utf-8');
+
+    expect(contactScript).toContain("'ccd2-search-202609': {");
+    expect(contactScript).toContain("subject: 'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026'");
+    expect(contactScript).toContain('const campaignRoute = campaignRoutes[routeParam] || null;');
+    expect(contactScript).toContain('campaignRoute && interest === campaignRoute.interest');
   });
 
   for (const anchor of anchors) {
