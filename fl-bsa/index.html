@@ -83,6 +83,7 @@
   </div>
 </nav>
   <script src="/assets/eql/nav.js?v=20260716a" defer></script>
+  <script src="/assets/eql/campaign-route.js?v=20260813a" defer></script>
 
 
   <main id="main">
@@ -90,6 +91,7 @@
       <nav class="toc" aria-label="Table of contents">
         <div class="toc-inner">
           <a href="#overview" class="toc-label">FL-BSA</a>
+          <a href="#creditworthiness-readiness" class="toc-link">Credit evidence</a>
           <a href="#how-it-works" class="toc-link">How it works</a>
           <a href="#deployment" class="toc-link">Deployment</a>
           <a href="#pricing" class="toc-link">Working with us</a>
@@ -135,7 +137,34 @@
           </div>
         </section>
 
-  <section class="section" id="how-it-works">
+  <!-- CCD2 timing and Article 18 scope checked 2026-08-13 against Directive (EU) 2023/2225:
+       https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L2225 -->
+  <section class="section" id="creditworthiness-readiness">
+    <div class="section-block">
+      <h2>Automated creditworthiness evidence readiness</h2>
+      <p class="lead">The revised EU Consumer Credit Directive rules are due to apply from 20 November 2026. Article 18 requires documented and maintained creditworthiness-assessment procedures; where an assessment involves automated processing of personal data, it also provides consumer-request rights to human intervention, an explanation, and review.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Scope one workflow</h3>
+          <p>Define the decision, period, policy or model version, population, exclusions, and evidence question before selecting a measure.</p>
+        </div>
+        <div class="card">
+          <h3>Map the evidence gap</h3>
+          <p>Record the available outcome measures, threshold rationale, governance owners, action criteria, and missing evidence.</p>
+        </div>
+        <div class="card">
+          <h3>Keep control of the data</h3>
+          <p>Plan a customer-hosted evaluation without sending borrower, model, or protected-attribute data to a vendor SaaS environment.</p>
+        </div>
+      </div>
+      <p class="note">Equilens supports evidence-readiness review and controlled-evaluation planning. It does not provide legal advice, certify compliance, validate a model, or make live lending decisions.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary plausible-event-name=CCD2+Evidence+Readiness+Click plausible-event-surface=fl-bsa plausible-event-cta=ccd2-readiness plausible-event-intent=readiness plausible-event-offer_stage=assessment" data-campaign-contact="ccd2-readiness" href="/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness">Discuss one workflow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="how-it-works">
     <div class="section-block">
       <h2>How it works</h2>
       <p class="lead">Four steps from source snapshot to evidence prepared for governance review.</p>
@@ -165,7 +194,7 @@
     </div>
   </section>
 
-  <section class="section alt" id="deployment">
+  <section class="section" id="deployment">
     <div class="section-block">
       <h2>Deployment</h2>
       <p class="lead">Choose the customer-hosted path that fits your procurement and infrastructure model.</p>
@@ -187,7 +216,7 @@
 
   <!-- The section id "pricing" is a published anchor (redirect stubs and
        inbound links target /fl-bsa/#pricing); the visible label is "Licensing". -->
-  <section class="section" id="pricing">
+  <section class="section alt" id="pricing">
     <div class="section-block">
       <h2>Working with us</h2>
       <p class="lead">Three engagement shapes, smallest first. You control the infrastructure; we licence the appliance through controlled qualification.</p>
@@ -226,10 +255,12 @@
     </div>
   </section>
 
-  <section class="section alt" id="compliance">
+  <section class="section" id="compliance">
     <div class="section-block">
       <h2>Governance evidence</h2>
-      <p class="lead">Materials and controls designed to support security review, vendor due diligence, and regulatory dialogue. The <abbr title="EU Artificial Intelligence Act, Regulation (EU) 2024/1689">EU AI Act</abbr> applies to high-risk credit scoring from 2 August 2026; these mappings support that preparation. This is not legal advice.</p>
+      <!-- Regulatory timing checked 2026-08-13 against Regulation (EU) 2026/1744:
+           https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744 -->
+      <p class="lead">Materials and controls designed to support security review, vendor due diligence, and regulatory dialogue. The <abbr title="EU Artificial Intelligence Act, Regulation (EU) 2024/1689">EU AI Act</abbr> high-risk rules for relevant creditworthiness and credit-score systems are now due to apply from 2 December 2027; these mappings can support evidence preparation. This is not legal advice.</p>
       <p class="note"><span class="product-name">FL-BSA</span> is a simulation and evidence-packaging tool. It does not certify regulatory compliance or replace legal, compliance, or model-risk judgment.</p>
       <div class="stack">
         <div class="card card--reader">
@@ -265,7 +296,7 @@
     </div>
   </section>
 
-        <section class="section" id="docs">
+        <section class="section alt" id="docs">
           <div class="section-block">
             <h2>Documentation</h2>
             <p class="lead">Public materials for evaluation, plus licensed technical docs for implementation teams.</p>
@@ -310,7 +341,7 @@
           </div>
         </section>
 
-  <section class="section alt" id="faq">
+  <section class="section" id="faq">
     <div class="section-block">
       <h2>FAQ</h2>
       <details class="faq-item">
@@ -344,7 +375,7 @@
     </div>
   </section>
 
-        <section class="section">
+        <section class="section alt">
           <div class="section-block">
             <h2>Ready to scope readiness?</h2>
             <p class="lead">Request the buyer/procurement pack or a readiness conversation. It commits you to nothing beyond a written reply.</p>
@@ -381,7 +412,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-07-31 (commit 4e6d820).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-08-18 (commit 35418a7).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
