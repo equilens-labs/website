@@ -6,6 +6,7 @@ bad_matches=$(
     ! -path './dist/*' \
     ! -path './.git/*' \
     ! -path './node_modules/*' \
+    ! -path './.lighthouseci/*' \
     -print0 |
     xargs -0 grep -nE 'Last deploy [0-9]{4}-[0-9]{2}-[0-9]{2} \(commit [a-f0-9]{7,}\)' || true
 )

@@ -10,8 +10,10 @@ GREP_EXCLUDES=(
   --exclude-dir=node_modules
   --exclude-dir=vendor
   --exclude-dir=tasks
+  --exclude-dir=tests
   --exclude-dir=output
   --exclude-dir=dist
+  --exclude-dir=.lighthouseci
 )
 
 if grep -r --include="*.html" --include="*.md" -n "Equilens Ltd" "${GREP_EXCLUDES[@]}" .; then

@@ -56,7 +56,7 @@ def render(current: str) -> str:
       <img class="logo-wordmark" src="{brand["img"]}" alt="{brand["alt"]}" width="196" height="39">
       <img class="logo-symbol" src="{brand_compact_img}" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button type="button" class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       {nav_links}
     </div>
@@ -70,7 +70,7 @@ for page in sorted(ROOT.rglob('*.html')):
     # Skip third-party or tool HTML trees, plus evidence snapshots and deploy
     # artifacts: files under output/ are committed evidence and must never be
     # rewritten; tasks/ holds working notes, not deployed pages.
-    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist', 'tasks')):
+    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist', 'tasks', 'tests', '.lighthouseci')):
         continue
     s = page.read_text(encoding='utf-8')
     block = render(page_path(page))

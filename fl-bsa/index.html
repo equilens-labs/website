@@ -76,7 +76,7 @@
       <img class="logo-wordmark" src="/brand/logo/equilens-wordmark-light.svg" alt="Equilens" width="196" height="39">
       <img class="logo-symbol" src="/brand/symbol/equilens-symbol-nav.svg" alt="" width="64" height="64" aria-hidden="true">
     </a>
-    <button class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <button type="button" class="nav-toggle btn btn-secondary btn--small" aria-controls="nav-links" aria-expanded="false">Menu</button>
     <div id="nav-links" class="nav-links" data-open="false">
       <a href="/fl-bsa/" class="nav-link" aria-current="page">FL‑BSA</a><a href="/procurement/" class="nav-link">Procurement</a><a href="/trust-center/" class="nav-link">Trust Center</a><a href="/legal/" class="nav-link">Legal</a><a href="/contact/" class="nav-link">Contact</a>
     </div>
@@ -117,18 +117,18 @@
           </div>
           <h2 class="sr-only"><span class="product-name">FL-BSA</span> highlights</h2>
           <div class="container">
-            <div class="hero-highlights grid grid-3" aria-label="FL-BSA highlights">
-              <div class="card">
+            <div class="hero-highlights grid grid-3" role="list" aria-label="FL-BSA highlights">
+              <div class="card" role="listitem">
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-hosting"></use></svg>
                 <h3>Customer-hosted</h3>
                 <p>Run inside your <abbr title="Virtual Private Cloud">VPC</abbr>, <abbr title="Virtual Machine">VM</abbr>, or other customer-controlled environment.</p>
               </div>
-              <div class="card">
+              <div class="card" role="listitem">
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-simulation"></use></svg>
                 <h3>Outcome simulation</h3>
                 <p>Stress-test lending decision patterns on synthetic borrower cohorts instead of live production decision traffic.</p>
               </div>
-              <div class="card">
+              <div class="card" role="listitem">
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-evidence"></use></svg>
                 <h3>Evidence packs</h3>
                 <p>Generate reports, manifests, and certificates that support audit, model-risk, and regulatory review.</p>

@@ -73,8 +73,14 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Deployment automation
 
-- Pushes to `main` deploy publicly by default (`Allow: /` plus sitemap generation).
-- Trigger `Deploy website to GitHub Pages` manually with `visibility=private` to re-hide indexing; use `visibility=public` to reopen it explicitly.
+- A push to `main` first runs the complete site-audit workflow. Normal publication proceeds only
+  after that same-repository push audit succeeds, its audited commit is still the tip of `main`, and
+  the deploy workflow checks out that exact SHA. A failed or superseded audit does not deploy.
+- Normal `main` deployments publish publicly (`Allow: /` plus sitemap generation).
+- Manual `Deploy website to GitHub Pages` dispatch is an explicit audit-bypass/break-glass path. It
+  always resolves the current `main` tip, never an operator-selected ref. Use `visibility=private`
+  to re-hide indexing or `visibility=public` to reopen it explicitly, and use the bypass only when
+  the missing normal audit gate is understood and accepted.
 - Source `robots.txt` remains private by default so local/source checkouts are conservative; the deploy workflow rewrites robots/indexing metadata in the `dist/` artifact for the selected visibility.
 - The deploy workflow prepares the allowlisted public surface under `dist/`, stamps footer metadata in that deploy artifact, and publishes the resulting tree to `gh-pages`.
 - Each deployment run renders the OG PNG and writes evidence snapshots under `output/ops/SITE-DEPLOY-<timestamp>/`.

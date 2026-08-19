@@ -1,6 +1,6 @@
 # Backlog (equilens.io website)
 
-**Last updated:** 2026-05-24
+**Last updated:** 2026-08-19
 **Purpose:** Single list of pending website work for `equilens.io` (content, deployment, audits). Keep this file short; link out to `tasks/Legal*.md` and source files for details.
 
 **Priority legend:** P0 = blocking / fix before launch, P1 = soon / high leverage, P2 = later / opportunistic.
@@ -76,11 +76,12 @@
     - Repository-internal files such as `SSoT.md`, `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, and `package*.json` do not ship unless deliberately added to the allowlist.
   - Refs: `scripts/deploy/prepare.sh`.
 
-- [ ] **Deployment gating policy: don't deploy when audits fail**
+- [x] **Deployment gating policy: don't deploy when audits fail**
   - Problem: `audit.yml` can fail while `pages.yml` deploy still succeeds, so production can drift into a known-bad state (a11y/SEO/regression).
   - DoD:
     - Define and implement a policy: either make deploy depend on audits, or explicitly document why deploy can proceed with known audit failures.
-  - Status: still open. Latest deploy and audit were both green, but they remain independent workflows.
+  - Status: normal deploys now require a successful same-repository push audit for the exact current
+    `main` tip. A documented manual dispatch remains an explicit current-`main` audit bypass.
   - Refs: `.github/workflows/audit.yml`, `.github/workflows/pages.yml`.
 
 - [x] **Truth sync: FL-BSA performance claims and SSOT**

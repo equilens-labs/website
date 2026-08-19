@@ -32,7 +32,7 @@ HEADER_BLOCKS = {}
 for page in ROOT.rglob('*.html'):
     if page.is_relative_to(TEMPLATE_DIR) or page.is_relative_to(BRAND_DIR):
         continue
-    if any(seg in page.parts for seg in ('vendor', 'node_modules')):
+    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist', 'tasks', 'tests', '.lighthouseci')):
         continue
     if page.name in {'header.html', 'footer.html'} and 'partials' in page.parts:
         continue

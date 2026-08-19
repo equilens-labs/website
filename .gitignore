@@ -29,6 +29,7 @@ node_modules/
 
 # Lighthouse CI local output
 .lighthouseci/
+lychee-results.md
 
 # Python bytecode
 __pycache__/

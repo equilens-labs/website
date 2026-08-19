@@ -118,7 +118,12 @@ def main() -> int:
         raise SystemExit("mode must be private|public")
 
     root = repo_root()
-    html_files = sorted(root.rglob("*.html"))
+    html_files = [
+        path
+        for path in sorted(root.rglob("*.html"))
+        if not any(part in {"dist", "node_modules", "output", "tasks", "templates", "tests", "vendor", ".lighthouseci"}
+                   for part in path.relative_to(root).parts)
+    ]
     for html_file in html_files:
         set_mode(html_file, mode, root)
 

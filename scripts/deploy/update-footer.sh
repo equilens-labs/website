@@ -4,11 +4,14 @@ set -euo pipefail
 
 TARGET_DIR="${1:-.}"
 DEPLOY_DATE=$(date -u +%Y-%m-%d)
-if [[ -n "${GITHUB_SHA:-}" ]]; then
-  COMMIT_SHORT="${GITHUB_SHA:0:7}"
-else
-  COMMIT_SHORT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+# Stamp the checked-out tree. Under workflow_run, GITHUB_SHA can name the
+# default-branch tip rather than the exact audited commit checked out below.
+COMMIT_SHORT="$(git rev-parse --short=7 HEAD 2>/dev/null || true)"
+if [[ -z "${COMMIT_SHORT}" ]]; then
+  FALLBACK_SHA="${GITHUB_SHA:-}"
+  COMMIT_SHORT="${FALLBACK_SHA:0:7}"
 fi
+COMMIT_SHORT="${COMMIT_SHORT:-unknown}"
 
 echo "Updating footer in ${TARGET_DIR}: date=${DEPLOY_DATE} commit=${COMMIT_SHORT}"
 

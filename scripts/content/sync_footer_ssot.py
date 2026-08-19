@@ -60,7 +60,7 @@ for page in ROOT.rglob('*.html'):
         continue
     # Skip third-party or tool HTML trees, plus evidence snapshots and deploy artifacts:
     # files under output/ are committed evidence and must never be rewritten.
-    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist')):
+    if any(seg in page.parts for seg in ('vendor', 'node_modules', 'output', 'dist', 'tasks', 'tests', '.lighthouseci')):
         continue
     d = depth(page)
     block = render(d)
