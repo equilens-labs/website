@@ -1,10 +1,11 @@
 name: Deploy website to GitHub Pages
 
 on:
-  push:
+  # A normal deployment starts only after the audit workflow completes.
+  workflow_run:
+    workflows: ["Site audits (links, a11y, Lighthouse)"]
+    types: [completed]
     branches: [ main ]
-    paths:
-      - '**'
   workflow_dispatch:
     inputs:
       visibility:
@@ -21,7 +22,9 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  # Untrusted or rejected workflow_run events get an isolated group, so they
+  # cannot cancel a legitimate deployment before the guard rejects them.
+  group: ${{ (github.event_name == 'workflow_dispatch' || (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.conclusion == 'success')) && 'pages' || format('pages-rejected-{0}', github.run_id) }}
   cancel-in-progress: true
 
 env:
@@ -30,13 +33,65 @@ env:
   SITE_VISIBILITY: ${{ github.event_name == 'workflow_dispatch' && inputs.visibility || 'public' }}
 
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.decide.outputs.proceed }}
+      deploy_sha: ${{ steps.decide.outputs.deploy_sha }}
+    steps:
+      - name: Bind deployment to an allowed SHA
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_EVENT: ${{ github.event.workflow_run.event }}
+          RUN_HEAD_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            MAIN_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/branches/main" --jq .commit.sha)
+            echo "Break-glass dispatch: deploying current main tip ${MAIN_SHA} without the audit gate."
+            echo "proceed=true" >> "${GITHUB_OUTPUT}"
+            echo "deploy_sha=${MAIN_SHA}" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          if [[ "${RUN_CONCLUSION}" != "success" ]]; then
+            echo "Audit conclusion is ${RUN_CONCLUSION}; deployment rejected."
+            echo "proceed=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          if [[ "${RUN_EVENT}" != "push" ]]; then
+            echo "Audit event is ${RUN_EVENT}, not a push; deployment rejected."
+            echo "proceed=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          if [[ "${RUN_HEAD_REPO}" != "${GITHUB_REPOSITORY}" ]]; then
+            echo "Audit repository ${RUN_HEAD_REPO} is not ${GITHUB_REPOSITORY}; deployment rejected."
+            echo "proceed=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          MAIN_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/branches/main" --jq .commit.sha)
+          if [[ "${RUN_HEAD_SHA}" != "${MAIN_SHA}" ]]; then
+            echo "Audited SHA ${RUN_HEAD_SHA} is no longer main tip ${MAIN_SHA}; successor audit will deploy."
+            echo "proceed=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          echo "proceed=true" >> "${GITHUB_OUTPUT}"
+          echo "deploy_sha=${RUN_HEAD_SHA}" >> "${GITHUB_OUTPUT}"
+
   build:
+    needs: guard
+    if: needs.guard.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     outputs:
       mode: ${{ steps.pages_mode.outputs.mode }}
     steps:
-      - name: Checkout
+      - name: Checkout guarded deploy SHA
         uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.guard.outputs.deploy_sha }}
 
       - name: CI context debug (early)
         continue-on-error: true

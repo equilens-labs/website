@@ -18,7 +18,10 @@ if not domain:
 base_url = f"https://{domain}"
 today = datetime.date.today().isoformat()
 
-EXCLUDED_TOP_DIRS = {"output", "templates", "node_modules", "dist", "ci-debug"}
+EXCLUDED_TOP_DIRS = {
+    "output", "templates", "node_modules", "dist", "ci-debug", "tasks", "tests", "vendor",
+    ".lighthouseci",
+}
 
 urls: list[str] = []
 for html_file in sorted(ROOT.rglob("index.html")):

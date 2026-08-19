@@ -18,7 +18,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 FIX = "--fix" in sys.argv
 
 PAGES = [p for p in ROOT.rglob("*.html")
-         if not any(part in ("node_modules", "output", "dist", "templates", "tasks", "vendor")
+         if not any(part in ("node_modules", "output", "dist", "templates", "tasks", "tests", "vendor", ".lighthouseci")
                     for part in p.relative_to(ROOT).parts)]
 
 WRAPPED = re.compile(r'<span class="product-name">FL[-‑]BSA</span>')

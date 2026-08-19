@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TAG="${1:-PLAYWRIGHT-AUDIT}"
-STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+TAG="${PLAYWRIGHT_AUDIT_TAG:-${1:-PLAYWRIGHT-AUDIT}}"
+STAMP="${PLAYWRIGHT_AUDIT_STAMP:-$(date -u +%Y%m%dT%H%M%SZ)}"
 OUT="output/ops/${TAG}-${STAMP}"
 mkdir -p "$OUT"
 
@@ -19,6 +19,10 @@ if ! curl -Is --max-time 2 "${BASE_URL}/" >/dev/null 2>&1; then
   SERVER_PID=$!
   sleep 1
   if ! curl -Is --max-time 3 "${BASE_URL}/" >/dev/null 2>&1; then
+    if [[ -n "${CI:-}" ]]; then
+      echo "[FAIL] Local server did not start; refusing live-site fallback in CI" >&2
+      exit 1
+    fi
     BASE_URL="https://equilens.io"
   fi
 fi
@@ -32,7 +36,11 @@ cleanup() {
 }
 trap cleanup EXIT
 
-npx @playwright/test install chromium >/tmp/playwright-install.log 2>&1
+if [[ -n "${CI:-}" ]]; then
+  npx @playwright/test install --with-deps chromium >/tmp/playwright-install.log 2>&1
+else
+  npx @playwright/test install chromium >/tmp/playwright-install.log 2>&1
+fi
 npx @playwright/test test --config=playwright.config.ts --workers="${PLAYWRIGHT_WORKERS}"
 
 ARTIFACTS="${OUT}/artifacts"
