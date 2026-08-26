@@ -350,10 +350,15 @@ test.describe('Equilens site surfaces', () => {
     expect(pricing).toContain('<span class="product-name">FL-BSA</span> Licensing');
   });
 
-  test('FL-BSA metadata preserves the canonical appliance descriptor', async () => {
+  test('FL-BSA metadata preserves the canonical product name', async () => {
     const html = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
 
-    expect(html).toContain('<title>FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance</title>');
+    const canonicalName = 'FL-BSA — Fair-Lending Bias-Simulation Appliance';
+    expect(html).toContain(`<title>${canonicalName}</title>`);
+    expect(html).toContain(`<meta content="${canonicalName}" property="og:title"/>`);
+    expect(html).toContain(`<meta content="${canonicalName}" name="twitter:title"/>`);
+    expect(html).toContain(`"name":"${canonicalName}"`);
+    expect(html).not.toContain('FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance');
     expect(html).toContain('Self-hosted fair-outcomes evidence appliance for regulated credit decisions');
     expect(html).not.toContain('Self-hosted fair-outcomes evidence for regulated credit decisions:');
   });
