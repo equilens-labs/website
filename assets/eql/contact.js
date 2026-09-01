@@ -7,7 +7,6 @@
     const params = new URLSearchParams(window.location.search);
     const interestParam = params.get('interest');
     const messageParam = params.get('message');
-    const routeParam = params.get('route');
     const interestField = document.getElementById('interest');
     const messageField = document.getElementById('message');
     const defaultMessages = {
@@ -19,13 +18,11 @@
       'Automated Creditworthiness Evidence Readiness':
         'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
     };
-    const campaignRoutes = {
-      'ccd2-search-202609': {
-        interest: 'Automated Creditworthiness Evidence Readiness',
-        subject: 'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026',
-      },
-    };
-    const campaignRoute = campaignRoutes[routeParam] || null;
+    const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
+    const hasSingleMatchingInterest =
+      matchedCampaign &&
+      window.eqlCampaignRouting.getSingleParam(params, 'interest') === matchedCampaign.interest;
+    const campaignRoute = hasSingleMatchingInterest ? matchedCampaign : null;
 
     if (interestParam && interestField) {
       const options = Array.from(interestField.options || []);
@@ -68,7 +65,13 @@
         '&body=' +
         encodeURIComponent(lines.join('\n'));
 
-      window.location.href = mailto;
+      const mailtoLink = document.createElement('a');
+      mailtoLink.href = mailto;
+      mailtoLink.hidden = true;
+      mailtoLink.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(mailtoLink);
+      mailtoLink.click();
+      mailtoLink.remove();
     });
   }
 
