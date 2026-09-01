@@ -105,6 +105,32 @@ async function stubPlausible(page: Page) {
   });
 }
 
+async function submitAndReadMailtoSubject(page: Page) {
+  await page.locator('#name').fill('Measurement test');
+  await page.evaluate(() => {
+    const captureMailto = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof HTMLAnchorElement) || !target.href.startsWith('mailto:')) return;
+
+      event.preventDefault();
+      (window as typeof window & { __capturedMailto?: string }).__capturedMailto = target.href;
+      document.removeEventListener('click', captureMailto, true);
+    };
+    document.addEventListener('click', captureMailto, true);
+  });
+  await page.locator('#contact-form button[type="submit"]').click();
+  await page.waitForFunction(() =>
+    Boolean((window as typeof window & { __capturedMailto?: string }).__capturedMailto),
+  );
+  const mailtoHref = await page.evaluate(
+    () => (window as typeof window & { __capturedMailto?: string }).__capturedMailto,
+  );
+  const mailto = new URL(mailtoHref || '');
+  expect(mailto.protocol).toBe('mailto:');
+  expect(mailto.pathname).toBe('hello@equilens.io');
+  return mailto.searchParams.get('subject');
+}
+
 test.describe('Equilens site surfaces', () => {
   for (const entry of pages) {
     test(`${entry.slug} passes axe (no critical or serious violations)`, async ({ page }) => {
@@ -378,11 +404,48 @@ test.describe('Equilens site surfaces', () => {
     );
   });
 
-  test('paid-search campaign identity reaches only its reviewed contact route', async ({ page }) => {
+  test('paid campaign identities reach only their reviewed contact routes', async ({ page }) => {
     await stubPlausible(page);
     const genericContact = '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness';
+    const linkedinContact =
+      '/contact/?' +
+      new URLSearchParams({
+        interest: 'Automated Creditworthiness Evidence Readiness',
+        route: 'linkedin-era-eea-202609',
+        utm_source: 'linkedin',
+        utm_medium: 'paid-social',
+        utm_campaign: 'flbsa_era_eea_202609',
+        utm_content: 'single_image_v1',
+      }).toString();
+    const googleContact =
+      '/contact/?' +
+      new URLSearchParams({
+        interest: 'Automated Creditworthiness Evidence Readiness',
+        route: 'ccd2-search-202609',
+        utm_source: 'google',
+        utm_medium: 'cpc',
+        utm_campaign: 'ccd2_readiness_eu_202609',
+      }).toString();
 
     await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      genericContact,
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=linkedin-era-eea-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_era_eea_202609&utm_content=single_image_v1#creditworthiness-readiness',
+      { waitUntil: 'networkidle' },
+    );
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      linkedinContact,
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=linkedin-era-eea-202609&utm_source=linkedin&utm_medium=organic-social&utm_campaign=flbsa_era_eea_202609',
+      { waitUntil: 'networkidle' },
+    );
     await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
       'href',
       genericContact,
@@ -394,7 +457,7 @@ test.describe('Equilens site surfaces', () => {
     );
     await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
       'href',
-      `${genericContact}&route=ccd2-search-202609`,
+      googleContact,
     );
 
     await page.goto(
@@ -405,6 +468,63 @@ test.describe('Equilens site surfaces', () => {
       'href',
       genericContact,
     );
+  });
+
+  test('paid campaign attribution survives the complete CTA-to-email journey', async ({ page }) => {
+    await stubPlausible(page);
+    const linkedinLanding =
+      '/fl-bsa/?route=linkedin-era-eea-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_era_eea_202609&utm_content=single_image_v1#creditworthiness-readiness';
+
+    await page.goto(linkedinLanding, { waitUntil: 'networkidle' });
+    await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
+    await expect(page.locator('#interest')).toHaveValue(
+      'Automated Creditworthiness Evidence Readiness',
+    );
+    await expect(page.locator('#message')).toHaveValue(
+      'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
+    );
+    expect(await submitAndReadMailtoSubject(page)).toBe(
+      'FL-BSA enquiry: Evidence readiness — LinkedIn EEA Sep 2026',
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=ccd2-search-202609&utm_source=google&utm_medium=cpc&utm_campaign=ccd2_readiness_eu_202609',
+      { waitUntil: 'networkidle' },
+    );
+    await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
+    expect(await submitAndReadMailtoSubject(page)).toBe(
+      'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026',
+    );
+  });
+
+  test('malformed or changed campaign routes fall back to generic email subjects', async ({ page }) => {
+    await stubPlausible(page);
+    const genericSubject =
+      'FL-BSA enquiry: Automated Creditworthiness Evidence Readiness';
+    const exactContact =
+      '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness' +
+      '&route=linkedin-era-eea-202609' +
+      '&utm_source=linkedin' +
+      '&utm_medium=paid-social' +
+      '&utm_campaign=flbsa_era_eea_202609' +
+      '&utm_content=single_image_v1';
+    const invalidContacts = [
+      exactContact.replace('&utm_campaign=flbsa_era_eea_202609', ''),
+      exactContact.replace('utm_source=linkedin', 'utm_source=direct'),
+      exactContact + '&utm_medium=organic-social',
+      exactContact + '&utm_content=single_image_v1',
+      exactContact.replace('route=linkedin-era-eea-202609', 'route=unknown'),
+      exactContact + '&route=linkedin-era-eea-202609',
+    ];
+
+    for (const contact of invalidContacts) {
+      await page.goto(contact, { waitUntil: 'networkidle' });
+      expect(await submitAndReadMailtoSubject(page)).toBe(genericSubject);
+    }
+
+    await page.goto(exactContact, { waitUntil: 'networkidle' });
+    await page.locator('#interest').selectOption('Pricing');
+    expect(await submitAndReadMailtoSubject(page)).toBe('FL-BSA enquiry: Pricing');
   });
 
   test('Plausible CTA events stay aggregate and non-PII', async () => {
@@ -429,6 +549,10 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
+    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260901a');
+    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260901a');
+    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260901a');
+    expect(contact).toContain('/assets/eql/contact.js?v=20260901a');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
     expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
@@ -695,15 +819,6 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
     );
-  });
-
-  test('September paid-search route generates a distinct static subject', async ({ page }) => {
-    const contactScript = fs.readFileSync(path.join(root, 'assets', 'eql', 'contact.js'), 'utf-8');
-
-    expect(contactScript).toContain("'ccd2-search-202609': {");
-    expect(contactScript).toContain("subject: 'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026'");
-    expect(contactScript).toContain('const campaignRoute = campaignRoutes[routeParam] || null;');
-    expect(contactScript).toContain('campaignRoute && interest === campaignRoute.interest');
   });
 
   for (const anchor of anchors) {

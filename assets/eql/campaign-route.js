@@ -2,20 +2,22 @@
 (function initCampaignRoute() {
   function bind() {
     const params = new URLSearchParams(window.location.search);
-    const isSeptemberSearch =
-      params.get('route') === 'ccd2-search-202609' &&
-      params.get('utm_source') === 'google' &&
-      params.get('utm_medium') === 'cpc' &&
-      params.get('utm_campaign') === 'ccd2_readiness_eu_202609';
-
-    if (!isSeptemberSearch) return;
+    const campaignRoute = window.eqlCampaignRouting?.match(params) || null;
+    if (!campaignRoute) return;
 
     const link = document.querySelector('[data-campaign-contact="ccd2-readiness"]');
     if (!link) return;
 
-    link.href =
-      '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness' +
-      '&route=ccd2-search-202609';
+    const contactParams = new URLSearchParams({
+      interest: campaignRoute.interest,
+      route: campaignRoute.route,
+      utm_source: campaignRoute.source,
+      utm_medium: campaignRoute.medium,
+      utm_campaign: campaignRoute.campaign,
+    });
+    if (campaignRoute.content) contactParams.set('utm_content', campaignRoute.content);
+
+    link.href = '/contact/?' + contactParams.toString();
   }
 
   if (document.readyState === 'loading') {
