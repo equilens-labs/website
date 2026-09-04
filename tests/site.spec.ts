@@ -402,11 +402,18 @@ test.describe('Equilens site surfaces', () => {
     expect(flbsa).toContain(
       'data-campaign-contact="ccd2-readiness" href="/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness">Discuss one workflow</a>',
     );
+    expect(flbsa).toContain('EU AI Act Article 4a');
+    expect(flbsa).toContain('including synthetic or anonymised data');
+    expect(flbsa).toContain(
+      'data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Request the pilot scope</a>',
+    );
+    expect(flbsa).not.toContain('synthetic-first');
   });
 
   test('paid campaign identities reach only their reviewed contact routes', async ({ page }) => {
     await stubPlausible(page);
     const genericContact = '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness';
+    const genericPilotContact = '/contact/?interest=Controlled%20FL-BSA%20Pilot';
     const linkedinContact =
       '/contact/?' +
       new URLSearchParams({
@@ -426,8 +433,35 @@ test.describe('Equilens site surfaces', () => {
         utm_medium: 'cpc',
         utm_campaign: 'ccd2_readiness_eu_202609',
       }).toString();
+    const pilotContact =
+      '/contact/?' +
+      new URLSearchParams({
+        interest: 'Controlled FL-BSA Pilot',
+        route: 'linkedin-flbsa-eu4-pilot-202609',
+        utm_source: 'linkedin',
+        utm_medium: 'paid-social',
+        utm_campaign: 'flbsa_eu4_pilot_202609',
+        utm_content: 'single_image_v4',
+      }).toString();
 
     await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+      'href',
+      genericContact,
+    );
+    await expect(page.locator('[data-campaign-contact="controlled-pilot"]')).toHaveAttribute(
+      'href',
+      genericPilotContact,
+    );
+
+    await page.goto(
+      '/fl-bsa/?route=linkedin-flbsa-eu4-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_eu4_pilot_202609&utm_content=single_image_v4#controlled-pilot',
+      { waitUntil: 'networkidle' },
+    );
+    await expect(page.locator('[data-campaign-contact="controlled-pilot"]')).toHaveAttribute(
+      'href',
+      pilotContact,
+    );
     await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
       'href',
       genericContact,
@@ -472,8 +506,20 @@ test.describe('Equilens site surfaces', () => {
 
   test('paid campaign attribution survives the complete CTA-to-email journey', async ({ page }) => {
     await stubPlausible(page);
+    const pilotLanding =
+      '/fl-bsa/?route=linkedin-flbsa-eu4-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_eu4_pilot_202609&utm_content=single_image_v4#controlled-pilot';
     const linkedinLanding =
       '/fl-bsa/?route=linkedin-era-eea-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_era_eea_202609&utm_content=single_image_v1#creditworthiness-readiness';
+
+    await page.goto(pilotLanding, { waitUntil: 'networkidle' });
+    await page.locator('[data-campaign-contact="controlled-pilot"]').click();
+    await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+    await expect(page.locator('#message')).toHaveValue(
+      'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
+    );
+    expect(await submitAndReadMailtoSubject(page)).toBe(
+      'FL-BSA enquiry: Controlled pilot — LinkedIn EU4 Sep 2026',
+    );
 
     await page.goto(linkedinLanding, { waitUntil: 'networkidle' });
     await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
@@ -549,10 +595,10 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
-    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260901a');
-    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260901a');
-    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260901a');
-    expect(contact).toContain('/assets/eql/contact.js?v=20260901a');
+    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260904a');
+    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260904a');
+    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260904a');
+    expect(contact).toContain('/assets/eql/contact.js?v=20260904a');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
     expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
@@ -818,6 +864,16 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#interest')).toHaveValue('Automated Creditworthiness Evidence Readiness');
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
+    );
+  });
+
+  test('contact query parameters prefill controlled-pilot enquiry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot', { waitUntil: 'networkidle' });
+
+    await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+    await expect(page.locator('#message')).toHaveValue(
+      'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
     );
   });
 

@@ -5,7 +5,9 @@
     const campaignRoute = window.eqlCampaignRouting?.match(params) || null;
     if (!campaignRoute) return;
 
-    const link = document.querySelector('[data-campaign-contact="ccd2-readiness"]');
+    const link = document.querySelector(
+      `[data-campaign-contact="${campaignRoute.contactTarget}"]`,
+    );
     if (!link) return;
 
     const contactParams = new URLSearchParams({
