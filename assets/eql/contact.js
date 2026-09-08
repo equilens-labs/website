@@ -17,6 +17,8 @@
         'I would like to discuss whether one credit workflow is ready for a fair-outcomes evidence test.',
       'Automated Creditworthiness Evidence Readiness':
         'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
+      'Controlled FL-BSA Pilot':
+        'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
     };
     const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
     const hasSingleMatchingInterest =
