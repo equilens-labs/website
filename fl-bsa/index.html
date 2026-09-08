@@ -83,8 +83,8 @@
   </div>
 </nav>
   <script src="/assets/eql/nav.js?v=20260716a" defer></script>
-  <script src="/assets/eql/campaign-routes.js?v=20260901a" defer></script>
-  <script src="/assets/eql/campaign-route.js?v=20260901a" defer></script>
+  <script src="/assets/eql/campaign-routes.js?v=20260904a" defer></script>
+  <script src="/assets/eql/campaign-route.js?v=20260904a" defer></script>
 
 
   <main id="main">
@@ -92,6 +92,7 @@
       <nav class="toc" aria-label="Table of contents">
         <div class="toc-inner">
           <a href="#overview" class="toc-label">FL-BSA</a>
+          <a href="#controlled-pilot" class="toc-link">Controlled pilot</a>
           <a href="#creditworthiness-readiness" class="toc-link">Credit evidence</a>
           <a href="#how-it-works" class="toc-link">How it works</a>
           <a href="#deployment" class="toc-link">Deployment</a>
@@ -138,9 +139,51 @@
           </div>
         </section>
 
+  <!-- Article 4a wording checked 2026-09-04 against Regulation (EU) 2026/1744:
+       https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744 -->
+  <section class="section" id="controlled-pilot">
+    <div class="section-block">
+      <p class="eyebrow">Controlled product pilot</p>
+      <h2>Run one controlled <span class="product-name">FL-BSA</span> pilot</h2>
+      <p class="lead">Use <span class="product-name">FL-BSA</span> inside your customer-controlled environment to test one bounded regulated-credit scenario. We agree the source snapshot and controls, support the two-branch simulation, and review its metrics, traceable simulation artifacts, findings, and limits with your risk and governance team.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">1</span>
+          <h3><span class="sr-only">Step 1: </span>Agree the question</h3>
+          <p>Define one workflow, one evidence question, the approved input boundary, and the proceed, pause, or stop criteria.</p>
+        </div>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">2</span>
+          <h3><span class="sr-only">Step 2: </span>Run <span class="product-name">FL-BSA</span></h3>
+          <p>Support one customer-hosted simulation run. Borrower, model, and protected-attribute data stay inside your environment.</p>
+        </div>
+        <div class="card">
+          <span class="badge-number" aria-hidden="true">3</span>
+          <h3><span class="sr-only">Step 3: </span>Review the result</h3>
+          <p>Review the simulation report, metrics, manifest, assumptions, limitations, and a practical next-step recommendation.</p>
+        </div>
+      </div>
+      <div class="card card--reader mt-6">
+        <h3>What the pilot includes</h3>
+        <ul class="checks">
+          <li>A typical <strong>6 to 10 week</strong> engagement around one regulated-credit workflow.</li>
+          <li>A pilot plan and runbook for the agreed scenario.</li>
+          <li>One supported, customer-hosted <span class="product-name">FL-BSA</span> simulation.</li>
+          <li>Traceable simulation outputs and an explicit limitations record.</li>
+          <li>A governance readout and proceed, pause, or stop recommendation.</li>
+        </ul>
+      </div>
+      <p class="note"><strong>Why this question matters now:</strong> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744" target="_blank" rel="noopener noreferrer">EU AI Act Article 4a</a> includes whether bias detection and correction can be achieved effectively with other data, including synthetic or anonymised data, among the conditions for its exceptional special-category-data route. The pilot records what the simulation establishes and what it does not.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=controlled-pilot plausible-event-intent=pilot plausible-event-offer_stage=pilot" data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Request the pilot scope</a>
+        <a class="btn btn-secondary" href="#how-it-works">See how <span class="product-name">FL-BSA</span> works</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CCD2 timing and Article 18 scope checked 2026-08-13 against Directive (EU) 2023/2225:
        https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023L2225 -->
-  <section class="section" id="creditworthiness-readiness">
+  <section class="section alt" id="creditworthiness-readiness">
     <div class="section-block">
       <h2>Automated creditworthiness evidence readiness</h2>
       <p class="lead">The revised EU Consumer Credit Directive rules are due to apply from 20 November 2026. Article 18 requires documented and maintained creditworthiness-assessment procedures; where an assessment involves automated processing of personal data, it also provides consumer-request rights to human intervention, an explanation, and review.</p>
@@ -165,7 +208,7 @@
     </div>
   </section>
 
-  <section class="section alt" id="how-it-works">
+  <section class="section" id="how-it-works">
     <div class="section-block">
       <h2>How it works</h2>
       <p class="lead">Four steps from source snapshot to evidence prepared for governance review.</p>
@@ -195,7 +238,7 @@
     </div>
   </section>
 
-  <section class="section" id="deployment">
+  <section class="section alt" id="deployment">
     <div class="section-block">
       <h2>Deployment</h2>
       <p class="lead">Choose the customer-hosted path that fits your procurement and infrastructure model.</p>
@@ -217,7 +260,7 @@
 
   <!-- The section id "pricing" is a published anchor (redirect stubs and
        inbound links target /fl-bsa/#pricing); the visible label is "Licensing". -->
-  <section class="section alt" id="pricing">
+  <section class="section" id="pricing">
     <div class="section-block">
       <h2>Working with us</h2>
       <p class="lead">Three engagement shapes, smallest first. You control the infrastructure; we licence the appliance through controlled qualification.</p>
@@ -235,10 +278,10 @@
         <div class="card">
           <span class="badge-number" aria-hidden="true">3</span>
           <h3>Fair outcomes evidence sprint</h3>
-          <p>6 to 10 weeks. One controlled, customer-hosted evidence scenario delivered under controlled-pilot posture, with evidence-pack deliverables and a governance readout.</p>
+          <p>6 to 10 weeks. One controlled, customer-hosted <span class="product-name">FL-BSA</span> simulation, with traceable simulation outputs, an explicit limitations record, and a governance readout.</p>
         </div>
       </div>
-      <p class="note">Start with the assessment. Pricing for each engagement is provided on request. Requesting the pack gets you a written reply with the buyer and procurement pack (evidence-bundle samples, control mapping, deployment and security materials, and a commercial overview); it commits you to nothing further.</p>
+      <p class="note">Teams still defining the workflow can start with the assessment; teams with a bounded question and customer-controlled environment can scope the pilot directly. Pricing is provided on request. Requesting the pack gets you a written reply with the buyer and procurement pack (evidence-bundle samples, control mapping, deployment and security materials, and a commercial overview); it commits you to nothing further.</p>
       <div class="card card--reader mt-6">
         <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-security"></use></svg>
             <h3>Controlled pilot access</h3>
@@ -256,7 +299,7 @@
     </div>
   </section>
 
-  <section class="section" id="compliance">
+  <section class="section alt" id="compliance">
     <div class="section-block">
       <h2>Governance evidence</h2>
       <!-- Regulatory timing checked 2026-08-13 against Regulation (EU) 2026/1744:
@@ -297,7 +340,7 @@
     </div>
   </section>
 
-        <section class="section alt" id="docs">
+        <section class="section" id="docs">
           <div class="section-block">
             <h2>Documentation</h2>
             <p class="lead">Public materials for evaluation, plus licensed technical docs for implementation teams.</p>
@@ -342,7 +385,7 @@
           </div>
         </section>
 
-  <section class="section" id="faq">
+  <section class="section alt" id="faq">
     <div class="section-block">
       <h2>FAQ</h2>
       <details class="faq-item">
@@ -376,7 +419,7 @@
     </div>
   </section>
 
-        <section class="section alt">
+        <section class="section">
           <div class="section-block">
             <h2>Ready to scope readiness?</h2>
             <p class="lead">Request the buyer/procurement pack or a readiness conversation. It commits you to nothing beyond a written reply.</p>
@@ -413,7 +456,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-09-01 (commit b164aae).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-09-08 (commit dfd9d30).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
