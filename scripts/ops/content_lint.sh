@@ -16,6 +16,16 @@ GREP_EXCLUDES=(
   --exclude-dir=.lighthouseci
 )
 
+STALE_RUNTIME_PATTERN='30-page PDF report|Model Fidelity|Training Convergence|≤ ~20 minutes|~20[–-]25[[:space:]]+minutes?|≤ ~45 minutes|GPU-preferred profiles|OSFI.*B-10|APRA.*CPS.*230|SR 11-7|PS22/9'
+
+# Guard both historical spellings so a regex edit cannot silently reopen either stale claim.
+for stale_runtime_fixture in '~20-25 minute range' '~20–25 minute range'; do
+  if ! printf '%s\n' "${stale_runtime_fixture}" | grep -qiE "${STALE_RUNTIME_PATTERN}"; then
+    echo "ERROR: Stale-runtime lint does not reject fixture: ${stale_runtime_fixture}"
+    exit 1
+  fi
+done
+
 if grep -r --include="*.html" --include="*.md" -n "Equilens Ltd" "${GREP_EXCLUDES[@]}" .; then
   echo "ERROR: Found 'Equilens Ltd' - use 'Valfox Ltd, trading as Equilens' instead"
   exit 1
@@ -41,7 +51,7 @@ if grep -r --include="*.html" --include="*.md" -n -i -E "attestations aligned to
   exit 1
 fi
 
-if grep -r --include="*.html" --include="*.md" -n -i -E "30-page PDF report|Model Fidelity|Training Convergence|≤ ~20 minutes|OSFI.*B-10|APRA.*CPS.*230|SR 11-7|PS22/9" "${GREP_EXCLUDES[@]}" .; then
+if grep -r --include="*.html" --include="*.md" -n -i -E "${STALE_RUNTIME_PATTERN}" "${GREP_EXCLUDES[@]}" .; then
   echo "ERROR: Found stale FL-BSA evidence, runtime, or regulatory-scope wording"
   exit 1
 fi

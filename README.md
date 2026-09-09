@@ -43,6 +43,9 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Content management
 
+- Canonical FL-BSA product truth lives in `equilens-labs/fl-bsa/SSoT.md`. It is intentionally not
+  mirrored in this repository: public claims must be checked against the current product source,
+  code, and evidence so a stale website-local copy cannot become a second authority.
 - Primary navigation and the site footer are synchronised from JSON single-source files:
   - Navigation links: `config/web/nav.json`
   - Footer links, copyright note, and product-boundary disclaimer: `config/web/footer.json`

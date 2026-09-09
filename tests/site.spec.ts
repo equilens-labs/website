@@ -105,7 +105,7 @@ async function stubPlausible(page: Page) {
   });
 }
 
-async function submitAndReadMailtoSubject(page: Page) {
+async function submitAndReadMailto(page: Page) {
   await page.locator('#name').fill('Measurement test');
   await page.evaluate(() => {
     const captureMailto = (event: MouseEvent) => {
@@ -128,7 +128,11 @@ async function submitAndReadMailtoSubject(page: Page) {
   const mailto = new URL(mailtoHref || '');
   expect(mailto.protocol).toBe('mailto:');
   expect(mailto.pathname).toBe('hello@equilens.io');
-  return mailto.searchParams.get('subject');
+  return mailto;
+}
+
+async function submitAndReadMailtoSubject(page: Page) {
+  return (await submitAndReadMailto(page)).searchParams.get('subject');
 }
 
 test.describe('Equilens site surfaces', () => {
@@ -257,7 +261,7 @@ test.describe('Equilens site surfaces', () => {
     expect(css).toContain('.contact-form .note {\n  border-top: none;\n  padding-top: 0;');
     expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
     expect(css).not.toContain('font-style: italic;');
-    expect(flbsa).toContain('<strong>Access request:</strong>');
+    expect(flbsa).toContain('<strong>Current requests:</strong>');
     expect(flbsa).toContain('<strong>Data boundary:</strong>');
     expect(flbsa).toContain('<strong>Marketplace access:</strong>');
     expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
@@ -404,10 +408,30 @@ test.describe('Equilens site surfaces', () => {
     );
     expect(flbsa).toContain('EU AI Act Article 4a');
     expect(flbsa).toContain('including synthetic or anonymised data');
+    expect(flbsa).toContain('full public stable release');
+    expect(flbsa).toContain('That optional engagement is not the release programme');
+    expect(flbsa).toContain('Public release and current access');
+    expect(flbsa.indexOf('id="pricing"')).toBeLessThan(
+      flbsa.indexOf('id="controlled-pilot"'),
+    );
+    expect(flbsa).not.toContain('CPU-only and GPU-preferred profiles are supported');
+    expect(flbsa).not.toContain('~20-25 minute range');
+    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
+    expect(procurement).toContain('Full public stable release is the destination');
+    expect(procurement).toContain('<abbr title="Graphics Processing Unit">GPU</abbr> acceleration is not part of the selected native runtime');
+    expect(procurement).not.toContain('Primary current <abbr title="Amazon Web Services">AWS</abbr> customer path for controlled guided pilot');
     expect(flbsa).toContain(
-      'data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Request the pilot scope</a>',
+      'data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Discuss an optional evaluation</a>',
     );
     expect(flbsa).not.toContain('synthetic-first');
+  });
+
+  test('website does not fork the canonical product SSoT', async () => {
+    const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf-8');
+
+    expect(fs.existsSync(path.join(root, 'SSoT.md'))).toBe(false);
+    expect(readme).toContain('Canonical FL-BSA product truth lives in `equilens-labs/fl-bsa/SSoT.md`');
+    expect(readme).toContain('intentionally not');
   });
 
   test('paid campaign identities reach only their reviewed contact routes', async ({ page }) => {
@@ -515,11 +539,16 @@ test.describe('Equilens site surfaces', () => {
     await page.locator('[data-campaign-contact="controlled-pilot"]').click();
     await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
     await expect(page.locator('#message')).toHaveValue(
-      'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
+      'I would like to discuss an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow.',
     );
-    expect(await submitAndReadMailtoSubject(page)).toBe(
-      'FL-BSA enquiry: Controlled pilot — LinkedIn EU4 Sep 2026',
+    const evaluationMailto = await submitAndReadMailto(page);
+    expect(evaluationMailto.searchParams.get('subject')).toBe(
+      'FL-BSA enquiry: Optional evaluation — LinkedIn EU4 Sep 2026',
     );
+    expect(evaluationMailto.searchParams.get('body')).toContain(
+      'Interest: Optional FL-BSA evaluation',
+    );
+    expect(evaluationMailto.searchParams.get('body')).not.toContain('Pilot');
 
     await page.goto(linkedinLanding, { waitUntil: 'networkidle' });
     await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
@@ -595,10 +624,10 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
-    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260904a');
+    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260909a');
     expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260904a');
-    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260904a');
-    expect(contact).toContain('/assets/eql/contact.js?v=20260904a');
+    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260909a');
+    expect(contact).toContain('/assets/eql/contact.js?v=20260909a');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
     expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
@@ -867,14 +896,22 @@ test.describe('Equilens site surfaces', () => {
     );
   });
 
-  test('contact query parameters prefill controlled-pilot enquiry', async ({ page }) => {
+  test('legacy controlled-pilot key prefills evaluation wording', async ({ page }) => {
     await stubPlausible(page);
     await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot', { waitUntil: 'networkidle' });
 
     await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
     await expect(page.locator('#message')).toHaveValue(
-      'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
+      'I would like to discuss an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow.',
     );
+    const evaluationMailto = await submitAndReadMailto(page);
+    expect(evaluationMailto.searchParams.get('subject')).toBe(
+      'FL-BSA enquiry: Optional FL-BSA evaluation',
+    );
+    expect(evaluationMailto.searchParams.get('body')).toContain(
+      'Interest: Optional FL-BSA evaluation',
+    );
+    expect(evaluationMailto.searchParams.get('body')).not.toContain('Pilot');
   });
 
   for (const anchor of anchors) {

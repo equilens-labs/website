@@ -24,7 +24,7 @@
       campaign: 'flbsa_eu4_pilot_202609',
       content: 'single_image_v4',
       interest: 'Controlled FL-BSA Pilot',
-      subject: 'FL-BSA enquiry: Controlled pilot — LinkedIn EU4 Sep 2026',
+      subject: 'FL-BSA enquiry: Optional evaluation — LinkedIn EU4 Sep 2026',
       contactTarget: 'controlled-pilot',
     }),
   });
