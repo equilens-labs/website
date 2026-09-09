@@ -73,7 +73,7 @@
   - Problem: `scripts/deploy/prepare.sh` previously risked copying broad repo content into `dist/`.
   - DoD:
     - Explicit allowlist for what ships.
-    - Repository-internal files such as `SSoT.md`, `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, and `package*.json` do not ship unless deliberately added to the allowlist.
+    - Repository-internal files such as `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, and `package*.json` do not ship unless deliberately added to the allowlist. Canonical product truth remains in the FL-BSA product repository and is not mirrored here.
   - Refs: `scripts/deploy/prepare.sh`.
 
 - [x] **Deployment gating policy: don't deploy when audits fail**
@@ -114,7 +114,7 @@
   - Problem: procurement page claims "Annual and multi-year licensing options" and "Pilot tier (3-month)" which must match the actual AWS Marketplace listing/strategy.
   - DoD:
     - Copy matches the live listing(s) and commercial motion; no implied SKUs that are not real.
-  - Status: public copy now uses controlled guided-pilot / private-handoff wording, removes cold-sell tiers, and content lint blocks the stale Marketplace/tier phrases.
+  - Status: public copy identifies full public stable release as the destination without claiming it is live, keeps optional pre-release evaluations/private handoffs separate, removes cold-sell tiers, and content lint blocks stale Marketplace/tier and native-runtime sizing phrases.
   - Refs: `procurement/index.html`, `tasks/Legal4.md`.
 
 ## P2 (Later / Opportunistic)
