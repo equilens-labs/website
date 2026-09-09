@@ -18,7 +18,11 @@
       'Automated Creditworthiness Evidence Readiness':
         'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
       'Controlled FL-BSA Pilot':
-        'I would like to discuss a controlled, customer-hosted FL-BSA pilot for one regulated-credit workflow.',
+        'I would like to discuss an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow.',
+    };
+    const displayInterests = {
+      'Controlled FL-BSA Pilot': 'Optional FL-BSA evaluation',
+      'Guided Pilot Access': 'Guided pre-release access',
     };
     const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
     const hasSingleMatchingInterest =
@@ -45,6 +49,7 @@
       const role = document.getElementById('role')?.value || '';
       const region = document.getElementById('region')?.value || '';
       const interest = document.getElementById('interest')?.value || '';
+      const displayInterest = displayInterests[interest] || interest;
       const message = document.getElementById('message')?.value || '';
 
       const lines = [];
@@ -52,14 +57,14 @@
       if (org) lines.push('Organisation: ' + org);
       if (role) lines.push('Role: ' + role);
       if (region) lines.push('Region: ' + region);
-      if (interest) lines.push('Interest: ' + interest);
+      if (displayInterest) lines.push('Interest: ' + displayInterest);
       if (message) lines.push('', message);
 
       const subject =
         campaignRoute && interest === campaignRoute.interest
           ? campaignRoute.subject
           : interest
-            ? 'FL-BSA enquiry: ' + interest
+            ? 'FL-BSA enquiry: ' + displayInterest
             : 'FL-BSA enquiry';
       const mailto =
         'mailto:hello@equilens.io?subject=' +
