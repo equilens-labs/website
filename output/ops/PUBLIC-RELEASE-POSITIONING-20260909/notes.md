@@ -16,9 +16,10 @@ for public release.
 - Product PR #1738 passed its exact-head hosted checks and squash-merged as
   `46539e54322f9433d6b00255e11ca5dda08351d4` at 2026-09-09T06:30:38Z. Its merged tree
   `5a4f7c762f0bcf239c3de9067679ff68fd1eced6` exactly matches the reviewed PR tree.
-- Canonical product truth is corrected by product PR #1739. The stale, partial website-local
-  `SSoT.md` mirror is removed so it cannot remain a second authority; the website README points
-  maintainers to the canonical product source instead.
+- Canonical product truth was corrected first by product PR #1739, merged as
+  `98c0dc0baa6d7e0a43d247838cbb1856cb90879d`; that ordering dependency is satisfied. The stale,
+  partial website-local `SSoT.md` mirror is removed so it cannot remain a second authority; the
+  website README points maintainers to the canonical product source instead.
 - Product implementation anchor at review start:
   `3d65db3f01b389dfba5dd4e116a5e709c09461d6`.
 - The public demo remains the non-commercial prerelease
@@ -50,6 +51,13 @@ for public release.
   passed again across desktop, mobile, and both tablet viewports.
 - Final desktop and mobile product captures were inspected; release and access now precedes the
   optional evaluation, and the changed copy remains readable without clipping or broken layout.
-- Two independent reviews, one independent consolidation, and final judge verification of the exact
-  reviewed tree remain required before merge.
-- Normal same-commit website audit/deploy gates remain required; no manual audit bypass.
+- Claims-surface review: approved by two independent automated agent reviewers, an independent
+  automated consolidator, and the final automated agent judge for exact pre-receipt base
+  `dfd9d30fc90340446cf44a6413a83ec5cac3bb76`, HEAD
+  `c8aace46ba5356e3dd71aab002f52300638042b6`, tree
+  `c7a38f9a0525be43881b2cd4fc1047e0f3068053`, and full-index binary diff SHA-256
+  `2a999e935a2eed6bce90bc62dc2561be3988ac925d45657c3d2e2b57721c3a71`; no substantive merge
+  blocker remains. This receipt does not declare or authorize a stable release, Marketplace
+  listing, customer delivery, publication date, claims widening, or infrastructure action. The
+  marker-bearing SHA, hosted checks, merge, and normal same-commit audit/deploy remain pending; no
+  manual audit bypass is authorized.
