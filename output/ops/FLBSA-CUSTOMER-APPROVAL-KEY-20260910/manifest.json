@@ -1,0 +1,50 @@
+{
+  "approved_scope": "Provision one distinct customer-evidence approval key on the dedicated release signer and publish only its public key after separate review.",
+  "candidate_trust_root": {
+    "path": "fl-bsa/trust-root.json",
+    "sha256": "f05f6476fedc80492de6fa06e420330c7d48e6ac4fe76b4f47d1c6bb60d41717"
+  },
+  "generated_at": "2026-09-10T19:39:35+00:00",
+  "key_handling": {
+    "approval_key_generated_on_release_signer": true,
+    "private_material_committed": false,
+    "private_material_exported": false
+  },
+  "new_keys": [
+    {
+      "fingerprint": "f3a64b35dbde489b",
+      "role": "customer_evidence_approval"
+    }
+  ],
+  "previous_trust_root": {
+    "sha256": "e091d563deebba59b6d3c10e59de71ba31894c4e39b5332302e3f6962a1a1b85"
+  },
+  "retained_keys": [
+    {
+      "fingerprint": "186be6908daa326f",
+      "role": "manifest"
+    },
+    {
+      "fingerprint": "8586b9d4657ed241",
+      "role": "manifest"
+    },
+    {
+      "fingerprint": "ca63f168fcc6c177",
+      "role": "artifact_attestation"
+    },
+    {
+      "fingerprint": "5e089842eca1b71a",
+      "role": "artifact_attestation"
+    },
+    {
+      "fingerprint": "4840da5e4580d404",
+      "role": "dataset_lineage"
+    },
+    {
+      "fingerprint": "f21a690e796353aa",
+      "role": "legal_review_attestation"
+    }
+  ],
+  "schema_version": "equilens.ops.vendor_trust_root_rotation.v1",
+  "source_product_sha": "b8d3b2bad01fea28e1cac456fe11f39db445bc4c"
+}
