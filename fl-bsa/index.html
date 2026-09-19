@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>FL-BSA — Fair-Lending Bias-Simulation Appliance</title>
+  <title>Fair-outcomes evidence for automated credit decisions | FL-BSA by Equilens</title>
   <meta content="Self-hosted fair-outcomes evidence appliance for regulated credit decisions: review credit workflows, package evidence outputs, and keep customer data in your environment." name="description"/>
   <link href="https://equilens.io/fl-bsa/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
@@ -13,14 +13,14 @@
   <link rel="manifest" href="/brand/icons/site.webmanifest">
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/fl-bsa/" property="og:url"/>
-  <meta content="FL-BSA — Fair-Lending Bias-Simulation Appliance" property="og:title"/>
+  <meta content="Fair-outcomes evidence for automated credit decisions | FL-BSA by Equilens" property="og:title"/>
   <meta content="Self-hosted fair-outcomes evidence appliance for regulated credit decisions: review credit workflows, package evidence outputs, and keep customer data in your environment." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="https://equilens.io/fl-bsa/" name="twitter:url"/>
-  <meta content="FL-BSA — Fair-Lending Bias-Simulation Appliance" name="twitter:title"/>
+  <meta content="Fair-outcomes evidence for automated credit decisions | FL-BSA by Equilens" name="twitter:title"/>
   <meta content="Self-hosted fair-outcomes evidence appliance for regulated credit decisions: review credit workflows, package evidence outputs, and keep customer data in your environment." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
@@ -31,7 +31,7 @@
     "@graph":[
       {
         "@type":"SoftwareApplication",
-        "name":"FL-BSA — Fair-Lending Bias-Simulation Appliance",
+        "name":"FL-BSA",
         "applicationCategory":"BusinessApplication",
         "operatingSystem":"Linux, Containerized",
         "publisher":{"@type":"Organization","name":"Equilens"},
@@ -56,7 +56,7 @@
       {"@type":"Question","name":"Which regulatory frameworks are covered?","acceptedAnswer":{"@type":"Answer","text":"Evidence maps to ECOA/Reg B (US), EU AI Act, and FCA Consumer Duty. Certificate families include input validation, data profiling, hyperparameter tuning, model, generation process, synthetic quality/validation, and regulatory mapping."}},
       {"@type":"Question","name":"How can FL-BSA be deployed?","acceptedAnswer":{"@type":"Answer","text":"FL-BSA is being prepared for a full public stable release, which is not yet published. The intended AWS path is AMI-first, and supported container/VM paths may be agreed separately. Public AWS Marketplace access is not yet available. The selected native v5 runtime is CPU-based and does not require a GPU."}},
         {"@type":"Question","name":"What is included in the evidence bundle?","acceptedAnswer":{"@type":"Answer","text":"A PDF report, an evidence manifest (dataset hash, RNG seed, software version), and certificates. Artifacts are hash-linked for auditability and can be retrieved by Task ID."}},
-      {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped."}},
+      {"@type":"Question","name":"Does FL-BSA test our actual production model?","acceptedAnswer":{"@type":"Answer","text":"Not in the current release. FL-BSA simulates decision patterns on synthetic borrower cohorts — generated to preserve the statistical characteristics, including historical bias signals, of your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped."}},
       {"@type":"Question","name":"Can we verify the evidence ourselves?","acceptedAnswer":{"@type":"Answer","text":"Yes. Evidence bundles are hash-linked (SHA-256) with a documented hashing spec shipped in the bundle. Where signatures are enabled, signed release manifests and vendor-authored evidence attestations can be verified against the published Equilens vendor trust root at /fl-bsa/trust-root.json. Direct-AMI/customer-local evidence may prove bundle consistency without proving vendor authorship. Verification is offline; no Equilens service is required."}}
     ]
    }
@@ -106,17 +106,19 @@
       <div class="page-content">
         <section class="hero" id="overview" aria-label="FL-BSA overview">
           <div class="hero-content">
-            <p class="eyebrow">Fair-Lending Bias-Simulation Appliance</p>
-            <h1 class="hero-headline">FL-BSA</h1>
+            <p class="eyebrow">Self-hosted evidence for regulated credit decisions</p>
+            <h1 class="hero-headline">Fair-outcomes evidence for your automated credit decisions</h1>
             <p class="lead">
-              <span class="product-name">FL-BSA</span> (Fair-Lending Bias-Simulation Appliance) is a self-hosted fair-outcomes evidence appliance for regulated credit decisions. It runs inside the customer-controlled environment and helps teams review credit-decision, affordability, pricing, underwriting, and policy-review workflows.</p>
+              A self-hosted, simulation-only appliance that stress-tests decision patterns on synthetic borrower cohorts and packages tamper-evident evidence — inside your own environment, never touching live decisions.</p>
+            <p><strong>Evidence that maps to the EU AI Act and FCA Consumer Duty.</strong></p>
+            <p>Review credit-decision, affordability, pricing, underwriting and policy workflows for bias before go-live — and keep a traceable evidence trail. <span class="product-name">FL-BSA</span> runs entirely in your environment; customer data stays with you.</p>
         <p>Each run packages a <abbr title="Portable Document Format">PDF</abbr> report, metrics, manifests, and certificates for governance, model-risk, audit, and regulatory review.
             </p>
-            <p class="note"><span class="product-name">FL-BSA</span> is being prepared for a full public stable release. It is not yet published; request the buyer/procurement pack to confirm current availability.</p>
             <div class="cta-row">
               <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>
-              <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-whitepaper plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
+              <a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-whitepaper plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Whitepaper (demo build)</a>
             </div>
+            <p class="note">Currently in controlled pre-release — request the pack to confirm availability.</p>
           </div>
           <h2 class="sr-only"><span class="product-name">FL-BSA</span> highlights</h2>
           <div class="container">
@@ -193,7 +195,7 @@
           <p>Use the review-oriented report findings to tune models or document Less Discriminatory Alternatives (<abbr title="Less Discriminatory Alternatives">LDAs</abbr>).</p>
         </div>
       </div>
-      <p class="note"><strong>In build: measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns learned from your historical data; it never executes your models. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is in active development and is not part of the current release.</p>
+      <p class="note"><strong>In build: measurement on your own decisions.</strong> Today <span class="product-name">FL-BSA</span> evidences fairness on simulated decision patterns over synthetic borrower cohorts that preserve your portfolio’s statistical characteristics, including historical bias signals; it never executes your models. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is in active development and is not part of the current release.</p>
     </div>
   </section>
 
@@ -412,7 +414,7 @@
       </details>
       <details class="faq-item">
         <summary>Does <span class="product-name">FL-BSA</span> test our actual production model?</summary>
-        <p>Not in the current release. <span class="product-name">FL-BSA</span> simulates decision patterns learned from your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped.</p>
+        <p>Not in the current release. <span class="product-name">FL-BSA</span> simulates decision patterns on synthetic borrower cohorts — generated to preserve the statistical characteristics, including historical bias signals, of your historical data; it does not load or execute your scorecard. We are building a production-targeted measurement mode for unsigned aggregate fairness measurements over customer-authored decision or score columns. It is not yet shipped.</p>
       </details>
       <details class="faq-item">
         <summary>Can we verify the evidence ourselves?</summary>
