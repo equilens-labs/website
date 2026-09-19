@@ -63,7 +63,7 @@
     <div class="section-block">
       <h2 id="contact-form-heading">Send us a message</h2>
       <p class="lead">Fill in the form below and we'll get back to you.</p>
-      <form id="contact-form" class="contact-form">
+      <form id="contact-form" class="contact-form plausible-event-name=Contact+Form+Submit plausible-event-surface=contact plausible-event-cta=form-submit plausible-event-intent=mailto-enquiry">
           <noscript><p class="note">JavaScript is off in your browser: the button below will not work. Email us directly at <a href="mailto:hello@equilens.io">hello@equilens.io</a>.</p></noscript>
           <div class="form-group">
             <label for="name">Name</label>
@@ -112,8 +112,9 @@
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">Open in email client</button>
           </div>
-          <p class="note">Opens your email client. No data sent to servers. See <a href="/legal/#privacy">Privacy Notice</a>.</p>
+          <p class="note">Opens your email client; your message is never sent to our servers. We count each submitted form as one anonymous, cookieless analytics event (no form contents). See <a href="/legal/#privacy">Privacy Notice</a>.</p>
       </form>
+      <p class="note">No email client set up? Email us directly at <a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a>.</p>
     </div>
   </section>
 </main>

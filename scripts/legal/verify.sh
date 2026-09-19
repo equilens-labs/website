@@ -31,7 +31,7 @@ rg -n "ico.org.uk" legal/index.html >"$BASE/privacy_has_ico.txt"
 rg -n "Cookie" legal/index.html >"$BASE/privacy_links_cookie.txt"
 rg -n "Plausible Analytics" legal/index.html >"$BASE/privacy_discloses_plausible.txt"
 rg -n "outbound link clicks.*file download clicks|file download clicks.*outbound link clicks" legal/index.html >"$BASE/privacy_discloses_plausible_click_measurement.txt"
-rg -n "do not track form submissions" legal/index.html >"$BASE/privacy_discloses_no_form_tracking.txt"
+rg -n "count contact-form submissions as an anonymous event without collecting or transmitting form contents" legal/index.html >"$BASE/privacy_discloses_form_submission_count.txt"
 if rg -ni "EU .*representative.*to be appointed|to be appointed|to be confirmed" legal/index.html >"$BASE/eu_rep_placeholder_found.txt"; then
   echo "ERROR: public EU/EEA representative placeholder found in legal/index.html" >&2
   cat "$BASE/eu_rep_placeholder_found.txt" >&2
@@ -43,7 +43,7 @@ fi
 
 rg -n "Plausible Analytics" legal/index.html >"$BASE/cookie_discloses_plausible.txt"
 rg -n "outbound link clicks.*file download clicks|file download clicks.*outbound link clicks" legal/index.html >"$BASE/cookie_discloses_plausible_click_measurement.txt"
-rg -n "do <strong>not</strong> track form submissions" legal/index.html >"$BASE/cookie_discloses_no_form_tracking.txt"
+rg -n "count contact-form submissions as an anonymous event without collecting or transmitting form contents, and we do <strong>not</strong> use advertising" legal/index.html >"$BASE/cookie_discloses_form_submission_count.txt"
 rg -n "does <strong>not</strong> set cookies|advertising or social media cookies" legal/index.html >"$BASE/cookie_analytics_posture.txt"
 rg -n "script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io" legal/index.html legal/privacy.html legal/tos.html >"$BASE/plausible_csp_present.txt"
 

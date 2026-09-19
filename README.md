@@ -32,8 +32,8 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`.
 - Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current
   posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
-  CTA/custom-event labels only; no form-submission tracking or form-content tracking, advertising
-  pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
+  CTA/custom-event labels, plus an anonymous count of contact-form submissions (no form contents);
+  no advertising pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
 - Keep tracked CTA link destinations short and static. Plausible records the clicked link target for
   tagged link events, so do not put boilerplate message text, form content, or personal data in CTA
   query strings.
