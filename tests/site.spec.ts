@@ -630,9 +630,9 @@ test.describe('Equilens site surfaces', () => {
     expect(contact).toContain('/assets/eql/contact.js?v=20260909a');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
-    expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
+    expect(contact).toContain('plausible-event-name=Contact+Form+Submit');
     expect(legal).toContain('selected static CTA/custom-event labels');
-    expect(legal).toContain('We do not track form submissions or form contents');
+    expect(legal).toContain('count contact-form submissions as an anonymous event without collecting or transmitting form contents');
   });
 
   test('tracked HTML pages load Plausible tagged-events script variant', async () => {
