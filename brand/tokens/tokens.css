@@ -25,6 +25,7 @@
   --eql-color-border-100: #F1F5F9;
   --eql-color-border-200: #E2E8F0;
   --eql-color-border-300: #CBD5E1;
+  --eql-color-border-400: #64748B;  /* form-control resting boundary; 4.76:1 on white (WCAG 1.4.11) */
 
   /* Radius steps: 8 inputs/small - 12 cards - 16 panels - full pills/badges */
   --eql-radius-sm: 8px;

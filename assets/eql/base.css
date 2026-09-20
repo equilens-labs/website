@@ -55,6 +55,7 @@
   --border-light: var(--eql-color-border-100);
   --border-default: var(--eql-color-border-200);
   --border-medium: var(--eql-color-border-300);
+  --border-strong: var(--eql-color-border-400);
 
   /* --- Typography System --- */
   /* System font stacks to avoid network font dependencies (CSP: style-src 'self'). */
@@ -320,7 +321,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-semibold);
 }
 
@@ -1059,7 +1060,7 @@ body:not(.landing) .hero {
 /* Cards */
 .card {
   background: var(--color-white);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: var(--space-8);
   box-shadow: none;
@@ -1111,7 +1112,7 @@ body:not(.landing) .hero {
 
 .card h2,
 .card h3 {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-2);
   color: var(--color-primary-text);
@@ -1350,7 +1351,7 @@ a[download]::after {
 .form-group select,
 .form-group textarea {
   padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   font-size: var(--text-base);
   font-family: var(--font-sans);
