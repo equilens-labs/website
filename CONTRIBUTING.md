@@ -21,7 +21,7 @@ scripts/              Tooling (SEO, OG rendering, evidence, content sync, etc.)
   `brand/tokens/tokens.css` via `@import`)
 - `assets/eql/nav.js` – renders the navbar at runtime from `config/web/nav.json`
   into `#nav-placeholder`, plus smooth scroll, mobile menu, and TOC scroll-spy
-- `assets/eql/contact.js` – contact form mailto builder (no server submission)
+- `assets/eql/contact.js` – contact form submission: POSTs JSON to the Formspark endpoint, with a prefilled mailto fallback on failure
 
 No bundler is involved; keep the styles lean and deterministic.
 

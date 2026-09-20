@@ -87,7 +87,7 @@
     form.addEventListener('submit', function onSubmit(e) {
       e.preventDefault();
 
-      const honeypot = fieldValue('_honeypot');
+      const honeypot = fieldValue('hp-field');
       const name = fieldValue('name');
       const email = fieldValue('email');
       const org = fieldValue('organisation');

@@ -105,34 +105,35 @@ async function stubPlausible(page: Page) {
   });
 }
 
-async function submitAndReadMailto(page: Page) {
-  await page.locator('#name').fill('Measurement test');
-  await page.evaluate(() => {
-    const captureMailto = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof HTMLAnchorElement) || !target.href.startsWith('mailto:')) return;
+type CapturedSubmission = {
+  subject: string | null;
+  payload: Record<string, unknown>;
+};
 
-      event.preventDefault();
-      (window as typeof window & { __capturedMailto?: string }).__capturedMailto = target.href;
-      document.removeEventListener('click', captureMailto, true);
-    };
-    document.addEventListener('click', captureMailto, true);
+async function submitAndReadSubmission(page: Page): Promise<CapturedSubmission> {
+  // CI must never reach the real endpoint (the branch ships a placeholder form id),
+  // so the Formspark origin is always stubbed before submitting.
+  await page.route('https://submit-form.com/**', async (route) => {
+    await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
   });
-  await page.locator('#contact-form button[type="submit"]').click();
-  await page.waitForFunction(() =>
-    Boolean((window as typeof window & { __capturedMailto?: string }).__capturedMailto),
-  );
-  const mailtoHref = await page.evaluate(
-    () => (window as typeof window & { __capturedMailto?: string }).__capturedMailto,
-  );
-  const mailto = new URL(mailtoHref || '');
-  expect(mailto.protocol).toBe('mailto:');
-  expect(mailto.pathname).toBe('hello@equilens.io');
-  return mailto;
+  await page.locator('#name').fill('Measurement test');
+  await page.locator('#email').fill('measurement.test@example.com');
+  const [request] = await Promise.all([
+    page.waitForRequest(
+      (candidate) =>
+        candidate.url().startsWith('https://submit-form.com/') && candidate.method() === 'POST',
+    ),
+    page.locator('#contact-form button[type="submit"]').click(),
+  ]);
+  const payload = (request.postDataJSON() ?? {}) as Record<string, unknown>;
+  const emailMeta = (payload._email ?? {}) as { subject?: string };
+  await page.unroute('https://submit-form.com/**');
+  expect(request.headers()['content-type']).toContain('application/json');
+  return { subject: emailMeta.subject ?? null, payload };
 }
 
-async function submitAndReadMailtoSubject(page: Page) {
-  return (await submitAndReadMailto(page)).searchParams.get('subject');
+async function submitAndReadSubject(page: Page) {
+  return (await submitAndReadSubmission(page)).subject;
 }
 
 test.describe('Equilens site surfaces', () => {
@@ -541,14 +542,12 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow.',
     );
-    const evaluationMailto = await submitAndReadMailto(page);
-    expect(evaluationMailto.searchParams.get('subject')).toBe(
+    const evaluationSubmission = await submitAndReadSubmission(page);
+    expect(evaluationSubmission.subject).toBe(
       'FL-BSA enquiry: Optional evaluation — LinkedIn EU4 Sep 2026',
     );
-    expect(evaluationMailto.searchParams.get('body')).toContain(
-      'Interest: Optional FL-BSA evaluation',
-    );
-    expect(evaluationMailto.searchParams.get('body')).not.toContain('Pilot');
+    expect(evaluationSubmission.payload.interest).toBe('Optional FL-BSA evaluation');
+    expect(JSON.stringify(evaluationSubmission.payload)).not.toContain('Pilot');
 
     await page.goto(linkedinLanding, { waitUntil: 'networkidle' });
     await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
@@ -558,7 +557,7 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss evidence readiness for one automated creditworthiness workflow.',
     );
-    expect(await submitAndReadMailtoSubject(page)).toBe(
+    expect(await submitAndReadSubject(page)).toBe(
       'FL-BSA enquiry: Evidence readiness — LinkedIn EEA Sep 2026',
     );
 
@@ -567,7 +566,7 @@ test.describe('Equilens site surfaces', () => {
       { waitUntil: 'networkidle' },
     );
     await page.locator('[data-campaign-contact="ccd2-readiness"]').click();
-    expect(await submitAndReadMailtoSubject(page)).toBe(
+    expect(await submitAndReadSubject(page)).toBe(
       'FL-BSA enquiry: CCD2 readiness — EU Search Sep 2026',
     );
   });
@@ -594,12 +593,12 @@ test.describe('Equilens site surfaces', () => {
 
     for (const contact of invalidContacts) {
       await page.goto(contact, { waitUntil: 'networkidle' });
-      expect(await submitAndReadMailtoSubject(page)).toBe(genericSubject);
+      expect(await submitAndReadSubject(page)).toBe(genericSubject);
     }
 
     await page.goto(exactContact, { waitUntil: 'networkidle' });
     await page.locator('#interest').selectOption('Pricing');
-    expect(await submitAndReadMailtoSubject(page)).toBe('FL-BSA enquiry: Pricing');
+    expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Pricing');
   });
 
   test('Plausible CTA events stay aggregate and non-PII', async () => {
@@ -904,14 +903,12 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#message')).toHaveValue(
       'I would like to discuss an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow.',
     );
-    const evaluationMailto = await submitAndReadMailto(page);
-    expect(evaluationMailto.searchParams.get('subject')).toBe(
+    const evaluationSubmission = await submitAndReadSubmission(page);
+    expect(evaluationSubmission.subject).toBe(
       'FL-BSA enquiry: Optional FL-BSA evaluation',
     );
-    expect(evaluationMailto.searchParams.get('body')).toContain(
-      'Interest: Optional FL-BSA evaluation',
-    );
-    expect(evaluationMailto.searchParams.get('body')).not.toContain('Pilot');
+    expect(evaluationSubmission.payload.interest).toBe('Optional FL-BSA evaluation');
+    expect(JSON.stringify(evaluationSubmission.payload)).not.toContain('Pilot');
   });
 
   for (const anchor of anchors) {
