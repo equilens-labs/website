@@ -1,5 +1,10 @@
-// Contact form: client-side mailto builder (no server submission).
+// Contact form: posts to the EU form endpoint (Formspark, EEA-hosted); no cookies.
+// Fallback path: direct email. Analytics: 'Contact Form Submit' fires on the submit
+// event (attempt counter, tagged classes on the form); 'Enquiry Submitted' fires
+// client-side only after an HTTP 2xx from the endpoint (server-confirmed conversion).
 (function initContactForm() {
+  var FORM_ENDPOINT = 'https://submit-form.com/FORM_ENDPOINT_ID_TBD';
+
   function bind() {
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -41,44 +46,110 @@
       messageField.value = messageParam || defaultMessages[interestParam] || '';
     }
 
+    const statusEl = document.getElementById('form-status');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    function fieldValue(id) {
+      return document.getElementById(id)?.value || '';
+    }
+
+    function buildSubject(interest, displayInterest) {
+      return campaignRoute && interest === campaignRoute.interest
+        ? campaignRoute.subject
+        : interest
+          ? 'FL-BSA enquiry: ' + displayInterest
+          : 'FL-BSA enquiry';
+    }
+
+    function buildMailto(subject, lines) {
+      return (
+        'mailto:hello@equilens.io?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' +
+        encodeURIComponent(lines.join('\n'))
+      );
+    }
+
+    function showStatus(text, mailtoHref) {
+      if (!statusEl) return;
+      statusEl.textContent = text;
+      if (mailtoHref) {
+        statusEl.appendChild(document.createTextNode(' '));
+        const link = document.createElement('a');
+        link.href = mailtoHref;
+        link.textContent = 'hello@equilens.io';
+        statusEl.appendChild(link);
+        statusEl.appendChild(document.createTextNode('.'));
+      }
+      statusEl.hidden = false;
+    }
+
     form.addEventListener('submit', function onSubmit(e) {
       e.preventDefault();
 
-      const name = document.getElementById('name')?.value || '';
-      const org = document.getElementById('organisation')?.value || '';
-      const role = document.getElementById('role')?.value || '';
-      const region = document.getElementById('region')?.value || '';
-      const interest = document.getElementById('interest')?.value || '';
+      const honeypot = fieldValue('_honeypot');
+      const name = fieldValue('name');
+      const email = fieldValue('email');
+      const org = fieldValue('organisation');
+      const role = fieldValue('role');
+      const region = fieldValue('region');
+      const interest = fieldValue('interest');
       const displayInterest = displayInterests[interest] || interest;
-      const message = document.getElementById('message')?.value || '';
+      const message = fieldValue('message');
+      const subject = buildSubject(interest, displayInterest);
+
+      if (honeypot) {
+        // Silently accept: no request, no analytics event.
+        form.reset();
+        showStatus('Thanks. Your message has been sent; we reply by email.');
+        return;
+      }
 
       const lines = [];
       if (name) lines.push('Name: ' + name);
+      if (email) lines.push('Email: ' + email);
       if (org) lines.push('Organisation: ' + org);
       if (role) lines.push('Role: ' + role);
       if (region) lines.push('Region: ' + region);
       if (displayInterest) lines.push('Interest: ' + displayInterest);
       if (message) lines.push('', message);
 
-      const subject =
-        campaignRoute && interest === campaignRoute.interest
-          ? campaignRoute.subject
-          : interest
-            ? 'FL-BSA enquiry: ' + displayInterest
-            : 'FL-BSA enquiry';
-      const mailto =
-        'mailto:hello@equilens.io?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' +
-        encodeURIComponent(lines.join('\n'));
+      if (submitButton) submitButton.disabled = true;
+      if (statusEl) statusEl.hidden = true;
 
-      const mailtoLink = document.createElement('a');
-      mailtoLink.href = mailto;
-      mailtoLink.hidden = true;
-      mailtoLink.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(mailtoLink);
-      mailtoLink.click();
-      mailtoLink.remove();
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          organisation: org,
+          role: role,
+          region: region,
+          interest: displayInterest,
+          message: message,
+          _honeypot: honeypot,
+          _email: { subject: subject },
+        }),
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          form.reset();
+          showStatus('Thanks. Your message has been sent; we reply by email.');
+          if (submitButton) submitButton.textContent = 'Sent';
+          if (typeof window.plausible === 'function') {
+            window.plausible('Enquiry Submitted', {
+              props: { surface: 'contact', cta: 'form-submit' },
+            });
+          }
+        })
+        .catch(function () {
+          if (submitButton) submitButton.disabled = false;
+          showStatus(
+            'Sending failed. Please email us directly at',
+            buildMailto(subject, lines)
+          );
+        });
     });
   }
 
