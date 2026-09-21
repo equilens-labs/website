@@ -22,3 +22,7 @@ Remaining operational dependency: the Plausible `Enquiry Submitted` goal is stil
 ## Final verification addendum — main agent
 
 The frozen implementation passed all **348 Chromium cases** (zero failures, skips or flakes) in the acceptance run beginning 21 September 2026 at 16:56 London. The supplementary Firefox/WebKit run passed all 36 route/viewport cases, including the added Menu→contents sequence, with no automated WCAG A/AA violations. See `validation-summary.json` and `cross-browser.json`. These results complete the local checks marked pending above; CI is checked separately on the PR.
+
+## CI follow-up
+
+CodeQL found sequential entity decoding in the source-text test helper. A single replacement pass now prevents output from being decoded twice; the independent technical reviewer accepted the correction and all 16 affected checks pass. This helper is not live rendering or a runtime sanitizer. Lychee also found that the downloadable brand guidelines linked to an undeployed relative design-spec path; the link now uses the canonical repository page. Neither correction changes rendered website geometry.

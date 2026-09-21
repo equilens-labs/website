@@ -1,6 +1,6 @@
 # Equilens — Brand Guidelines
 
-Website typography and layout are governed by the current [design spec](../../DESIGN-SPEC.md). The original Inter typography guidance is superseded by the self-hosted Geist system.
+Website typography and layout are governed by the current [design spec](https://github.com/equilens-labs/website/blob/main/DESIGN-SPEC.md). The original Inter typography guidance is superseded by the self-hosted Geist system.
 
 ## 1. Logo system
 

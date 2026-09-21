@@ -11,10 +11,10 @@
     },
     "source_report_sha256": "9e0f113b7b1a77ef290061ce45817466f4637c01b442e0af659f52484fc14365",
     "projects": [
-      "desktop",
-      "375px mobile",
-      "768px tablet",
-      "1024px tablet"
+      "desktop1440x900",
+      "Pixel5 mobile393x727",
+      "tablet768x1024",
+      "tablet1024x1366"
     ],
     "network_boundary_receipts": 256,
     "receipt_totals": {
@@ -53,5 +53,10 @@
   "git_diff_check": "pass",
   "visual_reviews": "three independent scopes accepted; main viewed all nine pages and three-width principal layouts",
   "ci": "pending PR run",
-  "account_goal": "Enquiry Submitted remains absent; current Sites API authority refused creation. No configuration success claimed."
+  "account_goal": "Enquiry Submitted remains absent; current Sites API authority refused creation. No configuration success claimed.",
+  "ci_followup": {
+    "test_helper": "Single-pass entity decoding replaces sequential unescaping;16 affected checks pass and independent review accepts. No website runtime change.",
+    "brand_guidelines": "Design-spec link points to its canonical repository page because the source design spec is not deployed.",
+    "ci": "New PR run required after follow-up commit."
+  }
 }

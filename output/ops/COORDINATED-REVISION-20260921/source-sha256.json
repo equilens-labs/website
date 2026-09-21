@@ -6,7 +6,7 @@
   "assets/eql/base.css": "b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2",
   "assets/eql/contact.js": "5cce9b6001e9bc6c150a938c8560f4338308d7cb8888c370d3c1bc17cbabcee3",
   "assets/eql/nav.js": "180a4cb825632e6d903e7301cdabbfd7cf41f8e22f76c8a5706d4da205ad73fe",
-  "brand/guidelines/brand-guidelines.md": "5eac49c2dfaff9734e9bded149d83305611e112d7699d8f3a1c9f108a55f3ec8",
+  "brand/guidelines/brand-guidelines.md": "59af23d20307a2074c42c1792055a62eb27da9603ee88dacd00e7cd562a2afcf",
   "contact/index.html": "67d07a079f9f44f0c9d2dda6003b847e3a23044950ff3bde4c88962a8c61fa04",
   "fl-bsa/index.html": "52191855a9ad780c0d098cfc31549e126d8f76dd69e0915a33ceade793180355",
   "fl-bsa/whitepaper/index.html": "b48b09dc50e21888cd614279db1ddca8309a322469c4c4102a7066545c8b362b",
@@ -17,6 +17,6 @@
   "procurement/index.html": "3b1916487babb0cb8f2cc91c3c33e2b131f35ac70626e13d2a3bc2aea1c5776a",
   "scripts/ops/measure_rhythm.mjs": "9658bc8e033cc6c02035ef2aaba268a4035947c2894f5cbec05020e41d7020b3",
   "scripts/ops/run_playwright_audit.sh": "dcb1ff083be7efc49595d0cf5031cd0985ff146aeada748f3a38f9f0db2a1107",
-  "tests/site.spec.ts": "23ce9ba45f3a5279b771cc87511176ab6e04d017260a9ae3cd4b7b7631bd6550",
+  "tests/site.spec.ts": "15294d20e0cb1cca6a9aa3a5ab6e4883ea8865ef7359736f5aec68a5df602d63",
   "trust-center/index.html": "2a5c50d2398fb2e25e198790809e9bea32d0abc45fb58e4738afd8c47a5c4997"
 }

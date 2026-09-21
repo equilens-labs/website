@@ -172,12 +172,17 @@ async function recordedEvents(page: Page) {
   }).__auditEvents);
 }
 
+// Read the limited entity vocabulary in these source fixtures in one pass.
+// Chained replacements could incorrectly decode an encoded entity twice.
+const textEntities: Record<string, string> = {
+  '&amp;': '&', '&nbsp;': ' ', '&#39;': "'", '&#x27;': "'", '&apos;': "'", '&quot;': '"',
+};
 const visibleText = (html: string) => html
   .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
   .replace(/<!--([\s\S]*?)-->/g, ' ')
   .replace(/<[^>]+>/g, ' ')
-  .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&#(?:39|x27);|&apos;/g, "'")
-  .replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+  .replace(/&(?:amp|nbsp|apos|quot|#39|#x27);/g, entity => textEntities[entity])
+  .replace(/\s+/g, ' ').trim();
 
 async function expectNoOverflow(page: Page) {
   expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth)
