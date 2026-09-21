@@ -626,7 +626,7 @@ test.describe('Equilens site surfaces', () => {
     expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260909a');
     expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260904a');
     expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260909a');
-    expect(contact).toContain('/assets/eql/contact.js?v=20260919a');
+    expect(contact).toContain('/assets/eql/contact.js?v=20260921b');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
     expect(contact).toContain('plausible-event-name=Contact+Form+Submit');
@@ -840,7 +840,7 @@ test.describe('Equilens site surfaces', () => {
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
         );
-        await expect(page.getByRole('link', { name: 'Download demo GOLD pack (ZIP)' })).toHaveAttribute(
+        await expect(page.getByRole('link', { name: 'Download demo GOLD pack (ZIP, ~4 MB)' })).toHaveAttribute(
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip',
         );
