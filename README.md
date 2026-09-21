@@ -29,7 +29,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
   ```
 
-- Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`.
+- Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`; the contact page additionally allows `https://submit-form.com` in `connect-src` for form submission.
 - Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current
   posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
   CTA/custom-event labels, plus an anonymous count of contact-form submissions (no form contents);
