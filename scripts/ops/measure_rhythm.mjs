@@ -1,98 +1,50 @@
 #!/usr/bin/env node
-// Vertical-rhythm guard for the landing page.
-// Measures rendered gaps between the structural text blocks and fails when
-// they drift from the documented rhythm table (collapse-aware, 8px grid):
-//   section h2 top-gap: identical across all panel-to-panel boundaries
-//   h2 -> first content: 24px
-//   intro paragraph -> group (grid): 40px
-//   group -> CTA row: 40px
-//   group -> note: 24px
-//   panel top -> h2 == panel bottom -> last child (symmetry)
-// Usage: node scripts/ops/measure_rhythm.mjs [baseUrl]   (default http://localhost:8000)
-
+// Composed layout guard. Run only against a local preview; external requests
+// are blocked before navigation. Detailed visual judgment stays with reviewers.
 import { chromium } from '@playwright/test';
-
-const BASE = process.argv[2] || 'http://localhost:8000';
-const TOL = 1; // px tolerance
-
-const b = await chromium.launch();
-const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
-await p.goto(BASE + '/', { waitUntil: 'networkidle' });
-
-const m = await p.evaluate(() => {
-  const gaps = [];
-  const els = document.querySelectorAll('main h2, main .section-block > p, main .section-block > .grid, main .section-block > .cta-row, main .section-block > .note, main .section-block > figure');
-  let prev = null;
-  els.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.height === 0) return;
-    gaps.push({
-      kind: el.tagName.toLowerCase() === 'figure' ? 'figure' : el.tagName.toLowerCase() + (el.classList.contains('note') ? '.note' : el.classList.contains('cta-row') ? '.cta-row' : el.classList.contains('grid') || el.classList.contains('hero-highlights') ? '.grid' : ''),
-      gap: prev ? Math.round(r.top - prev.bottom) : null,
-      prevKind: prev ? prev.kind : null,
-      text: (el.textContent || '').trim().slice(0, 24).replace(/\s+/g, ' '),
+const base = new URL(process.argv[2] || 'http://127.0.0.1:8000');
+if (!['localhost', '127.0.0.1', '[::1]'].includes(base.hostname) || !['http:', 'https:'].includes(base.protocol)) {
+  throw new Error('Layout checks require a loopback preview URL');
+}
+const browser = await chromium.launch(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } : {});
+const results = [], errors = [];
+try {
+  for (const width of [375, 768, 1280]) {
+    const context = await browser.newContext({ viewport: { width, height: 812 }, reducedMotion: 'reduce' });
+    await context.route('**/*', route => {
+      const request = route.request(), url = new URL(request.url());
+      return (url.origin === base.origin && ['GET', 'HEAD'].includes(request.method())) || url.protocol === 'data:' ? route.continue() : route.abort();
     });
-    prev = { bottom: r.bottom, kind: gaps[gaps.length - 1].kind };
-  });
-  const panels = [...document.querySelectorAll('.section-block')].map((blk, i) => {
-    const h2 = blk.querySelector('h2');
-    const r = blk.getBoundingClientRect();
-    return h2 ? {
-      i,
-      topToH2: Math.round(h2.getBoundingClientRect().top - r.top),
-      lastToBottom: Math.round(r.bottom - blk.lastElementChild.getBoundingClientRect().bottom),
-    } : null;
-  }).filter(Boolean);
-  return { gaps, panels };
-});
-await b.close();
-
-const errors = [];
-const near = (a, b) => Math.abs(a - b) <= TOL;
-
-// 1. All h2 top-gaps across panel boundaries identical (skip the first h2 after the hero).
-const h2Gaps = m.gaps.filter(g => g.kind === 'h2' && g.gap !== null).map(g => g.gap);
-const boundary = h2Gaps.slice(1);
-if (boundary.length && !boundary.every(g => near(g, boundary[0]))) {
-  errors.push(`section h2 top-gaps differ: ${h2Gaps.join(', ')}`);
-}
-
-// 2. Content gap rules.
-const RULES = [
-  { prev: 'h2', kind: '', expect: 24, label: 'h2 -> intro p' },
-  { prev: 'h2', kind: '.grid', expect: 24, label: 'h2 -> grid' },
-  { prev: '', kind: '.grid', expect: 40, label: 'intro -> grid' },
-  { prev: '.grid', kind: '.cta-row', expect: 40, label: 'grid -> cta-row' },
-  { prev: '.grid', kind: '.note', expect: 24, label: 'grid -> note' },
-  { prev: '', kind: '.cta-row', expect: 40, label: 'intro -> cta-row' },
-  { prev: '', kind: 'figure', expect: 40, label: 'intro -> figure' },
-  { prev: 'figure', kind: '.grid', expect: 40, label: 'figure -> grid' },
-];
-for (const g of m.gaps) {
-  if (g.gap === null) continue;
-  const rule = RULES.find(r => r.prev === (g.prevKind === 'h2' ? 'h2' : g.prevKind || '') && r.kind === g.kind);
-  if (rule && !near(g.gap, rule.expect)) {
-    errors.push(`${rule.label} = ${g.gap}px (expected ${rule.expect}) at "${g.text}"`);
+    const page = await context.newPage();
+    for (const path of ['/', '/fl-bsa/', '/contact/?interest=Procurement%20Pack']) {
+      await page.goto(new URL(path, base).href, { waitUntil: 'networkidle' });
+      await page.evaluate(() => document.fonts.ready);
+      const metrics = await page.evaluate(() => {
+        const box = selector => {
+          const node = document.querySelector(selector);
+          if (!node) return null;
+          const r = node.getBoundingClientRect();
+          return { top: r.top, bottom: r.bottom, width: r.width, height: r.height };
+        };
+        const sections = [...document.querySelectorAll('main .section')].map(section => {
+          const title = section.querySelector('h2');
+          return { heading: title?.textContent, paddingTop: parseFloat(getComputedStyle(section).paddingTop), paddingBottom: parseFloat(getComputedStyle(section).paddingBottom) };
+        });
+        return { pageHeight: document.documentElement.scrollHeight, overflow: document.documentElement.scrollWidth - innerWidth,
+          primaryAction: box('.hero-copy .btn-primary'), sample: box('.sample-report'), name: box('#name'), email: box('#email'),
+          rowWidths: [...document.querySelectorAll('.service-row')].map(row => row.getBoundingClientRect().width), sections };
+      });
+      const label = `${path} @ ${width}`;
+      if (metrics.overflow > 1) errors.push(`${label}: horizontal overflow ${metrics.overflow}px`);
+      if (metrics.primaryAction && metrics.primaryAction.bottom > 812) errors.push(`${label}: primary action falls below opening viewport`);
+      if (metrics.sample && metrics.sample.top > 1200) errors.push(`${label}: sample begins too late`);
+      if (metrics.email && metrics.email.bottom > 812) errors.push(`${label}: required email field falls below opening viewport`);
+      if (metrics.rowWidths.length && Math.max(...metrics.rowWidths) - Math.min(...metrics.rowWidths) > 1) errors.push(`${label}: unequal engagement widths`);
+      if (metrics.sections.some(section => section.paddingTop < 24 || section.paddingBottom < 24)) errors.push(`${label}: section separation is too small`);
+      results.push({ path, width, ...metrics });
+    }
+    await context.close();
   }
-}
-
-// 3. Panel symmetry.
-for (const pl of m.panels) {
-  if (!near(pl.topToH2, pl.lastToBottom)) {
-    errors.push(`panel ${pl.i} asymmetric: top->h2 ${pl.topToH2}px vs last->bottom ${pl.lastToBottom}px`);
-  }
-}
-const tops = m.panels.map(pl => pl.topToH2);
-if (!tops.every(t => near(t, tops[0]))) {
-  errors.push(`panel top paddings differ: ${tops.join(', ')}`);
-}
-
-console.log('Measured gaps:');
-for (const g of m.gaps) console.log(`  ${(g.prevKind || 'start').padEnd(10)} -> ${g.kind.padEnd(10)} ${String(g.gap ?? '-').padStart(4)}px  ${g.text}`);
-console.log('Panels (top->h2 | last->bottom): ' + m.panels.map(pl => `${pl.topToH2}|${pl.lastToBottom}`).join('  '));
-
-if (errors.length) {
-  console.error('\n[FAIL] Rhythm drift:\n  - ' + errors.join('\n  - '));
-  process.exit(1);
-}
-console.log('\n[OK] Landing rhythm matches the table');
+} finally { await browser.close(); }
+console.log(JSON.stringify({ results, errors }, null, 2));
+if (errors.length) process.exitCode = 1;

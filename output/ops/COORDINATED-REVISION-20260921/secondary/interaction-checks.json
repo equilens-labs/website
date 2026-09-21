@@ -1,0 +1,134 @@
+{
+  "tocActivation": {
+    "y": 5743,
+    "active": "<section class=\"section alt\" id=\"accessibility\" tabindex=\"-1\">\n        <div class=\"section-block\">\n          <h2>Accessibility</h2>\n          <div class=\"container\">\n            <p>We aim to meet <abbr title=\"Web Content Accessibility Guidelines\">WCAG</abbr> 2.1 AA guidelines and make reasonable adj",
+    "hash": "#accessibility"
+  },
+  "tocNextTab": {
+    "active": "<a href=\"mailto:hello@equilens.io\">hello@equilens.io</a>"
+  },
+  "nojs": [
+    {
+      "text": "\n      \n      \n    ",
+      "rect": {
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "text": "FL‑BSA",
+      "rect": {
+        "width": 343,
+        "height": 47.796875
+      }
+    },
+    {
+      "text": "Procurement",
+      "rect": {
+        "width": 343,
+        "height": 47.796875
+      }
+    },
+    {
+      "text": "Trust Center",
+      "rect": {
+        "width": 343,
+        "height": 47.796875
+      }
+    },
+    {
+      "text": "Legal",
+      "rect": {
+        "width": 343,
+        "height": 47.796875
+      }
+    },
+    {
+      "text": "Contact",
+      "rect": {
+        "width": 343,
+        "height": 47.796875
+      }
+    },
+    {
+      "text": "Privacy Notice",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Cookie Policy",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Website Terms",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Open Source",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Accessibility",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "DPA Position",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Responsible Use",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Imprint",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    },
+    {
+      "text": "Export Control",
+      "rect": {
+        "width": 335,
+        "height": 37
+      }
+    }
+  ],
+  "firstTab": "<a class=\"skip-to-content\" href=\"#main\">Skip to content</a>",
+  "skip": "<main id=\"main\" tabindex=\"-1\">\n  <div class=\"page-with-toc\">\n    <nav class=\"toc\" aria-label=\"On this page\"><details class=\"toc-disclosure\"><summary>O",
+  "menuOpen": "true",
+  "menuEscape": {
+    "active": "<button type=\"button\" class=\"nav-toggle btn btn-secondary btn--small\" aria-controls=\"nav-links\" aria-expanded=\"false\">Menu</button>",
+    "expanded": "false"
+  },
+  "mobileContents": {
+    "active": "<section class=\"section alt\" id=\"accessibility\" tabindex=\"-1\">\n        <div class=\"section-block\">\n          <h2>Accessibility</h2>\n          <div class=\"container\">\n            <p>We aim to meet <abbr title=\"Web Content Accessibility Guidelines\">WCA",
+    "hash": "#accessibility",
+    "detailsOpen": false
+  },
+  "capturedAt": "2026-09-21T15:55:17.985Z",
+  "sourceHashes": {
+    "css": "b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2",
+    "nav": "180a4cb825632e6d903e7301cdabbfd7cf41f8e22f76c8a5706d4da205ad73fe"
+  }
+}

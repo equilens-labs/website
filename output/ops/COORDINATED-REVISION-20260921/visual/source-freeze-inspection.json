@@ -1,0 +1,25 @@
+{
+  "at": "2026-09-21T15:57:10.149693+00:00",
+  "method": "Targeted current-source and git diff inspection; no new principal-page capture requested or performed.",
+  "checks": {
+    "obsolete_nav_open_main_rule_absent": true,
+    "process_list_retains_own_margin": true,
+    "plain_prose_list_margins_left": true,
+    "contact_script_aria_busy_absent": true,
+    "contact_script_sending_status_retained": true,
+    "no_aria_busy_visual_selector": true
+  },
+  "hashChanges": [
+    {
+      "path": "assets/eql/base.css",
+      "before": "0d035355f882d381f6796b845e834d55a7e42b89139ce615642dca3d608d823c",
+      "after": "b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2"
+    },
+    {
+      "path": "assets/eql/contact.js",
+      "before": "ec6a8087770d9e4b8285faa6982bf13c47e45ace0dc406dbc69f3cdb06912854",
+      "after": "5cce9b6001e9bc6c150a938c8560f4338308d7cb8888c370d3c1bc17cbabcee3"
+    }
+  ],
+  "conclusion": "No normal-state principal-page layout change is introduced by these edits. Process-list margin remains overridden; nav-open-only push is removed; aria-busy has no styling selector. Interaction acceptance is owned by the independent secondary reviewer."
+}

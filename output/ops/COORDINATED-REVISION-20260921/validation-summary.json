@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-09-21T16:00:28.523057+00:00",
+  "chromium": {
+    "stats": {
+      "startTime": "2026-09-21T15:56:14.086Z",
+      "duration": 81233.769,
+      "expected": 348,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "source_report_sha256": "9e0f113b7b1a77ef290061ce45817466f4637c01b442e0af659f52484fc14365",
+    "projects": [
+      "desktop",
+      "375px mobile",
+      "768px tablet",
+      "1024px tablet"
+    ],
+    "network_boundary_receipts": 256,
+    "receipt_totals": {
+      "localReads": 3624,
+      "blockedExternal": 0,
+      "blockedWrites": 0,
+      "externalPassThrough": 0
+    },
+    "receipt_limit": "Code-path counters with pre-navigation interception; not an independent packet capture. Locally fulfilled mocks are not passed through."
+  },
+  "supplementary_engines": {
+    "passed": true,
+    "cases": 36,
+    "engines": [
+      "firefox 142.0.1",
+      "webkit 26.0"
+    ],
+    "zero_axe_violations": true,
+    "menu_then_contents": [
+      {
+        "headingTop": 151.6666717529297,
+        "headerBottom": 69,
+        "focus": "accessibility",
+        "engine": "firefox"
+      },
+      {
+        "headingTop": 152.328125,
+        "headerBottom": 69,
+        "focus": "accessibility",
+        "engine": "webkit"
+      }
+    ]
+  },
+  "content_lint": "pass",
+  "html_conformance": "22 deployed HTML files passed",
+  "git_diff_check": "pass",
+  "visual_reviews": "three independent scopes accepted; main viewed all nine pages and three-width principal layouts",
+  "ci": "pending PR run",
+  "account_goal": "Enquiry Submitted remains absent; current Sites API authority refused creation. No configuration success claimed."
+}

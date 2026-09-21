@@ -1,0 +1,149 @@
+[
+  {
+    "id": "R01",
+    "priority": "P1",
+    "finding": "Rebuild the product page around the buyer\u2019s decision",
+    "status": "implemented in branch",
+    "disposition": "Recomposed product journey: proposition/sample, process, comparable engagements, access, resources, FAQ."
+  },
+  {
+    "id": "R02",
+    "priority": "P1",
+    "finding": "Keep contents navigation on long mobile pages",
+    "status": "implemented in branch",
+    "disposition": "Native contents disclosures at mobile/tablet; persistent sidebar on wide screens."
+  },
+  {
+    "id": "R03",
+    "priority": "P1",
+    "finding": "Make contact entry the main content",
+    "status": "implemented in branch",
+    "disposition": "Contact form is the primary content; name and email appear in the opening viewport."
+  },
+  {
+    "id": "R04",
+    "priority": "P1",
+    "finding": "Add the missing completed-submission goal",
+    "status": "external dependency",
+    "disposition": "Account dependency remains: the existing Sites API authority refused goal creation (401). Client success event is preserved; configuration is not claimed complete."
+  },
+  {
+    "id": "R05",
+    "priority": "P1",
+    "finding": "Align the promise and current availability across pages",
+    "status": "implemented in branch",
+    "disposition": "Home/product metadata and opening copy align on synthetic simulation, no customer-model execution and agreed pre-release access; unverified portal promise removed."
+  },
+  {
+    "id": "R06",
+    "priority": "P2",
+    "finding": "Fix the half-width final service card",
+    "status": "implemented in branch",
+    "disposition": "Three equal-width engagement rows replace the broken stacked-card grid."
+  },
+  {
+    "id": "R07",
+    "priority": "P2",
+    "finding": "Make the existing report explain the product",
+    "status": "implemented in branch",
+    "disposition": "Existing synthetic report preview and directly adjacent PDF action appear near the proposition."
+  },
+  {
+    "id": "R08",
+    "priority": "P2",
+    "finding": "Fix alignment, line measure and small-text hierarchy",
+    "status": "implemented in branch",
+    "disposition": "Left-aligned prose, wider mobile measure, ordinary-size essential notes, aligned plain lists and clear keyboard focus."
+  },
+  {
+    "id": "R09",
+    "priority": "P2",
+    "finding": "Give the strongest hierarchy to buyer value",
+    "status": "implemented in branch",
+    "disposition": "Buyer value, scope and sample lead; detailed regulatory context remains accessible in relevant sections/disclosure."
+  },
+  {
+    "id": "R10",
+    "priority": "P2",
+    "finding": "Name the pack and the next step consistently",
+    "status": "implemented in branch",
+    "disposition": "Buyer-pack actions consistently explain the written reply and its contents; specialist security-pack route retained."
+  },
+  {
+    "id": "R11",
+    "priority": "P2",
+    "finding": "Put terms and delivery approval before installation",
+    "status": "implemented in branch",
+    "disposition": "Procurement sequence now confirms availability and terms/approval before preparation and installation."
+  },
+  {
+    "id": "R12",
+    "priority": "P2",
+    "finding": "Declare input purposes for autofill and assistive tools",
+    "status": "implemented in branch",
+    "disposition": "Input purposes declared for name, email, organisation and role."
+  },
+  {
+    "id": "R13",
+    "priority": "P2",
+    "finding": "Move focus when a section link is activated",
+    "status": "implemented in branch",
+    "disposition": "Section activation transfers focus; subsequent Tab continues in the section. Menu-to-contents scroll-shift defect also fixed."
+  },
+  {
+    "id": "R14",
+    "priority": "P2",
+    "finding": "Honor reduced-motion preferences in navigation",
+    "status": "implemented in branch",
+    "disposition": "Local navigation honors reduced motion; ordinary navigation retains smooth scrolling."
+  },
+  {
+    "id": "R15",
+    "priority": "P2",
+    "finding": "Make privacy actions directly reachable",
+    "status": "implemented in branch",
+    "disposition": "Trust Center offers contextual privacy-notice links and the published privacy role inbox."
+  },
+  {
+    "id": "R16",
+    "priority": "P3",
+    "finding": "Provide usable navigation when scripts are unavailable",
+    "status": "implemented in branch",
+    "disposition": "Primary links remain visible without JavaScript; contact email fallback stays available."
+  },
+  {
+    "id": "R17",
+    "priority": "P3",
+    "finding": "Explain the whitepaper and supporting files before download",
+    "status": "implemented in branch",
+    "disposition": "Downloads identify format/size and supporting synthetic inputs; whitepaper shows verified 11-page count and 6 June 2026 demo build date."
+  },
+  {
+    "id": "R18",
+    "priority": "P3",
+    "finding": "Present media assets visually",
+    "status": "implemented in branch",
+    "disposition": "Press shows original light/dark logo previews, format-labelled downloads and subordinate implementation assets."
+  },
+  {
+    "id": "R19",
+    "priority": "P2",
+    "finding": "Unify the rules that generate the live presentation",
+    "status": "implemented in branch",
+    "disposition": "Current design spec, brand font guidance and behavioural/geometry regressions replace contradictory presentation rules."
+  },
+  {
+    "id": "R20",
+    "priority": "P2",
+    "finding": "Explain pending requests and provide an honest recovery state",
+    "status": "implemented in branch",
+    "disposition": "Immediate Sending status, bounded 15-second wait, preserved fields, honest uncertain-delivery recovery and no automatic retry. Live status has no busy ancestor."
+  },
+  {
+    "id": "R21",
+    "priority": "P2",
+    "finding": "Exclude honeypot submissions from the attempt counter",
+    "status": "implemented in branch",
+    "disposition": "Attempt event occurs only after validation/honeypot guard; accepted event only after HTTP 2xx."
+  }
+]

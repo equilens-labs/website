@@ -27,10 +27,10 @@
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/eql/base.css?v=20260921c">
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260921d">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
-<body class="eql">
+<body class="eql contact-page">
   <a class="skip-to-content" href="#main">Skip to content</a>
   <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
   <div class="navbar-content">
@@ -44,30 +44,16 @@
     </div>
   </div>
 </nav>
-  <script src="/assets/eql/nav.js?v=20260921c" defer></script>
+  <script src="/assets/eql/nav.js?v=20260921d" defer></script>
   <script src="/assets/eql/campaign-routes.js?v=20260909a" defer></script>
-  <script src="/assets/eql/contact.js?v=20260921b" defer></script>
+  <script src="/assets/eql/contact.js?v=20260921d" defer></script>
 
-<main id="main" tabindex="-1">
-  <section class="hero hero-compact" aria-label="Contact information">
-    <div class="hero-content">
-      <p class="eyebrow">Get in Touch</p>
-      <h1 class="hero-headline">Contact</h1>
-      <p class="lead">Request the <span class="product-name">FL-BSA</span> buyer/procurement pack, security pack, a readiness conversation, partnerships, or support.</p>
-      <p class="email-highlight"><a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=email-highlight plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a></p>
-        <p class="note">Consultancies and decisioning-platform vendors: <a href="/contact/?interest=Partnership">ask about partnering</a>.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="contact-form-heading">
-    <div class="section-block">
-      <h2 id="contact-form-heading">Send us a message</h2>
-      <p class="lead">Fill in the form below and we'll get back to you.</p>
-      <form id="contact-form" class="contact-form plausible-event-name=Contact+Form+Submit plausible-event-surface=contact plausible-event-cta=form-submit plausible-event-intent=form-enquiry">
+<main id="main" tabindex="-1"><section class="contact-section" aria-labelledby="contact-form-heading"><div class="contact-layout">
+  <div class="contact-primary"><p class="eyebrow">A written reply from Equilens</p><h1 class="hero-headline" id="contact-form-heading">Send us a message</h1><p class="lead" id="request-context">Tell us what you need. Only your name and email are required.</p><form id="contact-form" class="contact-form">
           <noscript><p class="note">JavaScript is off in your browser: the button below will not work. Email us directly at <a href="mailto:hello@equilens.io">hello@equilens.io</a>.</p></noscript>
           <div class="form-group">
             <label for="name">Name (required)</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label for="email">Email (required)</label>
@@ -75,12 +61,12 @@
           </div>
           <div class="form-group">
             <label for="organisation">Organisation</label>
-            <input type="text" id="organisation" name="organisation" placeholder="Company or institution">
+            <input type="text" id="organisation" name="organisation" autocomplete="organization" placeholder="Company or institution">
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="role">Role</label>
-              <input type="text" id="role" name="role" placeholder="Your role">
+              <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="Your role">
             </div>
             <div class="form-group">
               <label for="region">Region</label>
@@ -107,7 +93,7 @@
               <option value="Partnership">Partnership opportunity</option>
               <option value="Other">Other enquiry</option>
             </select>
-            <p class="note"><span class="product-name">FL-BSA</span> is being prepared for full public release. Until publication, request the buyer/procurement pack, a readiness conversation, or pricing; any optional pre-release evaluation is scoped separately.</p>
+
           </div>
           <div class="form-group">
             <label for="message">Message</label>
@@ -121,12 +107,10 @@
             <button type="submit" class="btn btn-primary">Send message</button>
           </div>
           <p class="note" id="form-status" role="status" hidden></p>
-          <p class="note">Your message is delivered by our EU form processor (Formspark, hosted in the <abbr title="European Economic Area">EEA</abbr>) and emailed to us; no cookies are set. We count each submitted form as one anonymous, cookieless analytics event (no form contents). See <a href="/legal/#privacy">Privacy Notice</a>.</p>
-      </form>
-      <p class="note">Prefer email? Write to us directly at <a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a>.</p>
-    </div>
-  </section>
-</main>
+          <p class="note">Your message is delivered by our EU form processor (Formspark, hosted in the <abbr title="European Economic Area">EEA</abbr>) and emailed to us; no cookies are set. We count submission attempts and accepted submissions with cookieless analytics, without form contents. See <a href="/legal/#privacy">Privacy Notice</a>.</p>
+      </form></div>
+  <aside class="contact-aside" aria-label="Before you send"><h2>What happens next</h2><p>We reply by email. A buyer-pack request includes sample evidence, deployment and security material, and a commercial overview.</p><p>Full public stable release is being prepared. Current availability and any optional pre-release evaluation are confirmed separately.</p><h2>Prefer email?</h2><p><a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a></p><p>Consultancies and decisioning-platform vendors: <a href="/contact/?interest=Partnership">ask about partnering</a>.</p></aside>
+</div></section></main>
 
 <footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">
   <h2 class="sr-only" id="site-sections-heading">Site sections</h2>

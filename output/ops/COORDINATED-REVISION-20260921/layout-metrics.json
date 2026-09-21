@@ -1,0 +1,401 @@
+{
+  "results": [
+    {
+      "path": "/",
+      "width": 375,
+      "pageHeight": 4532,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 554.6875,
+        "bottom": 602.6875,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 798.078125,
+        "bottom": 1308.71875,
+        "width": 335,
+        "height": 510.640625
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [],
+      "sections": [
+        {
+          "heading": "Simulation with an evidence trail",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Define the question before the test.",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "See whether the approach fits.",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        }
+      ]
+    },
+    {
+      "path": "/fl-bsa/",
+      "width": 375,
+      "pageHeight": 9133,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 486.5625,
+        "bottom": 534.5625,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 729.953125,
+        "bottom": 1240.59375,
+        "width": 335,
+        "height": 510.640625
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [
+        335,
+        335,
+        335
+      ],
+      "sections": [
+        {
+          "heading": "How it works",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Engagement options",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Evaluate one workflow",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Run inside your environment",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Creditworthiness evidence readiness",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Governance context",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Documentation",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Common questions",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Start with the buyer pack",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        }
+      ]
+    },
+    {
+      "path": "/contact/?interest=Procurement%20Pack",
+      "width": 375,
+      "pageHeight": 2712,
+      "overflow": 0,
+      "primaryAction": null,
+      "sample": null,
+      "name": {
+        "top": 361.296875,
+        "bottom": 414.484375,
+        "width": 335,
+        "height": 53.1875
+      },
+      "email": {
+        "top": 466.28125,
+        "bottom": 519.46875,
+        "width": 335,
+        "height": 53.1875
+      },
+      "rowWidths": [],
+      "sections": []
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "pageHeight": 2420,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 556.4375,
+        "bottom": 604.4375,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 140.078125,
+        "bottom": 667.953125,
+        "width": 303.390625,
+        "height": 527.875
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [],
+      "sections": [
+        {
+          "heading": "Simulation with an evidence trail",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Define the question before the test.",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "See whether the approach fits.",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        }
+      ]
+    },
+    {
+      "path": "/fl-bsa/",
+      "width": 768,
+      "pageHeight": 6311,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 572.8125,
+        "bottom": 620.8125,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 192.15625,
+        "bottom": 720.03125,
+        "width": 303.390625,
+        "height": 527.875
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [
+        728,
+        728,
+        728
+      ],
+      "sections": [
+        {
+          "heading": "How it works",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Engagement options",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Evaluate one workflow",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Run inside your environment",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Creditworthiness evidence readiness",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Governance context",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Documentation",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Common questions",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        },
+        {
+          "heading": "Start with the buyer pack",
+          "paddingTop": 40,
+          "paddingBottom": 40
+        }
+      ]
+    },
+    {
+      "path": "/contact/?interest=Procurement%20Pack",
+      "width": 768,
+      "pageHeight": 1699,
+      "overflow": 0,
+      "primaryAction": null,
+      "sample": null,
+      "name": {
+        "top": 353.296875,
+        "bottom": 406.484375,
+        "width": 417.59375,
+        "height": 53.1875
+      },
+      "email": {
+        "top": 458.28125,
+        "bottom": 511.46875,
+        "width": 417.59375,
+        "height": 53.1875
+      },
+      "rowWidths": [],
+      "sections": []
+    },
+    {
+      "path": "/",
+      "width": 1280,
+      "pageHeight": 2437,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 574.546875,
+        "bottom": 622.546875,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 128,
+        "bottom": 714.84375,
+        "width": 460.3125,
+        "height": 586.84375
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [],
+      "sections": [
+        {
+          "heading": "Simulation with an evidence trail",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Define the question before the test.",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "See whether the approach fits.",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        }
+      ]
+    },
+    {
+      "path": "/fl-bsa/",
+      "width": 1280,
+      "pageHeight": 6625,
+      "overflow": 0,
+      "primaryAction": {
+        "top": 559.25,
+        "bottom": 607.25,
+        "width": 197.84375,
+        "height": 48
+      },
+      "sample": {
+        "top": 128,
+        "bottom": 714.84375,
+        "width": 460.3125,
+        "height": 586.84375
+      },
+      "name": null,
+      "email": null,
+      "rowWidths": [
+        892,
+        892,
+        892
+      ],
+      "sections": [
+        {
+          "heading": "How it works",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Engagement options",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Evaluate one workflow",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Run inside your environment",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Creditworthiness evidence readiness",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Governance context",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Documentation",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Common questions",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        },
+        {
+          "heading": "Start with the buyer pack",
+          "paddingTop": 64,
+          "paddingBottom": 64
+        }
+      ]
+    },
+    {
+      "path": "/contact/?interest=Procurement%20Pack",
+      "width": 1280,
+      "pageHeight": 1607,
+      "overflow": 0,
+      "primaryAction": null,
+      "sample": null,
+      "name": {
+        "top": 355.671875,
+        "bottom": 408.859375,
+        "width": 633.59375,
+        "height": 53.1875
+      },
+      "email": {
+        "top": 460.65625,
+        "bottom": 513.84375,
+        "width": 633.59375,
+        "height": 53.1875
+      },
+      "rowWidths": [],
+      "sections": []
+    }
+  ],
+  "errors": []
+}

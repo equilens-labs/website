@@ -19,17 +19,16 @@ scripts/              Tooling (SEO, OG rendering, evidence, content sync, etc.)
 
 - `assets/eql/base.css` – all site styles (design tokens aliased from
   `brand/tokens/tokens.css` via `@import`)
-- `assets/eql/nav.js` – renders the navbar at runtime from `config/web/nav.json`
-  into `#nav-placeholder`, plus smooth scroll, mobile menu, and TOC scroll-spy
+- `assets/eql/nav.js` – enhances the statically baked navbar with section focus, reduced-motion-aware scroll, mobile menu and contents scroll-spy
 - `assets/eql/contact.js` – contact form submission: POSTs JSON to the Formspark endpoint, with a prefilled mailto fallback on failure
 
 No bundler is involved; keep the styles lean and deterministic.
 
 ## Updating navigation & footer
 
-**Navigation** is rendered at runtime by `assets/eql/nav.js` from
-`config/web/nav.json` — edit the JSON and the change applies everywhere on the
-next page load. No sync script is involved.
+**Navigation** is baked from `config/web/nav.json` with
+`python3 scripts/content/sync_nav_static.py`. Commit the generated HTML with the
+configuration change; `assets/eql/nav.js` only adds behavior.
 
 **The footer** is baked into each page and synchronised from
 `config/web/footer.json` (links, copyright note, product-boundary disclaimer)

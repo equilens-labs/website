@@ -1,0 +1,694 @@
+{
+  "started": "2026-09-21T15:56:42.905Z",
+  "origin": "http://127.0.0.1:8765",
+  "cases": [
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 4532,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/fl-bsa/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 9210,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/contact/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 2665,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/legal/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 12747,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": [],
+      "menuThenContents": {
+        "headingTop": 151.6666717529297,
+        "headerBottom": 69,
+        "focus": "accessibility"
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/trust-center/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 8355,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/procurement/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 5338,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/fl-bsa/whitepaper/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 3842,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/press/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 3017,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "pathname": "/notes/five-things-before-a-fair-outcomes-test/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 6894,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2435,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/fl-bsa/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 6620,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/contact/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 1580,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/legal/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 9385,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/trust-center/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 5513,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/procurement/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 3332,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/fl-bsa/whitepaper/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2609,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/press/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2094,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "pathname": "/notes/five-things-before-a-fair-outcomes-test/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 5172,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 4507,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/fl-bsa/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 9157,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/contact/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 2650,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/legal/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 12689,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": [],
+      "menuThenContents": {
+        "headingTop": 152.328125,
+        "headerBottom": 69,
+        "focus": "accessibility"
+      }
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/trust-center/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 8342,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/procurement/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 5343,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/fl-bsa/whitepaper/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 3793,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/press/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 3004,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "pathname": "/notes/five-things-before-a-fair-outcomes-test/",
+      "status": 200,
+      "scrollWidth": 375,
+      "height": 6818,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2428,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/fl-bsa/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 6598,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/contact/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 1572,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/legal/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 9357,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/trust-center/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 5474,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/procurement/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 3325,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/fl-bsa/whitepaper/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2602,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/press/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 2087,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "pathname": "/notes/five-things-before-a-fair-outcomes-test/",
+      "status": 200,
+      "scrollWidth": 1280,
+      "height": 5157,
+      "missingImages": [],
+      "h1s": 1,
+      "pageErrors": [],
+      "axeViolations": []
+    }
+  ],
+  "blocked": [
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "firefox",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    },
+    {
+      "engine": "webkit",
+      "method": "GET",
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+    }
+  ],
+  "errors": [],
+  "finished": "2026-09-21T15:57:38.501Z",
+  "sourceHashes": {
+    "assets/eql/base.css": "b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2",
+    "assets/eql/nav.js": "180a4cb825632e6d903e7301cdabbfd7cf41f8e22f76c8a5706d4da205ad73fe",
+    "assets/eql/contact.js": "5cce9b6001e9bc6c150a938c8560f4338308d7cb8888c370d3c1bc17cbabcee3"
+  },
+  "passed": true
+}
