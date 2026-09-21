@@ -37,7 +37,7 @@ function initNavFeatures() {
   }
 
   // Guarded smooth scroll (hash links only) - respects scroll-padding-top
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]:not(.skip-to-content)').forEach(a => {
     const h = a.getAttribute('href');
     if (!h || h === '#') return;
     a.addEventListener('click', e => {
@@ -119,7 +119,7 @@ function initScrollSpy() {
     if (scrollSpyPaused) return;
 
     // Account for sticky nav height (approx 120px for main nav + subnav)
-    const scrollPos = window.scrollY + 140;
+    const scrollPos = window.scrollY + 208; // match the measured landing offset of [id] scroll-margin targets
     let activeSection = sections[0];
 
     // Check if we're at the bottom of the page

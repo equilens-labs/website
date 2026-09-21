@@ -1335,6 +1335,12 @@ a[download]::after {
   text-align: left;
 }
 
+/* The hidden attribute must always beat layout display rules (honeypot
+   form-group, form-status live-region). */
+[hidden] {
+  display: none !important;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

@@ -27,7 +27,7 @@
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/eql/base.css?v=20260919a">
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260921b">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql">
@@ -44,11 +44,11 @@
     </div>
   </div>
 </nav>
-  <script src="/assets/eql/nav.js?v=20260716a" defer></script>
+  <script src="/assets/eql/nav.js?v=20260921b" defer></script>
   <script src="/assets/eql/campaign-routes.js?v=20260909a" defer></script>
-  <script src="/assets/eql/contact.js?v=20260919a" defer></script>
+  <script src="/assets/eql/contact.js?v=20260921b" defer></script>
 
-<main id="main">
+<main id="main" tabindex="-1">
   <section class="hero" aria-label="Contact information">
     <div class="hero-content">
       <p class="eyebrow">Get in Touch</p>
@@ -66,11 +66,11 @@
       <form id="contact-form" class="contact-form plausible-event-name=Contact+Form+Submit plausible-event-surface=contact plausible-event-cta=form-submit plausible-event-intent=form-enquiry">
           <noscript><p class="note">JavaScript is off in your browser: the button below will not work. Email us directly at <a href="mailto:hello@equilens.io">hello@equilens.io</a>.</p></noscript>
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name (required)</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email (required)</label>
             <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
           </div>
           <div class="form-group">
@@ -123,7 +123,7 @@
           <p class="note" id="form-status" role="status" hidden></p>
           <p class="note">Your message is delivered by our EU form processor (Formspark, hosted in the <abbr title="European Economic Area">EEA</abbr>) and emailed to us; no cookies are set. We count each submitted form as one anonymous, cookieless analytics event (no form contents). See <a href="/legal/#privacy">Privacy Notice</a>.</p>
       </form>
-      <p class="note">No email client set up? Email us directly at <a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a>.</p>
+      <p class="note">Prefer email? Write to us directly at <a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a>.</p>
     </div>
   </section>
 </main>
