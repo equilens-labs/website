@@ -278,6 +278,9 @@ test.describe('Equilens site surfaces', () => {
     expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
     expect(contact).toContain('<body class="eql">');
     expect(contact).not.toContain('<body class="eql landing">');
+    // FL-BSA is the paid landing page: product-landing treatment, hero above the TOC grid
+    expect(flbsa).toContain('<body class="eql landing-product">');
+    expect(flbsa).toMatch(/<main id="main">\s*<section class="hero" id="overview"/);
   });
 
   test('visual system primitives render consistently across breakpoints', async ({ page }) => {
