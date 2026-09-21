@@ -118,7 +118,6 @@ function initScrollSpy() {
     // Skip if scroll spy is paused (e.g., after a click)
     if (scrollSpyPaused) return;
 
-    // Account for sticky nav height (approx 120px for main nav + subnav)
     const scrollPos = window.scrollY + 208; // match the measured landing offset of [id] scroll-margin targets
     let activeSection = sections[0];
 

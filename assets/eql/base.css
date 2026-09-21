@@ -982,6 +982,29 @@ body:not(.landing) .hero {
   flex-wrap: wrap;
 }
 
+/* Product-hero detail: long-form copy relocated below the CTA reads
+   left-aligned at a prose measure (composition rule 2026-09-21:
+   centered hero copy stays short). */
+.hero-detail {
+  max-width: var(--max-width-2xl);
+  margin: var(--space-8) auto 0;
+  padding: 0 var(--space-4);
+  text-align: left;
+}
+
+/* Compact hero: pages whose action lives in the next section keep the
+   first paint tight (contact form nearer the fold). */
+.hero-compact {
+  padding-bottom: var(--space-2);
+}
+.hero-compact + .section {
+  padding-top: var(--space-4);
+}
+
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
 /* CTA row in section-block needs more spacing */
 .section-block .cta-row {
   margin-top: var(--space-10);
