@@ -4,7 +4,9 @@
 
 This is an independent inspection of the rendered local build, not acceptance based only on changed CSS. I inspected Legal, Trust Center, Procurement, Whitepaper, Press, and the readiness note at **1280×960**, **768×1024**, and **375×812**, including full-page views and close views of lower sections. All 18 normal-size captures have no horizontal overflow or JavaScript page errors, and visible images loaded.
 
-The browser runner is `render-review.cjs`; the root agent executed it after the child process encountered a sandbox/approval boundary. I personally viewed the generated images and inspected the rendered measurements and interaction results. After inspecting all 18 page/viewport combinations and full-page compositions, I reinspected the final corrections to mobile navigation and the whitepaper list. The accepted final corpus was captured **2026-09-21 15:54:57–15:55:17 UTC**, with CSS SHA-256 `b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2` and nav SHA-256 `180a4cb825632e6d903e7301cdabbfd7cf41f8e22f76c8a5706d4da205ad73fe`.
+The browser runner is `render-review.cjs`; the root agent executed it after the child process encountered a sandbox/approval boundary. I personally viewed the generated images and inspected the rendered measurements and interaction results. After inspecting all 18 page/viewport combinations and full-page compositions, I reinspected the corrections to mobile navigation and the whitepaper list. A final bounded check covers the revised initialization timing and Trust Center role correction. The accepted final corpus was captured **2026-09-21 16:22:45–16:23:06 UTC**, with CSS SHA-256 `b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2` and nav SHA-256 `6b7dafcac9ab55999ba80801cf820ebb5437e5dac1702126dabc48ed01581c5b`. The accepted Trust Center HTML SHA-256 is `6db47d9f90aeb5e9c1d59e5c7d0ad9958e98eb57b227305d7d6d8abfe77d4c4a`.
+
+In the final bounded check, I viewed the Trust Center evidence-chain layout at 1280, 768, and 375; the no-JavaScript Legal page; and the final mobile contents destination. The evidence cards retain their geometry after changing their elements to `div role="listitem"` within the labelled list. The no-JavaScript contents control now starts closed as a native disclosure, with primary navigation still exposed. The mobile destination heading remains fully visible below the navbar, and captured focus/next-Tab behavior remains correct. No new blocking finding was introduced. Initial-load CLS measurement belongs to the technical checks and was not independently rerun in this visual pass.
 
 ## Findings resolved during review
 
@@ -36,7 +38,7 @@ The shared hero gutter is also a little more inset than the following section at
 ## Shared accessibility and navigation evidence
 
 - The contents index remains available at mobile and tablet widths as a native disclosure. [Open mobile index](legal-375x812-contents-open.png).
-- Without JavaScript, the primary links are visible at the top and the inert Menu control is absent. The local contents links are also available. [No-JavaScript state](legal-375-nojs.png).
+- Without JavaScript, the primary links are visible at the top and the inert Menu control is absent. Local contents start in a closed native `details` disclosure with its `summary` visible, rather than relying on script to reveal the control. [No-JavaScript state](legal-375-nojs.png).
 - The first Tab exposes Skip to content, and activation focuses `main#main`.
 - Menu opens with Enter, updates `aria-expanded`, and closes with Escape while returning focus to the trigger.
 - Desktop TOC activation focuses the selected Accessibility section; the next Tab reaches the email link inside that section rather than the next TOC item. [Desktop target](legal-1280-keyboard-target.png).

@@ -26,3 +26,9 @@ The frozen implementation passed all **348 Chromium cases** (zero failures, skip
 ## CI follow-up
 
 CodeQL found sequential entity decoding in the source-text test helper. A single replacement pass now prevents output from being decoded twice; the independent technical reviewer accepted the correction and all 16 affected checks pass. This helper is not live rendering or a runtime sanitizer. Lychee also found that the downloadable brand guidelines linked to an undeployed relative design-spec path; the link now uses the canonical repository page. Neither correction changes rendered website geometry.
+
+## Loading-stability correction and current verification
+
+CI measured CLS 0.303 across four pages, 0.442 on Trust Center and 0.686 on Legal. Header enhancement and initially open mobile contents moved the already-painted reading column. The independent technical reviewer confirmed the source and reports. Navbar binding now occurs synchronously after baked markup and before main parsing; page bindings run after parsing. Contents starts closed and opens in the wide sidebar. The shared header template matches this ordering. Failed scripts retain the visible-link fallback. No performance threshold was changed.
+
+All **356 Chromium cases pass**, including delayed-script CLS<0.1 and failed-script navigation. The 36 Firefox/WebKit cases also pass on current source. Local Lighthouse passes all six pages at 93–98 performance with CLS 0; HTTPS is blocked before navigation in that local measurement. Trust Center card elements now permit their listitem roles; its separate follow-up scores 100 accessibility. Independent visual checks found zero settled-geometry differences in nine principal renders, and the supporting-page reviewer accepted the final states. Main personally rechecked current product screenshots at 375/768/1280. CI must verify the final branch.

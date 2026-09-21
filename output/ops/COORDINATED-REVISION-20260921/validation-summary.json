@@ -1,24 +1,24 @@
 {
-  "recorded_at": "2026-09-21T16:00:28.523057+00:00",
+  "recorded_at": "2026-09-21T16:21:51.799Z",
   "chromium": {
     "stats": {
-      "startTime": "2026-09-21T15:56:14.086Z",
-      "duration": 81233.769,
-      "expected": 348,
+      "startTime": "2026-09-21T16:21:51.799Z",
+      "duration": 83762.209,
+      "expected": 356,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     },
-    "source_report_sha256": "9e0f113b7b1a77ef290061ce45817466f4637c01b442e0af659f52484fc14365",
+    "source_report_sha256": "fe7f8d9ba6ef28a6ececbff447c9b9e19753f898e06fa454c299558ca646c989",
     "projects": [
       "desktop1440x900",
       "Pixel5 mobile393x727",
       "tablet768x1024",
       "tablet1024x1366"
     ],
-    "network_boundary_receipts": 256,
+    "network_boundary_receipts": 264,
     "receipt_totals": {
-      "localReads": 3624,
+      "localReads": 3760,
       "blockedExternal": 0,
       "blockedWrites": 0,
       "externalPassThrough": 0
@@ -58,5 +58,12 @@
     "test_helper": "Single-pass entity decoding replaces sequential unescaping;16 affected checks pass and independent review accepts. No website runtime change.",
     "brand_guidelines": "Design-spec link points to its canonical repository page because the source design spec is not deployed.",
     "ci": "New PR run required after follow-up commit."
+  },
+  "performance_followup": {
+    "cause": "Initial nav geometry and open mobile TOCs shifted after first paint.",
+    "fix": "Bind navbar synchronously before parsing main; bind page features after parsing; TOCs begin closed.",
+    "local_lighthouse": "All6 pages pass existing90/95/90/90 thresholds; performance93\u201398 and CLS0. HTTPS blocked before navigation. Trust role markup follow-up achieves accessibility100.",
+    "regressions": "356 Chromium cases pass including delayed and failed navigation script;36 Firefox/WebKit route/viewport checks pass.",
+    "ci": "New PR run required."
   }
 }

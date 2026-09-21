@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-21T15:57:10.149693+00:00",
+  "capturedAt": "2026-09-21T16:24:50.896152+00:00",
   "origin": "http://127.0.0.1:8765",
   "purpose": "Exact rendered source and asset snapshot for independent visual acceptance; JavaScript listing is provenance, not functional certification.",
   "files": [
@@ -25,8 +25,8 @@
     },
     {
       "path": "assets/eql/nav.js",
-      "bytes": 5694,
-      "sha256": "180a4cb825632e6d903e7301cdabbfd7cf41f8e22f76c8a5706d4da205ad73fe"
+      "bytes": 6271,
+      "sha256": "6b7dafcac9ab55999ba80801cf820ebb5437e5dac1702126dabc48ed01581c5b"
     },
     {
       "path": "brand/fonts/geist-latin-wght-normal.woff2",
@@ -60,20 +60,21 @@
     },
     {
       "path": "contact/index.html",
-      "bytes": 9982,
-      "sha256": "67d07a079f9f44f0c9d2dda6003b847e3a23044950ff3bde4c88962a8c61fa04"
+      "bytes": 9976,
+      "sha256": "ff0d0069e7c594dea0335e8bee36f14660868c4eb8624ffd870bd77fa4159c8b"
     },
     {
       "path": "fl-bsa/index.html",
-      "bytes": 25877,
-      "sha256": "52191855a9ad780c0d098cfc31549e126d8f76dd69e0915a33ceade793180355"
+      "bytes": 25866,
+      "sha256": "75118b2c09e805aa330c0e2377952e10db2f708d01369db5e6f78b4ba0815506"
     },
     {
       "path": "index.html",
-      "bytes": 12041,
-      "sha256": "b46dac23d4caf1b866aff3a2219bce16fcb9d4b29db08f7228907bad1c0bcbf1"
+      "bytes": 12035,
+      "sha256": "98f77b6be2996e51eeed3ad944e6ec54df93367219a30c1251bd05335ed536d0"
     }
   ],
-  "geometryVerification": "final-geometry-check/comparison.json",
-  "finalFreezeInspection": "source-freeze-inspection.json"
+  "geometryVerification": "final-geometry-cls/comparison.json",
+  "finalFreezeInspection": "source-freeze-inspection.json",
+  "cacheToken": "20260921e"
 }

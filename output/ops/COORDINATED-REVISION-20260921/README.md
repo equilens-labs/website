@@ -23,7 +23,7 @@ Three independent review scopes accepted the final implementation: principal-pag
 - [Supporting-page review](secondary/review.md), including the reproduced and fixed Menu→contents landing issue.
 - [Independent technical review](independent-technical-review.md).
 - Final automated results are recorded in [validation-summary.json](validation-summary.json), with [cross-browser detail](cross-browser.json) and [layout measurements](layout-metrics.json).
-- Content lint and HTML conformance cover the 22 deployed HTML files. Chromium regressions cover four viewport projects. Firefox/WebKit supplement these with nine canonical routes at 375/1280, automatic WCAG A/AA scans and navigation checks.
+- Content lint and HTML conformance cover the 22 deployed HTML files. All 356 Chromium regressions pass across four viewport projects, including delayed/failed-script cases. Firefox/WebKit supplement these with nine canonical routes at 375/1280, automatic WCAG A/AA scans and navigation checks.
 - Local form fixtures block external traffic before navigation and fulfil form/analytics requests locally. No production test submission or synthetic analytics event is part of this work. Acceptance events indicate provider HTTP acceptance, not inbox delivery.
 
 Full capture/test output is retained in the private local working corpus. The versioned bundle intentionally includes selected screenshots, review reports, compact results and hashes; detailed paths in reviewer reports may refer to that larger corpus.
@@ -58,7 +58,7 @@ Full capture/test output is retained in the private local working corpus. The ve
 
 Base: website main `1a889d273960188a29239c2888f2640de5db661f`. The final changed-source hashes are in [source-sha256.json](source-sha256.json). Original report assets, logo files and Geist fonts are reused; no customer evidence was fabricated. Whitepaper metadata was derived from the immutable public demo PDF and release manifest: 11 pages, 390,331 bytes, 6 June 2026 build. The description does not turn the demo into a stable release.
 
-Real screen-reader speech, native OS zoom, physical devices, production form delivery and account configuration are not certified by these browser checks. The PDF itself has not been redesigned or made accessible in this revision. The existing development-only transitive fast-uri advisory is unchanged; it is not shipped as a browser dependency. CI provides additional link, Pa11y and Lighthouse checks against the PR.
+Real screen-reader speech, native OS zoom, physical devices, production form delivery and account configuration are not certified by these browser checks. The PDF itself has not been redesigned or made accessible in this revision. The existing development-only transitive fast-uri advisory is unchanged; it is not shipped as a browser dependency. CI provides additional link, Pa11y and Lighthouse checks against the PR. Its loading-shift finding was corrected: navigation now initializes before main content is parsed and mobile contents starts closed. A local six-page Lighthouse rerun passes the existing thresholds with performance 93–98 and CLS 0; see [performance-local.json](performance-local.json). The four Trust Center evidence cards also use elements that permit their listitem role.
 
 R04 remains open: exactly the Plausible event goal `Enquiry Submitted` must be added through approved Sites API write authority. The failed attempt made no verified change; no credential change or reauthorization was attempted. This is independent of the corrected client event behaviour.
 

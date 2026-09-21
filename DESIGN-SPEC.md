@@ -80,3 +80,5 @@ outside the public deployment allowlist.
 Record source, checks, coverage limits and artifact hashes in
 `output/ops/COORDINATED-REVISION-20260921/`. Browser automation does not establish
 screen-reader or physical-device acceptance.
+
+Navigation initializes synchronously after its baked markup and before main content is parsed, preserving initial geometry and the failed-script fallback. Page anchors initialize after parsing. Contents disclosures start closed in HTML and open only in the wide sidebar, avoiding mobile layout shifts. Keep this ordering when synchronizing markup.

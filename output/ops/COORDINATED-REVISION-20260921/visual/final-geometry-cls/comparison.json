@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "home",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "flbsa",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "contact",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "home",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "flbsa",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "contact",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "home",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "flbsa",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  },
+  {
+    "slug": "contact",
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "differences": [],
+    "errors": [],
+    "responses": [],
+    "styles": [
+      "http://127.0.0.1:8765/assets/eql/base.css?v=20260921e"
+    ]
+  }
+]

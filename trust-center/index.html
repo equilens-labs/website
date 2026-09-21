@@ -27,7 +27,7 @@
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/eql/base.css?v=20260921d">
+  <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql">
@@ -44,11 +44,11 @@
     </div>
   </div>
 </nav>
-  <script src="/assets/eql/nav.js?v=20260921d" defer></script>
+  <script src="/assets/eql/nav.js?v=20260921e"></script>
 
 <main id="main" tabindex="-1">
   <div class="page-with-toc">
-    <nav class="toc" aria-label="On this page"><details class="toc-disclosure" open><summary>On this page</summary><div class="toc-inner"><a class="toc-link" href="#security-posture">Security posture</a>
+    <nav class="toc" aria-label="On this page"><details class="toc-disclosure"><summary>On this page</summary><div class="toc-inner"><a class="toc-link" href="#security-posture">Security posture</a>
 <a class="toc-link" href="#data-protection">Data protection</a>
 <a class="toc-link" href="#evidence-chain">Evidence chain</a></div></details></nav>
 
@@ -142,7 +142,7 @@
           <p class="lead">Each run is designed around machine-readable evidence: recorded run context, manifests, certificates, reports, and verification files that can be reviewed outside the user interface.</p>
 
           <div class="grid grid--stack" role="list" aria-label="Evidence chain schema">
-            <article class="card card--reader" role="listitem">
+            <div class="card card--reader" role="listitem">
               <span class="badge-number" aria-hidden="true">1</span>
               <h3><span class="sr-only">Step 1: </span>Run context</h3>
               <ul class="checks">
@@ -150,8 +150,8 @@
                 <li><code>dataset_hash</code> binds the run to its input snapshot.</li>
                 <li><strong>Row and feature counts</strong> record scale, with protected-attribute summary where available.</li>
               </ul>
-            </article>
-            <article class="card card--reader" role="listitem">
+            </div>
+            <div class="card card--reader" role="listitem">
               <span class="badge-number" aria-hidden="true">2</span>
               <h3><span class="sr-only">Step 2: </span>Manifest set</h3>
               <ul class="checks">
@@ -159,8 +159,8 @@
                 <li><strong>Synthetic-data manifests and hashes</strong> identify generated outputs.</li>
                 <li><strong>Configuration snapshots, log excerpts, and rendered reports</strong> are retained with the run.</li>
               </ul>
-            </article>
-            <article class="card card--reader" role="listitem">
+            </div>
+            <div class="card card--reader" role="listitem">
               <span class="badge-number" aria-hidden="true">3</span>
               <h3><span class="sr-only">Step 3: </span>Certificate chain</h3>
               <ul class="checks">
@@ -168,8 +168,8 @@
                 <li><code>previous_certificate_hash</code> links each certificate to the prior artifact.</li>
                 <li><strong>Regulatory-alignment certificate</strong> supports traceability without becoming a legal attestation.</li>
               </ul>
-            </article>
-            <article class="card card--reader" role="listitem">
+            </div>
+            <div class="card card--reader" role="listitem">
               <span class="badge-number" aria-hidden="true">4</span>
               <h3><span class="sr-only">Step 4: </span>Offline verification</h3>
               <ul class="checks">
@@ -179,7 +179,7 @@
                 <li>Customer-local evidence with <code>vendor_authorship_claimed=false</code> proves bundle consistency, not vendor authorship. Verification is offline; no Equilens service is required.</li>
                 <li><strong>Encryption, signing, and witnessing</strong> remain deployment-specific controls.</li>
               </ul>
-            </article>
+            </div>
           </div>
 
           <div class="card card--compact card--reader mt-8">

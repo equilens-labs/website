@@ -938,6 +938,67 @@ test.describe('Equilens site surfaces', () => {
     expect(heading!.y + heading!.height).toBeLessThanOrEqual(812);
   });
 
+  test('delayed navigation keeps initial mobile layout stable on home and legal', async ({ page }, testInfo) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 393, height: 852 });
+    let delayedScripts = 0;
+    await page.route(url => url.pathname === '/assets/eql/nav.js', async route => {
+      delayedScripts += 1;
+      await new Promise(resolve => setTimeout(resolve, 500));
+      // Fall through to the persistent context guard, which permits only local
+      // GET/HEAD reads. A slow script must not bypass the network boundary.
+      await route.fallback();
+    });
+    await page.addInitScript(() => {
+      type LayoutShift = PerformanceEntry & { value: number; hadRecentInput: boolean };
+      const auditWindow = window as unknown as { __auditLayoutShifts: number[] };
+      auditWindow.__auditLayoutShifts = [];
+      new PerformanceObserver(list => {
+        for (const entry of list.getEntries() as LayoutShift[]) {
+          if (!entry.hadRecentInput) auditWindow.__auditLayoutShifts.push(entry.value);
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    });
+    for (const pathname of ['/', '/legal/']) {
+      await page.goto(pathname, { waitUntil: 'networkidle' });
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+      });
+      expect(await page.evaluate(() => PerformanceObserver.supportedEntryTypes.includes('layout-shift'))).toBe(true);
+      await expect(page.locator('.navbar')).toHaveClass(/\bis-enhanced\b/);
+      if (pathname === '/legal/') await expect(page.locator('.toc-disclosure')).not.toHaveAttribute('open', '');
+      const shifts = await page.evaluate(() => (window as unknown as { __auditLayoutShifts: number[] }).__auditLayoutShifts);
+      const cls = shifts.reduce((total, value) => total + value, 0);
+      await testInfo.attach(`initial-layout-${pathname === '/' ? 'home' : 'legal'}`, {
+        body: JSON.stringify({ pathname, cls, shifts }), contentType: 'application/json',
+      });
+      expect(cls, `${pathname} shifted after navigation enhancement`).toBeLessThan(0.1);
+    }
+    expect(delayedScripts).toBe(2);
+  });
+
+  test('failed navigation script leaves mobile primary links usable', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 393, height: 852 });
+    let blockedScripts = 0;
+    await page.route(url => url.pathname === '/assets/eql/nav.js', async route => {
+      blockedScripts += 1;
+      await route.abort('failed');
+    });
+    await page.goto('/legal/', { waitUntil: 'networkidle' });
+    const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
+    await expect(primary).not.toHaveClass(/\bis-enhanced\b/);
+    await expect(primary.getByRole('button', { name: 'Menu', exact: true })).toBeHidden();
+    for (const name of ['FL‑BSA', 'Procurement', 'Trust Center', 'Legal', 'Contact']) {
+      await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
+    }
+    await primary.getByRole('link', { name: 'Contact', exact: true }).click();
+    await expect(page).toHaveURL(/\/contact\/$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Send us a message', exact: true })).toBeVisible();
+    expect(blockedScripts).toBe(2);
+  });
+
   test.describe('without JavaScript', () => {
     test.use({ javaScriptEnabled: false });
     test('mobile navigation remains usable and the contact email fallback is clear', async ({ page }) => {

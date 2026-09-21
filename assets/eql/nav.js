@@ -1,14 +1,11 @@
 // Navigation behaviour for the statically baked nav
 // (scripts/content/sync_nav_static.py bakes the markup at build time).
 
-// Initialize nav features (called after nav is rendered)
+// Runs immediately after the baked navbar, before main is parsed. This keeps
+// enhanced header geometry stable from the first content paint; a failed or
+// disabled script leaves the visible native-link fallback intact.
 function initNavFeatures() {
   document.querySelector('.navbar')?.classList.add('is-enhanced');
-  const wideLayout = window.matchMedia('(min-width: 1100px)');
-  document.querySelectorAll('.toc-disclosure').forEach(details => {
-    details.open = wideLayout.matches;
-    wideLayout.addEventListener('change', event => { details.open = event.matches; });
-  });
   // Set active nav link based on current page
   const currentPath = window.location.pathname;
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -41,6 +38,17 @@ function initNavFeatures() {
       }
     });
   }
+
+}
+
+// The page's contents and anchors become available after parsing. Disclosures
+// start closed in HTML; opening a wide sidebar does not shift the reading column.
+function initPageNavigation() {
+  const wideLayout = window.matchMedia('(min-width: 1100px)');
+  document.querySelectorAll('.toc-disclosure').forEach(details => {
+    details.open = wideLayout.matches;
+    wideLayout.addEventListener('change', event => { details.open = event.matches; });
+  });
 
   // Guarded smooth scroll (hash links only) - respects scroll-padding-top
   document.querySelectorAll('a[href^="#"]:not(.skip-to-content)').forEach(a => {
@@ -160,4 +168,12 @@ function initScrollSpy() {
 }
 
 initNavFeatures();
-initScrollSpy();
+function initPageFeatures() {
+  initPageNavigation();
+  initScrollSpy();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPageFeatures, { once: true });
+} else {
+  initPageFeatures();
+}

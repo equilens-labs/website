@@ -49,12 +49,12 @@ The exact reviewed source/asset snapshot is recorded in `accepted-inputs.sha256.
 
 | File | SHA-256 |
 |---|---|
-| `index.html` | `b46dac23d4caf1b866aff3a2219bce16fcb9d4b29db08f7228907bad1c0bcbf1` |
-| `fl-bsa/index.html` | `52191855a9ad780c0d098cfc31549e126d8f76dd69e0915a33ceade793180355` |
-| `contact/index.html` | `67d07a079f9f44f0c9d2dda6003b847e3a23044950ff3bde4c88962a8c61fa04` |
+| `index.html` | `98f77b6be2996e51eeed3ad944e6ec54df93367219a30c1251bd05335ed536d0` |
+| `fl-bsa/index.html` | `75118b2c09e805aa330c0e2377952e10db2f708d01369db5e6f78b4ba0815506` |
+| `contact/index.html` | `ff0d0069e7c594dea0335e8bee36f14660868c4eb8624ffd870bd77fa4159c8b` |
 | `assets/eql/base.css` | `b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2` |
 
-The stylesheet query token remains `v=20260921d`; hashes identify the accepted bytes. The manifest also includes the local fonts, report image, logos, tokens and scripts used by these pages. Script inclusion is provenance, not a functional certification.
+The final stylesheet/navigation query token is `v=20260921e`; hashes identify the accepted bytes. The manifest also includes the local fonts, report image, logos, tokens and scripts used by these pages. Script inclusion is provenance, not a functional certification.
 
 `final/review-local.json` holds the 15-render measurements. `final/home1280-final.json` records the final bracket correction; its corresponding homepage hero/full PNGs replace the earlier 1280px files. Files outside `final/` retain the initial local observations and are not the final acceptance screenshots.
 
@@ -71,3 +71,9 @@ The acceptance remains valid. See `final-geometry-check/comparison.json`, `final
 At 2026-09-21T15:57:10.149693+00:00, I inspected the final list-margin, navigation-state and contact-status changes without repeating principal-page captures. The ordinary prose list rule now uses zero side margins; `.process-list` retains its later explicit margin override. The obsolete `body.nav-open main` push rule is absent. Removing the form `aria-busy` attribute changes announcement behavior; the stylesheet has no selector for that attribute, and the visible Sending status remains. These edits do not introduce a normal-state layout change in the reviewed principal pages. Menu/anchor interaction verification is owned by the independent secondary review.
 
 Visual acceptance stands at the frozen bytes in the refreshed `accepted-inputs.sha256.json`; see `source-freeze-inspection.json` for the inspected conditions and hash changes. The only changed accepted inputs were `assets/eql/base.css` and `assets/eql/contact.js`. The three principal HTML hashes remain unchanged. No new browser navigation, form interaction or external action was performed in this final inspection.
+
+## Navigation-loading follow-up and final cache token
+
+At 2026-09-21T16:23:33.134Z, I rendered home/product/contact at 375×812, 768×1024 and 1280×900 after navigation moved to synchronous insertion ahead of main content, anchor initialization moved to DOMContentLoaded, and contents disclosures began closed in HTML. All **nine** settled renders match the previously accepted document, heading, section and form-control geometry within 0.1px; no page errors or local resource failures were recorded. Representative home375/product768/contact1280 screenshots were personally viewed. This verifies final composition; it is not a new independent Lighthouse or CLS measurement.
+
+Evidence is in `final-geometry-cls/`, including nine hero captures, `review-local.json` and `comparison.json`. The final stylesheet token is `20260921e`; the accepted hash manifest and principal-input table have been refreshed to these bytes. The previous source snapshot is retained in `accepted-inputs.before-navigation-loading.sha256.json`. The Trust Center role-markup correction is outside this principal-page pass and belongs to the secondary review. Visual acceptance remains valid.
