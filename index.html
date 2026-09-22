@@ -60,9 +60,10 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
+  <link rel="stylesheet" href="/assets/eql/home.css?v=20260922a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
-<body class="eql landing">
+<body class="eql home">
   <a class="skip-to-content" href="#main">Skip to content</a>
   <nav class="navbar site-nav" data-sync="nav" role="navigation" aria-label="Primary">
   <div class="navbar-content">
@@ -81,47 +82,66 @@
 
 
 <main id="main" tabindex="-1">
-  <section class="hero buyer-hero" aria-labelledby="home-heading">
-    <div class="buyer-hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Equilens / Algorithmic Compliance</p>
-        <h1 id="home-heading">Fair-outcomes evidence you can inspect.</h1>
-        <p class="lead"><span class="product-name">FL-BSA</span> is a self-hosted simulation appliance for credit risk, compliance and model-governance teams. Explore synthetic decision patterns and inspect the evidence behind each run.</p>
-        <p class="scope-summary">Synthetic cohorts. No execution of your models.<br>Pre-release access by agreement.</p>
-        <div class="cta-row"><a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request buyer pack</a><a class="btn btn-secondary" href="/fl-bsa/">Explore FL-BSA</a></div>
-        <p class="cta-explainer">Get sample evidence, deployment and security material, and a commercial overview. We reply by email.</p>
+  <section class="home-hero" aria-labelledby="home-heading">
+    <div class="home-container home-hero-layout">
+      <div class="home-intro">
+        <p class="eyebrow">Algorithmic Compliance</p>
+        <h1 id="home-heading">Fair-outcomes evidence.<br><span>Open to inspection.</span></h1>
+        <p class="home-lead">Explore synthetic credit-decision patterns with <span class="product-name">FL-BSA</span>, a self-hosted simulation appliance for risk and compliance teams.</p>
+        <a class="btn btn-primary home-product-link" href="/fl-bsa/">Explore FL-BSA <span aria-hidden="true">→</span></a>
+        <p class="home-scope">Pre-release access by agreement.<br>No execution of customer models.</p>
       </div>
-      <figure class="sample-report">
-      <a class="report-image-link plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=hero-sample plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the sample report, PDF, in a new tab">
-        <img src="/brand/product/report-screening.png" alt="Screening table and dataset overview from the synthetic demo report" width="619" height="800" fetchpriority="high">
+      <div class="home-simulation" role="img" aria-label="How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.">
+        <div class="simulation-input" aria-hidden="true">
+          <div class="cohort-pattern"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <span>Synthetic cohorts</span>
+        </div>
+        <div class="simulation-connector" aria-hidden="true"></div>
+        <div class="simulation-engine" aria-hidden="true"><span class="engine-name">FL-BSA</span><span>Simulation</span></div>
+        <div class="simulation-branches" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="simulation-outputs" aria-hidden="true">
+          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-docs"></use></svg><span>Report</span></div>
+          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg><span>Metrics</span></div>
+          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-deploy"></use></svg><span>Manifest</span></div>
+        </div>
+        <p class="simulation-caption" aria-hidden="true">One run. A traceable evidence bundle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-benefits" aria-labelledby="benefits-heading">
+    <div class="home-container">
+      <h2 id="benefits-heading" class="sr-only">From simulation to review</h2>
+      <div class="home-benefit-grid">
+        <article><span class="benefit-number" aria-hidden="true">01</span><div><h3>Explore outcomes</h3><p>Compare patterns across synthetic borrower groups.</p></div></article>
+        <article><span class="benefit-number" aria-hidden="true">02</span><div><h3>Inspect the evidence</h3><p>Review metrics, assumptions and a hash-linked manifest.</p></div></article>
+        <article><span class="benefit-number" aria-hidden="true">03</span><div><h3>Keep control</h3><p>Run the simulation in your own environment.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-proof" aria-labelledby="sample-heading">
+    <div class="home-container home-proof-layout">
+      <a class="home-report-preview plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=sample-preview plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic sample report, PDF, in a new tab">
+        <img src="/brand/product/report-screening.png" alt="Screening decision and dataset overview from the synthetic demo report" width="619" height="800" loading="lazy">
+        <span>Synthetic demo report <span aria-hidden="true">↗</span></span>
       </a>
-      <figcaption><strong>Inside a simulation report</strong><br>Group comparisons, assumptions and a traceable evidence record. Synthetic demo, 16-page PDF, 246 KB.<a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=hero-sample-link plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Open sample report (PDF)</a></figcaption>
-    </figure>
-    </div>
-  </section>
-  <section class="section alt" aria-labelledby="flbsa-heading">
-    <div class="section-block">
-      <div class="section-intro"><p class="eyebrow">From a question to a reviewable result</p><h2 id="flbsa-heading">Simulation with an evidence trail</h2>
-      <p><span class="product-name">FL-BSA</span> (Fair-Lending Bias-Simulation Appliance) brings a bounded simulation, its assumptions and its outputs together for human review.</p></div>
-      <div class="grid grid-3 feature-grid">
-        <article class="card"><svg class="icon" aria-hidden="true"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg><h3>Explore group outcomes</h3><p>Compare synthetic decision patterns across borrower groups within an agreed scenario.</p></article>
-        <article class="card"><svg class="icon" aria-hidden="true"><use href="/assets/eql/icons.svg#icon-evidence"></use></svg><h3>Inspect the evidence</h3><p>Review the report, metrics and hash-linked manifest together with the assumptions and limitations.</p></article>
-        <article class="card"><svg class="icon" aria-hidden="true"><use href="/assets/eql/icons.svg#icon-hosting"></use></svg><h3>Keep control of the run</h3><p>Run in your own environment. Customer data stays within your perimeter in the configured self-hosted deployment.</p></article>
+      <div class="home-proof-copy">
+        <p class="eyebrow">See the output</p>
+        <h2 id="sample-heading">See what a run produces.</h2>
+        <p>Open a real sample report, then explore the methodology and verification steps behind it.</p>
+        <a class="home-text-link plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=sample-link plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Open sample report <span aria-hidden="true">↗</span></a>
+        <p class="home-file-meta">Synthetic demo · PDF · 16 pages · 246 KB</p>
+        <div class="home-resource-links"><a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Technical whitepaper <span aria-hidden="true">→</span></a><a class="plausible-event-name=Security+Pack+Click plausible-event-surface=home plausible-event-intent=security-pack" href="/trust-center/">Trust Center <span aria-hidden="true">→</span></a></div>
       </div>
     </div>
   </section>
-  <section class="section" aria-labelledby="review-heading">
-    <div class="section-block split-section">
-      <div><p class="eyebrow">Start with one credit workflow</p><h2 id="review-heading">Define the question before the test.</h2><p>A useful review begins with a clear decision scope, data boundary, evidence question and accountable owner.</p><p>Start with an evidence-readiness assessment, or discuss an optional evaluation when the workflow and environment are ready.</p><div class="cta-row"><a class="btn btn-secondary" href="/fl-bsa/#pricing">Compare engagement options</a></div></div>
-      <div class="resource-list">
-        <a href="/notes/five-things-before-a-fair-outcomes-test/"><strong>Five checks before a fair-outcomes test</strong><span>A practical starting point for the review team.</span></a>
-        <a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/"><strong>Technical whitepaper</strong><span>The evidence model, synthetic demo and verification steps.</span></a>
-        <a class="plausible-event-name=Security+Pack+Click plausible-event-surface=home plausible-event-intent=security-pack" href="/trust-center/"><strong>Trust Center</strong><span>Security posture, data protection and the published trust root.</span></a>
-      </div>
+
+  <section class="home-next" aria-labelledby="home-next-heading">
+    <div class="home-container home-next-layout">
+      <div><h2 id="home-next-heading">Start with the buyer pack.</h2><p>Sample evidence, deployment and security material, and a commercial overview. We reply by email.</p></div>
+      <a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request buyer pack <span aria-hidden="true">→</span></a>
     </div>
-  </section>
-  <section class="section alt" aria-labelledby="home-next-heading">
-    <div class="section-block next-step"><div><h2 id="home-next-heading">See whether the approach fits.</h2><p>The buyer pack explains the current product scope and available engagement. Full public stable release is being prepared and is not yet published.</p><p><span class="product-name">FL-BSA</span> supports evidence preparation; it does not certify regulatory compliance or make live lending decisions.</p></div><div><a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=home plausible-event-cta=final-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request buyer pack</a></div></div>
   </section>
 </main>
 

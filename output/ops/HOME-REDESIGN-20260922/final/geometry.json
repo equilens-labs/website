@@ -1,0 +1,166 @@
+[
+  {
+    "width": 375,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 2640,
+    "overflow": 0,
+    "mainWords": 144,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence.\nOpen to inspection.",
+        "top": 80,
+        "height": 754
+      },
+      {
+        "heading": "From simulation to review",
+        "top": 834.03125,
+        "height": 354
+      },
+      {
+        "heading": "See what a run produces.",
+        "top": 1187.59375,
+        "height": 683
+      },
+      {
+        "heading": "Start with the buyer pack.",
+        "top": 1873.0625,
+        "height": 316
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 1898,
+    "overflow": 0,
+    "mainWords": 150,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence.\nOpen to inspection.",
+        "top": 80,
+        "height": 581
+      },
+      {
+        "heading": "From simulation to review",
+        "top": 661.1875,
+        "height": 199
+      },
+      {
+        "heading": "See what a run produces.",
+        "top": 859.96875,
+        "height": 468
+      },
+      {
+        "heading": "Start with the buyer pack.",
+        "top": 1329.765625,
+        "height": 213
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 1857,
+    "overflow": 0,
+    "mainWords": 150,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence.\nOpen to inspection.",
+        "top": 80,
+        "height": 597
+      },
+      {
+        "heading": "From simulation to review",
+        "top": 677.1875,
+        "height": 173
+      },
+      {
+        "heading": "See what a run produces.",
+        "top": 850.375,
+        "height": 468
+      },
+      {
+        "heading": "Start with the buyer pack.",
+        "top": 1320.171875,
+        "height": 223
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 2968,
+    "overflow": 0,
+    "mainWords": 144,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence.\nOpen to inspection.",
+        "top": 80,
+        "height": 815
+      },
+      {
+        "heading": "From simulation to review",
+        "top": 895.390625,
+        "height": 354
+      },
+      {
+        "heading": "See what a run produces.",
+        "top": 1248.953125,
+        "height": 711
+      },
+      {
+        "heading": "Start with the buyer pack.",
+        "top": 1961.609375,
+        "height": 316
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  }
+]

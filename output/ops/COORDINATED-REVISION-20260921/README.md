@@ -1,5 +1,10 @@
 # Coordinated website revision — 21 September 2026
 
+**Homepage superseded:** the owner rejected this report's homepage composition.
+The [22 September redesign and new visual review](../HOME-REDESIGN-20260922/README.md)
+replace its homepage screenshots and design acceptance. The rest of this report
+records the September 21 implementation and checks at their original source.
+
 The revision addresses 20 of the 21 findings from the independent nine-page review. The remaining account-level analytics goal cannot be configured with the current API authority. These are branch changes awaiting founder review/merge; this report does not claim production deployment or improved conversions.
 
 Home and product now lead with the present offer and an actual sample. Contact starts with the required fields. Shared typography, contents navigation, engagement comparison, supporting pages and enquiry feedback have been revised together. Existing routes, immutable downloads, campaign routing and current product boundaries are retained.

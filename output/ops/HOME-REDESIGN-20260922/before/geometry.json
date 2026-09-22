@@ -1,0 +1,166 @@
+[
+  {
+    "width": 375,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 4532,
+    "overflow": 0,
+    "mainWords": 294,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence you can inspect.",
+        "top": 80,
+        "height": 1269
+      },
+      {
+        "heading": "Simulation with an evidence trail",
+        "top": 1348.71875,
+        "height": 915
+      },
+      {
+        "heading": "Define the question before the test.",
+        "top": 2263.5625,
+        "height": 1009
+      },
+      {
+        "heading": "See whether the approach fits.",
+        "top": 3272.984375,
+        "height": 468
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 2420,
+    "overflow": 0,
+    "mainWords": 294,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence you can inspect.",
+        "top": 80,
+        "height": 664
+      },
+      {
+        "heading": "Simulation with an evidence trail",
+        "top": 744.03125,
+        "height": 491
+      },
+      {
+        "heading": "Define the question before the test.",
+        "top": 1235.140625,
+        "height": 526
+      },
+      {
+        "heading": "See whether the approach fits.",
+        "top": 1761.25,
+        "height": 304
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 2437,
+    "overflow": 0,
+    "mainWords": 294,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence you can inspect.",
+        "top": 80,
+        "height": 699
+      },
+      {
+        "heading": "Simulation with an evidence trail",
+        "top": 778.84375,
+        "height": 497
+      },
+      {
+        "heading": "Define the question before the test.",
+        "top": 1275.578125,
+        "height": 513
+      },
+      {
+        "heading": "See whether the approach fits.",
+        "top": 1788.125,
+        "height": 335
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "errors": [],
+    "blocked": [
+      {
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+        "method": "GET"
+      }
+    ],
+    "height": 4798,
+    "overflow": 0,
+    "mainWords": 294,
+    "sections": [
+      {
+        "heading": "Fair-outcomes evidence you can inspect.",
+        "top": 80,
+        "height": 1351
+      },
+      {
+        "heading": "Simulation with an evidence trail",
+        "top": 1431.015625,
+        "height": 969
+      },
+      {
+        "heading": "Define the question before the test.",
+        "top": 2400.234375,
+        "height": 1064
+      },
+      {
+        "heading": "See whether the approach fits.",
+        "top": 3464.03125,
+        "height": 523
+      }
+    ],
+    "images": [
+      {
+        "src": "/brand/product/report-screening.png",
+        "loaded": true
+      }
+    ]
+  }
+]

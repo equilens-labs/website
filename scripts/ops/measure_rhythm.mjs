@@ -31,7 +31,7 @@ try {
           return { heading: title?.textContent, paddingTop: parseFloat(getComputedStyle(section).paddingTop), paddingBottom: parseFloat(getComputedStyle(section).paddingBottom) };
         });
         return { pageHeight: document.documentElement.scrollHeight, overflow: document.documentElement.scrollWidth - innerWidth,
-          primaryAction: box('.hero-copy .btn-primary'), sample: box('.sample-report'), name: box('#name'), email: box('#email'),
+          primaryAction: box('.hero-copy .btn-primary, .home-product-link'), sample: box('.sample-report'), name: box('#name'), email: box('#email'),
           rowWidths: [...document.querySelectorAll('.service-row')].map(row => row.getBoundingClientRect().width), sections };
       });
       const label = `${path} @ ${width}`;

@@ -1,6 +1,6 @@
 # Equilens website — design spec
 
-Current composition rules, revised 21 September 2026 following the independent
+Current composition rules, revised 22 September 2026 following the independent
 website review and owner instruction. These supersede the earlier requirement
 for identical centered cards inside alternating rounded panels. This file is
 outside the public deployment allowlist.
@@ -23,8 +23,13 @@ outside the public deployment allowlist.
 
 ## Page architecture
 
-- Home/product: buyer, job, simulation scope, action and a real sample in the
-  opening. Desktop pairs text and sample; mobile stacks in reading order.
+- Home: a brief introduction and a conceptual simulation-to-evidence diagram,
+  followed by three concise benefits, the real sample report and a buyer-pack
+  action. The opening action invites product exploration. Keep the diagram
+  explanatory: no invented metrics, customers, interface or certifications.
+  `assets/eql/home.css` isolates this composition from the reading pages.
+- Product: buyer, job, simulation scope, action and a real sample in the opening.
+  Desktop pairs text and sample; mobile stacks in reading order.
 - Product: three-step process, comparable engagement rows, bounded optional
   evaluation, deployment/context/resources and compact FAQ. Preserve published
   anchor IDs and allowlisted campaign routes.
@@ -80,5 +85,11 @@ outside the public deployment allowlist.
 Record source, checks, coverage limits and artifact hashes in
 `output/ops/COORDINATED-REVISION-20260921/`. Browser automation does not establish
 screen-reader or physical-device acceptance.
+
+The September 21 homepage was rejected by the owner as a wall of text despite
+passing automated and independent review. The homepage evidence in
+`output/ops/HOME-REDESIGN-20260922/` supersedes that visual acceptance. Evaluate
+the first impression and whole-page composition directly; passing checks and
+reduced word count do not by themselves establish good design or conversion.
 
 Navigation initializes synchronously after its baked markup and before main content is parsed, preserving initial geometry and the failed-script fallback. Page anchors initialize after parsing. Contents disclosures start closed in HTML and open only in the wide sidebar, avoiding mobile layout shifts. Keep this ordering when synchronizing markup.
