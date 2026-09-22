@@ -60,7 +60,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
-  <link rel="stylesheet" href="/assets/eql/home.css?v=20260922a">
+  <link rel="stylesheet" href="/assets/eql/home.css?v=20260922b">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql home">
@@ -91,21 +91,14 @@
         <a class="btn btn-primary home-product-link" href="/fl-bsa/">Explore FL-BSA <span aria-hidden="true">→</span></a>
         <p class="home-scope">Pre-release access by agreement.<br>No execution of customer models.</p>
       </div>
-      <div class="home-simulation" role="img" aria-label="How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.">
-        <div class="simulation-input" aria-hidden="true">
-          <div class="cohort-pattern"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <span>Synthetic cohorts</span>
-        </div>
-        <div class="simulation-connector" aria-hidden="true"></div>
-        <div class="simulation-engine" aria-hidden="true"><span class="engine-name">FL-BSA</span><span>Simulation</span></div>
-        <div class="simulation-branches" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="simulation-outputs" aria-hidden="true">
-          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-docs"></use></svg><span>Report</span></div>
-          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-simulation"></use></svg><span>Metrics</span></div>
-          <div><svg class="icon"><use href="/assets/eql/icons.svg#icon-deploy"></use></svg><span>Manifest</span></div>
-        </div>
-        <p class="simulation-caption" aria-hidden="true">One run. A traceable evidence bundle.</p>
-      </div>
+      <figure class="home-illustration">
+        <img src="/brand/product/simulation-evidence-700.webp"
+          srcset="/brand/product/simulation-evidence-700.webp 700w, /brand/product/simulation-evidence-1402.webp 1402w"
+          sizes="(max-width: 699px) calc(100vw - 40px), (max-width: 1199px) 45vw, 500px"
+          width="1402" height="1122" fetchpriority="high"
+          alt="Conceptual illustration: synthetic cohorts pass through transparent simulation layers, producing a report, metrics and a manifest.">
+        <figcaption>From synthetic inputs to inspectable evidence.</figcaption>
+      </figure>
     </div>
   </section>
 

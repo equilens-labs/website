@@ -1,5 +1,7 @@
 # Homepage redesign — 22 September 2026
 
+The shorter page composition remains in use. The owner subsequently rejected the diagram shown in this evidence; its visual acceptance is superseded by the [new homepage illustration and current captures](../HOME-ILLUSTRATION-20260922/README.md).
+
 The previous homepage was technically sound but still read as a document: six competing text blocks beside a miniature report, followed by repeated explanations. The owner rejected it. This revision makes the home a brief visual introduction and leaves detailed evaluation, deployment and procurement material on the product/support pages.
 
 The opening pairs a short proposition with a conceptual flow: synthetic cohorts → simulation → report, metrics and manifest. Its one primary action explores FL-BSA. Three concise benefits, an actual synthetic sample and a buyer-pack action complete the page. The diagram contains no invented results or application interface. Current scope, pre-release access and the existing footer boundaries remain visible.
