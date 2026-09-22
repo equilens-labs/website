@@ -60,7 +60,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
-  <link rel="stylesheet" href="/assets/eql/home.css?v=20260922b">
+  <link rel="stylesheet" href="/assets/eql/home.css?v=20260922c">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql home">
@@ -91,13 +91,40 @@
         <a class="btn btn-primary home-product-link" href="/fl-bsa/">Explore FL-BSA <span aria-hidden="true">→</span></a>
         <p class="home-scope">Pre-release access by agreement.<br>No execution of customer models.</p>
       </div>
-      <figure class="home-illustration">
-        <img src="/brand/product/simulation-evidence-700.webp"
-          srcset="/brand/product/simulation-evidence-700.webp 700w, /brand/product/simulation-evidence-1402.webp 1402w"
-          sizes="(max-width: 699px) calc(100vw - 40px), (max-width: 1199px) 45vw, 500px"
-          width="1402" height="1122" fetchpriority="high"
-          alt="Conceptual illustration: synthetic cohorts pass through transparent simulation layers, producing a report, metrics and a manifest.">
-        <figcaption>From synthetic inputs to inspectable evidence.</figcaption>
+      <figure class="home-evidence" aria-labelledby="example-heading">
+        <div class="evidence-sheet">
+          <div class="evidence-kicker"><span>Synthetic demo</span><span>10,000 records</span></div>
+          <h2 id="example-heading">Approval rates by group</h2>
+          <dl class="evidence-chart">
+            <div class="evidence-chart-row">
+              <dt><span>Female</span><strong>36.4%</strong></dt>
+              <dd>
+                <svg viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect class="chart-track" width="100" height="6" rx=".6"></rect>
+                  <rect class="chart-bar" width="36.365458" height="6" rx=".6"></rect>
+                  <path class="chart-interval" d="M35.041810 3H37.710079 M35.041810 1V5 M37.710079 1V5"></path>
+                </svg>
+                <span class="sr-only">95% confidence interval: 35.0% to 37.7%.</span>
+              </dd>
+            </div>
+            <div class="evidence-chart-row">
+              <dt><span>Male</span><strong>56.0%</strong></dt>
+              <dd>
+                <svg viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect class="chart-track" width="100" height="6" rx=".6"></rect>
+                  <rect class="chart-bar" width="55.959273" height="6" rx=".6"></rect>
+                  <path class="chart-interval" d="M54.580412 3H57.329001 M54.580412 1V5 M57.329001 1V5"></path>
+                </svg>
+                <span class="sr-only">95% confidence interval: 54.6% to 57.3%.</span>
+              </dd>
+            </div>
+          </dl>
+          <div class="chart-axis" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+          <p class="chart-key">Markers show 95% confidence intervals.</p>
+          <div class="evidence-finding"><strong>19.6</strong><span>percentage-point gap<br><small>Female rate is lower.</small></span></div>
+          <div class="evidence-output"><svg class="icon" aria-hidden="true"><use href="/assets/eql/icons.svg#icon-docs"></use></svg><div><strong>Inspect the evidence behind it</strong><span>Report · Metrics · Manifest</span></div></div>
+        </div>
+        <figcaption><a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=hero-example plausible-event-asset=demo-gold-pack-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip">Inspect demo evidence <span class="evidence-download">(ZIP, ~4 MB)</span> <span aria-hidden="true">↗</span></a><span>Public gender-bias demo · June 2026</span></figcaption>
       </figure>
     </div>
   </section>
@@ -117,12 +144,12 @@
     <div class="home-container home-proof-layout">
       <a class="home-report-preview plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=sample-preview plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic sample report, PDF, in a new tab">
         <img src="/brand/product/report-screening.png" alt="Screening decision and dataset overview from the synthetic demo report" width="619" height="800" loading="lazy">
-        <span>Synthetic demo report <span aria-hidden="true">↗</span></span>
+        <span>Balanced synthetic demo report <span aria-hidden="true">↗</span></span>
       </a>
       <div class="home-proof-copy">
         <p class="eyebrow">See the output</p>
         <h2 id="sample-heading">See what a run produces.</h2>
-        <p>Open a real sample report, then explore the methodology and verification steps behind it.</p>
+        <p>Open the balanced demo report, then explore the methodology and verification steps behind it.</p>
         <a class="home-text-link plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-cta=sample-link plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Open sample report <span aria-hidden="true">↗</span></a>
         <p class="home-file-meta">Synthetic demo · PDF · 16 pages · 246 KB</p>
         <div class="home-resource-links"><a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=home plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Technical whitepaper <span aria-hidden="true">→</span></a><a class="plausible-event-name=Security+Pack+Click plausible-event-surface=home plausible-event-intent=security-pack" href="/trust-center/">Trust Center <span aria-hidden="true">→</span></a></div>

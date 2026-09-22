@@ -1,0 +1,75 @@
+{
+  "created": "2026-09-22T09:30:37.038454+00:00",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 13115,
+      "sha256": "ed57f162acf6f04bed88d74b08fa61fd0ea6c05fc92e3381a5d02a7714693003"
+    },
+    {
+      "path": "assets/eql/home.css",
+      "bytes": 9517,
+      "sha256": "30f8d5d9ad731fd28eb3673719fdb03f0493b1e6a5b1c4e9aa2b8cb6e189b346"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/source-data.json",
+      "bytes": 2748,
+      "sha256": "a8aba00fbe2f81543aad40c792d6b7110fbf5551375085bed0819ec8ec9f8ca1"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/render-checks.cjs",
+      "bytes": 7421,
+      "sha256": "80a12b19daab206e244a72bbcad757d2b1cb5f997f065b67c82066cde1669f2e"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/render-checks.json",
+      "bytes": 14885,
+      "sha256": "1d84ab0aa59b42c97073599199ea1e6e2135958452c3b7e91418bf6cc93f2522"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/independent-data-review.md",
+      "bytes": 1368,
+      "sha256": "2d30ea4884ad1b0ac929fafeb8d493896dd2f3cc5436caecca0e17de6929ff77"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-1280-full.png",
+      "bytes": 255175,
+      "sha256": "fe19c7d67e3e117fb6305ee4963a0d7534210f07f5ed1c537577379520cea6d0"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-1280-viewport.png",
+      "bytes": 125321,
+      "sha256": "ebf6c3fc2d1fd6ff4a2f16ad270934cc352050438e09e494959ecd5e235cd4a1"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-320-full.png",
+      "bytes": 219149,
+      "sha256": "bfc5454e062591de63ab3884ae429d4fc71d9f11cc28ccc78a1ad8f12b38cd77"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-320-viewport.png",
+      "bytes": 59443,
+      "sha256": "151dc5e786338cef1c83c18d3876d8925e6d2c9e25dd50860d6e2f55ac500810"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-375-full.png",
+      "bytes": 217104,
+      "sha256": "30a8ef4806bd267dd647521e2cea516c7d8bad0df8801f6be2acc4945bef9cbf"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-375-viewport.png",
+      "bytes": 65811,
+      "sha256": "c82f0e0314e7ad33fe55fa93a1cbc724f3956ceb80abbbfc92d9242d731dfe12"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-768-full.png",
+      "bytes": 234601,
+      "sha256": "dce1898f2f38ee9f515b0da054ef5b8e81ffda3bb0b5f8df3a46ae439c6a6691"
+    },
+    {
+      "path": "output/ops/HOME-EXPLAINER-20260922/home-768-viewport.png",
+      "bytes": 110353,
+      "sha256": "f061e5bdc673c7fcdbf11cb5861ed00cb3be3439a2f76f37131de869cf3dc893"
+    }
+  ]
+}

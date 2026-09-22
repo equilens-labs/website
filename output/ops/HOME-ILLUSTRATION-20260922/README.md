@@ -1,5 +1,7 @@
 # Homepage illustration revision — 22 September 2026
 
+Superseded: the owner liked this visual style but found the illustration uninformative. The homepage now uses a [concrete synthetic-demo evidence illustration](../HOME-EXPLAINER-20260922/README.md). This directory preserves the earlier art and its provenance, not current design acceptance.
+
 The owner accepted the shorter homepage direction but rejected its box-and-connector illustration. This revision replaces that diagram with a commissioned AI-generated conceptual illustration. Synthetic cohort markers pass through transparent planes held by indigo brackets; report, metrics and manifest motifs form the evidence bundle. The white background integrates with the existing page. The illustration is conceptual, not a hardware photograph, application screenshot or evidence of measured results.
 
 Generated with the built-in `image_gen` tool. The complete production prompt is [prompt.txt](prompt.txt). The original generated PNG is retained at the source path recorded in [manifest.json](manifest.json). Two responsive WebP assets are stored in `brand/product/`, encoded with `cwebp -q 86 -m 6`; the smaller variant additionally uses `-resize 700 0`. No semantic editing or compositing followed generation. Source, asset and page checksums are in the manifest.
