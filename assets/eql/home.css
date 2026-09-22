@@ -12,38 +12,11 @@
 .home .home-product-link { gap: 1.5rem; }
 .home-scope { font-size: 1rem; color: var(--text-secondary); margin: 1rem 0 0; }
 
-/* Public synthetic-demo values, shown as evidence rather than a product UI.
-   Provenance and rounding: output/ops/HOME-EXPLAINER-20260922/. */
-.home-evidence { min-width: 0; margin: 0; padding: .5rem .625rem 0 0; }
-.evidence-sheet { padding: 1.75rem; border: 1px solid #dce0f0; border-radius: .875rem; background: #fff; box-shadow: 8px 8px 0 #f0effa, 8px 8px 0 1px #e3e1f2, 0 16px 40px #29235c0b; }
-.evidence-kicker { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .375rem 1rem; color: var(--text-secondary); font-size: .75rem; line-height: 1.5; }
-.evidence-kicker > span:first-child { color: var(--color-primary-text); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.evidence-sheet h2 { margin: 1rem 0 1.5rem; font-size: 1.375rem; line-height: 1.25; font-weight: 600; letter-spacing: -.025em; }
-.evidence-chart { margin: 0; }
-.evidence-chart-row + .evidence-chart-row { margin-top: 1.125rem; }
-.evidence-chart-row dt { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1rem; margin-bottom: .5rem; font-size: .9375rem; line-height: 1.4; }
-.evidence-chart-row dt strong { font-family: var(--font-mono); font-size: .875rem; font-weight: 500; }
-.evidence-chart-row dd { margin: 0; }
-.evidence-chart-row svg { display: block; width: 100%; height: 1.25rem; overflow: visible; }
-.chart-track { fill: #f1f2f7; }
-.chart-bar { fill: #8a78d8; }
-.chart-interval { fill: none; stroke: #201854; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.chart-axis { display: flex; justify-content: space-between; margin-top: .5rem; font-family: var(--font-mono); font-size: .6875rem; line-height: 1.4; color: var(--text-secondary); }
-.chart-key { margin: .625rem 0 0; font-size: .75rem; line-height: 1.5; color: var(--text-secondary); }
-.evidence-finding { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1.125rem; padding: 1.25rem 0; margin-top: 1.25rem; border-top: 1px solid var(--border-default); }
-.evidence-finding > strong { font-size: 3.25rem; font-weight: 600; letter-spacing: -.06em; line-height: 1; color: var(--color-primary-text); }
-.evidence-finding > span { font-size: .9375rem; line-height: 1.5; }
-.evidence-finding small { font-size: .8125rem; color: var(--text-secondary); }
-.evidence-output { display: flex; align-items: center; gap: .875rem; padding-top: 1rem; border-top: 1px solid var(--border-default); }
-.evidence-output .icon { width: 1.5rem; height: 1.5rem; margin: 0; flex-shrink: 0; color: var(--color-primary-text); }
-.evidence-output strong, .evidence-output span { display: block; font-size: .8125rem; line-height: 1.5; }
-.evidence-output strong { font-weight: 500; }
-.evidence-output span { margin-top: .125rem; color: var(--text-secondary); }
-.home-evidence figcaption { margin-top: 1.25rem; text-align: center; font-size: .8125rem; line-height: 1.5; }
-.home-evidence figcaption a { display: inline-block; padding-block: .5rem; color: var(--color-primary-text); text-decoration: underline; text-underline-offset: 3px; }
-.home-evidence figcaption a::after { display: none; }
-.evidence-download { white-space: nowrap; }
-.home-evidence figcaption > span { display: block; margin-top: .125rem; color: var(--text-secondary); font-size: .75rem; }
+/* Narrative illustration: synthetic borrowers, comparison, evidence. */
+.home-story { min-width: 0; margin: 0; container: story / inline-size; }
+.home-story img { display: block; width: 100%; height: auto; }
+.home-story figcaption { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: .75rem; margin: 1rem 0 0; color: var(--text-secondary); font-size: .875rem; line-height: 1.5; text-align: center; }
+.home-story figcaption span { min-width: 0; text-wrap: balance; }
 
 .home-benefits { padding: 0 0 3.5rem; }
 .home-benefit-grid { border-top: 1px solid var(--border-default); padding-top: 2rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
@@ -90,7 +63,7 @@
   .home-intro h1 { font-size: clamp(2.25rem, 9.8vw, 2.75rem); }
   .home-lead { font-size: 1rem; margin: 1.25rem 0; }
   .home-scope { line-height: 1.5; }
-  .evidence-sheet { padding: 1.25rem; }
+  .home-story figcaption { font-size: .8125rem; gap: .5rem; }
   .home-benefits { padding: 0 0 2rem; }
   .home-benefit-grid { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
   .home-benefit-grid article { gap: 1rem; }
@@ -119,4 +92,7 @@
 }
 @container home-footer (max-width: 22.4375rem) {
   .home .site-footer .grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); }
+}
+@container story (max-width: 16rem) {
+  .home-story figcaption { grid-template-columns: minmax(0, 1fr); gap: .375rem; }
 }

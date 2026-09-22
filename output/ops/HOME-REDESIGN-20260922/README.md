@@ -1,6 +1,6 @@
 # Homepage redesign — 22 September 2026
 
-The shorter page composition remains in use. The owner subsequently rejected the diagram shown in this evidence; its visual acceptance is superseded by the [current synthetic-demo evidence illustration and captures](../HOME-EXPLAINER-20260922/README.md).
+The shorter page composition remains in use. The owner subsequently rejected the diagram shown in this evidence; its visual acceptance is superseded by the [current narrative illustration and captures](../HOME-NARRATIVE-20260922/README.md).
 
 The previous homepage was technically sound but still read as a document: six competing text blocks beside a miniature report, followed by repeated explanations. The owner rejected it. This revision makes the home a brief visual introduction and leaves detailed evaluation, deployment and procurement material on the product/support pages.
 

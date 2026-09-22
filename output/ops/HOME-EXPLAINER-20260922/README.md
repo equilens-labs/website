@@ -1,5 +1,7 @@
 # Homepage evidence illustration — 22 September 2026
 
+Superseded: the owner rejected this analytical panel as the wrong form for a homepage hero. Correct data and readable charts did not satisfy the illustration request. The current result is the [narrative illustration](../HOME-NARRATIVE-20260922/README.md).
+
 The owner liked the light indigo visual style but found the generated sculpture uninformative. The hero now explains a concrete product use: comparing approval rates across synthetic groups, exposing their gap, and inspecting the evidence behind it. It keeps the white surface, indigo accents and subtle paper depth. Its text and chart are native HTML/SVG/CSS, without raster labels, animation or added JavaScript. This is an editorial explanation of a published demo, not an invented application interface.
 
 ## Source and interpretation
