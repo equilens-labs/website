@@ -1,7 +1,6 @@
 // Contact form: posts to the EU form endpoint (Formspark, EEA-hosted); no cookies.
-// Fallback path: direct email. Analytics: 'Contact Form Submit' fires on the submit
-// event (attempt counter, tagged classes on the form); 'Enquiry Submitted' fires
-// client-side only after an HTTP 2xx from the endpoint (server-confirmed conversion).
+// Attempts are counted after validation and the honeypot guard. Acceptance is
+// counted only after HTTP 2xx; it does not establish inbox delivery.
 (function initContactForm() {
   var FORM_ENDPOINT = 'https://submit-form.com/iraaHLvvM';
 
@@ -32,9 +31,9 @@
       'Guided Pilot Access': 'Guided pre-release access',
     };
     const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
-    const hasSingleMatchingInterest =
-      matchedCampaign &&
-      window.eqlCampaignRouting.getSingleParam(params, 'interest') === matchedCampaign.interest;
+    const singleInterest = window.eqlCampaignRouting?.getSingleParam(params, 'interest');
+    const hasSingleMatchingInterest = matchedCampaign &&
+      (singleInterest === matchedCampaign.interest || singleInterest === 'Procurement Pack');
     const campaignRoute = hasSingleMatchingInterest ? matchedCampaign : null;
 
     if (interestParam && interestField) {
@@ -50,12 +49,24 @@
 
     const statusEl = document.getElementById('form-status');
     const submitButton = form.querySelector('button[type="submit"]');
+    let inFlight = false;
+    const context = document.getElementById('request-context');
+    if (context && interestField?.value === 'Procurement Pack') {
+      context.textContent = 'Request the buyer pack. We will reply with sample evidence, deployment and security material, and a commercial overview. Only name and email are required.';
+    }
+
+    function track(event) {
+      if (typeof window.plausible === 'function') {
+        window.plausible(event, { props: { surface: 'contact', cta: 'form-submit' } });
+      }
+    }
 
     function fieldValue(id) {
       return document.getElementById(id)?.value || '';
     }
 
     function buildSubject(interest, displayInterest) {
+      if (campaignRoute && interest === 'Procurement Pack') return campaignRoute.packSubject;
       return campaignRoute && interest === campaignRoute.interest
         ? campaignRoute.subject
         : interest
@@ -88,6 +99,7 @@
 
     form.addEventListener('submit', function onSubmit(e) {
       e.preventDefault();
+      if (inFlight || !form.reportValidity()) return;
 
       const honeypot = fieldValue('hp-field');
       const name = fieldValue('name');
@@ -116,10 +128,22 @@
       if (displayInterest) lines.push('Interest: ' + displayInterest);
       if (message) lines.push('', message);
 
-      if (submitButton) submitButton.disabled = true;
-      if (statusEl) statusEl.hidden = true;
+      inFlight = true;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+      }
+      showStatus('Sending your message…');
+      track('Contact Form Submit');
+      const controller = new AbortController();
+      let timedOut = false;
+      const timeout = setTimeout(function () {
+        timedOut = true;
+        controller.abort();
+      }, 15000);
 
       fetch(FORM_ENDPOINT, {
+        signal: controller.signal,
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -139,18 +163,24 @@
           form.reset();
           showStatus('Thanks. Your message has been sent; we reply by email.');
           if (submitButton) submitButton.textContent = 'Sent';
-          if (typeof window.plausible === 'function') {
-            window.plausible('Enquiry Submitted', {
-              props: { surface: 'contact', cta: 'form-submit' },
-            });
-          }
+          track('Enquiry Submitted');
         })
-        .catch(function () {
-          if (submitButton) submitButton.disabled = false;
+        .catch(function (error) {
+          inFlight = false;
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send message';
+          }
+          const rejected = error.message.startsWith('HTTP ');
           showStatus(
-            'Sending failed. Please email us directly at',
+            timedOut || !rejected
+              ? 'We could not confirm delivery. Your message may have arrived; we have not sent it again. You can contact us directly at'
+              : 'The form service did not accept your message. Your entries are preserved. Please try again or email us at',
             buildMailto(subject, lines)
           );
+        })
+        .finally(function () {
+          clearTimeout(timeout);
         });
     });
   }
