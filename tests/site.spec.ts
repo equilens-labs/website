@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, type Page, test } from '@playwright/test';
+import { expect, type Page, test as baseTest } from '@playwright/test';
 import { execFileSync } from 'child_process';
 import fs from 'fs';
 import os from 'os';
@@ -9,6 +9,36 @@ type PageEntry = { path: string; slug: string };
 type AnchorEntry = { url: string; slug: string };
 
 const root = path.resolve(__dirname, '..');
+// The audit is local-only even when invoked directly rather than through npm test.
+// Install this before the test receives its Page, so no initial navigation can
+// reach a real form, analytics collector, or other external service.
+const test = baseTest.extend({
+  page: async ({ page, context, baseURL }, use, testInfo) => {
+    const origin = new URL(baseURL || 'http://localhost:8000');
+    if (origin.protocol !== 'http:' || !['localhost', '127.0.0.1', '[::1]'].includes(origin.hostname)) {
+      throw new Error(`Website tests require a loopback HTTP server, received ${origin.origin}`);
+    }
+    const receipt = { localReads: 0, blockedExternal: 0, blockedWrites: 0, externalPassThrough: 0 };
+    await context.route('**/*', async (route) => {
+      const request = route.request();
+      const url = new URL(request.url());
+      if (url.origin === origin.origin && ['GET', 'HEAD'].includes(request.method())) {
+        receipt.localReads += 1;
+        await route.continue();
+      } else if (url.protocol === 'data:' || url.protocol === 'blob:') {
+        await route.continue();
+      } else {
+        if (!['GET', 'HEAD'].includes(request.method())) receipt.blockedWrites += 1;
+        else receipt.blockedExternal += 1;
+        await route.abort('blockedbyclient');
+      }
+    });
+    await use(page);
+    await testInfo.attach('local-network-boundary', {
+      body: JSON.stringify(receipt, null, 2), contentType: 'application/json',
+    });
+  },
+});
 const configPath = path.join(root, 'config', 'tests', 'playwright-pages.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf-8')) as {
   pages: PageEntry[];
@@ -99,10 +129,47 @@ const flbsaRedirectMetadata = [
 async function stubPlausible(page: Page) {
   await page.route('https://plausible.io/**', async (route) => {
     await route.fulfill({
-      status: 204,
-      body: '',
+      status: 200,
+      contentType: 'application/javascript',
+      body: `window.__auditEvents = [];
+        window.plausible = (name, options) => window.__auditEvents.push({name, props: options?.props || {}});
+        // Model the documented tagged-form integration as well as direct calls,
+        // so leaving the old form tag in place exposes duplicate/bot attempts.
+        document.addEventListener('submit', (event) => {
+          const tag = [...event.target.classList].find(c => c.startsWith('plausible-event-name='));
+          if (tag) window.plausible(tag.split('=').slice(1).join('=').replaceAll('+', ' '));
+        });`,
     });
   });
+}
+
+async function mockForm(page: Page, status = 200) {
+  const requests: Record<string, unknown>[] = [];
+  await page.route('https://submit-form.com/**', async (route) => {
+    const request = route.request();
+    if (request.method() === 'POST') requests.push(request.postDataJSON());
+    await route.fulfill({
+      status: request.method() === 'OPTIONS' ? 204 : status,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type,Accept',
+        'Access-Control-Allow-Methods': 'POST,OPTIONS',
+      },
+      contentType: 'application/json', body: request.method() === 'OPTIONS' ? '' : '{}',
+    });
+  });
+  return requests;
+}
+
+async function fillRequiredContactFields(page: Page) {
+  await page.locator('#name').fill('Local audit fixture');
+  await page.locator('#email').fill('audit@example.invalid');
+}
+
+async function recordedEvents(page: Page) {
+  return page.evaluate(() => (window as unknown as {
+    __auditEvents: { name: string; props: Record<string, string> }[];
+  }).__auditEvents);
 }
 
 type CapturedSubmission = {
@@ -111,13 +178,12 @@ type CapturedSubmission = {
 };
 
 async function submitAndReadSubmission(page: Page): Promise<CapturedSubmission> {
-  // CI must never reach the real endpoint (the branch ships a placeholder form id),
-  // so the Formspark origin is always stubbed before submitting.
+  // The real form endpoint is blocked by the context fixture; supply a local response.
   await page.route('https://submit-form.com/**', async (route) => {
     await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
   });
-  await page.locator('#name').fill('Measurement test');
-  await page.locator('#email').fill('measurement.test@example.com');
+  await page.locator('#name').fill('Local audit fixture');
+  await page.locator('#email').fill('audit@example.invalid');
   const [request] = await Promise.all([
     page.waitForRequest(
       (candidate) =>
@@ -276,7 +342,7 @@ test.describe('Equilens site surfaces', () => {
     expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
     expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
     expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
-    expect(contact).toContain('<body class="eql">');
+    expect(contact).toContain('<body class="eql contact-page">');
     expect(contact).not.toContain('<body class="eql landing">');
   });
 
@@ -318,16 +384,17 @@ test.describe('Equilens site surfaces', () => {
 
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto('/contact/', { waitUntil: 'networkidle' });
-    // The contact heading now uses the one documented panel-h2 scale
-    // (40px/600 at desktop) instead of a page-local 24px card size.
-    const contactHeadingStyle = await page.locator('.section-block h2').evaluate((element) => {
+    // Contact starts with its page heading and required inputs at every width.
+    const contactHeadingStyle = await page.locator('#contact-form-heading').evaluate((element) => {
       const style = getComputedStyle(element);
       return {
         fontSize: style.fontSize,
         fontWeight: style.fontWeight,
       };
     });
-    expect(contactHeadingStyle).toEqual({ fontSize: '40px', fontWeight: '600' });
+    expect(parseFloat(contactHeadingStyle.fontSize)).toBeGreaterThanOrEqual(32);
+    expect(parseFloat(contactHeadingStyle.fontSize)).toBeLessThanOrEqual(48);
+    expect(contactHeadingStyle.fontWeight).toBe('700');
   });
 
   test('Tier 3 token and CTA polish stays in place', async () => {
@@ -410,7 +477,7 @@ test.describe('Equilens site surfaces', () => {
     expect(flbsa).toContain('EU AI Act Article 4a');
     expect(flbsa).toContain('including synthetic or anonymised data');
     expect(flbsa).toContain('full public stable release');
-    expect(flbsa).toContain('That optional engagement is not the release programme');
+    expect(flbsa).toContain('This optional engagement is not the release programme');
     expect(flbsa).toContain('Public release and current access');
     expect(flbsa.indexOf('id="pricing"')).toBeLessThan(
       flbsa.indexOf('id="controlled-pilot"'),
@@ -571,6 +638,55 @@ test.describe('Equilens site surfaces', () => {
     );
   });
 
+  test('current EU4 and UK campaigns retain their identity without changing buyer-pack intent', async ({ page }) => {
+    await stubPlausible(page);
+    for (const campaign of [
+      { region: 'EU4', route: 'linkedin-flbsa-eu4-pilot-202609', name: 'flbsa_eu4_pilot_202609', content: 'single_image_v4' },
+      { region: 'UK', route: 'linkedin-flbsa-uk-pilot-202609', name: 'flbsa_uk_pilot_202609', content: 'single_image_uk_a' },
+    ]) {
+      const tags = new URLSearchParams({ route: campaign.route, utm_source: 'linkedin',
+        utm_medium: 'paid-social', utm_campaign: campaign.name, utm_content: campaign.content });
+      const landing = '/fl-bsa/?' + tags + '#controlled-pilot';
+      await page.goto(landing, { waitUntil: 'networkidle' });
+      for (const cta of ['hero-primary', 'pricing-primary', 'final-primary']) {
+        const href = await page.locator(`a[class*="plausible-event-cta=${cta}"]`).getAttribute('href');
+        const destination = new URL(href!, 'http://localhost');
+        expect(destination.pathname).toBe('/contact/');
+        expect(destination.searchParams.get('interest')).toBe('Procurement Pack');
+        for (const [name, value] of tags) expect(destination.searchParams.get(name)).toBe(value);
+      }
+      const navHref = await page.locator('nav a.nav-link').filter({ hasText: /^Contact$/ }).first().getAttribute('href');
+      expect(new URL(navHref!, 'http://localhost').searchParams.get('route')).toBe(campaign.route);
+      // A different offer stays a different offer.
+      await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+        'href', '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness');
+      await page.locator('a[class*="plausible-event-cta=hero-primary"]').click();
+      await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
+      await expect(page.locator('#message')).toHaveValue(/Please send the FL-BSA buyer and procurement pack/);
+      const pack = await submitAndReadSubmission(page);
+      expect(pack.subject).toBe(`FL-BSA enquiry: Procurement Pack — LinkedIn ${campaign.region} Sep 2026`);
+      expect(pack.payload.interest).toBe('Procurement Pack');
+
+      await page.goto(landing, { waitUntil: 'networkidle' });
+      await page.locator('[data-campaign-contact="controlled-pilot"]').click();
+      await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+      expect(await submitAndReadSubject(page)).toBe(`FL-BSA enquiry: Optional evaluation — LinkedIn ${campaign.region} Sep 2026`);
+    }
+  });
+
+  test('UK campaign identity rejects mismatched and duplicated tags on landing and contact', async ({ page }) => {
+    await stubPlausible(page);
+    const exact = 'route=linkedin-flbsa-uk-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_uk_pilot_202609&utm_content=single_image_uk_a';
+    for (const invalid of [exact.replace('single_image_uk_a', 'single_image_v4'),
+      exact + '&utm_campaign=flbsa_uk_pilot_202609', exact.replace('utm_source=linkedin', 'utm_source=direct')]) {
+      await page.goto('/fl-bsa/?' + invalid + '#controlled-pilot', { waitUntil: 'networkidle' });
+      await expect(page.locator('[data-campaign-contact="controlled-pilot"]')).toHaveAttribute(
+        'href', '/contact/?interest=Controlled%20FL-BSA%20Pilot');
+      await page.goto('/contact/?interest=Procurement%20Pack&' + invalid, { waitUntil: 'networkidle' });
+      expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Procurement Pack');
+    }
+  });
+
   test('malformed or changed campaign routes fall back to generic email subjects', async ({ page }) => {
     await stubPlausible(page);
     const genericSubject =
@@ -623,13 +739,14 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
-    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260909a');
-    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260904a');
-    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260909a');
-    expect(contact).toContain('/assets/eql/contact.js?v=20260921b');
+    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260922a');
+    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260922a');
+    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260922a');
+    expect(contact).toContain('/assets/eql/contact.js?v=20260922a');
     expect(trackedHtml).not.toContain('plausible-event-message=');
     expect(trackedHtml).not.toContain('plausible-event-route=');
-    expect(contact).toContain('plausible-event-name=Contact+Form+Submit');
+    expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
+    expect(fs.readFileSync(path.join(root, 'assets/eql/contact.js'), 'utf-8')).toContain("track('Contact Form Submit')");
     expect(legal).toContain('selected static CTA/custom-event labels');
     expect(legal).toContain('count contact-form submissions as an anonymous event without collecting or transmitting form contents');
   });
@@ -863,6 +980,92 @@ test.describe('Equilens site surfaces', () => {
 
     await expect(page.locator('#interest')).toHaveValue('Security Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
+  });
+
+  test('valid accepted forms produce one attempt and one accepted event without personal fields', async ({ page }) => {
+    await stubPlausible(page);
+    const requests = await mockForm(page);
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await fillRequiredContactFields(page);
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toContainText(/sent|received/i);
+    await expect(page.locator('button[type="submit"]')).toBeDisabled();
+    await expect.poll(() => requests.length).toBe(1);
+    await expect.poll(async () => (await recordedEvents(page)).map(event => event.name))
+      .toEqual(['Contact Form Submit', 'Enquiry Submitted']);
+    const events = JSON.stringify(await recordedEvents(page));
+    expect(events).not.toContain('audit@example.invalid');
+    expect(events).not.toContain('Local audit fixture');
+    expect(events).not.toMatch(/"(?:email|organisation|message|name-field)"\s*:/);
+    await expect(page.locator('#name')).toHaveValue('');
+  });
+
+  test('rejected forms preserve input and expose an email fallback without an accepted event', async ({ page }) => {
+    await stubPlausible(page);
+    const requests = await mockForm(page, 503);
+    await page.goto('/contact/?interest=Security%20Pack', { waitUntil: 'networkidle' });
+    await fillRequiredContactFields(page);
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toContainText(/did not accept|failed|could not|unable/i);
+    await expect(page.locator('button[type="submit"]')).toBeEnabled();
+    await expect(page.locator('#name')).toHaveValue('Local audit fixture');
+    await expect(page.locator('#email')).toHaveValue('audit@example.invalid');
+    await expect(page.locator('#form-status a')).toHaveAttribute('href', /^mailto:hello@equilens\.io\?subject=/);
+    expect(requests).toHaveLength(1);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
+  });
+
+  test('honeypot and native-invalid forms produce neither requests nor conversion events', async ({ page }) => {
+    await stubPlausible(page);
+    const requests = await mockForm(page);
+    await page.goto('/contact/', { waitUntil: 'networkidle' });
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#name')).toBeFocused();
+    expect(requests).toHaveLength(0);
+    expect(await recordedEvents(page)).toEqual([]);
+    await fillRequiredContactFields(page);
+    await page.locator('#hp-field').evaluate((element: HTMLInputElement) => { element.value = 'local-bot-fixture'; });
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toBeVisible();
+    expect(requests).toHaveLength(0);
+    expect(await recordedEvents(page)).toEqual([]);
+  });
+
+  test('pending forms show progress then uncertain delivery without automatic retry', async ({ page }) => {
+    await stubPlausible(page);
+    await page.clock.install();
+    let posts = 0;
+    await page.route('https://submit-form.com/**', async route => {
+      if (route.request().method() === 'OPTIONS') {
+        await route.fulfill({ status: 204, headers: {
+          'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type,Accept',
+          'Access-Control-Allow-Methods': 'POST,OPTIONS',
+        } });
+      } else {
+        posts += 1;
+        // Deliberately keep the local intercepted POST unresolved.
+      }
+    });
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await fillRequiredContactFields(page);
+    await Promise.all([
+      page.waitForRequest(request => request.url().startsWith('https://submit-form.com/') && request.method() === 'POST'),
+      page.locator('button[type="submit"]').click(),
+    ]);
+    await expect(page.locator('#form-status')).toContainText(/sending/i);
+    await expect(page.locator('button[type="submit"]')).toBeDisabled();
+    expect(await page.locator('#form-status').evaluate(element =>
+      element.closest('[aria-busy="true"]') === null,
+    )).toBe(true);
+    await page.clock.fastForward(15_001);
+    await expect(page.locator('#form-status')).toContainText(/confirm|uncertain|taking longer/i);
+    await expect(page.locator('button[type="submit"]')).toBeEnabled();
+    await expect(page.locator('#name')).toHaveValue('Local audit fixture');
+    await expect(page.locator('#email')).toHaveValue('audit@example.invalid');
+    await expect(page.locator('#form-status a')).toHaveAttribute('href', /^mailto:/);
+    await page.clock.fastForward(60_000);
+    expect(posts).toBe(1);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
   });
 
   test('contact query parameters prefill procurement pack enquiry', async ({ page }) => {
