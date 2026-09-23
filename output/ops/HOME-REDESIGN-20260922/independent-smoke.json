@@ -1,0 +1,399 @@
+{
+  "started": "2026-09-22T07:33:14.658Z",
+  "origin": "http://127.0.0.1:8765",
+  "cases": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 320,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 280,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 320,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 240,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 375,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 335,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 375,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 295,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 699,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 659,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 699,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 619,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 700,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 296.234375,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 700,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 620,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 768,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 328.3125,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 768,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 688,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 1280,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 498.125,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.53",
+      "width": 1280,
+      "fontPercent": 200,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 1200,
+      "rootFontSize": "32px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": null
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 375,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 335,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "firefox",
+      "version": "142.0.1",
+      "width": 1280,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 498.1166687011719,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 375,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 335,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.0",
+      "width": 1280,
+      "fontPercent": 100,
+      "status": 200,
+      "overflow": 0,
+      "diagramOverflow": 0,
+      "diagramWidth": 498.125,
+      "rootFontSize": "16px",
+      "h1s": 1,
+      "mains": 1,
+      "missingImages": [],
+      "diagramName": "How FL-BSA works: synthetic cohorts feed a simulation, producing a report, metrics and a manifest for review.",
+      "metadata": "Explore synthetic credit-decision patterns with FL-BSA, a self-hosted simulation appliance. Review sample evidence and request current pre-release availability.",
+      "canonical": "https://equilens.io/",
+      "pageErrors": [],
+      "axeViolations": []
+    }
+  ],
+  "interactions": [
+    "Keyboard product CTA reaches /fl-bsa/",
+    "Buyer pack CTA reaches contact with Procurement Pack selected; no fields entered or form submitted",
+    "No-JavaScript mobile primary Contact link works"
+  ],
+  "network": {
+    "localReads": 255,
+    "blocked": [
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"
+      }
+    ]
+  },
+  "errors": [],
+  "finished": "2026-09-22T07:33:32.368Z",
+  "passed": true
+}

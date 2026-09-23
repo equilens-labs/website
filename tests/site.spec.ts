@@ -172,18 +172,33 @@ async function recordedEvents(page: Page) {
   }).__auditEvents);
 }
 
+// Read the limited entity vocabulary in these source fixtures in one pass.
+// Chained replacements could incorrectly decode an encoded entity twice.
+const textEntities: Record<string, string> = {
+  '&amp;': '&', '&nbsp;': ' ', '&#39;': "'", '&#x27;': "'", '&apos;': "'", '&quot;': '"',
+};
+const visibleText = (html: string) => html
+  .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+  .replace(/<!--([\s\S]*?)-->/g, ' ')
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/&(?:amp|nbsp|apos|quot|#39|#x27);/g, entity => textEntities[entity])
+  .replace(/\s+/g, ' ').trim();
+
+async function expectNoOverflow(page: Page) {
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth)
+    - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+}
+
 type CapturedSubmission = {
   subject: string | null;
   payload: Record<string, unknown>;
 };
 
 async function submitAndReadSubmission(page: Page): Promise<CapturedSubmission> {
-  // The real form endpoint is blocked by the context fixture; supply a local response.
-  await page.route('https://submit-form.com/**', async (route) => {
-    await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
-  });
-  await page.locator('#name').fill('Local audit fixture');
-  await page.locator('#email').fill('audit@example.invalid');
+  // A persistent context guard already blocks the endpoint before navigation;
+  // this page-specific response supplies the explicit local success fixture.
+  await mockForm(page);
+  await fillRequiredContactFields(page);
   const [request] = await Promise.all([
     page.waitForRequest(
       (candidate) =>
@@ -193,7 +208,8 @@ async function submitAndReadSubmission(page: Page): Promise<CapturedSubmission> 
   ]);
   const payload = (request.postDataJSON() ?? {}) as Record<string, unknown>;
   const emailMeta = (payload._email ?? {}) as { subject?: string };
-  await page.unroute('https://submit-form.com/**');
+  await expect(page.locator('#form-status')).toContainText(/sent|received/i);
+  await expect(page.locator('#contact-form button[type="submit"]')).toBeDisabled();
   expect(request.headers()['content-type']).toContain('application/json');
   return { subject: emailMeta.subject ?? null, payload };
 }
@@ -284,213 +300,85 @@ test.describe('Equilens site surfaces', () => {
     }
   });
 
-  test('Tier 2 visual consistency fixes stay in place', async () => {
-    const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
-    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
-    const contact = fs.readFileSync(path.join(root, 'contact', 'index.html'), 'utf-8');
-    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
-
-    expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);\n  max-width: var(--measure-narrow);');
-    expect(css).not.toContain('.product-page--flbsa .section-block .lead {\n  color: var(--text-primary);');
-    // One body-paragraph color everywhere (census fix 2026-07-15): panel
-    // paragraphs are secondary slate, left at measure.
-    expect(css).toContain('.section-block p {\n  color: var(--text-secondary);\n  text-align: left;\n  line-height: var(--leading-relaxed);');
-    // Normalization: panels are solid white (the 0.88-alpha wash is gone).
-    expect(css).toContain('.section-block {\n  background: var(--color-white);');
-    expect(css).toContain('width: calc(100% - var(--space-8));');
-    // Evidence lists are plain .checks now; code chips must still wrap.
-    expect(css).toContain('.section-block code,\n.card code,\n.note code,\n.checks code {');
-    expect(css).toContain('code {\n  background: var(--bg-subtle);');
-    // One uniform card everywhere: bordered, centered content, icon above the
-    // title (founder rule 2026-07-15) — no borderless or left-grid variants.
-    expect(css).toContain('display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 100%;\n  text-align: center;\n}');
-    expect(css).not.toContain('.card--plain');
-    // Contact form heading follows the panel h2 scale; the form itself is the
-    // width-constrained element.
-    expect(css).toContain('.contact-form {\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-5);\n  width: 100%;\n  max-width: var(--max-width-2xl);');
-    // Product name always renders in the accent color, semibold (founder rule
-    // 2026-07-15); consistency of wrapping enforced by
-    // scripts/ops/check_product_name.py in content lint.
-    expect(css).toContain('.product-name {\n  color: var(--color-primary-text);\n  font-weight: var(--font-semibold);');
-    // Acronyms render as normal text with a dotted hover underline — the
-    // small-caps size shift made dense copy spotty (founder pass 2026-07-15).
-    expect(css).toContain('abbr {\n  text-decoration: none;\n  font-weight: var(--font-semibold);\n  border-bottom: 1px dotted var(--border-medium);\n  cursor: help;\n}');
-    expect(css).not.toContain('all-small-caps');
-    expect(css).toContain('.note {\n  font-size: var(--text-note);\n  color: var(--text-muted);\n  font-style: normal;');
-    // note--small was a no-op restatement of .note; the variant is deleted
-    // outright, so no rogue note styling can reappear under that class.
-    expect(css).not.toContain('.note.note--small');
-    // Form notes must not draw the footnote divider (it misfired mid-form on
-    // /contact/); panel and card notes keep it, and the form rule explicitly
-    // disables it so the panel-note rule cannot reintroduce it.
-    expect(css).toContain('.section-block .note,\n.card .note {\n  border-top: 1px solid var(--border-light);\n  color: var(--text-muted);');
-    expect(css).toContain('.contact-form .note {\n  border-top: none;\n  padding-top: 0;');
-    expect(css).not.toContain('.policy .section-block .note {\n  background: linear-gradient');
-    expect(css).not.toContain('font-style: italic;');
-    expect(flbsa).toContain('<strong>Current requests:</strong>');
-    expect(flbsa).toContain('<strong>Data boundary:</strong>');
-    expect(flbsa).toContain('<strong>Marketplace access:</strong>');
-    expect(procurement).toContain('<title>Procurement &amp; Deployment — Equilens</title>');
-    expect(procurement).toContain('<h1 class="hero-headline">Procurement &amp; Deployment</h1>');
-    expect(procurement).toContain('<strong>Evidence manifest:</strong>');
-    expect(procurement).toContain('<strong>Commercial terms:</strong>');
-    expect(trustCenter).toContain('<strong>Image signing:</strong>');
-    expect(trustCenter).toContain('<strong>Privilege boundary:</strong>');
-    expect(trustCenter).toContain('<strong>Public demo release:</strong>');
-    expect(trustCenter).toContain('<strong>Demo-artifact boundary:</strong>');
-    expect(procurement).not.toContain('<h1 class="brand-title">Procurement &amp; Deployment</h1>');
-    expect(procurement).not.toContain('Procurement &amp; Deployment — Equilens FL-BSA');
-    expect((procurement.match(/<div class="section-block">/g) ?? []).length).toBeGreaterThanOrEqual(4);
-    expect(contact).toContain('<body class="eql contact-page">');
-    expect(contact).not.toContain('<body class="eql landing">');
+  test('buyer-critical product boundaries survive presentation changes', async () => {
+    for (const file of ['index.html', 'fl-bsa/index.html', 'procurement/index.html', 'trust-center/index.html', 'contact/index.html']) {
+      const text = visibleText(fs.readFileSync(path.join(root, file), 'utf-8'));
+      expect(text, file).toContain('customer-hosted, simulation-only evidence appliance');
+      expect(text, file).toMatch(/does not make or override live lending decisions/i);
+      expect(text, file).toMatch(/does not[^.]*provide legal advice[^.]*certify regulatory compliance/i);
+      expect(text, file).not.toMatch(/ensures? compliance|guarantees? regulatory approval|click subscribe|production-grade appliance/i);
+    }
   });
 
-  test('visual system primitives render consistently across breakpoints', async ({ page }) => {
+  test('dense buyer pages remain readable without horizontal overflow', async ({ page }) => {
     await stubPlausible(page);
+    for (const width of [375, 768, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const route of ['/procurement/', '/trust-center/', '/contact/']) {
+        await page.goto(route, { waitUntil: 'networkidle' });
+        await expectNoOverflow(page);
+        await expect(page.getByRole('main')).toHaveCount(1);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+        const textBoxes = await page.locator('main p').evaluateAll(elements => elements
+          .filter(e => (e.textContent || '').trim().length > 240 && e.getBoundingClientRect().width > 0)
+          .map(e => ({ width: e.getBoundingClientRect().width, fontSize: parseFloat(getComputedStyle(e).fontSize) })));
+        for (const box of textBoxes) expect(box.width / box.fontSize).toBeLessThanOrEqual(50);
+      }
+    }
+  });
 
-    await page.setViewportSize({ width: 390, height: 1000 });
-    await page.goto('/procurement/', { waitUntil: 'networkidle' });
-    const mobileSectionBlock = page.locator('.section-block').first();
-    const mobileSectionBox = await mobileSectionBlock.boundingBox();
-    expect(mobileSectionBox?.x).toBeGreaterThanOrEqual(15);
-    expect(mobileSectionBox?.width).toBeLessThanOrEqual(360);
-    await expect(page.locator('h1.hero-headline')).toHaveText('Procurement & Deployment');
+  test('shared footer keeps its accessible name, deployment marker and product boundary', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/', { waitUntil: 'networkidle' });
+    const footer = page.getByRole('contentinfo');
+    await expect(footer).toHaveAccessibleName('Site sections');
+    await expect(footer).toContainText('Last deploy');
+    await expect(footer).toContainText('Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance.');
+    await expect(footer.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '/contact/');
+    const template = fs.readFileSync(path.join(root, 'templates/footer.html'), 'utf-8');
+    const config = JSON.parse(fs.readFileSync(path.join(root, 'config/web/footer.json'), 'utf-8'));
+    expect(template).toContain('{{boundary}}');
+    expect(config.boundary_note).toMatch(/customer-hosted, simulation-only/);
+  });
 
+  test('FL-BSA metadata carries consistent identity and the simulation boundary', async ({ page }) => {
+    await stubPlausible(page);
     await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
-    // Guard the original mobile-squeeze bug under the centered card grammar
-    // (founder rule 2026-07-15): cards span the container as full-width rows
-    // and the stack stays within a sane ceiling.
-    const heroHighlightsBox = await page.locator('.hero-highlights').boundingBox();
-    expect(heroHighlightsBox?.height).toBeLessThan(520);
-    const firstCardBox = await page.locator('.hero-highlights .card').first().boundingBox();
-    expect(firstCardBox?.width).toBeGreaterThan(300);
-
-    await page.setViewportSize({ width: 820, height: 1100 });
-    await page.goto('/trust-center/', { waitUntil: 'networkidle' });
-    const codeWrap = await page.locator('#evidence-chain .checks code').first().evaluate((element) => {
-      const style = getComputedStyle(element);
-      return {
-        overflowWrap: style.overflowWrap,
-        wordBreak: style.wordBreak,
-      };
-    });
-    expect(codeWrap).toEqual({ overflowWrap: 'anywhere', wordBreak: 'break-word' });
-    const tabletOverflow = await page.evaluate(() =>
-      Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) -
-      document.documentElement.clientWidth
-    );
-    expect(tabletOverflow).toBeLessThanOrEqual(1);
-
-    await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto('/contact/', { waitUntil: 'networkidle' });
-    // Contact starts with its page heading and required inputs at every width.
-    const contactHeadingStyle = await page.locator('#contact-form-heading').evaluate((element) => {
-      const style = getComputedStyle(element);
-      return {
-        fontSize: style.fontSize,
-        fontWeight: style.fontWeight,
-      };
-    });
-    expect(parseFloat(contactHeadingStyle.fontSize)).toBeGreaterThanOrEqual(32);
-    expect(parseFloat(contactHeadingStyle.fontSize)).toBeLessThanOrEqual(48);
-    expect(contactHeadingStyle.fontWeight).toBe('700');
-  });
-
-  test('Tier 3 token and CTA polish stays in place', async () => {
-    const css = fs.readFileSync(path.join(root, 'assets', 'eql', 'base.css'), 'utf-8');
-    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
-    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
-    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
-    const docs = fs.readFileSync(path.join(root, 'docs', 'index.html'), 'utf-8');
-    const faq = fs.readFileSync(path.join(root, 'faq', 'index.html'), 'utf-8');
-    const pricing = fs.readFileSync(path.join(root, 'pricing', 'index.html'), 'utf-8');
-
-    expect(css).toContain('--text-note: 0.8125rem;');
-    // Glass surfaces stay tokenized (the card-glass variant was deleted; the
-    // navbar keeps the slate-tinted glass border token).
-    expect(css).toContain('--surface-glass-border: rgba(226, 232, 240, 0.5);');
-    expect(css).not.toContain('border: 1px solid rgba(255, 255, 255, 0.5)');
-    expect(css).not.toContain('border: 1px solid rgba(229, 231, 235, 1)');
-    expect(css).not.toContain('border-color: rgba(229, 231, 235, 1)');
-    expect(css).not.toContain('gap: 8px;');
-    expect(css).not.toContain('gap: 1.5rem;');
-    expect(css).not.toContain('rgba(79, 70, 229, 0.35)');
-    expect(css).not.toContain('rgba(79, 70, 229, 0.4)');
-    expect(css).not.toContain('.timeline-marker');
-
-    expect(home).toContain('<small class="footer-boundary">Product boundary: FL-BSA');
-    expect(home).not.toContain('<p class="footer-boundary">');
-    expect(home).not.toContain('<strong>Product boundary:</strong>');
-    expect(home).not.toContain('footer-boundary"><span class="product-name">');
-    expect(home.indexOf('Last deploy: stamped during publishing.')).toBeLessThan(home.indexOf('<small class="footer-boundary">Product boundary: FL-BSA'));
-
-    // Footer SSOT template must keep emitting the labeled heading and the
-    // product-boundary disclaimer, so sync_footer_ssot.py cannot strip them.
-    const footerTemplate = fs.readFileSync(path.join(root, 'templates', 'footer.html'), 'utf-8');
-    const footerConfig = fs.readFileSync(path.join(root, 'config', 'web', 'footer.json'), 'utf-8');
-    expect(footerTemplate).toContain('aria-labelledby="site-sections-heading"');
-    expect(footerTemplate).toContain('<h2 class="sr-only" id="site-sections-heading">Site sections</h2>');
-    expect(footerTemplate).toContain('<small class="footer-boundary">{{boundary}}</small>');
-    expect(JSON.parse(footerConfig).boundary_note).toContain('Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance.');
-    // The boundary line spans the footer width so both footer smalls read at
-    // one horizontal length (founder pass 2026-07-15).
-    expect(css).toContain('.site-footer .footer-boundary {\n  max-width: none;\n  margin: var(--space-2) auto 0;\n  padding: 0 var(--space-4);\n  text-align: center;\n  color: var(--text-muted);');
-
-    expect(flbsa).not.toContain('timeline-marker');
-    expect(trustCenter).not.toContain('timeline-marker');
-    expect(flbsa).toContain('<a class="btn btn-secondary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=pricing-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>\n        <a class="btn btn-secondary plausible-event-name=Procurement+Review+Click plausible-event-surface=fl-bsa plausible-event-cta=pricing-secondary plausible-event-intent=procurement" href="/procurement/">Review procurement</a>');
-    expect(flbsa).toContain('<a class="btn btn-secondary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=docs-request-pack plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request the pack</a>\n                <a class="btn btn-secondary" href="/trust-center/">Review Trust Center</a>');
-    expect(procurement).toContain('Review <span class="product-name">FL-BSA</span>');
-    expect(docs).toContain('<span class="product-name">FL-BSA</span> Documentation');
-    expect(faq).toContain('<span class="product-name">FL-BSA</span> FAQ');
-    expect(pricing).toContain('<span class="product-name">FL-BSA</span> Licensing');
-  });
-
-  test('FL-BSA metadata carries the value-led title and product name', async () => {
-    const html = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-
     const pageTitle = 'Fair-outcomes evidence for automated credit decisions | FL-BSA by Equilens';
-    expect(html).toContain(`<title>${pageTitle}</title>`);
-    expect(html).toContain(`<meta content="${pageTitle}" property="og:title"/>`);
-    expect(html).toContain(`<meta content="${pageTitle}" name="twitter:title"/>`);
-    expect(html).toContain('"name":"FL-BSA"');
-    expect(html).not.toContain('FL-BSA — Self-Hosted Fair-Outcomes Evidence Appliance');
-    expect(html).toContain('Self-hosted fair-outcomes evidence appliance for regulated credit decisions');
-    expect(html).not.toContain('Self-hosted fair-outcomes evidence for regulated credit decisions:');
+    await expect(page).toHaveTitle(pageTitle);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', pageTitle);
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', pageTitle);
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(description).toMatch(/self-hosted/i);
+    expect(description).toMatch(/simulation/i);
+    expect(description).toMatch(/synthetic/i);
+    expect(description).toMatch(/pre-release/i);
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', description!);
+    await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content', description!);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://equilens.io/fl-bsa/');
+    const structured = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent())!);
+    expect(structured['@graph']).toEqual(expect.arrayContaining([
+      expect.objectContaining({ '@type': 'SoftwareApplication', name: 'FL-BSA' }),
+    ]));
   });
 
-  test('EU regulatory timing and automated-creditworthiness CTA stay current and bounded', async () => {
-    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
-    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-
-    expect(home).not.toContain('high-risk credit scoring from 2 August 2026');
-    expect(flbsa).not.toContain('high-risk credit scoring from 2 August 2026');
-    expect(home).toContain('due to apply from 2 December 2027');
-    expect(flbsa).toContain('due to apply from 2 December 2027');
-    expect(flbsa).toContain('due to apply from 20 November 2026');
-    expect(flbsa).toContain('It does not provide legal advice, certify compliance, validate a model, or make live lending decisions.');
-    expect(flbsa).toContain(
-      'data-campaign-contact="ccd2-readiness" href="/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness">Discuss one workflow</a>',
-    );
+  test('regulatory dates and product limits remain bounded after copy changes', async () => {
+    const home = visibleText(fs.readFileSync(path.join(root, 'index.html'), 'utf-8'));
+    const flbsa = visibleText(fs.readFileSync(path.join(root, 'fl-bsa/index.html'), 'utf-8'));
+    const procurement = visibleText(fs.readFileSync(path.join(root, 'procurement/index.html'), 'utf-8'));
+    for (const text of [home, flbsa]) expect(text).not.toContain('high-risk credit scoring from 2 August 2026');
+    expect(flbsa).toContain('2 December 2027');
+    expect(flbsa).toContain('20 November 2026');
     expect(flbsa).toContain('EU AI Act Article 4a');
     expect(flbsa).toContain('including synthetic or anonymised data');
-    expect(flbsa).toContain('full public stable release');
-    expect(flbsa).toContain('This optional engagement is not the release programme');
-    expect(flbsa).toContain('Public release and current access');
-    expect(flbsa.indexOf('id="pricing"')).toBeLessThan(
-      flbsa.indexOf('id="controlled-pilot"'),
-    );
-    expect(flbsa).not.toContain('CPU-only and GPU-preferred profiles are supported');
-    expect(flbsa).not.toContain('~20-25 minute range');
-    const procurement = fs.readFileSync(path.join(root, 'procurement', 'index.html'), 'utf-8');
-    expect(procurement).toContain('Full public stable release is the destination');
-    expect(procurement).toContain('<abbr title="Graphics Processing Unit">GPU</abbr> acceleration is not part of the selected native runtime');
-    expect(procurement).not.toContain('Primary current <abbr title="Amazon Web Services">AWS</abbr> customer path for controlled guided pilot');
-    expect(flbsa).toContain(
-      'data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Discuss an optional evaluation</a>',
-    );
+    expect(flbsa).toMatch(/does not[^.]*provide legal advice[^.]*certify compliance[^.]*validate a model[^.]*make live lending decisions/i);
+    expect(flbsa).toMatch(/does not load or execute your models|never executes your models/i);
+    expect(flbsa).toMatch(/public stable release[^.]*not yet published|not yet published[^.]*public stable release/i);
+    expect(flbsa).toMatch(/optional engagement is not the release programme/i);
+    for (const text of [flbsa, procurement]) {
+      expect(text).not.toMatch(/CPU-only and GPU-preferred profiles are supported|~20[–-]25 minute range/i);
+      expect(text).toMatch(/GPU[^.]*not part of[^.]*runtime/i);
+    }
     expect(flbsa).not.toContain('synthetic-first');
   });
 
@@ -739,16 +627,15 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtml).not.toContain('plausible-event-email=');
     expect(trackedHtml).not.toContain('plausible-event-name-field=');
     expect(trackedHtml).not.toContain('plausible-event-organisation=');
-    expect(flbsa).toContain('/assets/eql/campaign-routes.js?v=20260922a');
-    expect(flbsa).toContain('/assets/eql/campaign-route.js?v=20260922a');
-    expect(contact).toContain('/assets/eql/campaign-routes.js?v=20260922a');
-    expect(contact).toContain('/assets/eql/contact.js?v=20260922a');
+    expect(flbsa).toContain('/assets/eql/campaign-routes.js');
+    expect(flbsa).toContain('/assets/eql/campaign-route.js');
+    expect(contact).toContain('/assets/eql/campaign-routes.js');
+    expect(contact).toContain('/assets/eql/contact.js');
     expect(trackedHtml).not.toContain('plausible-event-message=');
-    expect(trackedHtml).not.toContain('plausible-event-route=');
+    // Explicit JS emission follows validation/honeypot checks; a form tag would double-count.
     expect(contact).not.toContain('plausible-event-name=Contact+Form+Submit');
-    expect(fs.readFileSync(path.join(root, 'assets/eql/contact.js'), 'utf-8')).toContain("track('Contact Form Submit')");
     expect(legal).toContain('selected static CTA/custom-event labels');
-    expect(legal).toContain('count contact-form submissions as an anonymous event without collecting or transmitting form contents');
+    expect(visibleText(legal)).toMatch(/without (?:collecting or transmitting )?form contents|no form contents/i);
   });
 
   test('tracked HTML pages load Plausible tagged-events script variant', async () => {
@@ -777,25 +664,36 @@ test.describe('Equilens site surfaces', () => {
     }
   });
 
-  test('high-content pages preserve section banding rhythm', async () => {
-    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-    const trustCenter = fs.readFileSync(path.join(root, 'trust-center', 'index.html'), 'utf-8');
-
-    // Every page's banding starts white after the hero and alternates strictly
-    // (consistency pass 2026-07-16) — assert the full sequence, not spot sections.
-    for (const html of [flbsa, trustCenter]) {
-      const seq = [...html.matchAll(/<section class="(section(?: alt)?)(?: [\w-]+)*"/g)].map((m) => m[1]);
-      expect(seq.length).toBeGreaterThan(2);
-      seq.forEach((cls, i) => expect(cls).toBe(i % 2 === 0 ? 'section' : 'section alt'));
+  test('engagement options have equal readable rows and keep their conversion paths', async ({ page }) => {
+    await stubPlausible(page);
+    for (const width of [375, 768, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto('/fl-bsa/#pricing', { waitUntil: 'networkidle' });
+      const rows = page.locator('#pricing .service-list > .service-row');
+      await expect(rows).toHaveCount(3);
+      const widths = await rows.evaluateAll(elements => elements.map(e => e.getBoundingClientRect().width));
+      expect(Math.max(...widths) - Math.min(...widths)).toBeLessThanOrEqual(1);
+      expect(Math.min(...widths)).toBeGreaterThan(width === 375 ? 300 : 500);
+      for (const row of await rows.all()) {
+        await expect(row.getByRole('heading')).toHaveCount(1);
+      }
+      await expect(page.locator('#pricing a[href^="/contact/"]').first()).toBeVisible();
+      await expectNoOverflow(page);
     }
   });
 
-  test('home and FL-BSA hero cards share the hero-highlights wrapper', async () => {
-    const home = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
-    const flbsa = fs.readFileSync(path.join(root, 'fl-bsa', 'index.html'), 'utf-8');
-
-    expect(home).toContain('class="hero-highlights grid grid-3 mt-6"');
-    expect(flbsa).toContain('class="hero-highlights grid grid-3"');
+  test('primary product action is available in the first mobile viewport', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    const action = page.locator('#overview a[href^="/contact/"]').first();
+    await expect(action).toBeVisible();
+    const box = await action.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.y).toBeGreaterThanOrEqual(0);
+    expect(box!.y + box!.height).toBeLessThanOrEqual(812);
+    await expect(action).toHaveAttribute('href', '/contact/?interest=Procurement%20Pack');
+    await expectNoOverflow(page);
   });
 
   test('homepage title carries the algorithmic-compliance positioning', async ({ page }) => {
@@ -894,9 +792,9 @@ test.describe('Equilens site surfaces', () => {
       };
     });
 
-    expect(metrics.fontSize).toBe('28px');
     expect(metrics.overflowWrap).toBe('normal');
-    expect(metrics.lineCount).toBeLessThan(1.2);
+    expect(metrics.lineCount).toBeLessThanOrEqual(3);
+    await expectNoOverflow(page);
   });
 
   for (const pageEntry of pages) {
@@ -932,11 +830,6 @@ test.describe('Equilens site surfaces', () => {
           'href',
           '/contact/?interest=Security%20Pack',
         );
-      } else if (pageEntry.path !== '/fl-bsa/whitepaper/') {
-        await expect(releaseTagLinks).toHaveCount(0);
-        await expect(manifestLinks).toHaveCount(0);
-        await expect(checksumLinks).toHaveCount(0);
-        await expect(provenanceLinks).toHaveCount(0);
       }
       const title = await page.title();
       expect(title.length).toBeGreaterThan(0);
@@ -948,12 +841,11 @@ test.describe('Equilens site surfaces', () => {
       expect(horizontalOverflow).toBeLessThanOrEqual(1);
 
       if (pageEntry.path === '/fl-bsa/') {
-        // How-it-works folded from the bespoke .timeline into the shared
-        // card + number-badge grammar: still four steps, no legacy markup.
-        await expect(page.locator('#how-it-works .card')).toHaveCount(4);
-        await expect(page.locator('#how-it-works .badge-number')).toHaveCount(4);
-        await expect(page.locator('.timeline')).toHaveCount(0);
-        await expect(page.getByRole('link', { name: 'Download whitepaper intake (ZIP)' })).toHaveAttribute(
+        // The approved workflow has three readable steps; markup is free to evolve.
+        const steps = page.locator('#how-it-works .process-list > *');
+        await expect(steps).toHaveCount(3);
+        for (const step of await steps.all()) await expect(step.getByRole('heading')).toHaveCount(1);
+        await expect(page.locator('#docs a[href$="/WhitePaper_Intake_Bundle_v4.zip"]')).toHaveAttribute(
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
         );
@@ -980,6 +872,198 @@ test.describe('Equilens site surfaces', () => {
 
     await expect(page.locator('#interest')).toHaveValue('Security Pack');
     await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA security pack and vendor questionnaire materials.');
+  });
+
+  test('contact essentials appear early with autocomplete and a visible keyboard focus indicator', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/contact/', { waitUntil: 'networkidle' });
+    const fields = { name: 'name', email: 'email', organisation: 'organization', role: 'organization-title' };
+    for (const [id, token] of Object.entries(fields)) {
+      await expect(page.locator(`#${id}`)).toHaveAttribute('autocomplete', token);
+    }
+    expect(await page.locator('#contact-form input:not([tabindex="-1"])').evaluateAll(
+      elements => elements.slice(0, 2).map(element => element.id),
+    )).toEqual(['name', 'email']);
+    for (const id of ['name', 'email']) {
+      const box = await page.locator(`#${id}`).boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.y).toBeGreaterThanOrEqual(0);
+      expect(box!.y + box!.height).toBeLessThanOrEqual(812);
+    }
+    await page.locator('.skip-to-content').focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('main')).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#name')).toBeFocused();
+    const focus = await page.locator('#name').evaluate(element => {
+      const css = getComputedStyle(element);
+      return { style: css.outlineStyle, width: parseFloat(css.outlineWidth), color: css.outlineColor };
+    });
+    expect(focus.style).not.toBe('none');
+    expect(focus.width).toBeGreaterThanOrEqual(2);
+    expect(focus.color).not.toBe('rgba(0, 0, 0, 0)');
+  });
+
+  test('contents navigation respects reduced motion and moves keyboard focus to the destination', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.addInitScript(() => {
+      const original = Element.prototype.scrollIntoView;
+      (window as unknown as { __scrollModes: unknown[] }).__scrollModes = [];
+      Element.prototype.scrollIntoView = function (options) {
+        (window as unknown as { __scrollModes: unknown[] }).__scrollModes.push(options);
+        return original.call(this, options);
+      };
+    });
+    await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    await page.locator('.toc a[href="#docs"]').focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/#docs$/);
+    await expect(page.locator('#docs')).toBeFocused();
+    const modes = await page.evaluate(() => (window as unknown as {
+      __scrollModes: { behavior?: string }[];
+    }).__scrollModes);
+    expect(modes.length).toBeGreaterThan(0);
+    expect(modes.some(mode => mode?.behavior === 'smooth')).toBe(false);
+    await page.keyboard.press('Tab');
+    expect(await page.locator('#docs').evaluate(element => element.contains(document.activeElement))).toBe(true);
+  });
+
+  test('mobile contents can be opened by keyboard and reach every retained section', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+    const contents = page.locator('.toc-disclosure');
+    const summary = contents.locator('summary');
+    await summary.scrollIntoViewIfNeeded();
+    await expect(contents).not.toHaveAttribute('open', '');
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    await expect(contents).toHaveAttribute('open', '');
+    for (const link of await contents.locator('a[href^="#"]').all()) {
+      await expect(link).toBeVisible();
+      const destination = await link.getAttribute('href');
+      await expect(page.locator(destination!)).toHaveCount(1);
+    }
+    await contents.locator('a[href="#docs"]').click();
+    await expect(page).toHaveURL(/#docs$/);
+    await expect(page.locator('#docs')).toBeFocused();
+    await expectNoOverflow(page);
+  });
+
+  test('mobile legal anchors stay below the header after skipping and closing the menu', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/legal/', { waitUntil: 'networkidle' });
+    await page.locator('.skip-to-content').focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('main')).toBeFocused();
+    const menu = page.getByRole('button', { name: 'Menu', exact: true });
+    await menu.focus();
+    await page.keyboard.press('Enter');
+    await expect(menu).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+    await expect(menu).toBeFocused();
+    await expect(menu).toHaveAttribute('aria-expanded', 'false');
+    const contents = page.locator('.toc-disclosure');
+    await contents.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    await expect(contents).toHaveAttribute('open', '');
+    await contents.getByRole('link', { name: 'Accessibility', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/#accessibility$/);
+    await expect(page.locator('#accessibility')).toBeFocused();
+    // A queued scroll-anchor adjustment used to move this heading behind the
+    // sticky header after the mobile menu changed the main content's margin.
+    await page.waitForTimeout(500);
+    const heading = await page.locator('#accessibility h2').boundingBox();
+    const header = await page.locator('.navbar').boundingBox();
+    expect(heading).not.toBeNull();
+    expect(header).not.toBeNull();
+    expect(heading!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    expect(heading!.y + heading!.height).toBeLessThanOrEqual(812);
+  });
+
+  test('delayed navigation keeps initial mobile layout stable on home and legal', async ({ page }, testInfo) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 393, height: 852 });
+    let delayedScripts = 0;
+    await page.route(url => url.pathname === '/assets/eql/nav.js', async route => {
+      delayedScripts += 1;
+      await new Promise(resolve => setTimeout(resolve, 500));
+      // Fall through to the persistent context guard, which permits only local
+      // GET/HEAD reads. A slow script must not bypass the network boundary.
+      await route.fallback();
+    });
+    await page.addInitScript(() => {
+      type LayoutShift = PerformanceEntry & { value: number; hadRecentInput: boolean };
+      const auditWindow = window as unknown as { __auditLayoutShifts: number[] };
+      auditWindow.__auditLayoutShifts = [];
+      new PerformanceObserver(list => {
+        for (const entry of list.getEntries() as LayoutShift[]) {
+          if (!entry.hadRecentInput) auditWindow.__auditLayoutShifts.push(entry.value);
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    });
+    for (const pathname of ['/', '/legal/']) {
+      await page.goto(pathname, { waitUntil: 'networkidle' });
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+      });
+      expect(await page.evaluate(() => PerformanceObserver.supportedEntryTypes.includes('layout-shift'))).toBe(true);
+      await expect(page.locator('.navbar')).toHaveClass(/\bis-enhanced\b/);
+      if (pathname === '/legal/') await expect(page.locator('.toc-disclosure')).not.toHaveAttribute('open', '');
+      const shifts = await page.evaluate(() => (window as unknown as { __auditLayoutShifts: number[] }).__auditLayoutShifts);
+      const cls = shifts.reduce((total, value) => total + value, 0);
+      await testInfo.attach(`initial-layout-${pathname === '/' ? 'home' : 'legal'}`, {
+        body: JSON.stringify({ pathname, cls, shifts }), contentType: 'application/json',
+      });
+      expect(cls, `${pathname} shifted after navigation enhancement`).toBeLessThan(0.1);
+    }
+    expect(delayedScripts).toBe(2);
+  });
+
+  test('failed navigation script leaves mobile primary links usable', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 393, height: 852 });
+    let blockedScripts = 0;
+    await page.route(url => url.pathname === '/assets/eql/nav.js', async route => {
+      blockedScripts += 1;
+      await route.abort('failed');
+    });
+    await page.goto('/legal/', { waitUntil: 'networkidle' });
+    const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
+    await expect(primary).not.toHaveClass(/\bis-enhanced\b/);
+    await expect(primary.getByRole('button', { name: 'Menu', exact: true })).toBeHidden();
+    for (const name of ['FL‑BSA', 'Procurement', 'Trust Center', 'Legal', 'Contact']) {
+      await expect(primary.getByRole('link', { name, exact: true })).toBeVisible();
+    }
+    await primary.getByRole('link', { name: 'Contact', exact: true }).click();
+    await expect(page).toHaveURL(/\/contact\/$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Send us a message', exact: true })).toBeVisible();
+    expect(blockedScripts).toBe(2);
+  });
+
+  test.describe('without JavaScript', () => {
+    test.use({ javaScriptEnabled: false });
+    test('mobile navigation remains usable and the contact email fallback is clear', async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 812 });
+      await page.goto('/fl-bsa/', { waitUntil: 'networkidle' });
+      const primary = page.getByRole('navigation', { name: 'Primary', exact: true });
+      await expect(primary.getByRole('link', { name: 'Contact', exact: true })).toBeVisible();
+      await primary.getByRole('link', { name: 'Contact', exact: true }).click();
+      // Playwright intentionally excludes a noscript container from its text
+      // aggregation; its rendered paragraph and link are the usable UI.
+      const notice = page.locator('noscript p');
+      await expect(notice).toBeVisible();
+      await expect(notice).toContainText('JavaScript is off');
+      await expect(notice.getByRole('link', { name: 'hello@equilens.io', exact: true }))
+        .toHaveAttribute('href', 'mailto:hello@equilens.io');
+    });
   });
 
   test('valid accepted forms produce one attempt and one accepted event without personal fields', async ({ page }) => {

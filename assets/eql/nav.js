@@ -1,8 +1,11 @@
 // Navigation behaviour for the statically baked nav
 // (scripts/content/sync_nav_static.py bakes the markup at build time).
 
-// Initialize nav features (called after nav is rendered)
+// Runs immediately after the baked navbar, before main is parsed. This keeps
+// enhanced header geometry stable from the first content paint; a failed or
+// disabled script leaves the visible native-link fallback intact.
 function initNavFeatures() {
+  document.querySelector('.navbar')?.classList.add('is-enhanced');
   // Set active nav link based on current page
   const currentPath = window.location.pathname;
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -36,15 +39,31 @@ function initNavFeatures() {
     });
   }
 
+}
+
+// The page's contents and anchors become available after parsing. Disclosures
+// start closed in HTML; opening a wide sidebar does not shift the reading column.
+function initPageNavigation() {
+  const wideLayout = window.matchMedia('(min-width: 1100px)');
+  document.querySelectorAll('.toc-disclosure').forEach(details => {
+    details.open = wideLayout.matches;
+    wideLayout.addEventListener('change', event => { details.open = event.matches; });
+  });
+
   // Guarded smooth scroll (hash links only) - respects scroll-padding-top
   document.querySelectorAll('a[href^="#"]:not(.skip-to-content)').forEach(a => {
     const h = a.getAttribute('href');
     if (!h || h === '#') return;
     a.addEventListener('click', e => {
-      const t = document.querySelector(h);
+      const t = document.getElementById(decodeURIComponent(h.slice(1)));
       if (t) {
         e.preventDefault();
-        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const disclosure = a.closest('.toc-disclosure');
+        if (disclosure && !wideLayout.matches) disclosure.open = false;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        t.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
+        if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+        t.focus({ preventScroll: true });
         // Update URL hash and trigger active state update
         history.pushState(null, '', h);
         // Update TOC active state immediately after click
@@ -118,7 +137,8 @@ function initScrollSpy() {
     // Skip if scroll spy is paused (e.g., after a click)
     if (scrollSpyPaused) return;
 
-    const scrollPos = window.scrollY + 208; // match the measured landing offset of [id] scroll-margin targets
+    const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const scrollPos = window.scrollY + scrollPadding + 17;
     let activeSection = sections[0];
 
     // Check if we're at the bottom of the page
@@ -148,4 +168,12 @@ function initScrollSpy() {
 }
 
 initNavFeatures();
-initScrollSpy();
+function initPageFeatures() {
+  initPageNavigation();
+  initScrollSpy();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPageFeatures, { once: true });
+} else {
+  initPageFeatures();
+}

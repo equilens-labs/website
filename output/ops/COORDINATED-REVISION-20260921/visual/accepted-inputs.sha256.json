@@ -1,0 +1,80 @@
+{
+  "capturedAt": "2026-09-21T16:24:50.896152+00:00",
+  "origin": "http://127.0.0.1:8765",
+  "purpose": "Exact rendered source and asset snapshot for independent visual acceptance; JavaScript listing is provenance, not functional certification.",
+  "files": [
+    {
+      "path": "assets/eql/base.css",
+      "bytes": 49434,
+      "sha256": "b7b7462b4f0e96dbf543641221a1df696f98a7b7c1cf0c4fe8647560457b41f2"
+    },
+    {
+      "path": "assets/eql/campaign-route.js",
+      "bytes": 972,
+      "sha256": "a9e901db6a619a1f755fabddef03c13d3d291ec4dcbacc2ae0a65ef1e63cbae2"
+    },
+    {
+      "path": "assets/eql/campaign-routes.js",
+      "bytes": 1962,
+      "sha256": "5308b99d5818b7e4ef92d54dbb0a0203c589764de9dad3982d6c7a69d2629e5d"
+    },
+    {
+      "path": "assets/eql/contact.js",
+      "bytes": 7390,
+      "sha256": "5cce9b6001e9bc6c150a938c8560f4338308d7cb8888c370d3c1bc17cbabcee3"
+    },
+    {
+      "path": "assets/eql/nav.js",
+      "bytes": 6271,
+      "sha256": "6b7dafcac9ab55999ba80801cf820ebb5437e5dac1702126dabc48ed01581c5b"
+    },
+    {
+      "path": "brand/fonts/geist-latin-wght-normal.woff2",
+      "bytes": 29400,
+      "sha256": "19f9c92546aa300c312235e3125af1b81394d8db9a4bc4a425cd5b641d2d54e1"
+    },
+    {
+      "path": "brand/fonts/geist-mono-latin-wght-normal.woff2",
+      "bytes": 29896,
+      "sha256": "af61b969e7f999969f6af576e584ee85dca301a008a76be1251d172d56b9904c"
+    },
+    {
+      "path": "brand/logo/equilens-wordmark-light.svg",
+      "bytes": 4418,
+      "sha256": "c1f4aefab06b5842817ca42c043de1ecc741215c6bff61785f300ff92e172d5f"
+    },
+    {
+      "path": "brand/product/report-screening.png",
+      "bytes": 76735,
+      "sha256": "a74ca3ce9fc3efc0d358e0678cf32f6b0c37064aa09fc7c0bec4922e3f364794"
+    },
+    {
+      "path": "brand/symbol/equilens-symbol-nav.svg",
+      "bytes": 855,
+      "sha256": "a3609cd3d5e68af8c4677bf11a9a1815d496be1585b8c59729431dc5de97c9b4"
+    },
+    {
+      "path": "brand/tokens/tokens.css",
+      "bytes": 1985,
+      "sha256": "f3b2b36be8e37de960777bfc309a8558a75038e070e56fb4b43b5818e790fd0b"
+    },
+    {
+      "path": "contact/index.html",
+      "bytes": 9976,
+      "sha256": "ff0d0069e7c594dea0335e8bee36f14660868c4eb8624ffd870bd77fa4159c8b"
+    },
+    {
+      "path": "fl-bsa/index.html",
+      "bytes": 25866,
+      "sha256": "75118b2c09e805aa330c0e2377952e10db2f708d01369db5e6f78b4ba0815506"
+    },
+    {
+      "path": "index.html",
+      "bytes": 12035,
+      "sha256": "98f77b6be2996e51eeed3ad944e6ec54df93367219a30c1251bd05335ed536d0"
+    }
+  ],
+  "geometryVerification": "final-geometry-cls/comparison.json",
+  "finalFreezeInspection": "source-freeze-inspection.json",
+  "cacheToken": "20260921e"
+}

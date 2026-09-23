@@ -1,0 +1,80 @@
+{
+  "verified_at": "2026-09-22T09:29:23.414040+00:00",
+  "source_url": "https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/gold_bundle.zip",
+  "snapshot_fetched": "2026-09-21",
+  "bundle_sha256": "ea51afac54ca88e9dc75583fb5469a3c35b84c7aad99544e4b0c94b1d4e66207",
+  "member": "gold/02_gender_bias/validation/metrics_uncertainty.json",
+  "member_sha256": "19c784cd8e4d3c0d956c6e9349acaafd5b9e2c502a30c5a2fd10ed94e245f444",
+  "report_member": "gold/02_gender_bias/report.pdf",
+  "report_sha256": "d87a29795e15e2ab6c1ee1adb62e52b2b55fdaef6b46dcf24cacd51351bb7a08",
+  "report_run_date": "2026-06-06",
+  "source_gender_metrics": {
+    "air": {
+      "ci95": [
+        0.6217805128520136,
+        0.6791987533804704
+      ],
+      "method": "wilson+delta",
+      "p_value": 5.644056019359056e-86,
+      "p_value_adjusted": 5.644056019359056e-86,
+      "p_value_adjustment": "none",
+      "point": 0.6498557910839583
+    },
+    "confidence_level": 0.95,
+    "counts": {
+      "prot_approved": 1815,
+      "prot_n": 4991,
+      "ref_approved": 2803,
+      "ref_n": 5009
+    },
+    "p_value_method": "two_proportion_z_test",
+    "protected_group": "female",
+    "reference_group": "male",
+    "seed_material": "sha256:495a0b806a84d7543a9ec4e034baff2af6baf2bab6cae7c6d2cc354267a8b9fa",
+    "selection_rates": {
+      "prot": {
+        "ci95": [
+          0.3504180982108322,
+          0.377100788474183
+        ],
+        "p": 0.3636545782408335
+      },
+      "ref": {
+        "ci95": [
+          0.5458041209416802,
+          0.5732900072270615
+        ],
+        "p": 0.5595927330804552
+      }
+    },
+    "small_n_flag": false,
+    "srg": {
+      "ci95": [
+        -0.22287190901622927,
+        -0.1687033324674972
+      ],
+      "method": "newcombe_wilson",
+      "p_value": 5.644056019359056e-86,
+      "p_value_adjusted": 5.644056019359056e-86,
+      "p_value_adjustment": "none",
+      "point": -0.19593815483962168
+    }
+  },
+  "display": {
+    "female_percent": 36.4,
+    "male_percent": 56.0,
+    "male_minus_female_percentage_points": 19.6,
+    "observations": 10000
+  },
+  "checks": [
+    "Retained rates match retained approved/count values.",
+    "Displayed one-decimal rates and positive male-minus-female gap match the retained metrics.",
+    "SVG bar widths represent the exact rates on a 0\u2013100 scale.",
+    "Hero links the exact source bundle."
+  ],
+  "limits": [
+    "Historical synthetic demo, not customer results or present-release validation.",
+    "The shipped scenario CSV has 5000 rows; displayed rates and intervals come from retained 10000-observation metrics, not a new CSV recomputation.",
+    "The separate balanced report further down the homepage is a different example."
+  ]
+}

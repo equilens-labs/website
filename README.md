@@ -49,7 +49,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Primary navigation and the site footer are synchronised from JSON single-source files:
   - Navigation links: `config/web/nav.json`
   - Footer links, copyright note, and product-boundary disclaimer: `config/web/footer.json`
-- Navigation is rendered at runtime into the `#nav-placeholder` container by `/assets/eql/nav.js`, which reads from `config/web/nav.json`. This keeps the nav SSOT in a single JSON file while avoiding extra build tooling. No sync script is needed for navigation changes.
+- Navigation is baked into the HTML from `config/web/nav.json` with `python3 scripts/content/sync_nav_static.py`. Runtime `nav.js` adds the mobile menu, section focus and scroll-spy behavior. Links remain available without JavaScript.
 - After updating `config/web/footer.json` or `templates/footer.html`, run the sync script to fan out the footer across every HTML page (redirect stubs contain no footer and pass through unchanged; `output/` and `dist/` are never touched):
 
   ```bash

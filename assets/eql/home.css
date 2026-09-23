@@ -1,0 +1,98 @@
+/* Home is a visual introduction. Detailed product and procurement copy lives
+   on its own pages. Keep these composition rules isolated from reading pages. */
+.home-container { width: calc(100% - 2.5rem); max-width: var(--container-width); margin-inline: auto; }
+.home main { container: homepage / inline-size; }
+.home-intro { min-width: 0; }
+.home-hero { padding: 4.5rem 0 4rem; }
+.home-hero-layout { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: 4rem; }
+.home-intro .eyebrow { margin: 0 0 1.5rem; }
+.home-intro h1 { font-size: clamp(2.75rem, 4.5vw, 3.75rem); font-weight: 650; line-height: 1.06; letter-spacing: -.045em; margin: 0; text-wrap: initial; hyphens: manual; overflow-wrap: anywhere; }
+.home-intro h1 > span { color: var(--color-primary-text); }
+.home-lead { font-size: 1.125rem; line-height: 1.6; max-width: 45ch; margin: 1.5rem 0; color: var(--text-secondary); }
+.home .home-product-link { gap: 1.5rem; }
+.home-scope { font-size: 1rem; color: var(--text-secondary); margin: 1rem 0 0; }
+
+/* Narrative illustration: synthetic borrowers, comparison, evidence. */
+.home-story { min-width: 0; margin: 0; container: story / inline-size; }
+.home-story img { display: block; width: 100%; height: auto; }
+.home-story figcaption { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: .75rem; margin: 1rem 0 0; color: var(--text-secondary); font-size: .875rem; line-height: 1.5; text-align: center; }
+.home-story figcaption span { min-width: 0; text-wrap: balance; }
+
+.home-benefits { padding: 0 0 3.5rem; }
+.home-benefit-grid { border-top: 1px solid var(--border-default); padding-top: 2rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.home-benefit-grid article { display: flex; align-items: flex-start; gap: 1rem; }
+.benefit-number { font-family: var(--font-mono); font-size: .8125rem; color: var(--color-primary-text); padding-top: .2rem; }
+.home-benefit-grid h3 { font-size: 1.125rem; line-height: 1.5; }
+.home-benefit-grid p { margin: .375rem 0 0; color: var(--text-secondary); line-height: 1.6; }
+
+.home-proof { padding: 3.5rem 0; background: var(--bg-subtle); border-block: 1px solid var(--border-light); }
+.home-proof-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 5rem; align-items: center; }
+.home-report-preview { background: #e9ecf9; padding: 1.5rem 2.5rem 0; border-radius: .75rem; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
+.home-report-preview::after { display: none; }
+.home-report-preview img { width: 100%; max-width: 320px; height: 280px; object-fit: cover; object-position: top; border: 1px solid var(--border-default); border-bottom: 0; box-shadow: 0 8px 24px #0f172a12; }
+.home-report-preview > span { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; padding: .875rem 0; font-size: .875rem; font-weight: 500; color: var(--color-primary-text); }
+.home-proof-copy .eyebrow { margin: 0 0 1rem; }
+.home-proof-copy h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.15; margin: 0 0 1rem; letter-spacing: -.025em; }
+.home-proof-copy > p:not(.eyebrow) { max-width: 42ch; color: var(--text-secondary); }
+.home-text-link { display: inline-flex; align-items: center; gap: 1rem; color: var(--color-primary-text); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; }
+.home-text-link::after { display: none; }
+.home-proof-copy .home-file-meta { font-size: .875rem; margin: 0; }
+.home-resource-links { display: flex; flex-wrap: wrap; column-gap: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--border-default); padding-top: .5rem; }
+.home-resource-links a { color: var(--color-primary-text); text-decoration: underline; text-underline-offset: 4px; font-size: .875rem; min-height: 44px; display: inline-flex; align-items: center; gap: .5rem; }
+
+.home-next { padding: 3.5rem 0; }
+.home-next-layout { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+.home-next h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin: 0 0 .75rem; }
+.home-next p { max-width: 54ch; color: var(--text-secondary); margin: 0; }
+.home-next .btn { flex-shrink: 0; gap: 1.25rem; }
+.home .site-footer .container { max-width: var(--container-width); width: calc(100% - 2.5rem); margin-inline: auto; }
+.home .site-footer .grid { text-align: left; }
+.home .site-footer { padding-inline: 0; container: home-footer / inline-size; }
+
+@media (max-width: 1099px) {
+  .home-hero-layout { gap: 2rem; }
+  .home-intro h1 { font-size: clamp(2.25rem, 4.5vw, 3rem); }
+  .home-proof-layout { gap: 2.5rem; }
+  .home-benefit-grid { gap: 1.5rem; }
+  .home-benefit-grid article { gap: .75rem; }
+}
+@media (max-width: 699px) {
+  .home-hero { padding: 1.5rem 0 2rem; }
+  .home-hero-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .home-intro .eyebrow { font-size: .75rem; margin-bottom: 1.25rem; }
+  .home-intro h1 { font-size: clamp(2.25rem, 9.8vw, 2.75rem); }
+  .home-lead { font-size: 1rem; margin: 1.25rem 0; }
+  .home-scope { line-height: 1.5; }
+  .home-story figcaption { font-size: .8125rem; gap: .5rem; }
+  .home-benefits { padding: 0 0 2rem; }
+  .home-benefit-grid { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
+  .home-benefit-grid article { gap: 1rem; }
+  .home-benefit-grid p { margin-top: .125rem; }
+  .home-proof { padding: 2rem 0; }
+  .home-proof-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .home-report-preview { padding: 1rem 1.5rem 0; }
+  .home-report-preview img { height: 210px; }
+  .home-proof-copy h2 { font-size: 1.875rem; }
+  .home-proof-copy .eyebrow { margin-bottom: .75rem; }
+  .home-resource-links { margin-top: 1rem; column-gap: 1rem; }
+  .home-next { padding: 2.5rem 0; }
+  .home-next-layout { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .home .site-footer .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; text-align: left; }
+  .home .site-footer .grid section { min-width: 0; }
+  .home .site-footer h3 { font-size: .75rem; }
+  .home .site-footer a { font-size: .8125rem; overflow-wrap: anywhere; min-height: 28px; }
+}
+
+/* Font-relative containers keep enlarged text readable without horizontal
+   scrolling. At default text size the existing phone composition is retained. */
+@container homepage (max-width: 43.6875rem) {
+  .home-hero-layout, .home-proof-layout, .home-benefit-grid { grid-template-columns: minmax(0, 1fr); }
+  .home-next-layout { flex-direction: column; align-items: flex-start; }
+  .home-next .btn, .home-product-link { max-width: 100%; }
+}
+@container home-footer (max-width: 22.4375rem) {
+  .home .site-footer .grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); }
+}
+@container story (max-width: 16rem) {
+  .home-story figcaption { grid-template-columns: minmax(0, 1fr); gap: .375rem; }
+}

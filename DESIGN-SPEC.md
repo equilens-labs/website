@@ -1,96 +1,95 @@
 # Equilens website — design spec
 
-One simple, tidy, professional system. Every rule below is enforced by a gate
-where one exists; change the rule and its gate together, never ad hoc.
-(Not deployed: root .md files are outside the publish allowlist.)
+Current composition rules, revised 22 September 2026 following the independent
+website review and owner instruction. These supersede the earlier requirement
+for identical centered cards inside alternating rounded panels. This file is
+outside the public deployment allowlist.
 
-## Type
+## Type and colour
 
-- **Geist Sans** (self-hosted `/brand/fonts/geist-latin-wght-normal.woff2`) — all text,
-  including eyebrows and the hero subtitle (uppercase, semibold, wide tracking).
-- **Geist Mono** (self-hosted) — number badges, hashes/IDs, and code ONLY.
-  Never for labels, headings, or captions (founder rules).
-- Small annotation text (panel notes, footer boundary) spans the full content
-  width of its container, like the grids it annotates — never a `ch` measure,
-  which shrinks with font-size and renders small text conspicuously narrow.
-- Scale: h1 56/800 · section h2 40/600 (centered) · card h3 18/600 ·
-  body 16/1.7 · landing section intro 18 · note 13. Headings track tight.
-- Casing: sentence case for headings, buttons, labels. Proper nouns and legal
-  document titles keep caps. Eyebrows and footer column headers are uppercase chrome.
-- Section titles are short ("Presenting FL-BSA", "Why self-hosted?").
+- Self-hosted **Geist Sans** for headings, body, labels and captions. Geist Mono
+  only for code, hashes and numbered badges. No third-party font requests.
+- Body: 16px / 1.7 at default browser size, using relative units. Leads: 18px.
+  Buyer H1: 36px mobile, up to 56px desktop. Section H2: 28px mobile / 40px desktop.
+  H3: 20px for cards, steps and service rows. Metadata/captions: 14px.
+- Scope, availability, privacy explanations and commercial terms are ordinary
+  body copy, even when historical markup calls them a `note`.
+- Long prose and section headings align left. Aim for 55–75 characters in a
+  desktop reading column. Centered text is reserved for brief display elements.
+- Keep slate/indigo and existing contrast: `--color-primary` for chrome and
+  `--color-primary-text` for readable accent text.
+- Preserve the founder's `.product-name` treatment for FL-BSA in prose and H2/H3,
+  the bracket identity, logo proportions and sentence-case labels.
 
-### Dense-text rules (make long copy readable)
+## Page architecture
 
-- **FL-BSA** always accent-colored semibold via `.product-name` — in prose AND
-  h2/h3 headings (h1, nav, buttons, summaries are exempt chrome). Gate enforced.
-- Acronym first use per page: expansion in parentheses, no article —
-  "FL-BSA (Fair-Lending Bias-Simulation Appliance)".
-- Regulatory acronyms get `<abbr title="…">` hover expansions (EU AI Act, ECOA, FCA).
-- Technical tokens (SHA-256, versions, file names, config keys) render in `<code>`.
-- Emphasis: semibold ink, at most one phrase per paragraph; never italics or
-  ALL CAPS in prose (DEMO/EVALUATION artifact label excepted).
+- Home: a brief introduction and a conceptual simulation-to-evidence diagram,
+  followed by three concise benefits, the real sample report and a buyer-pack
+  action. The opening action invites product exploration. Keep the diagram
+  explanatory: no invented metrics, customers, interface or certifications.
+  `assets/eql/home.css` isolates this composition from the reading pages.
+- Product: buyer, job, simulation scope, action and a real sample in the opening.
+  Desktop pairs text and sample; mobile stacks in reading order.
+- Product: three-step process, comparable engagement rows, bounded optional
+  evaluation, deployment/context/resources and compact FAQ. Preserve published
+  anchor IDs and allowlisted campaign routes.
+- Contact: one H1 and purpose, then Name/Email. Both fields must be visible at
+  375×812. Alternative routes follow or sit alongside the form.
+- Legal/Trust/product: native “On this page” disclosure at small widths and a
+  sticky contents rail on desktop. Works without scripts; JS enhances section
+  focus and active-location feedback, respecting reduced motion.
+- Supporting resources use a stable reading column. Press provides previews
+  and clear download labels; implementation files have secondary prominence.
 
-## Color roles
+## Components and spacing
 
-- Text: slate ink (`--text-primary/secondary/muted`).
-- `#4F46E5` — interactive/brand chrome only (buttons, icons, active states, accents).
-- `#3730A3` — text emphasis: links and **`.product-name`** (see rule below).
-- `#4338CA` — hover of primary only. Never two indigos in one component.
-- State colors (success/warning/danger) reserved for pass/fail vocabulary.
+- Plain sections, without mandatory bordered panels. Subtle bands can separate
+  topics; there is no requirement for a strict alternating sequence.
+- Cards represent distinct items. Reading content aligns left; icons are optional.
+- `.service-list > .service-row`: equal widths, aligned duration and deliverables;
+  two text columns on desktop, stacked text on mobile.
+- `.process-list` provides semantic ordered steps and visible numbering.
+- Use the existing 4px spacing scale. Paragraph gaps are smaller than section
+  boundaries. Avoid repeated mobile padding that constricts the reading measure.
+- One primary action per decision area. “Request buyer pack” consistently identifies
+  the object. Explain contents and written reply. Samples link to the real PDF,
+  with synthetic/demo status and file metadata attached.
+- Buttons and fields retain visible keyboard focus; hover is supplementary.
+  Without JS, the primary links remain usable and the inert menu button is hidden.
 
-**FL-BSA always renders in the accent color** (founder rule): every prose
-occurrence wrapped in `<span class="product-name">` — gate:
-`scripts/ops/check_product_name.py` (runs in content lint).
+## Claims and behaviour
 
-## Rhythm (gate: `scripts/ops/measure_rhythm.mjs`)
+- Current scope: customer-hosted simulation over synthetic cohorts. No execution
+  of customer models, live lending decisions, legal advice or certification.
+  Keep roadmap work distinct from the available product.
+- Current access is pre-release and agreed separately. No unverified portal,
+  Marketplace availability, delivery date or response SLA.
+- Terms and delivery approval precede installation in procurement.
+- Keep the mandatory footer boundary generated from JSON/template source.
+- Preserve the “call” word ban, em-dash copy ban and claims lint rules.
+- Count valid attempts after the honeypot guard; accepted submissions after HTTP
+  2xx. No personal/freeform input in analytics. Receipt and qualification are
+  subsequent operating outcomes, not browser conversion claims.
 
-Section boundaries identical · h2→content 24 · intro→group 40 · group→CTA 40 ·
-group→note 24 · panel padding symmetric (48) · no trailing-margin accumulation.
-8px grid; collapse-aware.
+## Verification and release
 
-## Components (one spec each)
+1. `npm run content:lint` and `npm run lint:html`.
+2. `npm test` against loopback with persistent external-request blocking. Preserve
+   campaign/claims/privacy checks; test behaviour and geometry, not CSS bytes.
+3. `node scripts/ops/measure_rhythm.mjs <local-url>` for composed layout geometry.
+4. Independent complete-page screenshots at 375/768/1280, viewed by the main
+   agent. Include 320px stress and original-scale component crops when needed.
+5. Branch → PR with evidence → founder review/merge → normal audited deployment.
+   After deployment, the main agent views live 375/768/1280 renders.
 
-- **Button**: radius-sm (8px), sentence case, one primary per section; the page's
-  conversion CTA may repeat as primary. `.btn--small` for dense chrome.
-- **Card** (the ONLY grid-card look — no variants): white, hairline slate border,
-  radius 12, no rest shadow, **centered** content, **icon above the title on every
-  card**, one-line titles, action rows pinned to a shared bottom line.
-- **Badge**: one 40px tinted mono number style for every sequence.
-- **Stacked grid** (`.grid--stack`): dense reader cards (long checks, code tokens)
-  get one card per row with checks at reading measure; light cards stay in columns.
-- **Evidence figure**: real artifact imagery, hairline frame, body-face demo caption.
-- **Note**: 13px muted, centered, spanning the panel content width, top divider.
-- Hero: the LANDING hero only is framed by faint bracket strokes in the
-  wordmark's squared geometry (`.landing .hero::before/::after`, founder pick
-  2026-07-15) — drawn as borders sized relative to the hero (cannot clip),
-  tablet-and-up, silent for screen readers. Interior heroes stay clean — the
-  signature belongs to the landing page alone (founder consistency pass
-  2026-07-16); all interior heroes share one padding. No grids, gradients, or
-  mist. Wordmark lockup + sans uppercase subtitle.
+Record source, checks, coverage limits and artifact hashes in
+`output/ops/COORDINATED-REVISION-20260921/`. Browser automation does not establish
+screen-reader or physical-device acceptance.
 
-## Layout & alignment
+The September 21 homepage was rejected by the owner as a wall of text despite
+passing automated and independent review. The homepage evidence in
+`output/ops/HOME-REDESIGN-20260922/` supersedes that visual acceptance. Evaluate
+the first impression and whole-page composition directly; passing checks and
+reduced word count do not by themselves establish good design or conversion.
 
-Chrome (h2, leads, CTA rows, badges) centered; prose left at 68ch;
-landing intros centered at 18px. Panels (`.section-block`) on alternating
-white/slate stripes on every page.
-
-## Copy rules (gate: `scripts/ops/content_lint.sh`)
-
-- Claims register: banned/approved language enforced (existing rules).
-- The word **"call" is banned** site-wide.
-- **No em-dashes** in site copy (lint-enforced; titles/meta/JSON-LD names exempt).
-- Plain, precise English; short sentences; no marketing embellishment.
-- Mandatory product-boundary block in the footer of every page.
-
-## Verification (all must pass before any push)
-
-1. `npm run content:lint` — claims, call-ban, product-name wrapping.
-2. `node scripts/ops/measure_rhythm.mjs <url>` — rhythm table.
-3. `npm test` — full Playwright suite (grammar pins, a11y patterns, structure).
-4. Visual: 100%-scale component crops at 1440 and 390, reviewed before the founder sees anything.
-
-## Process
-
-Branch → PR (before/after renders) → founder review → founder merges → deploy.
-No detail-patching with the founder as QA: finish to this spec across the whole
-site, then present once.
+Navigation initializes synchronously after its baked markup and before main content is parsed, preserving initial geometry and the failed-script fallback. Page anchors initialize after parsing. Contents disclosures start closed in HTML and open only in the wide sidebar, avoiding mobile layout shifts. Keep this ordering when synchronizing markup.

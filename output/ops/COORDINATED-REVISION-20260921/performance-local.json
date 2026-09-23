@@ -1,0 +1,110 @@
+{
+  "method": "Local Lighthouse0.13.0 CLI with system Chrome; HTTPS requests blocked before navigation to avoid external analytics. Same category thresholds as CI. This local run preceded the markup-only Trust Center role correction. Final CI remains required.",
+  "results": [
+    {
+      "url": "http://127.0.0.1:8765/legal/",
+      "fetchTime": "2026-09-21T16:20:49.051Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.92,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 2410.8837000000003,
+      "report_sha256": "1bcebc4fe67fdc2193525c37042ff3f4c95674a4de680a5ce104c3914fa6f707"
+    },
+    {
+      "url": "http://127.0.0.1:8765/notes/five-things-before-a-fair-outcomes-test/",
+      "fetchTime": "2026-09-21T16:20:59.249Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.92,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 2562.1605250000002,
+      "report_sha256": "a95a40d8075fce0e1d4d56b237a145b7a1abd46ee71523c6af673acd0ea6d067"
+    },
+    {
+      "url": "http://127.0.0.1:8765/",
+      "fetchTime": "2026-09-21T16:20:07.248Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.94,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.93,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 3009.7819999999992,
+      "report_sha256": "6804320ff4e5b7514bb1be62e23c580e0aeec50e6d3a2cb0c0a987f01f406c2a"
+    },
+    {
+      "url": "http://127.0.0.1:8765/fl-bsa/",
+      "fetchTime": "2026-09-21T16:20:28.645Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.93,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.93,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 3156.6712000000007,
+      "report_sha256": "fcce52e8f71385550a89c6ab6e8f80a36ebebcd01bd80182603f46b14f5fede1"
+    },
+    {
+      "url": "http://127.0.0.1:8765/trust-center/",
+      "fetchTime": "2026-09-21T16:20:38.914Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.96,
+        "accessibility": 0.99,
+        "best-practices": 1,
+        "seo": 0.92,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 2710.4512500000005,
+      "report_sha256": "dfe27c52994042ce9c0a9955dcb0b063879500b1746193cf7326a19cdc9b2a62"
+    },
+    {
+      "url": "http://127.0.0.1:8765/contact/",
+      "fetchTime": "2026-09-21T16:20:18.562Z",
+      "lighthouseVersion": "11.4.0",
+      "scores": {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.92,
+        "pwa": 1
+      },
+      "cls": 0,
+      "lcp_ms": 2412.6542499999996,
+      "report_sha256": "057e9b2c9aceb489a45bb441669e47d9333b854bcdccf25c169bd09bd2a4d5b0"
+    }
+  ],
+  "trust_role_followup": {
+    "url": "http://127.0.0.1:8765/trust-center/",
+    "fetchTime": "2026-09-21T16:25:01.403Z",
+    "lighthouseVersion": "11.4.0",
+    "scores": {
+      "performance": 0.96,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92,
+      "pwa": 1
+    },
+    "cls": 0,
+    "lcp_ms": 2709.9138749999993,
+    "report_sha256": "6ac3daf02a8fcf7df141748e0a7b82cad2f29a4f1a26f5db17a1c49bd46813d3"
+  }
+}
