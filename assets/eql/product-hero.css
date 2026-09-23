@@ -1,0 +1,79 @@
+/* FL-BSA only: keep the approved dual-branch illustration wide and uncropped. */
+.dual-branch-hero .product-hero-shell {
+  width: calc(100% - var(--space-10));
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+.dual-branch-hero .product-hero-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-12);
+}
+.dual-branch-hero .hero-copy h1 {
+  max-width: 18ch;
+  margin-bottom: 0;
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+  hyphens: none;
+  overflow-wrap: normal;
+}
+.dual-branch-hero .product-hero-context { min-width: 0; }
+.dual-branch-hero .product-hero-context .lead {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-lg);
+}
+.dual-branch-hero .cta-row { justify-content: flex-start; }
+.dual-branch-hero .product-hero-scope {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+.dual-branch-hero .dual-branch-figure {
+  margin: var(--space-6) 0 0;
+}
+.dual-branch-hero .dual-branch-image-link { display: block; }
+.dual-branch-hero .dual-branch-image-link::after { display: none; }
+.dual-branch-hero .dual-branch-image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.dual-branch-hero .dual-branch-figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+.dual-branch-hero .dual-branch-figure figcaption > span { max-width: 85ch; }
+.dual-branch-hero .dual-branch-figure figcaption a,
+.dual-branch-hero .product-hero-evidence a {
+  color: var(--color-primary-text);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.dual-branch-hero .product-hero-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-8);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-default);
+  font-size: var(--text-sm);
+}
+.dual-branch-hero .product-hero-evidence p { max-width: 75ch; margin: 0; }
+.dual-branch-hero .product-report-meta { white-space: nowrap; }
+@media (max-width: 900px) {
+  .dual-branch-hero .product-hero-intro { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  .dual-branch-hero .hero-copy h1 { max-width: 23ch; }
+  .dual-branch-hero .product-hero-context .lead { max-width: 65ch; }
+}
+@media (max-width: 600px) {
+  .dual-branch-hero .hero-copy h1 { font-size: 2.25rem; }
+  .dual-branch-hero .dual-branch-figure { margin-top: var(--space-5); }
+  .dual-branch-hero .dual-branch-figure figcaption { gap: var(--space-2); }
+}

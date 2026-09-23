@@ -1,4 +1,6 @@
-# Equilens — Brand Guidelines (v1)
+# Equilens — Brand Guidelines
+
+Website typography and layout are governed by the current [design spec](https://github.com/equilens-labs/website/blob/main/DESIGN-SPEC.md). The original Inter typography guidance is superseded by the self-hosted Geist system.
 
 ## 1. Logo system
 
@@ -31,7 +33,7 @@ Use a margin equal to **10% of the wordmark's height** on all sides. Keep type/g
 
 ## 3. Typography
 
-- Product/UI: `Inter var`, `system-ui`, `Segoe UI`, `Roboto`, `Helvetica`, `Arial`, sans-serif.
+- Product/UI: self-hosted Geist Sans with system sans-serif fallbacks. Geist Mono is reserved for code, hashes and number badges.
 - Display/headlines can increase weight (700–900) with tight tracking; body 400–500.
 - Recommended scale: 12, 14, 16, 20, 24, 32, 40, 56, 72 (rem‑based).
 
