@@ -1,0 +1,30 @@
+/* Scoped paid-entry and contact repairs; independent of homepage artwork. */
+#controlled-pilot { scroll-margin-top: var(--space-4); }
+#controlled-pilot .section-block { padding: var(--space-6); }
+#controlled-pilot .eyebrow { margin-bottom: var(--space-3); }
+#controlled-pilot h2 { text-align: left; margin-bottom: var(--space-4); }
+#controlled-pilot .section-block > p { text-align: left; margin-left: 0; }
+#controlled-pilot .lead { font-size: var(--text-base); margin-bottom: var(--space-4); }
+#controlled-pilot .cta-row { justify-content: flex-start; margin-top: var(--space-4); margin-bottom: var(--space-8); }
+.contact-section { padding: var(--space-12) 0 var(--space-16); }
+.contact-layout { width: calc(100% - var(--space-10)); max-width: var(--container-width); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+.contact-primary, .contact-aside { min-width: 0; }
+.contact-primary .eyebrow { margin: 0 0 var(--space-4); }
+.contact-primary h1 { text-align: left; font-weight: var(--font-bold); font-size: clamp(2rem, 4vw, 3rem); }
+.contact-primary .lead { font-size: var(--text-base); margin: var(--space-4) 0 var(--space-8); }
+.contact-primary .form-actions { justify-content: flex-start; }
+.contact-aside { border-left: 1px solid var(--border-default); padding-left: var(--space-8); margin-top: var(--space-10); }
+.contact-aside h2 { font-size: var(--text-xl); margin: var(--space-8) 0 var(--space-4); }
+.contact-aside h2:first-child { margin-top: 0; }
+.contact-aside p { font-size: var(--text-base); color: var(--text-secondary); }
+.form-actions button:disabled { cursor: wait; opacity: .75; }
+#form-status { padding: var(--space-4); background: var(--bg-subtle); border-left: 3px solid var(--color-primary); text-align: left; }
+
+@media (max-width: 1099px) { .contact-layout { gap: var(--space-8); } }
+@media (max-width: 767px) {
+  .contact-layout { grid-template-columns: minmax(0, 1fr); }
+  .contact-section { padding: var(--space-8) 0 var(--space-12); }
+  .contact-aside { margin: 0; padding: var(--space-6) 0 0; border-left: none; border-top: 1px solid var(--border-default); }
+  #controlled-pilot .section-block { padding: var(--space-5); }
+  #controlled-pilot .btn { font-size: var(--text-sm); }
+}

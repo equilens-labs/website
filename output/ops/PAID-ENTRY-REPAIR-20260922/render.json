@@ -1,0 +1,81 @@
+{
+  "started": "2026-09-22T12:13:07.358Z",
+  "cases": [
+    {
+      "width": 375,
+      "landing": {
+        "ctaTop": 499.65625,
+        "ctaBottom": 547.65625,
+        "scrollY": 9435,
+        "overflow": 0
+      },
+      "contact": {
+        "fieldTop": 313.296875,
+        "submitTop": 1113.953125,
+        "interest": "Controlled FL-BSA Pilot",
+        "route": "linkedin-flbsa-uk-pilot-202609",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 768,
+      "landing": {
+        "ctaTop": 368.984375,
+        "ctaBottom": 416.984375,
+        "scrollY": 6779,
+        "overflow": 0
+      },
+      "contact": {
+        "fieldTop": 329.296875,
+        "submitTop": 1024.96875,
+        "interest": "Controlled FL-BSA Pilot",
+        "route": "linkedin-flbsa-uk-pilot-202609",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 1280,
+      "landing": {
+        "ctaTop": 397.296875,
+        "ctaBottom": 445.296875,
+        "scrollY": 7336,
+        "overflow": 0
+      },
+      "contact": {
+        "fieldTop": 328.484375,
+        "submitTop": 1024.15625,
+        "interest": "Controlled FL-BSA Pilot",
+        "route": "linkedin-flbsa-uk-pilot-202609",
+        "overflow": 0
+      }
+    }
+  ],
+  "blocked": [
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    },
+    {
+      "url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+      "method": "GET"
+    }
+  ],
+  "errors": [],
+  "finished": "2026-09-22T12:13:14.355Z"
+}
