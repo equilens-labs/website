@@ -526,6 +526,55 @@ test.describe('Equilens site surfaces', () => {
     );
   });
 
+  test('current EU4 and UK campaigns retain their identity without changing buyer-pack intent', async ({ page }) => {
+    await stubPlausible(page);
+    for (const campaign of [
+      { region: 'EU4', route: 'linkedin-flbsa-eu4-pilot-202609', name: 'flbsa_eu4_pilot_202609', content: 'single_image_v4' },
+      { region: 'UK', route: 'linkedin-flbsa-uk-pilot-202609', name: 'flbsa_uk_pilot_202609', content: 'single_image_uk_a' },
+    ]) {
+      const tags = new URLSearchParams({ route: campaign.route, utm_source: 'linkedin',
+        utm_medium: 'paid-social', utm_campaign: campaign.name, utm_content: campaign.content });
+      const landing = '/fl-bsa/?' + tags + '#controlled-pilot';
+      await page.goto(landing, { waitUntil: 'networkidle' });
+      for (const cta of ['hero-primary', 'pricing-primary', 'final-primary']) {
+        const href = await page.locator(`a[class*="plausible-event-cta=${cta}"]`).getAttribute('href');
+        const destination = new URL(href!, 'http://localhost');
+        expect(destination.pathname).toBe('/contact/');
+        expect(destination.searchParams.get('interest')).toBe('Procurement Pack');
+        for (const [name, value] of tags) expect(destination.searchParams.get(name)).toBe(value);
+      }
+      const navHref = await page.locator('nav a.nav-link').filter({ hasText: /^Contact$/ }).first().getAttribute('href');
+      expect(new URL(navHref!, 'http://localhost').searchParams.get('route')).toBe(campaign.route);
+      // A different offer stays a different offer.
+      await expect(page.locator('[data-campaign-contact="ccd2-readiness"]')).toHaveAttribute(
+        'href', '/contact/?interest=Automated%20Creditworthiness%20Evidence%20Readiness');
+      await page.locator('a[class*="plausible-event-cta=hero-primary"]').click();
+      await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
+      await expect(page.locator('#message')).toHaveValue(/Please send the FL-BSA buyer and procurement pack/);
+      const pack = await submitAndReadSubmission(page);
+      expect(pack.subject).toBe(`FL-BSA enquiry: Procurement Pack — LinkedIn ${campaign.region} Sep 2026`);
+      expect(pack.payload.interest).toBe('Procurement Pack');
+
+      await page.goto(landing, { waitUntil: 'networkidle' });
+      await page.locator('[data-campaign-contact="controlled-pilot"]').click();
+      await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+      expect(await submitAndReadSubject(page)).toBe(`FL-BSA enquiry: Optional evaluation — LinkedIn ${campaign.region} Sep 2026`);
+    }
+  });
+
+  test('UK campaign identity rejects mismatched and duplicated tags on landing and contact', async ({ page }) => {
+    await stubPlausible(page);
+    const exact = 'route=linkedin-flbsa-uk-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_uk_pilot_202609&utm_content=single_image_uk_a';
+    for (const invalid of [exact.replace('single_image_uk_a', 'single_image_v4'),
+      exact + '&utm_campaign=flbsa_uk_pilot_202609', exact.replace('utm_source=linkedin', 'utm_source=direct')]) {
+      await page.goto('/fl-bsa/?' + invalid + '#controlled-pilot', { waitUntil: 'networkidle' });
+      await expect(page.locator('[data-campaign-contact="controlled-pilot"]')).toHaveAttribute(
+        'href', '/contact/?interest=Controlled%20FL-BSA%20Pilot');
+      await page.goto('/contact/?interest=Procurement%20Pack&' + invalid, { waitUntil: 'networkidle' });
+      expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Procurement Pack');
+    }
+  });
+
   test('malformed or changed campaign routes fall back to generic email subjects', async ({ page }) => {
     await stubPlausible(page);
     const genericSubject =

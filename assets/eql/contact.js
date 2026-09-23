@@ -31,9 +31,9 @@
       'Guided Pilot Access': 'Guided pre-release access',
     };
     const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
-    const hasSingleMatchingInterest =
-      matchedCampaign &&
-      window.eqlCampaignRouting.getSingleParam(params, 'interest') === matchedCampaign.interest;
+    const singleInterest = window.eqlCampaignRouting?.getSingleParam(params, 'interest');
+    const hasSingleMatchingInterest = matchedCampaign &&
+      (singleInterest === matchedCampaign.interest || singleInterest === 'Procurement Pack');
     const campaignRoute = hasSingleMatchingInterest ? matchedCampaign : null;
 
     if (interestParam && interestField) {
@@ -66,6 +66,7 @@
     }
 
     function buildSubject(interest, displayInterest) {
+      if (campaignRoute && interest === 'Procurement Pack') return campaignRoute.packSubject;
       return campaignRoute && interest === campaignRoute.interest
         ? campaignRoute.subject
         : interest

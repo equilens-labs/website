@@ -105,6 +105,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
+  <link rel="stylesheet" href="/assets/eql/product-hero.css?v=20260923a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
  <body class="eql product-page">
@@ -124,27 +125,34 @@
   </div>
 </nav>
   <script src="/assets/eql/nav.js?v=20260921e"></script>
-  <script src="/assets/eql/campaign-routes.js?v=20260909a" defer></script>
-  <script src="/assets/eql/campaign-route.js?v=20260904a" defer></script>
+  <script src="/assets/eql/campaign-routes.js?v=20260922a" defer></script>
+  <script src="/assets/eql/campaign-route.js?v=20260922a" defer></script>
 
 
   <main id="main" tabindex="-1">
-  <section class="hero buyer-hero" id="overview" aria-labelledby="product-heading">
-    <div class="buyer-hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="product-name">FL-BSA</span> / For regulated credit teams</p>
-        <h1 id="product-heading" class="hero-headline">Fair-outcomes evidence.<br>Built from simulation.</h1>
-        <p class="lead">Explore bias in synthetic decision patterns, then review the report, metrics and evidence trail. Run the appliance in your own environment.</p>
-        <p class="scope-summary"><span class="product-name">FL-BSA</span> never executes your models or makes live lending decisions. Pre-release access is agreed separately.</p>
-        <div class="cta-row"><a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request buyer pack</a><a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-whitepaper plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Read the whitepaper</a></div>
-        <p class="cta-explainer">Sample evidence, deployment and security material, and a commercial overview. A written reply, with no further commitment.</p>
+  <section class="hero buyer-hero dual-branch-hero" id="overview" aria-labelledby="product-heading">
+    <div class="product-hero-shell">
+      <div class="product-hero-intro">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="product-name">FL-BSA</span> / For regulated credit teams</p>
+          <h1 id="product-heading" class="hero-headline">Fair-outcomes evidence.<br>Built from simulation.</h1>
+        </div>
+        <div class="product-hero-context">
+          <p class="lead">Explore bias in synthetic decision patterns, then review the report, metrics and evidence trail. Run the appliance in your own environment.</p>
+          <div class="cta-row"><a class="btn btn-primary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=hero-primary plausible-event-intent=readiness plausible-event-offer_stage=pack" href="/contact/?interest=Procurement%20Pack">Request buyer pack</a><a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-whitepaper plausible-event-asset=whitepaper-landing" href="/fl-bsa/whitepaper/">Read the whitepaper</a></div>
+          <p class="product-hero-scope"><span class="product-name">FL-BSA</span> never executes your models or makes live lending decisions. Pre-release access is agreed separately.</p>
+        </div>
       </div>
-      <figure class="sample-report">
-      <a class="report-image-link plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-sample plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the sample report, PDF, in a new tab">
-        <img src="/brand/product/report-screening.png" alt="Screening table and dataset overview from the synthetic demo report" width="619" height="800" fetchpriority="high">
-      </a>
-      <figcaption><strong>Inside a simulation report</strong><br>Group comparisons, assumptions and a traceable evidence record. Synthetic demo, 16-page PDF, 246 KB.<a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-sample-link plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Open sample report (PDF)</a></figcaption>
-    </figure>
+      <figure class="dual-branch-figure">
+        <a class="dual-branch-image-link" href="/brand/product/dual-branch-explained.webp" aria-label="View the dual-branch illustration full size">
+          <img src="/brand/product/dual-branch-explained.webp" alt="Historical borrower data feeds two simulation branches: amplification trains with recorded decisions; the intrinsic baseline trains without them, then applies configured decision rules. A comparison plot shows the group approval-rate gap in each branch and the difference between those gaps. Illustrative synthetic comparison." width="1536" height="1024" fetchpriority="high" decoding="async">
+        </a>
+        <figcaption><span><strong>Illustrative comparison.</strong> Amplification trains with recorded decisions; the intrinsic baseline trains without them, then applies configured rules. The plot compares their group approval-rate gaps.</span><a href="/brand/product/dual-branch-explained.webp">View illustration full size <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <div class="product-hero-evidence">
+        <p><strong>Inspect the evidence.</strong> Sample report, deployment and security material, and a commercial overview. A written reply, with no further commitment.</p>
+        <a class="plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=hero-sample-link plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Open sample report <span class="product-report-meta">(PDF, 246 KB)</span></a>
+      </div>
     </div>
   </section>
   <div class="page-with-toc">
@@ -177,9 +185,10 @@
       </div></section>
       <section class="section" id="controlled-pilot"><div class="section-block">
         <p class="eyebrow">Optional pre-release evaluation</p><h2>Evaluate one workflow</h2>
+        <p>Explore synthetic credit-decision patterns for one regulated-credit workflow in your own environment. Inspect sample evidence before discussing an evaluation.</p>
+        <div class="cta-row"><a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=fl-bsa plausible-event-cta=evaluation-sample plausible-event-asset=demo-report-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">View sample evidence (PDF)</a><a class="btn btn-secondary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=controlled-pilot plausible-event-intent=pilot plausible-event-offer_stage=pilot" data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Discuss an optional evaluation</a></div>
         <p>For an organisation with a time-bound need, agree one question, the approved input boundary and proceed, pause or stop criteria. The typical 6 to 10 week engagement includes a runbook, one supported simulation and a governance readout.</p>
         <p>Full public stable release is the product destination and is not yet published. This optional engagement is not the release programme or a release gate.</p>
-        <div class="cta-row"><a class="btn btn-secondary plausible-event-name=Request+Pack plausible-event-surface=fl-bsa plausible-event-cta=controlled-pilot plausible-event-intent=pilot plausible-event-offer_stage=pilot" data-campaign-contact="controlled-pilot" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Discuss an optional evaluation</a></div>
       </div></section>
       <section class="section alt" id="deployment"><div class="section-block">
         <h2>Run inside your environment</h2><p>The intended <abbr title="Amazon Web Services">AWS</abbr> route is <abbr title="Amazon Machine Image">AMI</abbr>-first. Supported container/<abbr title="Virtual Machine">VM</abbr> paths may be agreed separately. Public AWS Marketplace access is not yet available.</p>
