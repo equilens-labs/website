@@ -1257,10 +1257,11 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/bias amplification/i);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Do your past credit decisions amplify bias?');
     const primary = page.locator('main .btn-primary');
     await expect(primary).toHaveCount(1);
-    await expect(primary).toHaveText('Get the sample evidence report');
+    await expect(primary).toHaveText('See a sample evidence report (PDF)');
+    await expect(page.locator('main .evidence-cta-meta').first()).toHaveText('Demo build on synthetic data · EU AI Act fairness screening · 16 pages, 246 KB');
     await expect(primary).toHaveAttribute('href', samplePdf);
     await expect(primary).toHaveClass(/plausible-event-name=Proof\+Asset\+Click/);
     await expect(primary).toHaveClass(/plausible-event-surface=paid_b/);
@@ -1270,12 +1271,31 @@ test.describe('Equilens site surfaces', () => {
     const figure = (await page.locator('main img').first().boundingBox())!;
     expect(figure.y).toBeLessThan(844);
     const hero = visibleText(await page.locator('main > section').first().innerHTML());
-    expect(hero).toMatch(/intrinsic|historical decisions/i);
-    expect(hero).toMatch(/your environment|customer-hosted/i);
+    expect(hero).toMatch(/recorded decisions/i);
+    expect(hero).toMatch(/synthetic borrower cohorts/i);
+    expect(hero).toMatch(/your own environment|customer-hosted/i);
     expect(hero).not.toMatch(/pre-release|optional|release programme/i);
     const mainHeight = await page.locator('main').evaluate(element => element.getBoundingClientRect().height);
     expect(mainHeight).toBeLessThanOrEqual(3 * 844);
     await expectNoOverflow(page);
+  });
+
+  test('evidence landing copy keeps supported claims and the Article 4a answer', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(evidencePath, { waitUntil: 'networkidle' });
+    const description = 'Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation.';
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', description);
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', description);
+    await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content', description);
+    const main = visibleText(await page.locator('main').innerHTML());
+    expect(main).not.toMatch(/your configured decision rules/i);
+    expect(main).toMatch(/applies configured fair.decision rules to the same synthetic cohort/i);
+    expect(main).toMatch(/Your team can verify it offline/);
+    expect(main).toMatch(/shows the report format and evidence trail rather than a bias finding/);
+    expect(main).toMatch(/one simulation run with Equilens support/);
+    const context = page.locator('main .evidence-context');
+    await expect(context).toContainText('includes whether bias detection and correction can be achieved effectively with other data, including synthetic or anonymised data');
+    await expect(context.getByRole('link', { name: 'Article 4a' })).toHaveAttribute('href', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744');
   });
 
   test('evidence landing evaluation CTA keeps paid enquiry attribution', async ({ page }) => {

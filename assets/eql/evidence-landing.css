@@ -68,7 +68,8 @@
   color: var(--text-secondary);
 }
 .evidence-landing .arrival-figure figcaption a,
-.evidence-landing .evidence-scope a {
+.evidence-landing .evidence-scope a,
+.evidence-landing .evidence-context a {
   color: var(--color-primary-text);
   text-decoration: underline;
   text-underline-offset: .2em;
@@ -103,6 +104,12 @@
 .evidence-landing .evidence-evaluation .evidence-cta { margin-top: var(--space-5); }
 .evidence-landing .evidence-evaluation .evidence-scope {
   margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.evidence-landing .evidence-context {
+  margin: var(--space-6) 0 0;
+  max-width: 62ch;
   font-size: var(--text-sm);
   color: var(--text-secondary);
 }

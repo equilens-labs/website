@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta name="robots" content="noindex">
   <title>Bias amplification evidence for regulated credit | FL-BSA by Equilens</title>
-  <meta content="A customer-hosted FL-BSA pilot compares bias amplification with an intrinsic baseline in one regulated-credit simulation, with traceable evidence." name="description"/>
+  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." name="description"/>
   <link href="https://equilens.io/fl-bsa/evidence/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
@@ -15,20 +15,20 @@
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/fl-bsa/evidence/" property="og:url"/>
   <meta content="Bias amplification evidence for regulated credit | FL-BSA by Equilens" property="og:title"/>
-  <meta content="A customer-hosted FL-BSA pilot compares bias amplification with an intrinsic baseline in one regulated-credit simulation, with traceable evidence." property="og:description"/>
+  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="https://equilens.io/fl-bsa/evidence/" name="twitter:url"/>
   <meta content="Bias amplification evidence for regulated credit | FL-BSA by Equilens" name="twitter:title"/>
-  <meta content="A customer-hosted FL-BSA pilot compares bias amplification with an intrinsic baseline in one regulated-credit simulation, with traceable evidence." name="twitter:description"/>
+  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
-  <link rel="stylesheet" href="/assets/eql/evidence-landing.css?v=20260925a">
+  <link rel="stylesheet" href="/assets/eql/evidence-landing.css?v=20260925b">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
  <body class="eql evidence-landing">
@@ -56,17 +56,17 @@
   <section class="evidence-hero" aria-labelledby="evidence-heading">
     <div class="evidence-shell">
       <p class="evidence-eyebrow"><span class="product-name">FL-BSA</span> · Customer-hosted pilot</p>
-      <h1 id="evidence-heading">Measure bias amplification in a credit&#8209;decision simulation</h1>
-      <p class="evidence-lead">One synthetic branch trains with historical decisions, one without. <span class="product-name">FL-BSA</span> compares their group approval&#8209;rate gaps inside your environment and keeps a traceable evidence trail.</p>
+      <h1 id="evidence-heading">Do your past credit decisions amplify bias?</h1>
+      <p class="evidence-lead"><span class="product-name">FL-BSA</span> compares the approval&#8209;rate gap learned from your recorded decisions with the gap from a baseline built without them, over synthetic borrower cohorts in your own environment, so borrower and protected&#8209;attribute data stay with you.</p>
       <div class="evidence-cta">
-        <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=paid_b plausible-event-cta=b-primary plausible-event-asset=demo-report-pdf" data-eql-arrival-cta="b-primary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">Get the sample evidence report</a>
-        <p class="evidence-cta-meta">PDF, 16 pages, 246 KB · synthetic demo scenario</p>
+        <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=paid_b plausible-event-cta=b-primary plausible-event-asset=demo-report-pdf" data-eql-arrival-cta="b-primary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf" target="_blank" rel="noopener noreferrer">See a sample evidence report&nbsp;(PDF)</a>
+        <p class="evidence-cta-meta">Demo build on synthetic data · EU AI Act fairness screening · 16 pages, 246 KB</p>
       </div>
       <figure class="arrival-figure">
         <a class="arrival-figure-link" href="/brand/product/dual-branch-explained.webp" aria-label="View the dual-branch illustration full size">
           <img src="/brand/product/dual-branch-explained.webp" alt="Historical borrower data feeds two simulation branches: amplification trains with recorded decisions; the intrinsic baseline trains without them, then applies configured decision rules. A comparison plot shows the group approval-rate gap in each branch and the difference between those gaps. Illustrative synthetic comparison." width="1536" height="1024" fetchpriority="high" decoding="async">
         </a>
-        <figcaption>Amplification gap minus intrinsic-baseline gap: the Δ&nbsp;gap. Illustrative synthetic comparison. <a href="/brand/product/dual-branch-explained.webp">View full size</a></figcaption>
+        <figcaption>Δ&nbsp;gap: the amplification branch's approval&#8209;rate gap minus the baseline's (illustrative). <a href="/brand/product/dual-branch-explained.webp">View full size</a></figcaption>
       </figure>
     </div>
   </section>
@@ -76,8 +76,8 @@
       <h2 id="evidence-points-heading">What the evidence shows</h2>
       <ul class="evidence-points" role="list">
         <li>
-          <h3>Amplification, set against a baseline</h3>
-          <p>The Δ&nbsp;gap separates the approval-rate gap learned from historical decisions from the gap produced by your configured decision rules alone.</p>
+          <h3>Amplified by history, or already in the rules</h3>
+          <p>One branch learns from your recorded decisions; the other trains without them and applies configured fair&#8209;decision rules to the same synthetic cohort. The difference between their group approval&#8209;rate gaps is the amplification your history adds.</p>
         </li>
         <li>
           <h3>Your data stays with you</h3>
@@ -85,20 +85,21 @@
         </li>
         <li>
           <h3>Evidence your team can verify</h3>
-          <p>Each run delivers a report, metrics and a SHA&#8209;256 hash-linked manifest recording the dataset hash, random seed and software version. Verification works offline.</p>
+          <p>Each run delivers a report, metrics and a hash&#8209;linked (SHA&#8209;256) manifest recording the dataset hash, random seed and software version. Your team can verify it offline.</p>
         </li>
       </ul>
+      <p class="evidence-context">EU AI Act <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744" target="_blank" rel="noopener noreferrer">Article 4a</a> includes whether bias detection and correction can be achieved effectively with other data, including synthetic or anonymised data, among the conditions for its exceptional special&#8209;category&#8209;data route. An evaluation records what the simulation establishes and what it does not.</p>
     </div>
   </section>
 
   <section class="evidence-section evidence-evaluation" id="evaluation" aria-labelledby="evaluation-heading">
     <div class="evidence-shell">
       <h2 id="evaluation-heading">What an evaluation involves</h2>
-      <p>One regulated-credit workflow over 6 to 10 weeks, hosted in your environment: an agreed question and data boundary, one supported simulation, and a governance readout for your responsible team to review.</p>
+      <p>One regulated-credit workflow over 6 to 10 weeks, hosted in your environment: an agreed question and data boundary, one simulation run with Equilens support, and a governance readout for your responsible team to review.</p>
       <div class="evidence-cta">
         <a class="btn btn-secondary plausible-event-name=Request+Pack plausible-event-surface=paid_b plausible-event-cta=b-evaluation plausible-event-intent=pilot plausible-event-offer_stage=pilot" data-campaign-contact="controlled-pilot" data-eql-evaluation-cta="b-evaluation" href="/contact/?interest=Controlled%20FL-BSA%20Pilot">Discuss an evaluation</a>
       </div>
-      <p class="evidence-scope"><span class="product-name">FL-BSA</span> simulates decision patterns over synthetic borrower cohorts and configured rules, so it works without access to your production models. The sample report uses the balanced public demo scenario. <a href="/fl-bsa/">Read the full product overview</a>.</p>
+      <p class="evidence-scope"><span class="product-name">FL-BSA</span> simulates decision patterns over synthetic borrower cohorts and configured rules, so it works without access to your production models. The sample report comes from the balanced public demo cohort, so it shows the report format and evidence trail rather than a bias finding. <a href="/fl-bsa/">Read the full product overview</a>.</p>
     </div>
   </section>
 </main>
