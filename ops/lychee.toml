@@ -6,6 +6,7 @@ max_retries = 2
 exclude = [
   "mailto:*",
   "^https://equilens\\.io/notes/five-things-before-a-fair-outcomes-test/?$",
+  "^https://equilens\\.io/fl-bsa/evidence/?$",
 ]
 exclude_path = ["output/ops", "node_modules", "tests"]
 offline = false
