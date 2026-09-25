@@ -16,7 +16,8 @@ ALLOWED_MODES = {"private", "public"}
 DEFAULT_MODE = "private"
 META_PRIVATE = '<meta name="robots" content="noindex, nofollow">'
 META_NOINDEX = '<meta name="robots" content="noindex">'
-PUBLIC_NOINDEX_PATHS = {"404.html"}
+# Paid-arrival landing variants stay out of search indexes even when the site is public.
+PUBLIC_NOINDEX_PATHS = {"404.html", "fl-bsa/evidence/index.html"}
 META_PATTERN = re.compile(
     r"\s*<meta[^>]*\sname=['\"]robots['\"][^>]*>\s*", re.IGNORECASE
 )
