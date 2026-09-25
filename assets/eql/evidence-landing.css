@@ -1,0 +1,113 @@
+/* Paid-arrival evidence landing (/fl-bsa/evidence/, variant B).
+   Phone-first: the first 390x844 screen carries the answer, one primary
+   action and the dual-branch illustration. Copy stays left-aligned at a
+   prose measure (composition rule 2026-09-21). */
+.evidence-landing .evidence-shell {
+  width: calc(100% - var(--space-10));
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.evidence-landing .evidence-hero {
+  padding: var(--space-4) 0 var(--space-8);
+}
+.evidence-landing .evidence-eyebrow {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-primary-text);
+}
+.evidence-landing .evidence-hero h1 {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(1.75rem, 5.4vw, 3rem);
+  line-height: 1.12;
+  hyphens: none;
+  overflow-wrap: normal;
+}
+.evidence-landing .evidence-lead {
+  margin: var(--space-4) 0 0;
+  max-width: 60ch;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.evidence-landing .evidence-cta {
+  margin-top: var(--space-5);
+}
+.evidence-landing .evidence-cta .btn {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+}
+.evidence-landing .evidence-cta-meta {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.evidence-landing .arrival-figure {
+  margin: var(--space-5) 0 0;
+}
+.evidence-landing .arrival-figure-link { display: block; }
+.evidence-landing .arrival-figure-link::after { display: none; }
+/* Trim only the illustration's empty top and bottom margins; every
+   labelled element stays inside the 2:1 frame. */
+.evidence-landing .arrival-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 49%;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.evidence-landing .arrival-figure figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.evidence-landing .arrival-figure figcaption a,
+.evidence-landing .evidence-scope a {
+  color: var(--color-primary-text);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.evidence-landing .evidence-section {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border-default);
+}
+.evidence-landing .evidence-section h2 {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+.evidence-landing .evidence-points {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.evidence-landing .evidence-points h3 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-lg);
+}
+.evidence-landing .evidence-points p,
+.evidence-landing .evidence-evaluation p {
+  margin: 0;
+  max-width: 62ch;
+}
+.evidence-landing .evidence-evaluation {
+  background: var(--bg-subtle);
+}
+.evidence-landing .evidence-evaluation .evidence-cta { margin-top: var(--space-5); }
+.evidence-landing .evidence-evaluation .evidence-scope {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+@media (min-width: 900px) {
+  .evidence-landing .evidence-shell { max-width: 56rem; }
+  .evidence-landing .evidence-hero { padding-top: var(--space-10); }
+  .evidence-landing .evidence-points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+}

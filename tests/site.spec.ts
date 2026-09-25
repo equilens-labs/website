@@ -1210,4 +1210,157 @@ test.describe('Equilens site surfaces', () => {
       await expect(page.locator('footer.site-footer small:not(.footer-boundary)')).toContainText('Last deploy');
     });
   }
+
+  // Paid-arrival variant B (/fl-bsa/evidence/) and E1 engagement milestones.
+  const evidencePath = '/fl-bsa/evidence/';
+  const samplePdf = 'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/customer_report.pdf';
+  const ukTags = 'route=linkedin-flbsa-uk-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_uk_pilot_202609&utm_content=single_image_uk_a';
+  const eventsNamed = async (page: Page, name: string) =>
+    (await page.evaluate(() => (window as unknown as { __auditEvents?: { name: string; props: Record<string, string> }[] }).__auditEvents || []))
+      .filter(event => event.name === name);
+
+  test('evidence landing stays out of search, sitemap and navigation', async () => {
+    const html = fs.readFileSync(path.join(root, 'fl-bsa/evidence/index.html'), 'utf-8');
+    expect(html).toContain('<meta name="robots" content="noindex">');
+    expect(html).toContain('<link href="https://equilens.io/fl-bsa/evidence/" rel="canonical"/>');
+    expect(fs.readFileSync(path.join(root, 'config/web/nav.json'), 'utf-8')).not.toContain('/fl-bsa/evidence/');
+    for (const file of ['index.html', 'fl-bsa/index.html']) {
+      expect(fs.readFileSync(path.join(root, file), 'utf-8'), file).not.toContain('/fl-bsa/evidence/');
+    }
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'eql-evidence-seo-'));
+    try {
+      const scriptDir = path.join(tempRoot, 'scripts', 'seo');
+      fs.mkdirSync(scriptDir, { recursive: true });
+      for (const script of ['set-indexing.py', 'gen-sitemap.py']) {
+        fs.copyFileSync(path.join(root, 'scripts', 'seo', script), path.join(scriptDir, script));
+      }
+      fs.writeFileSync(path.join(tempRoot, 'CNAME'), 'equilens.io\n');
+      const page = '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>T</title></head><body></body></html>';
+      fs.writeFileSync(path.join(tempRoot, 'index.html'), page);
+      fs.mkdirSync(path.join(tempRoot, 'fl-bsa', 'evidence'), { recursive: true });
+      fs.writeFileSync(path.join(tempRoot, 'fl-bsa', 'index.html'), page);
+      fs.writeFileSync(path.join(tempRoot, 'fl-bsa', 'evidence', 'index.html'), page);
+      execFileSync('python3', [path.join(scriptDir, 'set-indexing.py'), 'public'], { cwd: tempRoot, stdio: 'pipe' });
+      execFileSync('python3', [path.join(scriptDir, 'gen-sitemap.py')], { cwd: tempRoot, stdio: 'pipe' });
+      expect(fs.readFileSync(path.join(tempRoot, 'fl-bsa', 'index.html'), 'utf-8')).not.toContain('name="robots"');
+      expect(fs.readFileSync(path.join(tempRoot, 'fl-bsa', 'evidence', 'index.html'), 'utf-8'))
+        .toContain('<meta name="robots" content="noindex">');
+      const sitemap = fs.readFileSync(path.join(tempRoot, 'sitemap.xml'), 'utf-8');
+      expect(sitemap).toContain('https://equilens.io/fl-bsa/</loc>');
+      expect(sitemap).not.toContain('/fl-bsa/evidence/');
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
+  });
+
+  test('evidence landing answers the ad with one primary action in the first phone screen', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/bias amplification/i);
+    const primary = page.locator('main .btn-primary');
+    await expect(primary).toHaveCount(1);
+    await expect(primary).toHaveText('Get the sample evidence report');
+    await expect(primary).toHaveAttribute('href', samplePdf);
+    await expect(primary).toHaveClass(/plausible-event-name=Proof\+Asset\+Click/);
+    await expect(primary).toHaveClass(/plausible-event-surface=paid_b/);
+    const cta = (await primary.boundingBox())!;
+    expect(cta.y).toBeGreaterThanOrEqual(0);
+    expect(cta.y + cta.height).toBeLessThanOrEqual(844);
+    const figure = (await page.locator('main img').first().boundingBox())!;
+    expect(figure.y).toBeLessThan(844);
+    const hero = visibleText(await page.locator('main > section').first().innerHTML());
+    expect(hero).toMatch(/intrinsic|historical decisions/i);
+    expect(hero).toMatch(/your environment|customer-hosted/i);
+    expect(hero).not.toMatch(/pre-release|optional|release programme/i);
+    const mainHeight = await page.locator('main').evaluate(element => element.getBoundingClientRect().height);
+    expect(mainHeight).toBeLessThanOrEqual(3 * 844);
+    await expectNoOverflow(page);
+  });
+
+  test('evidence landing evaluation CTA keeps paid enquiry attribution', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(evidencePath, { waitUntil: 'networkidle' });
+    const evaluation = page.getByRole('link', { name: 'Discuss an evaluation', exact: true });
+    await expect(evaluation).toHaveAttribute('href', '/contact/?interest=Controlled%20FL-BSA%20Pilot');
+    await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
+    const href = new URL((await evaluation.getAttribute('href'))!, 'http://localhost');
+    expect(href.searchParams.get('interest')).toBe('Controlled FL-BSA Pilot');
+    expect(href.searchParams.get('route')).toBe('linkedin-flbsa-uk-pilot-202609');
+    expect(href.searchParams.get('utm_content')).toBe('single_image_uk_a');
+    await evaluation.click();
+    await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+    expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Optional evaluation — LinkedIn UK Sep 2026');
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit', 'Enquiry Submitted']);
+  });
+
+  test('E1 arrival CTA and time-engaged events fire once with variant props', async ({ page }) => {
+    await stubPlausible(page);
+    // Freeze time before arrival so each milestone is reached only by explicit clock advances.
+    const frozen = new Date('2026-09-25T09:00:00Z');
+    await page.clock.install({ time: frozen });
+    await page.clock.pauseAt(frozen);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(200);
+    await page.clock.runFor(1500);
+    expect(await eventsNamed(page, 'Arrival CTA Seen')).toEqual([]);
+    await page.clock.runFor(1000);
+    expect(await eventsNamed(page, 'Arrival CTA Seen')).toEqual([
+      { name: 'Arrival CTA Seen', props: { variant: 'b', utm_content: 'single_image_uk_a', cta: 'b-primary' } },
+    ]);
+    expect(await eventsNamed(page, 'Engaged Visit')).toEqual([]);
+    await page.clock.runFor(8000);
+    expect(await eventsNamed(page, 'Engaged Visit')).toEqual([
+      { name: 'Engaged Visit', props: { variant: 'b', utm_content: 'single_image_uk_a', trigger: 'time' } },
+    ]);
+    await page.clock.runFor(30000);
+    expect(await eventsNamed(page, 'Engaged Visit')).toHaveLength(1);
+    expect(await eventsNamed(page, 'Arrival CTA Seen')).toHaveLength(1);
+    expect(await eventsNamed(page, 'Reached Evaluation CTA')).toEqual([]);
+  });
+
+  test('E1 scroll past arrival engages and reaching the evaluation CTA is recorded', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${evidencePath}?utm_content=bad%40example.invalid`, { waitUntil: 'networkidle' });
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await expect.poll(() => eventsNamed(page, 'Engaged Visit')).toEqual([
+      { name: 'Engaged Visit', props: { variant: 'b', trigger: 'scroll' } },
+    ]);
+    await expect.poll(() => eventsNamed(page, 'Reached Evaluation CTA')).toEqual([
+      { name: 'Reached Evaluation CTA', props: { variant: 'b', cta: 'b-evaluation' } },
+    ]);
+  });
+
+  test('E1 proof click counts as an engaged visit', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(evidencePath, { waitUntil: 'networkidle' });
+    await page.locator('main .btn-primary').click();
+    await expect.poll(() => eventsNamed(page, 'Engaged Visit')).toEqual([
+      { name: 'Engaged Visit', props: { variant: 'b', trigger: 'proof_click' } },
+    ]);
+  });
+
+  test('E1 on the current paid anchor reports variant a without changing its CTAs', async ({ page }) => {
+    await stubPlausible(page);
+    // Freeze time before arrival so each milestone is reached only by explicit clock advances.
+    const frozen = new Date('2026-09-25T09:00:00Z');
+    await page.clock.install({ time: frozen });
+    await page.clock.pauseAt(frozen);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/fl-bsa/?${ukTags}#controlled-pilot`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(200);
+    await page.clock.runFor(2500);
+    expect(await eventsNamed(page, 'Arrival CTA Seen')).toEqual([
+      { name: 'Arrival CTA Seen', props: { variant: 'a', utm_content: 'single_image_uk_a', cta: 'evaluation-sample' } },
+    ]);
+    expect(await eventsNamed(page, 'Reached Evaluation CTA')).toEqual([
+      { name: 'Reached Evaluation CTA', props: { variant: 'a', utm_content: 'single_image_uk_a', cta: 'controlled-pilot' } },
+    ]);
+    const html = fs.readFileSync(path.join(root, 'fl-bsa/index.html'), 'utf-8');
+    expect(html.match(/src="\/assets\/eql\/engagement\.js[^"]*" data-eql-variant="a"/g)).toHaveLength(1);
+  });
+
 });

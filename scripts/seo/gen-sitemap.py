@@ -23,11 +23,16 @@ EXCLUDED_TOP_DIRS = {
     ".lighthouseci",
 }
 
+# Noindex paid-arrival landing variants (kept in step with set-indexing.py).
+EXCLUDED_PAGES = {"fl-bsa/evidence"}
+
 urls: list[str] = []
 for html_file in sorted(ROOT.rglob("index.html")):
     rel = html_file.parent.relative_to(ROOT)
     parts = rel.parts
     if parts and parts[0] in EXCLUDED_TOP_DIRS:
+        continue
+    if rel.as_posix() in EXCLUDED_PAGES:
         continue
     # Skip meta-refresh redirect stubs: they are URL aliases, not canonical pages,
     # and must not appear in the sitemap.
