@@ -1482,4 +1482,56 @@ test.describe('Equilens site surfaces', () => {
     expect(html.match(/src="\/assets\/eql\/engagement\.js[^"]*" data-eql-variant="a"/g)).toHaveLength(1);
   });
 
+  // Focused October 2026 LinkedIn cells land on page B; enquiries must keep the campaign subject.
+  const focusedCells = [
+    { region: 'EU', route: 'linkedin-flbsa-focus-eu-202610', name: 'flbsa_focus_eu_202610', content: 'single_image_v21_eu' },
+    { region: 'UK', route: 'linkedin-flbsa-focus-uk-202610', name: 'flbsa_focus_uk_202610', content: 'single_image_v21_uk_a' },
+  ];
+
+  test('focused October campaigns keep their identity from page B to the enquiry subject', async ({ page }) => {
+    await stubPlausible(page);
+    for (const cell of focusedCells) {
+      const tags = new URLSearchParams({ route: cell.route, utm_source: 'linkedin', utm_medium: 'paid-social',
+        utm_campaign: cell.name, utm_content: cell.content });
+      await page.goto(`${evidencePath}?${tags}`, { waitUntil: 'networkidle' });
+      const evaluation = page.getByRole('link', { name: 'Discuss an evaluation', exact: true });
+      const href = new URL((await evaluation.getAttribute('href'))!, 'http://localhost');
+      expect(href.pathname).toBe('/contact/');
+      expect(href.searchParams.get('interest')).toBe('Controlled FL-BSA Pilot');
+      for (const [name, value] of tags) expect(href.searchParams.get(name)).toBe(value);
+      const navHref = await page.locator('nav a.nav-link').filter({ hasText: /^Contact$/ }).first().getAttribute('href');
+      expect(new URL(navHref!, 'http://localhost').searchParams.get('route')).toBe(cell.route);
+      await evaluation.click();
+      await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
+      expect(await submitAndReadSubject(page)).toBe(`FL-BSA enquiry: Optional evaluation — LinkedIn ${cell.region} focus Oct 2026`);
+
+      await page.goto(`/contact/?interest=Procurement%20Pack&${tags}`, { waitUntil: 'networkidle' });
+      await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
+      expect(await submitAndReadSubject(page)).toBe(`FL-BSA enquiry: Procurement Pack — LinkedIn ${cell.region} focus Oct 2026`);
+    }
+  });
+
+  test('focused October campaign identity rejects mismatched, cross-cell and duplicated tags', async ({ page }) => {
+    await stubPlausible(page);
+    const exact = 'route=linkedin-flbsa-focus-uk-202610&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_focus_uk_202610&utm_content=single_image_v21_uk_a';
+    for (const tags of [
+      exact.replace('utm_content=single_image_v21_uk_a', 'utm_content=single_image_v21_eu'),
+      exact.replace('route=linkedin-flbsa-focus-uk-202610', 'route=linkedin-flbsa-focus-eu-202610'),
+      exact + '&utm_campaign=flbsa_focus_uk_202610',
+      exact.replace('utm_medium=paid-social', 'utm_medium=organic-social'),
+    ]) {
+      await page.goto(`${evidencePath}?${tags}`, { waitUntil: 'networkidle' });
+      await expect(page.getByRole('link', { name: 'Discuss an evaluation', exact: true }))
+        .toHaveAttribute('href', '/contact/?interest=Controlled%20FL-BSA%20Pilot');
+    }
+  });
+
+  test('privacy notice discloses LinkedIn ad targeting with aggregate-only reporting', async () => {
+    const legal = visibleText(fs.readFileSync(path.join(root, 'legal', 'index.html'), 'utf-8'));
+    expect(legal).toMatch(/LinkedIn advertising\s*: we target LinkedIn ads using professional criteria held by LinkedIn, such as location, employer, job title and seniority\./);
+    expect(legal).toMatch(/LinkedIn does not tell us who sees or clicks an ad; for ad delivery we receive only aggregate reports/);
+    expect(legal).toMatch(/We do not use the LinkedIn Insight Tag or upload contact lists\./);
+    expect(legal).toMatch(/do not use advertising or social media cookies/);
+  });
+
 });
