@@ -28,6 +28,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
+  <link rel="stylesheet" href="/assets/eql/contact-pack.css?v=20260929a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql contact-page">
@@ -46,7 +47,7 @@
 </nav>
   <script src="/assets/eql/nav.js?v=20260921e"></script>
   <script src="/assets/eql/campaign-routes.js?v=20260922a" defer></script>
-  <script src="/assets/eql/contact.js?v=20260922a" defer></script>
+  <script src="/assets/eql/contact.js?v=20260929a" defer></script>
 
 <main id="main" tabindex="-1"><section class="contact-section" aria-labelledby="contact-form-heading"><div class="contact-layout">
   <div class="contact-primary"><p class="eyebrow">A written reply from Equilens</p><h1 class="hero-headline" id="contact-form-heading">Send us a message</h1><p class="lead" id="request-context">Tell us what you need. Only your name and email are required.</p><form id="contact-form" class="contact-form">
@@ -59,6 +60,7 @@
             <label for="email">Email (required)</label>
             <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
           </div>
+          <div id="contact-extra-fields">
           <div class="form-group">
             <label for="organisation">Organisation</label>
             <input type="text" id="organisation" name="organisation" autocomplete="organization" placeholder="Company or institution">
@@ -98,6 +100,7 @@
           <div class="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4" placeholder="How can we help?"></textarea>
+          </div>
           </div>
           <div class="form-group" hidden aria-hidden="true">
             <label for="hp-field">Leave this field empty</label>

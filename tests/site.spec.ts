@@ -659,6 +659,12 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtmlPages.length).toBeGreaterThan(0);
 
     for (const { file, html } of trackedHtmlPages) {
+      if (file === 'internal/analytics/index.html') {
+        // The exclusion control must not count its own initial visit.
+        expect(html, file).not.toContain('https://plausible.io');
+        expect(html, file).toContain("connect-src 'none'");
+        continue;
+      }
       expect(html, file).toContain(`src="${plausibleScriptSrc}"`);
       expect(html, file).not.toContain(nonTaggedPlausibleScript);
     }
@@ -1154,7 +1160,96 @@ test.describe('Equilens site surfaces', () => {
     await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
 
     await expect(page.locator('#interest')).toHaveValue('Procurement Pack');
-    await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.');
+    await expect(page.locator('#message')).toHaveValue('Please send the FL-BSA buyer and procurement pack.');
+  });
+
+  test('pack requests show two fields and a submit action in the first phone screen', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Request the pack');
+    await expect(page.locator('#organisation')).not.toBeVisible();
+    await expect(page.locator('#message')).not.toBeVisible();
+    const button = page.getByRole('button', { name: 'Send me the pack', exact: true });
+    const box = await button.boundingBox();
+    expect(box!.y + box!.height).toBeLessThanOrEqual(812);
+    const a11y = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(a11y.violations.filter(v => ['critical', 'serious'].includes(v.impact || ''))).toEqual([]);
+    const submitted = await submitAndReadSubmission(page);
+    expect(submitted.payload.interest).toBe('Procurement Pack');
+    expect(submitted.payload.message).toBe('Please send the FL-BSA buyer and procurement pack.');
+    expect(submitted.payload.organisation).toBe('');
+    await expect(page.locator('#form-status')).toContainText('pack request has been received');
+  });
+
+  test('pack optional details are keyboard accessible and preserve custom messages', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await page.locator('#pack-details summary').focus();
+    await page.keyboard.press('Enter');
+    await page.locator('#organisation').fill('Example organisation');
+    await page.locator('#message').fill('Please include installation requirements.');
+    await expectNoOverflow(page);
+    const submitted = await submitAndReadSubmission(page);
+    expect(submitted.payload.organisation).toBe('Example organisation');
+    expect(submitted.payload.message).toBe('Please include installation requirements.');
+  });
+
+  test('changing pack interest restores the full enquiry flow without an accidental pack request', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await page.locator('#pack-details summary').click();
+    await page.locator('#interest').selectOption('Pricing');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Send us a message');
+    await expect(page.locator('#pack-details')).toHaveCount(0);
+    await expect(page.locator('#organisation')).toBeVisible();
+    await expect(page.locator('#message')).toHaveValue('');
+    const submitted = await submitAndReadSubmission(page);
+    expect(submitted.subject).toBe('FL-BSA enquiry: Pricing');
+  });
+
+  test('a rejected pack request keeps its inputs and pack-specific retry button', async ({ page }) => {
+    await stubPlausible(page);
+    const requests = await mockForm(page, 503);
+    await page.goto('/contact/?interest=Procurement%20Pack', { waitUntil: 'networkidle' });
+    await fillRequiredContactFields(page);
+    await page.getByRole('button', { name: 'Send me the pack', exact: true }).click();
+    await expect(page.locator('#form-status')).toContainText('did not accept');
+    await expect(page.getByRole('button', { name: 'Send me the pack', exact: true })).toBeEnabled();
+    await expect(page.locator('#email')).toHaveValue('audit@example.invalid');
+    expect(requests).toHaveLength(1);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
+  });
+
+  test('browser exclusion persists, can be reversed, and makes no analytics requests', async ({ page }) => {
+    const requests: { url: string; method: string }[] = [];
+    page.on('request', request => requests.push({ url: request.url(), method: request.method() }));
+    await page.goto('/internal/analytics/', { waitUntil: 'networkidle' });
+    await expect(page.locator('#status')).toContainText('Not excluded:');
+    await page.getByRole('button', { name: 'Exclude this browser', exact: true }).click();
+    await expect(page.locator('#status')).toContainText('Excluded:');
+    await page.reload({ waitUntil: 'networkidle' });
+    await expect(page.locator('#status')).toContainText('Excluded:');
+    expect(await page.evaluate(() => localStorage.getItem('plausible_ignore'))).toBe('true');
+    await page.getByRole('button', { name: 'Include this browser again', exact: true }).click();
+    await expect(page.locator('#status')).toContainText('Not excluded:');
+    expect(await page.evaluate(() => localStorage.getItem('plausible_ignore'))).toBeNull();
+    const origin = new URL(page.url()).origin;
+    expect(requests.filter(request => new URL(request.url).origin !== origin || request.method !== 'GET')).toEqual([]);
+    const a11y = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(a11y.violations.filter(v => ['critical', 'serious'].includes(v.impact || ''))).toEqual([]);
+    await expectNoOverflow(page);
+  });
+
+  test('browser exclusion reports storage failure without claiming success', async ({ page }) => {
+    await page.addInitScript(() => {
+      Storage.prototype.setItem = () => { throw new Error('Storage unavailable'); };
+    });
+    await page.goto('/internal/analytics/', { waitUntil: 'networkidle' });
+    await page.getByRole('button', { name: 'Exclude this browser', exact: true }).click();
+    await expect(page.locator('#status')).toContainText('Exclusion is not confirmed');
+    expect(await page.evaluate(() => localStorage.getItem('plausible_ignore'))).toBeNull();
+    await expect(page.locator('#include')).not.toBeVisible();
   });
 
   test('contact query parameters prefill evidence-readiness enquiry', async ({ page }) => {
@@ -1237,6 +1332,8 @@ test.describe('Equilens site surfaces', () => {
       fs.mkdirSync(path.join(tempRoot, 'fl-bsa', 'evidence'), { recursive: true });
       fs.writeFileSync(path.join(tempRoot, 'fl-bsa', 'index.html'), page);
       fs.writeFileSync(path.join(tempRoot, 'fl-bsa', 'evidence', 'index.html'), page);
+      fs.mkdirSync(path.join(tempRoot, 'internal', 'analytics'), { recursive: true });
+      fs.writeFileSync(path.join(tempRoot, 'internal', 'analytics', 'index.html'), page);
       execFileSync('python3', [path.join(scriptDir, 'set-indexing.py'), 'public'], { cwd: tempRoot, stdio: 'pipe' });
       execFileSync('python3', [path.join(scriptDir, 'gen-sitemap.py')], { cwd: tempRoot, stdio: 'pipe' });
       expect(fs.readFileSync(path.join(tempRoot, 'fl-bsa', 'index.html'), 'utf-8')).not.toContain('name="robots"');
@@ -1245,6 +1342,9 @@ test.describe('Equilens site surfaces', () => {
       const sitemap = fs.readFileSync(path.join(tempRoot, 'sitemap.xml'), 'utf-8');
       expect(sitemap).toContain('https://equilens.io/fl-bsa/</loc>');
       expect(sitemap).not.toContain('/fl-bsa/evidence/');
+      expect(sitemap).not.toContain('/internal/analytics/');
+      expect(fs.readFileSync(path.join(tempRoot, 'internal', 'analytics', 'index.html'), 'utf-8'))
+        .toContain('<meta name="robots" content="noindex, nofollow">');
     } finally {
       fs.rmSync(tempRoot, { recursive: true, force: true });
     }
@@ -1315,7 +1415,8 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     // Freeze time before arrival so each milestone is reached only by explicit clock advances.
     const frozen = new Date('2026-09-25T09:00:00Z');
-    await page.clock.install({ time: frozen });
+    // Install before the pause target; time may advance between the two API calls.
+    await page.clock.install({ time: new Date(frozen.getTime() - 60_000) });
     await page.clock.pauseAt(frozen);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
@@ -1364,7 +1465,8 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     // Freeze time before arrival so each milestone is reached only by explicit clock advances.
     const frozen = new Date('2026-09-25T09:00:00Z');
-    await page.clock.install({ time: frozen });
+    // Install before the pause target; time may advance between the two API calls.
+    await page.clock.install({ time: new Date(frozen.getTime() - 60_000) });
     await page.clock.pauseAt(frozen);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/fl-bsa/?${ukTags}#controlled-pilot`, { waitUntil: 'networkidle' });

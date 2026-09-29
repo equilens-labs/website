@@ -1,0 +1,17 @@
+#contact-extra-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+#pack-details > summary {
+  min-height: 44px;
+  padding: var(--space-3) 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: var(--text-sm);
+}
+#pack-details > summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+#pack-details[open] > summary { margin-bottom: var(--space-4); }

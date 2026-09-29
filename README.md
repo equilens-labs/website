@@ -33,13 +33,26 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current
   posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
   CTA/custom-event labels, plus an anonymous count of contact-form submissions (no form contents);
-  no advertising pixels, social trackers, cookies, browser storage, or persistent visitor identifiers.
+  no advertising pixels, social trackers, cookies, or persistent visitor identifiers.
+  A user-selected browser-local preference can suppress analytics; it is not a visitor identifier.
+- `/internal/analytics/` lets users exclude their own browser by explicitly setting Plausible's
+  `plausible_ignore` localStorage flag. The control sends no analytics or other network writes,
+  stays `noindex,nofollow` during public deployment and is omitted from the sitemap. A link in the
+  privacy notice makes it reachable inside an in-app browser. Verify persistence on each actual
+  browser; intentional analytics QA requires temporary inclusion plus labelled test links.
 - Keep tracked CTA link destinations short and static. Plausible records the clicked link target for
   tagged link events, so do not put boilerplate message text, form content, or personal data in CTA
   query strings.
 - Run `scripts/legal/verify.sh <tag>` after changing analytics/legal text so the evidence bundle records the approved Plausible posture.
 
 **Local preview:** Install the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) in VS Code, then right-click any HTML file and select "Show Preview" for instant live reload on save.
+
+## Pack requests
+
+- `/contact/?interest=Procurement%20Pack` shows name/email first and a “Send me the pack” button.
+  Organisation, role, region, interest and message are available under optional details.
+  Its prefilled request asks only for the pack; other enquiry routes retain their full form.
+  Submission routing, validation, honeypot, timeout and acceptance events use the same handler.
 
 ## Content management
 

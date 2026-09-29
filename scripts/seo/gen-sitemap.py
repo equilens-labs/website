@@ -24,7 +24,7 @@ EXCLUDED_TOP_DIRS = {
 }
 
 # Noindex paid-arrival landing variants (kept in step with set-indexing.py).
-EXCLUDED_PAGES = {"fl-bsa/evidence"}
+EXCLUDED_PAGES = {"fl-bsa/evidence", "internal/analytics"}
 
 urls: list[str] = []
 for html_file in sorted(ROOT.rglob("index.html")):
