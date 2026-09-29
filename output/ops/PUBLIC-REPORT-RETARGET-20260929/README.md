@@ -1,10 +1,11 @@
 # Corrected public report retarget — 2026-09-29
 
 Scope: retarget the seven existing public sample-report links to the corrected,
-report-only immutable prerelease. Existing campaign wording and the separately held whitepaper/intake links remain
-unchanged; visible page-count and file-size metadata is synchronized to the new
-17-page, 239223-byte report. No Gold, robustness, product, or
-`releases/latest` link is added.
+report-only immutable prerelease. Existing campaign messaging and the separately
+held whitepaper/intake links remain unchanged. Release-coordinate labels and
+visible page-count and file-size metadata now match the corrected 17-page,
+239223-byte report. No Gold, robustness, product, or `releases/latest` link is
+added.
 
 - Release tag: `v5.0.8-report-fix-20260929`
 - Release ID: `399150186`
@@ -31,3 +32,5 @@ audited `main` deployment.
 - `npm run content:lint`: pass.
 - `npm run lint:html`: pass across 24 deployed HTML files.
 - `npm test`: 440 passed across desktop, mobile, and two tablet viewports.
+- Post-review focused Playwright run covering every page render plus the paid
+  evidence CTA: 68 passed across desktop, mobile, and two tablet viewports.

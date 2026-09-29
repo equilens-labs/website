@@ -219,6 +219,13 @@ async function submitAndReadSubject(page: Page) {
 }
 
 test.describe('Equilens site surfaces', () => {
+  const reportTag = 'v5.0.8-report-fix-20260929';
+  const samplePdf = `https://github.com/equilens-labs/fl-bsa-pub/releases/download/${reportTag}/customer_report.pdf`;
+  const reportLinkCounts = new Map([
+    ['/fl-bsa/', 3],
+    ['/procurement/', 1],
+    ['/trust-center/', 0],
+  ]);
   for (const entry of pages) {
     test(`${entry.slug} passes axe (no critical or serious violations)`, async ({ page }) => {
       await stubPlausible(page);
@@ -821,6 +828,11 @@ test.describe('Equilens site surfaces', () => {
       await expect(linkedInLink).toHaveCount(1);
       await expect(linkedInLink).toHaveAttribute('target', '_blank');
       await expect(linkedInLink).toHaveAttribute('rel', 'noopener noreferrer');
+      const expectedReportLinks = reportLinkCounts.get(pageEntry.path);
+      if (expectedReportLinks !== undefined) {
+        await expect(page.locator('main')).toContainText(reportTag);
+        await expect(page.locator(`a[href="${samplePdf}"]`)).toHaveCount(expectedReportLinks);
+      }
       const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
       const manifestLinks = page.locator('a[href$="/manifest.json"]');
       const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
@@ -1305,7 +1317,6 @@ test.describe('Equilens site surfaces', () => {
 
   // Paid-arrival variant B (/fl-bsa/evidence/) and E1 engagement milestones.
   const evidencePath = '/fl-bsa/evidence/';
-  const samplePdf = 'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-report-fix-20260929/customer_report.pdf';
   const ukTags = 'route=linkedin-flbsa-uk-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_uk_pilot_202609&utm_content=single_image_uk_a';
   const eventsNamed = async (page: Page, name: string) =>
     (await page.evaluate(() => (window as unknown as { __auditEvents?: { name: string; props: Record<string, string> }[] }).__auditEvents || []))

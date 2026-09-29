@@ -11,9 +11,16 @@ from pathlib import Path
 
 BASE = "https://github.com/equilens-labs/fl-bsa-pub/releases"
 RC9 = "v5.0.0-rc9-public-fix-2724455"
+REPORT_URL = f"{BASE}/download/v5.0.8-report-fix-20260929/customer_report.pdf"
+REPORT_COUNTS_BY_PAGE = {
+    "index.html": 2,
+    "fl-bsa/index.html": 3,
+    "fl-bsa/evidence/index.html": 1,
+    "procurement/index.html": 1,
+}
 
 EXPECTED_COUNTS = {
-    f"{BASE}/download/v5.0.8-report-fix-20260929/customer_report.pdf": 7,
+    REPORT_URL: sum(REPORT_COUNTS_BY_PAGE.values()),
     f"{BASE}/download/{RC9}/whitepaper.pdf": 2,
     f"{BASE}/download/{RC9}/WhitePaper_Intake_Bundle_v4.zip": 2,
     f"{BASE}/download/{RC9}/SHA256SUMS.txt": 2,
@@ -23,10 +30,9 @@ EXPECTED_COUNTS = {
 
 FORBIDDEN = (
     f"{BASE}/download/v5.0.8/customer_report.pdf",
-    f"{BASE}/download/v5.0.8/gold_bundle.zip",
     f"{BASE}/download/{RC9}/customer_report.pdf",
-    f"{BASE}/download/{RC9}/gold_bundle.zip",
-    f"{BASE}/latest/",
+    "gold_bundle.zip",
+    f"{BASE}/latest",
 )
 
 
@@ -56,6 +62,16 @@ def main() -> int:
         actual = href_counts[url]
         if actual != expected:
             failures.append(f"expected {expected} occurrence(s), found {actual}: {url}")
+
+    for relative_path, expected in REPORT_COUNTS_BY_PAGE.items():
+        page_path = deploy_root / relative_path
+        page_collector = HrefCollector()
+        page_collector.feed(page_path.read_text(encoding="utf-8"))
+        actual = Counter(page_collector.hrefs)[REPORT_URL]
+        if actual != expected:
+            failures.append(
+                f"expected {expected} report link(s), found {actual}: {relative_path}"
+            )
 
     for url_fragment in FORBIDDEN:
         actual = sum(count for href, count in href_counts.items() if url_fragment in href)
