@@ -72,8 +72,9 @@ image.quantize(
 PY
 ```
 
-The deploy link contract also pins the derived preview SHA-256, so a future
-report retarget cannot silently retain or substitute a different preview.
+The deploy link contract pins the current derived preview SHA-256 and fails if
+that preview is missing or its bytes change without updating the guard.
+
 - Corrected-preview focused Playwright run: 8 homepage render and asset-key
   checks passed across desktop, mobile, and two tablet viewports; the desktop
   full-page screenshot was visually reviewed for legibility and cropping.
