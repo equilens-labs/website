@@ -659,6 +659,12 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtmlPages.length).toBeGreaterThan(0);
 
     for (const { file, html } of trackedHtmlPages) {
+      if (file === 'internal/analytics/index.html') {
+        // The exclusion control must not count its own initial visit.
+        expect(html, file).not.toContain('https://plausible.io');
+        expect(html, file).toContain("connect-src 'none'");
+        continue;
+      }
       expect(html, file).toContain(`src="${plausibleScriptSrc}"`);
       expect(html, file).not.toContain(nonTaggedPlausibleScript);
     }
@@ -1409,7 +1415,8 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     // Freeze time before arrival so each milestone is reached only by explicit clock advances.
     const frozen = new Date('2026-09-25T09:00:00Z');
-    await page.clock.install({ time: frozen });
+    // Install before the pause target; time may advance between the two API calls.
+    await page.clock.install({ time: new Date(frozen.getTime() - 60_000) });
     await page.clock.pauseAt(frozen);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
@@ -1458,7 +1465,8 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     // Freeze time before arrival so each milestone is reached only by explicit clock advances.
     const frozen = new Date('2026-09-25T09:00:00Z');
-    await page.clock.install({ time: frozen });
+    // Install before the pause target; time may advance between the two API calls.
+    await page.clock.install({ time: new Date(frozen.getTime() - 60_000) });
     await page.clock.pauseAt(frozen);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/fl-bsa/?${ukTags}#controlled-pilot`, { waitUntil: 'networkidle' });
