@@ -18,4 +18,5 @@ if [[ "${#DIST_HTML[@]}" -eq 0 ]]; then
 fi
 
 npx html-validate "${DIST_HTML[@]}"
+python3 scripts/ops/check_public_demo_links.py "${DIST_DIR}"
 echo "[OK] html-validate checked ${#DIST_HTML[@]} deployed HTML files"
