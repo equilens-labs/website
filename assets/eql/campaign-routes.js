@@ -40,6 +40,28 @@
       packSubject: 'FL-BSA enquiry: Procurement Pack — LinkedIn UK Sep 2026',
       contactTarget: 'controlled-pilot',
     }),
+    // Focused October 2026 cells landing on /fl-bsa/evidence/. The interest and contact target
+    // must equal that page's evaluation link so enquiries keep the campaign subject.
+    'linkedin-flbsa-focus-eu-202610': Object.freeze({
+      source: 'linkedin',
+      medium: 'paid-social',
+      campaign: 'flbsa_focus_eu_202610',
+      content: 'single_image_v21_eu',
+      interest: 'Controlled FL-BSA Pilot',
+      subject: 'FL-BSA enquiry: Optional evaluation — LinkedIn EU focus Oct 2026',
+      packSubject: 'FL-BSA enquiry: Procurement Pack — LinkedIn EU focus Oct 2026',
+      contactTarget: 'controlled-pilot',
+    }),
+    'linkedin-flbsa-focus-uk-202610': Object.freeze({
+      source: 'linkedin',
+      medium: 'paid-social',
+      campaign: 'flbsa_focus_uk_202610',
+      content: 'single_image_v21_uk_a',
+      interest: 'Controlled FL-BSA Pilot',
+      subject: 'FL-BSA enquiry: Optional evaluation — LinkedIn UK focus Oct 2026',
+      packSubject: 'FL-BSA enquiry: Procurement Pack — LinkedIn UK focus Oct 2026',
+      contactTarget: 'controlled-pilot',
+    }),
   });
 
   function getSingleParam(params, name) {
