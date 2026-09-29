@@ -18,6 +18,7 @@ META_PRIVATE = '<meta name="robots" content="noindex, nofollow">'
 META_NOINDEX = '<meta name="robots" content="noindex">'
 # Paid-arrival landing variants stay out of search indexes even when the site is public.
 PUBLIC_NOINDEX_PATHS = {"404.html", "fl-bsa/evidence/index.html"}
+PUBLIC_NOFOLLOW_PATHS = {"internal/analytics/index.html"}
 META_PATTERN = re.compile(
     r"\s*<meta[^>]*\sname=['\"]robots['\"][^>]*>\s*", re.IGNORECASE
 )
@@ -81,7 +82,7 @@ def set_mode(html_path: pathlib.Path, mode: str, root: pathlib.Path) -> None:
     content = META_PATTERN.sub("", original)
 
     relative_path = html_path.relative_to(root).as_posix()
-    if mode == "private":
+    if mode == "private" or relative_path in PUBLIC_NOFOLLOW_PATHS:
         content = inject_robots_meta(content, META_PRIVATE)
     elif relative_path in PUBLIC_NOINDEX_PATHS:
         content = inject_robots_meta(content, META_NOINDEX)

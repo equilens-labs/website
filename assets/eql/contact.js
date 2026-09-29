@@ -15,7 +15,7 @@
     const messageField = document.getElementById('message');
     const defaultMessages = {
       'Procurement Pack':
-        'Please send the FL-BSA buyer and procurement pack and help scope a readiness conversation.',
+        'Please send the FL-BSA buyer and procurement pack.',
       'Security Pack': 'Please send the FL-BSA security pack and vendor questionnaire materials.',
       'Partnership':
         'I would like to discuss partnering as a consultancy or decisioning-platform vendor.',
@@ -51,9 +51,41 @@
     const submitButton = form.querySelector('button[type="submit"]');
     let inFlight = false;
     const context = document.getElementById('request-context');
-    if (context && interestField?.value === 'Procurement Pack') {
-      context.textContent = 'Request the buyer pack. We will reply with sample evidence, deployment and security material, and a commercial overview. Only name and email are required.';
+    const heading = document.getElementById('contact-form-heading');
+    const extraFields = document.getElementById('contact-extra-fields');
+    const defaultContext = context?.textContent || '';
+    let optionalDetails = null;
+    let previousInterest = interestField?.value || '';
+
+    function isPackRequest() { return interestField?.value === 'Procurement Pack'; }
+    function submitLabel() { return isPackRequest() ? 'Send me the pack' : 'Send message'; }
+    function updateRequestMode() {
+      const pack = isPackRequest();
+      if (heading) heading.textContent = pack ? 'Request the pack' : 'Send us a message';
+      if (context) context.textContent = pack
+        ? 'We will email you sample evidence, deployment and security material, and a commercial overview.'
+        : defaultContext;
+      if (submitButton && !inFlight) submitButton.textContent = submitLabel();
+      if (pack && extraFields && !optionalDetails) {
+        optionalDetails = document.createElement('details');
+        optionalDetails.id = 'pack-details';
+        const summary = document.createElement('summary');
+        summary.textContent = 'Add optional details';
+        extraFields.replaceWith(optionalDetails);
+        optionalDetails.append(summary, extraFields);
+      } else if (!pack && optionalDetails) {
+        optionalDetails.replaceWith(extraFields);
+        optionalDetails = null;
+      }
     }
+    updateRequestMode();
+    interestField?.addEventListener('change', () => {
+      if (messageField && messageField.value === (defaultMessages[previousInterest] || '')) {
+        messageField.value = defaultMessages[interestField.value] || '';
+      }
+      previousInterest = interestField.value;
+      updateRequestMode();
+    });
 
     function track(event) {
       if (typeof window.plausible === 'function') {
@@ -111,6 +143,7 @@
       const displayInterest = displayInterests[interest] || interest;
       const message = fieldValue('message');
       const subject = buildSubject(interest, displayInterest);
+      const packRequest = isPackRequest();
 
       if (honeypot) {
         // Silently accept: no request, no analytics event.
@@ -161,7 +194,9 @@
         .then(function (response) {
           if (!response.ok) throw new Error('HTTP ' + response.status);
           form.reset();
-          showStatus('Thanks. Your message has been sent; we reply by email.');
+          showStatus(packRequest
+            ? 'Thanks. Your pack request has been received; we will reply by email.'
+            : 'Thanks. Your message has been sent; we reply by email.');
           if (submitButton) submitButton.textContent = 'Sent';
           track('Enquiry Submitted');
         })
@@ -169,7 +204,7 @@
           inFlight = false;
           if (submitButton) {
             submitButton.disabled = false;
-            submitButton.textContent = 'Send message';
+            submitButton.textContent = submitLabel();
           }
           const rejected = error.message.startsWith('HTTP ');
           showStatus(

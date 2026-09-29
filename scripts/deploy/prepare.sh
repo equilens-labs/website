@@ -30,6 +30,7 @@ SITE_DIRS=(
   "pricing"
   "procurement"
   "trust-center"
+  "internal/analytics"
 )
 
 for file in "${SITE_FILES[@]}"; do
