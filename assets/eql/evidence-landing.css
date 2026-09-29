@@ -1,120 +1,458 @@
 /* Paid-arrival evidence landing (/fl-bsa/evidence/, variant B).
-   Phone-first: the first 390x844 screen carries the answer, one primary
-   action and the dual-branch illustration. Copy stays left-aligned at a
-   prose measure (composition rule 2026-09-21). */
+   Every rule is scoped to .evidence-landing, so shared pages are untouched.
+   Phone-first: the first 390x844 screen carries the question, the answer,
+   one primary action and the start of the illustration. Long copy stays
+   left-aligned at a prose measure (composition rule 2026-09-21); type uses
+   the already-loaded Geist Sans only (no Mono, no extra font requests). */
+
+.evidence-landing {
+  --el-ink: var(--eql-color-ink-900);          /* headings */
+  --el-muted: var(--eql-color-muted-500);      /* body, captions: 7.6:1 on white */
+  --el-accent: var(--color-primary-text);      /* indigo text: 10.3:1 on white */
+  --el-brand: var(--color-primary);            /* indigo chrome */
+  --el-line: #e4e7ef;
+  --el-band: #f6f7fb;                          /* indigo-tinted slate surface */
+  --el-tint: #eef0fd;                          /* icon tiles */
+  --el-night: var(--eql-color-ink-900);       /* evaluation band: the brand ink as a surface */
+  --el-night-text: #cbd5e1;                    /* 11.6:1 on the band */
+  --el-night-muted: #94a3b8;                   /* 6.6:1 on the band */
+  --el-night-link: var(--eql-color-brand-dark-500);  /* 8.3:1 on the band */
+  --el-radius: var(--radius-md);              /* 12px card token */
+  --el-shadow-card: 0 1px 2px rgba(15, 23, 42, .04), 0 6px 16px -8px rgba(15, 23, 42, .10);
+}
+
+/* A faint indigo wash behind the opening screen. It sits on the page canvas,
+   so it runs continuously under the fixed navigation into the hero. */
+body.evidence-landing {
+  background:
+    radial-gradient(ellipse 120% 560px at 100% 0, rgba(79, 70, 229, .085), rgba(79, 70, 229, 0) 70%) no-repeat,
+    var(--bg-main);
+}
+
 .evidence-landing .evidence-shell {
-  width: calc(100% - var(--space-10));
-  max-width: 44rem;
+  width: calc(100% - 2.5rem);
+  max-width: var(--container-width);   /* the nav's 70rem column: content aligns with the logo */
   margin-inline: auto;
 }
-.evidence-landing .evidence-hero {
-  padding: var(--space-4) 0 var(--space-8);
-}
+
+/* Base .btn transitions `all`, which fades focus rings in; keep motion to paint. */
+.evidence-landing .btn { transition-property: background-color, color, transform, box-shadow; }
+
+/* ---------------------------------------------------------------- Hero */
+.evidence-landing .evidence-hero { padding: 1.5rem 0 2.5rem; }
+.evidence-landing .evidence-hero-title,
+.evidence-landing .evidence-hero-body { min-width: 0; }
+
 .evidence-landing .evidence-eyebrow {
-  margin: 0 0 var(--space-3);
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  letter-spacing: var(--tracking-wider);
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  padding: .375rem .75rem .375rem .625rem;
+  border: 1px solid rgba(79, 70, 229, .2);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .85);
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--color-primary-text);
+  color: var(--el-accent);
 }
+.evidence-landing .evidence-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: .375rem;
+  height: .375rem;
+  margin: 0 .5rem 0 0;
+  vertical-align: .1em;
+  border-radius: 50%;
+  background: var(--el-brand);
+}
+.evidence-landing .evidence-eyebrow .product-name { letter-spacing: inherit; }
+
 .evidence-landing .evidence-hero h1 {
   margin: 0;
-  max-width: 20ch;
-  font-size: clamp(1.75rem, 5.4vw, 3rem);
-  line-height: 1.12;
+  font-size: clamp(2.25rem, 1.75rem + 3.1vw, 3.75rem);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+  color: var(--el-ink);
+  text-wrap: balance;
   hyphens: none;
   overflow-wrap: normal;
 }
+/* The question's key phrase takes the brand accent on its own line, as the
+   homepage headline does. */
+.evidence-landing .evidence-h1-accent {
+  display: block;
+  color: var(--el-accent);
+}
+
 .evidence-landing .evidence-lead {
-  margin: var(--space-4) 0 0;
-  max-width: 60ch;
-  font-size: var(--text-lg);
-  line-height: 1.5;
-  color: var(--text-secondary);
+  margin: 1.25rem 0 0;
+  max-width: 36rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--el-muted);
+  text-wrap: pretty;
 }
-.evidence-landing .evidence-cta {
-  margin-top: var(--space-5);
-}
+
+.evidence-landing .evidence-cta { margin-top: 1.5rem; }
 .evidence-landing .evidence-cta .btn {
-  font-size: var(--text-lg);
-  font-weight: var(--font-semibold);
+  width: 100%;
+  min-height: 3.25rem;
+  padding: .75rem 1.25rem;
+  gap: .625rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  line-height: 1.2;
 }
+.evidence-landing .evidence-hero .btn-primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .16),
+    0 1px 2px rgba(15, 23, 42, .12),
+    0 10px 24px -10px rgba(79, 70, 229, .75);
+}
+.evidence-landing .evidence-hero .btn-primary:hover { background: var(--color-primary-hover); }
+.evidence-landing .evidence-cta .btn:focus-visible { outline-offset: 3px; }
+.evidence-landing .evidence-btn-icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
 .evidence-landing .evidence-cta-meta {
-  margin: var(--space-2) 0 0;
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
+  margin: .75rem 0 0;
+  max-width: none;
+  font-size: .8125rem;
+  line-height: 1.5;
+  color: var(--el-muted);
 }
+/* The three facts break only between facts, never leaving a dangling
+   separator: stacked on narrow phones, two lines from 390px, one line where
+   the whole line fits. Separators stay in the text for every width. */
+.evidence-landing .evidence-meta-item { display: block; white-space: nowrap; }
+.evidence-landing .evidence-meta-sep { display: none; }
+@media (min-width: 390px) {
+  .evidence-landing .evidence-meta-item,
+  .evidence-landing .evidence-meta-sep { display: inline; }
+  .evidence-landing .evidence-meta-sep-file { display: none; }
+  .evidence-landing .evidence-meta-file { display: block; }
+}
+
+/* Illustration: a framed figure with its legend attached. */
 .evidence-landing .arrival-figure {
-  margin: var(--space-5) 0 0;
+  margin: 2rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--el-line);
+  border-radius: var(--el-radius);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 24px 48px -28px rgba(30, 27, 75, .35);
 }
-.evidence-landing .arrival-figure-link { display: block; }
+.evidence-landing .arrival-figure-link { display: block; border-radius: 0; }
 .evidence-landing .arrival-figure-link::after { display: none; }
-/* Trim only the illustration's empty top and bottom margins; every
-   labelled element stays inside the 2:1 frame. */
+.evidence-landing .arrival-figure-link:focus-visible { outline-offset: -3px; }
+/* Trim part of the illustration's empty top and bottom margins; every
+   labelled element keeps a balanced margin inside the framed card. */
 .evidence-landing .arrival-figure img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1.85 / 1;
   object-fit: cover;
-  object-position: 50% 49%;
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
+  object-position: 50% 45%;
 }
 .evidence-landing .arrival-figure figcaption {
-  margin-top: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .375rem .75rem .375rem 1rem;
+  border-top: 1px solid var(--el-line);
+  background: #fafbfd;
+  font-size: .8125rem;
+  line-height: 1.5;
+  color: var(--el-muted);
 }
-.evidence-landing .arrival-figure figcaption a,
-.evidence-landing .evidence-scope a,
-.evidence-landing .evidence-context a {
-  color: var(--color-primary-text);
+.evidence-landing .arrival-figure-note { flex: 1 1 auto; min-width: 0; padding-block: .25rem; }
+.evidence-landing .arrival-figure figcaption a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: .25rem;
+  font-weight: 600;
+  color: var(--el-accent);
   text-decoration: underline;
+  text-decoration-color: rgba(55, 48, 163, .35);
   text-underline-offset: .2em;
+  white-space: nowrap;
 }
-.evidence-landing .evidence-section {
-  padding: var(--space-8) 0;
-  border-top: 1px solid var(--border-default);
-}
+
+/* ------------------------------------------------------------- Sections */
+.evidence-landing .evidence-section { padding: 3rem 0; }
 .evidence-landing .evidence-section h2 {
-  margin: 0 0 var(--space-4);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 1.25rem;
+  max-width: 24ch;
+  font-size: clamp(1.6875rem, 1.2rem + 2vw, 2.5rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  color: var(--el-ink);
+}
+
+/* What the evidence shows: three structured proof cards on a tinted band. */
+.evidence-landing .evidence-proof {
+  background: var(--el-band);
+  border-block: 1px solid #eceef5;
 }
 .evidence-landing .evidence-points {
   display: grid;
-  gap: var(--space-5);
+  gap: .75rem;
   margin: 0;
   padding: 0;
   list-style: none;
+  color: inherit;
+}
+.evidence-landing .evidence-points li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: center;
+  column-gap: .875rem;
+  padding: 1.125rem 1.125rem 1.25rem;
+  border: 1px solid var(--el-line);
+  border-radius: var(--el-radius);
+  background: #fff;
+  box-shadow: var(--el-shadow-card);
+}
+.evidence-landing .evidence-point-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--el-tint);
+  color: var(--el-brand);
+}
+.evidence-landing .evidence-point-icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 .evidence-landing .evidence-points h3 {
-  margin: 0 0 var(--space-1);
-  font-size: var(--text-lg);
-}
-.evidence-landing .evidence-points p,
-.evidence-landing .evidence-evaluation p {
   margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.015em;
+  color: var(--el-ink);
+}
+.evidence-landing .evidence-points p {
+  grid-column: 1 / -1;
+  margin: .75rem 0 0;
   max-width: 62ch;
+  font-size: .9375rem;
+  line-height: 1.6;
+  color: var(--el-muted);
 }
-.evidence-landing .evidence-evaluation {
-  background: var(--bg-subtle);
-}
-.evidence-landing .evidence-evaluation .evidence-cta { margin-top: var(--space-5); }
-.evidence-landing .evidence-evaluation .evidence-scope {
-  margin-top: var(--space-6);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-}
+
 .evidence-landing .evidence-context {
-  margin: var(--space-6) 0 0;
-  max-width: 62ch;
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
+  margin: 1.5rem 0 0;
+  max-width: 68ch;
+  padding-left: 1rem;
+  border-left: 2px solid var(--el-brand);
+  font-size: .875rem;
+  line-height: 1.65;
+  color: var(--el-muted);
 }
-@media (min-width: 900px) {
-  .evidence-landing .evidence-shell { max-width: 56rem; }
-  .evidence-landing .evidence-hero { padding-top: var(--space-10); }
-  .evidence-landing .evidence-points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+
+/* What an evaluation involves: the closing decision band. */
+.evidence-landing .evidence-evaluation {
+  padding: 3rem 0;
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(99, 102, 241, .28), rgba(99, 102, 241, 0) 60%),
+    var(--el-night);
+  color: var(--el-night-text);
+}
+.evidence-landing .evidence-evaluation h2 { margin-bottom: 1rem; color: #fff; }
+.evidence-landing .evidence-evaluation-text {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--el-night-text);
+}
+.evidence-landing .evidence-evaluation-text strong { font-weight: 600; color: #fff; white-space: nowrap; }
+.evidence-landing .evidence-evaluation .evidence-cta { margin-top: 1.5rem; }
+.evidence-landing .evidence-evaluation .btn-secondary {
+  border: 0;
+  background: #fff;
+  color: var(--el-ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 24px -12px rgba(0, 0, 0, .6);
+}
+.evidence-landing .evidence-evaluation .btn-secondary:hover { background: var(--el-tint); color: var(--el-accent); }
+.evidence-landing .evidence-evaluation .btn-secondary:focus-visible { outline: 2px solid var(--el-night-link); }
+.evidence-landing .evidence-evaluation .btn-secondary span { color: var(--el-brand); transition: transform var(--transition-base); }
+.evidence-landing .evidence-evaluation .btn-secondary:hover span { transform: translateX(2px); }
+
+.evidence-landing .evidence-scope {
+  margin: 2rem 0 0;
+  max-width: 72ch;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  font-size: .875rem;
+  line-height: 1.65;
+  color: var(--el-night-muted);
+}
+.evidence-landing .evidence-scope .product-name { color: var(--el-night-link); }
+/* Outranks base.css's generic in-copy link colour (0,4,2) on the dark band. */
+.evidence-landing .evidence-evaluation .evidence-scope a:not(.btn):not(.btn-secondary) {
+  color: var(--el-night-link);
+  text-decoration-color: rgba(165, 180, 252, .5);
+  text-underline-offset: .2em;
+}
+.evidence-landing .evidence-evaluation .evidence-scope a:not(.btn):not(.btn-secondary):hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+.evidence-landing .evidence-evaluation .evidence-scope a:focus-visible { outline-color: var(--el-night-link); }
+
+/* Footer: the homepage's compact left-aligned columns; 44px link rows on phones. */
+.evidence-landing .site-footer { padding: 2.5rem 0 1.5rem; }
+.evidence-landing .site-footer .container {
+  width: calc(100% - 2.5rem);
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+.evidence-landing .site-footer .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+.evidence-landing .site-footer section { min-width: 0; }
+.evidence-landing .site-footer section ul { gap: 0; }
+.evidence-landing .site-footer section a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: .8125rem;
+}
+
+/* Narrow phones: keep the primary label on one line and footer words whole. */
+@media (max-width: 379px) {
+  .evidence-landing .evidence-cta .btn { padding-inline: .75rem; }
+}
+@media (max-width: 369px) {
+  .evidence-landing .evidence-btn-icon { display: none; }
+  .evidence-landing .site-footer .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 339px) {
+  .evidence-landing .evidence-cta .btn { font-size: .9375rem; }
+}
+
+/* --------------------------------------------------------- Larger screens */
+@media (min-width: 640px) {
+  .evidence-landing .evidence-cta .btn { width: auto; padding-inline: 1.5rem; }
+  .evidence-landing .evidence-meta-sep-file,
+  .evidence-landing .evidence-meta-file { display: inline; }
+  .evidence-landing .evidence-lead { font-size: 1.125rem; }
+  .evidence-landing .site-footer section a { min-height: 32px; font-size: var(--text-sm); }
+}
+
+@media (min-width: 768px) {
+  .evidence-landing .evidence-hero { padding: 3.5rem 0 4.5rem; }
+  .evidence-landing .evidence-eyebrow { margin-bottom: 1.5rem; }
+  .evidence-landing .evidence-lead { margin-top: 1.5rem; }
+  .evidence-landing .evidence-cta { margin-top: 2rem; }
+  .evidence-landing .arrival-figure { margin-top: 3rem; }
+  .evidence-landing .arrival-figure figcaption { padding-inline: 1.25rem 1rem; }
+  .evidence-landing .evidence-section,
+  .evidence-landing .evidence-evaluation { padding: 5rem 0; }
+  .evidence-landing .evidence-section h2 { margin-bottom: 2rem; }
+  .evidence-landing .evidence-evaluation h2 { margin-bottom: 1.25rem; }
+  .evidence-landing .evidence-points li { padding: 1.5rem 1.5rem 1.75rem; }
+  .evidence-landing .evidence-context { margin-top: 2rem; font-size: .9375rem; }
+  .evidence-landing .evidence-evaluation .evidence-cta { margin-top: 2rem; }
+  .evidence-landing .evidence-scope { margin-top: 2.5rem; padding-top: 1.5rem; }
+  .evidence-landing .site-footer .grid { gap: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .evidence-landing .evidence-hero { padding: 4.5rem 0 5.5rem; }
+  .evidence-landing .evidence-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .evidence-landing .evidence-hero-body { padding-top: 3.375rem; }  /* eyebrow 29px + 24px margin */
+  .evidence-landing .evidence-lead { margin-top: 0; }
+  .evidence-landing .evidence-meta-sep-file { display: none; }
+  .evidence-landing .evidence-meta-file { display: block; }
+  .evidence-landing .arrival-figure { grid-column: 1 / -1; margin-top: 3.5rem; }
+
+  /* Cards share rows, so headings and paragraphs line up across the row. */
+  .evidence-landing .evidence-points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.25rem; }
+  .evidence-landing .evidence-points li {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
+    padding: 1.75rem 1.75rem 2rem;
+  }
+  @supports (grid-template-rows: subgrid) {
+    .evidence-landing .evidence-points li { grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+  }
+  .evidence-landing .evidence-points h3 { align-self: end; }
+  .evidence-landing .evidence-point-icon { width: 2.5rem; height: 2.5rem; margin-bottom: 1.25rem; }
+  .evidence-landing .evidence-point-icon svg { width: 1.25rem; height: 1.25rem; }
+  .evidence-landing .evidence-points p { margin-top: .625rem; }
+  .evidence-landing .evidence-context { margin-top: 2.5rem; }
+
+  /* Decision on the left, the scope note beside the action. */
+  .evidence-landing .evidence-evaluation-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    column-gap: 5rem;
+    align-items: end;
+  }
+  .evidence-landing .evidence-evaluation h2,
+  .evidence-landing .evidence-evaluation-text,
+  .evidence-landing .evidence-evaluation .evidence-cta { grid-column: 1; }
+  .evidence-landing .evidence-scope {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin: 0;
+    padding: 0 0 0 2rem;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, .14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-landing .evidence-evaluation .btn-secondary:hover span { transform: none; }
+}
+
+/* Print: browsers drop backgrounds, so the dark band prints as ink on paper. */
+@media print {
+  body.evidence-landing { background: #fff; }
+  .evidence-landing .evidence-evaluation { background: none; color: #000; }
+  .evidence-landing .evidence-evaluation h2,
+  .evidence-landing .evidence-evaluation-text,
+  .evidence-landing .evidence-evaluation-text strong,
+  .evidence-landing .evidence-scope,
+  .evidence-landing .evidence-scope .product-name,
+  .evidence-landing .evidence-evaluation .evidence-scope a:not(.btn):not(.btn-secondary) { color: #000; }
+  .evidence-landing .arrival-figure,
+  .evidence-landing .evidence-points li { box-shadow: none; }
 }
