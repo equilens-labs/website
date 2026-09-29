@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import sys
 from collections import Counter
 from html.parser import HTMLParser
@@ -11,6 +12,9 @@ from pathlib import Path
 
 BASE = "https://github.com/equilens-labs/fl-bsa-pub/releases"
 RC9 = "v5.0.0-rc9-public-fix-2724455"
+EXPECTED_PREVIEW_SHA256 = (
+    "bf1ce45299b4f9659f25c34e9413b2b6e96e4ec42751e088ddc4f970996560b1"
+)
 REPORT_URL = f"{BASE}/download/v5.0.8-report-fix-20260929/customer_report.pdf"
 REPORT_COUNTS_BY_PAGE = {
     "index.html": 2,
@@ -50,6 +54,19 @@ def main() -> int:
     html_files = sorted(deploy_root.rglob("*.html"))
     if not html_files:
         print(f"[FAIL] no deployed HTML found under {deploy_root}", file=sys.stderr)
+        return 1
+
+    preview_path = deploy_root / "brand/product/report-screening.png"
+    if not preview_path.is_file():
+        print(f"[FAIL] report preview missing: {preview_path}", file=sys.stderr)
+        return 1
+    preview_sha256 = hashlib.sha256(preview_path.read_bytes()).hexdigest()
+    if preview_sha256 != EXPECTED_PREVIEW_SHA256:
+        print(
+            f"[FAIL] report preview SHA-256 {preview_sha256}; "
+            f"expected {EXPECTED_PREVIEW_SHA256}",
+            file=sys.stderr,
+        )
         return 1
 
     collector = HrefCollector()

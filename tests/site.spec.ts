@@ -714,6 +714,7 @@ test.describe('Equilens site surfaces', () => {
     await page.goto('/', { waitUntil: 'networkidle' });
 
     await expect(page).toHaveTitle('Equilens — Algorithmic Compliance');
+    await expect(page.locator('img[src="/brand/product/report-screening.png?v=20260929a"]')).toHaveCount(1);
   });
 
   test('homepage source ships the static nav and contact path without JS', async () => {
