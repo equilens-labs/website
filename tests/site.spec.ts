@@ -1305,7 +1305,7 @@ test.describe('Equilens site surfaces', () => {
 
   // Paid-arrival variant B (/fl-bsa/evidence/) and E1 engagement milestones.
   const evidencePath = '/fl-bsa/evidence/';
-  const samplePdf = 'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8/customer_report.pdf';
+  const samplePdf = 'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-report-fix-20260929/customer_report.pdf';
   const ukTags = 'route=linkedin-flbsa-uk-pilot-202609&utm_source=linkedin&utm_medium=paid-social&utm_campaign=flbsa_uk_pilot_202609&utm_content=single_image_uk_a';
   const eventsNamed = async (page: Page, name: string) =>
     (await page.evaluate(() => (window as unknown as { __auditEvents?: { name: string; props: Record<string, string> }[] }).__auditEvents || []))
@@ -1358,7 +1358,7 @@ test.describe('Equilens site surfaces', () => {
     const primary = page.locator('main .btn-primary');
     await expect(primary).toHaveCount(1);
     await expect(primary).toHaveText('See a sample evidence report (PDF)');
-    await expect(page.locator('main .evidence-cta-meta').first()).toHaveText('Demo build on synthetic data · EU AI Act fairness screening · 16 pages, 232 KiB');
+    await expect(page.locator('main .evidence-cta-meta').first()).toHaveText('Demo build on synthetic data · EU AI Act fairness screening · 17 pages, 234 KiB');
     await expect(primary).toHaveAttribute('href', samplePdf);
     await expect(primary).toHaveClass(/plausible-event-name=Proof\+Asset\+Click/);
     await expect(primary).toHaveClass(/plausible-event-surface=paid_b/);
