@@ -14,7 +14,6 @@ RC9 = "v5.0.0-rc9-public-fix-2724455"
 
 EXPECTED_COUNTS = {
     f"{BASE}/download/v5.0.8/customer_report.pdf": 7,
-    f"{BASE}/download/v5.0.8/gold_bundle.zip": 1,
     f"{BASE}/download/{RC9}/whitepaper.pdf": 2,
     f"{BASE}/download/{RC9}/WhitePaper_Intake_Bundle_v4.zip": 2,
     f"{BASE}/download/{RC9}/SHA256SUMS.txt": 2,
@@ -23,6 +22,7 @@ EXPECTED_COUNTS = {
 }
 
 FORBIDDEN = (
+    f"{BASE}/download/v5.0.8/gold_bundle.zip",
     f"{BASE}/download/{RC9}/customer_report.pdf",
     f"{BASE}/download/{RC9}/gold_bundle.zip",
     f"{BASE}/latest/",

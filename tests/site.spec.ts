@@ -849,10 +849,7 @@ test.describe('Equilens site surfaces', () => {
           'href',
           'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
         );
-        await expect(page.getByRole('link', { name: 'Download demo GOLD pack (ZIP, 2.80 MiB)' })).toHaveAttribute(
-          'href',
-          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8/gold_bundle.zip',
-        );
+        await expect(page.locator('a[href$="/gold_bundle.zip"]')).toHaveCount(0);
       }
 
       const screenshotFile = `${pageEntry.slug}-${testInfo.project.name}.png`;
