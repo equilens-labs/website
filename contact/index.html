@@ -28,7 +28,7 @@
   <link rel="preload" href="/brand/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/brand/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/eql/base.css?v=20260921e">
-  <link rel="stylesheet" href="/assets/eql/contact-pack.css?v=20260929a">
+  <link rel="stylesheet" href="/assets/eql/contact-pack.css?v=20260930a">
   <script defer data-domain="equilens.io" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
 </head>
 <body class="eql contact-page">
@@ -47,7 +47,7 @@
 </nav>
   <script src="/assets/eql/nav.js?v=20260921e"></script>
   <script src="/assets/eql/campaign-routes.js?v=20260922a" defer></script>
-  <script src="/assets/eql/contact.js?v=20260929a" defer></script>
+  <script src="/assets/eql/contact.js?v=20260930a" defer></script>
 
 <main id="main" tabindex="-1"><section class="contact-section" aria-labelledby="contact-form-heading"><div class="contact-layout">
   <div class="contact-primary"><p class="eyebrow">A written reply from Equilens</p><h1 class="hero-headline" id="contact-form-heading">Send us a message</h1><p class="lead" id="request-context">Tell us what you need. Only your name and email are required.</p><form id="contact-form" class="contact-form">
@@ -107,12 +107,12 @@
             <input type="text" id="hp-field" name="_honeypot" tabindex="-1" autocomplete="off">
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Send message</button>
+            <button type="submit" class="btn btn-primary" disabled>Send message</button>
           </div>
-          <p class="note" id="form-status" role="status" hidden></p>
-          <p class="note">Your message is delivered by our EU form processor (Formspark, hosted in the <abbr title="European Economic Area">EEA</abbr>) and emailed to us; no cookies are set. We count submission attempts and accepted submissions with cookieless analytics, without form contents. See <a href="/legal/#privacy">Privacy Notice</a>.</p>
+          <p class="note" id="form-status" role="status">The form is loading. If it remains unavailable, email <a href="mailto:hello@equilens.io">hello@equilens.io</a>.</p>
+          <p class="note">Your message is delivered by our EU form processor (Formspark, hosted in the <abbr title="European Economic Area">EEA</abbr>) and emailed to us; no cookies are set. We count form starts, validation problems, submission attempts, errors and accepted submissions with cookieless analytics, without form contents. See <a href="/legal/#privacy">Privacy Notice</a>.</p>
       </form></div>
-  <aside class="contact-aside" aria-label="Before you send"><h2>What happens next</h2><p>We reply by email. A buyer-pack request includes sample evidence, deployment and security material, and a commercial overview.</p><p>Full public stable release is being prepared. Current availability and any optional pre-release evaluation are confirmed separately.</p><h2>Prefer email?</h2><p><a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a></p><p>Consultancies and decisioning-platform vendors: <a href="/contact/?interest=Partnership">ask about partnering</a>.</p></aside>
+  <aside class="contact-aside" aria-label="Before you send"><h2>What happens next</h2><p id="request-next-step">We reply by email. A buyer-pack request includes sample evidence, deployment and security material, and a commercial overview.</p><p>Full public stable release is being prepared. Current availability and any optional pre-release evaluation are confirmed separately.</p><h2>Prefer email?</h2><p><a class="plausible-event-name=Contact+Email+Click plausible-event-surface=contact plausible-event-cta=form-fallback plausible-event-intent=direct-email" href="mailto:hello@equilens.io">hello@equilens.io</a></p><p>Consultancies and decisioning-platform vendors: <a href="/contact/?interest=Partnership">ask about partnering</a>.</p></aside>
 </div></section></main>
 
 <footer class="site-footer" data-sync="footer" role="contentinfo" aria-labelledby="site-sections-heading">
