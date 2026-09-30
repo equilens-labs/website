@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>FL-BSA Technical Whitepaper — Demo Evidence — Equilens</title>
+  <title>FL-BSA Technical Whitepaper — Public Technical Characterization — Equilens</title>
   <meta content="The FL-BSA technical whitepaper: how a regulated-credit dataset becomes a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data, with offline verification steps." name="description"/>
   <link href="https://equilens.io/fl-bsa/whitepaper/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
@@ -13,14 +13,14 @@
   <link rel="manifest" href="/brand/icons/site.webmanifest">
   <meta content="article" property="og:type"/>
   <meta content="https://equilens.io/fl-bsa/whitepaper/" property="og:url"/>
-  <meta content="FL-BSA Technical Whitepaper — Demo Evidence" property="og:title"/>
+  <meta content="FL-BSA Technical Whitepaper — Public Technical Characterization" property="og:title"/>
   <meta content="How FL-BSA turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data and verifiable offline." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="https://equilens.io/fl-bsa/whitepaper/" name="twitter:url"/>
-  <meta content="FL-BSA Technical Whitepaper — Demo Evidence" name="twitter:title"/>
+  <meta content="FL-BSA Technical Whitepaper — Public Technical Characterization" name="twitter:title"/>
   <meta content="How FL-BSA turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack, demonstrated on synthetic data and verifiable offline." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
@@ -49,32 +49,32 @@
   <main id="main" tabindex="-1">
     <section class="hero" id="overview" aria-label="Whitepaper overview">
       <div class="hero-content">
-        <p class="eyebrow">Technical Whitepaper: Demo Evidence</p>
+        <p class="eyebrow">Technical Whitepaper: Public Characterization</p>
         <h1 class="hero-headline">FL-BSA Technical Whitepaper</h1>
         <p class="lead">How <span class="product-name">FL-BSA</span> turns a regulated-credit dataset into a tamper-evident fair-outcomes evidence pack.</p>
         <div class="cta-row">
-          <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download whitepaper (demo build, PDF)</a>
-          <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-intake-zip plausible-event-asset=whitepaper-intake-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip" target="_blank" rel="noopener noreferrer">Download supporting inputs (ZIP, 153 KB)</a>
+          <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-pdf plausible-event-asset=whitepaper-pdf" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-technical-whitepaper-20260930/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Download technical whitepaper (PDF)</a>
+          <a class="btn btn-secondary plausible-event-name=Proof+Asset+Click plausible-event-surface=whitepaper plausible-event-cta=hero-whitepaper-companion plausible-event-asset=whitepaper-companion-zip" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-technical-whitepaper-20260930/fl-bsa-v5.0.8-technical-companion.zip" target="_blank" rel="noopener noreferrer">Download verification companion (ZIP, 101 KiB)</a>
         </div>
-        <p class="note" id="signing-scope">Signing scope: the supporting inputs contain unsigned certificates. The whitepaper’s general signing description does not apply to this intake bundle; these downloads do not demonstrate signature verification.</p>
-        <p class="file-meta">Whitepaper: 11-page PDF, 381 KB; demo build dated 6 June 2026. Supporting inputs: unsigned diagnostics ZIP, 153 KB. Synthetic demo; provenance is documented below.</p>
+        <p class="note" id="verification-scope">Verification scope: the companion checks its manifest, exact source records, public evidence summary, robustness rows, and restrictive claims posture. That integrity check does not turn the technical characterization into customer evidence or establish production utility.</p>
+        <p class="file-meta">Whitepaper: 21-page PDF, 934 KiB. Verification companion: seven-member ZIP, 101 KiB. <span class="product-name">FL-BSA</span> v5.0.8 synthetic/demo technical characterization; provenance is documented below.</p>
       </div>
     </section>
 
     <section class="section" id="boundary">
       <div class="section-block">
         <h2>Demo and synthetic boundary</h2>
-        <p>Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation (one branch mirroring historical decision patterns, one modelling a fairer counterfactual baseline) and shows the resulting metrics, certificates, and hash-linked manifests an audit or model-risk team would review.</p>
+        <p>Using a fully synthetic demonstration portfolio, the whitepaper walks through dual-branch simulation: an amplification branch that retains configured outcome/protected strata, and an intrinsic policy control that excludes outcome aliases during fitting and applies a declared equal-rate post-label policy. The intrinsic comparison does not estimate a causal counterfactual and is not an optimized lending policy.</p>
         <p>Everything in this whitepaper was generated from synthetic demonstration data. It contains no customer data and no real borrower records.</p>
-        <p>It is published from a non-commercial demo prerelease (<code>v5.0.0-rc9-public-fix-2724455</code>) and is not a general-availability release, a certification, customer output, or proof of a public Marketplace listing.</p>
-        <p class="note">The intake bundle is an unsigned, non-evidence-grade diagnostics <abbr title="ZIP archive">ZIP</abbr> with the aggregate synthetic-data and fairness inputs used for the public whitepaper build.</p>
+        <p>It is published as a public technical characterization prerelease (<code>v5.0.8-technical-whitepaper-20260930</code>). Its disposition remains <code>characterization_only</code>; it is not eligible as customer or promotion evidence and does not establish production utility, certification, a legal determination, regulator approval, general availability, or a public Marketplace listing.</p>
+        <p class="note">The verification companion is a bounded seven-member <abbr title="ZIP archive">ZIP</abbr> with the exact public source record, build decision and correction record, evidence summary, robustness table, original producer intake, manifest, and offline verifier used to check the technical publication.</p>
       </div>
     </section>
 
     <section class="section alt" id="provenance">
       <div class="section-block">
         <h2>Provenance</h2>
-        <p>The whitepaper and its intake bundle are pinned to a tagged public release. Each artefact is listed with its <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> digest in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a> and <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/manifest.json" target="_blank" rel="noopener noreferrer"><code>manifest.json</code></a> on the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.0-rc9-public-fix-2724455" target="_blank" rel="noopener noreferrer">release page</a>, with provenance notes in <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a>.</p>
+        <p>The whitepaper and its verification companion are pinned to a tagged public release. Their <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> digests are recorded in <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-technical-whitepaper-20260930/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer"><code>SHA256SUMS.txt</code></a>. The <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-technical-whitepaper-20260930/whitepaper_release.json" target="_blank" rel="noopener noreferrer"><code>whitepaper_release.json</code></a> sidecar records the exact product and paper source identities, upstream evidence references, file hashes, and restrictive claims posture. See the <a href="https://github.com/equilens-labs/fl-bsa-pub/releases/tag/v5.0.8-technical-whitepaper-20260930" target="_blank" rel="noopener noreferrer">technical whitepaper release page</a> and public <a href="https://github.com/equilens-labs/fl-bsa-pub/blob/main/PROVENANCE.md" target="_blank" rel="noopener noreferrer"><code>PROVENANCE.md</code></a> for the publication record.</p>
       </div>
     </section>
 
@@ -83,9 +83,9 @@
         <h2>Verify it yourself</h2>
         <p class="lead">Verification is offline: no Equilens service is involved.</p>
         <ol>
-          <li>Download the <abbr title="Portable Document Format">PDF</abbr> and intake <abbr title="ZIP archive">ZIP</abbr> from the pinned release above.</li>
+          <li>Download the <abbr title="Portable Document Format">PDF</abbr> and verification <abbr title="ZIP archive">ZIP</abbr> from the pinned release above.</li>
           <li>Recompute <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr> checksums and compare them against <code>SHA256SUMS.txt</code> from the same release.</li>
-          <li>Where signatures are enabled and vendor authorship is claimed, signed release manifests and vendor-authored evidence attestations can be verified against the public keys in the Equilens vendor trust root at <a href="/fl-bsa/trust-root.json"><code>/fl-bsa/trust-root.json</code></a> (<abbr title="Elliptic Curve Digital Signature Algorithm, P-256 curve">ECDSA-P256</abbr>). Expected trust-root <abbr title="Secure Hash Algorithm, 256-bit">SHA-256</abbr>: <code>f05f6476fedc80492de6fa06e420330c7d48e6ac4fe76b4f47d1c6bb60d41717</code>. Verify out of band.</li>
+          <li>Extract <code>verify_public_technical_companion.py</code> and run it against the downloaded companion ZIP. It verifies the bounded archive, hashes, source identity, metric availability, controlling comparisons, robustness rows, and claims flags offline.</li>
         </ol>
         <p class="note">Evidence bundles produced by a deployed appliance ship with a documented hashing spec and offline verification helpers; see the <a href="/trust-center/">Trust Center</a> for the evidence-chain overview.</p>
       </div>
@@ -127,7 +127,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-09-30 (commit 2c5c541).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-09-30 (commit 7b69d62).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
