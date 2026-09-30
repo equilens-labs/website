@@ -69,6 +69,11 @@ Checked from website base commit `2c5c541` at `2026-09-30T20:10:31Z`:
   passed across desktop, phone, and two tablet viewports; the four failures
   were the same newly added overly literal text assertion.
 - Corrected focused Playwright test: 4/4 passed across all four viewports.
+- Post-review narrative and metadata checks: 8/8 focused Playwright cases
+  passed across all four viewports; 4/4 whitepaper render/overflow cases
+  passed after replacing the causal-sounding branch description with the
+  paper's declared equal-rate policy-control formulation and explicit
+  non-causal boundary.
 - Full-page desktop and mobile renders of `/fl-bsa/whitepaper/`, plus the
   desktop `/fl-bsa/` render, were visually reviewed. The new labels, long tag
   and verifier filename wrap within their containers; no clipping or overlap

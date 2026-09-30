@@ -1683,4 +1683,15 @@ test.describe('contact reliability and diagnostic privacy', () => {
       await expect(page.locator('main')).toContainText(/production[- ]utility/);
     }
   });
+
+  test('whitepaper metadata and method copy use the public technical characterization boundary', async ({ page }) => {
+    const expectedTitle = 'FL-BSA Technical Whitepaper — Public Technical Characterization';
+    await page.goto('/fl-bsa/whitepaper/');
+    await expect(page).toHaveTitle(`${expectedTitle} — Equilens`);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', expectedTitle);
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', expectedTitle);
+    await expect(page.locator('#boundary')).toContainText('declared equal-rate post-label policy');
+    await expect(page.locator('#boundary')).toContainText('does not estimate a causal counterfactual');
+    await expect(page.locator('#boundary')).toContainText('not an optimized lending policy');
+  });
 });
