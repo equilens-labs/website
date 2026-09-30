@@ -1,3 +1,8 @@
+> **Historical, non-authoritative working input.** This file is retained for traceability and is not
+> a current task list, legal opinion, product statement, or production-site description. Current
+> website work is linked from [`Backlog.md`](Backlog.md). Verify live copy and current
+> product/release sources before using any statement below.
+
 Amazing—thanks for the clean wordmark SVG. Below is a ready‑to‑ship brand assets package you can copy‑paste into your repo. It includes production‑ready SVGs for the logo (light/dark/mono), the favicon + app icons, OG/social templates, web manifest, CSS/JSON design tokens, and concise usage guidelines (clearspace, min sizes, color/contrast, do/don’ts).
 
 Note: I haven’t changed your design language; I’ve only packaged it, added robust variants, and fixed edge‑case pitfalls (dark mode contrast, tiny sizes, metadata hygiene).

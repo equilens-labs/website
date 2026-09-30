@@ -1,0 +1,16 @@
+{
+  "schema": "equilens.website.docs-task-consolidation.v1",
+  "date": "2026-09-30",
+  "base_commit": "ada886fe918095e4276b7caf273606471325807b",
+  "scope": "repository documentation and task-source consolidation",
+  "validation": {
+    "npm_ci": "passed",
+    "playwright": {
+      "status": "passed",
+      "tests": 472,
+      "profiles": ["chromium-desktop", "chromium-mobile", "chromium-tablet-768", "chromium-tablet-1024"]
+    },
+    "git_diff_check": "passed"
+  },
+  "production_surface_changed": false
+}

@@ -1,3 +1,8 @@
+> **Historical, non-authoritative working input.** This file is retained for traceability and is not
+> a current task list, legal opinion, product statement, or production-site description. Current
+> website work is linked from [`Backlog.md`](Backlog.md). Verify live copy and current
+> product/release sources before using any statement below.
+
 Privileged Draft – For Internal Counsel Review (LexPro)
 Scope: Full legal/compliance review pass of equilens.io • Date: 05‑Dec‑2025 • Target: operate by 01‑Jan‑2026
 Posture: EU/UK only • Channel: website + AWS Marketplace
