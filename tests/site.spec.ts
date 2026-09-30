@@ -1574,7 +1574,7 @@ test.describe('contact reliability and diagnostic privacy', () => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot');
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Ask about an FL-BSA evaluation');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Ask about an FL‑BSA evaluation');
     await expect(page.locator('#request-next-step')).toContainText('fit and current availability');
     await expect(page.locator('#organisation')).toBeHidden();
     const button = page.getByRole('button', { name: 'Ask about an evaluation', exact: true });

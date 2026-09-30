@@ -68,7 +68,7 @@
       const pack = isPackRequest();
       const evaluation = isEvaluationRequest();
       const compact = pack || evaluation;
-      if (heading) heading.textContent = pack ? 'Request the pack' : evaluation ? 'Ask about an FL-BSA evaluation' : 'Send us a message';
+      if (heading) heading.textContent = pack ? 'Request the pack' : evaluation ? 'Ask about an FL‑BSA evaluation' : 'Send us a message';
       if (context) context.textContent = pack
         ? 'We will email you sample evidence, deployment and security material, and a commercial overview.'
         : evaluation ? 'We will reply by email about fit and current availability. Only your name and email are required.' : defaultContext;
