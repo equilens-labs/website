@@ -11,7 +11,8 @@ from pathlib import Path
 
 
 BASE = "https://github.com/equilens-labs/fl-bsa-pub/releases"
-RC9 = "v5.0.0-rc9-public-fix-2724455"
+LEGACY_RC9 = "v5.0.0-rc9-public-fix-2724455"
+TECHNICAL_WHITEPAPER_TAG = "v5.0.8-technical-whitepaper-20260930"
 EXPECTED_PREVIEW_SHA256 = (
     "bf1ce45299b4f9659f25c34e9413b2b6e96e4ec42751e088ddc4f970996560b1"
 )
@@ -25,16 +26,17 @@ REPORT_COUNTS_BY_PAGE = {
 
 EXPECTED_COUNTS = {
     REPORT_URL: sum(REPORT_COUNTS_BY_PAGE.values()),
-    f"{BASE}/download/{RC9}/whitepaper.pdf": 2,
-    f"{BASE}/download/{RC9}/WhitePaper_Intake_Bundle_v4.zip": 2,
-    f"{BASE}/download/{RC9}/SHA256SUMS.txt": 2,
-    f"{BASE}/download/{RC9}/manifest.json": 2,
-    f"{BASE}/tag/{RC9}": 2,
+    f"{BASE}/download/{TECHNICAL_WHITEPAPER_TAG}/whitepaper.pdf": 2,
+    f"{BASE}/download/{TECHNICAL_WHITEPAPER_TAG}/fl-bsa-v5.0.8-technical-companion.zip": 2,
+    f"{BASE}/download/{TECHNICAL_WHITEPAPER_TAG}/SHA256SUMS.txt": 2,
+    f"{BASE}/download/{TECHNICAL_WHITEPAPER_TAG}/whitepaper_release.json": 2,
+    f"{BASE}/tag/{TECHNICAL_WHITEPAPER_TAG}": 2,
 }
 
 FORBIDDEN = (
     f"{BASE}/download/v5.0.8/customer_report.pdf",
-    f"{BASE}/download/{RC9}/customer_report.pdf",
+    f"{BASE}/download/{LEGACY_RC9}/customer_report.pdf",
+    LEGACY_RC9,
     "gold_bundle.zip",
     f"{BASE}/latest",
 )
