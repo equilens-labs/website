@@ -841,12 +841,12 @@ test.describe('Equilens site surfaces', () => {
         await expect(page.locator(`a[href="${samplePdf}"]`)).toHaveCount(expectedReportLinks);
       }
       const releaseTagLinks = page.locator('a[href*="fl-bsa-pub/releases/tag"]');
-      const manifestLinks = page.locator('a[href$="/manifest.json"]');
+      const releaseSidecarLinks = page.locator('a[href$="/whitepaper_release.json"]');
       const checksumLinks = page.locator('a[href$="/SHA256SUMS.txt"]');
       const provenanceLinks = page.locator('a[href$="/PROVENANCE.md"]');
       if (pageEntry.path === '/trust-center/' || pageEntry.path === '/fl-bsa/whitepaper/') {
         await expect(releaseTagLinks).toHaveCount(1);
-        await expect(manifestLinks).toHaveCount(1);
+        await expect(releaseSidecarLinks).toHaveCount(1);
         await expect(checksumLinks).toHaveCount(1);
         await expect(provenanceLinks).toHaveCount(1);
       }
@@ -870,9 +870,9 @@ test.describe('Equilens site surfaces', () => {
         const steps = page.locator('#how-it-works .process-list > *');
         await expect(steps).toHaveCount(3);
         for (const step of await steps.all()) await expect(step.getByRole('heading')).toHaveCount(1);
-        await expect(page.locator('#docs a[href$="/WhitePaper_Intake_Bundle_v4.zip"]')).toHaveAttribute(
+        await expect(page.locator('#docs a[href$="/fl-bsa-v5.0.8-technical-companion.zip"]')).toHaveAttribute(
           'href',
-          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.0-rc9-public-fix-2724455/WhitePaper_Intake_Bundle_v4.zip',
+          'https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-technical-whitepaper-20260930/fl-bsa-v5.0.8-technical-companion.zip',
         );
         await expect(page.locator('a[href$="/gold_bundle.zip"]')).toHaveCount(0);
       }
@@ -1676,10 +1676,22 @@ test.describe('contact reliability and diagnostic privacy', () => {
     expect(html).toContain('not-found.js?v=20260930a');
   });
 
-  test('both direct whitepaper download surfaces qualify signing scope', async ({ page }) => {
+  test('both direct whitepaper download surfaces state the verification and evidence boundary', async ({ page }) => {
     for (const url of ['/fl-bsa/', '/fl-bsa/whitepaper/']) {
       await page.goto(url);
-      await expect(page.locator('main')).toContainText('The whitepaper’s general signing description does not apply to this intake bundle');
+      await expect(page.locator('main')).toContainText(/customer evidence/);
+      await expect(page.locator('main')).toContainText(/production[- ]utility/);
     }
+  });
+
+  test('whitepaper metadata and method copy use the public technical characterization boundary', async ({ page }) => {
+    const expectedTitle = 'FL-BSA Technical Whitepaper — Public Technical Characterization';
+    await page.goto('/fl-bsa/whitepaper/');
+    await expect(page).toHaveTitle(`${expectedTitle} — Equilens`);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', expectedTitle);
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', expectedTitle);
+    await expect(page.locator('#boundary')).toContainText('declared equal-rate post-label policy');
+    await expect(page.locator('#boundary')).toContainText('does not estimate a causal counterfactual');
+    await expect(page.locator('#boundary')).toContainText('not an optimized lending policy');
   });
 });
