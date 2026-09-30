@@ -1,133 +1,31 @@
-# Backlog (equilens.io website)
+# Website Work Queue
 
-**Last updated:** 2026-08-19
-**Purpose:** Single list of pending website work for `equilens.io` (content, deployment, audits). Keep this file short; link out to `tasks/Legal*.md` and source files for details.
+**Last reviewed:** 2026-09-30
 
-**Priority legend:** P0 = blocking / fix before launch, P1 = soon / high leverage, P2 = later / opportunistic.
+GitHub issues are the only live website execution queue. This file is a short pointer and must not
+repeat completed checklists, deployment SHAs, legal drafts, or product truth.
 
-## Current Production Snapshot (Facts)
+## Current work
 
-- Live site footer is rewritten during GitHub Pages deployment and should show the deployed commit.
-- Latest deployed commit checked after PR #49: `1ca22bf` on 2026-05-23.
-- GitHub Pages deployment, site audits, and CodeQL were green after the latest visual-consistency merge.
-- Public privacy copy uses `privacy@equilens.io` for data-protection, rights, and DPA requests.
+- [Open website issues](https://github.com/equilens-labs/website/issues?q=is%3Aissue+is%3Aopen) are
+  the live task list. This pointer deliberately does not copy issue numbers, titles or counts.
 
-## P0 (Launch Blockers)
+Pull requests record implementation and review state; they do not replace the issue queue.
 
-- [x] **Fix deploy workflow mismatch (branch-mode Pages)**
-  - Problem: `pages.yml` "build" job performs SEO toggles + sitemap + OG + PDF render, but the branch-mode publish job re-checks out and only runs `scripts/deploy/prepare.sh`, so those build steps never ship.
-  - DoD:
-    - One deploy path produces the final `dist/` (including visibility toggles + sitemap + OG renders + PDFs if intended) and publishes exactly that output to `gh-pages`.
-    - `workflow_dispatch visibility=private|public` produces the expected production behavior (robots + meta robots + sitemap).
-  - Refs: `.github/workflows/pages.yml`, `scripts/deploy/prepare.sh`, `scripts/seo/*`, `scripts/og/render.sh`.
+## Current deployment
 
-- [x] **Indexing posture: decide private vs public, then enforce**
-  - Problem: production indexing posture previously drifted from the intended "private-by-default" behavior.
-  - DoD:
-    - Default visibility mode is explicitly chosen and enforced on push-to-main and manual deploys.
-    - `robots.txt`, meta-robots tags, and `sitemap.xml` are consistent with the chosen posture.
-  - Refs: `README.md`, `robots.txt`, `scripts/seo/set-indexing.py`, `scripts/seo/toggle-robots.sh`.
+Use the latest successful `Deploy website to GitHub Pages` run and its recorded deployed commit as
+production truth. Do not pin a mutable “latest deployed SHA” in this task file. A newer `main`
+commit is not production until its required exact-main audit and deployment complete successfully.
 
-- [x] **Broken FL-BSA downloads (404): Whitepaper + Example Report**
-  - Problem: `/fl-bsa/` links to PDFs that do not exist in the deployed tree.
-  - DoD:
-    - Both links resolve (HTTP 200) or the CTAs are removed/disabled until ready.
-    - Prefer stable public-release URLs (see FL-BSA repo guidance) instead of committing large binaries here, unless there is a deliberate reason to host locally.
-  - Refs: `fl-bsa/index.html`, FL-BSA repo `docs/development/ci-cd.md` ("Release assets (website-linkable)").
+Product, release, public-artifact and GTM truth remain in their owning repositories. Website tasks
+must link those sources rather than copy changing status.
 
-- [x] **Robots points at missing sitemap**
-  - Problem: production previously advertised a sitemap in `robots.txt` while `sitemap.xml` was missing (404).
-  - DoD:
-    - Either publish a valid `sitemap.xml` when public OR remove the sitemap line when no sitemap is shipped.
-    - `curl -I https://equilens.io/sitemap.xml` matches intended behavior for the chosen visibility mode.
-  - Refs: `robots.txt`, `scripts/seo/gen-sitemap.py`.
+## Historical inputs
 
-- [x] **Fix invalid JSON-LD on `/fl-bsa/` (SEO structured data)**
-  - Problem: FAQ JSON-LD includes an HTML comment inside the JSON, making it invalid.
-  - DoD:
-    - JSON-LD blocks are valid JSON (parseable) and pass basic linting.
-  - Refs: `fl-bsa/index.html`.
-
-- [x] **Legal: remove public EU GDPR representative placeholder**
-  - Problem: Privacy Notice previously published placeholder EU representative text.
-  - DoD:
-    - No public placeholder representative details or "to be appointed" wording.
-    - Add representative details only after appointment or counsel-approved position.
-  - Refs: `legal/index.html`, `trust-center/index.html`, website issue `#40`.
-
-- [x] **Contact page functionality vs CSP**
-  - Problem: pages set CSP `script-src 'self'`, but `/contact/` relies on an inline `<script>` (likely blocked in modern browsers).
-  - DoD:
-    - Contact flow works with the deployed CSP (recommended: move inline JS into a same-origin script under `assets/`).
-  - Refs: `contact/index.html`.
-
-- [x] **Fix failing accessibility audit (Pa11y)**
-  - Problem: home page uses obsolete `<center>` markup; Pa11y CI fails.
-  - DoD:
-    - `pa11y-ci --config ops/pa11yci.json` passes locally and in `audit.yml`.
-  - Refs: `index.html`, `ops/pa11yci.json`, `.github/workflows/audit.yml`.
-
-## P1 (Soon / High Leverage)
-
-- [x] **Decide what content should be publicly published**
-  - Problem: `scripts/deploy/prepare.sh` previously risked copying broad repo content into `dist/`.
-  - DoD:
-    - Explicit allowlist for what ships.
-    - Repository-internal files such as `AGENTS.md`, `.vscode/`, `ops/`, `tests/`, and `package*.json` do not ship unless deliberately added to the allowlist. Canonical product truth remains in the FL-BSA product repository and is not mirrored here.
-  - Refs: `scripts/deploy/prepare.sh`.
-
-- [x] **Deployment gating policy: don't deploy when audits fail**
-  - Problem: `audit.yml` can fail while `pages.yml` deploy still succeeds, so production can drift into a known-bad state (a11y/SEO/regression).
-  - DoD:
-    - Define and implement a policy: either make deploy depend on audits, or explicitly document why deploy can proceed with known audit failures.
-  - Status: normal deploys now require a successful same-repository push audit for the exact current
-    `main` tip. A documented manual dispatch remains an explicit current-`main` audit bypass.
-  - Refs: `.github/workflows/audit.yml`, `.github/workflows/pages.yml`.
-
-- [x] **Truth sync: FL-BSA performance claims and SSOT**
-  - Problem: `/fl-bsa/` claims "~12 minutes for ~1M rows" but canonical SSOT treats 1M+ as long-running/capacity-planning.
-  - DoD:
-    - Website claims match canonical SSOT and/or validated public baselines; no over-promising.
-  - Status: source and live copy now say `1M+` rows are long-running capacity-planning scenarios; no live contradicting claim found.
-  - Refs: `fl-bsa/index.html`, FL-BSA repo `SSoT.md` and `docs/technical/performance.md`.
-
-- [x] **Truth sync: Trust Center claims vs shipped controls**
-  - Problem: Trust Center makes concrete security claims (seccomp/AppArmor, KMS/Secrets Manager, read-only) that must match what we actually ship/support in FL-BSA.
-  - DoD:
-    - Each claim is backed by shipped configuration/docs, or is softened to "supported / available options" with clear scoping.
-  - Status: Trust Center runtime language now scopes secrets as customer-managed deployment controls; stale seccomp/AppArmor/read-only-style claims are not present in the live source.
-  - Refs: `trust-center/index.html`, FL-BSA repo `docs/security/*`, deploy configs.
-
-- [x] **Fix CSS font loading vs CSP + privacy posture**
-  - Problem: `assets/eql/base.css` imports Google Fonts, but CSP `style-src 'self'` blocks it and it adds third-party requests.
-  - DoD:
-    - Either self-host fonts (preferred for CSP/privacy) or remove/replace the import and use local/system fonts.
-  - Refs: `assets/eql/base.css`.
-
-- [x] **Expand audits to cover FL-BSA and Trust Center pages**
-  - Problem: `ops/pa11yci.json` and `ops/lighthouserc.json` only cover `/`, `/contact/`, `/legal/`.
-  - DoD:
-    - Add `/fl-bsa/` and `/trust-center/` (at minimum) to a11y/Lighthouse sweeps.
-  - Refs: `ops/pa11yci.json`, `ops/lighthouserc.json`, `.github/workflows/audit.yml`.
-
-- [x] **Align procurement/pricing language with actual Marketplace reality**
-  - Problem: procurement page claims "Annual and multi-year licensing options" and "Pilot tier (3-month)" which must match the actual AWS Marketplace listing/strategy.
-  - DoD:
-    - Copy matches the live listing(s) and commercial motion; no implied SKUs that are not real.
-  - Status: public copy identifies full public stable release as the destination without claiming it is live, keeps optional pre-release evaluations/private handoffs separate, removes cold-sell tiers, and content lint blocks stale Marketplace/tier and native-runtime sizing phrases.
-  - Refs: `procurement/index.html`, `tasks/Legal4.md`.
-
-## P2 (Later / Opportunistic)
-
-- [x] **Bring Playwright audit configuration in sync with real routes**
-  - Problem: `config/tests/playwright-pages.json` previously referenced FL-BSA route paths before the redirect shims existed.
-  - DoD:
-    - Routes referenced by `config/tests/playwright-pages.json` exist as pages or intentional redirect shims.
-    - Playwright audit passes across the configured page list.
-  - Refs: `config/tests/playwright-pages.json`, `tests/site.spec.ts`, `scripts/ops/run_playwright_audit.sh`.
-
-- [x] **README accuracy pass**
-  - Problem: README claimed deployment "from main" without explaining branch-mode publishing and referenced a missing `config/web/flbsa_subnav.json`.
-  - DoD:
-    - README matches the actual deploy mode, visibility controls, and config structure.
-  - Refs: `README.md`, `.github/workflows/pages.yml`, `config/web/`.
+- The completed former backlog is retained at
+  [`ARCHIVE/Backlog-completed-through-20260819.md`](ARCHIVE/Backlog-completed-through-20260819.md).
+- `Brand.md` and `Legal.md` through `Legal4.md` are historical working inputs. Their banners identify
+  them as non-authoritative; the live site plus the open issue queue control current website legal
+  state.
+- Evidence captures remain under `output/ops/` and follow its retention/index rules.

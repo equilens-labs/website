@@ -1,3 +1,8 @@
+> **Historical, non-authoritative working input.** This file is retained for traceability and is not
+> a current task list, legal opinion, product statement, or production-site description. Current
+> website work is linked from [`Backlog.md`](Backlog.md). Verify live copy and current
+> product/release sources before using any statement below.
+
 Here’s a single, self-contained prompt you can paste into Claude for your eng. I’ve folded everything together and added concrete front-matter snippets for each legal page.
 
 ⸻
