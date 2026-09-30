@@ -666,6 +666,12 @@ test.describe('Equilens site surfaces', () => {
     expect(trackedHtmlPages.length).toBeGreaterThan(0);
 
     for (const { file, html } of trackedHtmlPages) {
+      if (file === '404.html') {
+        // A fixed-address error event must not send arbitrary missing paths.
+        expect(html, file).toContain('src="/assets/eql/not-found.js?v=20260930a"');
+        expect(html, file).not.toContain('plausible.io/js/');
+        continue;
+      }
       if (file === 'internal/analytics/index.html') {
         // The exclusion control must not count its own initial visit.
         expect(html, file).not.toContain('https://plausible.io');
@@ -1092,7 +1098,7 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('button[type="submit"]')).toBeDisabled();
     await expect.poll(() => requests.length).toBe(1);
     await expect.poll(async () => (await recordedEvents(page)).map(event => event.name))
-      .toEqual(['Contact Form Submit', 'Enquiry Submitted']);
+      .toEqual(['Contact Form Started', 'Contact Form Submit', 'Enquiry Submitted']);
     const events = JSON.stringify(await recordedEvents(page));
     expect(events).not.toContain('audit@example.invalid');
     expect(events).not.toContain('Local audit fixture');
@@ -1112,7 +1118,7 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#email')).toHaveValue('audit@example.invalid');
     await expect(page.locator('#form-status a')).toHaveAttribute('href', /^mailto:hello@equilens\.io\?subject=/);
     expect(requests).toHaveLength(1);
-    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Contact Form Error']);
   });
 
   test('honeypot and native-invalid forms produce neither requests nor conversion events', async ({ page }) => {
@@ -1122,13 +1128,13 @@ test.describe('Equilens site surfaces', () => {
     await page.locator('button[type="submit"]').click();
     await expect(page.locator('#name')).toBeFocused();
     expect(requests).toHaveLength(0);
-    expect(await recordedEvents(page)).toEqual([]);
+    expect((await recordedEvents(page)).filter(event => ['Contact Form Submit', 'Enquiry Submitted'].includes(event.name))).toEqual([]);
     await fillRequiredContactFields(page);
     await page.locator('#hp-field').evaluate((element: HTMLInputElement) => { element.value = 'local-bot-fixture'; });
     await page.locator('button[type="submit"]').click();
     await expect(page.locator('#form-status')).toBeVisible();
     expect(requests).toHaveLength(0);
-    expect(await recordedEvents(page)).toEqual([]);
+    expect((await recordedEvents(page)).filter(event => ['Contact Form Submit', 'Enquiry Submitted'].includes(event.name))).toEqual([]);
   });
 
   test('pending forms show progress then uncertain delivery without automatic retry', async ({ page }) => {
@@ -1165,7 +1171,7 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.locator('#form-status a')).toHaveAttribute('href', /^mailto:/);
     await page.clock.fastForward(60_000);
     expect(posts).toBe(1);
-    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Contact Form Error']);
   });
 
   test('contact query parameters prefill procurement pack enquiry', async ({ page }) => {
@@ -1231,7 +1237,7 @@ test.describe('Equilens site surfaces', () => {
     await expect(page.getByRole('button', { name: 'Send me the pack', exact: true })).toBeEnabled();
     await expect(page.locator('#email')).toHaveValue('audit@example.invalid');
     expect(requests).toHaveLength(1);
-    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit']);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Contact Form Error']);
   });
 
   test('browser exclusion persists, can be reversed, and makes no analytics requests', async ({ page }) => {
@@ -1420,7 +1426,7 @@ test.describe('Equilens site surfaces', () => {
     await evaluation.click();
     await expect(page.locator('#interest')).toHaveValue('Controlled FL-BSA Pilot');
     expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Optional evaluation — LinkedIn UK Sep 2026');
-    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Submit', 'Enquiry Submitted']);
+    expect((await recordedEvents(page)).map(event => event.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Enquiry Submitted']);
   });
 
   test('E1 arrival CTA and time-engaged events fire once with variant props', async ({ page }) => {
@@ -1546,4 +1552,134 @@ test.describe('Equilens site surfaces', () => {
     expect(legal).toMatch(/do not use advertising or social media cookies/);
   });
 
+});
+
+
+test.describe('contact reliability and diagnostic privacy', () => {
+  test('a failed handler leaves an honest disabled form and working email route', async ({ page }) => {
+    await stubPlausible(page);
+    await page.route(url => url.pathname === '/assets/eql/contact.js', route => route.abort());
+    const posts = await mockForm(page);
+    await page.goto('/contact/?interest=Procurement%20Pack');
+    await expect(page.locator('button[type="submit"]')).toBeDisabled();
+    await expect(page.locator('#form-status')).toContainText('unavailable');
+    await expect(page.locator('#form-status a')).toHaveAttribute('href', 'mailto:hello@equilens.io');
+    await fillRequiredContactFields(page);
+    await page.locator('#email').press('Enter');
+    expect(posts).toHaveLength(0);
+    expect(await recordedEvents(page)).toEqual([]);
+  });
+
+  test('evaluation mode is compact, specific, keyboard usable and preserves entered details', async ({ page }) => {
+    await stubPlausible(page);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Ask about an FL‑BSA evaluation');
+    await expect(page.locator('#request-next-step')).toContainText('fit and current availability');
+    await expect(page.locator('#organisation')).toBeHidden();
+    const button = page.getByRole('button', { name: 'Ask about an evaluation', exact: true });
+    expect((await button.boundingBox())!.y).toBeLessThan(800);
+    await page.locator('#evaluation-details summary').focus();
+    await page.keyboard.press('Enter');
+    await page.locator('#message').fill('Synthetic private message fixture');
+    await page.locator('#interest').selectOption('Procurement Pack');
+    await expect(page.locator('#pack-details')).toHaveCount(1);
+    await expect(page.locator('#message')).toHaveValue('Synthetic private message fixture');
+    await expect(button).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Send me the pack', exact: true })).toBeEnabled();
+  });
+
+  test('native validation emits bounded categories once, never an attempted POST', async ({ page }) => {
+    await stubPlausible(page);
+    const posts = await mockForm(page);
+    await page.goto('/contact/');
+    await page.locator('button[type="submit"]').click();
+    await page.locator('button[type="submit"]').click();
+    let events = await recordedEvents(page);
+    expect(events).toHaveLength(2);
+    expect(events.map(e => e.props.field).sort()).toEqual(['email', 'name']);
+    expect(events.every(e => e.name === 'Contact Form Invalid' && e.props.reason === 'required')).toBe(true);
+    await page.locator('#name').fill('Private fixture');
+    await page.locator('#email').fill('private-invalid-address');
+    await page.locator('button[type="submit"]').click();
+    events = await recordedEvents(page);
+    expect(events.filter(e => e.name === 'Contact Form Started')).toHaveLength(1);
+    expect(events.some(e => e.props.field === 'email' && e.props.reason === 'format')).toBe(true);
+    expect(JSON.stringify(events)).not.toMatch(/Private fixture|private-invalid-address/);
+    expect(posts).toHaveLength(0);
+  });
+
+  test('error email clicks use fixed labels without transmitting their populated URL', async ({ page }) => {
+    await stubPlausible(page);
+    await mockForm(page, 429);
+    await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot');
+    await fillRequiredContactFields(page);
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toContainText('did not accept');
+    const fallback = page.locator('#form-status a');
+    await expect(fallback).not.toHaveAttribute('class', /plausible-event/);
+    // Stop the email-client navigation, while allowing the real click listener.
+    await fallback.evaluate(el => el.addEventListener('click', event => event.preventDefault()));
+    await fallback.click();
+    const events = await recordedEvents(page);
+    expect(events.map(e => e.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Contact Form Error', 'Contact Email Click']);
+    expect(events.at(-1)!.props).toEqual({ surface: 'contact', cta: 'error-fallback', offer_type: 'evaluation' });
+    expect(events.find(e => e.name === 'Contact Form Error')!.props.reason).toBe('rejected');
+    expect(JSON.stringify(events)).not.toMatch(/audit@example|Local audit|mailto:|body=|url/);
+  });
+
+  test('successful acceptance retains the submitted offer after the form resets', async ({ page }) => {
+    await stubPlausible(page);
+    await mockForm(page);
+    await page.goto('/contact/?interest=Controlled%20FL-BSA%20Pilot');
+    await fillRequiredContactFields(page);
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toContainText('sent');
+    const events = await recordedEvents(page);
+    expect(events.filter(e => ['Contact Form Submit', 'Enquiry Submitted'].includes(e.name)).map(e => e.props.offer_type))
+      .toEqual(['evaluation', 'evaluation']);
+  });
+
+  test('analytics exceptions cannot prevent submission or recovery', async ({ page }) => {
+    await stubPlausible(page);
+    const posts = await mockForm(page);
+    await page.goto('/contact/');
+    await page.evaluate(() => { (window as any).plausible = () => { throw new Error('Synthetic analytics failure'); }; });
+    await fillRequiredContactFields(page);
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('#form-status')).toContainText('sent');
+    expect(posts).toHaveLength(1);
+  });
+
+  test('404 telemetry never contains the missing path or referrer and respects exclusions', async () => {
+    const { runInNewContext } = await import('node:vm');
+    const source = fs.readFileSync(path.join(root, 'assets/eql/not-found.js'), 'utf8');
+    function run(options: { ignored?: boolean; storageFails?: boolean; bot?: boolean; hostname?: string } = {}) {
+      const calls: any[] = [];
+      const fakeFetch = (url: string, init: any) => { calls.push({ url, ...init, body: JSON.parse(init.body) }); return Promise.resolve({}); };
+      runInNewContext(source, {
+        location: { hostname: options.hostname || 'equilens.io', href: 'https://equilens.io/private-fixture?email=secret@example.invalid' },
+        document: { referrer: 'https://equilens.io/private-referrer?secret=fixture' },
+        navigator: { webdriver: !!options.bot }, window: { fetch: fakeFetch }, fetch: fakeFetch,
+        localStorage: { getItem: () => { if (options.storageFails) throw new Error('denied'); return options.ignored ? 'true' : null; } },
+      });
+      return calls;
+    }
+    const calls = run();
+    expect(calls).toHaveLength(1);
+    expect(calls[0].body).toEqual({ name: '404', domain: 'equilens.io', url: 'https://equilens.io/404.html', interactive: false, props: { surface: 'not-found' } });
+    expect(calls[0].referrerPolicy).toBe('no-referrer');
+    expect(JSON.stringify(calls)).not.toMatch(/private-fixture|private-referrer|secret|@example/);
+    for (const options of [{ ignored: true }, { storageFails: true }, { bot: true }, { hostname: 'localhost' }]) expect(run(options)).toEqual([]);
+    const html = fs.readFileSync(path.join(root, '404.html'), 'utf8');
+    expect(html).not.toContain('plausible.io/js/');
+    expect(html).toContain('not-found.js?v=20260930a');
+  });
+
+  test('both direct whitepaper download surfaces qualify signing scope', async ({ page }) => {
+    for (const url of ['/fl-bsa/', '/fl-bsa/whitepaper/']) {
+      await page.goto(url);
+      await expect(page.locator('main')).toContainText('The whitepaper’s general signing description does not apply to this intake bundle');
+    }
+  });
 });

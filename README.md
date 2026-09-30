@@ -32,7 +32,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Page CSP policies allow `https://plausible.io` only for `script-src` and `connect-src`; the contact page additionally allows `https://submit-form.com` in `connect-src` for form submission.
 - Keep the legal Privacy Notice and Cookie Policy synchronized with any analytics change. The current
   posture is aggregate Plausible analytics for pageviews, outbound links, file downloads, and static
-  CTA/custom-event labels, plus an anonymous count of contact-form submissions (no form contents);
+  CTA/custom-event labels, plus anonymous form-start, validation, attempt, error, acceptance and email-fallback events (no form contents);
   no advertising pixels, social trackers, cookies, or persistent visitor identifiers.
   A user-selected browser-local preference can suppress analytics; it is not a visitor identifier.
 - `/internal/analytics/` lets users exclude their own browser by explicitly setting Plausible's
@@ -51,7 +51,7 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 - `/contact/?interest=Procurement%20Pack` shows name/email first and a “Send me the pack” button.
   Organisation, role, region, interest and message are available under optional details.
-  Its prefilled request asks only for the pack; other enquiry routes retain their full form.
+  Its prefilled request asks only for the pack. The optional controlled evaluation route also collapses optional details and uses its own heading, button and next-step wording; other enquiry routes retain their full form.
   Submission routing, validation, honeypot, timeout and acceptance events use the same handler.
 
 ## Content management
@@ -107,3 +107,13 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Recommended extensions: Live Preview (Microsoft), Prettier, HTML CSS Support, Webhint, axe Accessibility Linter, GitHub Actions.
 - Editor defaults live in `.vscode/settings.json` (auto-save after delay, Prettier on save, Emmet Tab expansion).
 - For live preview with auto-reload: Install the Live Preview extension, right-click any HTML file, and select "Show Preview".
+
+## Contact measurement and resilience
+
+- Submit is disabled in HTML with a visible email fallback until the handler has bound. A failed script cannot leave an apparently working button.
+- `Contact Form Started`, `Contact Form Invalid`, and `Contact Form Error` are non-interactive diagnostics; they do not alter bounce classification. Existing `Contact Form Submit` (valid attempt) and `Enquiry Submitted` (HTTP2xx acceptance, not inbox receipt) retain their meanings.
+- Events use finite `offer_type`, `field` and `reason` labels. No field values or populated mailto links are sent to analytics. Error fallback uses a manual event, not a tagged link.
+- Historical `Request Pack` means a contact/evaluation CTA click. Custom `Proof Asset Click` is the report-click counter; tagged links suppress generic download/outbound counters. The installed tracker does not emit generic `Form: Submission`. Do not sum these goals into conversions.
+- The404 template sends only a sanitized `404` event to the documented Plausible Events API, with fixed URL and no referrer; no arbitrary missing path/query is sent. It respects browser exclusion and suppresses local/automated traffic. Normal pages retain the existing tracker.
+- Plausible dashboard goals/properties/funnels must be configured separately; preserve historical goals and the experiment's original dates. Website code deployment alone does not create dashboard goals.
+- The pinned whitepaper signing statement is qualified beside both direct download surfaces. Published artifact bytes remain unchanged; a corrected whitepaper publication belongs to engineering.

@@ -53,30 +53,41 @@
     const context = document.getElementById('request-context');
     const heading = document.getElementById('contact-form-heading');
     const extraFields = document.getElementById('contact-extra-fields');
+    const nextStep = document.getElementById('request-next-step');
     const defaultContext = context?.textContent || '';
+    const defaultNextStep = nextStep?.textContent || '';
     let optionalDetails = null;
     let previousInterest = interestField?.value || '';
 
     function isPackRequest() { return interestField?.value === 'Procurement Pack'; }
-    function submitLabel() { return isPackRequest() ? 'Send me the pack' : 'Send message'; }
+    function isEvaluationRequest() { return interestField?.value === 'Controlled FL-BSA Pilot'; }
+    function submitLabel() {
+      return isPackRequest() ? 'Send me the pack' : isEvaluationRequest() ? 'Ask about an evaluation' : 'Send message';
+    }
     function updateRequestMode() {
       const pack = isPackRequest();
-      if (heading) heading.textContent = pack ? 'Request the pack' : 'Send us a message';
+      const evaluation = isEvaluationRequest();
+      const compact = pack || evaluation;
+      if (heading) heading.textContent = pack ? 'Request the pack' : evaluation ? 'Ask about an FL‑BSA evaluation' : 'Send us a message';
       if (context) context.textContent = pack
         ? 'We will email you sample evidence, deployment and security material, and a commercial overview.'
-        : defaultContext;
+        : evaluation ? 'We will reply by email about fit and current availability. Only your name and email are required.' : defaultContext;
+      if (nextStep) nextStep.textContent = evaluation
+        ? 'We will reply by email about an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow. We will confirm fit and current availability before any next step.'
+        : defaultNextStep;
       if (submitButton && !inFlight) submitButton.textContent = submitLabel();
-      if (pack && extraFields && !optionalDetails) {
+      if (compact && extraFields && !optionalDetails) {
         optionalDetails = document.createElement('details');
-        optionalDetails.id = 'pack-details';
+        optionalDetails.className = 'request-details';
         const summary = document.createElement('summary');
         summary.textContent = 'Add optional details';
         extraFields.replaceWith(optionalDetails);
         optionalDetails.append(summary, extraFields);
-      } else if (!pack && optionalDetails) {
+      } else if (!compact && optionalDetails) {
         optionalDetails.replaceWith(extraFields);
         optionalDetails = null;
       }
+      if (optionalDetails) optionalDetails.id = pack ? 'pack-details' : 'evaluation-details';
     }
     updateRequestMode();
     interestField?.addEventListener('change', () => {
@@ -87,11 +98,48 @@
       updateRequestMode();
     });
 
-    function track(event) {
-      if (typeof window.plausible === 'function') {
-        window.plausible(event, { props: { surface: 'contact', cta: 'form-submit' } });
+    function offerType() {
+      const types = {
+        'Procurement Pack': 'pack', 'Controlled FL-BSA Pilot': 'evaluation',
+        'Guided Pilot Access': 'evaluation', 'Security Pack': 'security',
+        'Partnership': 'partner', 'Evidence Readiness Assessment': 'readiness',
+        'Automated Creditworthiness Evidence Readiness': 'readiness', 'Pricing': 'pricing',
+      };
+      return types[interestField?.value] || 'generic';
+    }
+
+    // Analytics must never block contact, or include entered values / populated URLs.
+    function track(event, labels = {}, diagnostic = false) {
+      try {
+        if (typeof window.plausible === 'function') {
+          window.plausible(event, {
+            props: { surface: 'contact', cta: 'form-submit', offer_type: offerType(), ...labels },
+            ...(diagnostic ? { interactive: false } : {}),
+          });
+        }
+      } catch (_) { /* The enquiry path remains usable if analytics fails. */ }
+    }
+
+    const fieldIds = new Set(['name', 'email', 'organisation', 'role', 'region', 'interest', 'message']);
+    let started = false;
+    const invalidSeen = new Set();
+    function recordStart(event) {
+      if (!started && fieldIds.has(event.target.id) && !fieldValue('hp-field')) {
+        started = true;
+        track('Contact Form Started', { cta: 'form-edit' }, true);
       }
     }
+    form.addEventListener('input', recordStart);
+    form.addEventListener('change', recordStart);
+    form.addEventListener('invalid', function (event) {
+      if (!fieldIds.has(event.target.id) || fieldValue('hp-field')) return;
+      const validity = event.target.validity;
+      const reason = validity.valueMissing ? 'required' : validity.typeMismatch || validity.patternMismatch ? 'format' : 'other';
+      const key = event.target.id + ':' + reason;
+      if (invalidSeen.has(key)) return;
+      invalidSeen.add(key);
+      track('Contact Form Invalid', { cta: 'form-validation', field: event.target.id, reason: reason }, true);
+    }, true);
 
     function fieldValue(id) {
       return document.getElementById(id)?.value || '';
@@ -123,6 +171,10 @@
         const link = document.createElement('a');
         link.href = mailtoHref;
         link.textContent = 'hello@equilens.io';
+        // Never tag this link: the tagged tracker copies its PII-bearing href.
+        link.addEventListener('click', function () {
+          track('Contact Email Click', { cta: 'error-fallback' });
+        });
         statusEl.appendChild(link);
         statusEl.appendChild(document.createTextNode('.'));
       }
@@ -144,6 +196,7 @@
       const message = fieldValue('message');
       const subject = buildSubject(interest, displayInterest);
       const packRequest = isPackRequest();
+      const submittedOffer = offerType();
 
       if (honeypot) {
         // Silently accept: no request, no analytics event.
@@ -198,7 +251,7 @@
             ? 'Thanks. Your pack request has been received; we will reply by email.'
             : 'Thanks. Your message has been sent; we reply by email.');
           if (submitButton) submitButton.textContent = 'Sent';
-          track('Enquiry Submitted');
+          track('Enquiry Submitted', { offer_type: submittedOffer });
         })
         .catch(function (error) {
           inFlight = false;
@@ -207,6 +260,10 @@
             submitButton.textContent = submitLabel();
           }
           const rejected = error.message.startsWith('HTTP ');
+          track('Contact Form Error', {
+            offer_type: submittedOffer,
+            reason: timedOut ? 'timeout' : rejected ? 'rejected' : 'network',
+          }, true);
           showStatus(
             timedOut || !rejected
               ? 'We could not confirm delivery. Your message may have arrived; we have not sent it again. You can contact us directly at'
@@ -218,6 +275,9 @@
           clearTimeout(timeout);
         });
     });
+    // The HTML fallback stays visible and disabled unless binding fully succeeds.
+    if (statusEl) { statusEl.hidden = true; statusEl.textContent = ''; }
+    if (submitButton) submitButton.disabled = false;
   }
 
   if (document.readyState === 'loading') {
