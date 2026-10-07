@@ -7,6 +7,7 @@ exclude = [
   "mailto:*",
   "^https://equilens\\.io/notes/five-things-before-a-fair-outcomes-test/?$",
   "^https://equilens\\.io/fl-bsa/evidence/?$",
+  "^https://equilens\\.io/notes/outcomes-by-customer-group/?$",
 ]
 exclude_path = ["output/ops", "node_modules", "tests"]
 offline = false
