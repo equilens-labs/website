@@ -9,6 +9,7 @@
     { "path": "/fl-bsa/evidence/", "slug": "fl-bsa-evidence-b" },
     { "path": "/notes/five-things-before-a-fair-outcomes-test/", "slug": "evidence-readiness-note" },
     { "path": "/notes/outcomes-by-customer-group/", "slug": "outcomes-checklist-note" },
+    { "path": "/notes/ccd2-non-discrimination/", "slug": "ccd2-checklist-note" },
     { "path": "/pricing/", "slug": "pricing" },
     { "path": "/procurement/", "slug": "procurement" },
     { "path": "/press/", "slug": "press" },
