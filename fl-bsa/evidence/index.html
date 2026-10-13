@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta name="robots" content="noindex">
-  <title>Bias amplification evidence for regulated credit | FL-BSA by Equilens</title>
-  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." name="description"/>
+  <title>Approval-rate gap comparisons for regulated credit | FL-BSA by Equilens</title>
+  <meta content="Compare group approval gaps across separate synthetic borrower cohorts and configured decision rules in your own environment. Sample report and a customer-hosted evaluation." name="description"/>
   <link href="https://equilens.io/fl-bsa/evidence/" rel="canonical"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://plausible.io; connect-src 'self' https://plausible.io; base-uri 'none'; form-action 'none'">
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
@@ -14,15 +14,15 @@
   <link rel="manifest" href="/brand/icons/site.webmanifest">
   <meta content="website" property="og:type"/>
   <meta content="https://equilens.io/fl-bsa/evidence/" property="og:url"/>
-  <meta content="Bias amplification evidence for regulated credit | FL-BSA by Equilens" property="og:title"/>
-  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." property="og:description"/>
+  <meta content="Approval-rate gap comparisons for regulated credit | FL-BSA by Equilens" property="og:title"/>
+  <meta content="Compare group approval gaps across separate synthetic borrower cohorts and configured decision rules in your own environment. Sample report and a customer-hosted evaluation." property="og:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" property="og:image"/>
   <meta content="1200" property="og:image:width"/>
   <meta content="630" property="og:image:height"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="https://equilens.io/fl-bsa/evidence/" name="twitter:url"/>
-  <meta content="Bias amplification evidence for regulated credit | FL-BSA by Equilens" name="twitter:title"/>
-  <meta content="Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation." name="twitter:description"/>
+  <meta content="Approval-rate gap comparisons for regulated credit | FL-BSA by Equilens" name="twitter:title"/>
+  <meta content="Compare group approval gaps across separate synthetic borrower cohorts and configured decision rules in your own environment. Sample report and a customer-hosted evaluation." name="twitter:description"/>
   <meta content="https://equilens.io/brand/social/og-1200x630.png" name="twitter:image"/>
   <link rel="icon" href="/brand/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/icons/favicon.ico" sizes="any">
@@ -57,10 +57,10 @@
     <div class="evidence-shell evidence-hero-grid">
       <div class="evidence-hero-title">
         <p class="evidence-eyebrow"><span class="product-name">FL-BSA</span> · Customer-hosted pilot</p>
-        <h1 id="evidence-heading">Do your past credit decisions <span class="evidence-h1-accent">amplify bias?</span></h1>
+        <h1 id="evidence-heading">Compare approval-rate gaps <span class="evidence-h1-accent">in a controlled simulation.</span></h1>
       </div>
       <div class="evidence-hero-body">
-        <p class="evidence-lead"><span class="product-name">FL-BSA</span> compares the approval&#8209;rate gap learned from your recorded decisions with the gap from a baseline built without them, over synthetic borrower cohorts in your own environment, so borrower and protected&#8209;attribute data stay with you.</p>
+        <p class="evidence-lead"><span class="product-name">FL-BSA</span> compares approval&#8209;rate gaps across separate synthetic borrower cohorts: one generated with recorded decisions, the other labelled by a configured baseline policy. Runs stay in your own environment, so borrower and protected&#8209;attribute data stay with you.</p>
         <div class="evidence-cta">
           <a class="btn btn-primary plausible-event-name=Proof+Asset+Click plausible-event-surface=paid_b plausible-event-cta=b-primary plausible-event-asset=demo-report-pdf" data-eql-arrival-cta="b-primary" href="https://github.com/equilens-labs/fl-bsa-pub/releases/download/v5.0.8-report-fix-20260929/customer_report.pdf" target="_blank" rel="noopener noreferrer"><svg class="evidence-btn-icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-docs"></use></svg>See a sample evidence report&nbsp;(PDF)</a>
           <p class="evidence-cta-meta"><span class="evidence-meta-item">Demo build on synthetic data</span><span class="evidence-meta-sep"> · </span><span class="evidence-meta-item">EU AI Act fairness screening</span><span class="evidence-meta-sep evidence-meta-sep-file"> · </span><span class="evidence-meta-item evidence-meta-file">17 pages, 234 KiB</span></p>
@@ -81,8 +81,8 @@
       <ul class="evidence-points" role="list">
         <li>
           <span class="evidence-point-icon" aria-hidden="true"><svg focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-simulation"></use></svg></span>
-          <h3>Amplified by history, or already in the rules</h3>
-          <p>One branch learns from your recorded decisions; the other trains without them and applies configured fair&#8209;decision rules to the same synthetic cohort. The difference between their group approval&#8209;rate gaps is the amplification your history adds.</p>
+          <h3>Recorded patterns and a configured baseline</h3>
+          <p>One branch learns with recorded decisions. The other excludes them during training, generates a separate cohort and applies configured equal&#8209;approval&#8209;rate rules. The gap difference describes these two simulations; it does not establish what caused historical gaps or predict outcomes for real applicants.</p>
         </li>
         <li>
           <span class="evidence-point-icon" aria-hidden="true"><svg focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-security"></use></svg></span>

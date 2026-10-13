@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-10-13T15:21:08.665320+00:00",
+  "website_base_commit": "1ef47f0b26bc58754accf489d46d5da6bd90b434",
+  "page": "/fl-bsa/evidence/",
+  "method_reference": "https://equilens.io/fl-bsa/whitepaper/",
+  "change": "Describe separately generated branch cohorts and a configured equal-rate policy; remove unsupported causal attribution.",
+  "checks": {
+    "footer": "pass",
+    "content": "pass",
+    "html": "pass",
+    "claims_vale_3_7_1": "pass",
+    "playwright": {
+      "passed": 492,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    }
+  },
+  "runtime": {
+    "node": "20.19.4",
+    "npm": "11.19.1"
+  },
+  "visual_review": "Mobile and desktop full-page captures inspected; no text/button overlap or clipping observed. Four viewport browser checks passed.",
+  "source_sha256": {
+    "fl-bsa/evidence/index.html": "3446b2176de20793db73f7c5f2d7ce6ab325119e263affc2d3c29d81acfbe3bb",
+    "tests/site.spec.ts": "93d304ffb57a6543435f898821a28ead460bbe2cae99cf93eda5e8c973b167ca",
+    "package-lock.json": "3df65c2c9e5fa61e2bf918218f5bbaff93e779e7a1ed3f147407d2ba16665024"
+  },
+  "screenshots_sha256": {
+    "desktop.png": "3699cdd2cc688a3f8734211ff701ba0734ef6a90de450f3b74ed8675f474ac00",
+    "mobile.png": "ad6e28b9165f69ae148af75f781ba94a18258c9f7f6305cd8d7b32df9f0c2892",
+    "tablet-1024.png": "3f7c50b8e7ec77b8be4ef330d2907df07a912db70b3d43ddabee21e970d82a41",
+    "tablet-768.png": "c9e3097fb274428623ad0220db6acecf6b6ac928ac78d6c0ac99f7452cf8eab1"
+  },
+  "scope": "Copy correction and regression coverage. No new release, deployment-availability or customer-result claim."
+}
