@@ -1372,7 +1372,7 @@ test.describe('Equilens site surfaces', () => {
     await stubPlausible(page);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${evidencePath}?${ukTags}`, { waitUntil: 'networkidle' });
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Do your past credit decisions amplify bias?');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Compare approval-rate gaps in a controlled simulation.');
     const primary = page.locator('main .btn-primary');
     await expect(primary).toHaveCount(1);
     await expect(primary).toHaveText('See a sample evidence report (PDF)');
@@ -1398,13 +1398,15 @@ test.describe('Equilens site surfaces', () => {
   test('evidence landing copy keeps supported claims and the Article 4a answer', async ({ page }) => {
     await stubPlausible(page);
     await page.goto(evidencePath, { waitUntil: 'networkidle' });
-    const description = 'Evidence of whether your past credit decisions amplify group approval gaps, produced in your own environment over synthetic borrower cohorts. Sample report and a customer-hosted evaluation.';
+    const description = 'Compare group approval gaps across separate synthetic borrower cohorts and configured decision rules in your own environment. Sample report and a customer-hosted evaluation.';
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', description);
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', description);
     await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content', description);
     const main = visibleText(await page.locator('main').innerHTML());
     expect(main).not.toMatch(/your configured decision rules/i);
-    expect(main).toMatch(/applies configured fair.decision rules to the same synthetic cohort/i);
+    expect(main).toMatch(/generates a separate cohort and applies configured equal.approval.rate rules/i);
+    expect(main).toMatch(/does not establish what caused historical gaps or predict outcomes for real applicants/i);
+    expect(main).not.toMatch(/same synthetic cohort|the amplification your history adds/i);
     expect(main).toMatch(/Your team can verify it offline/);
     expect(main).toMatch(/shows the report format and evidence trail rather than a bias finding/);
     expect(main).toMatch(/one simulation run with Equilens support/);
