@@ -22,6 +22,7 @@ SITE_DIRS=(
   ".well-known"
   "contact"
   "docs"
+  "examples/historical-decision-review"
   "faq"
   "fl-bsa"
   "legal"

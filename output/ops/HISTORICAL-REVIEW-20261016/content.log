@@ -1,0 +1,8 @@
+
+> equilens-website@1.0.0 content:lint
+> scripts/ops/content_lint.sh
+
+Checking for forbidden phrases...
+Checking product-name treatment...
+[OK] product-name treatment consistent
+[OK] Content lint passed

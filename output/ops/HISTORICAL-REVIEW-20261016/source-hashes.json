@@ -1,0 +1,16 @@
+{
+  ".gitattributes": "4ee084f1bcd652d71658ae31935042553c235c249b88461911fbcbb5d5248abc",
+  "README.md": "661a942faa30a6667c49a05f0ca34237c286cc213df8a83490b1e14121016626",
+  "assets/eql/campaign-route.js": "8169b48851a6bf40f9815aa66bfdc43eb8427fd9d4f2f76c7b0d889a4bbf3d77",
+  "assets/eql/campaign-routes.js": "b66f57ad75f392788177526f78450151b729bf69ea182126896d290ac0536f11",
+  "assets/eql/contact.js": "82add78e0c5db94c4813e915c7ce67b20a58fe7460cfd7363ffa3f92cb145810",
+  "assets/eql/historical-review.css": "363cb6e90aa1a134a298bee46606c48f15accb2b832b59e074da3870e29429e9",
+  "assets/examples/historical-decision-review/real_model_findings.md": "2edbfe50cee898d47b9d875330b475b78429eaf4615324080b31983bc659cfde",
+  "assets/examples/historical-decision-review/real_model_measurement_report.pdf": "b77eb4de1a8b470264a9b1f14d5c501917b22b0cbf40cbea546f9d572972ea6e",
+  "config/tests/playwright-pages.json": "73cfd1a817e7b9db2489b70d7d242a1782ba0a0f5b435f7a1e6edf56cf16e6eb",
+  "contact/index.html": "f9d91273fa0205985bd09b97079c8d1bcc37ee7b78f7f9b389ab35c6a22f6f4b",
+  "examples/historical-decision-review/index.html": "8050304a1415f819dceaa4e659a1d0dd40b7a9db8f9f6429e5330816ef1f2e17",
+  "output/ops/HISTORICAL-REVIEW-20261016/sample-manifest.json": "776c50b36055e72ae84c69a82914f8de25ffddbd10788bea46077a984e7838c7",
+  "scripts/deploy/prepare.sh": "2955f4bdd82266487b81641eb24e68f6b5ce93b96a0970668a034e9a88722007",
+  "tests/site.spec.ts": "d805a2d507d7d08cf684df6bddc8bf7e5704ad6eeac8ab889489ecde60dc770a"
+}

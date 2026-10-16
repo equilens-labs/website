@@ -1,0 +1,18 @@
+[
+  {
+    "name": "desktop",
+    "blockedExternal": 1,
+    "pageErrors": [],
+    "overflow": false,
+    "heroTop": 152,
+    "navBottom": 77
+  },
+  {
+    "name": "mobile",
+    "blockedExternal": 1,
+    "pageErrors": [],
+    "overflow": false,
+    "heroTop": 128,
+    "navBottom": 69
+  }
+]

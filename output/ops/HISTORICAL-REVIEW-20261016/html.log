@@ -1,0 +1,9 @@
+
+> equilens-website@1.0.0 lint:html
+> scripts/ops/lint_deploy_html.sh
+
+Updating footer in dist: date=2026-10-16 commit=bb60e86
+[OK] Footer metadata updated
+[OK] dist prepared
+[OK] public-demo link contract checked in 27 deployed HTML files
+[OK] html-validate checked 27 deployed HTML files

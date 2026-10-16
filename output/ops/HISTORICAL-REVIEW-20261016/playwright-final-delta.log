@@ -1,0 +1,25 @@
+
+Running 20 tests using 4 workers
+
+  ✓   2 [chromium-desktop] › tests/site.spec.ts:1763:3 › historical-review candidate › organic context has no paid attribution and does not invent a buyer-pack offer (4.7s)
+  ✓   1 [chromium-desktop] › tests/site.spec.ts:1709:3 › historical-review candidate › retains the checked reading sample and displays its interpretation limits (5.5s)
+  ✓   4 [chromium-desktop] › tests/site.spec.ts:1738:3 › historical-review candidate › exact paid path carries static context and subject through a mocked acceptance (6.0s)
+  ✓   5 [chromium-desktop] › tests/site.spec.ts:1819:3 › historical-review candidate › changing enquiry intent preserves edited text and drops historical attribution (2.3s)
+  ✓   3 [chromium-desktop] › tests/site.spec.ts:1781:3 › historical-review candidate › malformed identities cannot acquire campaign attribution or arbitrary context (11.8s)
+  ✓   6 [chromium-mobile] › tests/site.spec.ts:1709:3 › historical-review candidate › retains the checked reading sample and displays its interpretation limits (5.0s)
+  ✓   8 [chromium-mobile] › tests/site.spec.ts:1763:3 › historical-review candidate › organic context has no paid attribution and does not invent a buyer-pack offer (4.0s)
+  ✓   7 [chromium-mobile] › tests/site.spec.ts:1738:3 › historical-review candidate › exact paid path carries static context and subject through a mocked acceptance (5.2s)
+  ✓   9 [chromium-mobile] › tests/site.spec.ts:1819:3 › historical-review candidate › changing enquiry intent preserves edited text and drops historical attribution (2.2s)
+  ✓  11 [chromium-tablet-768] › tests/site.spec.ts:1709:3 › historical-review candidate › retains the checked reading sample and displays its interpretation limits (4.6s)
+  ✓  12 [chromium-tablet-768] › tests/site.spec.ts:1738:3 › historical-review candidate › exact paid path carries static context and subject through a mocked acceptance (5.5s)
+  ✓  13 [chromium-tablet-768] › tests/site.spec.ts:1763:3 › historical-review candidate › organic context has no paid attribution and does not invent a buyer-pack offer (5.1s)
+  ✓  15 [chromium-tablet-768] › tests/site.spec.ts:1819:3 › historical-review candidate › changing enquiry intent preserves edited text and drops historical attribution (2.9s)
+  ✓  10 [chromium-mobile] › tests/site.spec.ts:1781:3 › historical-review candidate › malformed identities cannot acquire campaign attribution or arbitrary context (11.3s)
+  ✓  16 [chromium-tablet-1024] › tests/site.spec.ts:1709:3 › historical-review candidate › retains the checked reading sample and displays its interpretation limits (5.5s)
+  ✓  14 [chromium-tablet-768] › tests/site.spec.ts:1781:3 › historical-review candidate › malformed identities cannot acquire campaign attribution or arbitrary context (11.7s)
+  ✓  17 [chromium-tablet-1024] › tests/site.spec.ts:1738:3 › historical-review candidate › exact paid path carries static context and subject through a mocked acceptance (6.1s)
+  ✓  18 [chromium-tablet-1024] › tests/site.spec.ts:1763:3 › historical-review candidate › organic context has no paid attribution and does not invent a buyer-pack offer (5.0s)
+  ✓  20 [chromium-tablet-1024] › tests/site.spec.ts:1819:3 › historical-review candidate › changing enquiry intent preserves edited text and drops historical attribution (1.7s)
+  ✓  19 [chromium-tablet-1024] › tests/site.spec.ts:1781:3 › historical-review candidate › malformed identities cannot acquire campaign attribution or arbitrary context (5.6s)
+
+  20 passed (38.5s)

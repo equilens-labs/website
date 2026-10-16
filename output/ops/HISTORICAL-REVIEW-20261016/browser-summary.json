@@ -1,0 +1,14 @@
+{
+  "stats": {
+    "startTime": "2026-10-16T06:16:27.909Z",
+    "duration": 129701.803,
+    "expected": 92,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "network_receipts": 88,
+  "external_pass_through": 0,
+  "blocked_writes": 0,
+  "blocked_external_reads": 12
+}

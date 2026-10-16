@@ -110,6 +110,23 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 
 ## Contact measurement and resilience
 
+- The historical-review candidate lives at `/examples/historical-decision-review/`. Its two
+  unsigned reading downloads are byte-bound in `output/ops/HISTORICAL-REVIEW-20261016/sample-manifest.json`;
+  they are not a complete replay kit. Adding this source does not itself approve publication or
+  customer supply. The existing publication workflow and exact claims/sample decision still apply.
+- `interest=Other&enquiry=historical-review` selects a finite, static enquiry context without
+  implying paid attribution. The declared LinkedIn route additionally requires every exact,
+  single-valued campaign tag. Duplicate/mismatched interest, enquiry or identity fields are rejected.
+  Default enquiry wording stays in `campaign-routes.js`, never in tracked URLs. Later candidate
+  contexts/campaigns require explicit entries and review; arbitrary route names are not admitted.
+- Historical-review enquiries retain the shared contact handler, privacy notice and name/email
+  requirements. Static `offer_type` and verified `route` labels distinguish the task; a locally
+  mocked acceptance proves handler behavior only, never real inbox delivery.
+- Historical-review discussion links use `Workflow Discussion Click`; the two sample download
+  links use `Proof Asset Click`. A discussion click is not a pack request or accepted enquiry.
+  The new event's Plausible dashboard goal requires separate configuration/verification; source
+  instrumentation alone does not create a dashboard goal or prove live event collection.
+
 - Submit is disabled in HTML with a visible email fallback until the handler has bound. A failed script cannot leave an apparently working button.
 - `Contact Form Started`, `Contact Form Invalid`, and `Contact Form Error` are non-interactive diagnostics; they do not alter bounce classification. Existing `Contact Form Submit` (valid attempt) and `Enquiry Submitted` (HTTP2xx acceptance, not inbox receipt) retain their meanings.
 - Events use finite `offer_type`, `field` and `reason` labels. No field values or populated mailto links are sent to analytics. Error fallback uses a manual event, not a tagged link.

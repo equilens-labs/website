@@ -1,0 +1,40 @@
+/* Scoped example page; shared navigation, footer and controls retain site styles. */
+.historical-review .review-shell { max-width: 1100px; margin: var(--nav-height) auto 0; padding: 0 28px; }
+body.historical-review .hero { padding: 64px 0 48px; max-width: 850px; text-align: left; align-items: flex-start; }
+.historical-review .hero .eyebrow { color: var(--color-primary-text); }
+.historical-review .hero p { margin-left: 0; }
+.historical-review .hero .actions { justify-content: flex-start; }
+.historical-review .band { scroll-margin-top: calc(var(--nav-height) + 20px); }
+.historical-review h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 18px 0 24px; }
+.historical-review h2 { font-size: 29px; line-height: 1.25; margin: 0 0 18px; }
+.historical-review h3 { font-size: 18px; margin: 0 0 12px; }
+.historical-review .lead { font-size: 21px; line-height: 1.55; max-width: 740px; }
+.historical-review p { max-width: 850px; }
+.historical-review .status, .historical-review .small, .historical-review .caption { font-size: 14px; color: var(--text-secondary); }
+.historical-review .actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0; }
+.historical-review .review-shell .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.historical-review .card { padding: 26px; background: var(--bg-subtle); border: 1px solid var(--border-default); border-radius: 14px; }
+.historical-review .band { padding: 46px 0; border-top: 1px solid var(--border-default); }
+.historical-review .sample { border: 1px solid var(--border-medium); border-radius: 16px; padding: 30px; }
+.historical-review .sample-heading { margin-top: 20px; }
+.historical-review .pill { display: inline-block; background: var(--color-primary-a08); color: var(--color-primary-text); border-radius: 20px; padding: 5px 11px; font-size: 12px; }
+.historical-review table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 24px 0; }
+.historical-review th, .historical-review td { text-align: right; padding: 14px 12px; border-bottom: 1px solid var(--border-default); }
+.historical-review th:first-child, .historical-review td:first-child { text-align: left; }
+.historical-review th { background: var(--bg-subtle); font-size: 13px; }
+.historical-review tfoot { font-weight: 650; }
+.historical-review .scope { border-left: 3px solid var(--border-medium); padding-left: 18px; }
+.historical-review details { margin: 20px 0; }
+.historical-review summary { cursor: pointer; font-weight: 550; color: var(--color-primary-text); }
+.historical-review summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+@media (max-width: 700px) {
+  .historical-review .review-shell { padding: 0 20px; }
+  body.historical-review .hero { padding: 40px 0; }
+  .historical-review .review-shell .grid { grid-template-columns: 1fr; }
+  .historical-review .sample { padding: 18px; }
+  .historical-review .band { padding: 35px 0; }
+  .historical-review th, .historical-review td { padding: 10px 5px; overflow-wrap: anywhere; }
+  .historical-review table { table-layout: fixed; font-size: 14px; }
+  .historical-review th { font-size: 12px; }
+  .historical-review h1 { letter-spacing: -1.2px; }
+}
