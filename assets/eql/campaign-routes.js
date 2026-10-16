@@ -95,7 +95,7 @@
 
   function match(params) {
     const route = getSingleParam(params, 'route');
-    const config = route && Object.hasOwn(routes, route) ? routes[route] : null;
+    const config = route && Object.prototype.hasOwnProperty.call(routes, route) ? routes[route] : null;
     if (!config) return null;
 
     const matches =
@@ -112,7 +112,7 @@
 
   function enquiry(params) {
     const id = params.has('enquiry') ? getSingleParam(params, 'enquiry') : match(params)?.enquiry;
-    const config = id && Object.hasOwn(enquiries, id) ? enquiries[id] : null;
+    const config = id && Object.prototype.hasOwnProperty.call(enquiries, id) ? enquiries[id] : null;
     return config && getSingleParam(params, 'interest') === config.interest
       ? Object.freeze({ id, ...config }) : null;
   }

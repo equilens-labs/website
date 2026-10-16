@@ -1718,6 +1718,14 @@ test.describe('historical-review candidate', () => {
     await expect(page.locator('main')).toContainText('2–20 declared groups');
     await expect(page.locator('main')).toContainText('matching software version');
     await expect(page.locator('main')).toContainText('not the complete replay package');
+    await expect(page.locator('main')).toContainText('FL-BSA measurement mode over recorded decisions');
+    await expect(page.locator('main')).toContainText('not part of the current simulation-only release');
+    await expect(page.locator('main')).toContainText('public loan-level records include lending outcomes and applicant sex');
+    await expect(page.locator('main')).toContainText('This checks the declared example');
+    await expect(page.locator('main')).toContainText('results for other data');
+    await expect(page.locator('main')).toContainText('“Fairness metric” labels are field names, not fairness judgments');
+    await expect(page.locator('main')).not.toContainText('This proves');
+    await expect(page.locator('main')).not.toContainText('general synthetic accuracy');
     await page.getByText('Read the report and its context', { exact: true }).click();
     for (const [file, digest] of [
       ['real_model_findings.md', '2edbfe50cee898d47b9d875330b475b78429eaf4615324080b31983bc659cfde'],
@@ -1813,6 +1821,30 @@ test.describe('historical-review candidate', () => {
       await expect(page.locator('#message')).toHaveValue('');
       expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Other');
       for (const e of await recordedEvents(page)) expect(e.props).not.toHaveProperty('route');
+    }
+  });
+
+  test('routing works without Object.hasOwn and still rejects inherited names', async ({ page }) => {
+    await page.addInitScript(() => { (Object as any).hasOwn = undefined; });
+    await stubPlausible(page);
+    await page.goto(landing + '?' + tags);
+    const cta = page.locator('[data-campaign-contact="historical-review"]').first();
+    await expect(cta).toHaveAttribute('href', /route=linkedin-historical-eu5-202610/);
+    await cta.click();
+    await expect(page.locator('#message')).toHaveValue(message);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review — LinkedIn EU5 Oct 2026');
+    await page.goto(organic);
+    await expect(page.locator('#message')).toHaveValue(message);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review');
+    for (const name of ['__proto__', 'constructor', 'toString']) {
+      await page.goto('/contact/?interest=Other&enquiry=' + name);
+      await expect(page.locator('#contact-form-heading')).toHaveText('Send us a message');
+      await expect(page.locator('#message')).toHaveValue('');
+      expect(await page.evaluate(({ query, name }) => {
+        const params = new URLSearchParams(query);
+        params.set('route', name);
+        return (window as any).eqlCampaignRouting.match(params);
+      }, { query: tags, name })).toBeNull();
     }
   });
 
