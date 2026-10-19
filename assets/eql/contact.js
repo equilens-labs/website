@@ -33,8 +33,11 @@
     const matchedCampaign = window.eqlCampaignRouting?.match(params) || null;
     const singleInterest = window.eqlCampaignRouting?.getSingleParam(params, 'interest');
     const hasSingleMatchingInterest = matchedCampaign &&
-      (singleInterest === matchedCampaign.interest || singleInterest === 'Procurement Pack');
+      (singleInterest === matchedCampaign.interest || (singleInterest === 'Procurement Pack' && matchedCampaign.packSubject));
     const campaignRoute = hasSingleMatchingInterest ? matchedCampaign : null;
+    const enquiry = window.eqlCampaignRouting?.enquiry(params) || null;
+    function activeEnquiry() { return enquiry && interestField?.value === enquiry.interest ? enquiry : null; }
+    function defaultMessage() { return activeEnquiry()?.defaultMessage || defaultMessages[interestField?.value] || ''; }
 
     if (interestParam && interestField) {
       const options = Array.from(interestField.options || []);
@@ -44,7 +47,7 @@
     }
 
     if (messageField && !messageField.value) {
-      messageField.value = messageParam || defaultMessages[interestParam] || '';
+      messageField.value = activeEnquiry()?.defaultMessage || messageParam || defaultMessage();
     }
 
     const statusEl = document.getElementById('form-status');
@@ -57,24 +60,24 @@
     const defaultContext = context?.textContent || '';
     const defaultNextStep = nextStep?.textContent || '';
     let optionalDetails = null;
-    let previousInterest = interestField?.value || '';
+    let previousDefaultMessage = defaultMessage();
 
     function isPackRequest() { return interestField?.value === 'Procurement Pack'; }
     function isEvaluationRequest() { return interestField?.value === 'Controlled FL-BSA Pilot'; }
     function submitLabel() {
-      return isPackRequest() ? 'Send me the pack' : isEvaluationRequest() ? 'Ask about an evaluation' : 'Send message';
+      return activeEnquiry()?.submitLabel || (isPackRequest() ? 'Send me the pack' : isEvaluationRequest() ? 'Ask about an evaluation' : 'Send message');
     }
     function updateRequestMode() {
       const pack = isPackRequest();
       const evaluation = isEvaluationRequest();
       const compact = pack || evaluation;
-      if (heading) heading.textContent = pack ? 'Request the pack' : evaluation ? 'Ask about an FL‑BSA evaluation' : 'Send us a message';
-      if (context) context.textContent = pack
+      if (heading) heading.textContent = activeEnquiry()?.heading || (pack ? 'Request the pack' : evaluation ? 'Ask about an FL‑BSA evaluation' : 'Send us a message');
+      if (context) context.textContent = activeEnquiry()?.context || (pack
         ? 'We will email you sample evidence, deployment and security material, and a commercial overview.'
-        : evaluation ? 'We will reply by email about fit and current availability. Only your name and email are required.' : defaultContext;
-      if (nextStep) nextStep.textContent = evaluation
+        : evaluation ? 'We will reply by email about fit and current availability. Only your name and email are required.' : defaultContext);
+      if (nextStep) nextStep.textContent = activeEnquiry()?.nextStep || (evaluation
         ? 'We will reply by email about an optional, customer-hosted FL-BSA evaluation for one regulated-credit workflow. We will confirm fit and current availability before any next step.'
-        : defaultNextStep;
+        : defaultNextStep);
       if (submitButton && !inFlight) submitButton.textContent = submitLabel();
       if (compact && extraFields && !optionalDetails) {
         optionalDetails = document.createElement('details');
@@ -91,14 +94,15 @@
     }
     updateRequestMode();
     interestField?.addEventListener('change', () => {
-      if (messageField && messageField.value === (defaultMessages[previousInterest] || '')) {
-        messageField.value = defaultMessages[interestField.value] || '';
+      if (messageField && messageField.value === previousDefaultMessage) {
+        messageField.value = defaultMessage();
       }
-      previousInterest = interestField.value;
+      previousDefaultMessage = defaultMessage();
       updateRequestMode();
     });
 
     function offerType() {
+      if (activeEnquiry()) return activeEnquiry().offerType;
       const types = {
         'Procurement Pack': 'pack', 'Controlled FL-BSA Pilot': 'evaluation',
         'Guided Pilot Access': 'evaluation', 'Security Pack': 'security',
@@ -109,15 +113,20 @@
     }
 
     // Analytics must never block contact, or include entered values / populated URLs.
-    function track(event, labels = {}, diagnostic = false) {
+    function track(event, labels = {}, diagnostic = false, identity = attribution()) {
       try {
         if (typeof window.plausible === 'function') {
           window.plausible(event, {
-            props: { surface: 'contact', cta: 'form-submit', offer_type: offerType(), ...labels },
+            props: { surface: 'contact', cta: 'form-submit', ...identity, ...labels },
             ...(diagnostic ? { interactive: false } : {}),
           });
         }
       } catch (_) { /* The enquiry path remains usable if analytics fails. */ }
+    }
+
+    function attribution() {
+      return { offer_type: offerType(), ...(campaignRoute && interestField?.value === campaignRoute.interest
+        ? { route: campaignRoute.route } : {}) };
     }
 
     const fieldIds = new Set(['name', 'email', 'organisation', 'role', 'region', 'interest', 'message']);
@@ -146,10 +155,10 @@
     }
 
     function buildSubject(interest, displayInterest) {
-      if (campaignRoute && interest === 'Procurement Pack') return campaignRoute.packSubject;
+      if (campaignRoute?.packSubject && interest === 'Procurement Pack') return campaignRoute.packSubject;
       return campaignRoute && interest === campaignRoute.interest
         ? campaignRoute.subject
-        : interest
+        : activeEnquiry() ? activeEnquiry().subject : interest
           ? 'FL-BSA enquiry: ' + displayInterest
           : 'FL-BSA enquiry';
     }
@@ -196,7 +205,7 @@
       const message = fieldValue('message');
       const subject = buildSubject(interest, displayInterest);
       const packRequest = isPackRequest();
-      const submittedOffer = offerType();
+      const submittedAttribution = attribution();
 
       if (honeypot) {
         // Silently accept: no request, no analytics event.
@@ -251,7 +260,7 @@
             ? 'Thanks. Your pack request has been received; we will reply by email.'
             : 'Thanks. Your message has been sent; we reply by email.');
           if (submitButton) submitButton.textContent = 'Sent';
-          track('Enquiry Submitted', { offer_type: submittedOffer });
+          track('Enquiry Submitted', {}, false, submittedAttribution);
         })
         .catch(function (error) {
           inFlight = false;
@@ -261,9 +270,8 @@
           }
           const rejected = error.message.startsWith('HTTP ');
           track('Contact Form Error', {
-            offer_type: submittedOffer,
             reason: timedOut ? 'timeout' : rejected ? 'rejected' : 'network',
-          }, true);
+          }, true, submittedAttribution);
           showStatus(
             timedOut || !rejected
               ? 'We could not confirm delivery. Your message may have arrived; we have not sent it again. You can contact us directly at'
