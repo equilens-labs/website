@@ -1,0 +1,4 @@
+# These two evidence reading outputs must retain their original bytes/checksums.
+/assets/examples/historical-decision-review/real_model_measurement_report.pdf binary
+# The original Markdown contains an intentional two-space line break.
+/assets/examples/historical-decision-review/real_model_findings.md -text whitespace=-blank-at-eol

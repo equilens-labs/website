@@ -16,7 +16,9 @@
       const interest = destination.searchParams.has('interest')
         ? window.eqlCampaignRouting.getSingleParam(destination.searchParams, 'interest')
         : campaignRoute.interest;
-      if (interest !== campaignRoute.interest && interest !== 'Procurement Pack') return;
+      if (interest !== campaignRoute.interest && !(interest === 'Procurement Pack' && campaignRoute.packSubject)) return;
+      if (destination.searchParams.has('enquiry') &&
+          window.eqlCampaignRouting.getSingleParam(destination.searchParams, 'enquiry') !== campaignRoute.enquiry) return;
 
       const contactParams = new URLSearchParams({
         interest,
@@ -26,6 +28,7 @@
         utm_campaign: campaignRoute.campaign,
       });
       if (campaignRoute.content) contactParams.set('utm_content', campaignRoute.content);
+      if (campaignRoute.enquiry) contactParams.set('enquiry', campaignRoute.enquiry);
       link.href = '/contact/?' + contactParams.toString();
     });
   }

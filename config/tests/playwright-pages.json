@@ -1,5 +1,6 @@
 {
   "pages": [
+    { "path": "/examples/historical-decision-review/", "slug": "historical-decision-review" },
     { "path": "/", "slug": "home" },
     { "path": "/fl-bsa/", "slug": "fl-bsa-overview" },
     { "path": "/fl-bsa/pricing/", "slug": "fl-bsa-pricing" },

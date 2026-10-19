@@ -1,0 +1,117 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 2210 >>
+stream
+BT
+/F1 10 Tf
+72 740 Td
+13 TL
+(FL-BSA Historical Measurement Report) Tj
+T*
+(Evidence mode: measure_real_model) Tj
+T*
+(Artifact status: unsigned measurement report; not a certificate or signed evidence bundle.) Tj
+T*
+(Measured output: supplied historical decision column historical_approved; authorship) Tj
+T*
+(unspecified.) Tj
+T*
+(Favorable outcome definition: historical_approved == 1.) Tj
+T*
+(Decision provenance: origin=historical; authored_by=unspecified) Tj
+T*
+() Tj
+T*
+(Boundary and non-claims) Tj
+T*
+(This report contains aggregate measurement results only and no row-level borrower data.) Tj
+T*
+(FL-BSA did not execute a model.) Tj
+T*
+(FL-BSA did not execute a scorecard.) Tj
+T*
+(FL-BSA did not connect to production decision services.) Tj
+T*
+(FL-BSA did not make lending decisions.) Tj
+T*
+(FL-BSA did not override lending decisions.) Tj
+T*
+(This report is not legal advice, conformity assessment, regulator approval, certified) Tj
+T*
+(compliance, release-grade external evidence, or customer-production go-live approval.) Tj
+T*
+(This PDF summarizes prepared input. For an offline review, read real_model_findings.md) Tj
+T*
+(first for scope, decision meaning, preparation rules and planned comparisons.) Tj
+T*
+(Retain source/exclusion receipts separately; this PDF does not verify extraction.) Tj
+T*
+(Run ID: real-model-measurement) Tj
+T*
+(Measurement artifact created: 2026-10-16T04:16:26.036396Z) Tj
+T*
+(Manifest created: 2026-10-16T04:16:26.039247Z) Tj
+T*
+(Rows measured: 2079) Tj
+T*
+(Protected attributes: cohort) Tj
+T*
+(Decision origin: historical) Tj
+T*
+(Decision source column: historical_approved) Tj
+T*
+(Decision source kind: binary_output) Tj
+T*
+(FL-BSA scored decisions: false) Tj
+T*
+(Live decisioning: false) Tj
+T*
+(Favorable decisions: 1858) Tj
+T*
+(Favorable rate: 0.893699) Tj
+T*
+(Score threshold applied: false) Tj
+T*
+(Score threshold: not_available) Tj
+T*
+(Input binding:) Tj
+T*
+(source_file_sha256=5e585deedfe947fd4d6f3c580bc62c23dcf5e354cf057344b68360f133bd9aba) Tj
+T*
+() Tj
+T*
+(Fairness metric summary) Tj
+T*
+(- cohort: status=ok, SPD=0.0129966, AIR=0.985538, EOD=not_available) Tj
+T*
+(  groups: female: n=796, selection_rate=0.885678; male: n=1283, selection_rate=0.898675) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000317 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2578
+%%EOF

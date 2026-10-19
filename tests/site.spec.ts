@@ -1697,3 +1697,170 @@ test.describe('contact reliability and diagnostic privacy', () => {
     await expect(page.locator('#boundary')).toContainText('not an optimized lending policy');
   });
 });
+
+// This candidate is a local implementation. Every submission below is fulfilled
+// by mockForm; the shared loopback-only network guard forbids external traffic.
+test.describe('historical-review candidate', () => {
+  const landing = '/examples/historical-decision-review/';
+  const tags = 'route=linkedin-historical-eu5-202610&utm_source=linkedin&utm_medium=paid-social&utm_campaign=equilens_historical_review_eu5_202610&utm_content=single_image_v1';
+  const organic = '/contact/?interest=Other&enquiry=historical-review';
+  const message = 'I would like to discuss a historical lending-decision review.';
+
+  test('retains the checked reading sample and displays its interpretation limits', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(landing);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Review past lending decisions');
+    await expect(page.locator('tbody')).toContainText('88.57%');
+    await expect(page.locator('tbody')).toContainText('89.87%');
+    await expect(page.locator('tfoot')).toContainText('89.37%');
+    await expect(page.locator('.scope')).toContainText('1.30 percentage points');
+    await expect(page.locator('main')).toContainText('did not participate in or endorse');
+    await expect(page.locator('main')).toContainText('2–20 declared groups');
+    await expect(page.locator('main')).toContainText('matching software version');
+    await expect(page.locator('main')).toContainText('not the complete replay package');
+    await expect(page.locator('main')).toContainText('FL-BSA measurement mode over recorded decisions');
+    await expect(page.locator('main')).toContainText('not part of the current simulation-only release');
+    await expect(page.locator('main')).toContainText('public loan-level records include lending outcomes and applicant sex');
+    await expect(page.locator('main')).toContainText('This checks the declared example');
+    await expect(page.locator('main')).toContainText('results for other data');
+    await expect(page.locator('main')).toContainText('“Fairness metric” labels are field names, not fairness judgments');
+    await expect(page.locator('main')).not.toContainText('This proves');
+    await expect(page.locator('main')).not.toContainText('general synthetic accuracy');
+    await page.getByText('Read the report and its context', { exact: true }).click();
+    for (const [file, digest] of [
+      ['real_model_findings.md', '2edbfe50cee898d47b9d875330b475b78429eaf4615324080b31983bc659cfde'],
+      ['real_model_measurement_report.pdf', 'b77eb4de1a8b470264a9b1f14d5c501917b22b0cbf40cbea546f9d572972ea6e'],
+    ]) {
+      const url = '/assets/examples/historical-decision-review/' + file;
+      await expect(page.locator(`a[href="${url}"]`)).toBeVisible();
+      const response = await page.request.get(url);
+      expect(response.status()).toBe(200);
+      const { createHash } = await import('crypto');
+      expect(createHash('sha256').update(await response.body()).digest('hex')).toBe(digest);
+    }
+    await expectNoOverflow(page);
+    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+      .violations.filter(v => ['critical', 'serious'].includes(v.impact || ''))).toEqual([]);
+  });
+
+  test('exact paid path carries static context and subject through a mocked acceptance', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(landing + '?' + tags);
+    const cta = page.locator('[data-campaign-contact="historical-review"]').first();
+    const href = await cta.getAttribute('href');
+    expect(href).toContain('route=linkedin-historical-eu5-202610');
+    expect(href).toContain('enquiry=historical-review');
+    expect(href).not.toContain('message=');
+    await cta.click();
+    await expect(page.locator('#message')).toHaveValue(message);
+    await expect(page.locator('#contact-form-heading')).toHaveText('Discuss this workflow');
+    await expect(page.locator('#request-next-step')).toContainText('Any evaluation, price or delivery commitment is agreed separately');
+    await expectNoOverflow(page);
+    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+      .violations.filter(v => ['critical', 'serious'].includes(v.impact || ''))).toEqual([]);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review — LinkedIn EU5 Oct 2026');
+    const events = await recordedEvents(page);
+    expect(events.map(e => e.name)).toEqual(['Contact Form Started', 'Contact Form Submit', 'Enquiry Submitted']);
+    for (const e of events) {
+      expect(e.props.offer_type).toBe('historical-review');
+      expect(e.props.route).toBe('linkedin-historical-eu5-202610');
+    }
+    expect(JSON.stringify(events)).not.toMatch(/audit@example|Local audit fixture|would like to discuss|message=/);
+  });
+
+  test('organic context has no paid attribution and does not invent a buyer-pack offer', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(landing);
+    const cta = page.locator('[data-campaign-contact="historical-review"]').first();
+    for (const link of await page.locator('[data-campaign-contact="historical-review"]').all()) {
+      await expect(link).toHaveClass(/plausible-event-name=Workflow\+Discussion\+Click/);
+      await expect(link).not.toHaveClass(/plausible-event-name=Request\+Pack/);
+      await expect(link).toHaveClass(/plausible-event-intent=historical-review/);
+    }
+    await expect(cta).toHaveAttribute('href', organic);
+    await cta.click();
+    await expect(page.locator('#message')).toHaveValue(message);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review');
+    for (const e of await recordedEvents(page)) expect(e.props).not.toHaveProperty('route');
+    await page.goto('/contact/?interest=Procurement%20Pack&' + tags);
+    expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Procurement Pack');
+  });
+
+  test('malformed identities cannot acquire campaign attribution or arbitrary context', async ({ page }) => {
+    await stubPlausible(page);
+    const malformed = [
+      ...['route', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].map(key => {
+        const p = new URLSearchParams(tags); p.append(key, p.get(key)!); return p.toString();
+      }),
+      tags.replace('utm_source=linkedin', 'utm_source=direct'),
+      tags.replace('single_image_v1', 'unreviewed'),
+      tags.replace('linkedin-historical-eu5-202610', 'unreviewed-route'),
+      tags + '&enquiry=historical-review&enquiry=historical-review',
+      tags + '&enquiry=unreviewed',
+      tags + '&interest=Other&interest=Other',
+      tags + '&interest=Pricing',
+    ];
+    await page.goto(landing);
+    const matches = await page.evaluate(values => values.map(value => (window as any).eqlCampaignRouting.match(new URLSearchParams(value))), malformed);
+    expect(matches).toEqual(malformed.map(() => null));
+    for (const query of [malformed[0], malformed[5], malformed[8]]) {
+      await page.goto(landing + '?' + query);
+      await expect(page.locator('[data-campaign-contact="historical-review"]').first()).toHaveAttribute('href', organic);
+      await page.goto('/contact/?interest=Other&' + query);
+      expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Other');
+      for (const e of await recordedEvents(page)) expect(e.props).not.toHaveProperty('route');
+    }
+    for (const query of [
+      'interest=Other&interest=Other&enquiry=historical-review&' + tags,
+      'interest=Other&enquiry=historical-review&enquiry=historical-review',
+      'interest=Other&enquiry=unreviewed',
+      'interest=Other&enquiry=__proto__',
+    ]) {
+      await page.goto('/contact/?' + query);
+      await expect(page.locator('#contact-form-heading')).toHaveText('Send us a message');
+      await expect(page.locator('#message')).toHaveValue('');
+      expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Other');
+      for (const e of await recordedEvents(page)) expect(e.props).not.toHaveProperty('route');
+    }
+  });
+
+  test('routing works without Object.hasOwn and still rejects inherited names', async ({ page }) => {
+    await page.addInitScript(() => { (Object as any).hasOwn = undefined; });
+    await stubPlausible(page);
+    await page.goto(landing + '?' + tags);
+    const cta = page.locator('[data-campaign-contact="historical-review"]').first();
+    await expect(cta).toHaveAttribute('href', /route=linkedin-historical-eu5-202610/);
+    await cta.click();
+    await expect(page.locator('#message')).toHaveValue(message);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review — LinkedIn EU5 Oct 2026');
+    await page.goto(organic);
+    await expect(page.locator('#message')).toHaveValue(message);
+    expect(await submitAndReadSubject(page)).toBe('Equilens enquiry: Historical decision review');
+    for (const name of ['__proto__', 'constructor', 'toString']) {
+      await page.goto('/contact/?interest=Other&enquiry=' + name);
+      await expect(page.locator('#contact-form-heading')).toHaveText('Send us a message');
+      await expect(page.locator('#message')).toHaveValue('');
+      expect(await page.evaluate(({ query, name }) => {
+        const params = new URLSearchParams(query);
+        params.set('route', name);
+        return (window as any).eqlCampaignRouting.match(params);
+      }, { query: tags, name })).toBeNull();
+    }
+  });
+
+  test('changing enquiry intent preserves edited text and drops historical attribution', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto('/contact/?interest=Other&' + tags);
+    await page.locator('#interest').selectOption('Partnership');
+    await expect(page.locator('#message')).toHaveValue('I would like to discuss partnering as a consultancy or decisioning-platform vendor.');
+    await page.locator('#interest').selectOption('Other');
+    await expect(page.locator('#message')).toHaveValue(message);
+    await page.locator('#message').fill('Private fixture text, not for analytics');
+    await page.locator('#interest').selectOption('Pricing');
+    await expect(page.locator('#message')).toHaveValue('Private fixture text, not for analytics');
+    expect(await submitAndReadSubject(page)).toBe('FL-BSA enquiry: Pricing');
+    const events = await recordedEvents(page);
+    expect(events.find(e => e.name === 'Enquiry Submitted')?.props).not.toHaveProperty('route');
+    expect(JSON.stringify(events)).not.toContain('Private fixture');
+  });
+});

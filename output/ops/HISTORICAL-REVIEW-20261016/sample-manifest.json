@@ -1,0 +1,18 @@
+[
+  {
+    "file": "assets/examples/historical-decision-review/real_model_findings.md",
+    "sha256": "2edbfe50cee898d47b9d875330b475b78429eaf4615324080b31983bc659cfde",
+    "source_commit": "1594e694802bf71bebd6e145dfaa7b028f760ec2",
+    "source_case": "hmda-ally-2024-001",
+    "source_record": "fl-bsa#1874 exact-container accepted internal exercise",
+    "public_sample_status": "unchanged unsigned reading outputs; not complete replay package; publication pending"
+  },
+  {
+    "file": "assets/examples/historical-decision-review/real_model_measurement_report.pdf",
+    "sha256": "b77eb4de1a8b470264a9b1f14d5c501917b22b0cbf40cbea546f9d572972ea6e",
+    "source_commit": "1594e694802bf71bebd6e145dfaa7b028f760ec2",
+    "source_case": "hmda-ally-2024-001",
+    "source_record": "fl-bsa#1874 exact-container accepted internal exercise",
+    "public_sample_status": "unchanged unsigned reading outputs; not complete replay package; publication pending"
+  }
+]
