@@ -1,0 +1,106 @@
+{
+  "base_sha": "f0b0b40c5bc05e378a1fb4f1d8eb48385095429a",
+  "page_sha256": "dbc6c60b0b6565ac8c07dc591a58cda793281d4bf6a0984a4f396927469f6f5f",
+  "checked_at": "2026-10-29T11:04:43.595Z",
+  "scope": "Local candidate HTML/assets served at production origin in Chromium emulation; all analytics/write requests aborted. Not actual LinkedIn app or live backend proof.",
+  "nonhero_sections_byte_identical": true,
+  "destinations_and_scripts_identical": true,
+  "screenshots": {
+    "after-mobile-app-arrival.png": "13c3e653a5e7270a936b8ff630d5d1e65a5004b4c36f5008a3e32081da544d95",
+    "before-mobile-app-arrival.png": "b83503fb23334ed8b77cd78286abb42c77b8a8fb4a20bc6bd90ed0fd65d5fced"
+  },
+  "viewports": [
+    {
+      "name": "small",
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "primary": {
+        "top": 573,
+        "bottom": 621,
+        "height": 48,
+        "fully_visible": true
+      },
+      "secondary": {
+        "top": 635,
+        "bottom": 683,
+        "height": 48,
+        "fully_visible": false
+      },
+      "example_top": 870,
+      "table_top": 1631,
+      "table_after_jump": 949,
+      "axe": []
+    },
+    {
+      "name": "mobile-app",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "primary": {
+        "top": 510,
+        "bottom": 558,
+        "height": 48,
+        "fully_visible": true
+      },
+      "secondary": {
+        "top": 572,
+        "bottom": 620,
+        "height": 48,
+        "fully_visible": true
+      },
+      "example_top": 784,
+      "table_top": 1518,
+      "table_after_jump": 922,
+      "axe": []
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "primary": {
+        "top": 510,
+        "bottom": 558,
+        "height": 48,
+        "fully_visible": true
+      },
+      "secondary": {
+        "top": 572,
+        "bottom": 620,
+        "height": 48,
+        "fully_visible": true
+      },
+      "example_top": 784,
+      "table_top": 1518,
+      "table_after_jump": 922,
+      "axe": []
+    },
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "primary": {
+        "top": 526,
+        "bottom": 574,
+        "height": 48,
+        "fully_visible": true
+      },
+      "secondary": {
+        "top": 526,
+        "bottom": 574,
+        "height": 48,
+        "fully_visible": true
+      },
+      "example_top": 721,
+      "table_top": 1188,
+      "table_after_jump": 655,
+      "axe": []
+    }
+  ]
+}
