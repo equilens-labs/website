@@ -1760,6 +1760,59 @@ test.describe('historical-review candidate', () => {
       .toHaveAttribute('href', /route=linkedin-historical-eu5-202610/);
   });
 
+  test('early example activations survive delayed tracker loading without becoming duplicate clicks', async ({ page }) => {
+    let release!: () => void;
+    const ready = new Promise<void>(resolve => { release = resolve; });
+    await page.route('https://plausible.io/**', async route => {
+      await ready;
+      await route.fulfill({ status: 200, contentType: 'application/javascript', body: `
+        window.__auditEvents = [];
+        window.plausible = (name, options) => window.__auditEvents.push({name, props: options?.props || {}});
+      ` });
+    });
+    await page.goto(landing + '?' + tags, { waitUntil: 'commit' });
+    await page.waitForFunction(() => document.readyState === 'interactive');
+    await page.waitForTimeout(100);
+    expect(await page.evaluate(() => typeof (window as any).plausible)).toBe('undefined');
+    const link = page.getByRole('link', { name: 'View worked example', exact: true });
+    await link.click({ noWaitAfter: true });
+    await link.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(landing + '?' + tags + '#example');
+    release();
+    await page.waitForLoadState('networkidle');
+    await expect.poll(async () => (await recordedEvents(page)).filter(e => e.name === 'Review Example Click').length).toBe(2);
+    for (const event of (await recordedEvents(page)).filter(e => e.name === 'Review Example Click'))
+      expect(event.props).toEqual({ surface: 'historical-review', cta: 'hero-example', asset: 'comparison-table' });
+  });
+
+  test('pending example clicks have bounded capacity and expire without late replay', async ({ page }) => {
+    await page.clock.install();
+    await stubPlausible(page);
+    await page.goto(landing);
+    const holdAndClick = async () => page.evaluate(() => {
+      (window as any).plausible = undefined;
+      const link = document.querySelector('[data-eql-review-example-link]') as HTMLAnchorElement;
+      for (let i = 0; i < 25; i += 1) link.click();
+    });
+    const restore = async () => page.evaluate(() => {
+      (window as any).plausible = (name: string, options: any) =>
+        (window as any).__auditEvents.push({name, props: options?.props || {}});
+    });
+    await holdAndClick();
+    await page.clock.runFor(1000);
+    await restore();
+    await page.clock.runFor(500);
+    expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(20);
+    await holdAndClick();
+    await page.clock.runFor(11000);
+    await restore();
+    await page.clock.runFor(1000);
+    expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(20);
+    await page.getByRole('link', { name: 'View worked example', exact: true }).click();
+    expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(21);
+  });
+
   test('example anchor remains usable when analytics is unavailable or throws', async ({ page }) => {
     await stubPlausible(page);
     const errors: string[] = [];

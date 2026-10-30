@@ -136,7 +136,9 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
   on each activation, separately from table visibility (`Review Example Seen`). The manual event
   uses only static `surface=historical-review`, `cta=hero-example`, and `asset=comparison-table`
   properties; it adds no link-URL property and preserves the native anchor and campaign query.
-  It uses the existing tracker and browser exclusion preference. Configure the exact new goal
+  It uses the existing tracker and browser exclusion preference. While the tracker loads, at most
+  20 early activations wait up to 10 seconds; navigation never waits. Expiry or page exit clears
+  pending clicks, and an ambiguous tracker exception is not retried. Configure the exact new goal
   separately; count only from verified goal setup/receipt, not from the code-deployment date alone.
 - Plausible dashboard goals/properties/funnels must be configured separately; preserve historical goals and the experiment's original dates. Website code deployment alone does not create dashboard goals.
 - Both technical-whitepaper download surfaces state the verification companion's scope and the

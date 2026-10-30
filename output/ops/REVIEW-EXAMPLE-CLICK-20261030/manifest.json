@@ -9,8 +9,8 @@
     "cta": "hero-example",
     "asset": "comparison-table"
   },
-  "checked_at": "2026-10-30T18:46:20.851Z",
-  "implementation_sha256": "b62fd6a287eaf74d2f53e5df470c49ac522afa24ae17e097c90c21e9997215d7",
+  "checked_at": "2026-10-30T18:52:16.106Z",
+  "implementation_sha256": "aefc1c148750322e6f4d7b64338c3bf3188d78a2e73e98a20a7c7e6aa12e330a",
   "page_sha256": "2e1c8acb7543daad561c405c80318cacd4cb4eee5e320b87429715dc4e05234d",
   "tracker_url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
   "tracker_sha256": "57ed919f4b6532b67015bb67b390a7cf97f88d6468798984bc2442aa7e1f6e29",
@@ -22,6 +22,7 @@
         "height": 664
       },
       "input": "tap",
+      "delayed_tracker": false,
       "excluded": false,
       "javascript": true,
       "event_count": 1,
@@ -48,6 +49,7 @@
         "height": 900
       },
       "input": "keyboard",
+      "delayed_tracker": false,
       "excluded": false,
       "javascript": true,
       "event_count": 1,
@@ -65,7 +67,7 @@
       "query_preserved": true,
       "errors": [],
       "critical_serious_a11y": 0,
-      "blocked_writes": 3
+      "blocked_writes": 2
     },
     {
       "name": "excluded-browser",
@@ -74,6 +76,7 @@
         "height": 664
       },
       "input": "tap",
+      "delayed_tracker": false,
       "excluded": true,
       "javascript": true,
       "event_count": 0,
@@ -91,8 +94,54 @@
         "height": 664
       },
       "input": "tap",
+      "delayed_tracker": false,
       "excluded": false,
       "javascript": false,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    },
+    {
+      "name": "delayed-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": true,
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 2
+    },
+    {
+      "name": "delayed-excluded",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": true,
+      "excluded": true,
+      "javascript": true,
       "event_count": 0,
       "events": [],
       "navigation_hash": "#example",
@@ -108,5 +157,7 @@
     "Existing privacy-posture verification passed"
   ],
   "scope": "Real tracker runtime; analytics and all other writes intercepted. No backend receipt, no ingested QA, no actual LinkedIn app.",
-  "measurement_boundary": "Separate exact Plausible goal setup and backend verification are required; this bundle establishes only client behavior. Existing inspection goals and measurement windows are not reset."
+  "measurement_boundary": "Separate exact Plausible goal setup and backend verification are required; this bundle establishes only client behavior. Existing inspection goals and measurement windows are not reset.",
+  "focused_regression_tests": 16,
+  "delayed_loader_boundary": "At most 20 pending activations, up to 10 seconds; discarded on deadline or page exit. No retry of ambiguous tracker exceptions."
 }
