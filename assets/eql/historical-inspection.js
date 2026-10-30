@@ -66,6 +66,7 @@
   }
   const exampleLink = document.querySelector('[data-eql-review-example-link]');
   if (exampleLink) exampleLink.addEventListener('click', () => {
+    if (pendingClicks && Date.now() >= clickDeadline) clearClicks();
     pendingClicks = Math.min(pendingClicks + 1, 20);
     if (clickTimer === null) {
       clickDeadline = Date.now() + 10000;

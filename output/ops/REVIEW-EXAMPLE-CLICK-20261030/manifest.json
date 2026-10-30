@@ -9,8 +9,8 @@
     "cta": "hero-example",
     "asset": "comparison-table"
   },
-  "checked_at": "2026-10-30T18:52:16.106Z",
-  "implementation_sha256": "aefc1c148750322e6f4d7b64338c3bf3188d78a2e73e98a20a7c7e6aa12e330a",
+  "checked_at": "2026-10-30T18:55:17.353Z",
+  "implementation_sha256": "24e84169071f0ff3957d45a88cb72f6b0a5301aa6e69b6d673d2bed040187339",
   "page_sha256": "2e1c8acb7543daad561c405c80318cacd4cb4eee5e320b87429715dc4e05234d",
   "tracker_url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
   "tracker_sha256": "57ed919f4b6532b67015bb67b390a7cf97f88d6468798984bc2442aa7e1f6e29",
@@ -158,6 +158,6 @@
   ],
   "scope": "Real tracker runtime; analytics and all other writes intercepted. No backend receipt, no ingested QA, no actual LinkedIn app.",
   "measurement_boundary": "Separate exact Plausible goal setup and backend verification are required; this bundle establishes only client behavior. Existing inspection goals and measurement windows are not reset.",
-  "focused_regression_tests": 16,
+  "focused_regression_tests": 20,
   "delayed_loader_boundary": "At most 20 pending activations, up to 10 seconds; discarded on deadline or page exit. No retry of ambiguous tracker exceptions."
 }

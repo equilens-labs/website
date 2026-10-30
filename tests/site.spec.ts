@@ -1813,6 +1813,26 @@ test.describe('historical-review candidate', () => {
     expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(21);
   });
 
+  test('a fresh example click survives an expired queue whose timer was suspended', async ({ page }) => {
+    await page.clock.install();
+    await stubPlausible(page);
+    await page.goto(landing);
+    await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 1000));
+    await page.evaluate(() => {
+      (window as any).plausible = undefined;
+      (document.querySelector('[data-eql-review-example-link]') as HTMLAnchorElement).click();
+    });
+    await page.clock.setSystemTime(new Date(await page.evaluate(() => Date.now()) + 10001));
+    await page.evaluate(() => {
+      (window as any).plausible = (name: string, options: any) =>
+        (window as any).__auditEvents.push({name, props: options?.props || {}});
+      (document.querySelector('[data-eql-review-example-link]') as HTMLAnchorElement).click();
+    });
+    expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(1);
+    await page.clock.runFor(2000);
+    expect((await recordedEvents(page)).filter(e => e.name === 'Review Example Click')).toHaveLength(1);
+  });
+
   test('example anchor remains usable when analytics is unavailable or throws', async ({ page }) => {
     await stubPlausible(page);
     const errors: string[] = [];
