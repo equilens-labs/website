@@ -1743,6 +1743,38 @@ test.describe('historical-review candidate', () => {
       .violations.filter(v => ['critical', 'serious'].includes(v.impact || ''))).toEqual([]);
   });
 
+  test('example activation records static click properties and retains paid anchor navigation', async ({ page }) => {
+    await stubPlausible(page);
+    await page.goto(landing + '?' + tags);
+    const link = page.getByRole('link', { name: 'View worked example', exact: true });
+    await link.click();
+    await expect(page).toHaveURL(landing + '?' + tags + '#example');
+    await link.focus();
+    await page.keyboard.press('Enter');
+    const clicks = (await recordedEvents(page)).filter(e => e.name === 'Review Example Click');
+    expect(clicks).toHaveLength(2);
+    for (const event of clicks) expect(event.props).toEqual({
+      surface: 'historical-review', cta: 'hero-example', asset: 'comparison-table',
+    });
+    await expect(page.locator('[data-campaign-contact="historical-review"]').first())
+      .toHaveAttribute('href', /route=linkedin-historical-eu5-202610/);
+  });
+
+  test('example anchor remains usable when analytics is unavailable or throws', async ({ page }) => {
+    await stubPlausible(page);
+    const errors: string[] = [];
+    page.on('pageerror', e => errors.push(e.message));
+    for (const failure of ['missing', 'throwing']) {
+      await page.goto(landing + '?' + tags);
+      await page.evaluate(mode => {
+        (window as any).plausible = mode === 'missing' ? undefined : () => { throw new Error('Synthetic analytics failure'); };
+      }, failure);
+      await page.getByRole('link', { name: 'View worked example', exact: true }).click();
+      await expect(page).toHaveURL(landing + '?' + tags + '#example');
+    }
+    expect(errors).toEqual([]);
+  });
+
   test('exact paid path carries static context and subject through a mocked acceptance', async ({ page }) => {
     await stubPlausible(page);
     await page.goto(landing + '?' + tags);

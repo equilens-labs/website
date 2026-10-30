@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "purpose": "Measure each activation of the existing historical-review worked-example anchor",
+  "operator_approval_date": "2026-10-30",
+  "base_commit": "9dd837ce55ba9feba360f19c9438e641579807b3",
+  "event": "Review Example Click",
+  "properties": {
+    "surface": "historical-review",
+    "cta": "hero-example",
+    "asset": "comparison-table"
+  },
+  "checked_at": "2026-10-30T18:46:20.851Z",
+  "implementation_sha256": "b62fd6a287eaf74d2f53e5df470c49ac522afa24ae17e097c90c21e9997215d7",
+  "page_sha256": "2e1c8acb7543daad561c405c80318cacd4cb4eee5e320b87429715dc4e05234d",
+  "tracker_url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+  "tracker_sha256": "57ed919f4b6532b67015bb67b390a7cf97f88d6468798984bc2442aa7e1f6e29",
+  "runtime_checks": [
+    {
+      "name": "mobile-touch",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 2
+    },
+    {
+      "name": "desktop-keyboard",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "input": "keyboard",
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 3
+    },
+    {
+      "name": "excluded-browser",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "excluded": true,
+      "javascript": true,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    },
+    {
+      "name": "without-javascript",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "excluded": false,
+      "javascript": false,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    }
+  ],
+  "other_checks": [
+    "Content lint passed",
+    "Deploy artifact HTML conformance passed: 27 HTML files",
+    "Existing privacy-posture verification passed"
+  ],
+  "scope": "Real tracker runtime; analytics and all other writes intercepted. No backend receipt, no ingested QA, no actual LinkedIn app.",
+  "measurement_boundary": "Separate exact Plausible goal setup and backend verification are required; this bundle establishes only client behavior. Existing inspection goals and measurement windows are not reset."
+}

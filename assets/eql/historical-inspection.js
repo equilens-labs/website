@@ -1,4 +1,4 @@
-// Aggregate visibility/opening signals for the historical public-data example.
+// Aggregate click/visibility/opening signals for the historical public-data example.
 // These signals do not establish reading, comprehension, buyer identity or intent.
 (function historicalInspection() {
   if (window.location.pathname !== '/examples/historical-decision-review/') return;
@@ -33,6 +33,20 @@
     flush();
     if (pending.size && attempts < 20 && !flushTimer) flushTimer = setInterval(flush, 500);
   }
+
+  // Use a manual event: tagged anchor events add the resolved href as a custom
+  // URL property, which would include this same-page link's current query string.
+  // Count each activation; preserve native anchor navigation if analytics fails.
+  const exampleLink = document.querySelector('[data-eql-review-example-link]');
+  if (exampleLink) exampleLink.addEventListener('click', () => {
+    try {
+      if (typeof window.plausible === 'function') window.plausible('Review Example Click', {
+        props: { surface: 'historical-review', cta: 'hero-example', asset: 'comparison-table' }
+      });
+    } catch (_) {
+      // Analytics must never interfere with navigation to the worked example.
+    }
+  });
 
   const table = document.querySelector('[data-eql-review-table]');
   if (table && typeof IntersectionObserver === 'function') {
