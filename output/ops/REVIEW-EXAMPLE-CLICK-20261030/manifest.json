@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "purpose": "Measure each activation of the existing historical-review worked-example anchor",
+  "operator_approval_date": "2026-10-30",
+  "base_commit": "9dd837ce55ba9feba360f19c9438e641579807b3",
+  "event": "Review Example Click",
+  "properties": {
+    "surface": "historical-review",
+    "cta": "hero-example",
+    "asset": "comparison-table"
+  },
+  "checked_at": "2026-10-30T18:55:17.353Z",
+  "implementation_sha256": "24e84169071f0ff3957d45a88cb72f6b0a5301aa6e69b6d673d2bed040187339",
+  "page_sha256": "2e1c8acb7543daad561c405c80318cacd4cb4eee5e320b87429715dc4e05234d",
+  "tracker_url": "https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js",
+  "tracker_sha256": "57ed919f4b6532b67015bb67b390a7cf97f88d6468798984bc2442aa7e1f6e29",
+  "runtime_checks": [
+    {
+      "name": "mobile-touch",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": false,
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 2
+    },
+    {
+      "name": "desktop-keyboard",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "input": "keyboard",
+      "delayed_tracker": false,
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 2
+    },
+    {
+      "name": "excluded-browser",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": false,
+      "excluded": true,
+      "javascript": true,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    },
+    {
+      "name": "without-javascript",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": false,
+      "excluded": false,
+      "javascript": false,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    },
+    {
+      "name": "delayed-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": true,
+      "excluded": false,
+      "javascript": true,
+      "event_count": 1,
+      "events": [
+        {
+          "name": "Review Example Click",
+          "props": {
+            "surface": "historical-review",
+            "cta": "hero-example",
+            "asset": "comparison-table"
+          }
+        }
+      ],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 2
+    },
+    {
+      "name": "delayed-excluded",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "input": "tap",
+      "delayed_tracker": true,
+      "excluded": true,
+      "javascript": true,
+      "event_count": 0,
+      "events": [],
+      "navigation_hash": "#example",
+      "query_preserved": true,
+      "errors": [],
+      "critical_serious_a11y": 0,
+      "blocked_writes": 0
+    }
+  ],
+  "other_checks": [
+    "Content lint passed",
+    "Deploy artifact HTML conformance passed: 27 HTML files",
+    "Existing privacy-posture verification passed"
+  ],
+  "scope": "Real tracker runtime; analytics and all other writes intercepted. No backend receipt, no ingested QA, no actual LinkedIn app.",
+  "measurement_boundary": "Separate exact Plausible goal setup and backend verification are required; this bundle establishes only client behavior. Existing inspection goals and measurement windows are not reset.",
+  "focused_regression_tests": 20,
+  "delayed_loader_boundary": "At most 20 pending activations, up to 10 seconds; discarded on deadline or page exit. No retry of ambiguous tracker exceptions."
+}

@@ -132,6 +132,14 @@ Static site for Equilens FL-BSA. Source changes land on `main`; the deploy workf
 - Events use finite `offer_type`, `field` and `reason` labels. No field values or populated mailto links are sent to analytics. Error fallback uses a manual event, not a tagged link.
 - Historical `Request Pack` means a contact/evaluation CTA click. Custom `Proof Asset Click` is the report-click counter; tagged links suppress generic download/outbound counters. The installed tracker does not emit generic `Form: Submission`. Do not sum these goals into conversions.
 - The404 template sends only a sanitized `404` event to the documented Plausible Events API, with fixed URL and no referrer; no arbitrary missing path/query is sent. It respects browser exclusion and suppresses local/automated traffic. Normal pages retain the existing tracker.
+- The historical-review hero's “View worked example” anchor sends `Review Example Click`
+  on each activation, separately from table visibility (`Review Example Seen`). The manual event
+  uses only static `surface=historical-review`, `cta=hero-example`, and `asset=comparison-table`
+  properties; it adds no link-URL property and preserves the native anchor and campaign query.
+  It uses the existing tracker and browser exclusion preference. While the tracker loads, at most
+  20 early activations wait up to 10 seconds; navigation never waits. Expiry or page exit clears
+  pending clicks, and an ambiguous tracker exception is not retried. Configure the exact new goal
+  separately; count only from verified goal setup/receipt, not from the code-deployment date alone.
 - Plausible dashboard goals/properties/funnels must be configured separately; preserve historical goals and the experiment's original dates. Website code deployment alone does not create dashboard goals.
 - Both technical-whitepaper download surfaces state the verification companion's scope and the
   `characterization_only`, customer-evidence, and production-utility boundaries. The site uses
