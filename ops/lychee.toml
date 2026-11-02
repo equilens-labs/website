@@ -10,6 +10,10 @@ exclude = [
   "^https://equilens\\.io/notes/outcomes-by-customer-group/?$",
   "^https://equilens\\.io/notes/ccd2-non-discrimination/?$",
   "^https://equilens\\.io/examples/historical-decision-review/?$",
+  # ico.org.uk answers 403 to GitHub-hosted runners (2 Nov 2026, two runs) but 200 to ordinary clients; the two ICO
+  # links (legal page, outcomes note) are official regulator pages. Check them by hand when either page changes.
+  # Founder approval 2 Nov 2026.
+  "^https://ico\\.org\\.uk/",
 ]
 exclude_path = ["output/ops", "node_modules", "tests"]
 offline = false
