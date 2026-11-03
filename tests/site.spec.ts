@@ -317,6 +317,21 @@ test.describe('Equilens site surfaces', () => {
     }
   });
 
+  test('procurement credentials keep registration, services and software distinct', async () => {
+    const procurementHtml = fs.readFileSync(path.join(root, 'procurement/index.html'), 'utf-8');
+    const procurementText = visibleText(procurementHtml);
+    const legalText = visibleText(fs.readFileSync(path.join(root, 'legal/index.html'), 'utf-8'));
+
+    expect(procurementText).toContain('FSQS-registered supplier');
+    expect(procurementText).toMatch(/company supplier registration, not certification of FL-BSA/i);
+    expect(procurementHtml).toContain('href="https://aws.amazon.com/marketplace/pp/prodview-3xmzqkeh4hozc"');
+    expect(procurementText).toMatch(/active public AWS Marketplace Professional Services listing/i);
+    expect(procurementText).toMatch(/not an installable FL-BSA software or AMI listing/i);
+    expect(procurementText).toMatch(/public FL-BSA software \/ AMI access through AWS Marketplace are not yet available/i);
+    expect(legalText).toMatch(/separate public Professional Services listing covers an assessment and does not grant product access/i);
+    expect(`${procurementText} ${legalText}`).not.toMatch(/FSQS[- ](?:certified|accredited|approved)|public AWS Marketplace access is not yet available/i);
+  });
+
   test('dense buyer pages remain readable without horizontal overflow', async ({ page }) => {
     await stubPlausible(page);
     for (const width of [375, 768, 1440]) {
