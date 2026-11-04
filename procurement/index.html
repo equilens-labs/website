@@ -63,7 +63,7 @@
 
   <section class="section">
     <div class="section-block">
-      <h2>Deployment steps</h2><ol class="process-list"><li><span class="badge-number" aria-hidden="true">1</span><div><h3>Confirm release availability</h3><p>Full public stable release is the destination, but it and public AWS Marketplace access are not yet available. Request the buyer pack to confirm the current release and delivery posture.</p></div></li><li><span class="badge-number" aria-hidden="true">2</span><div><h3>Agree terms and delivery approval</h3><p>Confirm the available version, delivery path, licensing and support terms. Any pre-release evaluation or private handoff is separately approved.</p></div></li><li><span class="badge-number" aria-hidden="true">3</span><div><h3>Prepare your environment</h3><p>Confirm the approved deployment path, instance type, region and network boundaries under your change controls.</p></div></li><li><span class="badge-number" aria-hidden="true">4</span><div><h3>Install the agreed artifact</h3><p>Follow the runbook for the approved version and delivery path. The current container service listens on port 8080 (configurable), with optional Prometheus metrics on 9090.</p></div></li><li><span class="badge-number" aria-hidden="true">5</span><div><h3>Run the agreed test</h3><p>Use the approved synthetic or sandbox inputs. Produce the report, evidence manifest and checksum log, then review the result against the agreed acceptance criteria.</p></div></li></ol></div>
+      <h2>Deployment steps</h2><ol class="process-list"><li><span class="badge-number" aria-hidden="true">1</span><div><h3>Confirm release availability</h3><p>Full public stable release is the destination, but it and public <span class="product-name">FL-BSA</span> software / <abbr title="Amazon Machine Image">AMI</abbr> access through <abbr title="Amazon Web Services">AWS</abbr> Marketplace are not yet available. Request the buyer pack to confirm the current release and delivery posture.</p></div></li><li><span class="badge-number" aria-hidden="true">2</span><div><h3>Agree terms and delivery approval</h3><p>Confirm the available version, delivery path, licensing and support terms. Any pre-release evaluation or private handoff is separately approved.</p></div></li><li><span class="badge-number" aria-hidden="true">3</span><div><h3>Prepare your environment</h3><p>Confirm the approved deployment path, instance type, region and network boundaries under your change controls.</p></div></li><li><span class="badge-number" aria-hidden="true">4</span><div><h3>Install the agreed artifact</h3><p>Follow the runbook for the approved version and delivery path. The current container service listens on port 8080 (configurable), with optional Prometheus metrics on 9090.</p></div></li><li><span class="badge-number" aria-hidden="true">5</span><div><h3>Run the agreed test</h3><p>Use the approved synthetic or sandbox inputs. Produce the report, evidence manifest and checksum log, then review the result against the agreed acceptance criteria.</p></div></li></ol></div>
   </section>
    <section class="section alt">
     <div class="section-block">
@@ -87,6 +87,15 @@
        <li><strong>Commercial terms:</strong> Finalized during qualification; annual, multi-year, and Marketplace structures are post-qualification options where supported by the release path.</li>
        <li><strong>Optional evaluations:</strong> Separately scoped before release with an agreed duration and success criteria.</li>
        <li><strong>Private Offer support:</strong> Custom terms or multi-entity rollouts where supported by the release and procurement path.</li>
+      </ul>
+     </div>
+     <div class="card card--reader">
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/eql/icons.svg?v=20260716a#icon-evidence"></use></svg>
+      <h3>Supplier and purchasing routes</h3>
+      <ul class="checks">
+       <li><strong>FSQS:</strong> Valfox Ltd, trading as Equilens, is an FSQS-registered supplier. This is company supplier registration, not certification of <span class="product-name">FL-BSA</span>, its outputs, fairness, or compliance.</li>
+       <li><strong><abbr title="Amazon Web Services">AWS</abbr> services:</strong> the <a href="https://aws.amazon.com/marketplace/pp/prodview-3xmzqkeh4hozc" target="_blank" rel="noopener noreferrer">Equilens Regulated Credit Evidence Readiness Assessment</a> has an active public <abbr title="Amazon Web Services">AWS</abbr> Marketplace Professional Services listing.</li>
+       <li><strong>Product boundary:</strong> the services listing covers a separately scoped document-and-process assessment. It is not an installable <span class="product-name">FL-BSA</span> software or <abbr title="Amazon Machine Image">AMI</abbr> listing and does not grant product access.</li>
       </ul>
      </div>
     </div>
@@ -148,7 +157,7 @@
     </ul></section>
   </div>
   <div class="container">
-    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-11-02 (commit 95c6c16).</small>
+    <small>© 2026 Valfox Ltd, trading as 'Equilens'. All rights reserved. Equilens® is a registered trade mark of Valfox Ltd in the United Kingdom. Last deploy 2026-11-04 (commit ba3d837).</small>
     <small class="footer-boundary">Product boundary: FL-BSA is a customer-hosted, simulation-only evidence appliance. It does not make or override live lending decisions, provide legal advice, or certify regulatory compliance.</small>
   </div>
 </footer>
