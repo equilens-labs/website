@@ -1,0 +1,249 @@
+{
+  "config": {
+    "configFile": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/playwright.config.ts",
+    "rootDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/ops/PROCUREMENT-REVIEW-20261103T112000Z/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/output/ops/PROCUREMENT-REVIEW-20261103T112000Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-desktop",
+        "name": "chromium-desktop",
+        "testDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/output/ops/PROCUREMENT-REVIEW-20261103T112000Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-mobile",
+        "name": "chromium-mobile",
+        "testDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/output/ops/PROCUREMENT-REVIEW-20261103T112000Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-tablet-768",
+        "name": "chromium-tablet-768",
+        "testDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/output/ops/PROCUREMENT-REVIEW-20261103T112000Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-tablet-1024",
+        "name": "chromium-tablet-1024",
+        "testDir": "/home/daimakaimura/fl-bsa-root/local/gtm/procurement-credibility-20261103/website/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "site.spec.ts",
+      "file": "site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Equilens site surfaces",
+          "file": "site.spec.ts",
+          "line": 221,
+          "column": 6,
+          "specs": [
+            {
+              "title": "procurement passes axe (no critical or serious violations)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1722,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T11:18:59.763Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "local-network-boundary",
+                          "contentType": "application/json",
+                          "body": "ewogICJsb2NhbFJlYWRzIjogMTAsCiAgImJsb2NrZWRFeHRlcm5hbCI6IDAsCiAgImJsb2NrZWRXcml0ZXMiOiAwLAogICJleHRlcm5hbFBhc3NUaHJvdWdoIjogMAp9"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-f01489f3604fc9876817",
+              "file": "site.spec.ts",
+              "line": 230,
+              "column": 5
+            },
+            {
+              "title": "procurement credentials keep registration, services and software distinct",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T11:19:01.581Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-aa238a113ec50d792851",
+              "file": "site.spec.ts",
+              "line": 320,
+              "column": 3
+            },
+            {
+              "title": "dense buyer pages remain readable without horizontal overflow",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5950,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T11:19:01.601Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "local-network-boundary",
+                          "contentType": "application/json",
+                          "body": "ewogICJsb2NhbFJlYWRzIjogODIsCiAgImJsb2NrZWRFeHRlcm5hbCI6IDAsCiAgImJsb2NrZWRXcml0ZXMiOiAwLAogICJleHRlcm5hbFBhc3NUaHJvdWdoIjogMAp9"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c02723ad68c2a0d50c5-424a5ceb5efa6415107b",
+              "file": "site.spec.ts",
+              "line": 335,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T11:18:58.951Z",
+    "duration": 8660.57,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
