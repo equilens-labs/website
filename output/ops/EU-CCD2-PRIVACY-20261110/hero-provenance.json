@@ -1,0 +1,24 @@
+{
+  "source": "brand/product/dual-branch-explained.webp",
+  "source_width": 1536,
+  "source_height": 1024,
+  "source_bytes": 157038,
+  "source_sha256": "d57bc8c778ce7c1ac64cdc737119aa3ea0c0380e8916d7f90909b51e49492efc",
+  "method": "Chromium canvas high-quality downsample, WebP quality0.94; original unchanged",
+  "outputs": [
+    {
+      "file": "brand/product/dual-branch-explained-480.webp",
+      "width": 480,
+      "height": 320,
+      "bytes": 25302,
+      "sha256": "53a44cde28742b89f2a79db7cb92f8179a6d45d5ab56c2bf4c40d52d1d68ca14"
+    },
+    {
+      "file": "brand/product/dual-branch-explained-768.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 52662,
+      "sha256": "58d4722f18754b2a08b520b366c2aac61183c62832054da4d141fc72c970ee38"
+    }
+  ]
+}
